@@ -1,4 +1,4 @@
-package atan.sample;
+package sample;
 
 import atan.model.*;
 import java.util.*;

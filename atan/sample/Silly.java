@@ -1,4 +1,4 @@
-package atan.sample;
+package sample;
 
 import atan.model.*;
 
@@ -27,6 +27,22 @@ public class Silly implements Controller {
   public void setPlayer (Player p){
     player = p;
   }
+  public void infoSeeLine(int id, double dist, double dir) {
+    if (dist < minDistLine) minDistLine = dist;
+  }
+  public void infoSeeBall(double dist, double dir) {
+    distBall = dist;
+  }
+  public void infoHearPlayMode(int playMode) {
+    if(playMode==Controller.PLAY_MODE_BEFORE_KICK_OFF)
+      getPlayer().move(-30, 30);
+  }
+  public void infoHearReferee(int parm1) {
+  }
+  public void infoHear(double parm1, String parm2) {
+  }
+  public void infoSenseBody(int parm1, int parm2, double parm3, double parm4, double parm5, int parm6, int parm7, int parm8, int parm9, int parm10) {
+  }
   public void infoSeeFlagRight(int parm1, double parm2, double parm3) {
   }
   public void infoSeeFlagLeft(int parm1, double parm2, double parm3) {
@@ -49,24 +65,8 @@ public class Silly implements Controller {
   }
   public void infoSeeFlagGoalOther(int parm1, double parm2, double parm3) {
   }
-  public void infoSeeLine(int id, double dist, double dir) {
-    if (dist < minDistLine) minDistLine = dist;
-  }
   public void infoSeePlayerOther(int parm1, double parm2, double parm3) {
   }
   public void infoSeePlayerOwn(int parm1, double parm2, double parm3) {
-  }
-  public void infoSeeBall(double dist, double dir) {
-    distBall = dist;
-  }
-  public void infoHearReferee(int parm1) {
-  }
-  public void infoHearPlayMode(int playMode) {
-    if(playMode==Controller.PLAY_MODE_BEFORE_KICK_OFF)
-      getPlayer().move(-30, 30);
-  }
-  public void infoHear(double parm1, String parm2) {
-  }
-  public void infoSenseBody(int parm1, int parm2, double parm3, double parm4, double parm5, int parm6, int parm7, int parm8, int parm9, int parm10) {
   }
 }

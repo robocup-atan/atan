@@ -19,7 +19,7 @@
     <delete file="${work}/atanhp.tgz" quiet="true"/>
     <delete dir="${work}/atan_${version}" quiet="true"/>
   </target>
-    
+
   <target depends="compile" name="test">
     <java classname="atan.test.AllTest" fork="yes">
       <classpath>
@@ -37,7 +37,7 @@
       </src>
     </javac>
   </target>
-    
+
   <target name="javacc">
     <mkdir dir="${classes}"/>
     <mkdir dir="${classes}/atan/parser"/>
@@ -88,21 +88,21 @@
     <property name="build" value="${work}/atan_${version}"/>
     <mkdir dir="${build}"/>
     <jar jarfile="${build}/atan.jar">
-      <fileset dir="${work}/classes" excludes="atan/test/" includes="**/*.class"/>
+      <fileset dir="${work}/classes">
+          <exclude name="atan/test/**/*,sample/**/*"/>
+          <include name="**/*.class"/>
+      </fileset>
       <fileset dir="." includes="res/**/*"/>
     </jar>
-    <copy todir="${build}">
-      <fileset dir="res" includes="*.sh,*.bat,re*.html"/>
-    </copy>
-    <chmod perm="ugo+rx">
-      <fileset dir="${build}" includes="*.sh"/>
-    </chmod>
     <copy todir="${build}">
       <fileset dir="." includes="*.txt"/>
     </copy>
     <zip zipfile="${build}/src.zip">
       <fileset dir="." includes="**/*"/>
     </zip>
+    <copy todir="${build}">
+      <fileset dir="." includes="sample/**/*"/>
+    </copy>
   </target>
 
   <target depends="build" name="buildzip">
