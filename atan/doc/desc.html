@@ -1,0 +1,112 @@
+<html>
+<head>
+  <title>Atan description</title>
+  <link rel="stylesheet" href="atan.css">
+</head>
+<body>
+<p align="center">
+  <a href="index.html">Home</a> | 
+  <a href="desc.html">Details</a> | 
+  <a href="sample.html">Sample</a> | 
+  <a href="javadoc/index.html">Javadoc</a> | 
+  <a href="java2html/index.html">Source</a>
+</p>
+<a href="index.html"><img src="atanlogo00a.jpg"  border="0" alt="logo" width="120" height="49"></a>
+<h1>
+	<a name="desc">Description</a>
+</h1>
+<p>
+	To understand Atan it is necessary that you
+	understand the basics of <a href="index.html#links">Soccer-Server</a> first.
+	The following picture gives you a rough overview of Soccer-Server and
+	some of the objects it uses.
+</p>
+<p align="center">
+	<a href="pic1.png"><img src="pic1tn.png" border="0" align="center"></a>
+</p>
+<p>
+	Soccer-Server players communicate via a UDP-Connection
+	with external programs that control the player
+	in a way that they play soccer. These external programs
+	communicate with Soccer-Server using interface strings described
+	in the <a href="index.html#links">Soccer-Server manual</a>.
+</p>
+<p align="center">
+	<a href="pic2.png"><img src="pic2tn.png" border="0" align="center"></a>
+</p>
+<p>
+	Atan is a program that helps you to write such external programs.
+	You dont have to worry about how to establishe a UDP connection,
+	how command strings can be parsed to get information from Soccer-Server,
+	and how to generate command strings in order to control the corresponding player.
+	Finally you dont have to take care of the side you are currently playing.
+	All information coming from Atan are relative to you own side. That means
+	you dont see a left- or right goal but rather you see a own- or an other
+	goal. Or you dont see top- or bottom flags but left- or right flags
+	depending on what side you are currently playing.
+	To use Atan all you have to do is to implement the
+	<a href="javadoc/atan/model/Controller.html">atan.model.Controller</a>
+	interface and use the <a href="javadoc/atan/model/Player.html">atan.model.Player</a>
+        interface.
+</p>
+<p align="center">
+	<a href="pic3.png"><img src="pic3tn.png" border="0" align="center"></a>
+</p>
+<p>
+	The task of your implementation of the Controller interface
+ 	(Your-Controller) is to receive information from Soccer-Server, to
+	interprete this information and to control the associated player by using
+	a set of control commands. It receives information from a number of hook
+	methods that are called in regular intervalls (info cycles). These methods include all
+	the keywords inform or info, like preInform(), postInform(), infoSeeFlag(),
+	infoSeeLine(), infoHear() and so on.
+	At the beginning of every info cycle the method preInform() is calld. This gives
+	you the possibillity to reset the inner state of your controller.
+	Then the info...() methods are called according to what info is currently
+	avaylable. E.g. if a certain flag is currently visible the infoSeeFlag...()
+	method that belongs to that flag is called. The arguments of the method spezify
+	what flag was exactly ment (id), in what direction the flag was seen relative
+	to the direction the player is currently looking (direction) and the distance
+	between the player and the flag. The following graphic should give you an idea
+	how the info methods are connected to the objects of Soccer-Server. <br>
+</p>
+<p align="center">
+	<a href="pic4.png"><img src="pic4tn.png" border="0" align="center"></a>
+</p>
+<p>
+	At the end of every info cycle the method postInform() is called. Your
+	controller should now decide what control commands it sends to the player.
+	The control commands are available by the
+        <a href="javadoc/atan/model/Player.html">atan.model.Player</a> interface that
+	is known by every Controler (see getPlayer()). Calling one of these methods
+	will cause the associated player of Soccer-Server to react in the right way.
+	E.g. if a Controller calls getPlayer().dash(10) the player will be acellerated
+	with the power of 10. Details about the meaning of diffrent parameters like
+	power or distance can be found in the Soccer-Server manual.
+	If you have implemented your controller you can easily start it by creating
+	an instance of
+        <a href="javadoc/atan/model/SServerPlayer.html">atan.model.SServerPlayer</a>.
+        SServerPlayer is an implementation of Player.
+        Its constructor needs your implementation of Controller as argument.
+	If you call the connect() method of SServerPlayer it connects to Soccer-Server
+	and starts calling your controllers info methods every 150 ms
+        (According to the parameters of Soccer-Servera). In that time your controller
+	should have finished the decition process of how to react to the information he got and
+        the control methods should be called.
+	To simplify the process of creating instances of SServerPlayer the absract class
+	<a href="javadoc/atan/model/Team.html">atan.model.Team</a> with a GUI (TeamFrame(to javadoc)) is offerd by Atan. See the
+	sample implementation how to use Team and TeamFrame.
+	If you did not understand every detail of this description dont worry. Try to
+ 	implement your own controller, look at the sample implementation  and you
+	well soon have some results. Hopefully no frustration.
+</p>
+<a href="index.html"><img src="atanlogo00a.jpg"  border="0" alt="logo" width="120" height="49"></a>
+<p align="center">
+  <a href="index.html">Home</a> | 
+  <a href="desc.html">Details</a> | 
+  <a href="sample.html">Sample</a> | 
+  <a href="javadoc/index.html">Javadoc</a> | 
+  <a href="java2html/index.html">Source</a>
+</p>
+</body>
+</HTML>

@@ -1,0 +1,567 @@
+options {
+  STATIC = false;
+  LOOKAHEAD = 2;
+//  FORCE_LA_CHECK = false;
+}
+PARSER_BEGIN(CmdParser)
+  package atan.parser;
+  import java.io.*;
+  import atan.model.*;
+
+  public class CmdParser {
+
+    Controller controller;
+    Player player;
+
+    public void parseSeeCommand (String cmd, Controller controller, Player player)
+        throws ParseException{
+      ReInit(new StringReader(cmd));
+      this.controller = controller;
+      this.player = player;
+      startSeeCommand();
+    }
+    public void parseHearCommand (String cmd, Controller controller, Player player)
+        throws ParseException{
+      ReInit(new StringReader(cmd));
+      this.controller = controller;
+      this.player = player;
+      startHearCommand();
+    }
+    public void parseInitCommand (String cmd, Controller controller, Player player)
+        throws ParseException{
+      ReInit(new StringReader(cmd));
+      this.controller = controller;
+      this.player = player;
+      startInitCommand();
+    }
+    public void parseErrorCommand (String cmd, Player player)
+        throws ParseException{
+      ReInit(new StringReader(cmd));
+      this.controller = null;
+      this.player = player;
+      startErrorCommand();
+    }
+    public void parseSenseBodyCommand (String cmd, Controller controller, Player player)
+        throws ParseException{
+      ReInit(new StringReader(cmd));
+      this.controller = controller;
+      this.player = player;
+      startSenseBodyCommand();
+    }
+  }
+PARSER_END(CmdParser)
+
+SKIP: {
+  "\t"|"\n"|"\r"
+}
+TOKEN :
+{
+  < BALL: "ball"|"Ball">|
+  < FLAG: "flag"|"Flag">|
+  < PLAYER: "player"|"Player">|
+  < LINE: "line"|"Line">|
+  < GOAL: "goal"|"Goal">|
+  < REFEREE: "referee"|"Referee">|
+  < SELF: "self">|
+  < VIEW_MODE: "view_mode">|
+  < HIGH: "high">|
+  < LOW: "low">|
+  < WIDE: "wide">|
+  < NARROW: "narrow">|
+  < NORMAL: "normal">|
+  < STAMINA: "stamina">|
+  < SPEED: "speed">|
+  < HEAD_ANGLE: "head_angle">|
+  < KICK: "kick">|
+  < DASH: "dash">|
+  < TURN: "turn">|
+  < SAY: "say">|
+  < TURN_NECK: "turn_neck">|
+  < BEFORE_KICK_OFF: "before_kick_off">|
+  < TIME_OVER: "time_over">|
+  < PLAY_ON: "play_on">|
+  < DROP_BALL: "drop_ball">|
+  < KICK_OFF_L: "kick_off_l">|
+  < KICK_OFF_R: "kick_off_r">|
+  < KICK_IN_L: "kick_in_l">|
+  < KICK_IN_R: "kick_in_r">|
+  < FREE_KICK_R: "free_kick_r">|
+  < FREE_KICK_L: "free_kick_l">|
+  < CORNER_KICK_R: "corner_kick_r">|
+  < CORNER_KICK_L: "corner_kick_l">|
+  < GOAL_KICK_R: "goal_kick_r">|
+  < GOAL_KICK_L: "goal_kick_l">|
+  < GOAL_R: "goal_r_"(["0"-"9"])+>|
+  < GOAL_L: "goal_l_"(["0"-"9"])+>|
+  < FOUL_R: "foul_r">|
+  < FOUL_L: "foul_l">|
+  < OFFSIDE_R: "offside_r">|
+  < OFFSIDE_L: "offside_l">|
+  < HALF_TIME: "half_time">|
+  < TIME_UP: "time_up">|
+  < TIME_UP_WITHOUT_A_TEAM: "time_up_without_a_team">|
+  < TIME_EXTENDED: "time_extended">|
+  < C: "c">|
+  < T: "t">|
+  < B: "b">|
+  < P: "p">|
+  < L: "l">|
+  < R: "r">|
+  < G: "g">|
+  < OB: "(">|
+  < CB: ")">|
+  < SEP: " ">|
+  < NAN: "nan">|
+  < NAM: ["a"-"z","A"-"Z","_"] ( ["a"-"z","A"-"Z","_","0"-"9"] )* >|
+  < NUM: ( ["0"-"9"]|"."|"-" )+ >
+}
+
+void startSeeCommand() :
+  {} {
+    <NUM>[<SEP>(<OB>objInfo()<CB>[<SEP>])+]
+  }
+void objInfo() :
+  {ObjName name; Token p1=null; Token p2=null;} {
+    <OB> name=objName()[<SEP>]<CB>[<SEP>](p1=<NUM>|<NAN>)[<SEP>]
+        [p2=<NUM>[<SEP>][<NUM> <SEP> <NUM>[<SEP>][<NUM> <SEP> <NUM>[<SEP>]]]]{
+      Double dDir;
+      Double dDist;
+      if (p1 != null) {
+        if (p2 == null) {
+          dDir = new Double(p1.toString());
+          dDist = new Double(100.0);
+        }
+        else {
+          dDir = new Double(p2.toString());
+          dDist = new Double(p1.toString());
+        }
+        if (player.isTeamEast()) {
+          name.infoSeeFromEast(controller, dDist.doubleValue(), dDir.doubleValue());
+        }
+        else {
+          name.infoSeeFromWest(controller, dDist.doubleValue(), dDir.doubleValue());
+        }
+      }
+    }
+  }
+ObjName objName() :
+  {Token name; Token num; ObjName objName=null;} {
+    <PLAYER>[[<SEP>]objName=objNamePlayer()] {
+      if (objName==null) return new ObjNameNull();
+      else return objName;
+    } |
+    <BALL> {
+      return new ObjNameBall();
+    } |
+    <FLAG>[<SEP>objName=objNameFlag()] {
+      if (objName==null) return new ObjNameNull();
+      else return objName;
+    } |
+    <LINE><SEP>objName=objNameLine() {
+      return objName;
+    } |
+    <GOAL>[<SEP>objName=objNameGoal()] {
+      if (objName==null) return new ObjNameNull();
+      else return objName;
+    }
+  }
+ObjName objNamePlayer() :
+  {Token name=null; Token num=null; ObjName objName=null;} {
+    name=<NAM>[<SEP>num=<NUM>] {
+      Integer iNum;
+      if (num==null) iNum = new Integer(-1);
+      else  iNum = new Integer(num.toString());
+      if (name.toString().equals(player.getTeamName())){
+        if (player.isTeamEast()) return new ObjNamePlayerEast(iNum.intValue());
+        else return new ObjNamePlayerWest(iNum.intValue());
+      }
+      else{
+        if (player.isTeamEast()) return new ObjNamePlayerWest(iNum.intValue());
+        else return new ObjNamePlayerEast(iNum.intValue());
+      }
+    }|
+    <L><SEP>num=<NUM> {
+      Integer iNum = new Integer(num.toString());
+      return new ObjNamePlayerWest(iNum.intValue());
+    }|
+    <R><SEP>num=<NUM> {
+      Integer iNum = new Integer(num.toString());
+      return new ObjNamePlayerEast(iNum.intValue());
+    }
+  }
+ObjName objNameFlag() :
+  {ObjName objName=null;} {
+    <C>[<SEP>objName=objNameFlagCenter()] {
+      if (objName==null) return new ObjNameFlagCenter('c');
+      else return objName;
+    }|
+    <P><SEP>objName=objNameFlagPenalty() {
+      return objName;
+    }|
+    <L><SEP>objName=objNameFlagLeft() {
+      return objName;
+    }|
+    <R><SEP>objName=objNameFlagRight() {
+      return objName;
+    }|
+    <T><SEP>objName=objNameFlagTop() {
+      return objName;
+    }|
+    <B><SEP>objName=objNameFlagBottom() {
+      return objName;
+    }|
+    <G><SEP>objName=objNameGoal() {
+      return objName;
+    }
+  }
+ObjName objNameGoal() :
+  {Token q=null;} {
+    <L>[<SEP>q=<T>|<SEP>q=<B>] {
+      if (q==null) return new ObjNameFlagGoalLeft('c');
+      else return new ObjNameFlagGoalLeft(q.image.charAt(0));
+    }|
+    <R>[<SEP>q=<T>|<SEP>q=<B>] {
+      if (q==null) return new ObjNameFlagGoalRight('c');
+      else return new ObjNameFlagGoalRight(q.image.charAt(0));
+    }
+  }
+ObjName objNameLine() :
+  {ObjName objName;} {
+    <T> {
+      return new ObjNameLine('t');
+    }|
+    <B> {
+      return new ObjNameLine('b');
+    }|
+    <R> {
+      return new ObjNameLine('r');
+    }|
+    <L> {
+      return new ObjNameLine('l');
+    }
+  }
+ObjName objNameFlagCenter() :
+  {ObjName objName;} {
+    <T> {
+      return new ObjNameFlagCenter('t');
+    }|
+    <B> {
+      return new ObjNameFlagCenter('b');
+    }
+  }
+ObjName objNameFlagLeft() :
+  {ObjName objName;Token num=null;} {
+    <T>[<SEP>num=<NUM>] {
+      if (num==null)
+        return new ObjNameFlagCornerLeft('t');
+      else{
+        Integer iNum = new Integer(num.toString());
+        return new ObjNameFlagLeft('t', iNum.intValue());
+      }
+    }|
+    <B>[<SEP>num=<NUM>] {
+      if (num==null)
+        return new ObjNameFlagCornerLeft('b');
+      else{
+        Integer iNum = new Integer(num.toString());
+        return new ObjNameFlagLeft('b', iNum.intValue());
+      }
+    }|
+    <NUM> {
+      return new ObjNameFlagLeft('0', -1);
+    }
+  }
+ObjName objNameFlagRight() :
+  {ObjName objName;Token num=null;} {
+    <T>[<SEP>num=<NUM>] {
+      if (num==null)
+        return new ObjNameFlagCornerRight('t');
+      else{
+        Integer iNum = new Integer(num.toString());
+        return new ObjNameFlagRight('t', iNum.intValue());
+      }
+    }|
+    <B>[<SEP>num=<NUM>] {
+      if (num==null)
+        return new ObjNameFlagCornerRight('b');
+      else{
+        Integer iNum = new Integer(num.toString());
+        return new ObjNameFlagRight('b', iNum.intValue());
+      }
+    }|
+    <NUM> {
+      return new ObjNameFlagRight('0', -1);
+    }
+  }
+ObjName objNameFlagTop() :
+  {ObjName objName;Token num;} {
+    <R><SEP>num=<NUM> {
+      Integer iNum = new Integer(num.toString());
+      return new ObjNameFlagTop('r', iNum.intValue());
+    }|
+    <L><SEP>num=<NUM> {
+      Integer iNum = new Integer(num.toString());
+      return new ObjNameFlagTop('l', iNum.intValue());
+    }|
+    <NUM> {
+      return new ObjNameFlagTop('0', -1);
+    }
+  }
+ObjName objNameFlagBottom() :
+  {ObjName objName;Token num;} {
+    <R><SEP>num=<NUM> {
+      Integer iNum = new Integer(num.toString());
+      return new ObjNameFlagBottom('r', iNum.intValue());
+    }|
+    <L><SEP>num=<NUM> {
+      Integer iNum = new Integer(num.toString());
+      return new ObjNameFlagBottom('l', iNum.intValue());
+    }|
+    <NUM> {
+      return new ObjNameFlagBottom('0', -1);
+    }
+  }
+ObjName objNameFlagPenalty() :
+  {ObjName objName=null;} {
+    <L>[<SEP>objName=objNameFlagPenaltyWest()] {
+      if (objName==null) return new ObjNameFlagPenaltyWest('c');
+      else return objName;
+    } |
+    <R>[<SEP>objName=objNameFlagPenaltyEast()] {
+      if (objName==null) return new ObjNameFlagPenaltyEast('c');
+      else return objName;
+    }
+  }
+ObjName objNameFlagPenaltyWest() :
+  {ObjName objName;} {
+    <T> {
+      return new ObjNameFlagPenaltyWest('t');
+    }|
+    <B> {
+      return new ObjNameFlagPenaltyWest('b');
+    }|
+    <C> {
+      return new ObjNameFlagPenaltyWest('c');
+    }
+  }
+ObjName objNameFlagPenaltyEast() :
+  {ObjName objName;} {
+    <T> {
+      return new ObjNameFlagPenaltyEast('t');
+    }|
+    <B> {
+      return new ObjNameFlagPenaltyEast('b');
+    }|
+    <C> {
+      return new ObjNameFlagPenaltyEast('c');
+    }
+  }
+void startHearCommand() :
+  {Token num;Token msg;} {
+    <NUM><SEP>(
+      <SELF>|
+      <REFEREE><SEP>hearReferee()|
+      num=<NUM><SEP>msg=<NAM>{
+        Double dNum = new Double(num.image);
+        controller.infoHear(dNum.doubleValue(), msg.image);
+      }
+    )
+  }
+void hearReferee() :
+  {int playMode=-1; int refereeMessage=-1;}{
+    playMode=playMode(){
+      controller.infoHearPlayMode(playMode);
+    }|
+    refereeMessage=refereeMessage(){
+      controller.infoHearReferee(refereeMessage);
+    }
+  }
+int playMode() :
+  {}{
+     <BEFORE_KICK_OFF>{
+      return Controller.PLAY_MODE_BEFORE_KICK_OFF;
+    }|
+    <TIME_OVER>{
+      return Controller.PLAY_MODE_TIME_OVER;
+    }|
+    <PLAY_ON>{
+      return Controller.PLAY_MODE_PLAY_ON;
+    }|
+    <KICK_OFF_L>{
+      if (player.isTeamEast())
+        return Controller.PLAY_MODE_KICK_OFF_OTHER;
+      else
+        return Controller.PLAY_MODE_KICK_OFF_OWN;
+    }|
+    <KICK_OFF_R>{
+      if (!player.isTeamEast())
+        return Controller.PLAY_MODE_KICK_OFF_OTHER;
+      else
+        return Controller.PLAY_MODE_KICK_OFF_OWN;
+    }|
+    <KICK_IN_L>{
+      if (player.isTeamEast())
+        return Controller.PLAY_MODE_KICK_IN_OTHER;
+      else
+        return Controller.PLAY_MODE_KICK_IN_OWN;
+    }|
+    <KICK_IN_R>{
+      if (!player.isTeamEast())
+        return Controller.PLAY_MODE_KICK_IN_OTHER;
+      else
+        return Controller.PLAY_MODE_KICK_IN_OWN;
+    }|
+    <FREE_KICK_R>{
+      if (!player.isTeamEast())
+        return Controller.PLAY_MODE_FREE_KICK_OTHER;
+      else
+        return Controller.PLAY_MODE_FREE_KICK_OWN;
+    }|
+    <FREE_KICK_L>{
+      if (player.isTeamEast())
+        return Controller.PLAY_MODE_FREE_KICK_OTHER;
+      else
+        return Controller.PLAY_MODE_FREE_KICK_OWN;
+    }|
+    <CORNER_KICK_R>{
+      if (!player.isTeamEast())
+        return Controller.PLAY_MODE_CORNER_KICK_OTHER;
+      else
+        return Controller.PLAY_MODE_CORNER_KICK_OWN;
+    }|
+    <CORNER_KICK_L>{
+      if (player.isTeamEast())
+        return Controller.PLAY_MODE_CORNER_KICK_OTHER;
+      else
+        return Controller.PLAY_MODE_CORNER_KICK_OWN;
+    }|
+    <GOAL_KICK_R>{
+      if (!player.isTeamEast())
+        return Controller.PLAY_MODE_GOAL_KICK_OTHER;
+      else
+        return Controller.PLAY_MODE_GOAL_KICK_OWN;
+    }|
+    <GOAL_KICK_L>{
+      if (player.isTeamEast())
+        return Controller.PLAY_MODE_GOAL_KICK_OTHER;
+      else
+        return Controller.PLAY_MODE_GOAL_KICK_OWN;
+    }|
+    <GOAL_R>{
+      if (!player.isTeamEast())
+        return Controller.PLAY_MODE_GOAL_OTHER;
+      else
+        return Controller.PLAY_MODE_GOAL_OWN;
+    }|
+    <GOAL_L>{
+      if (player.isTeamEast())
+        return Controller.PLAY_MODE_GOAL_OTHER;
+      else
+        return Controller.PLAY_MODE_GOAL_OWN;
+    }
+  }
+int refereeMessage() :
+  {}{
+    <OFFSIDE_R>{
+      if (!player.isTeamEast())
+        return Controller.REFREE_MESSAGE_OFFSIDE_OTHER;
+      else
+        return Controller.REFREE_MESSAGE_OFFSIDE_OWN;
+    }|
+    <OFFSIDE_L>{
+      if (player.isTeamEast())
+        return Controller.REFREE_MESSAGE_OFFSIDE_OTHER;
+      else
+        return Controller.REFREE_MESSAGE_OFFSIDE_OWN;
+    }|
+    <FOUL_R>{
+      if (!player.isTeamEast())
+        return Controller.REFREE_MESSAGE_FOUL_OTHER;
+      else
+        return Controller.REFREE_MESSAGE_FOUL_OWN;
+    }|
+    <FOUL_L>{
+      if (player.isTeamEast())
+        return Controller.REFREE_MESSAGE_FOUL_OTHER;
+      else
+        return Controller.REFREE_MESSAGE_FOUL_OWN;
+    }|
+    <HALF_TIME>{
+        return Controller.REFREE_MESSAGE_HALF_TIME;
+    }|
+    <DROP_BALL>{
+        return Controller.REFREE_MESSAGE_DROP_BALL;
+    }|
+    <TIME_UP>{
+        return Controller.REFREE_MESSAGE_TIME_UP;
+    }|
+    <TIME_UP_WITHOUT_A_TEAM>{
+        return Controller.REFREE_MESSAGE_TIME_UP_WITHOUT_A_TEAM;
+    }|
+    <TIME_EXTENDED>{
+        return Controller.REFREE_MESSAGE_TIME_EXTENDED;
+    }
+  }
+
+void startInitCommand() :
+  {Token side=null;int playMode=-1;Token num;} {
+    (side=<L>|side=<R>){
+      player.isTeamEast(side.image.charAt(0) == 'r');
+    }
+    <SEP>num=<NUM>{
+      Integer iNum = new Integer(num.image);
+      player.setNumber(iNum.intValue());
+    }
+    <SEP>playMode=playMode(){
+      controller.infoHearPlayMode(playMode);
+    }
+  }
+void startErrorCommand() :
+  {Token err;} {
+    err=<NAM> {
+      player.handleError(err.image);
+    }
+  }
+void startSenseBodyCommand() : {
+  Token viewModeQual=null;Token viewModeAngle=null;
+  Token stamina=null; Token speed=null; Token headAngle=null;
+  Token kick=null; Token dash=null; Token turn=null; Token say=null;
+  Token turnNeck=null;
+  } {
+    <NUM><SEP>
+    <OB><VIEW_MODE><SEP>
+      (viewModeQual=<HIGH>|viewModeQual=<LOW>)<SEP>
+      (viewModeAngle=<WIDE>|viewModeAngle=<NARROW>|viewModeAngle=<NORMAL>)<CB>
+    <OB><STAMINA><SEP>stamina=<NUM><CB>
+    <OB><SPEED><SEP>speed=<NUM><CB>
+    <OB><HEAD_ANGLE><SEP>headAngle=<NUM><CB>
+    <OB><KICK><SEP>kick=<NUM><CB>
+    <OB><DASH><SEP>dash=<NUM><CB>
+    <OB><TURN><SEP>turn=<NUM><CB>
+    <OB><SAY><SEP>say=<NUM><CB>
+    <OB><TURN_NECK><SEP>turnNeck=<NUM><CB>{
+      int iViewModeQual=-1;
+      int iViewModeAngle=-1;
+      Double dStamina = new Double(stamina.image);
+      Double dSpeed = new Double(speed.image);
+      Double dHeadAngle = new Double(headAngle.image);
+      Integer iKick = new Integer(kick.image);
+      Integer iDash = new Integer(dash.image);
+      Integer iTurn = new Integer(turn.image);
+      Integer iSay = new Integer(say.image);
+      Integer iTurnNeck = new Integer(turnNeck.image);
+      switch(viewModeQual.image.charAt(0)){
+        case 'h': iViewModeQual=Controller.VIEW_QUALITY_HIGH; break;
+        case 'l': iViewModeQual=Controller.VIEW_QUALITY_LOW; break;
+      }
+      switch(viewModeAngle.image.charAt(1)){
+        case 'i': iViewModeAngle=Controller.VIEW_ANGLE_WIDE; break;
+        case 'a': iViewModeAngle=Controller.VIEW_ANGLE_NARROW; break;
+        case 'o': iViewModeAngle=Controller.VIEW_ANGLE_NORMAL; break;
+      }
+      controller.infoSenseBody(iViewModeQual, iViewModeAngle,
+        dStamina.doubleValue(), dSpeed.doubleValue(), dHeadAngle.doubleValue(),
+        iKick.intValue(), iDash.intValue(), iTurn.intValue(), iSay.intValue(),
+        iTurnNeck.intValue());
+    }
+  }

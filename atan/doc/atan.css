@@ -1,0 +1,33 @@
+BODY {
+	font-size: 10pt;
+	font-family: Tahoma, Helvetica, Arial, sans-serif;
+	background-color: white;
+	text-align : left;
+        margin: 30px;
+}
+P {
+        margin-left: 30px;
+}
+LI {
+        margin-left: 50px;
+}
+H1 {
+	font-size: 18pt;
+}
+H2 {
+	font-size: 16pt;
+}
+H3 {
+	font-size: 14pt;
+        margin-left: 10px;
+}
+H4 {
+	font-size: 10pt;
+        margin-left: 30px;
+}
+TABLE {
+	font-size: 10pt;
+}
+TD {
+        margin-left: 30px;
+}
