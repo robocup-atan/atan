@@ -1,47 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project basedir="." default="all" name="build">
 
-  <property name="version" value="0_03"/>
-  <property name="hp" value="D:/pgm/tomcat/webapps/atan"/>
-  <property name="work" value=".."/>
-  <property name="junit" value="d:/pgm/junit/junit.jar"/>
+  <property name="version" value="0_04"/>
+
+  <property name="hp" value="/home/wolfi/pgm/tomcat/webapps/atan"/>
+  <property name="junit" value="/home/wolfi/pgm/junit/junit.jar"/>
+  <property name="javacc" value="/home/wolfi/pgm/javacc/bin/lib/javacc.jar"/>
+
   <property name="classes" value="../classes"/>
+  <property name="work" value=".."/>
 
   <target depends="buildzip, hptgz" name="all"/>
 
-    <target name="clear">
-        <delete dir="${classes}" quiet="true"/>
-        <delete dir="${hp}" quiet="true"/>
-        <delete file="${work}/atan_${version}.zip" quiet="true"/>
-        <delete file="${work}/atanhp.tgz" quiet="true"/>
-        <delete dir="${work}/atan_${version}" quiet="true"/>
-    </target>
+  <target name="clear">
+    <delete dir="${classes}" quiet="true"/>
+    <delete dir="${hp}" quiet="true"/>
+    <delete file="${work}/atan_${version}.zip" quiet="true"/>
+    <delete file="${work}/atanhp.tgz" quiet="true"/>
+    <delete dir="${work}/atan_${version}" quiet="true"/>
+  </target>
     
-    <target depends="compile" name="test">
-        <java classname="atan.test.AllTest" fork="yes">
-          <classpath>
-            <pathelement path="${classes}"/>
-            <pathelement location="${junit}"/>
-          </classpath>
-        </java>
-    </target>
-    <target depends="javacc" name="compile">
-      <mkdir dir="${classes}"/>
-      <javac classpath="${junit}" destdir="${classes}">
-          <src>
-                <path path="${classes};."/>
-          </src>
-        </javac>
-        
-    </target>
+  <target depends="compile" name="test">
+    <java classname="atan.test.AllTest" fork="yes">
+      <classpath>
+        <pathelement path="${classes}"/>
+        <pathelement location="${junit}"/>
+      </classpath>
+    </java>
+  </target>
 
-
+  <target depends="javacc" name="compile">
+    <mkdir dir="${classes}"/>
+    <javac classpath="${junit}" destdir="${classes}">
+      <src>
+        <path path="${classes};."/>
+      </src>
+    </javac>
+  </target>
     
-    <target name="javacc">
-        <mkdir dir="${classes}"/>
-        <mkdir dir="${classes}/atan/parser"/>
-        <javacc buildparser="true" buildtokenmanager="true" forcelacheck="false" javacchome="D:\pgm\javacc2\bin\lib" lookahead="2" outputdirectory="${classes}/atan/parser" static="false" target="atan/parser/CmdParser.jj" usercharstream="false"/>
-    </target>
+  <target name="javacc">
+    <mkdir dir="${classes}"/>
+    <mkdir dir="${classes}/atan/parser"/>
+    <java classname="javacc" fork="yes">
+      <classpath>
+        <pathelement location="${javacc}"/>
+      </classpath>
+      <arg value="-output_directory=${classes}/atan/parser"/>
+      <arg value="-static=false"/>
+      <arg value="-build_parser=true"/>
+      <arg value="-build_token_manager=true"/>
+      <arg value="-force_la_check=false"/>
+      <arg value="-lookahead=2"/>
+      <arg value="-user_char_stream=false"/>
+      <arg value="atan/parser/CmdParser.jj"/>
+    </java>
+  </target>
   <target depends="jdoc, j2h" name="hp">
     <mkdir dir="${hp}"/>
     <copy todir="${hp}">
@@ -84,15 +97,16 @@
     <chmod perm="ugo+rx">
       <fileset dir="${build}" includes="*.sh"/>
     </chmod>
-      <copy todir="${build}">
+    <copy todir="${build}">
       <fileset dir="." includes="*.txt"/>
     </copy>
-        <zip zipfile="${build}/src.zip">
-            <fileset dir="." includes="**/*"/>
-        </zip>
-    </target>
+    <zip zipfile="${build}/src.zip">
+      <fileset dir="." includes="**/*"/>
+    </zip>
+  </target>
 
   <target depends="build" name="buildzip">
     <zip basedir="${work}" includes="atan_${version}/**/*" zipfile="${work}/atan_${version}.zip"/>
   </target>
+
 </project>
