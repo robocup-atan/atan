@@ -33,7 +33,7 @@ public class TeamJFrame extends JFrame {
     }
   }
   private void jbInit() throws Exception {
-    border1 = BorderFactory.createEmptyBorder(5,5,5,5);
+    border1 = BorderFactory.createEmptyBorder(4,4,4,4);
     this.addWindowListener(new java.awt.event.WindowAdapter() {
       public void windowClosing(WindowEvent e) {
         this_windowClosing(e);
