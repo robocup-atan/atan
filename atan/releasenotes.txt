@@ -1,7 +1,0 @@
-atan 0.3
-
-Reason for this release is a refactoring of the project structure. Mainly to allow 
-other developers to succeed with atan.
-
-- javacc is included in the ant build process. The generated java files are excluded from the cvs repository.
-- the distribution includes now all files that are needed to go on with the development of atan.
