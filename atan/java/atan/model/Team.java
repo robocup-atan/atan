@@ -47,7 +47,11 @@ public abstract class Team {
     pause(500);
   }
   public SServerPlayer getPlayer(int i){
-    return players[i];
+      SServerPlayer re = null;
+      if (i >= 0 && i < players.length) {
+          re = players[i];
+      }
+      return re;
   }
   public int size(){
     return 11;

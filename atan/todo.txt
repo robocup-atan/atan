@@ -1,0 +1,1 @@
+better exception handling if no connection can be established.

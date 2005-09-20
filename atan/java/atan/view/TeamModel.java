@@ -59,7 +59,10 @@ public class TeamModel implements ListSelectionListener, ActionListener {
   public void valueChanged(ListSelectionEvent e) {
     try {
       if (e.getSource() == playersSelection) {
-        selectedPlayer.setModel(team.getPlayer(playersSelection.getMinSelectionIndex()));
+        SServerPlayer player = team.getPlayer(playersSelection.getMinSelectionIndex());
+        if (player != null) { 
+            selectedPlayer.setModel(player);
+        }
       }
     } catch (Exception ex) {
       ex.printStackTrace();
