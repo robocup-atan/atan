@@ -1,9 +1,11 @@
 package atan.test;
 
-import atan.model.*;
-import java.net.*;
-import java.io.*;
-import atan.*;
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+
+import atan.model.ByteBuffer;
 
 public abstract class UDPServer {
 

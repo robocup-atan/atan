@@ -1,10 +1,14 @@
 package atan.test;
 
-import junit.framework.*;
-import atan.parser.*;
-import atan.model.*;
-import java.io.*;
-import java.util.*;
+import java.io.StringReader;
+import java.util.Set;
+
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+import atan.parser.CmdParser;
+import atan.parser.CommandFilter;
+import atan.parser.Filter;
+import atan.parser.ParseException;
 
 public class PatternGeneratedTests extends TestCase {
 
@@ -36,8 +40,8 @@ public class PatternGeneratedTests extends TestCase {
     else if (f.isTypeHear()) getCmdParser().parseHearCommand(f.getCommand(), c, player);
     else if (f.isTypeInit()) getCmdParser().parseInitCommand(f.getCommand(), c, player);
     else if (f.isTypeSenseBody()) getCmdParser().parseSenseBodyCommand(f.getCommand(), c, player);
-    else if (f.isTypeUndefined()) this.fail("CommandFilter could not identify type of: "+s);
-    else this.fail("CommandFilter fails in: "+s);
+    else if (f.isTypeUndefined()) fail("CommandFilter could not identify type of: "+s);
+    else fail("CommandFilter fails in: "+s);
     return c.getResult();
   }
   private void filterCommand(String cmd, CommandFilter f) throws ParseException {
@@ -56,9 +60,5 @@ public class PatternGeneratedTests extends TestCase {
     } catch (ClassNotFoundException ex) {
       throw new Error(ex.getMessage());
     }
-  }
-  public static void main (String[] arg) {
-    junit.textui.TestRunner r = new junit.textui.TestRunner();
-    r.run(suite());
   }
 }

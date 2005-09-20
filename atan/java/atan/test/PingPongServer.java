@@ -1,8 +1,8 @@
 package atan.test;
 
-import java.net.*;
-import java.io.*;
-import atan.model.*;
+import java.net.DatagramSocket;
+
+import atan.model.ByteBuffer;
 
 public class PingPongServer extends UDPServer{
 

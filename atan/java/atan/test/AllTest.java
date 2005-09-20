@@ -1,10 +1,8 @@
 package atan.test;
 
-import junit.framework.*;
-import atan.parser.*;
-import atan.model.*;
-import java.io.*;
-import java.util.*;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+import junit.textui.TestRunner;
 
 public class AllTest extends TestCase {
 
@@ -19,7 +17,6 @@ public class AllTest extends TestCase {
     return s;
   }
   public static void main (String[] arg) {
-    junit.textui.TestRunner r = new junit.textui.TestRunner();
-    r.run(suite());
+    TestRunner.run(suite());
   }
 }

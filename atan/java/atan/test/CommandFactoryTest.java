@@ -1,11 +1,9 @@
 package atan.test;
 
-import junit.framework.*;
-import atan.parser.*;
-import atan.model.*;
-import atan.model.*;
-import java.io.*;
-import java.util.*;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+import atan.model.CommandFactory;
+import atan.model.Controller;
 
 public class CommandFactoryTest extends TestCase {
 
@@ -96,9 +94,5 @@ public class CommandFactoryTest extends TestCase {
     } catch (ClassNotFoundException ex) {
       throw new Error(ex.getMessage());
     }
-  }
-  public static void main (String[] arg) {
-    junit.textui.TestRunner r = new junit.textui.TestRunner();
-    r.run(suite());
   }
 }

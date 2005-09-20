@@ -1,9 +1,8 @@
 package atan.test;
 
-import atan.model.*;
-import java.net.*;
-import java.io.*;
-import atan.model.*;
+import java.io.IOException;
+
+import atan.model.UDPClient;
 
 public class PingPongClient extends UDPClient {
 

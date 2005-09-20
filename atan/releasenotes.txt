@@ -1,3 +1,7 @@
+atan 0.4
+
+- refactoring for eclipse
+
 atan 0.3
 
 Reason for this release is a refactoring of the project structure. Mainly to allow 

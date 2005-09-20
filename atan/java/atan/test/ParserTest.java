@@ -102,7 +102,7 @@ public class ParserTest extends TestCase {
     double t = (double)(t2-t1)/count;
     t = (double)Math.round(t*100)/100;
     System.out.println("Parsing of one message took: "+t+"ms");
-    this.assertTrue("parsing took more than 10 ms", t < 10.0);
+    assertTrue("parsing took more than 10 ms", t < 10.0);
   }
   private void filterCommand(String cmd, CommandFilter f) throws ParseException {
       getFilter().run(cmd, f);
@@ -862,7 +862,7 @@ public class ParserTest extends TestCase {
     try {
       return basicParseCmd(s);
     } catch (ParseException ex) {
-      this.fail(ex.getMessage());
+      fail(ex.getMessage());
       return null;
     }
   }
@@ -878,8 +878,8 @@ public class ParserTest extends TestCase {
     else if (f.isTypeHear()) getCmdParser().parseHearCommand(f.getCommand(), c, player);
     else if (f.isTypeInit()) getCmdParser().parseInitCommand(f.getCommand(), c, player);
     else if (f.isTypeSenseBody()) getCmdParser().parseSenseBodyCommand(f.getCommand(), c, player);
-    else if (f.isTypeUndefined()) this.fail("CommandFilter could not identify type of: "+s);
-    else this.fail("CommandFilter fails in: "+s);
+    else if (f.isTypeUndefined()) fail("CommandFilter could not identify type of: "+s);
+    else fail("CommandFilter fails in: "+s);
     return c.getResult();
   }
   private Filter getFilter (){
@@ -896,9 +896,5 @@ public class ParserTest extends TestCase {
     } catch (ClassNotFoundException ex) {
       throw new Error(ex.getMessage());
     }
-  }
-  public static void main (String[] arg) {
-    junit.textui.TestRunner r = new junit.textui.TestRunner();
-    r.run(suite());
   }
 }

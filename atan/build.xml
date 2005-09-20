@@ -8,8 +8,8 @@
     <property name="javacc" value="d:/pgm/javacc/bin/lib/javacc.jar"/>
     <property name="keyfile" value="c:/ssh/id_rsa"/>
 
-    <property name="classes" value="../classes"/>
-    <property name="work" value=".."/>
+    <property name="classes" value="classes"/>
+    <property name="work" value="work"/>
 
     <target depends="buildzip, hptgz" name="all"/>
 
@@ -40,20 +40,19 @@
     </target>
 
     <target name="javacc">
-        <mkdir dir="${classes}"/>
-        <mkdir dir="${classes}/atan/parser"/>
+        <mkdir dir="gen/atan/parser"/>
         <java classname="javacc" fork="yes">
             <classpath>
                 <pathelement location="${javacc}"/>
             </classpath>
-            <arg value="-output_directory=${classes}/atan/parser"/>
+            <arg value="-output_directory=gen/atan/parser"/>
             <arg value="-static=false"/>
             <arg value="-build_parser=true"/>
             <arg value="-build_token_manager=true"/>
             <arg value="-force_la_check=false"/>
             <arg value="-lookahead=2"/>
             <arg value="-user_char_stream=false"/>
-            <arg value="atan/parser/CmdParser.jj"/>
+            <arg value="java/atan/parser/CmdParser.jj"/>
         </java>
     </target>
     <target depends="jdoc, j2h" name="hp">
