@@ -1,6 +1,5 @@
 package atan.model;
 
-import java.io.*;
 
 /**
  * Interface for an abstract soccer player. To be used by Controller.
@@ -25,9 +24,5 @@ public interface Player {
   public void isTeamEast(boolean is);
   public void setNumber(int num);
   public int getNumber();
-  public PrintWriter getLogger();
-  /**
-   * @return Loglevels are between 0 and 10. 0 means no logging 10 max logging.
-   */
-  public int getLoglevel();
+
 }

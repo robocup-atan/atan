@@ -1,6 +1,9 @@
 atan 0.4
 
 - refactoring for eclipse
+- removed gui
+- added logging by log4j
+- better exception handling for no connection
 
 atan 0.3
 
