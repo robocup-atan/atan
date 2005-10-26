@@ -4,7 +4,6 @@
 	<property name="version" value="0_04" />
 
 	<property name="hp" value="/home/wolfi/pgm/tomcat/webapps/atan" />
-	<property name="javacc_home" value="d:/pgm/javacc-3.2" />
 	<property name="keyfile" value="c:/ssh/id_rsa" />
 
 	<property name="classes" value="classes" />
@@ -21,7 +20,7 @@
 
 	<target name="javacc">
 		<mkdir dir="gen/atan/parser" />
-		<javacc target="java/atan/parser/CmdParser.jj" outputdirectory="gen/atan/parser" javacchome="D:/pgm/javacc-3.2" static="false"  />
+		<javacc target="java/atan/parser/CmdParser.jj" outputdirectory="gen/atan/parser" javacchome="javacc" static="false"  />
 	</target>
 
 	<target depends="jdoc, j2h" name="hp">
