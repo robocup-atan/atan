@@ -159,12 +159,12 @@ public class TestController implements Controller {
     b.append("|");b.append(message);
     result.add(b.toString());
   }
-  public void infoSenseBody(int viewMode, int viewAngle, double stamina, double speed,
+  public void infoSenseBody(ViewQuality viewQual, ViewAngle viewAngle, double stamina, double speed,
       double headAngle, int kickCount, int dashCount, int turnCount, int sayCount,
       int turnNeckCount) {
     StringBuffer b = new StringBuffer();
     b.append("|");b.append("infoSenseBody");
-    b.append("|");b.append(viewMode);
+    b.append("|");b.append(viewQual);
     b.append("|");b.append(viewAngle);
     b.append("|");b.append(stamina);
     b.append("|");b.append(speed);

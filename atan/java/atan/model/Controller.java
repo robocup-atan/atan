@@ -60,17 +60,7 @@ public interface Controller {
 
 	public void infoHear(double direction, String message);
 
-	public static final int VIEW_QUALITY_HIGH = 0;
-
-	public static final int VIEW_QUALITY_LOW = 1;
-
-	public static final int VIEW_ANGLE_NARROW = 2;
-
-	public static final int VIEW_ANGLE_NORMAL = 3;
-
-	public static final int VIEW_ANGLE_WIDE = 4;
-
-	public void infoSenseBody(int viewQuality, int viewAngle, double stamina,
+	public void infoSenseBody(ViewQuality viewQuality, ViewAngle viewAngle, double stamina,
 			double speed, double headAngle, int kickCount, int dashCount,
 			int turnCount, int sayCount, int turnNeckCount);
 }

@@ -105,7 +105,7 @@ public class SServerPlayer extends UDPClient implements Player {
         this.commandFactory.addCatchCommand((int) direction);
     }
 
-    public void changeViewMode(int quality, int angle) {
+    public void changeViewMode(ViewQuality quality, ViewAngle angle) {
         this.commandFactory.addChangeViewCommand(quality, angle);
     }
 

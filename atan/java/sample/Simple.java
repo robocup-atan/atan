@@ -10,6 +10,8 @@ import atan.model.Line;
 import atan.model.PlayMode;
 import atan.model.Player;
 import atan.model.RefereeMessage;
+import atan.model.ViewAngle;
+import atan.model.ViewQuality;
 
 /**
  * A simple testcontroller. It implements the following simple behaviour. If the
@@ -291,9 +293,9 @@ public class Simple implements Controller {
 	public void infoHear(double direction, String message) {
 	}
 
-	public void infoSenseBody(int viewQuality, int viewAngle, double stamina,
-			double speed, double headAngle, int kickCount, int dashCount,
-			int turnCount, int sayCount, int turnNeckCount) {
+	public void infoSenseBody(ViewQuality viewQuality, ViewAngle viewAngle,
+			double stamina, double speed, double headAngle, int kickCount,
+			int dashCount, int turnCount, int sayCount, int turnNeckCount) {
 	}
 
 	private int randomDashValueFast() {

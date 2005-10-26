@@ -831,8 +831,8 @@
     jj_consume_token(SEP);
     turnNeck = jj_consume_token(NUM);
     jj_consume_token(CB);
-      int iViewModeQual=-1;
-      int iViewModeAngle=-1;
+      atan.model.ViewQuality iViewModeQual=null;
+      atan.model.ViewAngle iViewModeAngle=null;
       Double dStamina = new Double(stamina.image);
       Double dSpeed = new Double(speed.image);
       Double dHeadAngle = new Double(headAngle.image);
@@ -842,13 +842,13 @@
       Integer iSay = new Integer(say.image);
       Integer iTurnNeck = new Integer(turnNeck.image);
       switch(viewModeQual.image.charAt(0)){
-        case 'h': iViewModeQual=atan.model.Controller.VIEW_QUALITY_HIGH; break;
-        case 'l': iViewModeQual=atan.model.Controller.VIEW_QUALITY_LOW; break;
+        case 'h': iViewModeQual=atan.model.ViewQuality.HIGH; break;
+        case 'l': iViewModeQual=atan.model.ViewQuality.LOW; break;
       }
       switch(viewModeAngle.image.charAt(1)){
-        case 'i': iViewModeAngle=atan.model.Controller.VIEW_ANGLE_WIDE; break;
-        case 'a': iViewModeAngle=atan.model.Controller.VIEW_ANGLE_NARROW; break;
-        case 'o': iViewModeAngle=atan.model.Controller.VIEW_ANGLE_NORMAL; break;
+        case 'i': iViewModeAngle=atan.model.ViewAngle.WIDE; break;
+        case 'a': iViewModeAngle=atan.model.ViewAngle.NARROW; break;
+        case 'o': iViewModeAngle=atan.model.ViewAngle.NORMAL; break;
       }
       controller.infoSenseBody(iViewModeQual, iViewModeAngle,
         dStamina.doubleValue(), dSpeed.doubleValue(), dHeadAngle.doubleValue(),

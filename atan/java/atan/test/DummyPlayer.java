@@ -17,7 +17,7 @@ public class DummyPlayer implements Player {
   public DummyPlayer() {
   }
   public void catchBall(double direction) {}
-  public void changeViewMode(int qal, int angle) {}
+  public void changeViewMode(ViewQuality qal, ViewAngle angle) {}
   public void dash(int power) {}
   public void move(int x, int y) {}
   public void say(String message) {}

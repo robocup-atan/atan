@@ -8,6 +8,8 @@ import atan.model.Line;
 import atan.model.PlayMode;
 import atan.model.Player;
 import atan.model.RefereeMessage;
+import atan.model.ViewAngle;
+import atan.model.ViewQuality;
 
 public class Silly implements Controller {
 
@@ -63,7 +65,7 @@ public class Silly implements Controller {
 	public void infoHear(double parm1, String parm2) {
 	}
 
-	public void infoSenseBody(int parm1, int parm2, double parm3, double parm4,
+	public void infoSenseBody(ViewQuality parm1, ViewAngle parm2, double parm3, double parm4,
 			double parm5, int parm6, int parm7, int parm8, int parm9, int parm10) {
 	}
 

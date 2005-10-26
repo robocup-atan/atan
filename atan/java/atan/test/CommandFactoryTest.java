@@ -3,7 +3,8 @@ package atan.test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import atan.model.CommandFactory;
-import atan.model.Controller;
+import atan.model.ViewAngle;
+import atan.model.ViewQuality;
 
 public class CommandFactoryTest extends TestCase {
 
@@ -51,11 +52,11 @@ public class CommandFactoryTest extends TestCase {
     assertEquals("(catch 22)", f.next());
     f.addCatchCommand(-22);
     assertEquals("(catch -22)", f.next());
-    f.addChangeViewCommand(Controller.VIEW_ANGLE_NARROW, Controller.VIEW_QUALITY_HIGH);
+    f.addChangeViewCommand(ViewQuality.HIGH, ViewAngle.NARROW);
     assertEquals("(change_view narrow high)", f.next());
-    f.addChangeViewCommand(Controller.VIEW_ANGLE_WIDE, Controller.VIEW_QUALITY_LOW);
+    f.addChangeViewCommand(ViewQuality.LOW, ViewAngle.WIDE);
     assertEquals("(change_view wide low)", f.next());
-    f.addChangeViewCommand(Controller.VIEW_ANGLE_NORMAL, Controller.VIEW_QUALITY_LOW);
+    f.addChangeViewCommand( ViewQuality.LOW, ViewAngle.NORMAL);
     assertEquals("(change_view normal low)", f.next());
     f.addDashCommand(23);
     assertEquals("(dash 23)", f.next());

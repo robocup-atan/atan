@@ -15,7 +15,7 @@ public interface Player {
   public void turn (double angle);
   public void turnNeck (double angle);
   public void catchBall (double direction);
-  public void changeViewMode(int quality, int angle);
+  public void changeViewMode(ViewQuality quality, ViewAngle angle);
   public void bye();
 
   public void handleError(String error);

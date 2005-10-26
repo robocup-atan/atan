@@ -646,7 +646,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result,
-				"|infoSenseBody|0|4|12.0|-23.3|12.0|121|100|111|99|145");
+				"|infoSenseBody|ViewQuality[high]|ViewAngle[wide]|12.0|-23.3|12.0|121|100|111|99|145");
 	}
 
 	public void testCmdParserSenseBody01() {
@@ -654,7 +654,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result,
-				"|infoSenseBody|1|2|12.0|23.0|12.0|121|100|111|99|145");
+				"|infoSenseBody|ViewQuality[low]|ViewAngle[narrow]|12.0|23.0|12.0|121|100|111|99|145");
 	}
 
 	public void testCmdParserHear00() {
