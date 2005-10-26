@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import atan.model.Controller;
 import atan.model.Flag;
 import atan.model.Line;
+import atan.model.PlayMode;
 import atan.model.Player;
 import atan.model.RefereeMessage;
 
@@ -244,8 +245,8 @@ public class Simple implements Controller {
 	 * If the controller hears that the server is in before kick off mode it
 	 * moves to a position that depends on the clients nummber.
 	 */
-	public void infoHearPlayMode(int playMode) {
-		if (playMode == Controller.PLAY_MODE_BEFORE_KICK_OFF) {
+	public void infoHearPlayMode(PlayMode playMode) {
+		if (playMode == PlayMode.BEFORE_KICK_OFF) {
 			this.pause(1000);
 			switch (this.getPlayer().getNumber()) {
 			case 1:

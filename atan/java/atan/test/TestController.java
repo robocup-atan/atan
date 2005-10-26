@@ -146,7 +146,7 @@ public class TestController implements Controller {
     b.append("|");b.append(message);
     result.add(b.toString());
   }
-  public void infoHearPlayMode(int message) {
+  public void infoHearPlayMode(PlayMode message) {
     StringBuffer b = new StringBuffer();
     b.append("|");b.append("infoHearPlayMode");
     b.append("|");b.append(message);

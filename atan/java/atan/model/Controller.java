@@ -54,39 +54,9 @@ public interface Controller {
 
 	public void infoSeeBall(double distance, double direction);
 
-	public static final int PLAY_MODE_BEFORE_KICK_OFF = 3090;
-
-	public static final int PLAY_MODE_TIME_OVER = 3100;
-
-	public static final int PLAY_MODE_PLAY_ON = 3110;
-
-	public static final int PLAY_MODE_KICK_OFF_OWN = 3120;
-
-	public static final int PLAY_MODE_KICK_OFF_OTHER = 3130;
-
-	public static final int PLAY_MODE_KICK_IN_OWN = 3140;
-
-	public static final int PLAY_MODE_KICK_IN_OTHER = 3150;
-
-	public static final int PLAY_MODE_FREE_KICK_OWN = 3160;
-
-	public static final int PLAY_MODE_FREE_KICK_OTHER = 3170;
-
-	public static final int PLAY_MODE_CORNER_KICK_OWN = 3180;
-
-	public static final int PLAY_MODE_CORNER_KICK_OTHER = 3190;
-
-	public static final int PLAY_MODE_GOAL_KICK_OWN = 3200;
-
-	public static final int PLAY_MODE_GOAL_KICK_OTHER = 3210;
-
-	public static final int PLAY_MODE_GOAL_OWN = 3220;
-
-	public static final int PLAY_MODE_GOAL_OTHER = 3230;
-
 	public void infoHearReferee(RefereeMessage refereeMessage);
 
-	public void infoHearPlayMode(int playMode);
+	public void infoHearPlayMode(PlayMode playMode);
 
 	public void infoHear(double direction, String message);
 

@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import atan.model.Controller;
 import atan.model.Flag;
 import atan.model.Line;
+import atan.model.PlayMode;
 import atan.model.Player;
 import atan.model.RefereeMessage;
 
@@ -51,8 +52,8 @@ public class Silly implements Controller {
 		distBall = dist;
 	}
 
-	public void infoHearPlayMode(int playMode) {
-		if (playMode == Controller.PLAY_MODE_BEFORE_KICK_OFF)
+	public void infoHearPlayMode(PlayMode playMode) {
+		if (playMode == PlayMode.BEFORE_KICK_OFF)
 			getPlayer().move(-30, 30);
 	}
 

@@ -586,7 +586,7 @@
   }
 
   final public void hearReferee() throws ParseException {
-   int playMode=-1; atan.model.RefereeMessage refereeMessage=null;
+   atan.model.PlayMode playMode=null; atan.model.RefereeMessage refereeMessage=null;
     if (jj_2_79(2)) {
       playMode = playMode();
       controller.infoHearPlayMode(playMode);
@@ -599,88 +599,88 @@
     }
   }
 
-  final public int playMode() throws ParseException {
+  final public atan.model.PlayMode playMode() throws ParseException {
     if (jj_2_81(2)) {
       jj_consume_token(BEFORE_KICK_OFF);
-      {if (true) return atan.model.Controller.PLAY_MODE_BEFORE_KICK_OFF;}
+      {if (true) return atan.model.PlayMode.BEFORE_KICK_OFF;}
     } else if (jj_2_82(2)) {
       jj_consume_token(TIME_OVER);
-      {if (true) return atan.model.Controller.PLAY_MODE_TIME_OVER;}
+      {if (true) return atan.model.PlayMode.TIME_OVER;}
     } else if (jj_2_83(2)) {
       jj_consume_token(PLAY_ON);
-      {if (true) return atan.model.Controller.PLAY_MODE_PLAY_ON;}
+      {if (true) return atan.model.PlayMode.PLAY_ON;}
     } else if (jj_2_84(2)) {
       jj_consume_token(KICK_OFF_L);
       if (player.isTeamEast())
-        {if (true) return atan.model.Controller.PLAY_MODE_KICK_OFF_OTHER;}
+        {if (true) return atan.model.PlayMode.KICK_OFF_OTHER;}
       else
-        {if (true) return atan.model.Controller.PLAY_MODE_KICK_OFF_OWN;}
+        {if (true) return atan.model.PlayMode.KICK_OFF_OWN;}
     } else if (jj_2_85(2)) {
       jj_consume_token(KICK_OFF_R);
       if (!player.isTeamEast())
-        {if (true) return atan.model.Controller.PLAY_MODE_KICK_OFF_OTHER;}
+        {if (true) return atan.model.PlayMode.KICK_OFF_OTHER;}
       else
-        {if (true) return atan.model.Controller.PLAY_MODE_KICK_OFF_OWN;}
+        {if (true) return atan.model.PlayMode.KICK_OFF_OWN;}
     } else if (jj_2_86(2)) {
       jj_consume_token(KICK_IN_L);
       if (player.isTeamEast())
-        {if (true) return atan.model.Controller.PLAY_MODE_KICK_IN_OTHER;}
+        {if (true) return atan.model.PlayMode.KICK_IN_OTHER;}
       else
-        {if (true) return atan.model.Controller.PLAY_MODE_KICK_IN_OWN;}
+        {if (true) return atan.model.PlayMode.KICK_IN_OWN;}
     } else if (jj_2_87(2)) {
       jj_consume_token(KICK_IN_R);
       if (!player.isTeamEast())
-        {if (true) return atan.model.Controller.PLAY_MODE_KICK_IN_OTHER;}
+        {if (true) return atan.model.PlayMode.KICK_IN_OTHER;}
       else
-        {if (true) return atan.model.Controller.PLAY_MODE_KICK_IN_OWN;}
+        {if (true) return atan.model.PlayMode.KICK_IN_OWN;}
     } else if (jj_2_88(2)) {
       jj_consume_token(FREE_KICK_R);
       if (!player.isTeamEast())
-        {if (true) return atan.model.Controller.PLAY_MODE_FREE_KICK_OTHER;}
+        {if (true) return atan.model.PlayMode.FREE_KICK_OTHER;}
       else
-        {if (true) return atan.model.Controller.PLAY_MODE_FREE_KICK_OWN;}
+        {if (true) return atan.model.PlayMode.FREE_KICK_OWN;}
     } else if (jj_2_89(2)) {
       jj_consume_token(FREE_KICK_L);
       if (player.isTeamEast())
-        {if (true) return atan.model.Controller.PLAY_MODE_FREE_KICK_OTHER;}
+        {if (true) return atan.model.PlayMode.FREE_KICK_OTHER;}
       else
-        {if (true) return atan.model.Controller.PLAY_MODE_FREE_KICK_OWN;}
+        {if (true) return atan.model.PlayMode.FREE_KICK_OWN;}
     } else if (jj_2_90(2)) {
       jj_consume_token(CORNER_KICK_R);
       if (!player.isTeamEast())
-        {if (true) return atan.model.Controller.PLAY_MODE_CORNER_KICK_OTHER;}
+        {if (true) return atan.model.PlayMode.CORNER_KICK_OTHER;}
       else
-        {if (true) return atan.model.Controller.PLAY_MODE_CORNER_KICK_OWN;}
+        {if (true) return atan.model.PlayMode.CORNER_KICK_OWN;}
     } else if (jj_2_91(2)) {
       jj_consume_token(CORNER_KICK_L);
       if (player.isTeamEast())
-        {if (true) return atan.model.Controller.PLAY_MODE_CORNER_KICK_OTHER;}
+        {if (true) return atan.model.PlayMode.CORNER_KICK_OTHER;}
       else
-        {if (true) return atan.model.Controller.PLAY_MODE_CORNER_KICK_OWN;}
+        {if (true) return atan.model.PlayMode.CORNER_KICK_OWN;}
     } else if (jj_2_92(2)) {
       jj_consume_token(GOAL_KICK_R);
       if (!player.isTeamEast())
-        {if (true) return atan.model.Controller.PLAY_MODE_GOAL_KICK_OTHER;}
+        {if (true) return atan.model.PlayMode.GOAL_KICK_OTHER;}
       else
-        {if (true) return atan.model.Controller.PLAY_MODE_GOAL_KICK_OWN;}
+        {if (true) return atan.model.PlayMode.GOAL_KICK_OWN;}
     } else if (jj_2_93(2)) {
       jj_consume_token(GOAL_KICK_L);
       if (player.isTeamEast())
-        {if (true) return atan.model.Controller.PLAY_MODE_GOAL_KICK_OTHER;}
+        {if (true) return atan.model.PlayMode.GOAL_KICK_OTHER;}
       else
-        {if (true) return atan.model.Controller.PLAY_MODE_GOAL_KICK_OWN;}
+        {if (true) return atan.model.PlayMode.GOAL_KICK_OWN;}
     } else if (jj_2_94(2)) {
       jj_consume_token(GOAL_R);
       if (!player.isTeamEast())
-        {if (true) return atan.model.Controller.PLAY_MODE_GOAL_OTHER;}
+        {if (true) return atan.model.PlayMode.GOAL_OTHER;}
       else
-        {if (true) return atan.model.Controller.PLAY_MODE_GOAL_OWN;}
+        {if (true) return atan.model.PlayMode.GOAL_OWN;}
     } else if (jj_2_95(2)) {
       jj_consume_token(GOAL_L);
       if (player.isTeamEast())
-        {if (true) return atan.model.Controller.PLAY_MODE_GOAL_OTHER;}
+        {if (true) return atan.model.PlayMode.GOAL_OTHER;}
       else
-        {if (true) return atan.model.Controller.PLAY_MODE_GOAL_OWN;}
+        {if (true) return atan.model.PlayMode.GOAL_OWN;}
     } else {
       jj_consume_token(-1);
       throw new ParseException();
@@ -736,7 +736,7 @@
   }
 
   final public void startInitCommand() throws ParseException {
-   Token side=null;int playMode=-1;Token num;
+   Token side=null; atan.model.PlayMode playMode=null;Token num;
     if (jj_2_105(2)) {
       side = jj_consume_token(L);
     } else if (jj_2_106(2)) {

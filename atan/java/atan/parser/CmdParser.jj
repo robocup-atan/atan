@@ -366,7 +366,7 @@ void startHearCommand() :
     )
   }
 void hearReferee() :
-  {int playMode=-1; atan.model.RefereeMessage refereeMessage=null;}{
+  {atan.model.PlayMode playMode=null; atan.model.RefereeMessage refereeMessage=null;}{
     playMode=playMode(){
       controller.infoHearPlayMode(playMode);
     }|
@@ -374,88 +374,88 @@ void hearReferee() :
       controller.infoHearReferee(refereeMessage);
     }
   }
-int playMode() :
+atan.model.PlayMode playMode() :
   {}{
      <BEFORE_KICK_OFF>{
-      return atan.model.Controller.PLAY_MODE_BEFORE_KICK_OFF;
+      return atan.model.PlayMode.BEFORE_KICK_OFF;
     }|
     <TIME_OVER>{
-      return atan.model.Controller.PLAY_MODE_TIME_OVER;
+      return atan.model.PlayMode.TIME_OVER;
     }|
     <PLAY_ON>{
-      return atan.model.Controller.PLAY_MODE_PLAY_ON;
+      return atan.model.PlayMode.PLAY_ON;
     }|
     <KICK_OFF_L>{
       if (player.isTeamEast())
-        return atan.model.Controller.PLAY_MODE_KICK_OFF_OTHER;
+        return atan.model.PlayMode.KICK_OFF_OTHER;
       else
-        return atan.model.Controller.PLAY_MODE_KICK_OFF_OWN;
+        return atan.model.PlayMode.KICK_OFF_OWN;
     }|
     <KICK_OFF_R>{
       if (!player.isTeamEast())
-        return atan.model.Controller.PLAY_MODE_KICK_OFF_OTHER;
+        return atan.model.PlayMode.KICK_OFF_OTHER;
       else
-        return atan.model.Controller.PLAY_MODE_KICK_OFF_OWN;
+        return atan.model.PlayMode.KICK_OFF_OWN;
     }|
     <KICK_IN_L>{
       if (player.isTeamEast())
-        return atan.model.Controller.PLAY_MODE_KICK_IN_OTHER;
+        return atan.model.PlayMode.KICK_IN_OTHER;
       else
-        return atan.model.Controller.PLAY_MODE_KICK_IN_OWN;
+        return atan.model.PlayMode.KICK_IN_OWN;
     }|
     <KICK_IN_R>{
       if (!player.isTeamEast())
-        return atan.model.Controller.PLAY_MODE_KICK_IN_OTHER;
+        return atan.model.PlayMode.KICK_IN_OTHER;
       else
-        return atan.model.Controller.PLAY_MODE_KICK_IN_OWN;
+        return atan.model.PlayMode.KICK_IN_OWN;
     }|
     <FREE_KICK_R>{
       if (!player.isTeamEast())
-        return atan.model.Controller.PLAY_MODE_FREE_KICK_OTHER;
+        return atan.model.PlayMode.FREE_KICK_OTHER;
       else
-        return atan.model.Controller.PLAY_MODE_FREE_KICK_OWN;
+        return atan.model.PlayMode.FREE_KICK_OWN;
     }|
     <FREE_KICK_L>{
       if (player.isTeamEast())
-        return atan.model.Controller.PLAY_MODE_FREE_KICK_OTHER;
+        return atan.model.PlayMode.FREE_KICK_OTHER;
       else
-        return atan.model.Controller.PLAY_MODE_FREE_KICK_OWN;
+        return atan.model.PlayMode.FREE_KICK_OWN;
     }|
     <CORNER_KICK_R>{
       if (!player.isTeamEast())
-        return atan.model.Controller.PLAY_MODE_CORNER_KICK_OTHER;
+        return atan.model.PlayMode.CORNER_KICK_OTHER;
       else
-        return atan.model.Controller.PLAY_MODE_CORNER_KICK_OWN;
+        return atan.model.PlayMode.CORNER_KICK_OWN;
     }|
     <CORNER_KICK_L>{
       if (player.isTeamEast())
-        return atan.model.Controller.PLAY_MODE_CORNER_KICK_OTHER;
+        return atan.model.PlayMode.CORNER_KICK_OTHER;
       else
-        return atan.model.Controller.PLAY_MODE_CORNER_KICK_OWN;
+        return atan.model.PlayMode.CORNER_KICK_OWN;
     }|
     <GOAL_KICK_R>{
       if (!player.isTeamEast())
-        return atan.model.Controller.PLAY_MODE_GOAL_KICK_OTHER;
+        return atan.model.PlayMode.GOAL_KICK_OTHER;
       else
-        return atan.model.Controller.PLAY_MODE_GOAL_KICK_OWN;
+        return atan.model.PlayMode.GOAL_KICK_OWN;
     }|
     <GOAL_KICK_L>{
       if (player.isTeamEast())
-        return atan.model.Controller.PLAY_MODE_GOAL_KICK_OTHER;
+        return atan.model.PlayMode.GOAL_KICK_OTHER;
       else
-        return atan.model.Controller.PLAY_MODE_GOAL_KICK_OWN;
+        return atan.model.PlayMode.GOAL_KICK_OWN;
     }|
     <GOAL_R>{
       if (!player.isTeamEast())
-        return atan.model.Controller.PLAY_MODE_GOAL_OTHER;
+        return atan.model.PlayMode.GOAL_OTHER;
       else
-        return atan.model.Controller.PLAY_MODE_GOAL_OWN;
+        return atan.model.PlayMode.GOAL_OWN;
     }|
     <GOAL_L>{
       if (player.isTeamEast())
-        return atan.model.Controller.PLAY_MODE_GOAL_OTHER;
+        return atan.model.PlayMode.GOAL_OTHER;
       else
-        return atan.model.Controller.PLAY_MODE_GOAL_OWN;
+        return atan.model.PlayMode.GOAL_OWN;
     }
   }
 atan.model.RefereeMessage refereeMessage() :
@@ -502,7 +502,7 @@ atan.model.RefereeMessage refereeMessage() :
   }
 
 void startInitCommand() :
-  {Token side=null;int playMode=-1;Token num;} {
+  {Token side=null; atan.model.PlayMode playMode=null;Token num;} {
     (side=<L>|side=<R>){
       player.isTeamEast(side.image.charAt(0) == 'r');
     }

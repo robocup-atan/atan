@@ -32,7 +32,7 @@ public class ParserTest extends TestCase {
 		assertEquals(1, cl.getNumber());
 		assertEquals(1, co.getResult().size());
 		co.getResult().contains(
-				"|infoHearPlayMode|" + Controller.PLAY_MODE_BEFORE_KICK_OFF);
+				"|infoHearPlayMode|" + PlayMode.BEFORE_KICK_OFF);
 	}
 
 	public void testCmdParserInit01() throws ParseException {
@@ -43,7 +43,7 @@ public class ParserTest extends TestCase {
 		assertTrue("player should be right", cl.isTeamEast());
 		assertEquals(1, co.getResult().size());
 		co.getResult().contains(
-				"|infoHearPlayMode|" + Controller.PLAY_MODE_BEFORE_KICK_OFF);
+				"|infoHearPlayMode|" + PlayMode.BEFORE_KICK_OFF);
 	}
 
 	public void testFilterCommand00() throws Exception {
@@ -661,7 +661,7 @@ public class ParserTest extends TestCase {
 		String cmd = "(hear 34 referee play_on)";
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
-		assertResult(cmd, result, "|infoHearPlayMode|3110");
+		assertResult(cmd, result, "|infoHearPlayMode|PlayMode[playOn]");
 	}
 
 	public void testCmdParserHear01() {
@@ -683,7 +683,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_BEFORE_KICK_OFF);
+				+ PlayMode.BEFORE_KICK_OFF);
 	}
 
 	public void testCmdParserInit03() {
@@ -691,7 +691,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_CORNER_KICK_OTHER);
+				+ PlayMode.CORNER_KICK_OTHER);
 	}
 
 	public void testCmdParserInit03a() {
@@ -699,7 +699,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_CORNER_KICK_OTHER);
+				+ PlayMode.CORNER_KICK_OTHER);
 	}
 
 	public void testCmdParserInit04() {
@@ -707,7 +707,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_CORNER_KICK_OWN);
+				+ PlayMode.CORNER_KICK_OWN);
 	}
 
 	public void testCmdParserInit05() {
@@ -715,7 +715,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_CORNER_KICK_OWN);
+				+ PlayMode.CORNER_KICK_OWN);
 	}
 
 	public void testCmdParserInit06() {
@@ -723,7 +723,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_FREE_KICK_OTHER);
+				+ PlayMode.FREE_KICK_OTHER);
 	}
 
 	public void testCmdParserInit07() {
@@ -731,7 +731,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_FREE_KICK_OTHER);
+				+ PlayMode.FREE_KICK_OTHER);
 	}
 
 	public void testCmdParserInit08() {
@@ -739,7 +739,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_FREE_KICK_OWN);
+				+ PlayMode.FREE_KICK_OWN);
 	}
 
 	public void testCmdParserInit09() {
@@ -747,7 +747,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_FREE_KICK_OWN);
+				+ PlayMode.FREE_KICK_OWN);
 	}
 
 	public void testCmdParserInit10() {
@@ -755,7 +755,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_GOAL_KICK_OTHER);
+				+ PlayMode.GOAL_KICK_OTHER);
 	}
 
 	public void testCmdParserInit11() {
@@ -763,7 +763,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_GOAL_KICK_OTHER);
+				+ PlayMode.GOAL_KICK_OTHER);
 	}
 
 	public void testCmdParserInit12() {
@@ -771,7 +771,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_GOAL_KICK_OWN);
+				+ PlayMode.GOAL_KICK_OWN);
 	}
 
 	public void testCmdParserInit13() {
@@ -779,7 +779,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_GOAL_KICK_OWN);
+				+ PlayMode.GOAL_KICK_OWN);
 	}
 
 	public void testCmdParserInit14() {
@@ -787,7 +787,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_GOAL_OTHER);
+				+ PlayMode.GOAL_OTHER);
 	}
 
 	public void testCmdParserInit15() {
@@ -795,7 +795,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_GOAL_OTHER);
+				+ PlayMode.GOAL_OTHER);
 	}
 
 	public void testCmdParserInit16() {
@@ -803,7 +803,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_GOAL_OWN);
+				+ PlayMode.GOAL_OWN);
 	}
 
 	public void testCmdParserInit17() {
@@ -811,7 +811,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_GOAL_OWN);
+				+ PlayMode.GOAL_OWN);
 	}
 
 	public void testCmdParserInit18() {
@@ -819,7 +819,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_KICK_IN_OTHER);
+				+ PlayMode.KICK_IN_OTHER);
 	}
 
 	public void testCmdParserInit19() {
@@ -827,7 +827,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_KICK_IN_OTHER);
+				+ PlayMode.KICK_IN_OTHER);
 	}
 
 	public void testCmdParserInit20() {
@@ -835,7 +835,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_KICK_IN_OWN);
+				+ PlayMode.KICK_IN_OWN);
 	}
 
 	public void testCmdParserInit21() {
@@ -843,7 +843,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_KICK_IN_OWN);
+				+ PlayMode.KICK_IN_OWN);
 	}
 
 	public void testCmdParserInit22() {
@@ -851,7 +851,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_KICK_IN_OWN);
+				+ PlayMode.KICK_IN_OWN);
 	}
 
 	public void testCmdParserInit23() {
@@ -859,7 +859,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_KICK_OFF_OTHER);
+				+ PlayMode.KICK_OFF_OTHER);
 	}
 
 	public void testCmdParserInit24() {
@@ -867,7 +867,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_KICK_OFF_OTHER);
+				+ PlayMode.KICK_OFF_OTHER);
 	}
 
 	public void testCmdParserInit25() {
@@ -875,7 +875,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_KICK_OFF_OWN);
+				+ PlayMode.KICK_OFF_OWN);
 	}
 
 	public void testCmdParserInit26() {
@@ -883,7 +883,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_KICK_OFF_OWN);
+				+ PlayMode.KICK_OFF_OWN);
 	}
 
 	public void testCmdParserInit27() {
@@ -891,7 +891,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_TIME_OVER);
+				+ PlayMode.TIME_OVER);
 	}
 
 	public void testCmdParserInit28() {
@@ -899,7 +899,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_TIME_OVER);
+				+ PlayMode.TIME_OVER);
 	}
 
 	public void testCmdParserHearRefereeA00a() {
@@ -985,7 +985,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_BEFORE_KICK_OFF);
+				+ PlayMode.BEFORE_KICK_OFF);
 	}
 
 	public void testCmdParserHearPlayMode01() {
@@ -993,7 +993,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_FREE_KICK_OWN);
+				+ PlayMode.FREE_KICK_OWN);
 	}
 
 	public void testCmdParserHearPlayMode02() {
@@ -1001,7 +1001,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_KICK_IN_OWN);
+				+ PlayMode.KICK_IN_OWN);
 	}
 
 	public void testCmdParserHearPlayMode03() {
@@ -1009,7 +1009,7 @@ public class ParserTest extends TestCase {
 		Set result = parseCmd(cmd);
 		assertEquals(1, result.size());
 		assertResult(cmd, result, "|infoHearPlayMode|"
-				+ Controller.PLAY_MODE_KICK_IN_OTHER);
+				+ PlayMode.KICK_IN_OTHER);
 	}
 
 	public void testCmdParserSeeMulti() {
