@@ -5,45 +5,43 @@ options {
 }
 PARSER_BEGIN(CmdParser)
   package atan.parser;
-  import java.io.*;
-  import atan.model.*;
 
   public class CmdParser {
 
-    Controller controller;
-    Player player;
+    atan.model.Controller controller;
+    atan.model.Player player;
 
-    public void parseSeeCommand (String cmd, Controller controller, Player player)
+    public void parseSeeCommand (String cmd, atan.model.Controller controller, atan.model.Player player)
         throws ParseException{
-      ReInit(new StringReader(cmd));
+      ReInit(new java.io.StringReader(cmd));
       this.controller = controller;
       this.player = player;
       startSeeCommand();
     }
-    public void parseHearCommand (String cmd, Controller controller, Player player)
+    public void parseHearCommand (String cmd, atan.model.Controller controller, atan.model.Player player)
         throws ParseException{
-      ReInit(new StringReader(cmd));
+      ReInit(new java.io.StringReader(cmd));
       this.controller = controller;
       this.player = player;
       startHearCommand();
     }
-    public void parseInitCommand (String cmd, Controller controller, Player player)
+    public void parseInitCommand (String cmd, atan.model.Controller controller, atan.model.Player player)
         throws ParseException{
-      ReInit(new StringReader(cmd));
+      ReInit(new java.io.StringReader(cmd));
       this.controller = controller;
       this.player = player;
       startInitCommand();
     }
-    public void parseErrorCommand (String cmd, Player player)
+    public void parseErrorCommand (String cmd, atan.model.Player player)
         throws ParseException{
-      ReInit(new StringReader(cmd));
+      ReInit(new java.io.StringReader(cmd));
       this.controller = null;
       this.player = player;
       startErrorCommand();
     }
-    public void parseSenseBodyCommand (String cmd, Controller controller, Player player)
+    public void parseSenseBodyCommand (String cmd, atan.model.Controller controller, atan.model.Player player)
         throws ParseException{
-      ReInit(new StringReader(cmd));
+      ReInit(new java.io.StringReader(cmd));
       this.controller = controller;
       this.player = player;
       startSenseBodyCommand();
@@ -368,7 +366,7 @@ void startHearCommand() :
     )
   }
 void hearReferee() :
-  {int playMode=-1; int refereeMessage=-1;}{
+  {int playMode=-1; atan.model.RefereeMessage refereeMessage=null;}{
     playMode=playMode(){
       controller.infoHearPlayMode(playMode);
     }|
@@ -379,127 +377,127 @@ void hearReferee() :
 int playMode() :
   {}{
      <BEFORE_KICK_OFF>{
-      return Controller.PLAY_MODE_BEFORE_KICK_OFF;
+      return atan.model.Controller.PLAY_MODE_BEFORE_KICK_OFF;
     }|
     <TIME_OVER>{
-      return Controller.PLAY_MODE_TIME_OVER;
+      return atan.model.Controller.PLAY_MODE_TIME_OVER;
     }|
     <PLAY_ON>{
-      return Controller.PLAY_MODE_PLAY_ON;
+      return atan.model.Controller.PLAY_MODE_PLAY_ON;
     }|
     <KICK_OFF_L>{
       if (player.isTeamEast())
-        return Controller.PLAY_MODE_KICK_OFF_OTHER;
+        return atan.model.Controller.PLAY_MODE_KICK_OFF_OTHER;
       else
-        return Controller.PLAY_MODE_KICK_OFF_OWN;
+        return atan.model.Controller.PLAY_MODE_KICK_OFF_OWN;
     }|
     <KICK_OFF_R>{
       if (!player.isTeamEast())
-        return Controller.PLAY_MODE_KICK_OFF_OTHER;
+        return atan.model.Controller.PLAY_MODE_KICK_OFF_OTHER;
       else
-        return Controller.PLAY_MODE_KICK_OFF_OWN;
+        return atan.model.Controller.PLAY_MODE_KICK_OFF_OWN;
     }|
     <KICK_IN_L>{
       if (player.isTeamEast())
-        return Controller.PLAY_MODE_KICK_IN_OTHER;
+        return atan.model.Controller.PLAY_MODE_KICK_IN_OTHER;
       else
-        return Controller.PLAY_MODE_KICK_IN_OWN;
+        return atan.model.Controller.PLAY_MODE_KICK_IN_OWN;
     }|
     <KICK_IN_R>{
       if (!player.isTeamEast())
-        return Controller.PLAY_MODE_KICK_IN_OTHER;
+        return atan.model.Controller.PLAY_MODE_KICK_IN_OTHER;
       else
-        return Controller.PLAY_MODE_KICK_IN_OWN;
+        return atan.model.Controller.PLAY_MODE_KICK_IN_OWN;
     }|
     <FREE_KICK_R>{
       if (!player.isTeamEast())
-        return Controller.PLAY_MODE_FREE_KICK_OTHER;
+        return atan.model.Controller.PLAY_MODE_FREE_KICK_OTHER;
       else
-        return Controller.PLAY_MODE_FREE_KICK_OWN;
+        return atan.model.Controller.PLAY_MODE_FREE_KICK_OWN;
     }|
     <FREE_KICK_L>{
       if (player.isTeamEast())
-        return Controller.PLAY_MODE_FREE_KICK_OTHER;
+        return atan.model.Controller.PLAY_MODE_FREE_KICK_OTHER;
       else
-        return Controller.PLAY_MODE_FREE_KICK_OWN;
+        return atan.model.Controller.PLAY_MODE_FREE_KICK_OWN;
     }|
     <CORNER_KICK_R>{
       if (!player.isTeamEast())
-        return Controller.PLAY_MODE_CORNER_KICK_OTHER;
+        return atan.model.Controller.PLAY_MODE_CORNER_KICK_OTHER;
       else
-        return Controller.PLAY_MODE_CORNER_KICK_OWN;
+        return atan.model.Controller.PLAY_MODE_CORNER_KICK_OWN;
     }|
     <CORNER_KICK_L>{
       if (player.isTeamEast())
-        return Controller.PLAY_MODE_CORNER_KICK_OTHER;
+        return atan.model.Controller.PLAY_MODE_CORNER_KICK_OTHER;
       else
-        return Controller.PLAY_MODE_CORNER_KICK_OWN;
+        return atan.model.Controller.PLAY_MODE_CORNER_KICK_OWN;
     }|
     <GOAL_KICK_R>{
       if (!player.isTeamEast())
-        return Controller.PLAY_MODE_GOAL_KICK_OTHER;
+        return atan.model.Controller.PLAY_MODE_GOAL_KICK_OTHER;
       else
-        return Controller.PLAY_MODE_GOAL_KICK_OWN;
+        return atan.model.Controller.PLAY_MODE_GOAL_KICK_OWN;
     }|
     <GOAL_KICK_L>{
       if (player.isTeamEast())
-        return Controller.PLAY_MODE_GOAL_KICK_OTHER;
+        return atan.model.Controller.PLAY_MODE_GOAL_KICK_OTHER;
       else
-        return Controller.PLAY_MODE_GOAL_KICK_OWN;
+        return atan.model.Controller.PLAY_MODE_GOAL_KICK_OWN;
     }|
     <GOAL_R>{
       if (!player.isTeamEast())
-        return Controller.PLAY_MODE_GOAL_OTHER;
+        return atan.model.Controller.PLAY_MODE_GOAL_OTHER;
       else
-        return Controller.PLAY_MODE_GOAL_OWN;
+        return atan.model.Controller.PLAY_MODE_GOAL_OWN;
     }|
     <GOAL_L>{
       if (player.isTeamEast())
-        return Controller.PLAY_MODE_GOAL_OTHER;
+        return atan.model.Controller.PLAY_MODE_GOAL_OTHER;
       else
-        return Controller.PLAY_MODE_GOAL_OWN;
+        return atan.model.Controller.PLAY_MODE_GOAL_OWN;
     }
   }
-int refereeMessage() :
+atan.model.RefereeMessage refereeMessage() :
   {}{
     <OFFSIDE_R>{
       if (!player.isTeamEast())
-        return Controller.REFREE_MESSAGE_OFFSIDE_OTHER;
+        return atan.model.RefereeMessage.OFFSIDE_OTHER;
       else
-        return Controller.REFREE_MESSAGE_OFFSIDE_OWN;
+        return atan.model.RefereeMessage.OFFSIDE_OWN;
     }|
     <OFFSIDE_L>{
       if (player.isTeamEast())
-        return Controller.REFREE_MESSAGE_OFFSIDE_OTHER;
+        return atan.model.RefereeMessage.OFFSIDE_OTHER;
       else
-        return Controller.REFREE_MESSAGE_OFFSIDE_OWN;
+        return atan.model.RefereeMessage.OFFSIDE_OWN;
     }|
     <FOUL_R>{
       if (!player.isTeamEast())
-        return Controller.REFREE_MESSAGE_FOUL_OTHER;
+        return atan.model.RefereeMessage.FOUL_OTHER;
       else
-        return Controller.REFREE_MESSAGE_FOUL_OWN;
+        return atan.model.RefereeMessage.FOUL_OWN;
     }|
     <FOUL_L>{
       if (player.isTeamEast())
-        return Controller.REFREE_MESSAGE_FOUL_OTHER;
+        return atan.model.RefereeMessage.FOUL_OTHER;
       else
-        return Controller.REFREE_MESSAGE_FOUL_OWN;
+        return atan.model.RefereeMessage.FOUL_OWN;
     }|
     <HALF_TIME>{
-        return Controller.REFREE_MESSAGE_HALF_TIME;
+        return atan.model.RefereeMessage.HALF_TIME;
     }|
     <DROP_BALL>{
-        return Controller.REFREE_MESSAGE_DROP_BALL;
+        return atan.model.RefereeMessage.DROP_BALL;
     }|
     <TIME_UP>{
-        return Controller.REFREE_MESSAGE_TIME_UP;
+        return atan.model.RefereeMessage.TIME_UP;
     }|
     <TIME_UP_WITHOUT_A_TEAM>{
-        return Controller.REFREE_MESSAGE_TIME_UP_WITHOUT_A_TEAM;
+        return atan.model.RefereeMessage.TIME_UP_WITHOUT_A_TEAM;
     }|
     <TIME_EXTENDED>{
-        return Controller.REFREE_MESSAGE_TIME_EXTENDED;
+        return atan.model.RefereeMessage.TIME_EXTENDED;
     }
   }
 
@@ -551,13 +549,13 @@ void startSenseBodyCommand() : {
       Integer iSay = new Integer(say.image);
       Integer iTurnNeck = new Integer(turnNeck.image);
       switch(viewModeQual.image.charAt(0)){
-        case 'h': iViewModeQual=Controller.VIEW_QUALITY_HIGH; break;
-        case 'l': iViewModeQual=Controller.VIEW_QUALITY_LOW; break;
+        case 'h': iViewModeQual=atan.model.Controller.VIEW_QUALITY_HIGH; break;
+        case 'l': iViewModeQual=atan.model.Controller.VIEW_QUALITY_LOW; break;
       }
       switch(viewModeAngle.image.charAt(1)){
-        case 'i': iViewModeAngle=Controller.VIEW_ANGLE_WIDE; break;
-        case 'a': iViewModeAngle=Controller.VIEW_ANGLE_NARROW; break;
-        case 'o': iViewModeAngle=Controller.VIEW_ANGLE_NORMAL; break;
+        case 'i': iViewModeAngle=atan.model.Controller.VIEW_ANGLE_WIDE; break;
+        case 'a': iViewModeAngle=atan.model.Controller.VIEW_ANGLE_NARROW; break;
+        case 'o': iViewModeAngle=atan.model.Controller.VIEW_ANGLE_NORMAL; break;
       }
       controller.infoSenseBody(iViewModeQual, iViewModeAngle,
         dStamina.doubleValue(), dSpeed.doubleValue(), dHeadAngle.doubleValue(),

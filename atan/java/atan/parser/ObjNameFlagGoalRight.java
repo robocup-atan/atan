@@ -7,16 +7,16 @@ class ObjNameFlagGoalRight implements ObjName {
     }
     public void infoSeeFromEast(Controller c, double dist, double dir) {
       switch (qualifier) {
-        case 't': c.infoSeeFlagGoalOwn(Controller.FLAG_RIGHT, dist, dir); break;
-        case 'b': c.infoSeeFlagGoalOwn(Controller.FLAG_LEFT, dist, dir); break;
-        default : c.infoSeeFlagGoalOwn(Controller.FLAG_CENTER, dist, dir); break;
+        case 't': c.infoSeeFlagGoalOwn(Flag.FLAG_RIGHT, dist, dir); break;
+        case 'b': c.infoSeeFlagGoalOwn(Flag.FLAG_LEFT, dist, dir); break;
+        default : c.infoSeeFlagGoalOwn(Flag.FLAG_CENTER, dist, dir); break;
       }
     }
     public void infoSeeFromWest(Controller c, double dist, double dir) {
       switch (qualifier) {
-        case 't': c.infoSeeFlagGoalOther(Controller.FLAG_LEFT, dist, dir); break;
-        case 'b': c.infoSeeFlagGoalOther(Controller.FLAG_RIGHT, dist, dir); break;
-        default : c.infoSeeFlagGoalOther(Controller.FLAG_CENTER, dist, dir); break;
+        case 't': c.infoSeeFlagGoalOther(Flag.FLAG_LEFT, dist, dir); break;
+        case 'b': c.infoSeeFlagGoalOther(Flag.FLAG_RIGHT, dist, dir); break;
+        default : c.infoSeeFlagGoalOther(Flag.FLAG_CENTER, dist, dir); break;
       }
     }
 }

@@ -1,6 +1,7 @@
 package atan.test;
 
 import atan.model.*;
+
 import java.util.*;
 
 public class TestController implements Controller {
@@ -20,7 +21,7 @@ public class TestController implements Controller {
   }
   public void setPlayer(Player p) {}
 
-  public void infoSeeFlagRight(int id, double distance, double direction) {
+  public void infoSeeFlagRight(Flag id, double distance, double direction) {
     StringBuffer b = new StringBuffer();
     b.append("|");b.append("infoSeeFlagRight");
     b.append("|");b.append(id);
@@ -28,7 +29,7 @@ public class TestController implements Controller {
     b.append("|");b.append(direction);
     result.add(b.toString());
   }
-  public void infoSeeFlagLeft(int id, double distance, double direction) {
+  public void infoSeeFlagLeft(Flag id, double distance, double direction) {
     StringBuffer b = new StringBuffer();
     b.append("|");b.append("infoSeeFlagLeft");
     b.append("|");b.append(id);
@@ -36,7 +37,7 @@ public class TestController implements Controller {
     b.append("|");b.append(direction);
     result.add(b.toString());
   }
-  public void infoSeeFlagOwn(int id, double distance, double direction) {
+  public void infoSeeFlagOwn(Flag id, double distance, double direction) {
     StringBuffer b = new StringBuffer();
     b.append("|");b.append("infoSeeFlagOwn");
     b.append("|");b.append(id);
@@ -44,7 +45,7 @@ public class TestController implements Controller {
     b.append("|");b.append(direction);
     result.add(b.toString());
   }
-  public void infoSeeFlagOther(int id, double distance, double direction) {
+  public void infoSeeFlagOther(Flag id, double distance, double direction) {
     StringBuffer b = new StringBuffer();
     b.append("|");b.append("infoSeeFlagOther");
     b.append("|");b.append(id);
@@ -52,7 +53,7 @@ public class TestController implements Controller {
     b.append("|");b.append(direction);
     result.add(b.toString());
   }
-  public void infoSeeFlagCenter(int id, double distance, double direction) {
+  public void infoSeeFlagCenter(Flag id, double distance, double direction) {
     StringBuffer b = new StringBuffer();
     b.append("|");b.append("infoSeeFlagCenter");
     b.append("|");b.append(id);
@@ -60,7 +61,7 @@ public class TestController implements Controller {
     b.append("|");b.append(direction);
     result.add(b.toString());
   }
-  public void infoSeeFlagCornerOwn(int id, double distance, double direction) {
+  public void infoSeeFlagCornerOwn(Flag id, double distance, double direction) {
     StringBuffer b = new StringBuffer();
     b.append("|");b.append("infoSeeFlagCornerOwn");
     b.append("|");b.append(id);
@@ -68,7 +69,7 @@ public class TestController implements Controller {
     b.append("|");b.append(direction);
     result.add(b.toString());
   }
-  public void infoSeeFlagCornerOther(int id, double distance, double direction) {
+  public void infoSeeFlagCornerOther(Flag id, double distance, double direction) {
     StringBuffer b = new StringBuffer();
     b.append("|");b.append("infoSeeFlagCornerOther");
     b.append("|");b.append(id);
@@ -76,7 +77,7 @@ public class TestController implements Controller {
     b.append("|");b.append(direction);
     result.add(b.toString());
   }
-  public void infoSeeFlagPenaltyOwn(int id, double distance, double direction) {
+  public void infoSeeFlagPenaltyOwn(Flag id, double distance, double direction) {
     StringBuffer b = new StringBuffer();
     b.append("|");b.append("infoSeeFlagPenaltyOwn");
     b.append("|");b.append(id);
@@ -84,7 +85,7 @@ public class TestController implements Controller {
     b.append("|");b.append(direction);
     result.add(b.toString());
   }
-  public void infoSeeFlagPenaltyOther(int id, double distance, double direction) {
+  public void infoSeeFlagPenaltyOther(Flag id, double distance, double direction) {
     StringBuffer b = new StringBuffer();
     b.append("|");b.append("infoSeeFlagPenaltyOther");
     b.append("|");b.append(id);
@@ -92,7 +93,7 @@ public class TestController implements Controller {
     b.append("|");b.append(direction);
     result.add(b.toString());
   }
-  public void infoSeeFlagGoalOwn(int id, double distance, double direction) {
+  public void infoSeeFlagGoalOwn(Flag id, double distance, double direction) {
     StringBuffer b = new StringBuffer();
     b.append("|");b.append("infoSeeFlagGoalOwn");
     b.append("|");b.append(id);
@@ -100,7 +101,7 @@ public class TestController implements Controller {
     b.append("|");b.append(direction);
     result.add(b.toString());
   }
-  public void infoSeeFlagGoalOther(int id, double distance, double direction) {
+  public void infoSeeFlagGoalOther(Flag id, double distance, double direction) {
     StringBuffer b = new StringBuffer();
     b.append("|");b.append("infoSeeFlagGoalOther");
     b.append("|");b.append(id);
@@ -108,7 +109,7 @@ public class TestController implements Controller {
     b.append("|");b.append(direction);
     result.add(b.toString());
   }
-  public void infoSeeLine(int id, double distance, double direction) {
+  public void infoSeeLine(Line id, double distance, double direction) {
     StringBuffer b = new StringBuffer();
     b.append("|");b.append("infoSeeLine");
     b.append("|");b.append(id);
@@ -139,7 +140,7 @@ public class TestController implements Controller {
     b.append("|");b.append(direction);
     result.add(b.toString());
   }
-  public void infoHearReferee(int message) {
+  public void infoHearReferee(RefereeMessage message) {
     StringBuffer b = new StringBuffer();
     b.append("|");b.append("infoHearReferee");
     b.append("|");b.append(message);

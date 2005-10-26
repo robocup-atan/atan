@@ -1,119 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project basedir="." default="all" name="atan">
 
-    <property name="version" value="0_04"/>
+	<property name="version" value="0_04" />
 
-    <property name="hp" value="/home/wolfi/pgm/tomcat/webapps/atan"/>
-    <property name="junit" value="d:/pgm/junit/junit.jar"/>
-    <property name="javacc" value="d:/pgm/javacc/bin/lib/javacc.jar"/>
-    <property name="keyfile" value="c:/ssh/id_rsa"/>
+	<property name="hp" value="/home/wolfi/pgm/tomcat/webapps/atan" />
+	<property name="javacc_home" value="d:/pgm/javacc-3.2" />
+	<property name="keyfile" value="c:/ssh/id_rsa" />
 
-    <property name="classes" value="classes"/>
-    <property name="work" value="work"/>
+	<property name="classes" value="classes" />
+	<property name="work" value="work" />
 
-    <target depends="buildzip, hptgz" name="all"/>
+	<target depends="buildzip, hptgz" name="all" />
 
-    <target name="clear">
-        <delete dir="${classes}" quiet="true"/>
-        <delete dir="${hp}" quiet="true"/>
-        <delete file="${work}/atan_${version}.zip" quiet="true"/>
-        <delete file="${work}/atanhp.tgz" quiet="true"/>
-        <delete dir="${work}/atan_${version}" quiet="true"/>
-    </target>
+	<target name="clear">
+		<delete dir="${hp}" quiet="true" />
+		<delete file="${work}/atan_${version}.zip" quiet="true" />
+		<delete file="${work}/atanhp.tgz" quiet="true" />
+		<delete dir="${work}/atan_${version}" quiet="true" />
+	</target>
 
-    <target depends="compile" name="test">
-        <java classname="atan.test.AllTest" fork="yes">
-            <classpath>
-                <pathelement path="${classes}"/>
-                <pathelement location="${junit}"/>
-            </classpath>
-        </java>
-    </target>
+	<target name="javacc">
+		<mkdir dir="gen/atan/parser" />
+		<javacc target="java/atan/parser/CmdParser.jj" outputdirectory="gen/atan/parser" javacchome="D:/pgm/javacc-3.2" static="false"  />
+	</target>
 
-    <target depends="javacc" name="compile">
-        <mkdir dir="${classes}"/>
-        <javac classpath="${junit}" destdir="${classes}">
-            <src>
-                <path path="${classes};."/>
-            </src>
-        </javac>
-    </target>
+	<target depends="jdoc, j2h" name="hp">
+		<mkdir dir="${hp}" />
+		<copy todir="${hp}">
+			<fileset dir="doc" includes="*.html, *.css, *.png, *.jpg" />
+			<fileset dir="doc" includes="WEB-INF/*" />
+		</copy>
+	</target>
 
-    <target name="javacc">
-        <mkdir dir="gen/atan/parser"/>
-        <java classname="javacc" fork="yes">
-            <classpath>
-                <pathelement location="${javacc}"/>
-            </classpath>
-            <arg value="-output_directory=gen/atan/parser"/>
-            <arg value="-static=false"/>
-            <arg value="-build_parser=true"/>
-            <arg value="-build_token_manager=true"/>
-            <arg value="-force_la_check=false"/>
-            <arg value="-lookahead=2"/>
-            <arg value="-user_char_stream=false"/>
-            <arg value="java/atan/parser/CmdParser.jj"/>
-        </java>
-    </target>
-    <target depends="jdoc, j2h" name="hp">
-        <mkdir dir="${hp}"/>
-        <copy todir="${hp}">
-            <fileset dir="doc" includes="*.html, *.css, *.png, *.jpg"/>
-            <fileset dir="doc" includes="WEB-INF/*"/>
-        </copy>
-    </target>
+	<target depends="hp" name="hptgz">
+		<tar basedir="${hp}" includes="**/*" tarfile="${work}/atanhp.tar" />
+		<gzip src="${work}/atanhp.tar" zipfile="${work}/atanhp.tgz" />
+		<delete file="${work}/atanhp.tar" />
+		<scp file="${work}/atanhp.tgz" keyfile="${keyfile}" passphrase="" todir="wwan@wodka.sourceforge.net:/home/groups/a/at/atan1/htdocs" trust="true" />
+		<sshexec command="tar -xzf /home/groups/a/at/atan1/htdocs/atanhp.tgz -C /home/groups/a/at/atan1/htdocs" host="wodka.sourceforge.net" keyfile="${keyfile}" trust="true" username="wwan" />
+	</target>
 
-    <target depends="hp" name="hptgz">
-        <tar basedir="${hp}" includes="**/*" tarfile="${work}/atanhp.tar"/>
-        <gzip src="${work}/atanhp.tar" zipfile="${work}/atanhp.tgz"/>
-        <delete file="${work}/atanhp.tar"/>
-        <scp file="${work}/atanhp.tgz" keyfile="${keyfile}" passphrase="" todir="wwan@wodka.sourceforge.net:/home/groups/a/at/atan1/htdocs" trust="true"/>
-        <sshexec command="tar -xzf /home/groups/a/at/atan1/htdocs/atanhp.tgz -C /home/groups/a/at/atan1/htdocs" host="wodka.sourceforge.net" keyfile="${keyfile}" trust="true" username="wwan"/>
-    </target>
+	<target name="jdoc">
+		<mkdir dir="${hp}/javadoc" />
+		<javadoc classpath="${junit}" destdir="${hp}/javadoc" packagenames="atan.*" windowtitle="atan API">
+			<doctitle>
+				<![CDATA[<h1>atan</h1>]]></doctitle>
+		<bottom>
+			<![CDATA[<i>sserver java interface.</i>]]></bottom>
+	<sourcepath>
+		<pathelement path="." />
+		<pathelement path="${classes}" />
+	</sourcepath>
 
-    <target name="jdoc">
-        <mkdir dir="${hp}/javadoc"/>
-        <javadoc classpath="${junit}"  destdir="${hp}/javadoc" packagenames="atan.*" windowtitle="atan API">
-            <doctitle><![CDATA[<h1>atan</h1>]]></doctitle>
-            <bottom><![CDATA[<i>sserver java interface.</i>]]></bottom>
-            <sourcepath>
-                <pathelement path="."/>
-                <pathelement path="${classes}"/>
-            </sourcepath>
+</javadoc>
+</target>
 
-        </javadoc>
-    </target>
+<target name="j2h">
+<mkdir dir="${hp}/java2html" />
+<java fork="true" jar="d:/pgm/j2h/j2h.jar">
+	<arg line="-d ${hp}/java2html -jd ${hp}/java2html -n atan" />
+</java>
+</target>
 
-    <target name="j2h">
-        <mkdir dir="${hp}/java2html"/>
-        <java fork="true" jar="d:/pgm/j2h/j2h.jar">
-            <arg line="-d ${hp}/java2html -jd ${hp}/java2html -n atan"/>
-        </java>
-    </target>
+<target depends="javacc" name="build">
+<property name="build" value="${work}/atan_${version}" />
+<mkdir dir="${build}" />
+<jar jarfile="${build}/atan.jar">
+	<fileset dir="${classes}">
+		<exclude name="atan/test/**/*,sample/**/*" />
+		<include name="**/*.class" />
+	</fileset>
+	<fileset dir="." includes="res/**/*" />
+</jar>
+<copy todir="${build}">
+	<fileset dir="." includes="*.txt" />
+</copy>
+<zip zipfile="${build}/src.zip">
+	<fileset dir="." includes="**/*" />
+</zip>
+<copy todir="${build}">
+	<fileset dir="." includes="sample/**/*" />
+</copy>
+</target>
 
-    <target depends="test" name="build">
-        <property name="build" value="${work}/atan_${version}"/>
-        <mkdir dir="${build}"/>
-        <jar jarfile="${build}/atan.jar">
-            <fileset dir="${work}/classes">
-                <exclude name="atan/test/**/*,sample/**/*"/>
-                <include name="**/*.class"/>
-            </fileset>
-            <fileset dir="." includes="res/**/*"/>
-        </jar>
-        <copy todir="${build}">
-            <fileset dir="." includes="*.txt"/>
-        </copy>
-        <zip zipfile="${build}/src.zip">
-            <fileset dir="." includes="**/*"/>
-        </zip>
-        <copy todir="${build}">
-            <fileset dir="." includes="sample/**/*"/>
-        </copy>
-    </target>
-
-    <target depends="build" name="buildzip">
-        <zip basedir="${work}" includes="atan_${version}/**/*" zipfile="${work}/atan_${version}.zip"/>
-    </target>
+<target depends="build" name="buildzip">
+<zip basedir="${work}" includes="atan_${version}/**/*" zipfile="${work}/atan_${version}.zip" />
+</target>
 
 </project>
