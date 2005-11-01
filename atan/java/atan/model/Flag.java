@@ -5,8 +5,6 @@ import org.apache.commons.lang.enums.Enum;
 public class Flag extends Enum {
 
 	  public static final Flag FLAG_CENTER = new Flag("center");
-	  public static final Flag FLAG_OWN = new Flag("own");
-	  public static final Flag FLAG_OTHER = new Flag("other");
 	  public static final Flag FLAG_LEFT = new Flag("left");
 	  public static final Flag FLAG_RIGHT = new Flag("right");
 	  public static final Flag FLAG_OWN_50 = new Flag("own50");
