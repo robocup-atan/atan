@@ -21,7 +21,7 @@ public interface Player {
   public void handleError(String error);
   public String getTeamName();
   public boolean isTeamEast();
-  public void isTeamEast(boolean is);
+  public void setTeamEast(boolean is);
   public void setNumber(int num);
   public int getNumber();
 

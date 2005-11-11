@@ -70,7 +70,7 @@ public class SServerPlayer extends UDPClient implements Player {
         }
     }
 
-    public void isTeamEast(boolean is) {
+    public void setTeamEast(boolean is) {
         this.isTeamEast = is;
     }
 

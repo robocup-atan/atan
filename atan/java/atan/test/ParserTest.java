@@ -1055,7 +1055,7 @@ public class ParserTest extends TestCase {
 		filterCommand(s, f);
 		TestController c = new TestController();
 		DummyPlayer player = new DummyPlayer();
-		player.isTeamEast(true);
+		player.setTeamEast(true);
 		player.setTeamName("teamEast");
 		if (f.isTypeSee())
 			getCmdParser().parseSeeCommand(f.getCommand(), c, player);

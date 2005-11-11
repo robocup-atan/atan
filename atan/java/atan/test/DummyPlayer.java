@@ -39,7 +39,7 @@ public class DummyPlayer implements Player {
   public void setTeamName(String n) {
     name = n;
   }
-  public void isTeamEast(boolean isTeamEast){
+  public void setTeamEast(boolean isTeamEast){
     this.isTeamEast = isTeamEast;
     buf.append("|isTeamEast");
     buf.append("|");

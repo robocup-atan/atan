@@ -504,7 +504,7 @@ atan.model.RefereeMessage refereeMessage() :
 void startInitCommand() :
   {Token side=null; atan.model.PlayMode playMode=null;Token num;} {
     (side=<L>|side=<R>){
-      player.isTeamEast(side.image.charAt(0) == 'r');
+      player.setTeamEast(side.image.charAt(0) == 'r');
     }
     <SEP>num=<NUM>{
       Integer iNum = new Integer(num.image);

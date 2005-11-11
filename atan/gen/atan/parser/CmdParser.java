@@ -745,7 +745,7 @@
       jj_consume_token(-1);
       throw new ParseException();
     }
-      player.isTeamEast(side.image.charAt(0) == 'r');
+      player.setTeamEast(side.image.charAt(0) == 'r');
     jj_consume_token(SEP);
     num = jj_consume_token(NUM);
       Integer iNum = new Integer(num.image);
