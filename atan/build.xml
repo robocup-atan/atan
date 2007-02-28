@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project basedir="." default="all" name="atan">
 
-	<property name="version" value="0_05" />
+	<property name="version" value="0_05_1" />
 
 	<property name="hp" value="/home/wolfi/pgm/tomcat/webapps/atan" />
 	<property name="keyfile" value="c:/ssh/id_rsa" />
