@@ -56,6 +56,7 @@ public class SServerPlayer extends UDPClient implements Player {
      * Method description
      * @return
      */
+    @Override
     public String getInitMessage() {
         return initMessage;
     }
@@ -73,6 +74,7 @@ public class SServerPlayer extends UDPClient implements Player {
     /**
      * Method description
      */
+    @Override
     public void start() {
         throw new Error("SServerPlayer should not use start. Use connect() instead");
     }
@@ -82,6 +84,7 @@ public class SServerPlayer extends UDPClient implements Player {
      * @param msg
      * @throws IOException
      */
+    @Override
     public void received(String msg) throws IOException {
         try {
             if (log.isDebugEnabled()) {
@@ -106,6 +109,7 @@ public class SServerPlayer extends UDPClient implements Player {
      * Method description
      * @param is
      */
+    @Override
     public void setTeamEast(boolean is) {
         this.isTeamEast = is;
     }
@@ -114,6 +118,7 @@ public class SServerPlayer extends UDPClient implements Player {
      * Method description
      * @param power
      */
+    @Override
     public void dash(int power) {
         this.commandFactory.addDashCommand(power);
     }
@@ -123,6 +128,7 @@ public class SServerPlayer extends UDPClient implements Player {
      * @param power
      * @param direction
      */
+    @Override
     public void kick(int power, double direction) {
         this.commandFactory.addKickCommand(power, (int) direction);
     }
@@ -132,6 +138,7 @@ public class SServerPlayer extends UDPClient implements Player {
      * @param x
      * @param y
      */
+    @Override
     public void move(int x, int y) {
         this.commandFactory.addMoveCommand(x, y);
     }
@@ -140,6 +147,7 @@ public class SServerPlayer extends UDPClient implements Player {
      * Method description
      * @param message
      */
+    @Override
     public void say(String message) {
         this.commandFactory.addSayCommand(message);
     }
@@ -147,6 +155,7 @@ public class SServerPlayer extends UDPClient implements Player {
     /**
      * Method description
      */
+    @Override
     public void senseBody() {
         this.commandFactory.addSenseBodyCommand();
     }
@@ -155,6 +164,7 @@ public class SServerPlayer extends UDPClient implements Player {
      * Method description
      * @param angle
      */
+    @Override
     public void turn(double angle) {
         this.commandFactory.addTurnCommand((int) angle);
     }
@@ -163,12 +173,14 @@ public class SServerPlayer extends UDPClient implements Player {
      * Method description
      * @param angle
      */
+    @Override
     public void turnNeck(double angle) {}
 
     /**
      * Method description
      * @param direction
      */
+    @Override
     public void catchBall(double direction) {
         this.commandFactory.addCatchCommand((int) direction);
     }
@@ -178,6 +190,7 @@ public class SServerPlayer extends UDPClient implements Player {
      * @param quality
      * @param angle
      */
+    @Override
     public void changeViewMode(ViewQuality quality, ViewAngle angle) {
         this.commandFactory.addChangeViewCommand(quality, angle);
     }
@@ -185,6 +198,7 @@ public class SServerPlayer extends UDPClient implements Player {
     /**
      * Method description
      */
+    @Override
     public void bye() {
         this.commandFactory.addByeCommand();
     }
@@ -193,6 +207,7 @@ public class SServerPlayer extends UDPClient implements Player {
      * Method description
      * @return
      */
+    @Override
     public String getTeamName() {
         return teamName;
     }
@@ -201,6 +216,7 @@ public class SServerPlayer extends UDPClient implements Player {
      * Method description
      * @param num
      */
+    @Override
     public void setNumber(int num) {
         number = num;
     }
@@ -209,6 +225,7 @@ public class SServerPlayer extends UDPClient implements Player {
      * Method description
      * @return
      */
+    @Override
     public int getNumber() {
         return number;
     }
@@ -217,6 +234,7 @@ public class SServerPlayer extends UDPClient implements Player {
      * Method description
      * @return
      */
+    @Override
     public boolean isTeamEast() {
         return isTeamEast;
     }
@@ -245,6 +263,7 @@ public class SServerPlayer extends UDPClient implements Player {
      * Method description
      * @return
      */
+    @Override
     public String toStateString() {
         StringBuffer buf = new StringBuffer();
         buf.append(super.toStateString());
@@ -267,6 +286,7 @@ public class SServerPlayer extends UDPClient implements Player {
      * Method description
      * @param error
      */
+    @Override
     public void handleError(String error) {
         log.error(error);
     }
@@ -275,6 +295,7 @@ public class SServerPlayer extends UDPClient implements Player {
      * Method description
      * @return
      */
+    @Override
     protected String getDescription() {
         StringBuffer nam = new StringBuffer(getTeamName());
         nam.append(" ");
@@ -301,6 +322,7 @@ public class SServerPlayer extends UDPClient implements Player {
          * Method description
          * @param cmd
          */
+        @Override
         public void seeCommand(String cmd) {
             seeCommand = cmd;
         }
@@ -309,6 +331,7 @@ public class SServerPlayer extends UDPClient implements Player {
          * Method description
          * @param cmd
          */
+        @Override
         public void hearCommand(String cmd) {
             hearCommand = cmd;
         }
@@ -317,6 +340,7 @@ public class SServerPlayer extends UDPClient implements Player {
          * Method description
          * @param cmd
          */
+        @Override
         public void senseBodyCommand(String cmd) {
             senseBodyCommand = cmd;
         }
@@ -325,6 +349,7 @@ public class SServerPlayer extends UDPClient implements Player {
          * Method description
          * @param cmd
          */
+        @Override
         public void initCommand(String cmd) {
             initCommand = cmd;
         }
@@ -333,6 +358,7 @@ public class SServerPlayer extends UDPClient implements Player {
          * Method description
          * @param cmd
          */
+        @Override
         public void errorCommand(String cmd) {
             errorCommand = cmd;
         }

@@ -26,6 +26,7 @@ class ObjNameFlagCornerLeft implements ObjName {
      * @param dist
      * @param dir
      */
+    @Override
     public void infoSeeFromEast(Controller c, double dist, double dir) {
         switch (qualifier) {
             case 't' :
@@ -46,6 +47,7 @@ class ObjNameFlagCornerLeft implements ObjName {
      * @param dist
      * @param dir
      */
+    @Override
     public void infoSeeFromWest(Controller c, double dist, double dir) {
         switch (qualifier) {
             case 't' :

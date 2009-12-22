@@ -25,6 +25,7 @@ class ObjNamePlayerEast implements ObjName {
      * @param dist
      * @param dir
      */
+    @Override
     public void infoSeeFromEast(Controller c, double dist, double dir) {
         c.infoSeePlayerOwn(number, dist, dir);
     }
@@ -35,6 +36,7 @@ class ObjNamePlayerEast implements ObjName {
      * @param dist
      * @param dir
      */
+    @Override
     public void infoSeeFromWest(Controller c, double dist, double dir) {
         c.infoSeePlayerOther(number, dist, dir);
     }

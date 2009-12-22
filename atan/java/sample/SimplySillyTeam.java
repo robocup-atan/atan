@@ -26,6 +26,7 @@ public class SimplySillyTeam extends Team {
      * @param number
      * @return
      */
+    @Override
     public Controller getNewController(int number) {
         if (number == 0) {
             return new Silly();

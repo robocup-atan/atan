@@ -16,6 +16,7 @@ class ObjNameBall implements ObjName {
      * @param dist
      * @param dir
      */
+    @Override
     public void infoSeeFromEast(Controller c, double dist, double dir) {
         c.infoSeeBall(dist, dir);
     }
@@ -26,6 +27,7 @@ class ObjNameBall implements ObjName {
      * @param dist
      * @param dir
      */
+    @Override
     public void infoSeeFromWest(Controller c, double dist, double dir) {
         c.infoSeeBall(dist, dir);
     }

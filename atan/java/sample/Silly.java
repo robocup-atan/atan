@@ -26,6 +26,7 @@ public class Silly implements Controller {
     /**
      * Method description
      */
+    @Override
     public void preInfo() {
         distBall    = 1000;
         minDistLine = 1000;
@@ -34,6 +35,7 @@ public class Silly implements Controller {
     /**
      * Method description
      */
+    @Override
     public void postInfo() {
         if (distBall < 10) {
             getPlayer().turn(10.0);
@@ -50,6 +52,7 @@ public class Silly implements Controller {
      * Method description
      * @return
      */
+    @Override
     public Player getPlayer() {
         return player;
     }
@@ -58,6 +61,7 @@ public class Silly implements Controller {
      * Method description
      * @param p
      */
+    @Override
     public void setPlayer(Player p) {
         player = p;
     }
@@ -68,6 +72,7 @@ public class Silly implements Controller {
      * @param dist
      * @param dir
      */
+    @Override
     public void infoSeeLine(Line id, double dist, double dir) {
         if (dist < minDistLine) {
             minDistLine = dist;
@@ -79,6 +84,7 @@ public class Silly implements Controller {
      * @param dist
      * @param dir
      */
+    @Override
     public void infoSeeBall(double dist, double dir) {
         distBall = dist;
     }
@@ -87,6 +93,7 @@ public class Silly implements Controller {
      * Method description
      * @param playMode
      */
+    @Override
     public void infoHearPlayMode(PlayMode playMode) {
         if (playMode == PlayMode.BEFORE_KICK_OFF) {
             getPlayer().move(-30, 30);
@@ -97,6 +104,7 @@ public class Silly implements Controller {
      * Method description
      * @param msg
      */
+    @Override
     public void infoHearReferee(RefereeMessage msg) {}
 
     /**
@@ -104,6 +112,7 @@ public class Silly implements Controller {
      * @param parm1
      * @param parm2
      */
+    @Override
     public void infoHear(double parm1, String parm2) {}
 
     /**
@@ -119,6 +128,7 @@ public class Silly implements Controller {
      * @param parm9
      * @param parm10
      */
+    @Override
     public void infoSenseBody(ViewQuality parm1, ViewAngle parm2, double parm3, double parm4, double parm5, int parm6,
                               int parm7, int parm8, int parm9, int parm10) {}
 
@@ -128,6 +138,7 @@ public class Silly implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagRight(Flag flag, double distance, double direction) {}
 
     /**
@@ -136,6 +147,7 @@ public class Silly implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagLeft(Flag flag, double distance, double direction) {}
 
     /**
@@ -144,6 +156,7 @@ public class Silly implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagOwn(Flag flag, double distance, double direction) {}
 
     /**
@@ -152,6 +165,7 @@ public class Silly implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagOther(Flag flag, double distance, double direction) {}
 
     /**
@@ -160,6 +174,7 @@ public class Silly implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagCenter(Flag flag, double distance, double direction) {}
 
     /**
@@ -168,6 +183,7 @@ public class Silly implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagCornerOwn(Flag flag, double distance, double direction) {}
 
     /**
@@ -176,6 +192,7 @@ public class Silly implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagCornerOther(Flag flag, double distance, double direction) {}
 
     /**
@@ -184,6 +201,7 @@ public class Silly implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagPenaltyOwn(Flag flag, double distance, double direction) {}
 
     /**
@@ -192,6 +210,7 @@ public class Silly implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagPenaltyOther(Flag flag, double distance, double direction) {}
 
     /**
@@ -200,6 +219,7 @@ public class Silly implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagGoalOwn(Flag flag, double distance, double direction) {}
 
     /**
@@ -208,6 +228,7 @@ public class Silly implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagGoalOther(Flag flag, double distance, double direction) {}
 
     /**
@@ -216,6 +237,7 @@ public class Silly implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeePlayerOther(int num, double distance, double direction) {}
 
     /**
@@ -224,5 +246,6 @@ public class Silly implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeePlayerOwn(int num, double distance, double direction) {}
 }

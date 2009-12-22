@@ -71,6 +71,7 @@ public class ByteBuffer extends ByteArrayOutputStream {
     /**
      * Method description
      */
+    @Override
     public void reset() {
         super.reset();
         for (int i = 0; i < buf.length; i++) {

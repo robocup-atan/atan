@@ -22,6 +22,7 @@ public class PingPongServer extends UDPServer {
      * @param msg
      * @return
      */
+    @Override
     public String respondTo(String msg) {
         System.out.println("received: " + msg);
         return "hallo client";

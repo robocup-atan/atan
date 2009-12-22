@@ -28,6 +28,7 @@ public class DummyPlayer implements Player {
      * Method description
      * @param direction
      */
+    @Override
     public void catchBall(double direction) {}
 
     /**
@@ -35,12 +36,14 @@ public class DummyPlayer implements Player {
      * @param qal
      * @param angle
      */
+    @Override
     public void changeViewMode(ViewQuality qal, ViewAngle angle) {}
 
     /**
      * Method description
      * @param power
      */
+    @Override
     public void dash(int power) {}
 
     /**
@@ -48,35 +51,41 @@ public class DummyPlayer implements Player {
      * @param x
      * @param y
      */
+    @Override
     public void move(int x, int y) {}
 
     /**
      * Method description
      * @param message
      */
+    @Override
     public void say(String message) {}
 
     /**
      * Method description
      */
+    @Override
     public void senseBody() {}
 
     /**
      * Method description
      * @param angle
      */
+    @Override
     public void turn(double angle) {}
 
     /**
      * Method description
      * @param angle
      */
+    @Override
     public void turnNeck(double angle) {}
 
     /**
      * Method description
      * @param error
      */
+    @Override
     public void handleError(String error) {
         buf.append("|error");
         buf.append("|");
@@ -87,6 +96,7 @@ public class DummyPlayer implements Player {
      * Method description
      * @return
      */
+    @Override
     public boolean isTeamEast() {
         return isTeamEast;
     }
@@ -95,6 +105,7 @@ public class DummyPlayer implements Player {
      * Method description
      * @return
      */
+    @Override
     public String getTeamName() {
         return name;
     }
@@ -111,6 +122,7 @@ public class DummyPlayer implements Player {
      * Method description
      * @param isTeamEast
      */
+    @Override
     public void setTeamEast(boolean isTeamEast) {
         this.isTeamEast = isTeamEast;
         buf.append("|isTeamEast");
@@ -141,6 +153,7 @@ public class DummyPlayer implements Player {
      * Method description
      * @param num
      */
+    @Override
     public void setNumber(int num) {
         number = num;
     }
@@ -149,6 +162,7 @@ public class DummyPlayer implements Player {
      * Method description
      * @return
      */
+    @Override
     public int getNumber() {
         return number;
     }
@@ -156,6 +170,7 @@ public class DummyPlayer implements Player {
     /**
      * Method description
      */
+    @Override
     public void bye() {}
 
     /**
@@ -163,6 +178,7 @@ public class DummyPlayer implements Player {
      * @param power
      * @param direction
      */
+    @Override
     public void kick(int power, double direction) {}
 
     /**

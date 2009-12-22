@@ -27,6 +27,7 @@ public class PingPongClient extends UDPClient {
      * Method description
      * @return
      */
+    @Override
     public String getInitMessage() {
         return "hallo server";
     }
@@ -36,6 +37,7 @@ public class PingPongClient extends UDPClient {
      * @param msg
      * @throws IOException
      */
+    @Override
     public void received(String msg) throws IOException {
         System.out.println("Client received: " + msg + " count: " + counter++);
         send("hallo server. Received already " + counter);

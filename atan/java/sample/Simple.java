@@ -52,6 +52,7 @@ public class Simple implements Controller {
      * Method description
      * @return
      */
+    @Override
     public Player getPlayer() {
         return player;
     }
@@ -60,6 +61,7 @@ public class Simple implements Controller {
      * Method description
      * @param p
      */
+    @Override
     public void setPlayer(Player p) {
         player = p;
     }
@@ -67,6 +69,7 @@ public class Simple implements Controller {
     /**
      * Reset the state of the controller.
      */
+    @Override
     public void preInfo() {
         canSeeOwnGoal = false;
         canSeeBall    = false;
@@ -76,6 +79,7 @@ public class Simple implements Controller {
     /**
      * Controls the client by interpreting the state of the controller.
      */
+    @Override
     public void postInfo() {
         if (canSeeNothing) {
             canSeeNothingAction();
@@ -146,6 +150,7 @@ public class Simple implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagRight(Flag id, double distance, double direction) {
         canSeeNothing = false;
     }
@@ -156,6 +161,7 @@ public class Simple implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagLeft(Flag id, double distance, double direction) {
         canSeeNothing = false;
     }
@@ -166,6 +172,7 @@ public class Simple implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagOwn(Flag id, double distance, double direction) {
         canSeeNothing = false;
     }
@@ -176,6 +183,7 @@ public class Simple implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagOther(Flag id, double distance, double direction) {
         canSeeNothing = false;
     }
@@ -186,6 +194,7 @@ public class Simple implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagCenter(Flag id, double distance, double direction) {
         canSeeNothing = false;
     }
@@ -196,6 +205,7 @@ public class Simple implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagCornerOther(Flag id, double distance, double direction) {
         canSeeNothing = false;
     }
@@ -206,6 +216,7 @@ public class Simple implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagCornerOwn(Flag id, double distance, double direction) {
         canSeeNothing = false;
     }
@@ -216,6 +227,7 @@ public class Simple implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagPenaltyOwn(Flag id, double distance, double direction) {
         canSeeNothing = false;
     }
@@ -226,6 +238,7 @@ public class Simple implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagPenaltyOther(Flag id, double distance, double direction) {
         canSeeNothing = false;
     }
@@ -238,6 +251,7 @@ public class Simple implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagGoalOwn(Flag id, double distance, double direction) {
         canSeeNothing = false;
         if (id == Flag.FLAG_CENTER) {
@@ -253,6 +267,7 @@ public class Simple implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagGoalOther(Flag id, double distance, double direction) {
         canSeeNothing = false;
     }
@@ -263,6 +278,7 @@ public class Simple implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeLine(Line id, double distance, double direction) {
         canSeeNothing = false;
     }
@@ -273,6 +289,7 @@ public class Simple implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeePlayerOther(int number, double distance, double direction) {}
 
     /**
@@ -281,6 +298,7 @@ public class Simple implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeePlayerOwn(int number, double distance, double direction) {}
 
     /**
@@ -290,6 +308,7 @@ public class Simple implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeBall(double distance, double direction) {
         canSeeNothing      = false;
         this.canSeeBall    = true;
@@ -301,6 +320,7 @@ public class Simple implements Controller {
      * Method description
      * @param refereeMessage
      */
+    @Override
     public void infoHearReferee(RefereeMessage refereeMessage) {}
 
     /**
@@ -308,6 +328,7 @@ public class Simple implements Controller {
      * moves to a position that depends on the clients nummber.
      * @param playMode
      */
+    @Override
     public void infoHearPlayMode(PlayMode playMode) {
         if (playMode == PlayMode.BEFORE_KICK_OFF) {
             this.pause(1000);
@@ -356,6 +377,7 @@ public class Simple implements Controller {
      * @param direction
      * @param message
      */
+    @Override
     public void infoHear(double direction, String message) {}
 
     /**
@@ -371,6 +393,7 @@ public class Simple implements Controller {
      * @param sayCount
      * @param turnNeckCount
      */
+    @Override
     public void infoSenseBody(ViewQuality viewQuality, ViewAngle viewAngle, double stamina, double speed,
                               double headAngle, int kickCount, int dashCount, int turnCount, int sayCount,
                               int turnNeckCount) {}

@@ -22,17 +22,20 @@ public class NullLogger extends Writer {
      * @param parm3
      * @throws java.io.IOException
      */
+    @Override
     public void write(char[] parm1, int parm2, int parm3) throws java.io.IOException {}
 
     /**
      * Method description
      * @throws java.io.IOException
      */
+    @Override
     public void flush() throws java.io.IOException {}
 
     /**
      * Method description
      * @throws java.io.IOException
      */
+    @Override
     public void close() throws java.io.IOException {}
 }

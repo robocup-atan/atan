@@ -62,6 +62,7 @@ public abstract class UDPClient extends Thread {
     /**
      * Method description
      */
+    @Override
     public void run() {
         try {
             log.info("UDP - client started: " + this.hostname + ":" + this.port);
@@ -133,6 +134,7 @@ public abstract class UDPClient extends Thread {
     /**
      * Method description
      */
+    @Override
     public void start() {
         if (this.isRunning) {
             log.info("started but was already running.");
@@ -146,12 +148,12 @@ public abstract class UDPClient extends Thread {
      * @return
      */
     public String toStateString() {
-        StringBuffer buf = new StringBuffer();
-        buf.append("Host: ");
-        buf.append(this.hostname);
-        buf.append(":");
-        buf.append(this.port);
-        buf.append("\n");
-        return buf.toString();
+        StringBuffer stringBuf = new StringBuffer();
+        stringBuf.append("Host: ");
+        stringBuf.append(this.hostname);
+        stringBuf.append(":");
+        stringBuf.append(this.port);
+        stringBuf.append("\n");
+        return stringBuf.toString();
     }
 }

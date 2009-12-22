@@ -31,11 +31,13 @@ public class TestController implements Controller {
     /**
      * Method description
      */
+    @Override
     public void preInfo() {}
 
     /**
      * Method description
      */
+    @Override
     public void postInfo() {}
 
     /**
@@ -50,6 +52,7 @@ public class TestController implements Controller {
      * Method description
      * @return
      */
+    @Override
     public Player getPlayer() {
         return new DummyPlayer();
     }
@@ -58,6 +61,7 @@ public class TestController implements Controller {
      * Method description
      * @param p
      */
+    @Override
     public void setPlayer(Player p) {}
 
     /**
@@ -66,6 +70,7 @@ public class TestController implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagRight(Flag id, double distance, double direction) {
         StringBuffer b = new StringBuffer();
         b.append("|");
@@ -85,6 +90,7 @@ public class TestController implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagLeft(Flag id, double distance, double direction) {
         StringBuffer b = new StringBuffer();
         b.append("|");
@@ -104,6 +110,7 @@ public class TestController implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagOwn(Flag id, double distance, double direction) {
         StringBuffer b = new StringBuffer();
         b.append("|");
@@ -123,6 +130,7 @@ public class TestController implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagOther(Flag id, double distance, double direction) {
         StringBuffer b = new StringBuffer();
         b.append("|");
@@ -142,6 +150,7 @@ public class TestController implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagCenter(Flag id, double distance, double direction) {
         StringBuffer b = new StringBuffer();
         b.append("|");
@@ -161,6 +170,7 @@ public class TestController implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagCornerOwn(Flag id, double distance, double direction) {
         StringBuffer b = new StringBuffer();
         b.append("|");
@@ -180,6 +190,7 @@ public class TestController implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagCornerOther(Flag id, double distance, double direction) {
         StringBuffer b = new StringBuffer();
         b.append("|");
@@ -199,6 +210,7 @@ public class TestController implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagPenaltyOwn(Flag id, double distance, double direction) {
         StringBuffer b = new StringBuffer();
         b.append("|");
@@ -218,6 +230,7 @@ public class TestController implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagPenaltyOther(Flag id, double distance, double direction) {
         StringBuffer b = new StringBuffer();
         b.append("|");
@@ -237,6 +250,7 @@ public class TestController implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagGoalOwn(Flag id, double distance, double direction) {
         StringBuffer b = new StringBuffer();
         b.append("|");
@@ -256,6 +270,7 @@ public class TestController implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeFlagGoalOther(Flag id, double distance, double direction) {
         StringBuffer b = new StringBuffer();
         b.append("|");
@@ -275,6 +290,7 @@ public class TestController implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeLine(Line id, double distance, double direction) {
         StringBuffer b = new StringBuffer();
         b.append("|");
@@ -294,6 +310,7 @@ public class TestController implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeePlayerOther(int number, double distance, double direction) {
         StringBuffer b = new StringBuffer();
         b.append("|");
@@ -313,6 +330,7 @@ public class TestController implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeePlayerOwn(int number, double distance, double direction) {
         StringBuffer b = new StringBuffer();
         b.append("|");
@@ -331,6 +349,7 @@ public class TestController implements Controller {
      * @param distance
      * @param direction
      */
+    @Override
     public void infoSeeBall(double distance, double direction) {
         StringBuffer b = new StringBuffer();
         b.append("|");
@@ -346,6 +365,7 @@ public class TestController implements Controller {
      * Method description
      * @param message
      */
+    @Override
     public void infoHearReferee(RefereeMessage message) {
         StringBuffer b = new StringBuffer();
         b.append("|");
@@ -359,6 +379,7 @@ public class TestController implements Controller {
      * Method description
      * @param message
      */
+    @Override
     public void infoHearPlayMode(PlayMode message) {
         StringBuffer b = new StringBuffer();
         b.append("|");
@@ -373,6 +394,7 @@ public class TestController implements Controller {
      * @param direction
      * @param message
      */
+    @Override
     public void infoHear(double direction, String message) {
         StringBuffer b = new StringBuffer();
         b.append("|");
@@ -397,6 +419,7 @@ public class TestController implements Controller {
      * @param sayCount
      * @param turnNeckCount
      */
+    @Override
     public void infoSenseBody(ViewQuality viewQual, ViewAngle viewAngle, double stamina, double speed,
                               double headAngle, int kickCount, int dashCount, int turnCount, int sayCount,
                               int turnNeckCount) {

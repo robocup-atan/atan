@@ -86,6 +86,7 @@ public class TestCommandFilter implements CommandFilter {
      * Method description
      * @param cmd
      */
+    @Override
     public void seeCommand(String cmd) {
         type     = SEE;
         this.cmd = cmd;
@@ -95,6 +96,7 @@ public class TestCommandFilter implements CommandFilter {
      * Method description
      * @param cmd
      */
+    @Override
     public void hearCommand(String cmd) {
         type     = HEAR;
         this.cmd = cmd;
@@ -104,6 +106,7 @@ public class TestCommandFilter implements CommandFilter {
      * Method description
      * @param cmd
      */
+    @Override
     public void senseBodyCommand(String cmd) {
         type     = SENSE_BODY;
         this.cmd = cmd;
@@ -113,6 +116,7 @@ public class TestCommandFilter implements CommandFilter {
      * Method description
      * @param cmd
      */
+    @Override
     public void initCommand(String cmd) {
         type     = INIT;
         this.cmd = cmd;
@@ -122,6 +126,7 @@ public class TestCommandFilter implements CommandFilter {
      * Method description
      * @param cmd
      */
+    @Override
     public void errorCommand(String cmd) {
         type     = ERROR;
         this.cmd = cmd;

@@ -27,6 +27,7 @@ public class TestClient00 extends UDPClient {
      * Method description
      * @return
      */
+    @Override
     public String getInitMessage() {
         return "(init " + teamName + ")";
     }
@@ -35,6 +36,8 @@ public class TestClient00 extends UDPClient {
      * Method description
      * @param s
      */
+    @SuppressWarnings("empty-statement")
+    @Override
     public void received(String s) {
         try {
 
