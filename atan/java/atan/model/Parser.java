@@ -1,12 +1,24 @@
 package atan.model;
 
+/**
+ * Class description
+ * @author Atan
+ */
 class Parser {
+    private static Parser current = new Parser();
 
-  private static Parser current = new Parser();
+    /**
+     * Method description
+     * @param message
+     * @param pl
+     */
+    void parse(String message, SServerPlayer pl) {}
 
-  void parse (String message, SServerPlayer pl) {
-  }
-  static Parser current () {
-    return current;
-  }
+    /**
+     * Method description
+     * @return
+     */
+    static Parser current() {
+        return current;
+    }
 }

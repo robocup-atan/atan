@@ -1,44 +1,68 @@
 package atan.model;
 
-import java.io.IOException;
-import java.io.StringReader;
-
-import org.apache.log4j.Logger;
+//~--- non-JDK imports --------------------------------------------------------
 
 import atan.parser.CmdParser;
 import atan.parser.CommandFilter;
 import atan.parser.Filter;
 
+import org.apache.log4j.Logger;
 
+//~--- JDK imports ------------------------------------------------------------
+
+import java.io.IOException;
+import java.io.StringReader;
+
+/**
+ * Class description
+ * @author Atan
+ */
 public class SServerPlayer extends UDPClient implements Player {
+    private static Logger        log            = Logger.getLogger(SServerPlayer.class);
+    private String               initMessage    = null;
+    private int                  number         = -1;
+    private CmdParser            parser         = new CmdParser(new StringReader(""));
+    private Filter               filter         = new Filter();
+    private CommandFactory       commandFactory = new CommandFactory();
+    private SServerCommandBuffer cmdBuf         = new SServerCommandBuffer();
+    private Controller           controller;
+    private boolean              isTeamEast;
+    private String               teamName;
 
-    private static Logger log = Logger.getLogger(SServerPlayer.class);
-
-    private Controller controller;
-    private boolean isTeamEast;
-    private int number = -1;
-    private CmdParser parser = new CmdParser(new StringReader(""));
-    private Filter filter = new Filter();
-    private CommandFactory commandFactory = new CommandFactory();
-    private String initMessage = null;
-    private String teamName;
-    private SServerCommandBuffer cmdBuf = new SServerCommandBuffer();
-
-    public SServerPlayer(String teamName, Controller c, int port, String hostname) {
-        super(port, hostname);
-        this.teamName = teamName;
-        this.controller = c;
-        c.setPlayer(this);
-    }
-
+    /**
+     * Constructs ...
+     * @param teamName
+     * @param c
+     */
     public SServerPlayer(String teamName, Controller c) {
         this(teamName, c, 6000, "localhost");
     }
 
+    /**
+     * Constructs ...
+     * @param teamName
+     * @param c
+     * @param port
+     * @param hostname
+     */
+    public SServerPlayer(String teamName, Controller c, int port, String hostname) {
+        super(port, hostname);
+        this.teamName   = teamName;
+        this.controller = c;
+        c.setPlayer(this);
+    }
+
+    /**
+     * Method description
+     * @return
+     */
     public String getInitMessage() {
         return initMessage;
     }
 
+    /**
+     * Method description
+     */
     public void connect() {
         CommandFactory f = new CommandFactory();
         f.addInitCommand(teamName, false);
@@ -46,10 +70,18 @@ public class SServerPlayer extends UDPClient implements Player {
         super.start();
     }
 
+    /**
+     * Method description
+     */
     public void start() {
         throw new Error("SServerPlayer should not use start. Use connect() instead");
     }
 
+    /**
+     * Method description
+     * @param msg
+     * @throws IOException
+     */
     public void received(String msg) throws IOException {
         try {
             if (log.isDebugEnabled()) {
@@ -70,78 +102,149 @@ public class SServerPlayer extends UDPClient implements Player {
         }
     }
 
+    /**
+     * Method description
+     * @param is
+     */
     public void setTeamEast(boolean is) {
         this.isTeamEast = is;
     }
 
+    /**
+     * Method description
+     * @param power
+     */
     public void dash(int power) {
         this.commandFactory.addDashCommand(power);
     }
 
+    /**
+     * Method description
+     * @param power
+     * @param direction
+     */
     public void kick(int power, double direction) {
         this.commandFactory.addKickCommand(power, (int) direction);
     }
 
+    /**
+     * Method description
+     * @param x
+     * @param y
+     */
     public void move(int x, int y) {
         this.commandFactory.addMoveCommand(x, y);
     }
 
+    /**
+     * Method description
+     * @param message
+     */
     public void say(String message) {
         this.commandFactory.addSayCommand(message);
     }
 
+    /**
+     * Method description
+     */
     public void senseBody() {
         this.commandFactory.addSenseBodyCommand();
     }
 
+    /**
+     * Method description
+     * @param angle
+     */
     public void turn(double angle) {
         this.commandFactory.addTurnCommand((int) angle);
     }
 
-    public void turnNeck(double angle) {
-    }
+    /**
+     * Method description
+     * @param angle
+     */
+    public void turnNeck(double angle) {}
 
+    /**
+     * Method description
+     * @param direction
+     */
     public void catchBall(double direction) {
         this.commandFactory.addCatchCommand((int) direction);
     }
 
+    /**
+     * Method description
+     * @param quality
+     * @param angle
+     */
     public void changeViewMode(ViewQuality quality, ViewAngle angle) {
         this.commandFactory.addChangeViewCommand(quality, angle);
     }
 
+    /**
+     * Method description
+     */
     public void bye() {
         this.commandFactory.addByeCommand();
     }
 
+    /**
+     * Method description
+     * @return
+     */
     public String getTeamName() {
         return teamName;
     }
 
+    /**
+     * Method description
+     * @param num
+     */
     public void setNumber(int num) {
         number = num;
     }
 
+    /**
+     * Method description
+     * @return
+     */
     public int getNumber() {
         return number;
     }
 
+    /**
+     * Method description
+     * @return
+     */
     public boolean isTeamEast() {
         return isTeamEast;
     }
 
+    /**
+     * Method description
+     * @param ms
+     */
     private synchronized void pause(int ms) {
         try {
             this.wait(ms);
-        } catch (InterruptedException ex) {
-        }
+        } catch (InterruptedException ex) {}
     }
 
+    /**
+     * Method description
+     * @return
+     */
     public String toListString() {
         StringBuffer buf = new StringBuffer();
         buf.append(controller.getClass().getName());
         return buf.toString();
     }
 
+    /**
+     * Method description
+     * @return
+     */
     public String toStateString() {
         StringBuffer buf = new StringBuffer();
         buf.append(super.toStateString());
@@ -160,34 +263,87 @@ public class SServerPlayer extends UDPClient implements Player {
         return buf.toString();
     }
 
-    private class SServerCommandBuffer implements CommandFilter {
+    /**
+     * Method description
+     * @param error
+     */
+    public void handleError(String error) {
+        log.error(error);
+    }
 
-        private String seeCommand = null;
-        private String hearCommand = null;
-        private String initCommand = null;
-        private String errorCommand = null;
+    /**
+     * Method description
+     * @return
+     */
+    protected String getDescription() {
+        StringBuffer nam = new StringBuffer(getTeamName());
+        nam.append(" ");
+        if (this.number >= 0) {
+            nam.append(this.number);
+        } else {
+            nam.append("<undefined>");
+        }
+        return nam.toString();
+    }
+
+    /**
+     * Class description
+     * @author Atan
+     */
+    private class SServerCommandBuffer implements CommandFilter {
+        private String errorCommand     = null;
+        private String hearCommand      = null;
+        private String initCommand      = null;
+        private String seeCommand       = null;
         private String senseBodyCommand = null;
 
+        /**
+         * Method description
+         * @param cmd
+         */
         public void seeCommand(String cmd) {
             seeCommand = cmd;
         }
 
+        /**
+         * Method description
+         * @param cmd
+         */
         public void hearCommand(String cmd) {
             hearCommand = cmd;
         }
 
+        /**
+         * Method description
+         * @param cmd
+         */
         public void senseBodyCommand(String cmd) {
             senseBodyCommand = cmd;
         }
 
+        /**
+         * Method description
+         * @param cmd
+         */
         public void initCommand(String cmd) {
             initCommand = cmd;
         }
 
+        /**
+         * Method description
+         * @param cmd
+         */
         public void errorCommand(String cmd) {
             errorCommand = cmd;
         }
 
+        /**
+         * Method description
+         * @param controller
+         * @param parser
+         * @param c
+         * @throws Exception
+         */
         public void takeStep(Controller controller, CmdParser parser, Player c) throws Exception {
             if (seeCommand != null) {
                 controller.preInfo();
@@ -214,21 +370,4 @@ public class SServerPlayer extends UDPClient implements Player {
             }
         }
     }
-
-    public void handleError(String error) {
-        log.error(error);
-    }
-    
-    protected String getDescription() {
-        StringBuffer nam = new StringBuffer(getTeamName());
-        nam.append(" ");
-        if (this.number >= 0) {
-            nam.append(this.number);
-        } else {
-            nam.append("<undefined>");
-        }
-        return nam.toString();
-    }
-
-
 }

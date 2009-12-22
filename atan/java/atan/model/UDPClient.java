@@ -1,51 +1,77 @@
 package atan.model;
 
+//~--- non-JDK imports --------------------------------------------------------
+
+import org.apache.log4j.Logger;
+
+//~--- JDK imports ------------------------------------------------------------
+
 import java.io.IOException;
+
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
-import org.apache.log4j.Logger;
-
+/**
+ * Class description
+ * @author Atan
+ */
 public abstract class UDPClient extends Thread {
-
+    private static Logger  log       = Logger.getLogger(UDPClient.class);
+    private ByteBuffer     buf       = null;
+    private String         hostname  = "localhost";
+    private int            port      = 6000;
+    private boolean        isRunning = false;
+    private InetAddress    host;
     private DatagramSocket socket;
-    private InetAddress host;
-    private int port = 6000;
-    private String hostname = "localhost";
-    private ByteBuffer buf = null;
-    private boolean isRunning = false;
 
-    private static Logger log = Logger.getLogger(UDPClient.class);
-
+    /**
+     * Constructs ...
+     */
     public UDPClient() {
         this(6000, "localhost");
     }
 
+    /**
+     * Constructs ...
+     * @param port
+     */
     public UDPClient(int port) {
         this(port, "localhost");
     }
 
+    /**
+     * Constructs ...
+     * @param port
+     * @param hostname
+     */
     public UDPClient(int port, String hostname) {
         super();
-        this.port = port;
+        this.port     = port;
         this.hostname = hostname;
     }
 
+    /**
+     * Method description
+     * @return
+     */
     public boolean isRunning() {
         return isRunning;
     }
 
+    /**
+     * Method description
+     */
     public void run() {
         try {
             log.info("UDP - client started: " + this.hostname + ":" + this.port);
             isRunning = true;
-            buf = new ByteBuffer(2000);
+            buf       = new ByteBuffer(2000);
             buf.setString(getInitMessage());
             socket = new DatagramSocket();
             socket.setSoTimeout(3000);
-            DatagramPacket p = new DatagramPacket(buf.getByteArray(), buf.getByteArray().length, InetAddress
-                    .getByName(hostname), port);
+            DatagramPacket p = new DatagramPacket(buf.getByteArray(), buf.getByteArray().length,
+                                   InetAddress.getByName(hostname), port);
             socket.send(p);
             socket.receive(p);
             this.host = p.getAddress();
@@ -62,34 +88,63 @@ public abstract class UDPClient extends Thread {
         }
     }
 
+    /**
+     * Method description
+     * @return
+     */
     protected String getDescription() {
         return "UDPClient";
     }
 
+    /**
+     * Method description
+     * @param message
+     * @throws IOException
+     */
     public void send(String message) throws IOException {
         buf.setString(message);
         DatagramPacket packet = new DatagramPacket(buf.getByteArray(), buf.length(), host, port);
         socket.send(packet);
     }
 
+    /**
+     * Method description
+     * @return
+     */
     public abstract String getInitMessage();
 
+    /**
+     * Method description
+     * @param msg
+     * @throws IOException
+     */
     public abstract void received(String msg) throws IOException;
 
+    /**
+     * Method description
+     * @param ms
+     */
     protected synchronized void pauseMilliseconds(int ms) {
         try {
             this.wait(ms);
-        } catch (InterruptedException ex) {
-        }
+        } catch (InterruptedException ex) {}
     }
 
+    /**
+     * Method description
+     */
     public void start() {
         if (this.isRunning) {
             log.info("started but was already running.");
-        } else
+        } else {
             super.start();
+        }
     }
 
+    /**
+     * Method description
+     * @return
+     */
     public String toStateString() {
         StringBuffer buf = new StringBuffer();
         buf.append("Host: ");

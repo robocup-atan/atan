@@ -7,14 +7,38 @@ package atan.parser;
  * appropreate methods. As probably not all messages from the server
  * will have to be completely parsed the command filter acts as a
  * preselection of commands.
+ *
+ * @author Atan
  */
-
 public interface CommandFilter {
 
-  public void seeCommand(String cmd);
-  public void hearCommand(String cmd);
-  public void senseBodyCommand(String cmd);
-  public void initCommand(String cmd);
-  public void errorCommand(String cmd);
+    /**
+     * Filter for the see command.
+     * @param cmd
+     */
+    public void seeCommand(String cmd);
 
+    /**
+     * Filter for the hear command.
+     * @param cmd
+     */
+    public void hearCommand(String cmd);
+
+    /**
+     * Filter for the sense body command.
+     * @param cmd
+     */
+    public void senseBodyCommand(String cmd);
+
+    /**
+     * Filter for the initilisation comand.
+     * @param cmd
+     */
+    public void initCommand(String cmd);
+
+    /**
+     * Filter for the error command.
+     * @param cmd
+     */
+    public void errorCommand(String cmd);
 }
