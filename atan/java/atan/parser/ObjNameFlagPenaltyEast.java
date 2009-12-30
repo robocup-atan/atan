@@ -30,13 +30,13 @@ class ObjNameFlagPenaltyEast implements ObjName {
     public void infoSeeFromEast(Controller c, double dist, double dir) {
         switch (qualifier) {
             case 't' :
-                c.infoSeeFlagPenaltyOwn(Flag.FLAG_RIGHT, dist, dir);
+                c.infoSeeFlagPenaltyOwn(Flag.RIGHT, dist, dir);
                 break;
             case 'b' :
-                c.infoSeeFlagPenaltyOwn(Flag.FLAG_LEFT, dist, dir);
+                c.infoSeeFlagPenaltyOwn(Flag.LEFT, dist, dir);
                 break;
             case 'c' :
-                c.infoSeeFlagPenaltyOwn(Flag.FLAG_CENTER, dist, dir);
+                c.infoSeeFlagPenaltyOwn(Flag.CENTER, dist, dir);
                 break;
         }
     }
@@ -51,13 +51,13 @@ class ObjNameFlagPenaltyEast implements ObjName {
     public void infoSeeFromWest(Controller c, double dist, double dir) {
         switch (qualifier) {
             case 't' :
-                c.infoSeeFlagPenaltyOther(Flag.FLAG_LEFT, dist, dir);
+                c.infoSeeFlagPenaltyOther(Flag.LEFT, dist, dir);
                 break;
             case 'b' :
-                c.infoSeeFlagPenaltyOther(Flag.FLAG_RIGHT, dist, dir);
+                c.infoSeeFlagPenaltyOther(Flag.RIGHT, dist, dir);
                 break;
             case 'c' :
-                c.infoSeeFlagPenaltyOther(Flag.FLAG_CENTER, dist, dir);
+                c.infoSeeFlagPenaltyOther(Flag.CENTER, dist, dir);
                 break;
         }
     }

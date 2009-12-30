@@ -37,15 +37,17 @@ public class ParserTest extends TestCase {
     /**
      * Method description
      * @throws ParseException
+     * @throws ParseException
      */
     public void testCmdParserError00() throws ParseException {
         DummyPlayer c = new DummyPlayer();
-        this.getCmdParser().parseErrorCommand("baby_go_home", c);
+        this.getCmdParser().parseErrorCommand("baby_go_home", null, c);
         assertEquals("|error|baby_go_home", c.getBuffer());
     }
 
     /**
      * Method description
+     * @throws ParseException
      * @throws ParseException
      */
     public void testCmdParserInit00() throws ParseException {
@@ -60,6 +62,7 @@ public class ParserTest extends TestCase {
 
     /**
      * Method description
+     * @throws ParseException
      * @throws ParseException
      */
     public void testCmdParserInit01() throws ParseException {
@@ -1468,7 +1471,7 @@ public class ParserTest extends TestCase {
         if (f.isTypeSee()) {
             getCmdParser().parseSeeCommand(f.getCommand(), c, player);
         } else if (f.isTypeError()) {
-            getCmdParser().parseErrorCommand(f.getCommand(), player);
+            getCmdParser().parseErrorCommand(f.getCommand(), c, player);
         } else if (f.isTypeHear()) {
             getCmdParser().parseHearCommand(f.getCommand(), c, player);
         } else if (f.isTypeInit()) {

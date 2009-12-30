@@ -1,65 +1,77 @@
 package atan.model;
 
-//~--- non-JDK imports --------------------------------------------------------
-
-import org.apache.commons.lang.enums.Enum;
-
 /**
- * Class description
- * @author Atan
+ * An enum for referee messages.
+ * @author Nick James
  */
-public class RefereeMessage extends Enum {
+public enum RefereeMessage {
+
+    /**
+     * Half time.
+     */
+    HALF_TIME,
+
+    /**
+     * No more time remaining.
+     */
+    TIME_UP,
+
+    /**
+     * Second half elapsed with no opposition team present.
+     */
+    TIME_UP_WITHOUT_A_TEAM,
+
+    /**
+     * Extra time.
+     */
+    TIME_EXTENDED,
+
+    /**
+     * Ball was dropped somewhere.
+     */
+    DROP_BALL,
+
+    /**
+     * We were offside.
+     */
+    OFFSIDE_OWN,
+
+    /**
+     * They were offside.
+     */
+    OFFSIDE_OTHER,
+
+    /**
+     * We commited a foul.
+     */
+    FOUL_OWN,
+
+    /**
+     * They commited a foul.
+     */
+    FOUL_OTHER,
+
+    // <editor-fold defaultstate="collapsed" desc="Raw data for trainer/coach">
 
     /**
      *
      */
-    public static final RefereeMessage FOUL_OWN = new RefereeMessage("foulOwn");
+    OFFSIDE_R,
 
     /**
      *
      */
-    public static final RefereeMessage FOUL_OTHER = new RefereeMessage("foulOther");
+    OFFSIDE_L,
 
     /**
      *
      */
-    public static final RefereeMessage HALF_TIME = new RefereeMessage("halfTime");
+    FOUL_R,
 
     /**
      *
      */
-    public static final RefereeMessage TIME_UP = new RefereeMessage("timeUp");
+    FOUL_L;
 
-    /**
-     *
-     */
-    public static final RefereeMessage TIME_UP_WITHOUT_A_TEAM = new RefereeMessage("timeUpWithoutATeam");
-
-    /**
-     *
-     */
-    public static final RefereeMessage TIME_EXTENDED = new RefereeMessage("timeExtended");
-
-    /**
-     *
-     */
-    public static final RefereeMessage OFFSIDE_OWN = new RefereeMessage("offsideOwn");
-
-    /**
-     *
-     */
-    public static final RefereeMessage OFFSIDE_OTHER = new RefereeMessage("offsideOther");
-
-    /**
-     *
-     */
-    public static final RefereeMessage DROP_BALL = new RefereeMessage("dropBall");
-
-    /**
-     * Constructs ...
-     * @param name
-     */
-    public RefereeMessage(String name) {
-        super(name);
-    }
+    // </editor-fold>
 }

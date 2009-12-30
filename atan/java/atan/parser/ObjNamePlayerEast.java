@@ -9,14 +9,17 @@ import atan.model.Controller;
  * @author Atan
  */
 class ObjNamePlayerEast implements ObjName {
-    int number;
+    boolean isGoalie;
+    int     number;
 
     /**
      * Constructs ...
      * @param number
+     * @param isGoalie
      */
-    ObjNamePlayerEast(int number) {
-        this.number = number;
+    ObjNamePlayerEast(int number, boolean isGoalie) {
+        this.number   = number;
+        this.isGoalie = isGoalie;
     }
 
     /**

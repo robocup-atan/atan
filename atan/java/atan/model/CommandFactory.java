@@ -12,7 +12,8 @@ import java.util.Vector;
  * @author Atan
  */
 public class CommandFactory {
-    private List fifo = new Vector();
+    private String defaultVersion = new String("13");
+    private List   fifo           = new Vector();
 
     /**
      * Constructs a blank command factory.
@@ -20,21 +21,57 @@ public class CommandFactory {
     public CommandFactory() {}
 
     /**
-     * This is used to initilise a player.
+     * This is used to initialise a player.
      * @param teamName The team the player belongs to.
-     * @param isGoaly
+     * @param isGoalie If the player is a goalie. Note: Only one goalie per team.
      */
-    public void addInitCommand(String teamName, boolean isGoaly) {
+    public void addPlayerInitCommand(String teamName, boolean isGoalie) {
         StringBuffer buf = new StringBuffer();
-        if (isGoaly) {
-            buf.append("(init ");
-            buf.append(teamName);
-            buf.append(" g)");
+        buf.append("(init ");
+        buf.append(teamName);
+        buf.append(" (version ");
+        if (isGoalie) {
+            buf.append(defaultVersion);
+            buf.append(") (goalie))");
         } else {
-            buf.append("(init ");
-            buf.append(teamName);
-            buf.append(")");
+            buf.append(defaultVersion);
+            buf.append("))");
         }
+        fifo.add(fifo.size(), buf.toString());
+    }
+
+    /**
+     * This is used to initilise a trainer.
+     * @param version The version of the server expected.
+     */
+    public void addTrainerInitCommand(String version) {
+        StringBuffer buf = new StringBuffer();
+        buf.append("(init (version ");
+        if ("".equals(version)) {
+            buf.append(defaultVersion);
+        } else {
+            buf.append(version);
+        }
+        buf.append("))");
+        fifo.add(fifo.size(), buf.toString());
+    }
+
+    /**
+     * This is used to initialise the online coach.
+     * @param teamName The team the coach belongs to.
+     * @param version The version of the server expected.
+     */
+    public void addCoachInitCommand(String teamName, String version) {
+        StringBuffer buf = new StringBuffer();
+        buf.append("(init ");
+        buf.append(teamName);
+        buf.append(" (version ");
+        if ("".equals(version)) {
+            buf.append(defaultVersion);
+        } else {
+            buf.append(version);
+        }
+        buf.append("))");
         fifo.add(fifo.size(), buf.toString());
     }
 
@@ -47,9 +84,9 @@ public class CommandFactory {
         StringBuffer buf = new StringBuffer();
         buf.append("(reconnect ");
         buf.append(teamName);
-        buf.append(" ");
+        buf.append(' ');
         buf.append(num);
-        buf.append(")");
+        buf.append(')');
         fifo.add(fifo.size(), buf.toString());
     }
 
@@ -63,7 +100,7 @@ public class CommandFactory {
         StringBuffer buf = new StringBuffer();
         buf.append("(catch ");
         buf.append(direction);
-        buf.append(")");
+        buf.append(')');
         fifo.add(fifo.size(), buf.toString());
     }
 
@@ -77,29 +114,40 @@ public class CommandFactory {
      * @param angle Between narrow, normal or wide.
      * @param quality Between high or low.
      */
-    public void addChangeViewCommand(ViewQuality quality, ViewAngle angle) {
+    public void addChangeViewCommand(ViewAngle angle, ViewQuality quality) {
         StringBuffer buf = new StringBuffer();
         buf.append("(change_view ");
-        if (angle == ViewAngle.NARROW) {
-            if (quality == ViewQuality.HIGH) {
-                buf.append("narrow high)");
-            } else if (quality == ViewQuality.LOW) {
-                buf.append("narrow low)");
-            }
-        }
-        if (angle == ViewAngle.NORMAL) {
-            if (quality == ViewQuality.HIGH) {
-                buf.append("normal high)");
-            } else if (quality == ViewQuality.LOW) {
-                buf.append("normal low)");
-            }
-        }
-        if (angle == ViewAngle.WIDE) {
-            if (quality == ViewQuality.HIGH) {
-                buf.append("wide high)");
-            } else if (quality == ViewQuality.LOW) {
-                buf.append("wide low)");
-            }
+        switch (angle) {
+            case NARROW :
+                switch (quality) {
+                    case HIGH :
+                        buf.append("narrow high)");
+                        break;
+                    case LOW :
+                        buf.append("narrow low)");
+                        break;
+                }
+                break;
+            case NORMAL :
+                switch (quality) {
+                    case HIGH :
+                        buf.append("normal high)");
+                        break;
+                    case LOW :
+                        buf.append("normal low)");
+                        break;
+                }
+                break;
+            case WIDE :
+                switch (quality) {
+                    case HIGH :
+                        buf.append("wide high)");
+                        break;
+                    case LOW :
+                        buf.append("wide low)");
+                        break;
+                }
+                break;
         }
         fifo.add(fifo.size(), buf.toString());
     }
@@ -112,7 +160,7 @@ public class CommandFactory {
         StringBuffer buf = new StringBuffer();
         buf.append("(dash ");
         buf.append(power);
-        buf.append(")");
+        buf.append(')');
         fifo.add(fifo.size(), buf.toString());
     }
 
@@ -125,9 +173,9 @@ public class CommandFactory {
         StringBuffer buf = new StringBuffer();
         buf.append("(kick ");
         buf.append(power);
-        buf.append(" ");
+        buf.append(' ');
         buf.append(direction);
-        buf.append(")");
+        buf.append(')');
         fifo.add(fifo.size(), buf.toString());
     }
 
@@ -140,9 +188,9 @@ public class CommandFactory {
         StringBuffer buf = new StringBuffer();
         buf.append("(move ");
         buf.append(x);
-        buf.append(" ");
+        buf.append(' ');
         buf.append(y);
-        buf.append(")");
+        buf.append(')');
         fifo.add(fifo.size(), buf.toString());
     }
 
@@ -155,7 +203,7 @@ public class CommandFactory {
         StringBuffer buf = new StringBuffer();
         buf.append("(turn ");
         buf.append(angle);
-        buf.append(")");
+        buf.append(')');
         fifo.add(fifo.size(), buf.toString());
     }
 
@@ -169,7 +217,7 @@ public class CommandFactory {
         StringBuffer buf = new StringBuffer();
         buf.append("(turn_neck ");
         buf.append(angle);
-        buf.append(")");
+        buf.append(')');
         fifo.add(fifo.size(), buf.toString());
     }
 
@@ -183,7 +231,7 @@ public class CommandFactory {
         StringBuffer buf = new StringBuffer();
         buf.append("(say ");
         buf.append(message);
-        buf.append(")");
+        buf.append(')');
         fifo.add(fifo.size(), buf.toString());
     }
 
@@ -198,6 +246,133 @@ public class CommandFactory {
     }
 
     /**
+     * Trainer only command.
+     * Changes the play mode of the server.
+     * @param playMode
+     */
+    public void addChangePlayModeCommand(PlayMode playMode) {
+        StringBuffer buf = new StringBuffer();
+        buf.append("(change_mode ");
+        buf.append(playMode);
+        buf.append(')');
+        fifo.add(fifo.size(), buf.toString());
+    }
+
+    /**
+     * Trainer only command.
+     * Moves the given player to the given coordinates.
+     * @param p
+     * @param x
+     * @param y
+     */
+    public void addMovePlayerCommand(Player p, double x, double y) {
+        StringBuffer buf = new StringBuffer();
+        buf.append("(move ");
+        buf.append(p);    // TODO Manual says the format...implement this later when i cba.
+        buf.append(' ');
+        buf.append(x);
+        buf.append(' ');
+        buf.append(y);
+        buf.append(')');
+        fifo.add(fifo.size(), buf.toString());
+    }
+
+    /**
+     * Trainer only command.
+     * Moves the ball to the given coordinates.
+     * @param x
+     * @param y
+     */
+    public void addMoveBallCommand(double x, double y) {
+        StringBuffer buf = new StringBuffer();
+        buf.append("(move ");
+        buf.append("ball");    // TODO Manual says the format...implement this later when i cba.
+        buf.append(' ');
+        buf.append(x);
+        buf.append(' ');
+        buf.append(y);
+        buf.append(')');
+        fifo.add(fifo.size(), buf.toString());
+    }
+
+    /**
+     * Trainer only command.
+     * Checks the current status of the ball.
+     */
+    public void addCheckBallCommand() {
+        StringBuffer buf = new StringBuffer();
+        buf.append("(check_ball)");
+        fifo.add(fifo.size(), buf.toString());
+    }
+
+    /**
+     * Trainer only command.
+     * Starts the server.
+     */
+    public void addStartCommand() {
+        StringBuffer buf = new StringBuffer();
+        buf.append("(start)");
+        fifo.add(fifo.size(), buf.toString());
+    }
+
+    /**
+     * Trainer only command.
+     * Recovers the players stamina, recovery, effort and hear capacity to the values at the beginning of the game.
+     */
+    public void addRecoverCommand() {
+        StringBuffer buf = new StringBuffer();
+        buf.append("(recover)");
+        fifo.add(fifo.size(), buf.toString());
+    }
+
+    /**
+     * Trainer only command.
+     * It turns on or off the sending of auditory information to the trainer.
+     */
+    public void addEarCommand() {
+        StringBuffer buf = new StringBuffer();
+        buf.append("(ear ");
+        buf.append("on");    // TODO Change this to take an input - Section 7.5 for format.
+        buf.append(')');
+        fifo.add(fifo.size(), buf.toString());
+    }
+
+    /**
+     * Trainer command that can be used by online coach.
+     * It turns on or off the sending of "(see_global ...)" information from the server.
+     */
+    public void addEyeCommand() {
+        StringBuffer buf = new StringBuffer();
+        buf.append("(eye ");
+        buf.append("on");    // TODO Change this to take an input - Section 7.5 for format.
+        buf.append(')');
+        fifo.add(fifo.size(), buf.toString());
+    }
+
+    /**
+     * Trainer command that can be used by online coach.
+     * This command provides information about the positions of the following objects on the field.
+     * The left and right goals? (Do they move?)
+     * The ball.
+     * All active players.
+     */
+    public void addLookCommand() {
+        StringBuffer buf = new StringBuffer();
+        buf.append("(look)");
+        fifo.add(fifo.size(), buf.toString());
+    }
+
+    /**
+     * Trainer command that can be used by online coach.
+     * This command provedes information about the names of both teams and which side they are playing on.
+     */
+    public void addTeamNamesCommand() {
+        StringBuffer buf = new StringBuffer();
+        buf.append("(team_names)");
+        fifo.add(fifo.size(), buf.toString());
+    }
+
+    /**
      * This is used to disconnect a player/coach/trainer from the server.
      * The server will not respond.
      */
@@ -208,7 +383,7 @@ public class CommandFactory {
     }
 
     /**
-     * Method description
+     *
      * @return
      */
     public String next() {
@@ -221,7 +396,7 @@ public class CommandFactory {
     }
 
     /**
-     * Method description
+     *
      * @return
      */
     public boolean hasNext() {

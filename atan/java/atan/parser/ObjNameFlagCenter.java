@@ -30,13 +30,13 @@ class ObjNameFlagCenter implements ObjName {
     public void infoSeeFromEast(Controller c, double dist, double dir) {
         switch (qualifier) {
             case 't' :
-                c.infoSeeFlagCenter(Flag.FLAG_RIGHT, dist, dir);
+                c.infoSeeFlagCenter(Flag.RIGHT, dist, dir);
                 break;
             case 'b' :
-                c.infoSeeFlagCenter(Flag.FLAG_LEFT, dist, dir);
+                c.infoSeeFlagCenter(Flag.LEFT, dist, dir);
                 break;
             default :
-                c.infoSeeFlagCenter(Flag.FLAG_CENTER, dist, dir);
+                c.infoSeeFlagCenter(Flag.CENTER, dist, dir);
                 break;
         }
     }
@@ -51,13 +51,13 @@ class ObjNameFlagCenter implements ObjName {
     public void infoSeeFromWest(Controller c, double dist, double dir) {
         switch (qualifier) {
             case 't' :
-                c.infoSeeFlagCenter(Flag.FLAG_LEFT, dist, dir);
+                c.infoSeeFlagCenter(Flag.LEFT, dist, dir);
                 break;
             case 'b' :
-                c.infoSeeFlagCenter(Flag.FLAG_RIGHT, dist, dir);
+                c.infoSeeFlagCenter(Flag.RIGHT, dist, dir);
                 break;
             default :
-                c.infoSeeFlagCenter(Flag.FLAG_CENTER, dist, dir);
+                c.infoSeeFlagCenter(Flag.CENTER, dist, dir);
                 break;
         }
     }

@@ -1,115 +1,136 @@
 package atan.model;
 
-//~--- non-JDK imports --------------------------------------------------------
-
-import org.apache.commons.lang.enums.Enum;
-
 /**
- * Class description
- * @author Atan
+ * An Enum for Flags.
+ * @author Nick James
  */
-public class Flag extends Enum {
+public enum Flag {
+
+    /**
+     * A flag used to indicate the left of something. Could be of a goal,
+     * left corner flag, penalty box etc.
+     */
+    LEFT,
+
+    /**
+     * A flag used to indicate the right of something. Could be of a goal,
+     * left corner flag, penalty box etc.
+     */
+    RIGHT,
+
+    /**
+     * A flag used to indicate the center of something. Could be of a goal,
+     * penalty box etc.
+     */
+    CENTER,
+
+    // <editor-fold defaultstate="collapsed" desc="Boundry Flags">
 
     /**
      *
      */
-    public static final Flag FLAG_CENTER = new Flag("center");
+    OWN_50,
 
     /**
      *
      */
-    public static final Flag FLAG_LEFT = new Flag("left");
+    OWN_40,
 
     /**
      *
      */
-    public static final Flag FLAG_RIGHT = new Flag("right");
+    OWN_30,
 
     /**
      *
      */
-    public static final Flag FLAG_OWN_50 = new Flag("own50");
+    OWN_20,
 
     /**
      *
      */
-    public static final Flag FLAG_OWN_40 = new Flag("own40");
+    OWN_10,
 
     /**
      *
      */
-    public static final Flag FLAG_OWN_30 = new Flag("own30");
+    OTHER_10,
 
     /**
      *
      */
-    public static final Flag FLAG_OWN_20 = new Flag("own20");
+    OTHER_20,
 
     /**
      *
      */
-    public static final Flag FLAG_OWN_10 = new Flag("own10");
+    OTHER_30,
 
     /**
      *
      */
-    public static final Flag FLAG_OTHER_50 = new Flag("other50");
+    OTHER_40,
 
     /**
      *
      */
-    public static final Flag FLAG_OTHER_40 = new Flag("other40");
+    OTHER_50,
 
     /**
      *
      */
-    public static final Flag FLAG_OTHER_30 = new Flag("other30");
+    LEFT_10,
 
     /**
      *
      */
-    public static final Flag FLAG_OTHER_20 = new Flag("other20");
+    LEFT_20,
 
     /**
      *
      */
-    public static final Flag FLAG_OTHER_10 = new Flag("other10");
+    LEFT_30,
 
     /**
      *
      */
-    public static final Flag FLAG_LEFT_30 = new Flag("left30");
+    RIGHT_10,
 
     /**
      *
      */
-    public static final Flag FLAG_LEFT_20 = new Flag("left20");
+    RIGHT_20,
 
     /**
      *
      */
-    public static final Flag FLAG_LEFT_10 = new Flag("left10");
+    RIGHT_30;
+
+    // </editor-fold>
 
     /**
-     *
+     * Checks if the enum flag is LEFT RIGHT or CENTER.
+     * @param pointer
+     * @return true or false
      */
-    public static final Flag FLAG_RIGHT_10 = new Flag("right10");
+    public static boolean isLeftRightCenter(Flag pointer) {
+        if (pointer.name().equals("LEFT") || pointer.name().equals("CENTER") || pointer.name().equals("RIGHT")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     /**
-     *
+     * Checks if the enum flag is LEFT or RIGHT.
+     * @param pointer
+     * @return true or false
      */
-    public static final Flag FLAG_RIGHT_20 = new Flag("right20");
-
-    /**
-     *
-     */
-    public static final Flag FLAG_RIGHT_30 = new Flag("right30");
-
-    /**
-     * Constructs ...
-     * @param name
-     */
-    public Flag(String name) {
-        super(name);
+    public static boolean isLeftRight(Flag pointer) {
+        if (pointer.name().equals("LEFT") || pointer.name().equals("RIGHT")) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

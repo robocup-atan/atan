@@ -30,16 +30,16 @@ class ObjNameLine implements ObjName {
     public void infoSeeFromEast(Controller c, double dist, double dir) {
         switch (qualifier) {
             case 't' :
-                c.infoSeeLine(Line.LINE_RIGHT, dist, dir);
+                c.infoSeeLine(Line.RIGHT, dist, dir);
                 break;
             case 'b' :
-                c.infoSeeLine(Line.LINE_LEFT, dist, dir);
+                c.infoSeeLine(Line.LEFT, dist, dir);
                 break;
             case 'l' :
-                c.infoSeeLine(Line.LINE_OTHER, dist, dir);
+                c.infoSeeLine(Line.OTHER, dist, dir);
                 break;
             case 'r' :
-                c.infoSeeLine(Line.LINE_OWN, dist, dir);
+                c.infoSeeLine(Line.OWN, dist, dir);
                 break;
         }
     }
@@ -54,16 +54,16 @@ class ObjNameLine implements ObjName {
     public void infoSeeFromWest(Controller c, double dist, double dir) {
         switch (qualifier) {
             case 't' :
-                c.infoSeeLine(Line.LINE_LEFT, dist, dir);
+                c.infoSeeLine(Line.LEFT, dist, dir);
                 break;
             case 'b' :
-                c.infoSeeLine(Line.LINE_RIGHT, dist, dir);
+                c.infoSeeLine(Line.RIGHT, dist, dir);
                 break;
             case 'l' :
-                c.infoSeeLine(Line.LINE_OWN, dist, dir);
+                c.infoSeeLine(Line.OWN, dist, dir);
                 break;
             case 'r' :
-                c.infoSeeLine(Line.LINE_OTHER, dist, dir);
+                c.infoSeeLine(Line.OTHER, dist, dir);
                 break;
         }
     }

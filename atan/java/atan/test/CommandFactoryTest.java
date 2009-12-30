@@ -28,9 +28,9 @@ public class CommandFactoryTest extends TestCase {
      */
     public void test00() {
         CommandFactory f = new CommandFactory();
-        f.addInitCommand("hallo", false);
+        f.addPlayerInitCommand("hallo", false);
         assertTrue("no command", f.hasNext());
-        assertEquals("(init hallo)", f.next());
+        assertEquals("(init (version 13) hallo)", f.next());
         assertTrue("a command", !f.hasNext());
     }
 
@@ -39,13 +39,13 @@ public class CommandFactoryTest extends TestCase {
      */
     public void test01() {
         CommandFactory f = new CommandFactory();
-        f.addInitCommand("hallo", true);
+        f.addPlayerInitCommand("hallo", true);
         assertTrue("no command", f.hasNext());
         assertEquals("(init hallo g)", f.next());
         assertTrue("a command", !f.hasNext());
-        f.addInitCommand("hello", false);
+        f.addPlayerInitCommand("hello", false);
         assertTrue("no command", f.hasNext());
-        assertEquals("(init hello)", f.next());
+        assertEquals("(init (version 13) hello)", f.next());
         assertTrue("a command", !f.hasNext());
     }
 
@@ -54,10 +54,10 @@ public class CommandFactoryTest extends TestCase {
      */
     public void test02() {
         CommandFactory f = new CommandFactory();
-        f.addInitCommand("hallo", false);
-        f.addInitCommand("hello", false);
-        assertEquals("(init hallo)", f.next());
-        assertEquals("(init hello)", f.next());
+        f.addPlayerInitCommand("hallo", false);
+        f.addPlayerInitCommand("hello", false);
+        assertEquals("(init (version 13) hallo)", f.next());
+        assertEquals("(init (version 13) hello)", f.next());
     }
 
     /**
@@ -87,11 +87,11 @@ public class CommandFactoryTest extends TestCase {
         assertEquals("(catch 22)", f.next());
         f.addCatchCommand(-22);
         assertEquals("(catch -22)", f.next());
-        f.addChangeViewCommand(ViewQuality.HIGH, ViewAngle.NARROW);
+        f.addChangeViewCommand(ViewAngle.NARROW, ViewQuality.HIGH);
         assertEquals("(change_view narrow high)", f.next());
-        f.addChangeViewCommand(ViewQuality.LOW, ViewAngle.WIDE);
+        f.addChangeViewCommand(ViewAngle.WIDE, ViewQuality.LOW);
         assertEquals("(change_view wide low)", f.next());
-        f.addChangeViewCommand(ViewQuality.LOW, ViewAngle.NORMAL);
+        f.addChangeViewCommand(ViewAngle.NORMAL, ViewQuality.LOW);
         assertEquals("(change_view normal low)", f.next());
         f.addDashCommand(23);
         assertEquals("(dash 23)", f.next());

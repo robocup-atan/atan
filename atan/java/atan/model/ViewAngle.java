@@ -1,35 +1,23 @@
 package atan.model;
 
-//~--- non-JDK imports --------------------------------------------------------
-
-import org.apache.commons.lang.enums.Enum;
-
 /**
- * Class description
- * @author Atan
+ * An enum for view angle.
+ * @author Nick James
  */
-public class ViewAngle extends Enum {
+public enum ViewAngle {
 
     /**
-     *
+     * A narrow view angle.
      */
-    public static final ViewAngle NARROW = new ViewAngle("narrow");
+    NARROW,
 
     /**
-     *
+     * A normal view angle.
      */
-    public static final ViewAngle NORMAL = new ViewAngle("normal");
+    NORMAL,
 
     /**
-     *
+     * A wide view angle.
      */
-    public static final ViewAngle WIDE = new ViewAngle("wide");
-
-    /**
-     * Constructs ...
-     * @param name
-     */
-    public ViewAngle(String name) {
-        super(name);
-    }
+    WIDE
 }

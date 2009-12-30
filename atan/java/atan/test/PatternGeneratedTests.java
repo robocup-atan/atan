@@ -63,7 +63,7 @@ public class PatternGeneratedTests extends TestCase {
         if (f.isTypeSee()) {
             getCmdParser().parseSeeCommand(f.getCommand(), c, player);
         } else if (f.isTypeError()) {
-            getCmdParser().parseErrorCommand(f.getCommand(), player);
+            getCmdParser().parseErrorCommand(f.getCommand(), c, player);
         } else if (f.isTypeHear()) {
             getCmdParser().parseHearCommand(f.getCommand(), c, player);
         } else if (f.isTypeInit()) {

@@ -1,45 +1,33 @@
 package atan.model;
 
-//~--- non-JDK imports --------------------------------------------------------
-
-import org.apache.commons.lang.enums.Enum;
-
 /**
- * Class description
- * @author Atan
+ * An Enum for lines.
+ * @author Nick James
  */
-public class Line extends Enum {
+public enum Line {
 
     /**
-     *
+     * The center line.
      */
-    public static final Line LINE_CENTER = new Line("center");
+    CENTER,
 
     /**
-     *
+     * The line behind your goal.
      */
-    public static final Line LINE_OWN = new Line("own");
+    OWN,
 
     /**
-     *
+     * The line behind the other goal.
      */
-    public static final Line LINE_OTHER = new Line("other");
+    OTHER,
 
     /**
-     *
+     * The line along the left hand edge (dependant on which direction your playing)
      */
-    public static final Line LINE_LEFT = new Line("left");
+    LEFT,
 
     /**
-     *
+     * The line along the right hand edge (dependant on which direction your playing)
      */
-    public static final Line LINE_RIGHT = new Line("right");
-
-    /**
-     * Constructs ...
-     * @param name
-     */
-    public Line(String name) {
-        super(name);
-    }
+    RIGHT
 }

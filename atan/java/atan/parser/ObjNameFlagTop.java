@@ -35,19 +35,19 @@ class ObjNameFlagTop implements ObjName {
             case 'l' :
                 switch (number) {
                     case 50 :
-                        c.infoSeeFlagRight(Flag.FLAG_OTHER_50, dist, dir);
+                        c.infoSeeFlagRight(Flag.OTHER_50, dist, dir);
                         break;
                     case 40 :
-                        c.infoSeeFlagRight(Flag.FLAG_OTHER_40, dist, dir);
+                        c.infoSeeFlagRight(Flag.OTHER_40, dist, dir);
                         break;
                     case 30 :
-                        c.infoSeeFlagRight(Flag.FLAG_OTHER_30, dist, dir);
+                        c.infoSeeFlagRight(Flag.OTHER_30, dist, dir);
                         break;
                     case 20 :
-                        c.infoSeeFlagRight(Flag.FLAG_OTHER_20, dist, dir);
+                        c.infoSeeFlagRight(Flag.OTHER_20, dist, dir);
                         break;
                     case 10 :
-                        c.infoSeeFlagRight(Flag.FLAG_OTHER_10, dist, dir);
+                        c.infoSeeFlagRight(Flag.OTHER_10, dist, dir);
                         break;
                 }
                 ;
@@ -55,25 +55,25 @@ class ObjNameFlagTop implements ObjName {
             case 'r' :
                 switch (number) {
                     case 50 :
-                        c.infoSeeFlagRight(Flag.FLAG_OWN_50, dist, dir);
+                        c.infoSeeFlagRight(Flag.OWN_50, dist, dir);
                         break;
                     case 40 :
-                        c.infoSeeFlagRight(Flag.FLAG_OWN_40, dist, dir);
+                        c.infoSeeFlagRight(Flag.OWN_40, dist, dir);
                         break;
                     case 30 :
-                        c.infoSeeFlagRight(Flag.FLAG_OWN_30, dist, dir);
+                        c.infoSeeFlagRight(Flag.OWN_30, dist, dir);
                         break;
                     case 20 :
-                        c.infoSeeFlagRight(Flag.FLAG_OWN_20, dist, dir);
+                        c.infoSeeFlagRight(Flag.OWN_20, dist, dir);
                         break;
                     case 10 :
-                        c.infoSeeFlagRight(Flag.FLAG_OWN_10, dist, dir);
+                        c.infoSeeFlagRight(Flag.OWN_10, dist, dir);
                         break;
                 }
                 ;
                 break;
             case '0' :
-                c.infoSeeFlagRight(Flag.FLAG_CENTER, dist, dir);
+                c.infoSeeFlagRight(Flag.CENTER, dist, dir);
                 break;
         }
     }
@@ -90,19 +90,19 @@ class ObjNameFlagTop implements ObjName {
             case 'l' :
                 switch (number) {
                     case 50 :
-                        c.infoSeeFlagLeft(Flag.FLAG_OWN_50, dist, dir);
+                        c.infoSeeFlagLeft(Flag.OWN_50, dist, dir);
                         break;
                     case 40 :
-                        c.infoSeeFlagLeft(Flag.FLAG_OWN_40, dist, dir);
+                        c.infoSeeFlagLeft(Flag.OWN_40, dist, dir);
                         break;
                     case 30 :
-                        c.infoSeeFlagLeft(Flag.FLAG_OWN_30, dist, dir);
+                        c.infoSeeFlagLeft(Flag.OWN_30, dist, dir);
                         break;
                     case 20 :
-                        c.infoSeeFlagLeft(Flag.FLAG_OWN_20, dist, dir);
+                        c.infoSeeFlagLeft(Flag.OWN_20, dist, dir);
                         break;
                     case 10 :
-                        c.infoSeeFlagLeft(Flag.FLAG_OWN_10, dist, dir);
+                        c.infoSeeFlagLeft(Flag.OWN_10, dist, dir);
                         break;
                 }
                 ;
@@ -110,25 +110,25 @@ class ObjNameFlagTop implements ObjName {
             case 'r' :
                 switch (number) {
                     case 50 :
-                        c.infoSeeFlagLeft(Flag.FLAG_OTHER_50, dist, dir);
+                        c.infoSeeFlagLeft(Flag.OTHER_50, dist, dir);
                         break;
                     case 40 :
-                        c.infoSeeFlagLeft(Flag.FLAG_OTHER_40, dist, dir);
+                        c.infoSeeFlagLeft(Flag.OTHER_40, dist, dir);
                         break;
                     case 30 :
-                        c.infoSeeFlagLeft(Flag.FLAG_OTHER_30, dist, dir);
+                        c.infoSeeFlagLeft(Flag.OTHER_30, dist, dir);
                         break;
                     case 20 :
-                        c.infoSeeFlagLeft(Flag.FLAG_OTHER_20, dist, dir);
+                        c.infoSeeFlagLeft(Flag.OTHER_20, dist, dir);
                         break;
                     case 10 :
-                        c.infoSeeFlagLeft(Flag.FLAG_OTHER_10, dist, dir);
+                        c.infoSeeFlagLeft(Flag.OTHER_10, dist, dir);
                         break;
                 }
                 ;
                 break;
             case '0' :
-                c.infoSeeFlagLeft(Flag.FLAG_CENTER, dist, dir);
+                c.infoSeeFlagLeft(Flag.CENTER, dist, dir);
                 break;
         }
         c.infoSeeBall(dist, dir);

@@ -395,7 +395,7 @@ public class TestController implements Controller {
      * @param message
      */
     @Override
-    public void infoHear(double direction, String message) {
+    public void infoHearPlayer(double direction, String message) {
         StringBuffer b = new StringBuffer();
         b.append("|");
         b.append("infoHear");

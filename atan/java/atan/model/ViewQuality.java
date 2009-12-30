@@ -1,30 +1,18 @@
 package atan.model;
 
-//~--- non-JDK imports --------------------------------------------------------
-
-import org.apache.commons.lang.enums.Enum;
-
 /**
- * Class description
- * @author Atan
+ * An enum for view wuality.
+ * @author Nick James
  */
-public class ViewQuality extends Enum {
+public enum ViewQuality {
 
     /**
-     *
+     * A high view quality.
      */
-    public static final ViewQuality HIGH = new ViewQuality("high");
+    HIGH,
 
     /**
-     *
+     * A low view quality.
      */
-    public static final ViewQuality LOW = new ViewQuality("low");
-
-    /**
-     * Constructs ...
-     * @param name
-     */
-    public ViewQuality(String name) {
-        super(name);
-    }
+    LOW
 }

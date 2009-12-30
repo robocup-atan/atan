@@ -30,13 +30,13 @@ class ObjNameFlagCornerRight implements ObjName {
     public void infoSeeFromEast(Controller c, double dist, double dir) {
         switch (qualifier) {
             case 't' :
-                c.infoSeeFlagCornerOwn(Flag.FLAG_RIGHT, dist, dir);
+                c.infoSeeFlagCornerOwn(Flag.RIGHT, dist, dir);
                 break;
             case 'b' :
-                c.infoSeeFlagCornerOwn(Flag.FLAG_LEFT, dist, dir);
+                c.infoSeeFlagCornerOwn(Flag.LEFT, dist, dir);
                 break;
             default :
-                c.infoSeeFlagCornerOwn(Flag.FLAG_CENTER, dist, dir);
+                c.infoSeeFlagCornerOwn(Flag.CENTER, dist, dir);
                 break;
         }
     }
@@ -51,13 +51,13 @@ class ObjNameFlagCornerRight implements ObjName {
     public void infoSeeFromWest(Controller c, double dist, double dir) {
         switch (qualifier) {
             case 't' :
-                c.infoSeeFlagCornerOther(Flag.FLAG_LEFT, dist, dir);
+                c.infoSeeFlagCornerOther(Flag.LEFT, dist, dir);
                 break;
             case 'b' :
-                c.infoSeeFlagCornerOther(Flag.FLAG_RIGHT, dist, dir);
+                c.infoSeeFlagCornerOther(Flag.RIGHT, dist, dir);
                 break;
             default :
-                c.infoSeeFlagCornerOther(Flag.FLAG_CENTER, dist, dir);
+                c.infoSeeFlagCornerOther(Flag.CENTER, dist, dir);
                 break;
         }
     }

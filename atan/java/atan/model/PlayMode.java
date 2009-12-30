@@ -1,95 +1,167 @@
 package atan.model;
 
-//~--- non-JDK imports --------------------------------------------------------
-
-import org.apache.commons.lang.enums.Enum;
-
 /**
- * Class description
- * @author Atan
+ * An enum for PlayMode
+ * @author Nick James
  */
-public class PlayMode extends Enum {
+public enum PlayMode {
+
+    /**
+     * The mode of a game before it starts.
+     */
+    BEFORE_KICK_OFF,
+
+    /**
+     * The time has finished.
+     */
+    TIME_OVER,
+
+    /**
+     * The default play mode.
+     */
+    PLAY_ON,
+
+    /**
+     * We get kick off!
+     */
+    KICK_OFF_OWN,
+
+    /**
+     * They get kick off.
+     */
+    KICK_OFF_OTHER,
+
+    /**
+     * We get a kick in.
+     */
+    KICK_IN_OWN,
+
+    /**
+     * They get a kick in.
+     */
+    KICK_IN_OTHER,
+
+    /**
+     * We get a free kick.
+     */
+    FREE_KICK_OWN,
+
+    /**
+     * They get a free kick.
+     */
+    FREE_KICK_OTHER,
+
+    /**
+     * We commited a free kick fault.
+     */
+    FREE_KICK_FAULT_OWN,
+
+    /**
+     * They commited a free kick fault.
+     */
+    FREE_KICK_FAULT_OTHER,
+
+    /**
+     * We get a corner kick.
+     */
+    CORNER_KICK_OWN,
+
+    /**
+     * They get a corner kick.
+     */
+    CORNER_KICK_OTHER,
+
+    /**
+     * We get a goal kick.
+     */
+    GOAL_KICK_OWN,
+
+    /**
+     * They get a goal kick.
+     */
+    GOAL_KICK_OTHER,
+
+    /**
+     * We scored!
+     */
+    GOAL_OWN,
+
+    /**
+     * They scored = (
+     */
+    GOAL_OTHER,
+
+    // <editor-fold defaultstate="collapsed" desc="Raw data for trainer/coach">
 
     /**
      *
      */
-    public static final PlayMode BEFORE_KICK_OFF = new PlayMode("beforeKickOff");
+    KICK_OFF_L,
 
     /**
      *
      */
-    public static final PlayMode TIME_OVER = new PlayMode("timeOver");
+    KICK_OFF_R,
 
     /**
      *
      */
-    public static final PlayMode PLAY_ON = new PlayMode("playOn");
+    KICK_IN_L,
 
     /**
      *
      */
-    public static final PlayMode KICK_OFF_OWN = new PlayMode("kickOffOwn");
+    KICK_IN_R,
 
     /**
      *
      */
-    public static final PlayMode KICK_OFF_OTHER = new PlayMode("kickOffOther");
+    FREE_KICK_R,
 
     /**
      *
      */
-    public static final PlayMode KICK_IN_OWN = new PlayMode("kickInOwn");
+    FREE_KICK_L,
 
     /**
      *
      */
-    public static final PlayMode KICK_IN_OTHER = new PlayMode("kickInOther");
+    FREE_KICK_FAULT_L,
 
     /**
      *
      */
-    public static final PlayMode GOAL_OWN = new PlayMode("goalOwn");
+    FREE_KICK_FAULT_R,
 
     /**
      *
      */
-    public static final PlayMode GOAL_OTHER = new PlayMode("goalOther");
+    CORNER_KICK_R,
 
     /**
      *
      */
-    public static final PlayMode GOAL_KICK_OWN = new PlayMode("goalKickOwn");
+    CORNER_KICK_L,
 
     /**
      *
      */
-    public static final PlayMode GOAL_KICK_OTHER = new PlayMode("goalKickOther");
+    GOAL_KICK_R,
 
     /**
      *
      */
-    public static final PlayMode FREE_KICK_OWN = new PlayMode("freeKickOwn");
+    GOAL_KICK_L,
 
     /**
      *
      */
-    public static final PlayMode FREE_KICK_OTHER = new PlayMode("freeKickOther");
+    GOAL_R,
 
     /**
      *
      */
-    public static final PlayMode CORNER_KICK_OWN = new PlayMode("cornerKickOwn");
+    GOAL_L;
 
-    /**
-     *
-     */
-    public static final PlayMode CORNER_KICK_OTHER = new PlayMode("cornerKickOther");
-
-    /**
-     * Constructs ...
-     * @param name
-     */
-    public PlayMode(String name) {
-        super(name);
-    }
+    // </editor-fold>
 }

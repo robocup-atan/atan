@@ -35,13 +35,13 @@ class ObjNameFlagLeft implements ObjName {
             case 't' :
                 switch (number) {
                     case 30 :
-                        c.infoSeeFlagOther(Flag.FLAG_RIGHT_30, dist, dir);
+                        c.infoSeeFlagOther(Flag.RIGHT_30, dist, dir);
                         break;
                     case 20 :
-                        c.infoSeeFlagOther(Flag.FLAG_RIGHT_20, dist, dir);
+                        c.infoSeeFlagOther(Flag.RIGHT_20, dist, dir);
                         break;
                     case 10 :
-                        c.infoSeeFlagOther(Flag.FLAG_RIGHT_10, dist, dir);
+                        c.infoSeeFlagOther(Flag.RIGHT_10, dist, dir);
                         break;
                 }
                 ;
@@ -49,19 +49,19 @@ class ObjNameFlagLeft implements ObjName {
             case 'b' :
                 switch (number) {
                     case 30 :
-                        c.infoSeeFlagOther(Flag.FLAG_LEFT_30, dist, dir);
+                        c.infoSeeFlagOther(Flag.LEFT_30, dist, dir);
                         break;
                     case 20 :
-                        c.infoSeeFlagOther(Flag.FLAG_LEFT_20, dist, dir);
+                        c.infoSeeFlagOther(Flag.LEFT_20, dist, dir);
                         break;
                     case 10 :
-                        c.infoSeeFlagOther(Flag.FLAG_LEFT_10, dist, dir);
+                        c.infoSeeFlagOther(Flag.LEFT_10, dist, dir);
                         break;
                 }
                 ;
                 break;
             case '0' :
-                c.infoSeeFlagOther(Flag.FLAG_CENTER, dist, dir);
+                c.infoSeeFlagOther(Flag.CENTER, dist, dir);
                 break;
         }
     }
@@ -78,13 +78,13 @@ class ObjNameFlagLeft implements ObjName {
             case 't' :
                 switch (number) {
                     case 30 :
-                        c.infoSeeFlagOwn(Flag.FLAG_LEFT_30, dist, dir);
+                        c.infoSeeFlagOwn(Flag.LEFT_30, dist, dir);
                         break;
                     case 20 :
-                        c.infoSeeFlagOwn(Flag.FLAG_LEFT_20, dist, dir);
+                        c.infoSeeFlagOwn(Flag.LEFT_20, dist, dir);
                         break;
                     case 10 :
-                        c.infoSeeFlagOwn(Flag.FLAG_LEFT_10, dist, dir);
+                        c.infoSeeFlagOwn(Flag.LEFT_10, dist, dir);
                         break;
                 }
                 ;
@@ -92,19 +92,19 @@ class ObjNameFlagLeft implements ObjName {
             case 'b' :
                 switch (number) {
                     case 30 :
-                        c.infoSeeFlagOwn(Flag.FLAG_RIGHT_30, dist, dir);
+                        c.infoSeeFlagOwn(Flag.RIGHT_30, dist, dir);
                         break;
                     case 20 :
-                        c.infoSeeFlagOwn(Flag.FLAG_RIGHT_20, dist, dir);
+                        c.infoSeeFlagOwn(Flag.RIGHT_20, dist, dir);
                         break;
                     case 10 :
-                        c.infoSeeFlagOwn(Flag.FLAG_RIGHT_10, dist, dir);
+                        c.infoSeeFlagOwn(Flag.RIGHT_10, dist, dir);
                         break;
                 }
                 ;
                 break;
             case '0' :
-                c.infoSeeFlagOwn(Flag.FLAG_CENTER, dist, dir);
+                c.infoSeeFlagOwn(Flag.CENTER, dist, dir);
                 break;
         }
     }

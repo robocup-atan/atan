@@ -113,7 +113,7 @@ public class Silly implements Controller {
      * @param parm2
      */
     @Override
-    public void infoHear(double parm1, String parm2) {}
+    public void infoHearPlayer(double parm1, String parm2) {}
 
     /**
      * Method description

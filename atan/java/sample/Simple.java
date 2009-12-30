@@ -254,7 +254,7 @@ public class Simple implements Controller {
     @Override
     public void infoSeeFlagGoalOwn(Flag id, double distance, double direction) {
         canSeeNothing = false;
-        if (id == Flag.FLAG_CENTER) {
+        if (id == Flag.CENTER) {
             this.canSeeOwnGoal    = true;
             this.distanceOwnGoal  = distance;
             this.directionOwnGoal = direction;
@@ -378,7 +378,7 @@ public class Simple implements Controller {
      * @param message
      */
     @Override
-    public void infoHear(double direction, String message) {}
+    public void infoHearPlayer(double direction, String message) {}
 
     /**
      * Method description

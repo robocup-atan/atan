@@ -12,7 +12,7 @@ package atan.model;
 public interface Controller {
 
     /**
-     * This is the method called before the controller recieves all the new visual
+     * This is the method called before the controller receives all the new visual
      * information.
      */
     public void preInfo();
@@ -183,7 +183,7 @@ public interface Controller {
     public void infoHearReferee(RefereeMessage refereeMessage);
 
     /**
-     * The controller is informed when a play mode messae is broadcast.
+     * The controller is informed when a play mode message is broadcast.
      * @param playMode possible values: BEFORE_KICK_OFF, TIME_OVER, PLAY_ON,
      * KICK_OFF_OWN, KICK_OFF_OTHER, FREE_KICK_OWN,
      * FREE_KICK_OTHER, GOAL_KICK_OWN, CORNER_KICK_OTHER,
@@ -196,7 +196,7 @@ public interface Controller {
      * @param direction The direction from which the message originated.
      * @param message The actual message said.
      */
-    public void infoHear(double direction, String message);
+    public void infoHearPlayer(double direction, String message);
 
     /**
      * @param viewQuality possible values: HIGH, LOW

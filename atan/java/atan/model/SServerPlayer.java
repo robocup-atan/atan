@@ -66,7 +66,7 @@ public class SServerPlayer extends UDPClient implements Player {
      */
     public void connect() {
         CommandFactory f = new CommandFactory();
-        f.addInitCommand(teamName, false);
+        f.addPlayerInitCommand(teamName, false);
         initMessage = f.next();
         super.start();
     }
@@ -192,7 +192,7 @@ public class SServerPlayer extends UDPClient implements Player {
      */
     @Override
     public void changeViewMode(ViewQuality quality, ViewAngle angle) {
-        this.commandFactory.addChangeViewCommand(quality, angle);
+        this.commandFactory.addChangeViewCommand(angle, quality);
     }
 
     /**
@@ -388,7 +388,7 @@ public class SServerPlayer extends UDPClient implements Player {
                     initCommand = null;
                 }
                 if (errorCommand != null) {
-                    parser.parseErrorCommand(errorCommand, c);
+                    parser.parseErrorCommand(errorCommand, controller, c);
                     errorCommand = null;
                 }
                 controller.postInfo();
