@@ -10,13 +10,13 @@ import java.io.StringReader;
 import java.io.StringWriter;
 
 /**
- * Class description
+ * A byte buffer class.
  * @author Atan
  */
 public class ByteBuffer extends ByteArrayOutputStream {
 
     /**
-     * Constructs ...
+     * The default constructor for ByteBuffer
      * @param size
      */
     public ByteBuffer(int size) {

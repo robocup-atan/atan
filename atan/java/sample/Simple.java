@@ -59,7 +59,7 @@ public class Simple implements Controller {
 
     /**
      * Sets the player that the controller is controlling.
-     * @param c Player.
+     * @param p Player.
      */
     @Override
     public void setPlayer(Player p) {

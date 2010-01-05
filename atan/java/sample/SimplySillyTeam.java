@@ -2,8 +2,8 @@ package sample;
 
 //~--- non-JDK imports --------------------------------------------------------
 
-import atan.model.Controller;
 import atan.model.AbstractTeam;
+import atan.model.Controller;
 
 /**
  * A class to setup a Simple Silly AbstractTeam.

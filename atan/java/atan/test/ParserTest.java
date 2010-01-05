@@ -37,7 +37,6 @@ public class ParserTest extends TestCase {
     /**
      * Method description
      * @throws ParseException
-     * @throws ParseException
      */
     public void testCmdParserError00() throws ParseException {
         DummyPlayer c = new DummyPlayer();
@@ -47,7 +46,6 @@ public class ParserTest extends TestCase {
 
     /**
      * Method description
-     * @throws ParseException
      * @throws ParseException
      */
     public void testCmdParserInit00() throws ParseException {
@@ -62,7 +60,6 @@ public class ParserTest extends TestCase {
 
     /**
      * Method description
-     * @throws ParseException
      * @throws ParseException
      */
     public void testCmdParserInit01() throws ParseException {

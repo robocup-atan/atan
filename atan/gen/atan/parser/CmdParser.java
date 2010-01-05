@@ -61,7 +61,7 @@ public class CmdParser implements CmdParserConstants {
     public CmdParserTokenManager token_source;
 
     /**
-     * Constructor with generated Token Manager. 
+     * Constructor with generated Token Manager.
      * @param tm
      */
     public CmdParser(CmdParserTokenManager tm) {
@@ -78,7 +78,7 @@ public class CmdParser implements CmdParserConstants {
     }
 
     /**
-     * Constructor with InputStream. 
+     * Constructor with InputStream.
      * @param stream
      */
     public CmdParser(java.io.InputStream stream) {
@@ -86,7 +86,7 @@ public class CmdParser implements CmdParserConstants {
     }
 
     /**
-     * Constructor. 
+     * Constructor.
      * @param stream
      */
     public CmdParser(java.io.Reader stream) {
@@ -104,7 +104,7 @@ public class CmdParser implements CmdParserConstants {
     }
 
     /**
-     * Constructor with InputStream and supplied encoding 
+     * Constructor with InputStream and supplied encoding
      * @param stream
      * @param encoding
      */
@@ -592,7 +592,11 @@ public class CmdParser implements CmdParserConstants {
      * Method description
      * @throws ParseException
      */
-    @SuppressWarnings({"empty-statement", "empty-statement", "empty-statement", "empty-statement", "empty-statement", "empty-statement", "empty-statement", "empty-statement", "empty-statement", "empty-statement", "empty-statement", "empty-statement"})
+    @SuppressWarnings( {
+        "empty-statement", "empty-statement", "empty-statement", "empty-statement", "empty-statement",
+        "empty-statement", "empty-statement", "empty-statement", "empty-statement", "empty-statement",
+        "empty-statement", "empty-statement"
+    })
     final public void objInfo() throws ParseException {
         ObjName name;
         Token   p1 = null;
@@ -723,7 +727,9 @@ public class CmdParser implements CmdParserConstants {
      * @return
      * @throws ParseException
      */
-    @SuppressWarnings({"empty-statement", "empty-statement", "empty-statement", "empty-statement"})
+    @SuppressWarnings( {
+        "empty-statement", "empty-statement", "empty-statement", "empty-statement"
+    })
     final public ObjName objName() throws ParseException {
         Token   name;
         Token   num;
@@ -6399,7 +6405,7 @@ public class CmdParser implements CmdParserConstants {
     }
 
     /**
-     * Reinitialise. 
+     * Reinitialise.
      * @param stream
      */
     public void ReInit(java.io.InputStream stream) {
@@ -6407,7 +6413,7 @@ public class CmdParser implements CmdParserConstants {
     }
 
     /**
-     * Reinitialise. 
+     * Reinitialise.
      * @param stream
      * @param encoding
      */
@@ -6430,7 +6436,7 @@ public class CmdParser implements CmdParserConstants {
     }
 
     /**
-     * Reinitialise. 
+     * Reinitialise.
      * @param stream
      */
     public void ReInit(java.io.Reader stream) {
@@ -6448,7 +6454,7 @@ public class CmdParser implements CmdParserConstants {
     }
 
     /**
-     * Reinitialise. 
+     * Reinitialise.
      * @param tm
      */
     public void ReInit(CmdParserTokenManager tm) {
@@ -6536,7 +6542,7 @@ public class CmdParser implements CmdParserConstants {
     }
 
     /**
-     * Get the next Token. 
+     * Get the next Token.
      * @return
      */
     final public Token getNextToken() {
@@ -6551,7 +6557,7 @@ public class CmdParser implements CmdParserConstants {
     }
 
     /**
-     * Get the specific Token. 
+     * Get the specific Token.
      * @param index
      * @return
      */
@@ -6615,7 +6621,7 @@ public class CmdParser implements CmdParserConstants {
     }
 
     /**
-     * Generate ParseException. 
+     * Generate ParseException.
      * @return
      */
     public ParseException generateParseException() {

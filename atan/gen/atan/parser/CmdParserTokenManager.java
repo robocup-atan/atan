@@ -74,10 +74,15 @@ public class CmdParserTokenManager implements CmdParserConstants {
     int                        defaultLexState = 0;
     private final int[]        jjrounds        = new int[36];
     private final int[]        jjstateSet      = new int[72];
+
     /**
      *
      */
-    protected char             curChar;
+    protected char curChar;
+
+    /**
+     *
+     */
     protected SimpleCharStream input_stream;
     int                        jjmatchedKind;
     int                        jjmatchedPos;
@@ -85,7 +90,7 @@ public class CmdParserTokenManager implements CmdParserConstants {
     int                        jjround;
 
     /**
-     * Constructor. 
+     * Constructor.
      * @param stream
      */
     public CmdParserTokenManager(SimpleCharStream stream) {
@@ -96,7 +101,7 @@ public class CmdParserTokenManager implements CmdParserConstants {
     }
 
     /**
-     * Constructor. 
+     * Constructor.
      * @param stream
      * @param lexState
      */
@@ -106,7 +111,7 @@ public class CmdParserTokenManager implements CmdParserConstants {
     }
 
     /**
-     * Set debug output. 
+     * Set debug output.
      * @param ds
      */
     public void setDebugStream(java.io.PrintStream ds) {
@@ -2440,7 +2445,7 @@ public class CmdParserTokenManager implements CmdParserConstants {
     }
 
     /**
-     * Reinitialise parser. 
+     * Reinitialise parser.
      * @param stream
      */
     public void ReInit(SimpleCharStream stream) {
@@ -2462,7 +2467,7 @@ public class CmdParserTokenManager implements CmdParserConstants {
     }
 
     /**
-     * Reinitialise parser. 
+     * Reinitialise parser.
      * @param stream
      * @param lexState
      */
@@ -2472,7 +2477,7 @@ public class CmdParserTokenManager implements CmdParserConstants {
     }
 
     /**
-     * Switch to specified lex state. 
+     * Switch to specified lex state.
      * @param lexState
      */
     public void SwitchTo(int lexState) {
@@ -2510,7 +2515,7 @@ public class CmdParserTokenManager implements CmdParserConstants {
     }
 
     /**
-     * Get the next Token. 
+     * Get the next Token.
      * @return
      */
     public Token getNextToken() {

@@ -22,10 +22,10 @@ public class Simple2Run {
             AbstractTeam team = new SimplySillyTeam("Simple2", 6000, "localhost");
             team.connectAll();
         } else {
-            Integer val      = new Integer(args[0]);
-            int     port     = val.intValue();
-            String  hostname = args[1];
-            AbstractTeam    team     = new SimplySillyTeam("Simple2", port, hostname);
+            Integer      val      = new Integer(args[0]);
+            int          port     = val.intValue();
+            String       hostname = args[1];
+            AbstractTeam team     = new SimplySillyTeam("Simple2", port, hostname);
             team.connectAll();
         }
     }

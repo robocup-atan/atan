@@ -6,99 +6,113 @@ package atan.model;
 public interface Player {
 
     /**
-     * Method description
-     * @param power
+     * This command accelerates the player in the direction of its body.
+     * @param power Power is between minpower (-100) and maxpower (+100).
      */
     public void dash(int power);
 
     /**
-     * Method description
-     * @param x
-     * @param y
+     * This command can only be executed before kick off or after a goal.
+     * @param x X location (between -54 and +54).
+     * @param y Y location (between -32 and +32).
      */
     public void move(int x, int y);
 
     /**
-     * Method description
-     * @param power
-     * @param direction
+     * This command accelerates the ball with the given power in the given direction.
+     * @param power Power is between minpower (-100) and maxpower (+100).
+     * @param direction Direction is relative to the body of the player.
      */
     public void kick(int power, double direction);
 
     /**
-     * Method description
-     * @param message
+     * This command broadcasts the message throughout the field. Any player
+     * near enough (specified with audio_cut_dist default 50.0 neters), with
+     * enough hearing capacity will hear the message.
+     * @param message A valid String to say.
      */
     public void say(String message);
 
     /**
-     * Method description
+     * Requests the server to send sense body information. Note: SServer version 6
+     * and above sends this with every cycle.
      */
     public void senseBody();
 
     /**
-     * Method description
-     * @param angle
+     * This command will turn the players body in degrees relative to their
+     * current direction.
+     * @param angle Angle to turn (between -180 and +180).
      */
     public void turn(double angle);
 
     /**
-     * Method description
-     * @param angle
+     * This command can be sent (and will be executed) each cycle independently,
+     * along with other action commands. The neck will rotate witht he given angle
+     * relative to the previous angle.
+     * @param angle Angle to turn the neck (between minneckang and maxneckang) (-90 to +90)
      */
     public void turnNeck(double angle);
 
     /**
-     * Method description
-     * @param direction
+     * Goalie special command. Tries to catch the ball in a given direction
+     * relative to its body direction. If the catch is successful the ball will
+     * be in the goalies hand untill kicked away.
+     * @param direction The direction in which to catch, relative to its body.
      */
     public void catchBall(double direction);
 
     /**
-     * Method description
-     * @param quality
-     * @param angle
+     * Changes the view parameters of the player. The amount and detail returned
+     * by the visual sensor depends on the width of view and the quality. But
+     * note that the frequency of sending information also depends on these
+     * parameters. (eg. If you change the quality from high to low, the
+     * frequency doubles, and the time between the two see sensors will be
+     * cut in half).
+     * @param angle Between narrow, normal or wide.
+     * @param quality Between high or low.
      */
     public void changeViewMode(ViewQuality quality, ViewAngle angle);
 
     /**
-     * Method description
+     * This is used to disconnect a player from the server.
+     * The server will not respond.
      */
     public void bye();
 
     /**
-     * Method description
-     * @param error
+     * The method used to show errors.
+     * @param error The error to show.
      */
     public void handleError(String error);
 
     /**
-     * Method description
-     * @return
+     * Requests the name of the team the player features in.
+     * @return The team name.
      */
     public String getTeamName();
 
     /**
-     * Method description
-     * @return
+     * Checks if the team is east or west.
+     * @return true if east.
      */
     public boolean isTeamEast();
 
     /**
-     * Method description
-     * @param is
+     * Sets the team as east or west.
+     * @param is true if east.
      */
     public void setTeamEast(boolean is);
 
     /**
-     * Method description
-     * @param num
+     * Sets the players number.
+     * @param num The players number (from 1 to 11).
      */
     public void setNumber(int num);
 
     /**
-     * Method description
-     * @return
+     * Gets the players number.
+     * @return The players number (from 1 to 11).
      */
     public int getNumber();
 }

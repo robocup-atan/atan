@@ -30,20 +30,20 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
     private String               teamName;
 
     /**
-     * Constructs ...
-     * @param teamName
-     * @param c
+     * A part constructor for SServerPlayer (assumes localhost:6000)
+     * @param teamName The team name.
+     * @param c The controller for the player.
      */
     public SServerPlayer(String teamName, Controller c) {
         this(teamName, c, 6000, "localhost");
     }
 
     /**
-     * Constructs ...
-     * @param teamName
-     * @param c
-     * @param port
-     * @param hostname
+     * The full constructor for SServerPlayer.
+     * @param teamName The teams name.
+     * @param c The controller for the player.
+     * @param port The port to connect to.
+     * @param hostname The host address.
      */
     public SServerPlayer(String teamName, Controller c, int port, String hostname) {
         super(port, hostname);
@@ -53,8 +53,8 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
     }
 
     /**
-     * Method description
-     * @return
+     * Gets the initilisation message.
+     * @return Initilisaion message.
      */
     @Override
     public String getInitMessage() {
@@ -62,7 +62,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
     }
 
     /**
-     * Method description
+     * Connects to the server via AbstractUDPClient.
      */
     public void connect() {
         CommandFactory f = new CommandFactory();
@@ -72,7 +72,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
     }
 
     /**
-     * Method description
+     * Pointless method. Had to implement due to extending AbstractUDPClient.
      */
     @Override
     public void start() {
