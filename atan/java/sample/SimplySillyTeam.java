@@ -3,19 +3,19 @@ package sample;
 //~--- non-JDK imports --------------------------------------------------------
 
 import atan.model.Controller;
-import atan.model.Team;
+import atan.model.AbstractTeam;
 
 /**
- * Class description
+ * A class to setup a Simple Silly AbstractTeam.
  * @author Atan
  */
-public class SimplySillyTeam extends Team {
+public class SimplySillyTeam extends AbstractTeam {
 
     /**
-     * Constructs ...
-     * @param name
-     * @param port
-     * @param hostname
+     * Constructs a new simple silly team.
+     * @param name The team name.
+     * @param port The port to connect to SServer.
+     * @param hostname The SServer hostname.
      */
     public SimplySillyTeam(String name, int port, String hostname) {
         super(name, port, hostname);
@@ -23,8 +23,8 @@ public class SimplySillyTeam extends Team {
 
     /**
      * The first controller of the team is silly the others are simple.
-     * @param number
-     * @return
+     * @param number The player number.
+     * @return A new controller for that player.
      */
     @Override
     public Controller getNewController(int number) {

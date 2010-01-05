@@ -13,7 +13,7 @@ public interface Controller {
 
     /**
      * This is the method called before the controller receives all the new visual
-     * information.
+     * information, to reset the state of the controller.
      */
     public void preInfo();
 
@@ -24,14 +24,14 @@ public interface Controller {
     public void postInfo();
 
     /**
-     * Returns the current instance of the ActionsPlayer.
-     * @return ActionsPlayer.
+     * Returns the current instance of Player.
+     * @return Player.
      */
     public Player getPlayer();
 
     /**
      * Sets the player that the controller is controlling.
-     * @param c ActionsPlayer.
+     * @param c Player.
      */
     public void setPlayer(Player c);
 
@@ -144,7 +144,6 @@ public interface Controller {
 
     /**
      * The controller is informed that one of the pitch lines are in sight.
-     *
      * @param line
      * @param distance The distance to the line.
      * @param direction The direction of the line.

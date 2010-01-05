@@ -17,7 +17,7 @@ import java.io.StringReader;
  * Class description
  * @author Atan
  */
-public class SServerPlayer extends UDPClient implements Player {
+public class SServerPlayer extends AbstractUDPClient implements Player {
     private static Logger        log            = Logger.getLogger(SServerPlayer.class);
     private String               initMessage    = null;
     private int                  number         = -1;

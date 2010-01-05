@@ -8,8 +8,8 @@ import org.apache.log4j.Logger;
  * Class description
  * @author Atan
  */
-public abstract class Team {
-    private static Logger   log      = Logger.getLogger(Team.class);
+public abstract class AbstractTeam {
+    private static Logger   log      = Logger.getLogger(AbstractTeam.class);
     private String          hostname = "localhost";
     private SServerPlayer[] players  = new SServerPlayer[11];
     private int             port     = 6000;
@@ -19,7 +19,7 @@ public abstract class Team {
      * Constructs ...
      * @param teamName
      */
-    public Team(String teamName) {
+    public AbstractTeam(String teamName) {
         this(teamName, 6000, "localhost");
     }
 
@@ -29,7 +29,7 @@ public abstract class Team {
      * @param port
      * @param hostname
      */
-    public Team(String teamName, int port, String hostname) {
+    public AbstractTeam(String teamName, int port, String hostname) {
         this.teamName = teamName;
         this.port     = port;
         this.hostname = hostname;

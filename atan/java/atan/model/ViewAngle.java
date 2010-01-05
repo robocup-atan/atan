@@ -2,7 +2,7 @@ package atan.model;
 
 /**
  * An enum for view angle.
- * @author Nick James
+ * @author Atan
  */
 public enum ViewAngle {
 

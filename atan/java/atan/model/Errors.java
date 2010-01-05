@@ -2,7 +2,7 @@ package atan.model;
 
 /**
  * An enum for errors.
- * @author Nick James
+ * @author Atan
  */
 public enum Errors {
 

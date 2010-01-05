@@ -2,23 +2,23 @@ package sample;
 
 //~--- non-JDK imports --------------------------------------------------------
 
-import atan.model.Team;
+import atan.model.AbstractTeam;
 
 import org.apache.log4j.BasicConfigurator;
 
 /**
- * Class description
+ * A main class to start a simply silly team.
  * @author Atan
  */
 public class Simple1Run {
 
     /**
-     * Method description
-     * @param args
+     * Start up team Simple1
+     * @param args No args
      */
     public static void main(String[] args) {
         BasicConfigurator.configure();
-        Team team = null;
+        AbstractTeam team = null;
         if (args.length == 0) {
             team = new SimplySillyTeam("Simple1", 6000, "localhost");
         } else {

@@ -41,7 +41,7 @@ public class Simple implements Controller {
     private Player        player;
 
     /**
-     * Constructs ...
+     * Constructs a new simple client.
      */
     public Simple() {
         random = new Random(System.currentTimeMillis() + count);
@@ -49,8 +49,8 @@ public class Simple implements Controller {
     }
 
     /**
-     * Method description
-     * @return
+     * Returns the current instance of Player.
+     * @return Player.
      */
     @Override
     public Player getPlayer() {
@@ -58,8 +58,8 @@ public class Simple implements Controller {
     }
 
     /**
-     * Method description
-     * @param p
+     * Sets the player that the controller is controlling.
+     * @param c Player.
      */
     @Override
     public void setPlayer(Player p) {
@@ -67,7 +67,8 @@ public class Simple implements Controller {
     }
 
     /**
-     * Reset the state of the controller.
+     * This is the method called before the controller receives all the new visual
+     * information, to reset the state of the controller.
      */
     @Override
     public void preInfo() {
@@ -77,7 +78,7 @@ public class Simple implements Controller {
     }
 
     /**
-     * Controls the client by interpreting the state of the controller.
+     * This is the method called one all the visual information has been processed.
      */
     @Override
     public void postInfo() {
@@ -99,7 +100,8 @@ public class Simple implements Controller {
     }
 
     /**
-     * Method description
+     * This is the action performed when the player can see the ball.
+     * It involves running at it and kicking it...
      */
     private void canSeeBallAction() {
         getPlayer().dash(this.randomDashValueFast());
@@ -113,7 +115,7 @@ public class Simple implements Controller {
     }
 
     /**
-     * Method description
+     * If the player can see anything that is not a ball or a goal, it turns.
      */
     private void canSeeAnythingAction() {
         getPlayer().dash(this.randomDashValueSlow());
@@ -124,7 +126,7 @@ public class Simple implements Controller {
     }
 
     /**
-     * Method description
+     * If the player can see nothing, it turns 180 degrees.
      */
     private void canSeeNothingAction() {
         getPlayer().turn(180);
@@ -134,7 +136,7 @@ public class Simple implements Controller {
     }
 
     /**
-     * Method description
+     * If the player can see its own goal, it goes and stands by it...
      */
     private void canSeeOwnGoalAction() {
         getPlayer().dash(this.randomDashValueFast());
@@ -145,10 +147,12 @@ public class Simple implements Controller {
     }
 
     /**
-     * The controller is informed that any object is in sight.
-     * @param id
-     * @param distance
-     * @param direction
+     * The controller is informed when one of the flags along the right touchline
+     * is in sight. The flags are positioned 5m behind the touchline.
+     * @param id possible values: OWN_50, OWN_40, OWN_30, OWN_20, OWN_10, MID,
+     * OTHER_10, OTHER_20, OTHER_30, OTHER_40, OTHER_50
+     * @param distance The distance to the flag.
+     * @param direction The direction of the flag.
      */
     @Override
     public void infoSeeFlagRight(Flag id, double distance, double direction) {
@@ -156,10 +160,12 @@ public class Simple implements Controller {
     }
 
     /**
-     * The controller is informed that any object is in sight.
-     * @param id
-     * @param distance
-     * @param direction
+     * The controller is informed when one of the flags along the left touchline
+     * is in sight. The flags are positioned 5m behind the touchline.
+     * @param id possible values: OWN_50, OWN_40, OWN_30, OWN_20, OWN_10, MID
+     * OTHER_10, OTHER_20, OTHER_30, OTHER_40, OTHER_50
+     * @param distance The distance to the flag.
+     * @param direction The direction of the flag.
      */
     @Override
     public void infoSeeFlagLeft(Flag id, double distance, double direction) {
@@ -167,10 +173,12 @@ public class Simple implements Controller {
     }
 
     /**
-     * The controller is informed that any object is in sight.
-     * @param id
-     * @param distance
-     * @param direction
+     * The controller is informed when one of the flags behind our teams
+     * goal is in sight. These flags are positioned 5m behind the goal line.
+     * @param id possible values: LEFT_10, LEFT_20, LEFT_30, MID,
+     * RIGHT_10, RIGHT_20, RIGHT_30
+     * @param distance The distance to the flag.
+     * @param direction The direction of the flag.
      */
     @Override
     public void infoSeeFlagOwn(Flag id, double distance, double direction) {
@@ -178,10 +186,12 @@ public class Simple implements Controller {
     }
 
     /**
-     * The controller is informed that any object is in sight.
-     * @param id
-     * @param distance
-     * @param direction
+     * The controller is informed when one of the flags behind the other teams
+     * goal is in sight. These flags are positioned 5m behind the goal line.
+     * @param id possible values: LEFT_10, LEFT_20, LEFT_30, MID,
+     * RIGHT_10, RIGHT_20, RIGHT_30
+     * @param distance The distance to the flag.
+     * @param direction The direction of the flag.
      */
     @Override
     public void infoSeeFlagOther(Flag id, double distance, double direction) {
@@ -189,10 +199,11 @@ public class Simple implements Controller {
     }
 
     /**
-     * The controller is informed that any object is in sight.
-     * @param id
-     * @param distance
-     * @param direction
+     * The controller is informed when one of the flags on the center line are
+     * in sight.
+     * @param id possible values: LEFT, CENTER, RIGHT
+     * @param distance The distance to the flag.
+     * @param direction The direction of the flag.
      */
     @Override
     public void infoSeeFlagCenter(Flag id, double distance, double direction) {
@@ -200,21 +211,11 @@ public class Simple implements Controller {
     }
 
     /**
-     * The controller is informed that any object is in sight.
-     * @param id
-     * @param distance
-     * @param direction
-     */
-    @Override
-    public void infoSeeFlagCornerOther(Flag id, double distance, double direction) {
-        canSeeNothing = false;
-    }
-
-    /**
-     * The controller is informed that any object is in sight.
-     * @param id
-     * @param distance
-     * @param direction
+     * The controller is informed that one of our teams corner flags is
+     * in sight.
+     * @param id possible values: LEFT, RIGHT
+     * @param distance The distance to the flag.
+     * @param direction The direction of the flag.
      */
     @Override
     public void infoSeeFlagCornerOwn(Flag id, double distance, double direction) {
@@ -222,10 +223,24 @@ public class Simple implements Controller {
     }
 
     /**
-     * The controller is informed that any object is in sight.
-     * @param id
-     * @param distance
-     * @param direction
+     * The controller is informed that one of the other teams corner flags is
+     * in sight.
+     * @param id possible values: LEFT, RIGHT
+     * @param distance The disnance to the flag.
+     * @param direction The direction of the flag.
+     */
+    @Override
+    public void infoSeeFlagCornerOther(Flag id, double distance, double direction) {
+        canSeeNothing = false;
+    }
+
+    /**
+     * The controller is informed that one of our teams penalty box
+     * flags is in sight. The flags map the outer most corners of the penalty
+     * box and the center point between these corners.
+     * @param id possible values: LEFT, CENTER, RIGHT
+     * @param distance The distance to this flag.
+     * @param direction The direction of this flag.
      */
     @Override
     public void infoSeeFlagPenaltyOwn(Flag id, double distance, double direction) {
@@ -233,10 +248,12 @@ public class Simple implements Controller {
     }
 
     /**
-     * The controller is informed that any object is in sight.
-     * @param id
-     * @param distance
-     * @param direction
+     * The controller is informed that one of the other teams penalty box
+     * flags is in sight. The flags map the outer most corners of the penalty
+     * box and the center point between these corners.
+     * @param id possible values: LEFT, CENTER, RIGHT
+     * @param distance The distance to this flag.
+     * @param direction The direction of this flag.
      */
     @Override
     public void infoSeeFlagPenaltyOther(Flag id, double distance, double direction) {
@@ -244,12 +261,12 @@ public class Simple implements Controller {
     }
 
     /**
-     * The controller is informed that the own goal is in sight and about its
-     * distance and direction. This information is stored in the controllers
-     * state to be interpreted in postInfo().
-     * @param id
-     * @param distance
-     * @param direction
+     * The controller is informed that one of our teams goal flags
+     * is in sight. The flags map the posts of the goal and the center
+     * of the goal.
+     * @param id possible values: LEFT, CENTER, RIGHT
+     * @param distance The distane to this flag.
+     * @param direction The direction of the flag.
      */
     @Override
     public void infoSeeFlagGoalOwn(Flag id, double distance, double direction) {
@@ -262,10 +279,12 @@ public class Simple implements Controller {
     }
 
     /**
-     * The controller is informed that any object is in sight.
-     * @param id
-     * @param distance
-     * @param direction
+     * The controller is informed that one of the other teams goal flags
+     * is in sight. The flags map the posts of the goal and the center
+     * of the goal.
+     * @param id possible values: LEFT, CENTER, RIGHT
+     * @param distance The distane to this flag.
+     * @param direction The direction of the flag.
      */
     @Override
     public void infoSeeFlagGoalOther(Flag id, double distance, double direction) {
@@ -273,10 +292,10 @@ public class Simple implements Controller {
     }
 
     /**
-     * The controller is informed that any object is in sight.
+     * The controller is informed that one of the pitch lines are in sight.
      * @param id
-     * @param distance
-     * @param direction
+     * @param distance The distance to the line.
+     * @param direction The direction of the line.
      */
     @Override
     public void infoSeeLine(Line id, double distance, double direction) {
@@ -284,29 +303,27 @@ public class Simple implements Controller {
     }
 
     /**
-     * The controller is informed that any object is in sight.
-     * @param number
-     * @param distance
+     * The controller is informed that one of the other teams players is in sight.
+     * @param number The ID of the player (from 1 to 11)
+     * @param distance The distance to the player.
      * @param direction
      */
     @Override
     public void infoSeePlayerOther(int number, double distance, double direction) {}
 
     /**
-     * The controller is informed that any object is in sight.
-     * @param number
-     * @param distance
-     * @param direction
+     * The controller is informed that one of it's own team is in sight.
+     * @param number The ID of the player (from 1 to 11)
+     * @param distance The distance to the player.
+     * @param direction The direction of the player.
      */
     @Override
     public void infoSeePlayerOwn(int number, double distance, double direction) {}
 
     /**
-     * The controller is informed that the ball is in sight and about its
-     * distance and direction. This information is stored in the controllers
-     * state to be interpreted in postInfo().
-     * @param distance
-     * @param direction
+     * The controller is informed that the Ball is in sight.
+     * @param distance The distance to the ball.
+     * @param direction The direction of the ball.
      */
     @Override
     public void infoSeeBall(double distance, double direction) {
@@ -317,16 +334,20 @@ public class Simple implements Controller {
     }
 
     /**
-     * Method description
-     * @param refereeMessage
+     * The controller is informed when a referee message is broadcast.
+     * @param refereeMessage possible values: FOUL_OWN, FOUL_OTHER,
+     * HALF_TIME, TIME_UP, TIME_UP_WITHOUT_A_TEAM,
+     * TIME_EXTENDED, DROP_BALL, OFFSIDE_OWN, OFFSIDE_OTHER
      */
     @Override
     public void infoHearReferee(RefereeMessage refereeMessage) {}
 
     /**
-     * If the controller hears that the server is in before kick off mode it
-     * moves to a position that depends on the clients nummber.
-     * @param playMode
+     * The controller is informed when a play mode message is broadcast.
+     * @param playMode possible values: BEFORE_KICK_OFF, TIME_OVER, PLAY_ON,
+     * KICK_OFF_OWN, KICK_OFF_OTHER, FREE_KICK_OWN,
+     * FREE_KICK_OTHER, GOAL_KICK_OWN, CORNER_KICK_OTHER,
+     * GOAL_KICK_OWN, GOAL_KICK_OTHER, GOAL_OWN, GOAL_OTHER
      */
     @Override
     public void infoHearPlayMode(PlayMode playMode) {
@@ -373,17 +394,17 @@ public class Simple implements Controller {
     }
 
     /**
-     * Method description
-     * @param direction
-     * @param message
+     * The controller is informed when it hears a message from another player.
+     * @param direction The direction from which the message originated.
+     * @param message The actual message said.
      */
     @Override
     public void infoHearPlayer(double direction, String message) {}
 
     /**
-     * Method description
-     * @param viewQuality
-     * @param viewAngle
+     * The controller is updated as to the current information about the player it controls.
+     * @param viewQuality possible values: HIGH, LOW
+     * @param viewAngle possible values: NARROW, NORMAL, WIDE
      * @param stamina
      * @param speed
      * @param headAngle
@@ -399,7 +420,7 @@ public class Simple implements Controller {
                               int turnNeckCount) {}
 
     /**
-     * Method description
+     * Randomly choose a fast dash value.
      * @return
      */
     private int randomDashValueFast() {
@@ -407,7 +428,7 @@ public class Simple implements Controller {
     }
 
     /**
-     * Method description
+     * Randomly choose a slow dash value.
      * @return
      */
     private int randomDashValueSlow() {
@@ -415,21 +436,21 @@ public class Simple implements Controller {
     }
 
     /**
-     * Method description
+     * Turn towards the ball.
      */
     private void turnTowardBall() {
         getPlayer().turn(directionBall);
     }
 
     /**
-     * Method description
+     * Turn towards our goal.
      */
     private void turnTowardOwnGoal() {
         getPlayer().turn(directionOwnGoal);
     }
 
     /**
-     * Method description
+     * Randomly choose a kick direction.
      * @return
      */
     private int randomKickDirectionValue() {

@@ -13,11 +13,12 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 
 /**
- * Class description
+ * This is the class used to connect each player/trainer/coach to the server within their
+ * own threads.
  * @author Atan
  */
-public abstract class UDPClient extends Thread {
-    private static Logger  log       = Logger.getLogger(UDPClient.class);
+public abstract class AbstractUDPClient extends Thread {
+    private static Logger  log       = Logger.getLogger(AbstractUDPClient.class);
     private ByteBuffer     buf       = null;
     private String         hostname  = "localhost";
     private int            port      = 6000;
@@ -28,31 +29,32 @@ public abstract class UDPClient extends Thread {
     /**
      * Constructs ...
      */
-    public UDPClient() {
+    public AbstractUDPClient() {
         this(6000, "localhost");
     }
 
     /**
-     * Constructs ...
-     * @param port
+     * Constructs an AbstractUDPClient object given only the port number.
+     * Assumes localhost.
+     * @param port Any valid port.
      */
-    public UDPClient(int port) {
+    public AbstractUDPClient(int port) {
         this(port, "localhost");
     }
 
     /**
-     * Constructs ...
-     * @param port
-     * @param hostname
+     * Constructs an AbstractUDPClient object given the port number and hostname.
+     * @param port Any valid port.
+     * @param hostname Any valid hostname. (eg. 192.168.1.67 or RCSServerHost)
      */
-    public UDPClient(int port, String hostname) {
+    public AbstractUDPClient(int port, String hostname) {
         super();
         this.port     = port;
         this.hostname = hostname;
     }
 
     /**
-     * Method description
+     * Checks to see if the thread is running.
      * @return
      */
     public boolean isRunning() {
@@ -60,7 +62,7 @@ public abstract class UDPClient extends Thread {
     }
 
     /**
-     * Method description
+     * Runs the thread.
      */
     @Override
     public void run() {
@@ -94,11 +96,11 @@ public abstract class UDPClient extends Thread {
      * @return
      */
     protected String getDescription() {
-        return "UDPClient";
+        return "AbstractUDPClient";
     }
 
     /**
-     * Method description
+     * Sends a message.
      * @param message
      * @throws IOException
      */
@@ -115,7 +117,7 @@ public abstract class UDPClient extends Thread {
     public abstract String getInitMessage();
 
     /**
-     * Method description
+     * Recieved a message.
      * @param msg
      * @throws IOException
      */
@@ -144,16 +146,17 @@ public abstract class UDPClient extends Thread {
     }
 
     /**
-     * Method description
+     * Returns a string containing the connection details.
+     * (eg. "Host: 192.168.1.67:6000")
      * @return
      */
     public String toStateString() {
-        StringBuffer stringBuf = new StringBuffer();
-        stringBuf.append("Host: ");
-        stringBuf.append(this.hostname);
-        stringBuf.append(":");
-        stringBuf.append(this.port);
-        stringBuf.append("\n");
-        return stringBuf.toString();
+        StringBuffer buff = new StringBuffer();
+        buff.append("Host: ");
+        buff.append(this.hostname);
+        buff.append(':');
+        buff.append(this.port);
+        buff.append("\n");
+        return buff.toString();
     }
 }

@@ -2,7 +2,7 @@ package atan.model;
 
 /**
  * An enum for referee messages.
- * @author Nick James
+ * @author Atan
  */
 public enum RefereeMessage {
 

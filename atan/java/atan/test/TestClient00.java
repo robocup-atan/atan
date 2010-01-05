@@ -2,7 +2,7 @@ package atan.test;
 
 //~--- non-JDK imports --------------------------------------------------------
 
-import atan.model.UDPClient;
+import atan.model.AbstractUDPClient;
 
 //~--- JDK imports ------------------------------------------------------------
 
@@ -12,7 +12,7 @@ import java.io.IOException;
  * Class description
  * @author Atan
  */
-public class TestClient00 extends UDPClient {
+public class TestClient00 extends AbstractUDPClient {
     private String teamName;
 
     /**

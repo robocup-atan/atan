@@ -2,7 +2,7 @@ package atan.model;
 
 /**
  * An enum for PlayMode
- * @author Nick James
+ * @author Atan
  */
 public enum PlayMode {
 

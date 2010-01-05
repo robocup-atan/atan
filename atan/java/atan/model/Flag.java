@@ -2,7 +2,7 @@ package atan.model;
 
 /**
  * An Enum for Flags.
- * @author Nick James
+ * @author Atan
  */
 public enum Flag {
 
