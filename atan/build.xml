@@ -2,7 +2,7 @@
 <project basedir="." default="all" name="atan">
 
 	<!-- All the variables are set -->
-	<property name="version" value="0.4" />
+	<property name="version" value="0.4.1" />
 	<property name="classes" value="classes" />
 	<property name="work" value="work" />
 
