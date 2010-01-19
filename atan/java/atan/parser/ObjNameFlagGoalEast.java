@@ -3,7 +3,7 @@ package atan.parser;
 //~--- non-JDK imports --------------------------------------------------------
 
 import atan.model.Controller;
-import atan.model.Flag;
+import atan.model.enums.Flag;
 
 /**
  * Class description
@@ -21,7 +21,7 @@ class ObjNameFlagGoalEast implements ObjName {
     }
 
     /**
-     * Method description
+     * 
      * @param c
      * @param dist
      * @param dir
@@ -42,7 +42,7 @@ class ObjNameFlagGoalEast implements ObjName {
     }
 
     /**
-     * Method description
+     * 
      * @param c
      * @param dist
      * @param dir

@@ -24,7 +24,7 @@ public class TestClient00 extends AbstractUDPClient {
     }
 
     /**
-     * Method description
+     * 
      * @return
      */
     @Override
@@ -33,7 +33,7 @@ public class TestClient00 extends AbstractUDPClient {
     }
 
     /**
-     * Method description
+     * 
      * @param s
      */
     @SuppressWarnings("empty-statement")
@@ -57,7 +57,7 @@ public class TestClient00 extends AbstractUDPClient {
     }
 
     /**
-     * Method description
+     * 
      * @param msg
      * @return
      */
@@ -66,7 +66,7 @@ public class TestClient00 extends AbstractUDPClient {
     }
 
     /**
-     * Method description
+     * 
      * @param msg
      * @return
      */
@@ -75,7 +75,7 @@ public class TestClient00 extends AbstractUDPClient {
     }
 
     /**
-     * Method description
+     * 
      * @param msg
      * @return
      */
@@ -84,7 +84,7 @@ public class TestClient00 extends AbstractUDPClient {
     }
 
     /**
-     * Method description
+     * 
      */
     private void startRunning() {
         System.out.println("Start Running");
@@ -93,7 +93,7 @@ public class TestClient00 extends AbstractUDPClient {
     }
 
     /**
-     * Method description
+     * 
      * @throws IOException
      */
     public void takeStep() throws IOException {
@@ -104,7 +104,7 @@ public class TestClient00 extends AbstractUDPClient {
     }
 
     /**
-     * Method description
+     * 
      * @param teamName
      */
     private static void addPlayer(String teamName) {
@@ -113,7 +113,7 @@ public class TestClient00 extends AbstractUDPClient {
     }
 
     /**
-     * Method description
+     * 
      * @param ex
      */
     void handleException(Exception ex) {
@@ -121,7 +121,7 @@ public class TestClient00 extends AbstractUDPClient {
     }
 
     /**
-     * Method description
+     * 
      * @param arg
      */
     public static void main(String[] arg) {

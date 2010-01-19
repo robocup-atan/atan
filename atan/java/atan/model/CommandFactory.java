@@ -5,6 +5,10 @@ package atan.model;
 import java.util.List;
 import java.util.Vector;
 
+import atan.model.enums.PlayMode;
+import atan.model.enums.ViewAngle;
+import atan.model.enums.ViewQuality;
+
 /**
  * This class creates an easy interface between Java and the SServer.
  * By calling the methods in this class, it creates String's that the
@@ -13,7 +17,8 @@ import java.util.Vector;
  */
 public class CommandFactory {
     private String defaultVersion = new String("13");
-    private List   fifo           = new Vector();
+    @SuppressWarnings("unchecked")
+	private List   fifo           = new Vector();
 
     /**
      * Constructs a blank command factory.
@@ -24,27 +29,40 @@ public class CommandFactory {
      * This is used to initialise a player.
      * @param teamName The team the player belongs to.
      * @param isGoalie If the player is a goalie. Note: Only one goalie per team.
+     * @param version
      */
-    public void addPlayerInitCommand(String teamName, boolean isGoalie) {
+    @SuppressWarnings("unchecked")
+	public void addPlayerInitCommand(String teamName, boolean isGoalie, String version) {
         StringBuffer buf = new StringBuffer();
         buf.append("(init ");
         buf.append(teamName);
         buf.append(" (version ");
         if (isGoalie) {
-            buf.append(defaultVersion);
-            buf.append(") (goalie))");
+            if ("".equals(version)) {
+                buf.append(defaultVersion);
+                buf.append(") (goalie))");
+            } else {
+                buf.append(version);
+                buf.append(") (goalie))");
+            }
         } else {
-            buf.append(defaultVersion);
-            buf.append("))");
+            if ("".equals(version)) {
+                buf.append(defaultVersion);
+                buf.append("))");
+            } else {
+                buf.append(version);
+                buf.append("))");
+            }
         }
         fifo.add(fifo.size(), buf.toString());
     }
 
     /**
-     * This is used to initilise a trainer.
+     * This is used to initialise a trainer.
      * @param version The version of the server expected.
      */
-    public void addTrainerInitCommand(String version) {
+    @SuppressWarnings("unchecked")
+	public void addTrainerInitCommand(String version) {
         StringBuffer buf = new StringBuffer();
         buf.append("(init (version ");
         if ("".equals(version)) {
@@ -61,7 +79,8 @@ public class CommandFactory {
      * @param teamName The team the coach belongs to.
      * @param version The version of the server expected.
      */
-    public void addCoachInitCommand(String teamName, String version) {
+    @SuppressWarnings("unchecked")
+	public void addCoachInitCommand(String teamName, String version) {
         StringBuffer buf = new StringBuffer();
         buf.append("(init ");
         buf.append(teamName);
@@ -80,7 +99,8 @@ public class CommandFactory {
      * @param teamName
      * @param num
      */
-    public void addReconnectCommand(String teamName, int num) {
+    @SuppressWarnings("unchecked")
+	public void addReconnectCommand(String teamName, int num) {
         StringBuffer buf = new StringBuffer();
         buf.append("(reconnect ");
         buf.append(teamName);
@@ -96,7 +116,8 @@ public class CommandFactory {
      * be in the goalies hand untill kicked away.
      * @param direction The direction in which to catch, relative to its body.
      */
-    public void addCatchCommand(int direction) {
+    @SuppressWarnings("unchecked")
+	public void addCatchCommand(int direction) {
         StringBuffer buf = new StringBuffer();
         buf.append("(catch ");
         buf.append(direction);
@@ -114,7 +135,8 @@ public class CommandFactory {
      * @param angle Between narrow, normal or wide.
      * @param quality Between high or low.
      */
-    public void addChangeViewCommand(ViewAngle angle, ViewQuality quality) {
+    @SuppressWarnings("unchecked")
+	public void addChangeViewCommand(ViewAngle angle, ViewQuality quality) {
         StringBuffer buf = new StringBuffer();
         buf.append("(change_view ");
         switch (angle) {
@@ -156,7 +178,8 @@ public class CommandFactory {
      * This command accelerates the player in the direction of its body.
      * @param power Power is between minpower (-100) and maxpower (+100).
      */
-    public void addDashCommand(int power) {
+    @SuppressWarnings("unchecked")
+	public void addDashCommand(int power) {
         StringBuffer buf = new StringBuffer();
         buf.append("(dash ");
         buf.append(power);
@@ -169,7 +192,8 @@ public class CommandFactory {
      * @param power Power is between minpower (-100) and maxpower (+100).
      * @param direction Direction is relative to the body of the player.
      */
-    public void addKickCommand(int power, int direction) {
+    @SuppressWarnings("unchecked")
+	public void addKickCommand(int power, int direction) {
         StringBuffer buf = new StringBuffer();
         buf.append("(kick ");
         buf.append(power);
@@ -184,7 +208,8 @@ public class CommandFactory {
      * @param x X location (between -54 and +54).
      * @param y Y location (between -32 and +32).
      */
-    public void addMoveCommand(int x, int y) {
+    @SuppressWarnings("unchecked")
+	public void addMoveCommand(int x, int y) {
         StringBuffer buf = new StringBuffer();
         buf.append("(move ");
         buf.append(x);
@@ -199,7 +224,8 @@ public class CommandFactory {
      * current direction.
      * @param angle Angle to turn (between -180 and +180).
      */
-    public void addTurnCommand(int angle) {
+    @SuppressWarnings("unchecked")
+	public void addTurnCommand(int angle) {
         StringBuffer buf = new StringBuffer();
         buf.append("(turn ");
         buf.append(angle);
@@ -213,7 +239,8 @@ public class CommandFactory {
      * relative to the previous angle.
      * @param angle Angle to turn the neck (between minneckang and maxneckang) (-90 to +90)
      */
-    public void addTurnNeckCommand(int angle) {
+    @SuppressWarnings("unchecked")
+	public void addTurnNeckCommand(int angle) {
         StringBuffer buf = new StringBuffer();
         buf.append("(turn_neck ");
         buf.append(angle);
@@ -227,7 +254,8 @@ public class CommandFactory {
      * enough hearing capacity will hear the message.
      * @param message A valid String to say.
      */
-    public void addSayCommand(String message) {
+    @SuppressWarnings("unchecked")
+	public void addSayCommand(String message) {
         StringBuffer buf = new StringBuffer();
         buf.append("(say ");
         buf.append(message);
@@ -239,7 +267,8 @@ public class CommandFactory {
      * Requests the server to send sense body information.
      * Note: SServer version 6 and above sends this with every cycle.
      */
-    public void addSenseBodyCommand() {
+    @SuppressWarnings("unchecked")
+	public void addSenseBodyCommand() {
         StringBuffer buf = new StringBuffer();
         buf.append("(sense_body)");
         fifo.add(fifo.size(), buf.toString());
@@ -250,7 +279,8 @@ public class CommandFactory {
      * Changes the play mode of the server.
      * @param playMode
      */
-    public void addChangePlayModeCommand(PlayMode playMode) {
+    @SuppressWarnings("unchecked")
+	public void addChangePlayModeCommand(PlayMode playMode) {
         StringBuffer buf = new StringBuffer();
         buf.append("(change_mode ");
         buf.append(playMode);
@@ -265,10 +295,11 @@ public class CommandFactory {
      * @param x
      * @param y
      */
-    public void addMovePlayerCommand(Player p, double x, double y) {
+    @SuppressWarnings("unchecked")
+	public void addMovePlayerCommand(Player p, double x, double y) {
         StringBuffer buf = new StringBuffer();
         buf.append("(move ");
-        buf.append(p);    // TODO Manual says the format...implement this later when i cba.
+        buf.append(p);    // TODO Manual says the format...will implement this later.
         buf.append(' ');
         buf.append(x);
         buf.append(' ');
@@ -283,10 +314,11 @@ public class CommandFactory {
      * @param x
      * @param y
      */
-    public void addMoveBallCommand(double x, double y) {
+    @SuppressWarnings("unchecked")
+	public void addMoveBallCommand(double x, double y) {
         StringBuffer buf = new StringBuffer();
         buf.append("(move ");
-        buf.append("ball");    // TODO Manual says the format...implement this later when i cba.
+        buf.append("ball");    // TODO Manual says the format...will implement this later.
         buf.append(' ');
         buf.append(x);
         buf.append(' ');
@@ -299,7 +331,8 @@ public class CommandFactory {
      * Trainer only command.
      * Checks the current status of the ball.
      */
-    public void addCheckBallCommand() {
+    @SuppressWarnings("unchecked")
+	public void addCheckBallCommand() {
         StringBuffer buf = new StringBuffer();
         buf.append("(check_ball)");
         fifo.add(fifo.size(), buf.toString());
@@ -309,7 +342,8 @@ public class CommandFactory {
      * Trainer only command.
      * Starts the server.
      */
-    public void addStartCommand() {
+    @SuppressWarnings("unchecked")
+	public void addStartCommand() {
         StringBuffer buf = new StringBuffer();
         buf.append("(start)");
         fifo.add(fifo.size(), buf.toString());
@@ -319,7 +353,8 @@ public class CommandFactory {
      * Trainer only command.
      * Recovers the players stamina, recovery, effort and hear capacity to the values at the beginning of the game.
      */
-    public void addRecoverCommand() {
+    @SuppressWarnings("unchecked")
+	public void addRecoverCommand() {
         StringBuffer buf = new StringBuffer();
         buf.append("(recover)");
         fifo.add(fifo.size(), buf.toString());
@@ -329,7 +364,8 @@ public class CommandFactory {
      * Trainer only command.
      * It turns on or off the sending of auditory information to the trainer.
      */
-    public void addEarCommand() {
+    @SuppressWarnings("unchecked")
+	public void addEarCommand() {
         StringBuffer buf = new StringBuffer();
         buf.append("(ear ");
         buf.append("on");    // TODO Change this to take an input - Section 7.5 for format.
@@ -341,7 +377,8 @@ public class CommandFactory {
      * Trainer command that can be used by online coach.
      * It turns on or off the sending of "(see_global ...)" information from the server.
      */
-    public void addEyeCommand() {
+    @SuppressWarnings("unchecked")
+	public void addEyeCommand() {
         StringBuffer buf = new StringBuffer();
         buf.append("(eye ");
         buf.append("on");    // TODO Change this to take an input - Section 7.5 for format.
@@ -356,7 +393,8 @@ public class CommandFactory {
      * The ball.
      * All active players.
      */
-    public void addLookCommand() {
+    @SuppressWarnings("unchecked")
+	public void addLookCommand() {
         StringBuffer buf = new StringBuffer();
         buf.append("(look)");
         fifo.add(fifo.size(), buf.toString());
@@ -366,7 +404,8 @@ public class CommandFactory {
      * Trainer command that can be used by online coach.
      * This command provedes information about the names of both teams and which side they are playing on.
      */
-    public void addTeamNamesCommand() {
+    @SuppressWarnings("unchecked")
+	public void addTeamNamesCommand() {
         StringBuffer buf = new StringBuffer();
         buf.append("(team_names)");
         fifo.add(fifo.size(), buf.toString());
@@ -376,7 +415,8 @@ public class CommandFactory {
      * This is used to disconnect a player/coach/trainer from the server.
      * The server will not respond.
      */
-    public void addByeCommand() {
+    @SuppressWarnings("unchecked")
+	public void addByeCommand() {
         StringBuffer buf = new StringBuffer();
         buf.append("(bye)");
         fifo.add(fifo.size(), buf.toString());

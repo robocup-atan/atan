@@ -24,7 +24,7 @@ public class PingPongClient extends AbstractUDPClient {
     }
 
     /**
-     * Method description
+     * 
      * @return
      */
     @Override
@@ -33,7 +33,7 @@ public class PingPongClient extends AbstractUDPClient {
     }
 
     /**
-     * Method description
+     * 
      * @param msg
      * @throws IOException
      */
@@ -45,7 +45,7 @@ public class PingPongClient extends AbstractUDPClient {
     }
 
     /**
-     * Method description
+     * 
      * @param arg
      */
     public static void main(String[] arg) {

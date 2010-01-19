@@ -15,7 +15,7 @@ class Parser {
     void parse(String message, SServerPlayer pl) {}
 
     /**
-     * Method description
+     * 
      * @return
      */
     static Parser current() {

@@ -5,7 +5,7 @@ package atan.model;
 import org.apache.log4j.Logger;
 
 /**
- * Class description
+ * An abstract class to use for teams.
  * @author Atan
  */
 public abstract class AbstractTeam {
@@ -16,7 +16,7 @@ public abstract class AbstractTeam {
     private String          teamName;
 
     /**
-     * Constructs ...
+     * Connect the team to the server using the default settings.
      * @param teamName
      */
     public AbstractTeam(String teamName) {
@@ -24,7 +24,7 @@ public abstract class AbstractTeam {
     }
 
     /**
-     * Constructs ...
+     * Connect the team to the server using specified settings.
      * @param teamName
      * @param port
      * @param hostname
@@ -40,7 +40,7 @@ public abstract class AbstractTeam {
     }
 
     /**
-     * Method description
+     * Returns the team name.
      * @return
      */
     public String getTeamName() {
@@ -48,14 +48,14 @@ public abstract class AbstractTeam {
     }
 
     /**
-     * Method description
+     * 
      * @param i
      * @return
      */
     public abstract Controller getNewController(int i);
 
     /**
-     * Method description
+     * 
      */
     public void createNewPlayers() {
         for (int i = 0; i < size(); i++) {
@@ -64,26 +64,36 @@ public abstract class AbstractTeam {
     }
 
     /**
-     * Method description
+     * Connect all the players to the server.
+     * Player with index 0 is always the goalie.
      */
     public void connectAll() {
         for (int i = 0; i < size(); i++) {
-            try {
-                players[i].connect();
-            } catch (Exception ex) {
-                players[i].handleError(ex.getMessage());
+            if (i == 0) {
+                players[i].connect("", true);
+            } else if (i >= 1) {
+                try {
+                    players[i].connect("", false);
+                } catch (Exception ex) {
+                    players[i].handleError(ex.getMessage());
+                }
             }
             pause(500);
         }
     }
 
     /**
-     * Method description
+     * Connect the selected player to the server.
+     * The player with index 0 is always the goalie.
      * @param index
      */
     public void connect(int index) {
         try {
-            players[index].connect();
+            if(index == 0){
+                players[index].connect("", true);
+            } else {
+                players[index].connect("", false);
+            }
         } catch (Exception ex) {
             players[index].handleError(ex.getMessage());
         }
@@ -91,7 +101,7 @@ public abstract class AbstractTeam {
     }
 
     /**
-     * Method description
+     * 
      * @param i
      * @return
      */
@@ -104,7 +114,7 @@ public abstract class AbstractTeam {
     }
 
     /**
-     * Method description
+     * 
      * @return
      */
     public int size() {
@@ -112,7 +122,7 @@ public abstract class AbstractTeam {
     }
 
     /**
-     * Method description
+     * 
      * @param ms
      */
     private synchronized void pause(int ms) {

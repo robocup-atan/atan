@@ -3,13 +3,13 @@ package sample;
 //~--- non-JDK imports --------------------------------------------------------
 
 import atan.model.Controller;
-import atan.model.Flag;
-import atan.model.Line;
-import atan.model.PlayMode;
 import atan.model.Player;
-import atan.model.RefereeMessage;
-import atan.model.ViewAngle;
-import atan.model.ViewQuality;
+import atan.model.enums.Flag;
+import atan.model.enums.Line;
+import atan.model.enums.PlayMode;
+import atan.model.enums.RefereeMessage;
+import atan.model.enums.ViewAngle;
+import atan.model.enums.ViewQuality;
 
 import org.apache.log4j.Logger;
 
@@ -24,7 +24,7 @@ public class Silly implements Controller {
     private Player        player;
 
     /**
-     * Method description
+     * 
      */
     @Override
     public void preInfo() {
@@ -33,7 +33,7 @@ public class Silly implements Controller {
     }
 
     /**
-     * Method description
+     * 
      */
     @Override
     public void postInfo() {
@@ -49,7 +49,7 @@ public class Silly implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @return
      */
     @Override
@@ -58,7 +58,7 @@ public class Silly implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @param p
      */
     @Override
@@ -67,7 +67,7 @@ public class Silly implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @param id
      * @param dist
      * @param dir
@@ -80,7 +80,7 @@ public class Silly implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @param dist
      * @param dir
      */
@@ -90,7 +90,7 @@ public class Silly implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @param playMode
      */
     @Override
@@ -101,14 +101,14 @@ public class Silly implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @param msg
      */
     @Override
     public void infoHearReferee(RefereeMessage msg) {}
 
     /**
-     * Method description
+     * 
      * @param parm1
      * @param parm2
      */
@@ -116,7 +116,7 @@ public class Silly implements Controller {
     public void infoHearPlayer(double parm1, String parm2) {}
 
     /**
-     * Method description
+     * 
      * @param parm1
      * @param parm2
      * @param parm3
@@ -133,7 +133,7 @@ public class Silly implements Controller {
                               int parm7, int parm8, int parm9, int parm10) {}
 
     /**
-     * Method description
+     * 
      * @param flag
      * @param distance
      * @param direction
@@ -142,7 +142,7 @@ public class Silly implements Controller {
     public void infoSeeFlagRight(Flag flag, double distance, double direction) {}
 
     /**
-     * Method description
+     * 
      * @param flag
      * @param distance
      * @param direction
@@ -151,7 +151,7 @@ public class Silly implements Controller {
     public void infoSeeFlagLeft(Flag flag, double distance, double direction) {}
 
     /**
-     * Method description
+     * 
      * @param flag
      * @param distance
      * @param direction
@@ -160,7 +160,7 @@ public class Silly implements Controller {
     public void infoSeeFlagOwn(Flag flag, double distance, double direction) {}
 
     /**
-     * Method description
+     * 
      * @param flag
      * @param distance
      * @param direction
@@ -169,7 +169,7 @@ public class Silly implements Controller {
     public void infoSeeFlagOther(Flag flag, double distance, double direction) {}
 
     /**
-     * Method description
+     * 
      * @param flag
      * @param distance
      * @param direction
@@ -178,7 +178,7 @@ public class Silly implements Controller {
     public void infoSeeFlagCenter(Flag flag, double distance, double direction) {}
 
     /**
-     * Method description
+     * 
      * @param flag
      * @param distance
      * @param direction
@@ -187,7 +187,7 @@ public class Silly implements Controller {
     public void infoSeeFlagCornerOwn(Flag flag, double distance, double direction) {}
 
     /**
-     * Method description
+     * 
      * @param flag
      * @param distance
      * @param direction
@@ -196,7 +196,7 @@ public class Silly implements Controller {
     public void infoSeeFlagCornerOther(Flag flag, double distance, double direction) {}
 
     /**
-     * Method description
+     * 
      * @param flag
      * @param distance
      * @param direction
@@ -205,7 +205,7 @@ public class Silly implements Controller {
     public void infoSeeFlagPenaltyOwn(Flag flag, double distance, double direction) {}
 
     /**
-     * Method description
+     * 
      * @param flag
      * @param distance
      * @param direction
@@ -214,7 +214,7 @@ public class Silly implements Controller {
     public void infoSeeFlagPenaltyOther(Flag flag, double distance, double direction) {}
 
     /**
-     * Method description
+     * 
      * @param flag
      * @param distance
      * @param direction
@@ -223,7 +223,7 @@ public class Silly implements Controller {
     public void infoSeeFlagGoalOwn(Flag flag, double distance, double direction) {}
 
     /**
-     * Method description
+     * 
      * @param flag
      * @param distance
      * @param direction
@@ -232,7 +232,7 @@ public class Silly implements Controller {
     public void infoSeeFlagGoalOther(Flag flag, double distance, double direction) {}
 
     /**
-     * Method description
+     * 
      * @param num
      * @param distance
      * @param direction
@@ -241,7 +241,7 @@ public class Silly implements Controller {
     public void infoSeePlayerOther(int num, double distance, double direction) {}
 
     /**
-     * Method description
+     * 
      * @param num
      * @param distance
      * @param direction

@@ -18,7 +18,7 @@ public class PingPongServer extends UDPServer {
     private DatagramSocket socket  = null;
 
     /**
-     * Method description
+     * 
      * @param msg
      * @return
      */
@@ -29,7 +29,7 @@ public class PingPongServer extends UDPServer {
     }
 
     /**
-     * Method description
+     * 
      * @param arg
      */
     public static void main(String[] arg) {

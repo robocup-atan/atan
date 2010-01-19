@@ -1,4 +1,4 @@
-package atan.model;
+package atan.model.enums;
 
 /**
  * An Enum for lines.

@@ -1,5 +1,12 @@
 package atan.model;
 
+import atan.model.enums.Flag;
+import atan.model.enums.Line;
+import atan.model.enums.PlayMode;
+import atan.model.enums.RefereeMessage;
+import atan.model.enums.ViewAngle;
+import atan.model.enums.ViewQuality;
+
 /**
  * Interface that has to be implemented in order to control players. The methods
  * are run in a cycle whenever a see command arrives from SServer. At first preInfo()

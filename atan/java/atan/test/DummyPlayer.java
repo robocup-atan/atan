@@ -3,8 +3,8 @@ package atan.test;
 //~--- non-JDK imports --------------------------------------------------------
 
 import atan.model.Player;
-import atan.model.ViewAngle;
-import atan.model.ViewQuality;
+import atan.model.enums.ViewAngle;
+import atan.model.enums.ViewQuality;
 
 //~--- JDK imports ------------------------------------------------------------
 
@@ -25,14 +25,14 @@ public class DummyPlayer implements Player {
     public DummyPlayer() {}
 
     /**
-     * Method description
+     * 
      * @param direction
      */
     @Override
     public void catchBall(double direction) {}
 
     /**
-     * Method description
+     * 
      * @param qal
      * @param angle
      */
@@ -40,14 +40,14 @@ public class DummyPlayer implements Player {
     public void changeViewMode(ViewQuality qal, ViewAngle angle) {}
 
     /**
-     * Method description
+     * 
      * @param power
      */
     @Override
     public void dash(int power) {}
 
     /**
-     * Method description
+     * 
      * @param x
      * @param y
      */
@@ -55,34 +55,34 @@ public class DummyPlayer implements Player {
     public void move(int x, int y) {}
 
     /**
-     * Method description
+     * 
      * @param message
      */
     @Override
     public void say(String message) {}
 
     /**
-     * Method description
+     * 
      */
     @Override
     public void senseBody() {}
 
     /**
-     * Method description
+     * 
      * @param angle
      */
     @Override
     public void turn(double angle) {}
 
     /**
-     * Method description
+     * 
      * @param angle
      */
     @Override
     public void turnNeck(double angle) {}
 
     /**
-     * Method description
+     * 
      * @param error
      */
     @Override
@@ -93,7 +93,7 @@ public class DummyPlayer implements Player {
     }
 
     /**
-     * Method description
+     * 
      * @return
      */
     @Override
@@ -102,7 +102,7 @@ public class DummyPlayer implements Player {
     }
 
     /**
-     * Method description
+     * 
      * @return
      */
     @Override
@@ -111,7 +111,7 @@ public class DummyPlayer implements Player {
     }
 
     /**
-     * Method description
+     * 
      * @param n
      */
     public void setTeamName(String n) {
@@ -119,7 +119,7 @@ public class DummyPlayer implements Player {
     }
 
     /**
-     * Method description
+     * 
      * @param isTeamEast
      */
     @Override
@@ -135,7 +135,7 @@ public class DummyPlayer implements Player {
     }
 
     /**
-     * Method description
+     * 
      * @return
      */
     public String getBuffer() {
@@ -143,14 +143,14 @@ public class DummyPlayer implements Player {
     }
 
     /**
-     * Method description
+     * 
      */
     public void resetBuffer() {
         buf = new StringBuffer();
     }
 
     /**
-     * Method description
+     * 
      * @param num
      */
     @Override
@@ -159,7 +159,7 @@ public class DummyPlayer implements Player {
     }
 
     /**
-     * Method description
+     * 
      * @return
      */
     @Override
@@ -168,13 +168,13 @@ public class DummyPlayer implements Player {
     }
 
     /**
-     * Method description
+     * 
      */
     @Override
     public void bye() {}
 
     /**
-     * Method description
+     * 
      * @param power
      * @param direction
      */
@@ -182,7 +182,7 @@ public class DummyPlayer implements Player {
     public void kick(int power, double direction) {}
 
     /**
-     * Method description
+     * 
      * @return
      */
     public PrintWriter getLogger() {
@@ -190,7 +190,7 @@ public class DummyPlayer implements Player {
     }
 
     /**
-     * Method description
+     * 
      * @return
      */
     public int getLoglevel() {

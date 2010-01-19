@@ -11,7 +11,7 @@ import atan.model.Controller;
 class ObjNameBall implements ObjName {
 
     /**
-     * Method description
+     * 
      * @param c
      * @param dist
      * @param dir
@@ -22,7 +22,7 @@ class ObjNameBall implements ObjName {
     }
 
     /**
-     * Method description
+     * 
      * @param c
      * @param dist
      * @param dir

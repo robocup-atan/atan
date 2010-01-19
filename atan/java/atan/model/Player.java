@@ -1,5 +1,8 @@
 package atan.model;
 
+import atan.model.enums.ViewAngle;
+import atan.model.enums.ViewQuality;
+
 /**
  * Interface for an abstract soccer player. To be used by Controller.
  */

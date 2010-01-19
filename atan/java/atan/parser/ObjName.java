@@ -11,7 +11,7 @@ import atan.model.Controller;
 public interface ObjName {
 
     /**
-     * Method description
+     * 
      * @param c
      * @param dist
      * @param dir
@@ -19,7 +19,7 @@ public interface ObjName {
     public void infoSeeFromEast(Controller c, double dist, double dir);
 
     /**
-     * Method description
+     * 
      * @param c
      * @param dist
      * @param dir

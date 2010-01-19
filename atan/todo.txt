@@ -1,7 +1,7 @@
 - Fully update Controller to take the new details from V13.
 - Update ObjName classes to take additional information
 - Change parser to reflect all this. (The parsing bit is already done, the info just needs to be passed to the correct methods via parameters.
-- Implement coaches and trainers (This involves having a seperate perser for each)
+- Implement coaches and trainers (This involves having a seperate parser for each)
 
 All this has already been implemented within my university project, however transferring it across will take some work. I plan to do all this in stages, keeping track of my progress within these todo and changelog text files. I am hoping to have Atan fully updraded and functional to SServer V13 by the summer.
 

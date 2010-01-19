@@ -22,7 +22,7 @@ public class AllTest extends TestCase {
     }
 
     /**
-     * Method description
+     * 
      * @return
      */
     static TestSuite suite() {
@@ -34,7 +34,7 @@ public class AllTest extends TestCase {
     }
 
     /**
-     * Method description
+     * 
      * @param arg
      */
     public static void main(String[] arg) {
@@ -42,7 +42,7 @@ public class AllTest extends TestCase {
     }
 
     /**
-     * Method description
+     * 
      */
     public void test() {
 

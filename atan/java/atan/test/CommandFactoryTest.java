@@ -3,8 +3,8 @@ package atan.test;
 //~--- non-JDK imports --------------------------------------------------------
 
 import atan.model.CommandFactory;
-import atan.model.ViewAngle;
-import atan.model.ViewQuality;
+import atan.model.enums.ViewAngle;
+import atan.model.enums.ViewQuality;
 
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -24,44 +24,44 @@ public class CommandFactoryTest extends TestCase {
     }
 
     /**
-     * Method description
+     * 
      */
     public void test00() {
         CommandFactory f = new CommandFactory();
-        f.addPlayerInitCommand("hallo", false);
+        f.addPlayerInitCommand("hallo", false, "13");
         assertTrue("no command", f.hasNext());
-        assertEquals("(init (version 13) hallo)", f.next());
+        assertEquals("(init hallo (version 13))", f.next());
         assertTrue("a command", !f.hasNext());
     }
 
     /**
-     * Method description
+     * 
      */
     public void test01() {
         CommandFactory f = new CommandFactory();
-        f.addPlayerInitCommand("hallo", true);
+        f.addPlayerInitCommand("hallo", true, "13");
         assertTrue("no command", f.hasNext());
-        assertEquals("(init hallo g)", f.next());
+        assertEquals("(init hallo (version 13) (goalie))", f.next());
         assertTrue("a command", !f.hasNext());
-        f.addPlayerInitCommand("hello", false);
+        f.addPlayerInitCommand("hello", false, "13");
         assertTrue("no command", f.hasNext());
-        assertEquals("(init (version 13) hello)", f.next());
+        assertEquals("(init hello (version 13))", f.next());
         assertTrue("a command", !f.hasNext());
     }
 
     /**
-     * Method description
+     * 
      */
     public void test02() {
         CommandFactory f = new CommandFactory();
-        f.addPlayerInitCommand("hallo", false);
-        f.addPlayerInitCommand("hello", false);
-        assertEquals("(init (version 13) hallo)", f.next());
-        assertEquals("(init (version 13) hello)", f.next());
+        f.addPlayerInitCommand("hallo", true, "13");
+        f.addPlayerInitCommand("hello", false, "13");
+        assertEquals("(init hallo (version 13) (goalie))", f.next());
+        assertEquals("(init hello (version 13))", f.next());
     }
 
     /**
-     * Method description
+     * 
      */
     public void test03() {
         CommandFactory f = new CommandFactory();
@@ -70,7 +70,7 @@ public class CommandFactoryTest extends TestCase {
     }
 
     /**
-     * Method description
+     * 
      */
     public void test04() {
         CommandFactory f = new CommandFactory();
@@ -79,7 +79,7 @@ public class CommandFactoryTest extends TestCase {
     }
 
     /**
-     * Method description
+     * 
      */
     public void test05() {
         CommandFactory f = new CommandFactory();
@@ -126,7 +126,7 @@ public class CommandFactoryTest extends TestCase {
     }
 
     /**
-     * Method description
+     * 
      * @return
      */
     static TestSuite suite() {

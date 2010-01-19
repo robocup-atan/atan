@@ -11,7 +11,7 @@ import atan.model.Controller;
 class ObjNameNull implements ObjName {
 
     /**
-     * Method description
+     * 
      * @param c
      * @param dist
      * @param dir
@@ -20,7 +20,7 @@ class ObjNameNull implements ObjName {
     public void infoSeeFromEast(Controller c, double dist, double dir) {}
 
     /**
-     * Method description
+     * 
      * @param c
      * @param dist
      * @param dir

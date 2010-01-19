@@ -9,14 +9,14 @@ package atan.parser;
 import java.io.StringReader;
 
 import atan.model.Controller;
-import atan.model.Errors;
-import atan.model.Ok;
-import atan.model.PlayMode;
 import atan.model.Player;
-import atan.model.RefereeMessage;
-import atan.model.ViewAngle;
-import atan.model.ViewQuality;
-import atan.model.Warning;
+import atan.model.enums.Errors;
+import atan.model.enums.Ok;
+import atan.model.enums.PlayMode;
+import atan.model.enums.RefereeMessage;
+import atan.model.enums.ViewAngle;
+import atan.model.enums.ViewQuality;
+import atan.model.enums.Warning;
 
   public class CmdParser {
 

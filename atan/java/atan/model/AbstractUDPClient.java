@@ -92,7 +92,7 @@ public abstract class AbstractUDPClient extends Thread {
     }
 
     /**
-     * Method description
+     * 
      * @return
      */
     protected String getDescription() {
@@ -111,7 +111,7 @@ public abstract class AbstractUDPClient extends Thread {
     }
 
     /**
-     * Method description
+     * 
      * @return
      */
     public abstract String getInitMessage();
@@ -124,7 +124,7 @@ public abstract class AbstractUDPClient extends Thread {
     public abstract void received(String msg) throws IOException;
 
     /**
-     * Method description
+     * 
      * @param ms
      */
     protected synchronized void pauseMilliseconds(int ms) {
@@ -134,7 +134,7 @@ public abstract class AbstractUDPClient extends Thread {
     }
 
     /**
-     * Method description
+     * 
      */
     @Override
     public void start() {

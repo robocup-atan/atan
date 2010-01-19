@@ -3,13 +3,13 @@ package atan.test;
 //~--- non-JDK imports --------------------------------------------------------
 
 import atan.model.Controller;
-import atan.model.Flag;
-import atan.model.Line;
-import atan.model.PlayMode;
 import atan.model.Player;
-import atan.model.RefereeMessage;
-import atan.model.ViewAngle;
-import atan.model.ViewQuality;
+import atan.model.enums.Flag;
+import atan.model.enums.Line;
+import atan.model.enums.PlayMode;
+import atan.model.enums.RefereeMessage;
+import atan.model.enums.ViewAngle;
+import atan.model.enums.ViewQuality;
 
 //~--- JDK imports ------------------------------------------------------------
 
@@ -21,7 +21,8 @@ import java.util.Set;
  * @author Atan
  */
 public class TestController implements Controller {
-    private Set result = new HashSet();
+    @SuppressWarnings("unchecked")
+	private Set result = new HashSet();
 
     /**
      * Constructs ...
@@ -29,27 +30,28 @@ public class TestController implements Controller {
     public TestController() {}
 
     /**
-     * Method description
+     * 
      */
     @Override
     public void preInfo() {}
 
     /**
-     * Method description
+     * 
      */
     @Override
     public void postInfo() {}
 
     /**
-     * Method description
+     * 
      * @return
      */
-    Set getResult() {
+    @SuppressWarnings("unchecked")
+	Set getResult() {
         return result;
     }
 
     /**
-     * Method description
+     * 
      * @return
      */
     @Override
@@ -58,19 +60,20 @@ public class TestController implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @param p
      */
     @Override
     public void setPlayer(Player p) {}
 
     /**
-     * Method description
+     * 
      * @param id
      * @param distance
      * @param direction
      */
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public void infoSeeFlagRight(Flag id, double distance, double direction) {
         StringBuffer b = new StringBuffer();
         b.append("|");
@@ -85,12 +88,13 @@ public class TestController implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @param id
      * @param distance
      * @param direction
      */
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public void infoSeeFlagLeft(Flag id, double distance, double direction) {
         StringBuffer b = new StringBuffer();
         b.append("|");
@@ -105,12 +109,13 @@ public class TestController implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @param id
      * @param distance
      * @param direction
      */
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public void infoSeeFlagOwn(Flag id, double distance, double direction) {
         StringBuffer b = new StringBuffer();
         b.append("|");
@@ -125,12 +130,13 @@ public class TestController implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @param id
      * @param distance
      * @param direction
      */
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public void infoSeeFlagOther(Flag id, double distance, double direction) {
         StringBuffer b = new StringBuffer();
         b.append("|");
@@ -145,12 +151,13 @@ public class TestController implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @param id
      * @param distance
      * @param direction
      */
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public void infoSeeFlagCenter(Flag id, double distance, double direction) {
         StringBuffer b = new StringBuffer();
         b.append("|");
@@ -165,12 +172,13 @@ public class TestController implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @param id
      * @param distance
      * @param direction
      */
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public void infoSeeFlagCornerOwn(Flag id, double distance, double direction) {
         StringBuffer b = new StringBuffer();
         b.append("|");
@@ -185,12 +193,13 @@ public class TestController implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @param id
      * @param distance
      * @param direction
      */
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public void infoSeeFlagCornerOther(Flag id, double distance, double direction) {
         StringBuffer b = new StringBuffer();
         b.append("|");
@@ -205,7 +214,7 @@ public class TestController implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @param id
      * @param distance
      * @param direction
@@ -225,7 +234,7 @@ public class TestController implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @param id
      * @param distance
      * @param direction
@@ -245,7 +254,7 @@ public class TestController implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @param id
      * @param distance
      * @param direction
@@ -265,7 +274,7 @@ public class TestController implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @param id
      * @param distance
      * @param direction
@@ -285,7 +294,7 @@ public class TestController implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @param id
      * @param distance
      * @param direction
@@ -305,7 +314,7 @@ public class TestController implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @param number
      * @param distance
      * @param direction
@@ -325,7 +334,7 @@ public class TestController implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @param number
      * @param distance
      * @param direction
@@ -345,7 +354,7 @@ public class TestController implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @param distance
      * @param direction
      */
@@ -362,7 +371,7 @@ public class TestController implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @param message
      */
     @Override
@@ -376,7 +385,7 @@ public class TestController implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @param message
      */
     @Override
@@ -390,7 +399,7 @@ public class TestController implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @param direction
      * @param message
      */
@@ -407,7 +416,7 @@ public class TestController implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @param viewQual
      * @param viewAngle
      * @param stamina

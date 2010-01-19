@@ -23,7 +23,7 @@ class ObjNamePlayerWest implements ObjName {
     }
 
     /**
-     * Method description
+     * 
      * @param c
      * @param dist
      * @param dir
@@ -34,7 +34,7 @@ class ObjNamePlayerWest implements ObjName {
     }
 
     /**
-     * Method description
+     * 
      * @param c
      * @param dist
      * @param dir

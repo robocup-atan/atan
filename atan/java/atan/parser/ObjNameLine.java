@@ -3,7 +3,7 @@ package atan.parser;
 //~--- non-JDK imports --------------------------------------------------------
 
 import atan.model.Controller;
-import atan.model.Line;
+import atan.model.enums.Line;
 
 /**
  * Class description
@@ -21,7 +21,7 @@ class ObjNameLine implements ObjName {
     }
 
     /**
-     * Method description
+     * 
      * @param c
      * @param dist
      * @param dir
@@ -45,7 +45,7 @@ class ObjNameLine implements ObjName {
     }
 
     /**
-     * Method description
+     * 
      * @param c
      * @param dist
      * @param dir

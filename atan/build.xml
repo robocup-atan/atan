@@ -2,7 +2,7 @@
 <project basedir="." default="all" name="atan">
 
 	<!-- All the variables are set -->
-	<property name="version" value="0.4.1" />
+	<property name="version" value="0.4.2" />
 	<property name="classes" value="classes" />
 	<property name="work" value="work" />
 
@@ -48,12 +48,5 @@
 	<target depends="build" name="buildzip">
 		<zip basedir="${work}" includes="atan_${version}/**/*" zipfile="${work}/atan_${version}.zip" />
 	</target>
-		
-	<target name="createSrcZip">
-		<mkdir dir="build"/>
-		<zip destfile="build/atan-src.zip">
-			<zipfileset dir="java" includes="**/*.java" />
-		</zip>
-	</target>
-	
+			
 </project>

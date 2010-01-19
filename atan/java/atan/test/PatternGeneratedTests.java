@@ -32,7 +32,7 @@ public class PatternGeneratedTests extends TestCase {
     }
 
     /**
-     * Method description
+     * 
      */
     public void test00() {
         String s =
@@ -48,7 +48,7 @@ public class PatternGeneratedTests extends TestCase {
     }
 
     /**
-     * Method description
+     * 
      * @param s
      * @return
      * @throws ParseException
@@ -79,7 +79,7 @@ public class PatternGeneratedTests extends TestCase {
     }
 
     /**
-     * Method description
+     * 
      * @param cmd
      * @param f
      * @throws ParseException
@@ -89,7 +89,7 @@ public class PatternGeneratedTests extends TestCase {
     }
 
     /**
-     * Method description
+     * 
      * @return
      */
     private Filter getFilter() {
@@ -97,7 +97,7 @@ public class PatternGeneratedTests extends TestCase {
     }
 
     /**
-     * Method description
+     * 
      * @return
      * @throws ParseException
      */
@@ -109,7 +109,7 @@ public class PatternGeneratedTests extends TestCase {
     }
 
     /**
-     * Method description
+     * 
      * @return
      */
     static TestSuite suite() {

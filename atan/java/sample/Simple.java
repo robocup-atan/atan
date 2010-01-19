@@ -3,13 +3,13 @@ package sample;
 //~--- non-JDK imports --------------------------------------------------------
 
 import atan.model.Controller;
-import atan.model.Flag;
-import atan.model.Line;
-import atan.model.PlayMode;
 import atan.model.Player;
-import atan.model.RefereeMessage;
-import atan.model.ViewAngle;
-import atan.model.ViewQuality;
+import atan.model.enums.Flag;
+import atan.model.enums.Line;
+import atan.model.enums.PlayMode;
+import atan.model.enums.RefereeMessage;
+import atan.model.enums.ViewAngle;
+import atan.model.enums.ViewQuality;
 
 import org.apache.log4j.Logger;
 
@@ -458,7 +458,7 @@ public class Simple implements Controller {
     }
 
     /**
-     * Method description
+     * 
      * @param ms
      */
     private synchronized void pause(int ms) {
