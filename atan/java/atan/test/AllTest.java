@@ -8,13 +8,13 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 
 /**
- * Class description
+ *
  * @author Atan
  */
 public class AllTest extends TestCase {
 
     /**
-     * Constructs ...
+     *
      * @param name
      */
     public AllTest(String name) {
@@ -22,7 +22,7 @@ public class AllTest extends TestCase {
     }
 
     /**
-     * 
+     *
      * @return
      */
     static TestSuite suite() {
@@ -34,7 +34,7 @@ public class AllTest extends TestCase {
     }
 
     /**
-     * 
+     *
      * @param arg
      */
     public static void main(String[] arg) {
@@ -42,7 +42,7 @@ public class AllTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void test() {
 

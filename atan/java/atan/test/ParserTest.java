@@ -2,10 +2,10 @@ package atan.test;
 
 //~--- non-JDK imports --------------------------------------------------------
 
-
 import atan.model.enums.PlayMode;
 import atan.model.enums.RefereeMessage;
-import atan.parser.CmdParser;
+
+import atan.parser.CmdParserPlayer;
 import atan.parser.CommandFilter;
 import atan.parser.Filter;
 import atan.parser.ParseException;
@@ -24,10 +24,10 @@ import java.util.Set;
  * Testcases for the parser.
  */
 public class ParserTest extends TestCase {
-    private static CmdParser cmdp = null;
+    private static CmdParserPlayer cmdp = null;
 
     /**
-     * Constructs ...
+     *
      * @param name
      */
     public ParserTest(String name) {
@@ -35,7 +35,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      * @throws ParseException
      */
     public void testCmdParserError00() throws ParseException {
@@ -45,7 +45,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      * @throws ParseException
      */
     public void testCmdParserInit00() throws ParseException {
@@ -59,7 +59,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      * @throws ParseException
      */
     public void testCmdParserInit01() throws ParseException {
@@ -73,7 +73,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      * @throws Exception
      */
     public void testFilterCommand00() throws Exception {
@@ -84,7 +84,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      * @throws Exception
      */
     public void testFilterCommand01() throws Exception {
@@ -95,7 +95,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      * @throws Exception
      */
     public void testFilterCommand02() throws Exception {
@@ -106,7 +106,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      * @throws Exception
      */
     public void testFilterCommand08() throws Exception {
@@ -117,7 +117,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      * @throws Exception
      */
     public void testFilterCommand10() throws Exception {
@@ -128,7 +128,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      * @throws Exception
      */
     public void testFilterCommand11() throws Exception {
@@ -139,7 +139,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      * @throws Exception
      */
     public void testFilterCommand12() throws Exception {
@@ -150,12 +150,12 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      * @throws Exception
      */
     public void testCmdPerformance() throws Exception {
         String s =
-            "(see 0 ((goal r) 18.4 0) ((flag p r c) 1.8 0 -0 0) ((Player) 1.2 179) ((Player) 0.6 179) ((Player) 0.6 179) ((Player) 2.5 179) ((Player) 1.8 179) ((Player) 1.2 179) ((Player) 0.6 179) ((line r) 18.4 -89))";
+            "(see 0 ((goal r) 18.4 0) ((flag p r c) 1.8 0 -0 0) ((ActionsPlayer) 1.2 179) ((ActionsPlayer) 0.6 179) ((ActionsPlayer) 0.6 179) ((ActionsPlayer) 2.5 179) ((ActionsPlayer) 1.8 179) ((ActionsPlayer) 1.2 179) ((ActionsPlayer) 0.6 179) ((line r) 18.4 -89))";
         int  count = 0;
         long t1    = System.currentTimeMillis();
         while (count < 100) {
@@ -178,7 +178,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      * @param cmd
      * @param f
      * @throws ParseException
@@ -188,7 +188,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserBall00() {
         String cmd    = "(see 1 ((ball) 12 12))";
@@ -198,7 +198,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserBall01() {
         String cmd    = "(see 1 ((ball) 12.5 13))";
@@ -208,7 +208,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserBall02() {
         String cmd    = "(see 1 ((ball) 12.5 13 ))";
@@ -218,7 +218,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserBall03() {
         String cmd    = "(see 1 ((ball) 13 ))";
@@ -228,7 +228,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserBall04() {
         String cmd    = "(see 1 ((ball) 111 13 5 6))";
@@ -238,7 +238,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserBall05() {
         String cmd    = "(see 1 ((ball) 111 13 5 6 7 8))";
@@ -248,7 +248,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserPlayer00() {
         String cmd    = "(see 100 ((player teamEast 1)13.4 -2))";
@@ -258,7 +258,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserPlayer01() {
         String cmd    = "(see 1220 ((player teamWest 1)13.4 11))";
@@ -268,7 +268,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserPlayer02() {
         String cmd    = "(see 1220 ((player teamWest 2)13.4 11))";
@@ -278,7 +278,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserPlayer03() {
         String cmd    = "(see 1220 ((player teamWest 5)-13.4 11))";
@@ -288,7 +288,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserPlayer04() {
         String cmd    = "(see 1220 ((player l 5)-13.4 11))";
@@ -298,7 +298,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserPlayer05() {
         String cmd    = "(see 100 ((player r 1)13.4 -2))";
@@ -308,7 +308,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserGoal00() {
         String cmd    = "(see 1 ((goal l)-1.4 11))";
@@ -318,7 +318,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserGoal01() {
         String cmd    = "(see 1 ((goal l)11))";
@@ -328,7 +328,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserGoal02() {
         String cmd    = "(see 1 ((goal r)110))";
@@ -338,7 +338,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserGoal03() {
         String cmd    = "(see 1 ((Goal r)110))";
@@ -348,7 +348,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserGoal04() {
         String cmd    = "(see 1 ((Goal)110))";
@@ -357,7 +357,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserSee() {
         String cmd    = "(see 234)";
@@ -366,7 +366,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserSee00() {
         String cmd    = "(see 0 ((flag r t)55.7 3) ((flag g r b) 70.8 38))";
@@ -375,7 +375,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag00() {
         String cmd    = "(see 1 ((flag c)22 110))";
@@ -385,7 +385,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag01() {
         String cmd    = "(see 1 ((flag c t)22 110))";
@@ -395,7 +395,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag02() {
         String cmd    = "(see 1 ((flag c b)22.1 110))";
@@ -405,7 +405,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag03() {
         String cmd    = "(see 1 ((flag p l t)22 110))";
@@ -416,7 +416,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag04() {
         String cmd    = "(see 1 ((flag p l)22 110))";
@@ -425,7 +425,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag05() {
         String cmd    = "(see 1 ((flag p l b)22 110))";
@@ -435,7 +435,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag03a() {
         String cmd    = "(see 1 ((flag p r t)22 110))";
@@ -445,7 +445,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag04a() {
         String cmd    = "(see 1 ((flag p r)22 110))";
@@ -454,7 +454,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag05a() {
         String cmd    = "(see 1 ((flag p r b)22 110))";
@@ -463,7 +463,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag06() {
         String cmd    = "(see 1 ((flag l t 30)22 110))";
@@ -473,7 +473,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag07() {
         String cmd    = "(see 1 ((flag l t 20)22 110))";
@@ -483,7 +483,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag08() {
         String cmd    = "(see 1 ((flag l t 10)22 110))";
@@ -493,7 +493,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag09() {
         String cmd    = "(see 1 ((flag l 0)22 110))";
@@ -503,7 +503,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag10() {
         String cmd    = "(see 1 ((flag l b 10)23 110))";
@@ -513,7 +513,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag11() {
         String cmd    = "(see 1 ((flag l b 20)23 110))";
@@ -523,7 +523,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag12() {
         String cmd    = "(see 1 ((flag l b 30)23 110))";
@@ -533,7 +533,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag06a() {
         String cmd    = "(see 1 ((flag r t 30)22 110))";
@@ -543,7 +543,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag07a() {
         String cmd    = "(see 1 ((flag r t 20)22 110))";
@@ -553,7 +553,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag08a() {
         String cmd    = "(see 1 ((flag r t 10)22 110))";
@@ -563,7 +563,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag09a() {
         String cmd    = "(see 1 ((flag r 0)22 110))";
@@ -573,7 +573,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag10a() {
         String cmd    = "(see 1 ((flag r b 10)23 110))";
@@ -583,7 +583,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag11a() {
         String cmd    = "(see 1 ((flag r b 20)23 110))";
@@ -593,7 +593,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag12a() {
         String cmd    = "(see 1 ((flag r b 30)23 110))";
@@ -603,7 +603,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag13() {
         String cmd    = "(see 1 ((flag t l 50)23 110))";
@@ -613,7 +613,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag14() {
         String cmd    = "(see 1 ((flag t l 40)23 110))";
@@ -623,7 +623,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag15() {
         String cmd    = "(see 1 ((flag t l 30)23 110))";
@@ -633,7 +633,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag16() {
         String cmd    = "(see 1 ((flag t l 20)23 110))";
@@ -643,7 +643,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag17() {
         String cmd    = "(see 1 ((flag t l 10)23 110))";
@@ -653,7 +653,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag18() {
         String cmd    = "(see 1 ((flag t 0)23 110))";
@@ -663,7 +663,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag19() {
         String cmd    = "(see 1 ((flag t r 10)23 110))";
@@ -673,7 +673,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag20() {
         String cmd    = "(see 1 ((flag t r 20)23 110))";
@@ -683,7 +683,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag21() {
         String cmd    = "(see 1 ((flag t r 30)23 110))";
@@ -693,7 +693,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag22() {
         String cmd    = "(see 1 ((flag t r 40)23 110))";
@@ -703,7 +703,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag23() {
         String cmd    = "(see 1 ((flag t r 50)23 110))";
@@ -713,7 +713,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag13a() {
         String cmd    = "(see 1 ((flag b l 50)23 110))";
@@ -723,7 +723,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag14a() {
         String cmd    = "(see 1 ((flag b l 40)23 110))";
@@ -733,7 +733,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag15a() {
         String cmd    = "(see 1 ((flag b l 30)23 110))";
@@ -743,7 +743,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag16a() {
         String cmd    = "(see 1 ((flag b l 20)23 110))";
@@ -753,7 +753,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag17a() {
         String cmd    = "(see 1 ((flag b l 10)23 110))";
@@ -763,7 +763,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag18a() {
         String cmd    = "(see 1 ((flag b 0)23 110))";
@@ -773,7 +773,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag19a() {
         String cmd    = "(see 1 ((flag b r 10)23 110))";
@@ -783,7 +783,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag20a() {
         String cmd    = "(see 1 ((flag b r 20)23 110))";
@@ -793,7 +793,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag21a() {
         String cmd    = "(see 1 ((flag b r 30)23 110))";
@@ -803,7 +803,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag22a() {
         String cmd    = "(see 1 ((flag b r 40)23 110))";
@@ -813,7 +813,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag23a() {
         String cmd    = "(see 1 ((flag b r 50)23 110))";
@@ -823,7 +823,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag24() {
         String cmd    = "(see 1 ((flag l b)23 110))";
@@ -833,7 +833,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag25() {
         String cmd    = "(see 1 ((flag l t)23 110))";
@@ -843,7 +843,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag26() {
         String cmd    = "(see 1 ((flag r t)23 110))";
@@ -853,7 +853,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserFlag27() {
         String cmd    = "(see 1 ((flag r b)23 110))";
@@ -863,7 +863,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserLine00() {
         String cmd    = "(see 1 ((line l)23 110))";
@@ -873,7 +873,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserLine01() {
         String cmd    = "(see 1 ((line r)23 110))";
@@ -883,7 +883,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserLine02() {
         String cmd    = "(see 1 ((line t)23 110))";
@@ -893,7 +893,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserLine03() {
         String cmd    = "(see 1 ((line b)23 110))";
@@ -903,7 +903,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserMulti00() {
         String cmd    = "(see 1 ((line b)23 110)((line b)23 111))";
@@ -914,7 +914,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserMulti01() {
         String cmd    = "(see 1 ((player teamEast 1)13.4 -2)((goal r)110)((flag c b)22 110))";
@@ -926,7 +926,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserSenseBody00() {
         String cmd =
@@ -938,7 +938,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserSenseBody01() {
         String cmd =
@@ -950,7 +950,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserHear00() {
         String cmd    = "(hear 34 referee play_on)";
@@ -960,7 +960,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserHear01() {
         String cmd    = "(hear 34 self buddy_go_home)";
@@ -970,7 +970,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserHear02() {
         String cmd    = "(hear 34 123 buddy_go_home)";
@@ -980,7 +980,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit02() {
         String cmd    = "(init r 1 before_kick_off)";
@@ -990,7 +990,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit03() {
         String cmd    = "(init r 1 corner_kick_l)";
@@ -1000,7 +1000,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit03a() {
         String cmd    = "(init l 1 corner_kick_r)";
@@ -1010,7 +1010,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit04() {
         String cmd    = "(init l 1 corner_kick_l)";
@@ -1020,7 +1020,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit05() {
         String cmd    = "(init r 1 corner_kick_r)";
@@ -1030,7 +1030,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit06() {
         String cmd    = "(init r 1 free_kick_l)";
@@ -1040,7 +1040,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit07() {
         String cmd    = "(init l 1 free_kick_r)";
@@ -1050,7 +1050,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit08() {
         String cmd    = "(init l 1 free_kick_l)";
@@ -1060,7 +1060,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit09() {
         String cmd    = "(init r 1 free_kick_r)";
@@ -1070,7 +1070,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit10() {
         String cmd    = "(init l 1 goal_kick_r)";
@@ -1080,7 +1080,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit11() {
         String cmd    = "(init r 1 goal_kick_l)";
@@ -1090,7 +1090,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit12() {
         String cmd    = "(init l 1 goal_kick_l)";
@@ -1100,7 +1100,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit13() {
         String cmd    = "(init r 1 goal_kick_r)";
@@ -1110,7 +1110,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit14() {
         String cmd    = "(init r 1 goal_l_10)";
@@ -1120,7 +1120,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit15() {
         String cmd    = "(init l 1 goal_r_2)";
@@ -1130,7 +1130,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit16() {
         String cmd    = "(init r 1 goal_r_1)";
@@ -1140,7 +1140,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit17() {
         String cmd    = "(init l 1 goal_l_3)";
@@ -1150,7 +1150,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit18() {
         String cmd    = "(init r 1 kick_in_l)";
@@ -1160,7 +1160,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit19() {
         String cmd    = "(init l 1 kick_in_r)";
@@ -1170,7 +1170,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit20() {
         String cmd    = "(init r 1 kick_in_r)";
@@ -1180,7 +1180,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit21() {
         String cmd    = "(init l 10 kick_in_l)";
@@ -1190,7 +1190,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit22() {
         String cmd    = "(init r 10 kick_in_r)";
@@ -1200,7 +1200,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit23() {
         String cmd    = "(init r 10 kick_off_l)";
@@ -1210,7 +1210,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit24() {
         String cmd    = "(init l 10 kick_off_r)";
@@ -1220,7 +1220,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit25() {
         String cmd    = "(init l 10 kick_off_l)";
@@ -1230,7 +1230,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit26() {
         String cmd    = "(init r 10 kick_off_r)";
@@ -1240,7 +1240,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit27() {
         String cmd    = "(init r 10 time_over)";
@@ -1250,7 +1250,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserInit28() {
         String cmd    = "(init l 110 time_over)";
@@ -1260,7 +1260,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserHearRefereeA00a() {
         String cmd    = "(hear 55 referee offside_l)";
@@ -1270,7 +1270,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserHearRefereeA00b() {
         String cmd    = "(hear 55 referee offside_r)";
@@ -1280,7 +1280,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserHearRefereeA00() {
         String cmd    = "(hear 55 referee foul_l)";
@@ -1290,7 +1290,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserHearRefereeA01() {
         String cmd    = "(hear 55 referee foul_r)";
@@ -1300,7 +1300,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserHearRefereeA02() {
         String cmd    = "(hear 55 referee foul_l)";
@@ -1310,7 +1310,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserHearRefereeA03() {
         String cmd    = "(hear 55 referee half_time)";
@@ -1320,7 +1320,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserHearRefereeA04() {
         String cmd    = "(hear 55 referee time_extended)";
@@ -1330,7 +1330,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserHearRefereeA05() {
         String cmd    = "(hear 55 referee time_up)";
@@ -1340,7 +1340,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserHearRefereeA06() {
         String cmd    = "(hear 55 referee time_up_without_a_team)";
@@ -1350,7 +1350,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserHearRefereeA07() {
         String cmd    = "(hear 55 referee drop_ball)";
@@ -1360,7 +1360,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserHearPlayMode00() {
         String cmd    = "(hear 55 referee before_kick_off)";
@@ -1370,7 +1370,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserHearPlayMode01() {
         String cmd    = "(hear 55 referee free_kick_r)";
@@ -1380,7 +1380,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserHearPlayMode02() {
         String cmd    = "(hear 55 referee kick_in_r)";
@@ -1390,7 +1390,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserHearPlayMode03() {
         String cmd    = "(hear 55 referee kick_in_l)";
@@ -1400,7 +1400,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void testCmdParserSeeMulti() {
         String cmd =
@@ -1411,7 +1411,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      * @param cmd
      * @param resultSet
      * @param resultString
@@ -1439,7 +1439,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      * @param s
      * @return
      */
@@ -1453,7 +1453,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      * @param s
      * @return
      * @throws ParseException
@@ -1484,7 +1484,7 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private Filter getFilter() {
@@ -1492,19 +1492,19 @@ public class ParserTest extends TestCase {
     }
 
     /**
-     * 
+     *
      * @return
      * @throws ParseException
      */
-    private CmdParser getCmdParser() throws ParseException {
+    private CmdParserPlayer getCmdParser() throws ParseException {
         if (cmdp == null) {
-            cmdp = new CmdParser(new StringReader(""));
+            cmdp = new CmdParserPlayer(new StringReader(""));
         }
         return cmdp;
     }
 
     /**
-     * 
+     *
      * @return
      */
     static TestSuite suite() {

@@ -9,7 +9,7 @@ import atan.model.ByteBuffer;
 import java.net.DatagramSocket;
 
 /**
- * Class description
+ *
  * @author Atan
  */
 public class PingPongServer extends UDPServer {
@@ -18,7 +18,7 @@ public class PingPongServer extends UDPServer {
     private DatagramSocket socket  = null;
 
     /**
-     * 
+     *
      * @param msg
      * @return
      */
@@ -29,7 +29,7 @@ public class PingPongServer extends UDPServer {
     }
 
     /**
-     * 
+     *
      * @param arg
      */
     public static void main(String[] arg) {

@@ -5,13 +5,13 @@ package atan.test;
 import java.io.File;
 
 /**
- * Class description
+ *
  * @author Atan
  */
 public class TestWorkingDirectory {
 
     /**
-     * 
+     *
      * @param args
      */
     public static void main(String[] args) {

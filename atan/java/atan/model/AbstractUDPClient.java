@@ -27,7 +27,9 @@ public abstract class AbstractUDPClient extends Thread {
     private DatagramSocket socket;
 
     /**
-     * Constructs ...
+     * Constructs an AbstractUDPClient with default parameters.
+     * Assumes localhost
+     * Assumes port 6000
      */
     public AbstractUDPClient() {
         this(6000, "localhost");
@@ -92,7 +94,7 @@ public abstract class AbstractUDPClient extends Thread {
     }
 
     /**
-     * 
+     *
      * @return
      */
     protected String getDescription() {
@@ -111,7 +113,7 @@ public abstract class AbstractUDPClient extends Thread {
     }
 
     /**
-     * 
+     *
      * @return
      */
     public abstract String getInitMessage();
@@ -124,7 +126,7 @@ public abstract class AbstractUDPClient extends Thread {
     public abstract void received(String msg) throws IOException;
 
     /**
-     * 
+     *
      * @param ms
      */
     protected synchronized void pauseMilliseconds(int ms) {
@@ -134,7 +136,7 @@ public abstract class AbstractUDPClient extends Thread {
     }
 
     /**
-     * 
+     *
      */
     @Override
     public void start() {

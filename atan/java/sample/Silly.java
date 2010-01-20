@@ -2,29 +2,32 @@ package sample;
 
 //~--- non-JDK imports --------------------------------------------------------
 
-import atan.model.Controller;
-import atan.model.Player;
+import atan.model.ActionsPlayer;
+import atan.model.ControllerPlayer;
+import atan.model.enums.Errors;
 import atan.model.enums.Flag;
 import atan.model.enums.Line;
+import atan.model.enums.Ok;
 import atan.model.enums.PlayMode;
 import atan.model.enums.RefereeMessage;
 import atan.model.enums.ViewAngle;
 import atan.model.enums.ViewQuality;
+import atan.model.enums.Warning;
 
 import org.apache.log4j.Logger;
 
 /**
- * Class description
+ *
  * @author Atan
  */
-public class Silly implements Controller {
+public class Silly implements ControllerPlayer {
     private static Logger log         = Logger.getLogger(Silly.class);
     private double        distBall    = 1000;
     private double        minDistLine = 1000;
-    private Player        player;
+    private ActionsPlayer player;
 
     /**
-     * 
+     *
      */
     @Override
     public void preInfo() {
@@ -33,7 +36,7 @@ public class Silly implements Controller {
     }
 
     /**
-     * 
+     *
      */
     @Override
     public void postInfo() {
@@ -49,48 +52,65 @@ public class Silly implements Controller {
     }
 
     /**
-     * 
+     *
      * @return
      */
     @Override
-    public Player getPlayer() {
+    public ActionsPlayer getPlayer() {
         return player;
     }
 
     /**
-     * 
+     *
      * @param p
      */
     @Override
-    public void setPlayer(Player p) {
+    public void setPlayer(ActionsPlayer p) {
         player = p;
     }
 
     /**
-     * 
-     * @param id
-     * @param dist
-     * @param dir
+     *
+     * @param line
+     * @param distance
+     * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeLine(Line id, double dist, double dir) {
-        if (dist < minDistLine) {
-            minDistLine = dist;
+    public void infoSeeLine(Line line, double distance, double direction, double distChange, double dirChange,
+                            double bodyFacingDirection, double headFacingDirection) {
+        if (distance < minDistLine) {
+            minDistLine = distance;
         }
     }
 
     /**
-     * 
-     * @param dist
-     * @param dir
+     *
+     * @param distance
+     * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeBall(double dist, double dir) {
-        distBall = dist;
+    public void infoSeeBall(double distance, double direction, double distChange, double dirChange,
+                            double bodyFacingDirection, double headFacingDirection) {
+        distBall = distance;
     }
 
     /**
-     * 
+     *
+     * @param refereeMessage
+     */
+    @Override
+    public void infoHearReferee(RefereeMessage refereeMessage) {}
+
+    /**
+     *
      * @param playMode
      */
     @Override
@@ -101,14 +121,7 @@ public class Silly implements Controller {
     }
 
     /**
-     * 
-     * @param msg
-     */
-    @Override
-    public void infoHearReferee(RefereeMessage msg) {}
-
-    /**
-     * 
+     *
      * @param parm1
      * @param parm2
      */
@@ -116,136 +129,248 @@ public class Silly implements Controller {
     public void infoHearPlayer(double parm1, String parm2) {}
 
     /**
-     * 
-     * @param parm1
-     * @param parm2
-     * @param parm3
-     * @param parm4
-     * @param parm5
-     * @param parm6
-     * @param parm7
-     * @param parm8
-     * @param parm9
-     * @param parm10
+     *
+     * @param viewQuality
+     * @param viewAngle
+     * @param stamina
+     * @param unknown
+     * @param effort
+     * @param speedAmount
+     * @param speedDirection
+     * @param headAngle
+     * @param kickCount
+     * @param dashCount
+     * @param turnCount
+     * @param sayCount
+     * @param turnNeckCount
+     * @param catchCount
+     * @param moveCount
+     * @param changeViewCount
      */
     @Override
-    public void infoSenseBody(ViewQuality parm1, ViewAngle parm2, double parm3, double parm4, double parm5, int parm6,
-                              int parm7, int parm8, int parm9, int parm10) {}
+    public void infoSenseBody(ViewQuality viewQuality, ViewAngle viewAngle, double stamina, double unknown,
+                              double effort, double speedAmount, double speedDirection, double headAngle,
+                              int kickCount, int dashCount, int turnCount, int sayCount, int turnNeckCount,
+                              int catchCount, int moveCount, int changeViewCount) {}
 
     /**
-     * 
+     * Don't return a type
+     * @return null
+     */
+    @Override
+    public String getType() {
+        return "Silly";
+    }
+
+    /**
+     * Don't set a type
+     * @param newType discarded
+     */
+    @Override
+    public void setType(String newType) {}
+
+    /**
+     *
+     * @param error
+     */
+    @Override
+    public void infoHearError(Errors error) {}
+
+    /**
+     *
+     * @param ok
+     */
+    @Override
+    public void infoHearOk(Ok ok) {}
+
+    /**
+     *
+     * @param warning
+     */
+    @Override
+    public void infoHearWarning(Warning warning) {}
+
+    /**
+     *
      * @param flag
      * @param distance
      * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFlagRight(Flag flag, double distance, double direction) {}
+    public void infoSeeFlagRight(Flag flag, double distance, double direction, double distChange, double dirChange,
+                                 double bodyFacingDirection, double headFacingDirection) {}
 
     /**
-     * 
+     *
      * @param flag
      * @param distance
      * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFlagLeft(Flag flag, double distance, double direction) {}
+    public void infoSeeFlagLeft(Flag flag, double distance, double direction, double distChange, double dirChange,
+                                double bodyFacingDirection, double headFacingDirection) {}
 
     /**
-     * 
+     *
      * @param flag
      * @param distance
      * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFlagOwn(Flag flag, double distance, double direction) {}
+    public void infoSeeFlagOwn(Flag flag, double distance, double direction, double distChange, double dirChange,
+                               double bodyFacingDirection, double headFacingDirection) {}
 
     /**
-     * 
+     *
      * @param flag
      * @param distance
      * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFlagOther(Flag flag, double distance, double direction) {}
+    public void infoSeeFlagOther(Flag flag, double distance, double direction, double distChange, double dirChange,
+                                 double bodyFacingDirection, double headFacingDirection) {}
 
     /**
-     * 
+     *
      * @param flag
      * @param distance
      * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFlagCenter(Flag flag, double distance, double direction) {}
+    public void infoSeeFlagCenter(Flag flag, double distance, double direction, double distChange, double dirChange,
+                                  double bodyFacingDirection, double headFacingDirection) {}
 
     /**
-     * 
+     *
      * @param flag
      * @param distance
      * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFlagCornerOwn(Flag flag, double distance, double direction) {}
+    public void infoSeeFlagCornerOwn(Flag flag, double distance, double direction, double distChange, double dirChange,
+                                     double bodyFacingDirection, double headFacingDirection) {}
 
     /**
-     * 
+     *
      * @param flag
      * @param distance
      * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFlagCornerOther(Flag flag, double distance, double direction) {}
+    public void infoSeeFlagCornerOther(Flag flag, double distance, double direction, double distChange,
+                                       double dirChange, double bodyFacingDirection, double headFacingDirection) {}
 
     /**
-     * 
+     *
      * @param flag
      * @param distance
      * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFlagPenaltyOwn(Flag flag, double distance, double direction) {}
+    public void infoSeeFlagPenaltyOwn(Flag flag, double distance, double direction, double distChange,
+                                      double dirChange, double bodyFacingDirection, double headFacingDirection) {}
 
     /**
-     * 
+     *
      * @param flag
      * @param distance
      * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFlagPenaltyOther(Flag flag, double distance, double direction) {}
+    public void infoSeeFlagPenaltyOther(Flag flag, double distance, double direction, double distChange,
+            double dirChange, double bodyFacingDirection, double headFacingDirection) {}
 
     /**
-     * 
+     *
      * @param flag
      * @param distance
      * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFlagGoalOwn(Flag flag, double distance, double direction) {}
+    public void infoSeeFlagGoalOwn(Flag flag, double distance, double direction, double distChange, double dirChange,
+                                   double bodyFacingDirection, double headFacingDirection) {}
 
     /**
-     * 
+     *
      * @param flag
      * @param distance
      * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFlagGoalOther(Flag flag, double distance, double direction) {}
+    public void infoSeeFlagGoalOther(Flag flag, double distance, double direction, double distChange, double dirChange,
+                                     double bodyFacingDirection, double headFacingDirection) {}
 
     /**
-     * 
-     * @param num
+     *
+     * @param number
+     * @param goalie
      * @param distance
      * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeePlayerOther(int num, double distance, double direction) {}
+    public void infoSeePlayerOther(int number, boolean goalie, double distance, double direction, double distChange,
+                                   double dirChange, double bodyFacingDirection, double headFacingDirection) {}
 
     /**
-     * 
-     * @param num
+     *
+     * @param number
+     * @param goalie
      * @param distance
      * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeePlayerOwn(int num, double distance, double direction) {}
+    public void infoSeePlayerOwn(int number, boolean goalie, double distance, double direction, double distChange,
+                                 double dirChange, double bodyFacingDirection, double headFacingDirection) {}
 }

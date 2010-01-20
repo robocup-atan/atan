@@ -1,12 +1,14 @@
 package atan.model;
 
+//~--- non-JDK imports --------------------------------------------------------
+
 import atan.model.enums.ViewAngle;
 import atan.model.enums.ViewQuality;
 
 /**
- * Interface for an abstract soccer player. To be used by Controller.
+ * Interface for an abstract soccer player. To be used by ControllerPlayer.
  */
-public interface Player {
+public interface ActionsPlayer {
 
     /**
      * This command accelerates the player in the direction of its body.

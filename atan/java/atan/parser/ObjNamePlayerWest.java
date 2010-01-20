@@ -2,45 +2,59 @@ package atan.parser;
 
 //~--- non-JDK imports --------------------------------------------------------
 
-import atan.model.Controller;
+import atan.model.ControllerPlayer;
 
 /**
- * Class description
+ *
+ *
  * @author Atan
  */
-class ObjNamePlayerWest implements ObjName {
-    boolean isGoalie;
+public class ObjNamePlayerWest implements ObjName {
+    boolean goalie;
     int     number;
 
     /**
-     * Constructs ...
+     *
+     *
      * @param number
-     * @param isGoalie
+     * @param goalie
      */
-    ObjNamePlayerWest(int number, boolean isGoalie) {
-        this.number   = number;
-        this.isGoalie = isGoalie;
+    public ObjNamePlayerWest(int number, boolean goalie) {
+        this.number = number;
+        this.goalie = goalie;
     }
 
     /**
-     * 
+     *
      * @param c
-     * @param dist
-     * @param dir
+     * @param distance
+     * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFromEast(Controller c, double dist, double dir) {
-        c.infoSeePlayerOther(number, dist, dir);
+    public void infoSeeFromEast(ControllerPlayer c, double distance, double direction, double distChange,
+                                double dirChange, double bodyFacingDirection, double headFacingDirection) {
+        c.infoSeePlayerOther(number, goalie, distance, direction, distChange, dirChange, bodyFacingDirection,
+                             headFacingDirection);
     }
 
     /**
-     * 
+     *
      * @param c
-     * @param dist
-     * @param dir
+     * @param distance
+     * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFromWest(Controller c, double dist, double dir) {
-        c.infoSeePlayerOwn(number, dist, dir);
+    public void infoSeeFromWest(ControllerPlayer c, double distance, double direction, double distChange,
+                                double dirChange, double bodyFacingDirection, double headFacingDirection) {
+        c.infoSeePlayerOwn(number, goalie, distance, direction, distChange, dirChange, bodyFacingDirection,
+                           headFacingDirection);
     }
 }

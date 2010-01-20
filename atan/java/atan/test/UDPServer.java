@@ -13,7 +13,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 
 /**
- * Class description
+ *
  * @author Atan
  */
 public abstract class UDPServer {
@@ -21,14 +21,14 @@ public abstract class UDPServer {
     private DatagramSocket socket = null;
 
     /**
-     * Constructs ...
+     *
      */
     public UDPServer() {
         super();
     }
 
     /**
-     * 
+     *
      * @param port
      * @throws IOException
      */
@@ -45,7 +45,7 @@ public abstract class UDPServer {
     }
 
     /**
-     * 
+     *
      * @param msg
      * @return
      */

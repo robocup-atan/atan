@@ -10,13 +10,13 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
- * Class description
+ *
  * @author Atan
  */
 public class CommandFactoryTest extends TestCase {
 
     /**
-     * Constructs ...
+     *
      * @param name
      */
     public CommandFactoryTest(String name) {
@@ -24,7 +24,7 @@ public class CommandFactoryTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void test00() {
         CommandFactory f = new CommandFactory();
@@ -35,7 +35,7 @@ public class CommandFactoryTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void test01() {
         CommandFactory f = new CommandFactory();
@@ -50,7 +50,7 @@ public class CommandFactoryTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void test02() {
         CommandFactory f = new CommandFactory();
@@ -61,7 +61,7 @@ public class CommandFactoryTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void test03() {
         CommandFactory f = new CommandFactory();
@@ -70,7 +70,7 @@ public class CommandFactoryTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void test04() {
         CommandFactory f = new CommandFactory();
@@ -79,7 +79,7 @@ public class CommandFactoryTest extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void test05() {
         CommandFactory f = new CommandFactory();
@@ -126,7 +126,7 @@ public class CommandFactoryTest extends TestCase {
     }
 
     /**
-     * 
+     *
      * @return
      */
     static TestSuite suite() {

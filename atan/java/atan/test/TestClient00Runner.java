@@ -1,14 +1,14 @@
 package atan.test;
 
 /**
- * Class description
+ *
  * @author Atan
  */
 public class TestClient00Runner extends Thread {
     TestClient00 client;
 
     /**
-     * Constructs ...
+     *
      * @param client
      */
     public TestClient00Runner(TestClient00 client) {
@@ -16,7 +16,7 @@ public class TestClient00Runner extends Thread {
     }
 
     /**
-     * 
+     *
      */
     @Override
     public void run() {

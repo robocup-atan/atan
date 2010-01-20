@@ -2,33 +2,43 @@ package atan.parser;
 
 //~--- non-JDK imports --------------------------------------------------------
 
-import atan.model.Controller;
+import atan.model.ControllerPlayer;
 
 /**
- * Class description
+ *
  * @author Atan
  */
-class ObjNameBall implements ObjName {
+public class ObjNameBall implements ObjName {
 
     /**
-     * 
+     *
      * @param c
-     * @param dist
-     * @param dir
+     * @param distance
+     * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFromEast(Controller c, double dist, double dir) {
-        c.infoSeeBall(dist, dir);
+    public void infoSeeFromEast(ControllerPlayer c, double distance, double direction, double distChange,
+                                double dirChange, double bodyFacingDirection, double headFacingDirection) {
+        c.infoSeeBall(distance, direction, distChange, dirChange, bodyFacingDirection, headFacingDirection);
     }
 
     /**
-     * 
+     *
      * @param c
-     * @param dist
-     * @param dir
+     * @param distance
+     * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFromWest(Controller c, double dist, double dir) {
-        c.infoSeeBall(dist, dir);
+    public void infoSeeFromWest(ControllerPlayer c, double distance, double direction, double distChange,
+                                double dirChange, double bodyFacingDirection, double headFacingDirection) {
+        c.infoSeeBall(distance, direction, distChange, dirChange, bodyFacingDirection, headFacingDirection);
     }
 }

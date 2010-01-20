@@ -2,27 +2,39 @@ package atan.parser;
 
 //~--- non-JDK imports --------------------------------------------------------
 
-import atan.model.Controller;
+import atan.model.ControllerPlayer;
 
 /**
- * Interface description
+ * The interface for all objects on the pitch. This is used to translate
+ * them so that they are relative to each team (ie. ourGoal theirGoal)
+ *
  * @author Atan
  */
 public interface ObjName {
 
     /**
-     * 
+     * The object viewed from the east.
      * @param c
-     * @param dist
-     * @param dir
+     * @param distance
+     * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
-    public void infoSeeFromEast(Controller c, double dist, double dir);
+    public void infoSeeFromEast(ControllerPlayer c, double distance, double direction, double distChange,
+                                double dirChange, double bodyFacingDirection, double headFacingDirection);
 
     /**
-     * 
+     * The object viewed from the west.
      * @param c
-     * @param dist
-     * @param dir
+     * @param distance
+     * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
-    public void infoSeeFromWest(Controller c, double dist, double dir);
+    public void infoSeeFromWest(ControllerPlayer c, double distance, double direction, double distChange,
+                                double dirChange, double bodyFacingDirection, double headFacingDirection);
 }

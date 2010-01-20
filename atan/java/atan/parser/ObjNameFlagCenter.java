@@ -2,62 +2,78 @@ package atan.parser;
 
 //~--- non-JDK imports --------------------------------------------------------
 
-import atan.model.Controller;
+import atan.model.ControllerPlayer;
 import atan.model.enums.Flag;
 
 /**
- * Class description
+ *
  * @author Atan
  */
-class ObjNameFlagCenter implements ObjName {
+public class ObjNameFlagCenter implements ObjName {
     char qualifier;
 
     /**
-     * Constructs ...
+     *
      * @param qualifier
      */
-    ObjNameFlagCenter(char qualifier) {
+    public ObjNameFlagCenter(char qualifier) {
         this.qualifier = qualifier;
     }
 
     /**
-     * 
+     *
      * @param c
-     * @param dist
-     * @param dir
+     * @param distance
+     * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFromEast(Controller c, double dist, double dir) {
+    public void infoSeeFromEast(ControllerPlayer c, double distance, double direction, double distChange,
+                                double dirChange, double bodyFacingDirection, double headFacingDirection) {
         switch (qualifier) {
             case 't' :
-                c.infoSeeFlagCenter(Flag.RIGHT, dist, dir);
+                c.infoSeeFlagCenter(Flag.RIGHT, distance, direction, distChange, dirChange, bodyFacingDirection,
+                                    headFacingDirection);
                 break;
             case 'b' :
-                c.infoSeeFlagCenter(Flag.LEFT, dist, dir);
+                c.infoSeeFlagCenter(Flag.LEFT, distance, direction, distChange, dirChange, bodyFacingDirection,
+                                    headFacingDirection);
                 break;
             default :
-                c.infoSeeFlagCenter(Flag.CENTER, dist, dir);
+                c.infoSeeFlagCenter(Flag.CENTER, distance, direction, distChange, dirChange, bodyFacingDirection,
+                                    headFacingDirection);
                 break;
         }
     }
 
     /**
-     * 
+     *
      * @param c
-     * @param dist
-     * @param dir
+     * @param distance
+     * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFromWest(Controller c, double dist, double dir) {
+    public void infoSeeFromWest(ControllerPlayer c, double distance, double direction, double distChange,
+                                double dirChange, double bodyFacingDirection, double headFacingDirection) {
         switch (qualifier) {
             case 't' :
-                c.infoSeeFlagCenter(Flag.LEFT, dist, dir);
+                c.infoSeeFlagCenter(Flag.LEFT, distance, direction, distChange, dirChange, bodyFacingDirection,
+                                    headFacingDirection);
                 break;
             case 'b' :
-                c.infoSeeFlagCenter(Flag.RIGHT, dist, dir);
+                c.infoSeeFlagCenter(Flag.RIGHT, distance, direction, distChange, dirChange, bodyFacingDirection,
+                                    headFacingDirection);
                 break;
             default :
-                c.infoSeeFlagCenter(Flag.CENTER, dist, dir);
+                c.infoSeeFlagCenter(Flag.CENTER, distance, direction, distChange, dirChange, bodyFacingDirection,
+                                    headFacingDirection);
                 break;
         }
     }

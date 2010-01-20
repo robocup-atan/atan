@@ -2,68 +2,87 @@ package atan.parser;
 
 //~--- non-JDK imports --------------------------------------------------------
 
-import atan.model.Controller;
+import atan.model.ControllerPlayer;
 import atan.model.enums.Line;
 
 /**
- * Class description
+ *
  * @author Atan
  */
-class ObjNameLine implements ObjName {
+public class ObjNameLine implements ObjName {
     char qualifier;
 
     /**
-     * Constructs ...
+     *
+     *
      * @param qualifier
      */
-    ObjNameLine(char qualifier) {
+    public ObjNameLine(char qualifier) {
         this.qualifier = qualifier;
     }
 
     /**
-     * 
+     *
      * @param c
-     * @param dist
-     * @param dir
+     * @param distance
+     * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFromEast(Controller c, double dist, double dir) {
+    public void infoSeeFromEast(ControllerPlayer c, double distance, double direction, double distChange,
+                                double dirChange, double bodyFacingDirection, double headFacingDirection) {
         switch (qualifier) {
             case 't' :
-                c.infoSeeLine(Line.RIGHT, dist, dir);
+                c.infoSeeLine(Line.RIGHT, distance, direction, distChange, dirChange, bodyFacingDirection,
+                              headFacingDirection);
                 break;
             case 'b' :
-                c.infoSeeLine(Line.LEFT, dist, dir);
+                c.infoSeeLine(Line.LEFT, distance, direction, distChange, dirChange, bodyFacingDirection,
+                              headFacingDirection);
                 break;
             case 'l' :
-                c.infoSeeLine(Line.OTHER, dist, dir);
+                c.infoSeeLine(Line.OTHER, distance, direction, distChange, dirChange, bodyFacingDirection,
+                              headFacingDirection);
                 break;
             case 'r' :
-                c.infoSeeLine(Line.OWN, dist, dir);
+                c.infoSeeLine(Line.OWN, distance, direction, distChange, dirChange, bodyFacingDirection,
+                              headFacingDirection);
                 break;
         }
     }
 
     /**
-     * 
+     *
      * @param c
-     * @param dist
-     * @param dir
+     * @param distance
+     * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFromWest(Controller c, double dist, double dir) {
+    public void infoSeeFromWest(ControllerPlayer c, double distance, double direction, double distChange,
+                                double dirChange, double bodyFacingDirection, double headFacingDirection) {
         switch (qualifier) {
             case 't' :
-                c.infoSeeLine(Line.LEFT, dist, dir);
+                c.infoSeeLine(Line.LEFT, distance, direction, distChange, dirChange, bodyFacingDirection,
+                              headFacingDirection);
                 break;
             case 'b' :
-                c.infoSeeLine(Line.RIGHT, dist, dir);
+                c.infoSeeLine(Line.RIGHT, distance, direction, distChange, dirChange, bodyFacingDirection,
+                              headFacingDirection);
                 break;
             case 'l' :
-                c.infoSeeLine(Line.OWN, dist, dir);
+                c.infoSeeLine(Line.OWN, distance, direction, distChange, dirChange, bodyFacingDirection,
+                              headFacingDirection);
                 break;
             case 'r' :
-                c.infoSeeLine(Line.OTHER, dist, dir);
+                c.infoSeeLine(Line.OTHER, distance, direction, distChange, dirChange, bodyFacingDirection,
+                              headFacingDirection);
                 break;
         }
     }

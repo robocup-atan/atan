@@ -2,7 +2,7 @@
 <project basedir="." default="all" name="atan">
 
 	<!-- All the variables are set -->
-	<property name="version" value="0.4.2" />
+	<property name="version" value="0.4.3" />
 	<property name="classes" value="classes" />
 	<property name="work" value="work" />
 
@@ -19,7 +19,7 @@
 	<!-- Generate the JavaCC -->
 	<target name="javacc">
 		<mkdir dir="gen/atan/parser" />
-		<javacc target="java/atan/parser/CmdParser.jj" outputdirectory="gen/atan/parser" javacchome="javacc" static="false"  />
+		<javacc target="java/atan/parser/CmdParserPlayer.jj" outputdirectory="gen/atan/parser" javacchome="javacc" static="false"  />
 	</target>
 
 	<!-- Build the project -->

@@ -3,13 +3,11 @@ options {
   LOOKAHEAD = 2;
 //  FORCE_LA_CHECK = false;
 }
-PARSER_BEGIN(CmdParser)
+PARSER_BEGIN(CmdParserPlayer)
 package atan.parser;
 
-import java.io.StringReader;
+//~--- non-JDK imports --------------------------------------------------------
 
-import atan.model.Controller;
-import atan.model.Player;
 import atan.model.enums.Errors;
 import atan.model.enums.Ok;
 import atan.model.enums.PlayMode;
@@ -18,82 +16,107 @@ import atan.model.enums.ViewAngle;
 import atan.model.enums.ViewQuality;
 import atan.model.enums.Warning;
 
-  public class CmdParser {
+import atan.model.ActionsPlayer;
+import atan.model.ControllerPlayer;
 
-    Controller controller;
-    Player player;
+import atan.parser.ObjName;
+import atan.parser.ObjNameBall;
+import atan.parser.ObjNameFlagBottom;
+import atan.parser.ObjNameFlagCenter;
+import atan.parser.ObjNameFlagCornerLeft;
+import atan.parser.ObjNameFlagCornerRight;
+import atan.parser.ObjNameFlagGoalLeft;
+import atan.parser.ObjNameFlagGoalRight;
+import atan.parser.ObjNameFlagLeft;
+import atan.parser.ObjNameFlagPenaltyEast;
+import atan.parser.ObjNameFlagPenaltyWest;
+import atan.parser.ObjNameFlagRight;
+import atan.parser.ObjNameFlagTop;
+import atan.parser.ObjNameLine;
+import atan.parser.ObjNameNull;
+import atan.parser.ObjNamePlayerEast;
+import atan.parser.ObjNamePlayerWest;
 
-    public void parseSeeCommand (String cmd, Controller controller, Player player)
+//~--- JDK imports ------------------------------------------------------------
+
+import java.io.StringReader;
+
+  public class CmdParserPlayer {
+
+    ControllerPlayer controller;
+    ActionsPlayer player;
+
+    public void parseSeeCommand (String cmd, ControllerPlayer controller, ActionsPlayer player)
         throws ParseException{
       ReInit(new StringReader(cmd));
       this.controller = controller;
       this.player = player;
       startSeeCommand();
     }
-    public void parseHearCommand (String cmd, Controller controller, Player player)
+    public void parseHearCommand (String cmd, ControllerPlayer controller, ActionsPlayer player)
         throws ParseException{
       ReInit(new StringReader(cmd));
       this.controller = controller;
       this.player = player;
       startHearCommand();
     }
-    public void parseInitCommand (String cmd, Controller controller, Player player)
+    public void parseInitCommand (String cmd, ControllerPlayer controller, ActionsPlayer player)
         throws ParseException{
       ReInit(new StringReader(cmd));
       this.controller = controller;
       this.player = player;
       startInitCommand();
     }
-    public void parseErrorCommand (String cmd, Controller controller, Player player)
+    public void parseErrorCommand (String cmd, ControllerPlayer controller, ActionsPlayer player)
         throws ParseException{
       ReInit(new StringReader(cmd));
       this.controller = controller;
       this.player = player;
       startErrorCommand();
     }
-    public void parseSenseBodyCommand (String cmd, Controller controller, Player player)
+    public void parseSenseBodyCommand (String cmd, ControllerPlayer controller, ActionsPlayer player)
         throws ParseException{
       ReInit(new StringReader(cmd));
       this.controller = controller;
       this.player = player;
       startSenseBodyCommand();
     }
-    public void parseOkCommand (String cmd, Controller controller, Player player)
+    public void parseOkCommand (String cmd, ControllerPlayer controller, ActionsPlayer player)
         throws ParseException{
       ReInit(new StringReader(cmd));
       this.controller = controller;
       this.player = player;
       startOkCommand();
     }
-    public void parseWarningCommand (String cmd, Controller controller, Player player)
+    public void parseWarningCommand (String cmd, ControllerPlayer controller, ActionsPlayer player)
         throws ParseException{
       ReInit(new StringReader(cmd));
       this.controller = controller;
       this.player = player;
       startWarningCommand();
     }
-    public void parseServerParamCommand (String cmd, Controller controller, Player player)
+    public void parseServerParamCommand (String cmd, ControllerPlayer controller, ActionsPlayer player)
         throws ParseException{
       ReInit(new StringReader(cmd));
       this.controller = controller;
       this.player = player;
       startServerParamCommand();
     }
-    public void parsePlayerParamCommand (String cmd, Controller controller, Player player)
+    public void parsePlayerParamCommand (String cmd, ControllerPlayer controller, ActionsPlayer player)
         throws ParseException{
       ReInit(new StringReader(cmd));
       this.controller = controller;
       this.player = player;
       startPlayerParamCommand();
     }
-    public void parsePlayerTypeCommand (String cmd, Controller controller, Player player)
+    public void parsePlayerTypeCommand (String cmd, ControllerPlayer controller, ActionsPlayer player)
         throws ParseException{
       ReInit(new StringReader(cmd));
       this.controller = controller;
       this.player = player;
       startPlayerTypeCommand();
     }
-    public void parseChangePlayerTypeCommand (String cmd, Controller controller, Player player)
+    public void parseChangePlayerTypeCommand (String cmd, ControllerPlayer controller, ActionsPlayer player)
         throws ParseException{
       ReInit(new StringReader(cmd));
       this.controller = controller;
@@ -101,7 +124,7 @@ import atan.model.enums.Warning;
       startChangePlayerTypeCommand();
     }
 }
-PARSER_END(CmdParser)
+PARSER_END(CmdParserPlayer)
 
 SKIP: {
   "\t"|"\n"|"\r"|"\""
@@ -282,22 +305,35 @@ void startSenseBodyCommand() :
       }
       controller.infoSenseBody(
         iViewModeQual, iViewModeAngle,
-        dStamina.doubleValue(), dSpeedAmount.doubleValue(),
-        dHeadAngle.doubleValue(), iKick.intValue(), iDash.intValue(), iTurn.intValue(),
-        iSay.intValue(), iTurnNeck.intValue());
+        dStamina.doubleValue(), dUnknown.doubleValue(), dEffort.doubleValue(), dSpeedAmount.doubleValue(),
+        dSpeedDirection.doubleValue(), dHeadAngle.doubleValue(), iKick.intValue(), iDash.intValue(), iTurn.intValue(),
+        iSay.intValue(), iTurnNeck.intValue(), iCatch.intValue(), iMove.intValue(), iChangeView.intValue());
     }
 }
 
-//Commands I don't yet care about! Need to be implemented later...
+//Basic commands
 void startErrorCommand() :
-    {}{{}}
+  {Errors error = null;}{
+    error=error(){
+        controller.infoHearError(error);
+    }
+  }
 
 void startOkCommand() :
-    {}{{}}
+    {Ok ok = null;}{
+        ok=ok(){
+            controller.infoHearOk(ok);
+     }
+  }
 
 void startWarningCommand() :
-    {}{{}}
-    
+    {Warning warning = null;}{
+        warning=warning(){
+            controller.infoHearWarning(warning);
+     }
+  }
+
+//Commands still to implement...
 void startServerParamCommand() :
     {}{{}}
 
@@ -311,7 +347,7 @@ void startChangePlayerTypeCommand() :
     {}{{}}
 
 //Most important command!
-void startSeeCommand() : //I am positive this bit is ok!
+void startSeeCommand() :
   {} {
     <NUM>[<SEP>(<OB>objInfo()<CB>[<SEP>])+]
   }
@@ -370,15 +406,17 @@ void objInfo() :
 
         //East-West dependancy
         if (player.isTeamEast()) {
-          name.infoSeeFromEast(controller, dDistance.doubleValue(), dDirection.doubleValue());
+          name.infoSeeFromEast(controller, dDistance.doubleValue(), dDirection.doubleValue(), dDistChange.doubleValue(),
+                               dDirChange.doubleValue(), dBodyFacingDir.doubleValue(), dHeadFacingDir.doubleValue());
         }
         else {
-          name.infoSeeFromWest(controller, dDistance.doubleValue(), dDirection.doubleValue());
+          name.infoSeeFromWest(controller, dDistance.doubleValue(), dDirection.doubleValue(), dDistChange.doubleValue(),
+                               dDirChange.doubleValue(), dBodyFacingDir.doubleValue(), dHeadFacingDir.doubleValue());
         }
     }
 }
 
-ObjName objName() : //Seems ok.
+ObjName objName() :
   {Token name; Token num; ObjName objName=null;} {
     <P>[[<SEP>]objName=objNamePlayer()] {
       if (objName==null) return new ObjNameNull();
@@ -400,7 +438,7 @@ ObjName objName() : //Seems ok.
     }
   }
 
-ObjName objNamePlayer() : //Fixed goalie error.
+ObjName objNamePlayer() :
   {Token name=null; Token num=null; Token goalie=null; ObjName objName=null;} {
     name=<NAM>[<SEP>num=<NUM>][<SEP>goalie=<GOALIE>] {
       Integer iNum;
@@ -445,7 +483,7 @@ ObjName objNamePlayer() : //Fixed goalie error.
     }
   }
 
-ObjName objNameFlag() : //Seems ok.
+ObjName objNameFlag() :
   {ObjName objName=null;} {
     <C>[<SEP>objName=objNameFlagCenter()] {
       if (objName==null) return new ObjNameFlagCenter('c');
@@ -471,7 +509,7 @@ ObjName objNameFlag() : //Seems ok.
     }
   }
 
-ObjName objNameFlagGoal() : //Seems ok
+ObjName objNameFlagGoal() :
   {Token q=null;} {
     <L>[<SEP>q=<T>|<SEP>q=<B>] {
       if (q==null) return new ObjNameFlagGoalLeft('c');
@@ -555,7 +593,7 @@ ObjName objNameFlagRight() :
     }
   }
 
-ObjName objNameFlagTop() : //Seems ok.
+ObjName objNameFlagTop() :
   {ObjName objName; Token num;} {
     <R><SEP>num=<NUM> {
       Integer iNum = new Integer(num.toString());

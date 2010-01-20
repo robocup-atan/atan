@@ -2,14 +2,17 @@ package sample;
 
 //~--- non-JDK imports --------------------------------------------------------
 
-import atan.model.Controller;
-import atan.model.Player;
+import atan.model.ActionsPlayer;
+import atan.model.ControllerPlayer;
+import atan.model.enums.Errors;
 import atan.model.enums.Flag;
 import atan.model.enums.Line;
+import atan.model.enums.Ok;
 import atan.model.enums.PlayMode;
 import atan.model.enums.RefereeMessage;
 import atan.model.enums.ViewAngle;
 import atan.model.enums.ViewQuality;
+import atan.model.enums.Warning;
 
 import org.apache.log4j.Logger;
 
@@ -18,7 +21,7 @@ import org.apache.log4j.Logger;
 import java.util.Random;
 
 /**
- * A simple testcontroller. It implements the following simple behaviour. If the
+ * A simple controller. It implements the following simple behaviour. If the
  * client sees nothing (it might be out of the field) it turns 180 degree. If
  * the client sees the own goal and the distance is less than 40 and greater
  * than 10 it turns to his own goal and dashes. If it cannot see the own goal
@@ -26,7 +29,7 @@ import java.util.Random;
  * not the ball or the own goals it dashes a little bit and turns a fixed amount
  * of degree to the right.
  */
-public class Simple implements Controller {
+public class Simple implements ControllerPlayer {
     private static int    count         = 0;
     private static Logger log           = Logger.getLogger(Simple.class);
     private int           logcount      = 0;
@@ -38,7 +41,7 @@ public class Simple implements Controller {
     private double        directionOwnGoal;
     private double        distanceBall;
     private double        distanceOwnGoal;
-    private Player        player;
+    private ActionsPlayer player;
 
     /**
      * Constructs a new simple client.
@@ -49,20 +52,20 @@ public class Simple implements Controller {
     }
 
     /**
-     * Returns the current instance of Player.
-     * @return Player.
+     * Returns the current instance of ActionsPlayer.
+     * @return ActionsPlayer.
      */
     @Override
-    public Player getPlayer() {
+    public ActionsPlayer getPlayer() {
         return player;
     }
 
     /**
      * Sets the player that the controller is controlling.
-     * @param p Player.
+     * @param p ActionsPlayer.
      */
     @Override
-    public void setPlayer(Player p) {
+    public void setPlayer(ActionsPlayer p) {
         player = p;
     }
 
@@ -149,88 +152,119 @@ public class Simple implements Controller {
     /**
      * The controller is informed when one of the flags along the right touchline
      * is in sight. The flags are positioned 5m behind the touchline.
-     * @param id possible values: OWN_50, OWN_40, OWN_30, OWN_20, OWN_10, MID,
-     * OTHER_10, OTHER_20, OTHER_30, OTHER_40, OTHER_50
+     * @param flag
      * @param distance The distance to the flag.
      * @param direction The direction of the flag.
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFlagRight(Flag id, double distance, double direction) {
+    public void infoSeeFlagRight(Flag flag, double distance, double direction, double distChange, double dirChange,
+                                 double bodyFacingDirection, double headFacingDirection) {
         canSeeNothing = false;
     }
 
     /**
      * The controller is informed when one of the flags along the left touchline
      * is in sight. The flags are positioned 5m behind the touchline.
-     * @param id possible values: OWN_50, OWN_40, OWN_30, OWN_20, OWN_10, MID
-     * OTHER_10, OTHER_20, OTHER_30, OTHER_40, OTHER_50
+     * @param flag
      * @param distance The distance to the flag.
      * @param direction The direction of the flag.
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFlagLeft(Flag id, double distance, double direction) {
+    public void infoSeeFlagLeft(Flag flag, double distance, double direction, double distChange, double dirChange,
+                                double bodyFacingDirection, double headFacingDirection) {
         canSeeNothing = false;
     }
 
     /**
      * The controller is informed when one of the flags behind our teams
      * goal is in sight. These flags are positioned 5m behind the goal line.
-     * @param id possible values: LEFT_10, LEFT_20, LEFT_30, MID,
-     * RIGHT_10, RIGHT_20, RIGHT_30
+     * @param flag
      * @param distance The distance to the flag.
      * @param direction The direction of the flag.
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFlagOwn(Flag id, double distance, double direction) {
+    public void infoSeeFlagOwn(Flag flag, double distance, double direction, double distChange, double dirChange,
+                               double bodyFacingDirection, double headFacingDirection) {
         canSeeNothing = false;
     }
 
     /**
      * The controller is informed when one of the flags behind the other teams
      * goal is in sight. These flags are positioned 5m behind the goal line.
-     * @param id possible values: LEFT_10, LEFT_20, LEFT_30, MID,
-     * RIGHT_10, RIGHT_20, RIGHT_30
+     * @param flag
      * @param distance The distance to the flag.
      * @param direction The direction of the flag.
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFlagOther(Flag id, double distance, double direction) {
+    public void infoSeeFlagOther(Flag flag, double distance, double direction, double distChange, double dirChange,
+                                 double bodyFacingDirection, double headFacingDirection) {
         canSeeNothing = false;
     }
 
     /**
      * The controller is informed when one of the flags on the center line are
      * in sight.
-     * @param id possible values: LEFT, CENTER, RIGHT
+     * @param flag
      * @param distance The distance to the flag.
      * @param direction The direction of the flag.
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFlagCenter(Flag id, double distance, double direction) {
+    public void infoSeeFlagCenter(Flag flag, double distance, double direction, double distChange, double dirChange,
+                                  double bodyFacingDirection, double headFacingDirection) {
         canSeeNothing = false;
     }
 
     /**
      * The controller is informed that one of our teams corner flags is
      * in sight.
-     * @param id possible values: LEFT, RIGHT
+     * @param flag
      * @param distance The distance to the flag.
      * @param direction The direction of the flag.
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFlagCornerOwn(Flag id, double distance, double direction) {
+    public void infoSeeFlagCornerOwn(Flag flag, double distance, double direction, double distChange, double dirChange,
+                                     double bodyFacingDirection, double headFacingDirection) {
         canSeeNothing = false;
     }
 
     /**
      * The controller is informed that one of the other teams corner flags is
      * in sight.
-     * @param id possible values: LEFT, RIGHT
+     * @param flag
      * @param distance The disnance to the flag.
      * @param direction The direction of the flag.
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFlagCornerOther(Flag id, double distance, double direction) {
+    public void infoSeeFlagCornerOther(Flag flag, double distance, double direction, double distChange,
+                                       double dirChange, double bodyFacingDirection, double headFacingDirection) {
         canSeeNothing = false;
     }
 
@@ -238,12 +272,17 @@ public class Simple implements Controller {
      * The controller is informed that one of our teams penalty box
      * flags is in sight. The flags map the outer most corners of the penalty
      * box and the center point between these corners.
-     * @param id possible values: LEFT, CENTER, RIGHT
+     * @param flag
      * @param distance The distance to this flag.
      * @param direction The direction of this flag.
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFlagPenaltyOwn(Flag id, double distance, double direction) {
+    public void infoSeeFlagPenaltyOwn(Flag flag, double distance, double direction, double distChange,
+                                      double dirChange, double bodyFacingDirection, double headFacingDirection) {
         canSeeNothing = false;
     }
 
@@ -251,12 +290,17 @@ public class Simple implements Controller {
      * The controller is informed that one of the other teams penalty box
      * flags is in sight. The flags map the outer most corners of the penalty
      * box and the center point between these corners.
-     * @param id possible values: LEFT, CENTER, RIGHT
+     * @param flag
      * @param distance The distance to this flag.
      * @param direction The direction of this flag.
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFlagPenaltyOther(Flag id, double distance, double direction) {
+    public void infoSeeFlagPenaltyOther(Flag flag, double distance, double direction, double distChange,
+            double dirChange, double bodyFacingDirection, double headFacingDirection) {
         canSeeNothing = false;
     }
 
@@ -264,14 +308,19 @@ public class Simple implements Controller {
      * The controller is informed that one of our teams goal flags
      * is in sight. The flags map the posts of the goal and the center
      * of the goal.
-     * @param id possible values: LEFT, CENTER, RIGHT
+     * @param flag
      * @param distance The distane to this flag.
      * @param direction The direction of the flag.
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFlagGoalOwn(Flag id, double distance, double direction) {
+    public void infoSeeFlagGoalOwn(Flag flag, double distance, double direction, double distChange, double dirChange,
+                                   double bodyFacingDirection, double headFacingDirection) {
         canSeeNothing = false;
-        if (id == Flag.CENTER) {
+        if (flag == Flag.CENTER) {
             this.canSeeOwnGoal    = true;
             this.distanceOwnGoal  = distance;
             this.directionOwnGoal = direction;
@@ -282,51 +331,78 @@ public class Simple implements Controller {
      * The controller is informed that one of the other teams goal flags
      * is in sight. The flags map the posts of the goal and the center
      * of the goal.
-     * @param id possible values: LEFT, CENTER, RIGHT
+     * @param flag
      * @param distance The distane to this flag.
      * @param direction The direction of the flag.
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFlagGoalOther(Flag id, double distance, double direction) {
+    public void infoSeeFlagGoalOther(Flag flag, double distance, double direction, double distChange, double dirChange,
+                                     double bodyFacingDirection, double headFacingDirection) {
         canSeeNothing = false;
     }
 
     /**
      * The controller is informed that one of the pitch lines are in sight.
-     * @param id
+     * @param line
      * @param distance The distance to the line.
      * @param direction The direction of the line.
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeLine(Line id, double distance, double direction) {
+    public void infoSeeLine(Line line, double distance, double direction, double distChange, double dirChange,
+                            double bodyFacingDirection, double headFacingDirection) {
         canSeeNothing = false;
     }
 
     /**
      * The controller is informed that one of the other teams players is in sight.
      * @param number The ID of the player (from 1 to 11)
+     * @param goalie
      * @param distance The distance to the player.
      * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeePlayerOther(int number, double distance, double direction) {}
+    public void infoSeePlayerOther(int number, boolean goalie, double distance, double direction, double distChange,
+                                   double dirChange, double bodyFacingDirection, double headFacingDirection) {}
 
     /**
      * The controller is informed that one of it's own team is in sight.
      * @param number The ID of the player (from 1 to 11)
+     * @param goalie
      * @param distance The distance to the player.
      * @param direction The direction of the player.
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeePlayerOwn(int number, double distance, double direction) {}
+    public void infoSeePlayerOwn(int number, boolean goalie, double distance, double direction, double distChange,
+                                 double dirChange, double bodyFacingDirection, double headFacingDirection) {}
 
     /**
      * The controller is informed that the Ball is in sight.
      * @param distance The distance to the ball.
      * @param direction The direction of the ball.
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeBall(double distance, double direction) {
+    public void infoSeeBall(double distance, double direction, double distChange, double dirChange,
+                            double bodyFacingDirection, double headFacingDirection) {
         canSeeNothing      = false;
         this.canSeeBall    = true;
         this.distanceBall  = distance;
@@ -406,18 +482,25 @@ public class Simple implements Controller {
      * @param viewQuality possible values: HIGH, LOW
      * @param viewAngle possible values: NARROW, NORMAL, WIDE
      * @param stamina
-     * @param speed
+     * @param unknown
+     * @param effort
+     * @param speedAmount
+     * @param speedDirection
      * @param headAngle
      * @param kickCount
      * @param dashCount
      * @param turnCount
      * @param sayCount
      * @param turnNeckCount
+     * @param catchCount
+     * @param moveCount
+     * @param changeViewCount
      */
     @Override
-    public void infoSenseBody(ViewQuality viewQuality, ViewAngle viewAngle, double stamina, double speed,
-                              double headAngle, int kickCount, int dashCount, int turnCount, int sayCount,
-                              int turnNeckCount) {}
+    public void infoSenseBody(ViewQuality viewQuality, ViewAngle viewAngle, double stamina, double unknown,
+                              double effort, double speedAmount, double speedDirection, double headAngle,
+                              int kickCount, int dashCount, int turnCount, int sayCount, int turnNeckCount,
+                              int catchCount, int moveCount, int changeViewCount) {}
 
     /**
      * Randomly choose a fast dash value.
@@ -458,7 +541,7 @@ public class Simple implements Controller {
     }
 
     /**
-     * 
+     *
      * @param ms
      */
     private synchronized void pause(int ms) {
@@ -466,4 +549,41 @@ public class Simple implements Controller {
             this.wait(ms);
         } catch (InterruptedException ex) {}
     }
+
+    /**
+     * Don't return a type
+     * @return null
+     */
+    @Override
+    public String getType() {
+        return "Simple";
+    }
+
+    /**
+     * Don't set a type
+     * @param newType discarded
+     */
+    @Override
+    public void setType(String newType) {}
+
+    /**
+     *
+     * @param error
+     */
+    @Override
+    public void infoHearError(Errors error) {}
+
+    /**
+     *
+     * @param ok
+     */
+    @Override
+    public void infoHearOk(Ok ok) {}
+
+    /**
+     *
+     * @param warning
+     */
+    @Override
+    public void infoHearWarning(Warning warning) {}
 }

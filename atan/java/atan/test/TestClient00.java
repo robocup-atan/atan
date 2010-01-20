@@ -9,14 +9,14 @@ import atan.model.AbstractUDPClient;
 import java.io.IOException;
 
 /**
- * Class description
+ *
  * @author Atan
  */
 public class TestClient00 extends AbstractUDPClient {
     private String teamName;
 
     /**
-     * Constructs ...
+     *
      * @param teamName
      */
     public TestClient00(String teamName) {
@@ -24,7 +24,7 @@ public class TestClient00 extends AbstractUDPClient {
     }
 
     /**
-     * 
+     *
      * @return
      */
     @Override
@@ -33,7 +33,7 @@ public class TestClient00 extends AbstractUDPClient {
     }
 
     /**
-     * 
+     *
      * @param s
      */
     @SuppressWarnings("empty-statement")
@@ -57,7 +57,7 @@ public class TestClient00 extends AbstractUDPClient {
     }
 
     /**
-     * 
+     *
      * @param msg
      * @return
      */
@@ -66,7 +66,7 @@ public class TestClient00 extends AbstractUDPClient {
     }
 
     /**
-     * 
+     *
      * @param msg
      * @return
      */
@@ -75,7 +75,7 @@ public class TestClient00 extends AbstractUDPClient {
     }
 
     /**
-     * 
+     *
      * @param msg
      * @return
      */
@@ -84,7 +84,7 @@ public class TestClient00 extends AbstractUDPClient {
     }
 
     /**
-     * 
+     *
      */
     private void startRunning() {
         System.out.println("Start Running");
@@ -93,7 +93,7 @@ public class TestClient00 extends AbstractUDPClient {
     }
 
     /**
-     * 
+     *
      * @throws IOException
      */
     public void takeStep() throws IOException {
@@ -104,7 +104,7 @@ public class TestClient00 extends AbstractUDPClient {
     }
 
     /**
-     * 
+     *
      * @param teamName
      */
     private static void addPlayer(String teamName) {
@@ -113,7 +113,7 @@ public class TestClient00 extends AbstractUDPClient {
     }
 
     /**
-     * 
+     *
      * @param ex
      */
     void handleException(Exception ex) {
@@ -121,7 +121,7 @@ public class TestClient00 extends AbstractUDPClient {
     }
 
     /**
-     * 
+     *
      * @param arg
      */
     public static void main(String[] arg) {

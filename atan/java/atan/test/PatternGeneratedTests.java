@@ -2,7 +2,7 @@ package atan.test;
 
 //~--- non-JDK imports --------------------------------------------------------
 
-import atan.parser.CmdParser;
+import atan.parser.CmdParserPlayer;
 import atan.parser.CommandFilter;
 import atan.parser.Filter;
 import atan.parser.ParseException;
@@ -17,14 +17,14 @@ import java.io.StringReader;
 import java.util.Set;
 
 /**
- * Class description
+ *
  * @author Atan
  */
 public class PatternGeneratedTests extends TestCase {
-    private static CmdParser cmdp = null;
+    private static CmdParserPlayer cmdp = null;
 
     /**
-     * Constructs ...
+     *
      * @param name
      */
     public PatternGeneratedTests(String name) {
@@ -32,7 +32,7 @@ public class PatternGeneratedTests extends TestCase {
     }
 
     /**
-     * 
+     *
      */
     public void test00() {
         String s =
@@ -48,7 +48,7 @@ public class PatternGeneratedTests extends TestCase {
     }
 
     /**
-     * 
+     *
      * @param s
      * @return
      * @throws ParseException
@@ -79,7 +79,7 @@ public class PatternGeneratedTests extends TestCase {
     }
 
     /**
-     * 
+     *
      * @param cmd
      * @param f
      * @throws ParseException
@@ -89,7 +89,7 @@ public class PatternGeneratedTests extends TestCase {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private Filter getFilter() {
@@ -97,19 +97,19 @@ public class PatternGeneratedTests extends TestCase {
     }
 
     /**
-     * 
+     *
      * @return
      * @throws ParseException
      */
-    private CmdParser getCmdParser() throws ParseException {
+    private CmdParserPlayer getCmdParser() throws ParseException {
         if (cmdp == null) {
-            cmdp = new CmdParser(new StringReader(""));
+            cmdp = new CmdParserPlayer(new StringReader(""));
         }
         return cmdp;
     }
 
     /**
-     * 
+     *
      * @return
      */
     static TestSuite suite() {

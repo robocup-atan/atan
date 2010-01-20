@@ -24,7 +24,7 @@ public class ByteBuffer extends ByteArrayOutputStream {
     }
 
     /**
-     * 
+     *
      * @return
      */
     public byte[] getByteArray() {
@@ -32,7 +32,7 @@ public class ByteBuffer extends ByteArrayOutputStream {
     }
 
     /**
-     * 
+     *
      * @param str
      * @throws IOException
      */
@@ -46,7 +46,7 @@ public class ByteBuffer extends ByteArrayOutputStream {
     }
 
     /**
-     * 
+     *
      * @return
      * @throws IOException
      */
@@ -61,7 +61,7 @@ public class ByteBuffer extends ByteArrayOutputStream {
     }
 
     /**
-     * 
+     *
      * @return
      */
     public int length() {
@@ -69,7 +69,7 @@ public class ByteBuffer extends ByteArrayOutputStream {
     }
 
     /**
-     * 
+     *
      */
     @Override
     public void reset() {

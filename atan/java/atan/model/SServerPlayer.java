@@ -4,7 +4,8 @@ package atan.model;
 
 import atan.model.enums.ViewAngle;
 import atan.model.enums.ViewQuality;
-import atan.parser.CmdParser;
+
+import atan.parser.CmdParserPlayer;
 import atan.parser.CommandFilter;
 import atan.parser.Filter;
 
@@ -16,18 +17,18 @@ import java.io.IOException;
 import java.io.StringReader;
 
 /**
- * Class description
+ *
  * @author Atan
  */
-public class SServerPlayer extends AbstractUDPClient implements Player {
+public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     private static Logger        log            = Logger.getLogger(SServerPlayer.class);
     private String               initMessage    = null;
     private int                  number         = -1;
-    private CmdParser            parser         = new CmdParser(new StringReader(""));
+    private CmdParserPlayer      parser         = new CmdParserPlayer(new StringReader(""));
     private Filter               filter         = new Filter();
     private CommandFactory       commandFactory = new CommandFactory();
     private SServerCommandBuffer cmdBuf         = new SServerCommandBuffer();
-    private Controller           controller;
+    private ControllerPlayer     controller;
     private boolean              isTeamEast;
     private String               teamName;
 
@@ -36,7 +37,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
      * @param teamName The team name.
      * @param c The controller for the player.
      */
-    public SServerPlayer(String teamName, Controller c) {
+    public SServerPlayer(String teamName, ControllerPlayer c) {
         this(teamName, c, 6000, "localhost");
     }
 
@@ -47,7 +48,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
      * @param port The port to connect to.
      * @param hostname The host address.
      */
-    public SServerPlayer(String teamName, Controller c, int port, String hostname) {
+    public SServerPlayer(String teamName, ControllerPlayer c, int port, String hostname) {
         super(port, hostname);
         this.teamName   = teamName;
         this.controller = c;
@@ -84,7 +85,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
     }
 
     /**
-     * 
+     *
      * @param msg
      * @throws IOException
      */
@@ -110,7 +111,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
     }
 
     /**
-     * 
+     *
      * @param is
      */
     @Override
@@ -119,7 +120,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
     }
 
     /**
-     * 
+     *
      * @param power
      */
     @Override
@@ -128,7 +129,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
     }
 
     /**
-     * 
+     *
      * @param power
      * @param direction
      */
@@ -138,7 +139,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
     }
 
     /**
-     * 
+     *
      * @param x
      * @param y
      */
@@ -148,7 +149,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
     }
 
     /**
-     * 
+     *
      * @param message
      */
     @Override
@@ -157,7 +158,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
     }
 
     /**
-     * 
+     *
      */
     @Override
     public void senseBody() {
@@ -165,7 +166,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
     }
 
     /**
-     * 
+     *
      * @param angle
      */
     @Override
@@ -174,14 +175,14 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
     }
 
     /**
-     * 
+     *
      * @param angle
      */
     @Override
     public void turnNeck(double angle) {}
 
     /**
-     * 
+     *
      * @param direction
      */
     @Override
@@ -190,7 +191,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
     }
 
     /**
-     * 
+     *
      * @param quality
      * @param angle
      */
@@ -200,7 +201,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
     }
 
     /**
-     * 
+     *
      */
     @Override
     public void bye() {
@@ -208,7 +209,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
     }
 
     /**
-     * 
+     *
      * @return
      */
     @Override
@@ -217,7 +218,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
     }
 
     /**
-     * 
+     *
      * @param num
      */
     @Override
@@ -226,7 +227,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
     }
 
     /**
-     * 
+     *
      * @return
      */
     @Override
@@ -235,7 +236,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
     }
 
     /**
-     * 
+     *
      * @return
      */
     @Override
@@ -244,7 +245,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
     }
 
     /**
-     * 
+     *
      * @param ms
      */
     private synchronized void pause(int ms) {
@@ -254,7 +255,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
     }
 
     /**
-     * 
+     *
      * @return
      */
     public String toListString() {
@@ -264,7 +265,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
     }
 
     /**
-     * 
+     *
      * @return
      */
     @Override
@@ -280,14 +281,14 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
         buf.append("Running: ");
         buf.append(isRunning());
         buf.append("\n");
-        buf.append("Controller Class: ");
+        buf.append("ControllerPlayer Class: ");
         buf.append(controller.getClass().getName());
         buf.append("\n");
         return buf.toString();
     }
 
     /**
-     * 
+     *
      * @param error
      */
     @Override
@@ -296,7 +297,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
     }
 
     /**
-     * 
+     *
      * @return
      */
     @Override
@@ -312,7 +313,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
     }
 
     /**
-     * Class description
+     *
      * @author Atan
      */
     private class SServerCommandBuffer implements CommandFilter {
@@ -323,7 +324,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
         private String senseBodyCommand = null;
 
         /**
-         * 
+         *
          * @param cmd
          */
         @Override
@@ -332,7 +333,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
         }
 
         /**
-         * 
+         *
          * @param cmd
          */
         @Override
@@ -341,7 +342,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
         }
 
         /**
-         * 
+         *
          * @param cmd
          */
         @Override
@@ -350,7 +351,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
         }
 
         /**
-         * 
+         *
          * @param cmd
          */
         @Override
@@ -359,7 +360,7 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
         }
 
         /**
-         * 
+         *
          * @param cmd
          */
         @Override
@@ -368,13 +369,13 @@ public class SServerPlayer extends AbstractUDPClient implements Player {
         }
 
         /**
-         * 
+         *
          * @param controller
          * @param parser
          * @param c
          * @throws Exception
          */
-        public void takeStep(Controller controller, CmdParser parser, Player c) throws Exception {
+        public void takeStep(ControllerPlayer controller, CmdParserPlayer parser, ActionsPlayer c) throws Exception {
             if (seeCommand != null) {
                 controller.preInfo();
                 parser.parseSeeCommand(seeCommand, controller, c);

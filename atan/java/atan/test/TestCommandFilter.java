@@ -5,7 +5,7 @@ package atan.test;
 import atan.parser.CommandFilter;
 
 /**
- * Class description
+ *
  * @author Atan
  */
 public class TestCommandFilter implements CommandFilter {
@@ -19,7 +19,7 @@ public class TestCommandFilter implements CommandFilter {
     private int              type       = UNDEFINED;
 
     /**
-     * 
+     *
      */
     void reset() {
         type = UNDEFINED;
@@ -27,7 +27,7 @@ public class TestCommandFilter implements CommandFilter {
     }
 
     /**
-     * 
+     *
      * @return
      */
     boolean isTypeUndefined() {
@@ -35,7 +35,7 @@ public class TestCommandFilter implements CommandFilter {
     }
 
     /**
-     * 
+     *
      * @return
      */
     boolean isTypeError() {
@@ -43,7 +43,7 @@ public class TestCommandFilter implements CommandFilter {
     }
 
     /**
-     * 
+     *
      * @return
      */
     boolean isTypeSee() {
@@ -51,7 +51,7 @@ public class TestCommandFilter implements CommandFilter {
     }
 
     /**
-     * 
+     *
      * @return
      */
     boolean isTypeHear() {
@@ -59,7 +59,7 @@ public class TestCommandFilter implements CommandFilter {
     }
 
     /**
-     * 
+     *
      * @return
      */
     boolean isTypeSenseBody() {
@@ -67,7 +67,7 @@ public class TestCommandFilter implements CommandFilter {
     }
 
     /**
-     * 
+     *
      * @return
      */
     boolean isTypeInit() {
@@ -75,7 +75,7 @@ public class TestCommandFilter implements CommandFilter {
     }
 
     /**
-     * 
+     *
      * @return
      */
     String getCommand() {
@@ -83,7 +83,7 @@ public class TestCommandFilter implements CommandFilter {
     }
 
     /**
-     * 
+     *
      * @param cmd
      */
     @Override
@@ -93,7 +93,7 @@ public class TestCommandFilter implements CommandFilter {
     }
 
     /**
-     * 
+     *
      * @param cmd
      */
     @Override
@@ -103,7 +103,7 @@ public class TestCommandFilter implements CommandFilter {
     }
 
     /**
-     * 
+     *
      * @param cmd
      */
     @Override
@@ -113,7 +113,7 @@ public class TestCommandFilter implements CommandFilter {
     }
 
     /**
-     * 
+     *
      * @param cmd
      */
     @Override
@@ -123,7 +123,7 @@ public class TestCommandFilter implements CommandFilter {
     }
 
     /**
-     * 
+     *
      * @param cmd
      */
     @Override

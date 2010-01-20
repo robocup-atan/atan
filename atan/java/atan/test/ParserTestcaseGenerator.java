@@ -9,18 +9,18 @@ import java.io.FileReader;
 import java.io.PrintWriter;
 
 /**
- * Class description
+ *
  * @author Atan
  */
 public class ParserTestcaseGenerator {
 
     /**
-     * Constructs ...
+     *
      */
     public ParserTestcaseGenerator() {}
 
     /**
-     * 
+     *
      * @throws Exception
      */
     private void generate() throws Exception {
@@ -42,7 +42,7 @@ public class ParserTestcaseGenerator {
     }
 
     /**
-     * 
+     *
      * @param w
      */
     private void writeHead(PrintWriter w) {
@@ -56,7 +56,7 @@ public class ParserTestcaseGenerator {
         w.println("");
         w.println("public class GeneratedTests extends TestCase {");
         w.println("");
-        w.println("  private static CmdParser cmdp = null;");
+        w.println("  private static CmdParserPlayer cmdp = null;");
         w.println("");
         w.println("  public GeneratedTests(String name) {");
         w.println("    super(name);");
@@ -64,7 +64,7 @@ public class ParserTestcaseGenerator {
     }
 
     /**
-     * 
+     *
      * @param w
      * @throws Exception
      */
@@ -88,7 +88,7 @@ public class ParserTestcaseGenerator {
     }
 
     /**
-     * 
+     *
      * @param w
      * @param s
      * @param count
@@ -108,7 +108,7 @@ public class ParserTestcaseGenerator {
     }
 
     /**
-     * 
+     *
      * @param w
      */
     private void writeEnd(PrintWriter w) {
@@ -134,8 +134,8 @@ public class ParserTestcaseGenerator {
         w.println("  private Filter getFilter (){");
         w.println("    return new Filter();");
         w.println("  }");
-        w.println("  private CmdParser getCmdParser () throws ParseException {");
-        w.println("    if (cmdp == null) cmdp = new CmdParser(new StringReader(\"\"));");
+        w.println("  private CmdParserPlayer getCmdParser () throws ParseException {");
+        w.println("    if (cmdp == null) cmdp = new CmdParserPlayer(new StringReader(\"\"));");
         w.println("    return cmdp;");
         w.println("  }");
         w.println("  static TestSuite suite () {");
@@ -153,7 +153,7 @@ public class ParserTestcaseGenerator {
     }
 
     /**
-     * 
+     *
      * @param args
      */
     public static void main(String[] args) {

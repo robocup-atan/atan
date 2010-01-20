@@ -2,52 +2,64 @@ package atan.parser;
 
 //~--- non-JDK imports --------------------------------------------------------
 
-import atan.model.Controller;
+import atan.model.ControllerPlayer;
 import atan.model.enums.Flag;
 
 /**
- * Class description
+ *
+ *
  * @author Atan
  */
-class ObjNameFlagBottom implements ObjName {
+public class ObjNameFlagBottom implements ObjName {
     int  number;
     char qualifier;
 
     /**
-     * Constructs ...
+     *
+     *
      * @param qualifier
      * @param number
      */
-    ObjNameFlagBottom(char qualifier, int number) {
+    public ObjNameFlagBottom(char qualifier, int number) {
         this.qualifier = qualifier;
         this.number    = number;
     }
 
     /**
-     * 
+     *
      * @param c
-     * @param dist
-     * @param dir
+     * @param distance
+     * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFromEast(Controller c, double dist, double dir) {
+    public void infoSeeFromEast(ControllerPlayer c, double distance, double direction, double distChange,
+                                double dirChange, double bodyFacingDirection, double headFacingDirection) {
         switch (qualifier) {
             case 'l' :
                 switch (number) {
                     case 50 :
-                        c.infoSeeFlagLeft(Flag.OTHER_50, dist, dir);
+                        c.infoSeeFlagLeft(Flag.OTHER_50, distance, direction, distChange, dirChange,
+                                          bodyFacingDirection, headFacingDirection);
                         break;
                     case 40 :
-                        c.infoSeeFlagLeft(Flag.OTHER_40, dist, dir);
+                        c.infoSeeFlagLeft(Flag.OTHER_40, distance, direction, distChange, dirChange,
+                                          bodyFacingDirection, headFacingDirection);
                         break;
                     case 30 :
-                        c.infoSeeFlagLeft(Flag.OTHER_30, dist, dir);
+                        c.infoSeeFlagLeft(Flag.OTHER_30, distance, direction, distChange, dirChange,
+                                          bodyFacingDirection, headFacingDirection);
                         break;
                     case 20 :
-                        c.infoSeeFlagLeft(Flag.OTHER_20, dist, dir);
+                        c.infoSeeFlagLeft(Flag.OTHER_20, distance, direction, distChange, dirChange,
+                                          bodyFacingDirection, headFacingDirection);
                         break;
                     case 10 :
-                        c.infoSeeFlagLeft(Flag.OTHER_10, dist, dir);
+                        c.infoSeeFlagLeft(Flag.OTHER_10, distance, direction, distChange, dirChange,
+                                          bodyFacingDirection, headFacingDirection);
                         break;
                 }
                 ;
@@ -55,54 +67,70 @@ class ObjNameFlagBottom implements ObjName {
             case 'r' :
                 switch (number) {
                     case 50 :
-                        c.infoSeeFlagLeft(Flag.OWN_50, dist, dir);
+                        c.infoSeeFlagLeft(Flag.OWN_50, distance, direction, distChange, dirChange, bodyFacingDirection,
+                                          headFacingDirection);
                         break;
                     case 40 :
-                        c.infoSeeFlagLeft(Flag.OWN_40, dist, dir);
+                        c.infoSeeFlagLeft(Flag.OWN_40, distance, direction, distChange, dirChange, bodyFacingDirection,
+                                          headFacingDirection);
                         break;
                     case 30 :
-                        c.infoSeeFlagLeft(Flag.OWN_30, dist, dir);
+                        c.infoSeeFlagLeft(Flag.OWN_30, distance, direction, distChange, dirChange, bodyFacingDirection,
+                                          headFacingDirection);
                         break;
                     case 20 :
-                        c.infoSeeFlagLeft(Flag.OWN_20, dist, dir);
+                        c.infoSeeFlagLeft(Flag.OWN_20, distance, direction, distChange, dirChange, bodyFacingDirection,
+                                          headFacingDirection);
                         break;
                     case 10 :
-                        c.infoSeeFlagLeft(Flag.OWN_10, dist, dir);
+                        c.infoSeeFlagLeft(Flag.OWN_10, distance, direction, distChange, dirChange, bodyFacingDirection,
+                                          headFacingDirection);
                         break;
                 }
                 ;
                 break;
             case '0' :
-                c.infoSeeFlagLeft(Flag.CENTER, dist, dir);
+                c.infoSeeFlagLeft(Flag.CENTER, distance, direction, distChange, dirChange, bodyFacingDirection,
+                                  headFacingDirection);
                 break;
         }
     }
 
     /**
-     * 
+     *
      * @param c
-     * @param dist
-     * @param dir
+     * @param distance
+     * @param direction
+     * @param distChange
+     * @param dirChange
+     * @param bodyFacingDirection
+     * @param headFacingDirection
      */
     @Override
-    public void infoSeeFromWest(Controller c, double dist, double dir) {
+    public void infoSeeFromWest(ControllerPlayer c, double distance, double direction, double distChange,
+                                double dirChange, double bodyFacingDirection, double headFacingDirection) {
         switch (qualifier) {
             case 'l' :
                 switch (number) {
                     case 50 :
-                        c.infoSeeFlagRight(Flag.OWN_50, dist, dir);
+                        c.infoSeeFlagRight(Flag.OWN_50, distance, direction, distChange, dirChange,
+                                           bodyFacingDirection, headFacingDirection);
                         break;
                     case 40 :
-                        c.infoSeeFlagRight(Flag.OWN_40, dist, dir);
+                        c.infoSeeFlagRight(Flag.OWN_40, distance, direction, distChange, dirChange,
+                                           bodyFacingDirection, headFacingDirection);
                         break;
                     case 30 :
-                        c.infoSeeFlagRight(Flag.OWN_30, dist, dir);
+                        c.infoSeeFlagRight(Flag.OWN_30, distance, direction, distChange, dirChange,
+                                           bodyFacingDirection, headFacingDirection);
                         break;
                     case 20 :
-                        c.infoSeeFlagRight(Flag.OWN_20, dist, dir);
+                        c.infoSeeFlagRight(Flag.OWN_20, distance, direction, distChange, dirChange,
+                                           bodyFacingDirection, headFacingDirection);
                         break;
                     case 10 :
-                        c.infoSeeFlagRight(Flag.OWN_10, dist, dir);
+                        c.infoSeeFlagRight(Flag.OWN_10, distance, direction, distChange, dirChange,
+                                           bodyFacingDirection, headFacingDirection);
                         break;
                 }
                 ;
@@ -110,27 +138,32 @@ class ObjNameFlagBottom implements ObjName {
             case 'r' :
                 switch (number) {
                     case 50 :
-                        c.infoSeeFlagRight(Flag.OTHER_50, dist, dir);
+                        c.infoSeeFlagRight(Flag.OTHER_50, distance, direction, distChange, dirChange,
+                                           bodyFacingDirection, headFacingDirection);
                         break;
                     case 40 :
-                        c.infoSeeFlagRight(Flag.OTHER_40, dist, dir);
+                        c.infoSeeFlagRight(Flag.OTHER_40, distance, direction, distChange, dirChange,
+                                           bodyFacingDirection, headFacingDirection);
                         break;
                     case 30 :
-                        c.infoSeeFlagRight(Flag.OTHER_30, dist, dir);
+                        c.infoSeeFlagRight(Flag.OTHER_30, distance, direction, distChange, dirChange,
+                                           bodyFacingDirection, headFacingDirection);
                         break;
                     case 20 :
-                        c.infoSeeFlagRight(Flag.OTHER_20, dist, dir);
+                        c.infoSeeFlagRight(Flag.OTHER_20, distance, direction, distChange, dirChange,
+                                           bodyFacingDirection, headFacingDirection);
                         break;
                     case 10 :
-                        c.infoSeeFlagRight(Flag.OTHER_10, dist, dir);
+                        c.infoSeeFlagRight(Flag.OTHER_10, distance, direction, distChange, dirChange,
+                                           bodyFacingDirection, headFacingDirection);
                         break;
                 }
                 ;
                 break;
             case '0' :
-                c.infoSeeFlagRight(Flag.CENTER, dist, dir);
+                c.infoSeeFlagRight(Flag.CENTER, distance, direction, distChange, dirChange, bodyFacingDirection,
+                                   headFacingDirection);
                 break;
         }
-        c.infoSeeBall(dist, dir);
     }
 }

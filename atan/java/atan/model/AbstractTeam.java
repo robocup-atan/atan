@@ -48,14 +48,14 @@ public abstract class AbstractTeam {
     }
 
     /**
-     * 
+     *
      * @param i
      * @return
      */
-    public abstract Controller getNewController(int i);
+    public abstract ControllerPlayer getNewController(int i);
 
     /**
-     * 
+     *
      */
     public void createNewPlayers() {
         for (int i = 0; i < size(); i++) {
@@ -65,7 +65,7 @@ public abstract class AbstractTeam {
 
     /**
      * Connect all the players to the server.
-     * Player with index 0 is always the goalie.
+     * ActionsPlayer with index 0 is always the goalie.
      */
     public void connectAll() {
         for (int i = 0; i < size(); i++) {
@@ -89,7 +89,7 @@ public abstract class AbstractTeam {
      */
     public void connect(int index) {
         try {
-            if(index == 0){
+            if (index == 0) {
                 players[index].connect("", true);
             } else {
                 players[index].connect("", false);
@@ -101,7 +101,7 @@ public abstract class AbstractTeam {
     }
 
     /**
-     * 
+     *
      * @param i
      * @return
      */
@@ -114,7 +114,7 @@ public abstract class AbstractTeam {
     }
 
     /**
-     * 
+     *
      * @return
      */
     public int size() {
@@ -122,7 +122,7 @@ public abstract class AbstractTeam {
     }
 
     /**
-     * 
+     *
      * @param ms
      */
     private synchronized void pause(int ms) {

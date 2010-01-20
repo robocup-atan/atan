@@ -9,14 +9,14 @@ import atan.model.AbstractUDPClient;
 import java.io.IOException;
 
 /**
- * Class description
+ *
  * @author Atan
  */
 public class PingPongClient extends AbstractUDPClient {
     private static int counter = 0;
 
     /**
-     * Constructs ...
+     *
      * @param port
      */
     public PingPongClient(int port) {
@@ -24,7 +24,7 @@ public class PingPongClient extends AbstractUDPClient {
     }
 
     /**
-     * 
+     *
      * @return
      */
     @Override
@@ -33,7 +33,7 @@ public class PingPongClient extends AbstractUDPClient {
     }
 
     /**
-     * 
+     *
      * @param msg
      * @throws IOException
      */
@@ -45,7 +45,7 @@ public class PingPongClient extends AbstractUDPClient {
     }
 
     /**
-     * 
+     *
      * @param arg
      */
     public static void main(String[] arg) {

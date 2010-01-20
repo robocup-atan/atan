@@ -3,7 +3,7 @@ package sample;
 //~--- non-JDK imports --------------------------------------------------------
 
 import atan.model.AbstractTeam;
-import atan.model.Controller;
+import atan.model.ControllerPlayer;
 
 /**
  * A class to setup a Simple Silly AbstractTeam.
@@ -27,7 +27,7 @@ public class SimplySillyTeam extends AbstractTeam {
      * @return A new controller for that player.
      */
     @Override
-    public Controller getNewController(int number) {
+    public ControllerPlayer getNewController(int number) {
         if (number == 0) {
             return new Silly();
         } else {
