@@ -4,7 +4,7 @@ options {
 //  FORCE_LA_CHECK = false;
 }
 PARSER_BEGIN(CmdParserPlayer)
-package atan.parser;
+package atan.parser.player;
 
 //~--- non-JDK imports --------------------------------------------------------
 
@@ -19,23 +19,23 @@ import atan.model.enums.Warning;
 import atan.model.ActionsPlayer;
 import atan.model.ControllerPlayer;
 
-import atan.parser.ObjName;
-import atan.parser.ObjNameBall;
-import atan.parser.ObjNameFlagBottom;
-import atan.parser.ObjNameFlagCenter;
-import atan.parser.ObjNameFlagCornerLeft;
-import atan.parser.ObjNameFlagCornerRight;
-import atan.parser.ObjNameFlagGoalLeft;
-import atan.parser.ObjNameFlagGoalRight;
-import atan.parser.ObjNameFlagLeft;
-import atan.parser.ObjNameFlagPenaltyEast;
-import atan.parser.ObjNameFlagPenaltyWest;
-import atan.parser.ObjNameFlagRight;
-import atan.parser.ObjNameFlagTop;
-import atan.parser.ObjNameLine;
-import atan.parser.ObjNameNull;
-import atan.parser.ObjNamePlayerEast;
-import atan.parser.ObjNamePlayerWest;
+import atan.parser.objects.ObjName;
+import atan.parser.objects.ObjNameBall;
+import atan.parser.objects.ObjNameFlagBottom;
+import atan.parser.objects.ObjNameFlagCenter;
+import atan.parser.objects.ObjNameFlagCornerLeft;
+import atan.parser.objects.ObjNameFlagCornerRight;
+import atan.parser.objects.ObjNameFlagGoalLeft;
+import atan.parser.objects.ObjNameFlagGoalRight;
+import atan.parser.objects.ObjNameFlagLeft;
+import atan.parser.objects.ObjNameFlagPenaltyEast;
+import atan.parser.objects.ObjNameFlagPenaltyWest;
+import atan.parser.objects.ObjNameFlagRight;
+import atan.parser.objects.ObjNameFlagTop;
+import atan.parser.objects.ObjNameLine;
+import atan.parser.objects.ObjNameNull;
+import atan.parser.objects.ObjNamePlayerEast;
+import atan.parser.objects.ObjNamePlayerWest;
 
 //~--- JDK imports ------------------------------------------------------------
 
@@ -354,7 +354,7 @@ void startSeeCommand() :
 
 //Get object details.
 void objInfo() :
-  {ObjName name; Token p1=null; Token p2=null; Token p3=null; Token p4=null; Token p5=null; Token p6=null;} {
+  {ObjName name; Token p1=null; Token p2=null; Token p3=null; Token p4=null; Token p5=null; Token p6=null; Token p7=null;} {
     <OB>name=objName()<CB><SEP>[p1=<NUM>[<SEP>]]  //Distance
                                [p2=<NUM>[<SEP>]]  //Direction
                                [p3=<NUM>[<SEP>]]  //DistChange

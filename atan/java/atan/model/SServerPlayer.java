@@ -5,9 +5,9 @@ package atan.model;
 import atan.model.enums.ViewAngle;
 import atan.model.enums.ViewQuality;
 
-import atan.parser.CmdParserPlayer;
 import atan.parser.CommandFilter;
 import atan.parser.Filter;
+import atan.parser.player.CmdParserPlayer;
 
 import org.apache.log4j.Logger;
 
@@ -330,7 +330,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         private String warningCommand          = null;
 
         /**
-         * Method description
+         * 
          * @param cmd
          */
         @Override
@@ -339,7 +339,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         * Method description
+         * 
          * @param cmd
          */
         @Override
@@ -348,7 +348,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         * Method description
+         * 
          * @param cmd
          */
         @Override
@@ -357,7 +357,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         * Method description
+         * 
          * @param cmd
          */
         @Override
@@ -366,7 +366,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         * Method description
+         * 
          * @param cmd
          */
         @Override
@@ -375,7 +375,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         * Method description
+         * 
          * @param cmd
          */
         @Override
@@ -384,7 +384,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         * Method description
+         * 
          * @param cmd
          */
         @Override
@@ -393,7 +393,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         * Method description
+         * 
          * @param cmd
          */
         @Override
@@ -402,7 +402,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         * Method description
+         * 
          * @param cmd
          */
         @Override
@@ -411,7 +411,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         * Method description
+         * 
          * @param cmd
          */
         @Override
@@ -420,7 +420,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         * Method description
+         * 
          * @param cmd
          */
         @Override
@@ -429,7 +429,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         * Method description
+         * 
          * @param controller
          * @param parser
          * @param c

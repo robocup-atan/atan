@@ -2,10 +2,10 @@ package atan.test;
 
 //~--- non-JDK imports --------------------------------------------------------
 
-import atan.parser.CmdParserPlayer;
 import atan.parser.CommandFilter;
 import atan.parser.Filter;
-import atan.parser.ParseException;
+import atan.parser.player.CmdParserPlayer;
+import atan.parser.player.ParseException;
 
 import junit.framework.TestCase;
 import junit.framework.TestSuite;

@@ -1,0 +1,153 @@
+options {
+  STATIC = false;
+  LOOKAHEAD = 2;
+//  FORCE_LA_CHECK = false;
+}
+PARSER_BEGIN(CmdParserTrainer)
+package atan.parser.trainer;
+
+//~--- non-JDK imports --------------------------------------------------------
+
+import atan.model.enums.Errors;
+import atan.model.enums.Ok;
+import atan.model.enums.PlayMode;
+import atan.model.enums.RefereeMessage;
+import atan.model.enums.Warning;
+
+import atan.model.ActionsTrainer;
+import atan.model.ControllerTrainer;
+
+//~--- JDK imports ------------------------------------------------------------
+
+import java.io.StringReader;
+
+  public class CmdParserTrainer {
+
+    ControllerTrainer controller;
+    ActionsTrainer trainer;
+
+    public void parseSeeCommand (String cmd, ControllerTrainer controller, ActionsTrainer trainer)
+        throws ParseException{
+    }
+    public void parseHearCommand (String cmd, ControllerTrainer controller, ActionsTrainer trainer)
+        throws ParseException{
+    }
+    public void parseInitCommand (String cmd, ControllerTrainer controller, ActionsTrainer trainer)
+        throws ParseException{
+    }
+    public void parseErrorCommand (String cmd, ControllerTrainer controller, ActionsTrainer trainer)
+        throws ParseException{
+    }
+    public void parseSenseBodyCommand (String cmd, ControllerTrainer controller, ActionsTrainer trainer)
+        throws ParseException{
+    }
+    public void parseOkCommand (String cmd, ControllerTrainer controller, ActionsTrainer trainer)
+        throws ParseException{
+    }
+    public void parseWarningCommand (String cmd, ControllerTrainer controller, ActionsTrainer trainer)
+        throws ParseException{
+    }
+    public void parseServerParamCommand (String cmd, ControllerTrainer controller, ActionsTrainer trainer)
+        throws ParseException{
+    }
+    public void parsePlayerParamCommand (String cmd, ControllerTrainer controller, ActionsTrainer trainer)
+        throws ParseException{
+    }
+    public void parsePlayerTypeCommand (String cmd, ControllerTrainer controller, ActionsTrainer trainer)
+        throws ParseException{
+    }
+    public void parseChangePlayerTypeCommand (String cmd, ControllerTrainer controller, ActionsTrainer trainer)
+        throws ParseException{
+    }
+}
+PARSER_END(CmdParserTrainer)
+
+SKIP: {
+  "\t"|"\n"|"\r"|"\""
+}
+TOKEN :
+{
+  < B: "b"|"B">|
+  < FLAG: "f"|"F">|
+  < P: "p"|"P">|
+  < L: "l"|"L">|
+  < GOAL: "g"|"G">|
+  < GOALIE: "goalie">|
+  < REFEREE: "referee"|"Referee">|
+  < SELF: "self">|
+  < VIEW_MODE: "view_mode">|
+  < HIGH: "high">|
+  < LOW: "low">|
+  < WIDE: "wide">|
+  < NARROW: "narrow">|
+  < NORMAL: "normal">|
+  < STAMINA: "stamina">|
+  < SPEED: "speed">|
+  < HEAD_ANGLE: "head_angle">|
+  < KICK: "kick">|
+  < DASH: "dash">|
+  < TURN: "turn">|
+  < SAY: "say">|
+  < TURN_NECK: "turn_neck">|
+  < BEFORE_KICK_OFF: "before_kick_off">|
+  < TIME_OVER: "time_over">|
+  < PLAY_ON: "play_on">|
+  < DROP_BALL: "drop_ball">|
+  < KICK_OFF_L: "kick_off_l">|
+  < KICK_OFF_R: "kick_off_r">|
+  < KICK_IN_L: "kick_in_l">|
+  < KICK_IN_R: "kick_in_r">|
+  < FREE_KICK_R: "free_kick_r">|
+  < FREE_KICK_L: "free_kick_l">|
+  < FREE_KICK_FAULT_R: "free_kick_fault_r">|
+  < FREE_KICK_FAULT_L: "free_kick_fault_l">|
+  < CORNER_KICK_R: "corner_kick_r">|
+  < CORNER_KICK_L: "corner_kick_l">|
+  < GOAL_KICK_R: "goal_kick_r">|
+  < GOAL_KICK_L: "goal_kick_l">|
+  < GOAL_R: "goal_r_"(["0"-"9"])+>|
+  < GOAL_L: "goal_l_"(["0"-"9"])+>|
+  < FOUL_R: "foul_r">|
+  < FOUL_L: "foul_l">|
+  < OFFSIDE_R: "offside_r">|
+  < OFFSIDE_L: "offside_l">|
+  < HALF_TIME: "half_time">|
+  < TIME_UP: "time_up">|
+  < TIME_UP_WITHOUT_A_TEAM: "time_up_without_a_team">|
+  < TIME_EXTENDED: "time_extended">|
+  < ILLEGAL_MODE: "illegal_mode">|
+  < ILLEGAL_COMMAND_FORM: "illegal_command_form">|
+  < ILLEGAL_OBJECT_FORM: "illegal_object_form">|
+  < NO_MORE_TEAM_OR_PLAYER: "no_more_team_or_player">|
+  < NO_MORE_TEAM_OR_PLAYER_OR_GOALIE: "no_more_team_or_player_or_goalie">|
+  < RECONNECT: "reconnect">|
+  < UNKNOWN_COMMAND: "unknown_command">|
+  < TOO_MANY_MOVES: "too_many_moves">|
+  < SAID_TOO_MANY_MESSAGES: "said_too_many_messages">|
+  < MOVE: "move">|
+  < CHANGE_MODE: "change_mode">|
+  < CHECK_BALL: "check_ball">|
+  < START: "start">|
+  < RECOVER: "recover">|
+  < EAR: "ear">|
+  < CHANGE_PLAYER_TYPE: "change_player_type">|
+  < LOOK: "look">|
+  < TEAM_NAMES: "team_names">|
+  < TEAM_GRAPHIC: "team_graphic">|
+  < NO_TEAM_FOUND: "no_team_found">|
+  < NO_SUCH_PLAYER: "no_such_player">|
+  < CANNOT_SUB_WHILE_PLAYON: "cannot_sub_while_playon">|
+  < NO_SUBS_LEFT: "no_subs_left">|
+  < MAX_OF_THAT_TYPE_ON_FIELD: "max_of_that_type_on_field">|
+  < CANNOT_CHANGE_GOALIE: "cannot_change_goalie">|
+  < CHANGE_VIEW: "change_view">|
+  < CATCH: "catch">|
+  < C: "c">|
+  < T: "t">|
+  < R: "r">|
+  < OB: "(">|
+  < CB: ")">|
+  < SEP: " ">|
+  < NAM: ["a"-"z","A"-"Z","_"] ( ["a"-"z","A"-"Z","_","0"-"9"] )* >|
+  < NUM: ( ["0"-"9"]|"."|"-" )+ >
+}

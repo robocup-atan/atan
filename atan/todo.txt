@@ -1,3 +1,4 @@
 - Implement coaches and trainers (This involves having a seperate parser for each)
+- Fully update player parser.
 
 Note: I am well aware SServer v14 is out already, which adds new functionality like red/yellow cards. However, as this is such a mojor change to SServer I am leaving this well alone for now. My university project is only to V13, so that is all I am going to make Atan for now. Once the project is over, I shall continue working on Atan, then updating it to V14. As Atan now specifies the SServer version it expects in the init command, Atan can be used with any new version of the SServer, as SServer automatically translates to previous versions.
