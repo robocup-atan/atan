@@ -26,17 +26,14 @@ public class Filter {
                 } else if (c2 == 'n') {
                     f.senseBodyCommand(cmd.substring(12, cmd.length() - 1));
                 } else if (c2 == 'r') {
-
-                    // f.serverParamCommand(cmd.substring(14, cmd.length() - 1));
+                    f.serverParamCommand(cmd.substring(14, cmd.length() - 1));
                 }
                 break;
             case 'p' :    // Server command begins with p (player_param, player_type)
                 if ((c2 = cmd.charAt(8)) == 'p') {
-
-                    // f.playerParamCommand(cmd.substring(14, cmd.length() - 1));
+                    f.playerParamCommand(cmd.substring(14, cmd.length() - 1));
                 } else if (c2 == 't') {
-
-                    // f.playerTypeCommand(cmd.substring(13, cmd.length() - 1));
+                    f.playerTypeCommand(cmd.substring(13, cmd.length() - 1));
                 }
                 break;
             case 'i' :    // Server command begins with i (init)
@@ -46,16 +43,13 @@ public class Filter {
                 f.hearCommand(cmd.substring(6, cmd.length() - 1));
                 break;
             case 'o' :    // Server command begins with o (ok)
-
-                // f.okCommand(cmd.substring(4, cmd.length() - 1));
+                f.okCommand(cmd.substring(4, cmd.length() - 1));
                 break;
             case 'w' :    // Server command begins with w (warning)
-
-                // f.warningCommand(cmd.substring(9, cmd.length() - 1));
+                f.warningCommand(cmd.substring(9, cmd.length() - 1));
                 break;
-            case 'c' :    // Server command begine with c (change_player_type)
-
-                // f.changePlayerTypeCommand(cmd.substring(20, cmd.length() - 1));
+            case 'c' :    // Server command begins with c (change_player_type)
+                f.changePlayerTypeCommand(cmd.substring(20, cmd.length() - 1));
                 break;
             case 'e' :    // Server command begins with e (error)
                 f.errorCommand(cmd.substring(7, cmd.length() - 1));

@@ -131,4 +131,34 @@ public class TestCommandFilter implements CommandFilter {
         type     = ERROR;
         this.cmd = cmd;
     }
+
+    @Override
+    public void serverParamCommand(String cmd) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void playerParamCommand(String cmd) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void playerTypeCommand(String cmd) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void changePlayerTypeCommand(String cmd) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void okCommand(String cmd) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void warningCommand(String cmd) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

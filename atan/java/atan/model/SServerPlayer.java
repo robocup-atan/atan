@@ -313,18 +313,24 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     }
 
     /**
-     *
+     * A private player-style filter
      * @author Atan
      */
     private class SServerCommandBuffer implements CommandFilter {
-        private String errorCommand     = null;
-        private String hearCommand      = null;
-        private String initCommand      = null;
-        private String seeCommand       = null;
-        private String senseBodyCommand = null;
+        private String changePlayerTypeCommand = null;
+        private String errorCommand            = null;
+        private String hearCommand             = null;
+        private String initCommand             = null;
+        private String okCommand               = null;
+        private String playerParamCommand      = null;
+        private String playerTypeCommand       = null;
+        private String seeCommand              = null;
+        private String senseBodyCommand        = null;
+        private String serverParamCommand      = null;
+        private String warningCommand          = null;
 
         /**
-         *
+         * Method description
          * @param cmd
          */
         @Override
@@ -333,7 +339,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         *
+         * Method description
          * @param cmd
          */
         @Override
@@ -342,7 +348,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         *
+         * Method description
          * @param cmd
          */
         @Override
@@ -351,7 +357,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         *
+         * Method description
          * @param cmd
          */
         @Override
@@ -360,7 +366,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         *
+         * Method description
          * @param cmd
          */
         @Override
@@ -369,7 +375,61 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         *
+         * Method description
+         * @param cmd
+         */
+        @Override
+        public void serverParamCommand(String cmd) {
+            serverParamCommand = cmd;
+        }
+
+        /**
+         * Method description
+         * @param cmd
+         */
+        @Override
+        public void playerParamCommand(String cmd) {
+            playerParamCommand = cmd;
+        }
+
+        /**
+         * Method description
+         * @param cmd
+         */
+        @Override
+        public void playerTypeCommand(String cmd) {
+            playerTypeCommand = cmd;
+        }
+
+        /**
+         * Method description
+         * @param cmd
+         */
+        @Override
+        public void changePlayerTypeCommand(String cmd) {
+            changePlayerTypeCommand = cmd;
+        }
+
+        /**
+         * Method description
+         * @param cmd
+         */
+        @Override
+        public void okCommand(String cmd) {
+            okCommand = cmd;
+        }
+
+        /**
+         * Method description
+         * @param cmd
+         */
+        @Override
+        public void warningCommand(String cmd) {
+            warningCommand = cmd;
+        }
+
+        /**
+         * Method description
          * @param controller
          * @param parser
          * @param c
@@ -389,15 +449,38 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
                     senseBodyCommand = null;
                 }
                 if (initCommand != null) {
-                    parser.parseInitCommand(initCommand, controller, c);
+                    parser.parseInitCommand(initCommand, controller, c);    // needs to get here before # assigned
                     initCommand = null;
+                }
+                if (okCommand != null) {
+                    parser.parseOkCommand(okCommand, controller, c);
+                    okCommand = null;
+                }
+                if (warningCommand != null) {
+                    parser.parseWarningCommand(warningCommand, controller, c);
+                    warningCommand = null;
+                }
+                if (serverParamCommand != null) {
+                    parser.parseServerParamCommand(serverParamCommand, controller, c);
+                    serverParamCommand = null;
+                }
+                if (playerParamCommand != null) {
+                    parser.parsePlayerParamCommand(playerParamCommand, controller, c);
+                    playerParamCommand = null;
+                }
+                if (playerTypeCommand != null) {
+                    parser.parsePlayerTypeCommand(playerTypeCommand, controller, c);
+                    playerTypeCommand = null;
+                }
+                if (changePlayerTypeCommand != null) {
+                    parser.parseChangePlayerTypeCommand(changePlayerTypeCommand, controller, c);
+                    changePlayerTypeCommand = null;
                 }
                 if (errorCommand != null) {
                     parser.parseErrorCommand(errorCommand, controller, c);
                     errorCommand = null;
                 }
                 controller.postInfo();
-                StringBuffer buf = new StringBuffer();
             }
         }
     }
