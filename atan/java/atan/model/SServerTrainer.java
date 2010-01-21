@@ -71,7 +71,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     * 
+     *
      * @param msg
      * @throws IOException
      */
@@ -127,7 +127,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     * 
+     *
      */
     @Override
     public void checkBall() {
@@ -135,7 +135,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     * 
+     *
      */
     @Override
     public void startGame() {
@@ -143,7 +143,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     * 
+     *
      */
     @Override
     public void recover() {
@@ -151,7 +151,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     * 
+     *
      */
     @Override
     public void ear() {
@@ -159,7 +159,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     * 
+     *
      */
     @Override
     public void eye() {
@@ -167,7 +167,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     * 
+     *
      */
     @Override
     public void look() {
@@ -175,11 +175,31 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     * 
+     *
      */
     @Override
     public void teamNames() {
         this.commandFactory.addTeamNamesCommand();
+    }
+
+    /**
+     *
+     * @param teamName
+     * @param unum
+     * @param playerType
+     */
+    @Override
+    public void changePlayerType(String teamName, Object unum, Object playerType) {
+        this.commandFactory.addChangePlayerTypeCommand(teamName, unum, playerType);
+    }
+
+    /**
+     *
+     * @param message
+     */
+    @Override
+    public void say(String message) {
+        this.commandFactory.addSayCommand(message);
     }
 
     /**
@@ -191,7 +211,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     * 
+     *
      * @param ms
      */
     private synchronized void pause(int ms) {
@@ -201,7 +221,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     * 
+     *
      * @param error
      */
     @Override
@@ -227,7 +247,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         private String warningCommand          = null;
 
         /**
-         * 
+         *
          * @param cmd
          */
         @Override
@@ -236,7 +256,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         }
 
         /**
-         * 
+         *
          * @param cmd
          */
         @Override
@@ -245,7 +265,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         }
 
         /**
-         * 
+         *
          * @param cmd
          */
         @Override
@@ -254,7 +274,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         }
 
         /**
-         * 
+         *
          * @param cmd
          */
         @Override
@@ -263,7 +283,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         }
 
         /**
-         * 
+         *
          * @param cmd
          */
         @Override
@@ -272,7 +292,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         }
 
         /**
-         * 
+         *
          * @param cmd
          */
         @Override
@@ -281,7 +301,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         }
 
         /**
-         * 
+         *
          * @param cmd
          */
         @Override
@@ -290,7 +310,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         }
 
         /**
-         * 
+         *
          * @param cmd
          */
         @Override
@@ -299,7 +319,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         }
 
         /**
-         * 
+         *
          * @param cmd
          */
         @Override
@@ -308,7 +328,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         }
 
         /**
-         * 
+         *
          * @param cmd
          */
         @Override
@@ -317,7 +337,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         }
 
         /**
-         * 
+         *
          * @param cmd
          */
         @Override
@@ -326,7 +346,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         }
 
         /**
-         * 
+         *
          * @param controller
          * @param parser
          * @param c

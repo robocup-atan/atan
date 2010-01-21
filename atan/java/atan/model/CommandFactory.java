@@ -252,7 +252,7 @@ public class CommandFactory {
 
     /**
      * This command broadcasts the message throughout the field. Any player
-     * near enough (specified with audio_cut_dist default 50.0 neters), with
+     * near enough (specified with audio_cut_dist default 50.0 meters), with
      * enough hearing capacity will hear the message.
      * @param message A valid String to say.
      */
@@ -376,6 +376,27 @@ public class CommandFactory {
     }
 
     /**
+     * Trainer only command.
+     * This command changes the specified players type.
+     * @param teamName The name of the team the player belongs to.
+     * @param unum //TODO Implement
+     * @param playerType //TODO Implement
+     */
+    @SuppressWarnings("unchecked")
+    public void addChangePlayerTypeCommand(String teamName, Object unum, Object playerType) {
+        StringBuffer buf = new StringBuffer();
+        buf.append("(change_player_type ");
+        buf.append(' ');
+        buf.append(teamName);
+        buf.append(' ');
+        buf.append(unum);
+        buf.append(' ');
+        buf.append(playerType);
+        buf.append(')');
+        fifo.add(fifo.size(), buf.toString());
+    }
+
+    /**
      * Trainer command that can be used by online coach.
      * It turns on or off the sending of "(see_global ...)" information from the server.
      */
@@ -404,12 +425,53 @@ public class CommandFactory {
 
     /**
      * Trainer command that can be used by online coach.
-     * This command provedes information about the names of both teams and which side they are playing on.
+     * This command provides information about the names of both teams and which side they are playing on.
      */
     @SuppressWarnings("unchecked")
     public void addTeamNamesCommand() {
         StringBuffer buf = new StringBuffer();
         buf.append("(team_names)");
+        fifo.add(fifo.size(), buf.toString());
+    }
+
+    /**
+     * Coach only command.
+     * This command changes the specified players type.
+     * @param unum //TODO Implement
+     * @param playerType //TODO Implement
+     */
+    @SuppressWarnings("unchecked")
+    public void addChangePlayerTypeCommand(Object unum, Object playerType) {
+        StringBuffer buf = new StringBuffer();
+        buf.append("(change_player_type ");
+        buf.append(unum);
+        buf.append(' ');
+        buf.append(playerType);
+        buf.append(')');
+        fifo.add(fifo.size(), buf.toString());
+    }
+
+    /**
+     * Coach only command.
+     * The online coach can send teams-graphics as 256 x 64 XPM to the server.
+     * Each team graphic-command sends a 8x8 tile.
+     * X and Y are the coordinates of this tile,
+     * so they range from 0 to 31 and 0 to 7 respectively.
+     * Each XPM line is a line from the 8x8 XPM tile.
+     * @param x The x coordinate of this tile.
+     * @param y The y coordinate of this tile.
+     * @param xpm //TODO Implement this.
+     */
+    @SuppressWarnings("unchecked")
+    public void addTeamGraphicCommand(int x, int y, Object xpm) {
+        StringBuffer buf = new StringBuffer();
+        buf.append("(team_graphic (");
+        buf.append(x);
+        buf.append(' ');
+        buf.append(y);
+        buf.append(' ');
+        buf.append(xpm);
+        buf.append("))");
         fifo.add(fifo.size(), buf.toString());
     }
 

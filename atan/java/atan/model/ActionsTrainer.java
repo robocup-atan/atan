@@ -54,7 +54,23 @@ public interface ActionsTrainer {
     /**
      * Turns on or off the sending of "(see_global ...)" information from the server.
      */
-    public void eye();
+    public void eye();    // TODO Take an on/off parameter
+
+    /**
+     * This command broadcasts the message throughout the field. Any player
+     * near enough (specified with audio_cut_dist default 50.0 meters), with
+     * enough hearing capacity will hear the message.
+     * @param message A valid String to say.
+     */
+    public void say(String message);
+
+    /**
+     * This command changes a specified players type.
+     * @param teamName The team the player belongs to.
+     * @param unum //TODO Implement
+     * @param playerType //TODO Implement
+     */
+    public void changePlayerType(String teamName, Object unum, Object playerType);
 
     /**
      * This command provides information about the positions of the following objects on the field.
@@ -65,7 +81,7 @@ public interface ActionsTrainer {
     public void look();
 
     /**
-     * This command provedes information about the names of both teams and which side they are playing on.
+     * This command provides information about the names of both teams and which side they are playing on.
      */
     public void teamNames();
 

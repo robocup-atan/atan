@@ -8,7 +8,7 @@ import atan.model.ActionsCoach;
 import atan.model.ControllerCoach;
 
 /**
- * 
+ *
  * @author author
  */
 public class CmdParserCoach implements CmdParserCoachConstants {
@@ -42,7 +42,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     public CmdParserCoachTokenManager token_source;
 
     /**
-     * Constructor with generated Token Manager. 
+     * Constructor with generated Token Manager.
      * @param tm
      */
     public CmdParserCoach(CmdParserCoachTokenManager tm) {
@@ -56,7 +56,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Constructor with InputStream. 
+     * Constructor with InputStream.
      * @param stream
      */
     public CmdParserCoach(java.io.InputStream stream) {
@@ -64,7 +64,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Constructor. 
+     * Constructor.
      * @param stream
      */
     public CmdParserCoach(java.io.Reader stream) {
@@ -79,7 +79,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Constructor with InputStream and supplied encoding 
+     * Constructor with InputStream and supplied encoding
      * @param stream
      * @param encoding
      */
@@ -99,7 +99,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param cmd
      * @param controller
      * @param coach
@@ -108,7 +108,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     public void parseSeeCommand(String cmd, ControllerCoach controller, ActionsCoach coach) throws ParseException {}
 
     /**
-     * 
+     *
      * @param cmd
      * @param controller
      * @param coach
@@ -117,7 +117,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     public void parseHearCommand(String cmd, ControllerCoach controller, ActionsCoach coach) throws ParseException {}
 
     /**
-     * 
+     *
      * @param cmd
      * @param controller
      * @param coach
@@ -126,7 +126,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     public void parseInitCommand(String cmd, ControllerCoach controller, ActionsCoach coach) throws ParseException {}
 
     /**
-     * 
+     *
      * @param cmd
      * @param controller
      * @param coach
@@ -135,7 +135,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     public void parseErrorCommand(String cmd, ControllerCoach controller, ActionsCoach coach) throws ParseException {}
 
     /**
-     * 
+     *
      * @param cmd
      * @param controller
      * @param coach
@@ -145,7 +145,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
             throws ParseException {}
 
     /**
-     * 
+     *
      * @param cmd
      * @param controller
      * @param coach
@@ -154,7 +154,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     public void parseOkCommand(String cmd, ControllerCoach controller, ActionsCoach coach) throws ParseException {}
 
     /**
-     * 
+     *
      * @param cmd
      * @param controller
      * @param coach
@@ -163,7 +163,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     public void parseWarningCommand(String cmd, ControllerCoach controller, ActionsCoach coach) throws ParseException {}
 
     /**
-     * 
+     *
      * @param cmd
      * @param controller
      * @param coach
@@ -173,7 +173,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
             throws ParseException {}
 
     /**
-     * 
+     *
      * @param cmd
      * @param controller
      * @param coach
@@ -183,7 +183,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
             throws ParseException {}
 
     /**
-     * 
+     *
      * @param cmd
      * @param controller
      * @param coach
@@ -193,7 +193,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
             throws ParseException {}
 
     /**
-     * 
+     *
      * @param cmd
      * @param controller
      * @param coach
@@ -203,28 +203,28 @@ public class CmdParserCoach implements CmdParserCoachConstants {
             throws ParseException {}
 
     /**
-     * 
+     *
      */
     private static void jj_la1_init_0() {
         jj_la1_0 = new int[] {};
     }
 
     /**
-     * 
+     *
      */
     private static void jj_la1_init_1() {
         jj_la1_1 = new int[] {};
     }
 
     /**
-     * 
+     *
      */
     private static void jj_la1_init_2() {
         jj_la1_2 = new int[] {};
     }
 
     /**
-     * Reinitialise. 
+     * Reinitialise.
      * @param stream
      */
     public void ReInit(java.io.InputStream stream) {
@@ -232,7 +232,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Reinitialise. 
+     * Reinitialise.
      * @param stream
      * @param encoding
      */
@@ -252,7 +252,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Reinitialise. 
+     * Reinitialise.
      * @param stream
      */
     public void ReInit(java.io.Reader stream) {
@@ -267,7 +267,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Reinitialise. 
+     * Reinitialise.
      * @param tm
      */
     public void ReInit(CmdParserCoachTokenManager tm) {
@@ -281,7 +281,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param kind
      * @return
      * @throws ParseException
@@ -304,7 +304,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Get the next Token. 
+     * Get the next Token.
      * @return
      */
     final public Token getNextToken() {
@@ -319,7 +319,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Get the specific Token. 
+     * Get the specific Token.
      * @param index
      * @return
      */
@@ -336,7 +336,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private int jj_ntk() {
@@ -348,7 +348,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Generate ParseException. 
+     * Generate ParseException.
      * @return
      */
     public ParseException generateParseException() {
