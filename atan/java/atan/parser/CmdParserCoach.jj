@@ -28,36 +28,73 @@ import java.io.StringReader;
 
     public void parseSeeCommand (String cmd, ControllerCoach controller, ActionsCoach coach)
         throws ParseException{
-    }
-    public void parseHearCommand (String cmd, ControllerCoach controller, ActionsCoach coach)
-        throws ParseException{
-    }
-    public void parseInitCommand (String cmd, ControllerCoach controller, ActionsCoach coach)
-        throws ParseException{
-    }
-    public void parseErrorCommand (String cmd, ControllerCoach controller, ActionsCoach coach)
-        throws ParseException{
-    }
-    public void parseSenseBodyCommand (String cmd, ControllerCoach controller, ActionsCoach coach)
-        throws ParseException{
+			ReInit(new StringReader(cmd));
+      		this.controller = controller;
+      		this.coach = coach;
+      		startSeeCommand();
     }
     public void parseOkCommand (String cmd, ControllerCoach controller, ActionsCoach coach)
         throws ParseException{
+          	ReInit(new StringReader(cmd));
+      		this.controller = controller;
+      		this.coach = coach;
+      		startOkCommand();
+    }
+    public void parseErrorCommand (String cmd, ControllerCoach controller, ActionsCoach coach)
+        throws ParseException{
+			ReInit(new StringReader(cmd));
+      		this.controller = controller;
+      		this.coach = coach;
+      		startErrorCommand();
     }
     public void parseWarningCommand (String cmd, ControllerCoach controller, ActionsCoach coach)
         throws ParseException{
+          ReInit(new StringReader(cmd));
+      		this.controller = controller;
+      		this.coach = coach;
+      		startWarningCommand();
     }
-    public void parseServerParamCommand (String cmd, ControllerCoach controller, ActionsCoach coach)
+    public void parseInitCommand (String cmd, ControllerCoach controller, ActionsCoach coach)
         throws ParseException{
-    }
-    public void parsePlayerParamCommand (String cmd, ControllerCoach controller, ActionsCoach coach)
-        throws ParseException{
-    }
-    public void parsePlayerTypeCommand (String cmd, ControllerCoach controller, ActionsCoach coach)
-        throws ParseException{
+          ReInit(new StringReader(cmd));
+      		this.controller = controller;
+      		this.coach = coach;
+      		startInitCommand();
     }
     public void parseChangePlayerTypeCommand (String cmd, ControllerCoach controller, ActionsCoach coach)
         throws ParseException{
+          ReInit(new StringReader(cmd));
+      		this.controller = controller;
+      		this.coach = coach;
+      		startCPTCommand();
+    }
+    public void parseServerParamCommand (String cmd, ControllerCoach controller, ActionsCoach coach)
+        throws ParseException{
+          ReInit(new StringReader(cmd));
+      		this.controller = controller;
+      		this.coach = coach;
+      		startServerParamCommand();
+    }
+    public void parsePlayerParamCommand (String cmd, ControllerCoach controller, ActionsCoach coach)
+        throws ParseException{
+          ReInit(new StringReader(cmd));
+      		this.controller = controller;
+      		this.coach = coach;
+      		startPlayerParamCommand();
+    }
+    public void parsePlayerTypeCommand (String cmd, ControllerCoach controller, ActionsCoach coach)
+        throws ParseException{
+          ReInit(new StringReader(cmd));
+      		this.controller = controller;
+      		this.coach = coach;
+      		startPlayerTypeCommand();
+    }
+    public void parseHearCommand (String cmd, ControllerCoach controller, ActionsCoach coach)
+        throws ParseException{
+          ReInit(new StringReader(cmd));
+      		this.controller = controller;
+      		this.coach = coach;
+      		startHearCommand();
     }
 }
 PARSER_END(CmdParserCoach)
@@ -150,4 +187,297 @@ TOKEN :
   < SEP: " ">|
   < NAM: ["a"-"z","A"-"Z","_"] ( ["a"-"z","A"-"Z","_","0"-"9"] )* >|
   < NUM: ( ["0"-"9"]|"."|"-" )+ >
+}
+
+void startSeeCommand() :
+    {}{{}}
+
+void startCPTCommand() :
+    {}{{}}
+
+void startServerParamCommand() :
+    {}{{}}
+
+void startPlayerParamCommand() :
+    {}{{}}
+
+
+void startPlayerTypeCommand() :
+    {}{{}}
+
+void startErrorCommand() :
+  {Errors error = null;}{
+    error=error(){
+        controller.infoHearError(error);
+    }
+  }
+
+void startOkCommand() :
+    {Ok ok = null;}{
+        ok=ok(){
+            controller.infoHearOk(ok);
+     }
+  }
+
+void startWarningCommand() :
+    {Warning warning = null;}{
+        warning=warning(){
+            controller.infoHearWarning(warning);
+     }
+  }
+
+void startInitCommand() :
+  {Token side=null;} {
+    (side=<L>|side=<R>){
+      coach.setTeamEast(side.image.charAt(0) == 'r');
+    }
+  }
+
+void startHearCommand() :
+  {Token num;Token msg;} {
+    <NUM><SEP>(
+      <SELF>|
+      <REFEREE><SEP>hearReferee()|
+      num=<NUM><SEP>msg=<NAM>{
+        Double dNum = new Double(num.image);
+        controller.infoHearPlayer(dNum.doubleValue(), msg.image);
+      }
+    )
+  }
+
+void hearReferee() :
+  {PlayMode playMode=null; RefereeMessage refereeMessage=null;}{
+    playMode=playMode(){
+      controller.infoHearPlayMode(playMode);
+    }|
+    refereeMessage=refereeMessage(){
+      controller.infoHearReferee(refereeMessage);
+    }
+  }
+
+//Enum Switches
+Warning warning() :
+    {}{
+    <NO_TEAM_FOUND>{
+        return Warning.NO_TEAM_FOUND;
+        }|
+    <NO_SUCH_PLAYER>{
+        return Warning.NO_SUCH_PLAYER;
+        }|
+    <CANNOT_SUB_WHILE_PLAYON>{
+        return Warning.CANNOT_SUB_WHILE_PLAYON;
+        }|
+    <NO_SUBS_LEFT>{
+        return Warning.NO_SUBS_LEFT;
+        }|
+    <MAX_OF_THAT_TYPE_ON_FIELD>{
+        return Warning.MAX_OF_THAT_TYPE_ON_FIELD;
+        }|
+    <CANNOT_CHANGE_GOALIE>{
+        return Warning.CANNOT_CHANGE_GOALIE;
+        }
+}
+Ok ok() :
+    {}{
+    <MOVE>{
+        return Ok.MOVE;
+        }|
+    <CHANGE_MODE>{
+        return Ok.CHANGE_MODE;
+        }|
+    <CHECK_BALL>{
+        return Ok.CHECK_BALL;
+        }|
+    <START>{
+        return Ok.START;
+        }|
+    <RECOVER>{
+        return Ok.RECOVER;
+        }|
+    <EAR>{
+        return Ok.EAR;
+        }|
+    <SAY>{
+        return Ok.SAY;
+        }|
+    <CHANGE_PLAYER_TYPE>{
+        return Ok.CHANGE_PLAYER_TYPE;
+        }|
+    <LOOK>{
+        return Ok.LOOK;
+        }|
+    <TEAM_NAMES>{
+        return Ok.TEAM_NAMES;
+        }|
+    <TEAM_GRAPHIC>{
+        return Ok.TEAM_GRAPHIC;
+        }
+}
+Errors error() :
+  {}{
+    <ILLEGAL_MODE>{
+      return Errors.ILLEGAL_MODE;
+    }|
+    <ILLEGAL_COMMAND_FORM>{
+      return Errors.ILLEGAL_COMMAND_FORM;
+    }|
+    <ILLEGAL_OBJECT_FORM>{
+      return Errors.ILLEGAL_OBJECT_FORM;
+    }|
+    <NO_MORE_TEAM_OR_PLAYER>{
+      return Errors.NO_MORE_TEAM_OR_PLAYER;
+    }|
+    <NO_MORE_TEAM_OR_PLAYER_OR_GOALIE>{
+      return Errors.NO_MORE_TEAM_OR_PLAYER_OR_GOALIE;
+    }|
+    <RECONNECT>{
+      return Errors.RECONNECT;
+    }|
+    <UNKNOWN_COMMAND>{
+      return Errors.UNKNOWN_COMMAND;
+    }|
+    <TOO_MANY_MOVES>{
+      return Errors.TOO_MANY_MOVES;
+    }|
+    <SAID_TOO_MANY_MESSAGES>{
+      return Errors.SAID_TOO_MANY_MESSAGES;
+    }
+  }
+PlayMode playMode() :
+  {}{
+     <BEFORE_KICK_OFF>{
+      return PlayMode.BEFORE_KICK_OFF;
+    }|
+    <TIME_OVER>{
+      return PlayMode.TIME_OVER;
+    }|
+    <PLAY_ON>{
+      return PlayMode.PLAY_ON;
+    }|
+    <KICK_OFF_L>{
+      if (coach.isTeamEast())
+        return PlayMode.KICK_OFF_OTHER;
+      else
+        return PlayMode.KICK_OFF_OWN;
+    }|
+    <KICK_OFF_R>{
+      if (!coach.isTeamEast())
+        return PlayMode.KICK_OFF_OTHER;
+      else
+        return PlayMode.KICK_OFF_OWN;
+    }|
+    <KICK_IN_L>{
+      if (coach.isTeamEast())
+        return PlayMode.KICK_IN_OTHER;
+      else
+        return PlayMode.KICK_IN_OWN;
+    }|
+    <KICK_IN_R>{
+      if (!coach.isTeamEast())
+        return PlayMode.KICK_IN_OTHER;
+      else
+        return PlayMode.KICK_IN_OWN;
+    }|
+    <FREE_KICK_R>{
+      if (!coach.isTeamEast())
+        return PlayMode.FREE_KICK_OTHER;
+      else
+        return PlayMode.FREE_KICK_OWN;
+    }|
+    <FREE_KICK_L>{
+      if (coach.isTeamEast())
+        return PlayMode.FREE_KICK_OTHER;
+      else
+        return PlayMode.FREE_KICK_OWN;
+    }|
+    <FREE_KICK_FAULT_R>{
+      if (!coach.isTeamEast())
+        return PlayMode.FREE_KICK_FAULT_OTHER;
+      else
+        return PlayMode.FREE_KICK_FAULT_OWN;
+    }|
+    <FREE_KICK_FAULT_L>{
+      if (coach.isTeamEast())
+        return PlayMode.FREE_KICK_FAULT_OTHER;
+      else
+        return PlayMode.FREE_KICK_FAULT_OWN;
+    }|
+    <CORNER_KICK_R>{
+      if (!coach.isTeamEast())
+        return PlayMode.CORNER_KICK_OTHER;
+      else
+        return PlayMode.CORNER_KICK_OWN;
+    }|
+    <CORNER_KICK_L>{
+      if (coach.isTeamEast())
+        return PlayMode.CORNER_KICK_OTHER;
+      else
+        return PlayMode.CORNER_KICK_OWN;
+    }|
+    <GOAL_KICK_R>{
+      if (!coach.isTeamEast())
+        return PlayMode.GOAL_KICK_OTHER;
+      else
+        return PlayMode.GOAL_KICK_OWN;
+    }|
+    <GOAL_KICK_L>{
+      if (coach.isTeamEast())
+        return PlayMode.GOAL_KICK_OTHER;
+      else
+        return PlayMode.GOAL_KICK_OWN;
+    }|
+    <GOAL_R>{
+      if (!coach.isTeamEast())
+        return PlayMode.GOAL_OTHER;
+      else
+        return PlayMode.GOAL_OWN;
+    }|
+    <GOAL_L>{
+      if (coach.isTeamEast())
+        return PlayMode.GOAL_OTHER;
+      else
+        return PlayMode.GOAL_OWN;
+    }
+  }
+RefereeMessage refereeMessage() :
+  {}{
+    <OFFSIDE_R>{
+      if (!coach.isTeamEast())
+        return RefereeMessage.OFFSIDE_OTHER;
+      else
+        return RefereeMessage.OFFSIDE_OWN;
+    }|
+    <OFFSIDE_L>{
+      if (coach.isTeamEast())
+        return RefereeMessage.OFFSIDE_OTHER;
+      else
+        return RefereeMessage.OFFSIDE_OWN;
+    }|
+    <FOUL_R>{
+      if (!coach.isTeamEast())
+        return RefereeMessage.FOUL_OTHER;
+      else
+        return RefereeMessage.FOUL_OWN;
+    }|
+    <FOUL_L>{
+      if (coach.isTeamEast())
+        return RefereeMessage.FOUL_OTHER;
+      else
+        return RefereeMessage.FOUL_OWN;
+    }|
+    <HALF_TIME>{
+        return RefereeMessage.HALF_TIME;
+    }|
+    <DROP_BALL>{
+        return RefereeMessage.DROP_BALL;
+    }|
+    <TIME_UP>{
+        return RefereeMessage.TIME_UP;
+    }|
+    <TIME_UP_WITHOUT_A_TEAM>{
+        return RefereeMessage.TIME_UP_WITHOUT_A_TEAM;
+    }|
+    <TIME_EXTENDED>{
+        return RefereeMessage.TIME_EXTENDED;
+    }
 }

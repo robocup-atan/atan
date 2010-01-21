@@ -62,7 +62,7 @@ public interface ActionsPlayer {
     /**
      * Goalie special command. Tries to catch the ball in a given direction
      * relative to its body direction. If the catch is successful the ball will
-     * be in the goalies hand untill kicked away.
+     * be in the goalies hand until kicked away.
      * @param direction The direction in which to catch, relative to its body.
      */
     public void catchBall(double direction);

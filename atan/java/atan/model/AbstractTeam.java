@@ -13,6 +13,8 @@ public abstract class AbstractTeam {
     private String          hostname = "localhost";
     private SServerPlayer[] players  = new SServerPlayer[11];
     private int             port     = 6000;
+    private boolean         hasCoach = false;
+    private SServerCoach    coach;
     private String          teamName;
 
     /**
@@ -20,7 +22,7 @@ public abstract class AbstractTeam {
      * @param teamName
      */
     public AbstractTeam(String teamName) {
-        this(teamName, 6000, "localhost");
+        this(teamName, 6000, "localhost", false);
     }
 
     /**
@@ -28,6 +30,7 @@ public abstract class AbstractTeam {
      * @param teamName
      * @param port
      * @param hostname
+     * @deprecated Due to inclusion of the coach variable.
      */
     public AbstractTeam(String teamName, int port, String hostname) {
         this.teamName = teamName;
@@ -37,6 +40,32 @@ public abstract class AbstractTeam {
         int n = players.length;
         log.info("Created new team. " + teamName + " with " + n + " players. Connecting to " + hostname + ":" + port
                  + ".");
+    }
+
+    /**
+     * Connect the team to the server using specified settings.
+     * @param teamName
+     * @param port
+     * @param hostname
+     * @param hasCoach
+     */
+    public AbstractTeam(String teamName, int port, String hostname, boolean hasCoach) {
+        this.teamName = teamName;
+        this.port     = port;
+        this.hostname = hostname;
+        this.hasCoach = hasCoach;
+        createNewPlayers();
+        if (hasCoach) {
+            createNewCoach();
+        }
+        int n = players.length;
+        if (hasCoach) {
+            log.info("Created new team. " + teamName + " with " + n + " players and a coach. Connecting to " + hostname
+                     + ":" + port + ".");
+        } else {
+            log.info("Created new team. " + teamName + " with " + n + " players. Connecting to " + hostname + ":"
+                     + port + ".");
+        }
     }
 
     /**
@@ -50,22 +79,36 @@ public abstract class AbstractTeam {
     /**
      *
      * @param i
-     * @return
+     * @return A ControllerPlayer implementation.
      */
-    public abstract ControllerPlayer getNewController(int i);
+    public abstract ControllerPlayer getNewControllerPlayer(int i);
 
     /**
      *
+     * @return A ControllerCoach implementation.
+     */
+    public abstract ControllerCoach getNewControllerCoach();
+
+    /**
+     * Create 11 SServerPlayer's.
      */
     public void createNewPlayers() {
         for (int i = 0; i < size(); i++) {
-            players[i] = new SServerPlayer(teamName, getNewController(i), port, hostname);
+            players[i] = new SServerPlayer(teamName, getNewControllerPlayer(i), port, hostname);
         }
+    }
+
+    /**
+     * Create a new SServerCoach.
+     */
+    public void createNewCoach() {
+        coach = new SServerCoach(teamName, getNewControllerCoach(), port, hostname);
     }
 
     /**
      * Connect all the players to the server.
      * ActionsPlayer with index 0 is always the goalie.
+     * Connects a coach if there is one.
      */
     public void connectAll() {
         for (int i = 0; i < size(); i++) {
@@ -77,6 +120,14 @@ public abstract class AbstractTeam {
                 } catch (Exception ex) {
                     players[i].handleError(ex.getMessage());
                 }
+            }
+            pause(500);
+        }
+        if (hasCoach) {
+            try {
+                coach.connect();
+            } catch (Exception ex) {
+                coach.handleError(ex.getMessage());
             }
             pause(500);
         }

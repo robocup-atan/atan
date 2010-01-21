@@ -67,10 +67,10 @@ public interface ActionsTrainer {
     /**
      * This command changes a specified players type.
      * @param teamName The team the player belongs to.
-     * @param unum //TODO Implement
+     * @param unum 1~11.
      * @param playerType //TODO Implement
      */
-    public void changePlayerType(String teamName, Object unum, Object playerType);
+    public void changePlayerType(String teamName, int unum, Object playerType);
 
     /**
      * This command provides information about the positions of the following objects on the field.

@@ -6,9 +6,18 @@ package atan.parser.coach;
 
 import atan.model.ActionsCoach;
 import atan.model.ControllerCoach;
+import atan.model.enums.Errors;
+import atan.model.enums.Ok;
+import atan.model.enums.PlayMode;
+import atan.model.enums.RefereeMessage;
+import atan.model.enums.Warning;
+
+//~--- JDK imports ------------------------------------------------------------
+
+import java.io.StringReader;
 
 /**
- *
+ * 
  * @author author
  */
 public class CmdParserCoach implements CmdParserCoachConstants {
@@ -22,18 +31,26 @@ public class CmdParserCoach implements CmdParserCoachConstants {
         jj_la1_init_2();
     }
 
-    private int                   jj_kind       = -1;
-    final private int[]           jj_la1        = new int[0];
-    private java.util.List<int[]> jj_expentries = new java.util.ArrayList<int[]>();
-    ActionsCoach                  coach;
-    ControllerCoach               controller;
-    private int[]                 jj_expentry;
-    private int                   jj_gen;
-    SimpleCharStream              jj_input_stream;
+    private int                    jj_gc         = 0;
+    private int                    jj_kind       = -1;
+    final private int[]            jj_la1        = new int[0];
+    final private JJCalls[]        jj_2_rtns     = new JJCalls[59];
+    private int[]                  jj_lasttokens = new int[100];
+    private boolean                jj_rescan     = false;
+    final private LookaheadSuccess jj_ls         = new LookaheadSuccess();
+    private java.util.List<int[]>  jj_expentries = new java.util.ArrayList<int[]>();
+    ActionsCoach                   coach;
+    ControllerCoach                controller;
+    private int                    jj_endpos;
+    private int[]                  jj_expentry;
+    private int                    jj_gen;
+    SimpleCharStream               jj_input_stream;
+    private int                    jj_la;
 
     /** Next token. */
-    public Token jj_nt;
-    private int  jj_ntk;
+    public Token  jj_nt;
+    private int   jj_ntk;
+    private Token jj_scanpos, jj_lastpos;
 
     /** Current token. */
     public Token token;
@@ -42,7 +59,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     public CmdParserCoachTokenManager token_source;
 
     /**
-     * Constructor with generated Token Manager.
+     * Constructor with generated Token Manager. 
      * @param tm
      */
     public CmdParserCoach(CmdParserCoachTokenManager tm) {
@@ -53,10 +70,13 @@ public class CmdParserCoach implements CmdParserCoachConstants {
         for (int i = 0; i < 0; i++) {
             jj_la1[i] = -1;
         }
+        for (int i = 0; i < jj_2_rtns.length; i++) {
+            jj_2_rtns[i] = new JJCalls();
+        }
     }
 
     /**
-     * Constructor with InputStream.
+     * Constructor with InputStream. 
      * @param stream
      */
     public CmdParserCoach(java.io.InputStream stream) {
@@ -64,7 +84,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Constructor.
+     * Constructor. 
      * @param stream
      */
     public CmdParserCoach(java.io.Reader stream) {
@@ -76,10 +96,13 @@ public class CmdParserCoach implements CmdParserCoachConstants {
         for (int i = 0; i < 0; i++) {
             jj_la1[i] = -1;
         }
+        for (int i = 0; i < jj_2_rtns.length; i++) {
+            jj_2_rtns[i] = new JJCalls();
+        }
     }
 
     /**
-     * Constructor with InputStream and supplied encoding
+     * Constructor with InputStream and supplied encoding 
      * @param stream
      * @param encoding
      */
@@ -96,135 +119,2560 @@ public class CmdParserCoach implements CmdParserCoachConstants {
         for (int i = 0; i < 0; i++) {
             jj_la1[i] = -1;
         }
+        for (int i = 0; i < jj_2_rtns.length; i++) {
+            jj_2_rtns[i] = new JJCalls();
+        }
     }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param coach
      * @throws ParseException
      */
-    public void parseSeeCommand(String cmd, ControllerCoach controller, ActionsCoach coach) throws ParseException {}
+    public void parseSeeCommand(String cmd, ControllerCoach controller, ActionsCoach coach) throws ParseException {
+        ReInit(new StringReader(cmd));
+        this.controller = controller;
+        this.coach      = coach;
+        startSeeCommand();
+    }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param coach
      * @throws ParseException
      */
-    public void parseHearCommand(String cmd, ControllerCoach controller, ActionsCoach coach) throws ParseException {}
+    public void parseOkCommand(String cmd, ControllerCoach controller, ActionsCoach coach) throws ParseException {
+        ReInit(new StringReader(cmd));
+        this.controller = controller;
+        this.coach      = coach;
+        startOkCommand();
+    }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param coach
      * @throws ParseException
      */
-    public void parseInitCommand(String cmd, ControllerCoach controller, ActionsCoach coach) throws ParseException {}
+    public void parseErrorCommand(String cmd, ControllerCoach controller, ActionsCoach coach) throws ParseException {
+        ReInit(new StringReader(cmd));
+        this.controller = controller;
+        this.coach      = coach;
+        startErrorCommand();
+    }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param coach
      * @throws ParseException
      */
-    public void parseErrorCommand(String cmd, ControllerCoach controller, ActionsCoach coach) throws ParseException {}
+    public void parseWarningCommand(String cmd, ControllerCoach controller, ActionsCoach coach) throws ParseException {
+        ReInit(new StringReader(cmd));
+        this.controller = controller;
+        this.coach      = coach;
+        startWarningCommand();
+    }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param coach
      * @throws ParseException
      */
-    public void parseSenseBodyCommand(String cmd, ControllerCoach controller, ActionsCoach coach)
-            throws ParseException {}
+    public void parseInitCommand(String cmd, ControllerCoach controller, ActionsCoach coach) throws ParseException {
+        ReInit(new StringReader(cmd));
+        this.controller = controller;
+        this.coach      = coach;
+        startInitCommand();
+    }
 
     /**
-     *
-     * @param cmd
-     * @param controller
-     * @param coach
-     * @throws ParseException
-     */
-    public void parseOkCommand(String cmd, ControllerCoach controller, ActionsCoach coach) throws ParseException {}
-
-    /**
-     *
-     * @param cmd
-     * @param controller
-     * @param coach
-     * @throws ParseException
-     */
-    public void parseWarningCommand(String cmd, ControllerCoach controller, ActionsCoach coach) throws ParseException {}
-
-    /**
-     *
-     * @param cmd
-     * @param controller
-     * @param coach
-     * @throws ParseException
-     */
-    public void parseServerParamCommand(String cmd, ControllerCoach controller, ActionsCoach coach)
-            throws ParseException {}
-
-    /**
-     *
-     * @param cmd
-     * @param controller
-     * @param coach
-     * @throws ParseException
-     */
-    public void parsePlayerParamCommand(String cmd, ControllerCoach controller, ActionsCoach coach)
-            throws ParseException {}
-
-    /**
-     *
-     * @param cmd
-     * @param controller
-     * @param coach
-     * @throws ParseException
-     */
-    public void parsePlayerTypeCommand(String cmd, ControllerCoach controller, ActionsCoach coach)
-            throws ParseException {}
-
-    /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param coach
      * @throws ParseException
      */
     public void parseChangePlayerTypeCommand(String cmd, ControllerCoach controller, ActionsCoach coach)
-            throws ParseException {}
+            throws ParseException {
+        ReInit(new StringReader(cmd));
+        this.controller = controller;
+        this.coach      = coach;
+        startCPTCommand();
+    }
 
     /**
-     *
+     * 
+     * @param cmd
+     * @param controller
+     * @param coach
+     * @throws ParseException
+     */
+    public void parseServerParamCommand(String cmd, ControllerCoach controller, ActionsCoach coach)
+            throws ParseException {
+        ReInit(new StringReader(cmd));
+        this.controller = controller;
+        this.coach      = coach;
+        startServerParamCommand();
+    }
+
+    /**
+     * 
+     * @param cmd
+     * @param controller
+     * @param coach
+     * @throws ParseException
+     */
+    public void parsePlayerParamCommand(String cmd, ControllerCoach controller, ActionsCoach coach)
+            throws ParseException {
+        ReInit(new StringReader(cmd));
+        this.controller = controller;
+        this.coach      = coach;
+        startPlayerParamCommand();
+    }
+
+    /**
+     * 
+     * @param cmd
+     * @param controller
+     * @param coach
+     * @throws ParseException
+     */
+    public void parsePlayerTypeCommand(String cmd, ControllerCoach controller, ActionsCoach coach)
+            throws ParseException {
+        ReInit(new StringReader(cmd));
+        this.controller = controller;
+        this.coach      = coach;
+        startPlayerTypeCommand();
+    }
+
+    /**
+     * 
+     * @param cmd
+     * @param controller
+     * @param coach
+     * @throws ParseException
+     */
+    public void parseHearCommand(String cmd, ControllerCoach controller, ActionsCoach coach) throws ParseException {
+        ReInit(new StringReader(cmd));
+        this.controller = controller;
+        this.coach      = coach;
+        startHearCommand();
+    }
+
+    /**
+     * 
+     * @throws ParseException
+     */
+    final public void startSeeCommand() throws ParseException {}
+
+    /**
+     * 
+     * @throws ParseException
+     */
+    final public void startCPTCommand() throws ParseException {}
+
+    /**
+     * 
+     * @throws ParseException
+     */
+    final public void startServerParamCommand() throws ParseException {}
+
+    /**
+     * 
+     * @throws ParseException
+     */
+    final public void startPlayerParamCommand() throws ParseException {}
+
+    /**
+     * 
+     * @throws ParseException
+     */
+    final public void startPlayerTypeCommand() throws ParseException {}
+
+    /**
+     * 
+     * @throws ParseException
+     */
+    final public void startErrorCommand() throws ParseException {
+        Errors error = null;
+        error = error();
+        controller.infoHearError(error);
+    }
+
+    /**
+     * 
+     * @throws ParseException
+     */
+    final public void startOkCommand() throws ParseException {
+        Ok ok = null;
+        ok = ok();
+        controller.infoHearOk(ok);
+    }
+
+    /**
+     * 
+     * @throws ParseException
+     */
+    final public void startWarningCommand() throws ParseException {
+        Warning warning = null;
+        warning = warning();
+        controller.infoHearWarning(warning);
+    }
+
+    /**
+     * 
+     * @throws ParseException
+     */
+    final public void startInitCommand() throws ParseException {
+        Token side = null;
+        if (jj_2_1(2)) {
+            side = jj_consume_token(L);
+        } else if (jj_2_2(2)) {
+            side = jj_consume_token(R);
+        } else {
+            jj_consume_token(-1);
+            throw new ParseException();
+        }
+        coach.setTeamEast(side.image.charAt(0) == 'r');
+    }
+
+    /**
+     * 
+     * @throws ParseException
+     */
+    final public void startHearCommand() throws ParseException {
+        Token num;
+        Token msg;
+        jj_consume_token(NUM);
+        jj_consume_token(SEP);
+        if (jj_2_3(2)) {
+            jj_consume_token(SELF);
+        } else if (jj_2_4(2)) {
+            jj_consume_token(REFEREE);
+            jj_consume_token(SEP);
+            hearReferee();
+        } else if (jj_2_5(2)) {
+            num = jj_consume_token(NUM);
+            jj_consume_token(SEP);
+            msg = jj_consume_token(NAM);
+            Double dNum = new Double(num.image);
+            controller.infoHearPlayer(dNum.doubleValue(), msg.image);
+        } else {
+            jj_consume_token(-1);
+            throw new ParseException();
+        }
+    }
+
+    /**
+     * 
+     * @throws ParseException
+     */
+    final public void hearReferee() throws ParseException {
+        PlayMode       playMode       = null;
+        RefereeMessage refereeMessage = null;
+        if (jj_2_6(2)) {
+            playMode = playMode();
+            controller.infoHearPlayMode(playMode);
+        } else if (jj_2_7(2)) {
+            refereeMessage = refereeMessage();
+            controller.infoHearReferee(refereeMessage);
+        } else {
+            jj_consume_token(-1);
+            throw new ParseException();
+        }
+    }
+
+//  Enum Switches
+
+    /**
+     * 
+     * @return
+     * @throws ParseException
+     */
+    final public Warning warning() throws ParseException {
+        if (jj_2_8(2)) {
+            jj_consume_token(NO_TEAM_FOUND);
+            {
+                if (true) {
+                    return Warning.NO_TEAM_FOUND;
+                }
+            }
+        } else if (jj_2_9(2)) {
+            jj_consume_token(NO_SUCH_PLAYER);
+            {
+                if (true) {
+                    return Warning.NO_SUCH_PLAYER;
+                }
+            }
+        } else if (jj_2_10(2)) {
+            jj_consume_token(CANNOT_SUB_WHILE_PLAYON);
+            {
+                if (true) {
+                    return Warning.CANNOT_SUB_WHILE_PLAYON;
+                }
+            }
+        } else if (jj_2_11(2)) {
+            jj_consume_token(NO_SUBS_LEFT);
+            {
+                if (true) {
+                    return Warning.NO_SUBS_LEFT;
+                }
+            }
+        } else if (jj_2_12(2)) {
+            jj_consume_token(MAX_OF_THAT_TYPE_ON_FIELD);
+            {
+                if (true) {
+                    return Warning.MAX_OF_THAT_TYPE_ON_FIELD;
+                }
+            }
+        } else if (jj_2_13(2)) {
+            jj_consume_token(CANNOT_CHANGE_GOALIE);
+            {
+                if (true) {
+                    return Warning.CANNOT_CHANGE_GOALIE;
+                }
+            }
+        } else {
+            jj_consume_token(-1);
+            throw new ParseException();
+        }
+        throw new Error("Missing return statement in function");
+    }
+
+    /**
+     * 
+     * @return
+     * @throws ParseException
+     */
+    final public Ok ok() throws ParseException {
+        if (jj_2_14(2)) {
+            jj_consume_token(MOVE);
+            {
+                if (true) {
+                    return Ok.MOVE;
+                }
+            }
+        } else if (jj_2_15(2)) {
+            jj_consume_token(CHANGE_MODE);
+            {
+                if (true) {
+                    return Ok.CHANGE_MODE;
+                }
+            }
+        } else if (jj_2_16(2)) {
+            jj_consume_token(CHECK_BALL);
+            {
+                if (true) {
+                    return Ok.CHECK_BALL;
+                }
+            }
+        } else if (jj_2_17(2)) {
+            jj_consume_token(START);
+            {
+                if (true) {
+                    return Ok.START;
+                }
+            }
+        } else if (jj_2_18(2)) {
+            jj_consume_token(RECOVER);
+            {
+                if (true) {
+                    return Ok.RECOVER;
+                }
+            }
+        } else if (jj_2_19(2)) {
+            jj_consume_token(EAR);
+            {
+                if (true) {
+                    return Ok.EAR;
+                }
+            }
+        } else if (jj_2_20(2)) {
+            jj_consume_token(SAY);
+            {
+                if (true) {
+                    return Ok.SAY;
+                }
+            }
+        } else if (jj_2_21(2)) {
+            jj_consume_token(CHANGE_PLAYER_TYPE);
+            {
+                if (true) {
+                    return Ok.CHANGE_PLAYER_TYPE;
+                }
+            }
+        } else if (jj_2_22(2)) {
+            jj_consume_token(LOOK);
+            {
+                if (true) {
+                    return Ok.LOOK;
+                }
+            }
+        } else if (jj_2_23(2)) {
+            jj_consume_token(TEAM_NAMES);
+            {
+                if (true) {
+                    return Ok.TEAM_NAMES;
+                }
+            }
+        } else if (jj_2_24(2)) {
+            jj_consume_token(TEAM_GRAPHIC);
+            {
+                if (true) {
+                    return Ok.TEAM_GRAPHIC;
+                }
+            }
+        } else {
+            jj_consume_token(-1);
+            throw new ParseException();
+        }
+        throw new Error("Missing return statement in function");
+    }
+
+    /**
+     * 
+     * @return
+     * @throws ParseException
+     */
+    final public Errors error() throws ParseException {
+        if (jj_2_25(2)) {
+            jj_consume_token(ILLEGAL_MODE);
+            {
+                if (true) {
+                    return Errors.ILLEGAL_MODE;
+                }
+            }
+        } else if (jj_2_26(2)) {
+            jj_consume_token(ILLEGAL_COMMAND_FORM);
+            {
+                if (true) {
+                    return Errors.ILLEGAL_COMMAND_FORM;
+                }
+            }
+        } else if (jj_2_27(2)) {
+            jj_consume_token(ILLEGAL_OBJECT_FORM);
+            {
+                if (true) {
+                    return Errors.ILLEGAL_OBJECT_FORM;
+                }
+            }
+        } else if (jj_2_28(2)) {
+            jj_consume_token(NO_MORE_TEAM_OR_PLAYER);
+            {
+                if (true) {
+                    return Errors.NO_MORE_TEAM_OR_PLAYER;
+                }
+            }
+        } else if (jj_2_29(2)) {
+            jj_consume_token(NO_MORE_TEAM_OR_PLAYER_OR_GOALIE);
+            {
+                if (true) {
+                    return Errors.NO_MORE_TEAM_OR_PLAYER_OR_GOALIE;
+                }
+            }
+        } else if (jj_2_30(2)) {
+            jj_consume_token(RECONNECT);
+            {
+                if (true) {
+                    return Errors.RECONNECT;
+                }
+            }
+        } else if (jj_2_31(2)) {
+            jj_consume_token(UNKNOWN_COMMAND);
+            {
+                if (true) {
+                    return Errors.UNKNOWN_COMMAND;
+                }
+            }
+        } else if (jj_2_32(2)) {
+            jj_consume_token(TOO_MANY_MOVES);
+            {
+                if (true) {
+                    return Errors.TOO_MANY_MOVES;
+                }
+            }
+        } else if (jj_2_33(2)) {
+            jj_consume_token(SAID_TOO_MANY_MESSAGES);
+            {
+                if (true) {
+                    return Errors.SAID_TOO_MANY_MESSAGES;
+                }
+            }
+        } else {
+            jj_consume_token(-1);
+            throw new ParseException();
+        }
+        throw new Error("Missing return statement in function");
+    }
+
+    /**
+     * 
+     * @return
+     * @throws ParseException
+     */
+    final public PlayMode playMode() throws ParseException {
+        if (jj_2_34(2)) {
+            jj_consume_token(BEFORE_KICK_OFF);
+            {
+                if (true) {
+                    return PlayMode.BEFORE_KICK_OFF;
+                }
+            }
+        } else if (jj_2_35(2)) {
+            jj_consume_token(TIME_OVER);
+            {
+                if (true) {
+                    return PlayMode.TIME_OVER;
+                }
+            }
+        } else if (jj_2_36(2)) {
+            jj_consume_token(PLAY_ON);
+            {
+                if (true) {
+                    return PlayMode.PLAY_ON;
+                }
+            }
+        } else if (jj_2_37(2)) {
+            jj_consume_token(KICK_OFF_L);
+            if (coach.isTeamEast()) {
+                if (true) {
+                    return PlayMode.KICK_OFF_OTHER;
+                }
+            } else {
+                if (true) {
+                    return PlayMode.KICK_OFF_OWN;
+                }
+            }
+        } else if (jj_2_38(2)) {
+            jj_consume_token(KICK_OFF_R);
+            if (!coach.isTeamEast()) {
+                if (true) {
+                    return PlayMode.KICK_OFF_OTHER;
+                }
+            } else {
+                if (true) {
+                    return PlayMode.KICK_OFF_OWN;
+                }
+            }
+        } else if (jj_2_39(2)) {
+            jj_consume_token(KICK_IN_L);
+            if (coach.isTeamEast()) {
+                if (true) {
+                    return PlayMode.KICK_IN_OTHER;
+                }
+            } else {
+                if (true) {
+                    return PlayMode.KICK_IN_OWN;
+                }
+            }
+        } else if (jj_2_40(2)) {
+            jj_consume_token(KICK_IN_R);
+            if (!coach.isTeamEast()) {
+                if (true) {
+                    return PlayMode.KICK_IN_OTHER;
+                }
+            } else {
+                if (true) {
+                    return PlayMode.KICK_IN_OWN;
+                }
+            }
+        } else if (jj_2_41(2)) {
+            jj_consume_token(FREE_KICK_R);
+            if (!coach.isTeamEast()) {
+                if (true) {
+                    return PlayMode.FREE_KICK_OTHER;
+                }
+            } else {
+                if (true) {
+                    return PlayMode.FREE_KICK_OWN;
+                }
+            }
+        } else if (jj_2_42(2)) {
+            jj_consume_token(FREE_KICK_L);
+            if (coach.isTeamEast()) {
+                if (true) {
+                    return PlayMode.FREE_KICK_OTHER;
+                }
+            } else {
+                if (true) {
+                    return PlayMode.FREE_KICK_OWN;
+                }
+            }
+        } else if (jj_2_43(2)) {
+            jj_consume_token(FREE_KICK_FAULT_R);
+            if (!coach.isTeamEast()) {
+                if (true) {
+                    return PlayMode.FREE_KICK_FAULT_OTHER;
+                }
+            } else {
+                if (true) {
+                    return PlayMode.FREE_KICK_FAULT_OWN;
+                }
+            }
+        } else if (jj_2_44(2)) {
+            jj_consume_token(FREE_KICK_FAULT_L);
+            if (coach.isTeamEast()) {
+                if (true) {
+                    return PlayMode.FREE_KICK_FAULT_OTHER;
+                }
+            } else {
+                if (true) {
+                    return PlayMode.FREE_KICK_FAULT_OWN;
+                }
+            }
+        } else if (jj_2_45(2)) {
+            jj_consume_token(CORNER_KICK_R);
+            if (!coach.isTeamEast()) {
+                if (true) {
+                    return PlayMode.CORNER_KICK_OTHER;
+                }
+            } else {
+                if (true) {
+                    return PlayMode.CORNER_KICK_OWN;
+                }
+            }
+        } else if (jj_2_46(2)) {
+            jj_consume_token(CORNER_KICK_L);
+            if (coach.isTeamEast()) {
+                if (true) {
+                    return PlayMode.CORNER_KICK_OTHER;
+                }
+            } else {
+                if (true) {
+                    return PlayMode.CORNER_KICK_OWN;
+                }
+            }
+        } else if (jj_2_47(2)) {
+            jj_consume_token(GOAL_KICK_R);
+            if (!coach.isTeamEast()) {
+                if (true) {
+                    return PlayMode.GOAL_KICK_OTHER;
+                }
+            } else {
+                if (true) {
+                    return PlayMode.GOAL_KICK_OWN;
+                }
+            }
+        } else if (jj_2_48(2)) {
+            jj_consume_token(GOAL_KICK_L);
+            if (coach.isTeamEast()) {
+                if (true) {
+                    return PlayMode.GOAL_KICK_OTHER;
+                }
+            } else {
+                if (true) {
+                    return PlayMode.GOAL_KICK_OWN;
+                }
+            }
+        } else if (jj_2_49(2)) {
+            jj_consume_token(GOAL_R);
+            if (!coach.isTeamEast()) {
+                if (true) {
+                    return PlayMode.GOAL_OTHER;
+                }
+            } else {
+                if (true) {
+                    return PlayMode.GOAL_OWN;
+                }
+            }
+        } else if (jj_2_50(2)) {
+            jj_consume_token(GOAL_L);
+            if (coach.isTeamEast()) {
+                if (true) {
+                    return PlayMode.GOAL_OTHER;
+                }
+            } else {
+                if (true) {
+                    return PlayMode.GOAL_OWN;
+                }
+            }
+        } else {
+            jj_consume_token(-1);
+            throw new ParseException();
+        }
+        throw new Error("Missing return statement in function");
+    }
+
+    /**
+     * 
+     * @return
+     * @throws ParseException
+     */
+    final public RefereeMessage refereeMessage() throws ParseException {
+        if (jj_2_51(2)) {
+            jj_consume_token(OFFSIDE_R);
+            if (!coach.isTeamEast()) {
+                if (true) {
+                    return RefereeMessage.OFFSIDE_OTHER;
+                }
+            } else {
+                if (true) {
+                    return RefereeMessage.OFFSIDE_OWN;
+                }
+            }
+        } else if (jj_2_52(2)) {
+            jj_consume_token(OFFSIDE_L);
+            if (coach.isTeamEast()) {
+                if (true) {
+                    return RefereeMessage.OFFSIDE_OTHER;
+                }
+            } else {
+                if (true) {
+                    return RefereeMessage.OFFSIDE_OWN;
+                }
+            }
+        } else if (jj_2_53(2)) {
+            jj_consume_token(FOUL_R);
+            if (!coach.isTeamEast()) {
+                if (true) {
+                    return RefereeMessage.FOUL_OTHER;
+                }
+            } else {
+                if (true) {
+                    return RefereeMessage.FOUL_OWN;
+                }
+            }
+        } else if (jj_2_54(2)) {
+            jj_consume_token(FOUL_L);
+            if (coach.isTeamEast()) {
+                if (true) {
+                    return RefereeMessage.FOUL_OTHER;
+                }
+            } else {
+                if (true) {
+                    return RefereeMessage.FOUL_OWN;
+                }
+            }
+        } else if (jj_2_55(2)) {
+            jj_consume_token(HALF_TIME);
+            {
+                if (true) {
+                    return RefereeMessage.HALF_TIME;
+                }
+            }
+        } else if (jj_2_56(2)) {
+            jj_consume_token(DROP_BALL);
+            {
+                if (true) {
+                    return RefereeMessage.DROP_BALL;
+                }
+            }
+        } else if (jj_2_57(2)) {
+            jj_consume_token(TIME_UP);
+            {
+                if (true) {
+                    return RefereeMessage.TIME_UP;
+                }
+            }
+        } else if (jj_2_58(2)) {
+            jj_consume_token(TIME_UP_WITHOUT_A_TEAM);
+            {
+                if (true) {
+                    return RefereeMessage.TIME_UP_WITHOUT_A_TEAM;
+                }
+            }
+        } else if (jj_2_59(2)) {
+            jj_consume_token(TIME_EXTENDED);
+            {
+                if (true) {
+                    return RefereeMessage.TIME_EXTENDED;
+                }
+            }
+        } else {
+            jj_consume_token(-1);
+            throw new ParseException();
+        }
+        throw new Error("Missing return statement in function");
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_1(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_1();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(0, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_2(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_2();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(1, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_3(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_3();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(2, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_4(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_4();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(3, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_5(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_5();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(4, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_6(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_6();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(5, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_7(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_7();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(6, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_8(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_8();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(7, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_9(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_9();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(8, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_10(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_10();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(9, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_11(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_11();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(10, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_12(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_12();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(11, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_13(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_13();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(12, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_14(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_14();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(13, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_15(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_15();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(14, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_16(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_16();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(15, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_17(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_17();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(16, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_18(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_18();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(17, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_19(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_19();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(18, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_20(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_20();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(19, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_21(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_21();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(20, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_22(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_22();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(21, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_23(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_23();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(22, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_24(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_24();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(23, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_25(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_25();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(24, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_26(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_26();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(25, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_27(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_27();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(26, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_28(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_28();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(27, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_29(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_29();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(28, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_30(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_30();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(29, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_31(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_31();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(30, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_32(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_32();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(31, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_33(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_33();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(32, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_34(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_34();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(33, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_35(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_35();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(34, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_36(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_36();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(35, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_37(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_37();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(36, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_38(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_38();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(37, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_39(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_39();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(38, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_40(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_40();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(39, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_41(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_41();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(40, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_42(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_42();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(41, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_43(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_43();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(42, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_44(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_44();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(43, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_45(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_45();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(44, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_46(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_46();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(45, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_47(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_47();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(46, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_48(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_48();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(47, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_49(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_49();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(48, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_50(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_50();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(49, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_51(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_51();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(50, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_52(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_52();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(51, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_53(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_53();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(52, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_54(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_54();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(53, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_55(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_55();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(54, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_56(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_56();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(55, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_57(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_57();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(56, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_58(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_58();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(57, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_59(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_59();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(58, xla);
+        }
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_55() {
+        if (jj_scan_token(HALF_TIME)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_13() {
+        if (jj_scan_token(CANNOT_CHANGE_GOALIE)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_39() {
+        if (jj_scan_token(KICK_IN_L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_12() {
+        if (jj_scan_token(MAX_OF_THAT_TYPE_ON_FIELD)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_54() {
+        if (jj_scan_token(FOUL_L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_11() {
+        if (jj_scan_token(NO_SUBS_LEFT)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_38() {
+        if (jj_scan_token(KICK_OFF_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_10() {
+        if (jj_scan_token(CANNOT_SUB_WHILE_PLAYON)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_53() {
+        if (jj_scan_token(FOUL_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_9() {
+        if (jj_scan_token(NO_SUCH_PLAYER)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_37() {
+        if (jj_scan_token(KICK_OFF_L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_8() {
+        if (jj_scan_token(NO_TEAM_FOUND)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_52() {
+        if (jj_scan_token(OFFSIDE_L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_36() {
+        if (jj_scan_token(PLAY_ON)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_35() {
+        if (jj_scan_token(TIME_OVER)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3R_2() {
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_51()) {
+            jj_scanpos = xsp;
+            if (jj_3_52()) {
+                jj_scanpos = xsp;
+                if (jj_3_53()) {
+                    jj_scanpos = xsp;
+                    if (jj_3_54()) {
+                        jj_scanpos = xsp;
+                        if (jj_3_55()) {
+                            jj_scanpos = xsp;
+                            if (jj_3_56()) {
+                                jj_scanpos = xsp;
+                                if (jj_3_57()) {
+                                    jj_scanpos = xsp;
+                                    if (jj_3_58()) {
+                                        jj_scanpos = xsp;
+                                        if (jj_3_59()) {
+                                            return true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3R_1() {
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_34()) {
+            jj_scanpos = xsp;
+            if (jj_3_35()) {
+                jj_scanpos = xsp;
+                if (jj_3_36()) {
+                    jj_scanpos = xsp;
+                    if (jj_3_37()) {
+                        jj_scanpos = xsp;
+                        if (jj_3_38()) {
+                            jj_scanpos = xsp;
+                            if (jj_3_39()) {
+                                jj_scanpos = xsp;
+                                if (jj_3_40()) {
+                                    jj_scanpos = xsp;
+                                    if (jj_3_41()) {
+                                        jj_scanpos = xsp;
+                                        if (jj_3_42()) {
+                                            jj_scanpos = xsp;
+                                            if (jj_3_43()) {
+                                                jj_scanpos = xsp;
+                                                if (jj_3_44()) {
+                                                    jj_scanpos = xsp;
+                                                    if (jj_3_45()) {
+                                                        jj_scanpos = xsp;
+                                                        if (jj_3_46()) {
+                                                            jj_scanpos = xsp;
+                                                            if (jj_3_47()) {
+                                                                jj_scanpos = xsp;
+                                                                if (jj_3_48()) {
+                                                                    jj_scanpos = xsp;
+                                                                    if (jj_3_49()) {
+                                                                        jj_scanpos = xsp;
+                                                                        if (jj_3_50()) {
+                                                                            return true;
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_51() {
+        if (jj_scan_token(OFFSIDE_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_34() {
+        if (jj_scan_token(BEFORE_KICK_OFF)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_7() {
+        if (jj_3R_2()) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_6() {
+        if (jj_3R_1()) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_33() {
+        if (jj_scan_token(SAID_TOO_MANY_MESSAGES)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_50() {
+        if (jj_scan_token(GOAL_L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_32() {
+        if (jj_scan_token(TOO_MANY_MOVES)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_5() {
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_4() {
+        if (jj_scan_token(REFEREE)) {
+            return true;
+        }
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_2() {
+        if (jj_scan_token(R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_3() {
+        if (jj_scan_token(SELF)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_31() {
+        if (jj_scan_token(UNKNOWN_COMMAND)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_49() {
+        if (jj_scan_token(GOAL_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_30() {
+        if (jj_scan_token(RECONNECT)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_29() {
+        if (jj_scan_token(NO_MORE_TEAM_OR_PLAYER_OR_GOALIE)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_48() {
+        if (jj_scan_token(GOAL_KICK_L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_1() {
+        if (jj_scan_token(L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_28() {
+        if (jj_scan_token(NO_MORE_TEAM_OR_PLAYER)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_27() {
+        if (jj_scan_token(ILLEGAL_OBJECT_FORM)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_47() {
+        if (jj_scan_token(GOAL_KICK_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_26() {
+        if (jj_scan_token(ILLEGAL_COMMAND_FORM)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_25() {
+        if (jj_scan_token(ILLEGAL_MODE)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_46() {
+        if (jj_scan_token(CORNER_KICK_L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_24() {
+        if (jj_scan_token(TEAM_GRAPHIC)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_45() {
+        if (jj_scan_token(CORNER_KICK_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_23() {
+        if (jj_scan_token(TEAM_NAMES)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_22() {
+        if (jj_scan_token(LOOK)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_44() {
+        if (jj_scan_token(FREE_KICK_FAULT_L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_21() {
+        if (jj_scan_token(CHANGE_PLAYER_TYPE)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_20() {
+        if (jj_scan_token(SAY)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_43() {
+        if (jj_scan_token(FREE_KICK_FAULT_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_19() {
+        if (jj_scan_token(EAR)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_18() {
+        if (jj_scan_token(RECOVER)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_42() {
+        if (jj_scan_token(FREE_KICK_L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_17() {
+        if (jj_scan_token(START)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_59() {
+        if (jj_scan_token(TIME_EXTENDED)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_16() {
+        if (jj_scan_token(CHECK_BALL)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_58() {
+        if (jj_scan_token(TIME_UP_WITHOUT_A_TEAM)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_41() {
+        if (jj_scan_token(FREE_KICK_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_15() {
+        if (jj_scan_token(CHANGE_MODE)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_57() {
+        if (jj_scan_token(TIME_UP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_14() {
+        if (jj_scan_token(MOVE)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_56() {
+        if (jj_scan_token(DROP_BALL)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_40() {
+        if (jj_scan_token(KICK_IN_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
      */
     private static void jj_la1_init_0() {
         jj_la1_0 = new int[] {};
     }
 
     /**
-     *
+     * 
      */
     private static void jj_la1_init_1() {
         jj_la1_1 = new int[] {};
     }
 
     /**
-     *
+     * 
      */
     private static void jj_la1_init_2() {
         jj_la1_2 = new int[] {};
     }
 
     /**
-     * Reinitialise.
+     * Reinitialise. 
      * @param stream
      */
     public void ReInit(java.io.InputStream stream) {
@@ -232,7 +2680,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Reinitialise.
+     * Reinitialise. 
      * @param stream
      * @param encoding
      */
@@ -249,10 +2697,13 @@ public class CmdParserCoach implements CmdParserCoachConstants {
         for (int i = 0; i < 0; i++) {
             jj_la1[i] = -1;
         }
+        for (int i = 0; i < jj_2_rtns.length; i++) {
+            jj_2_rtns[i] = new JJCalls();
+        }
     }
 
     /**
-     * Reinitialise.
+     * Reinitialise. 
      * @param stream
      */
     public void ReInit(java.io.Reader stream) {
@@ -264,10 +2715,13 @@ public class CmdParserCoach implements CmdParserCoachConstants {
         for (int i = 0; i < 0; i++) {
             jj_la1[i] = -1;
         }
+        for (int i = 0; i < jj_2_rtns.length; i++) {
+            jj_2_rtns[i] = new JJCalls();
+        }
     }
 
     /**
-     * Reinitialise.
+     * Reinitialise. 
      * @param tm
      */
     public void ReInit(CmdParserCoachTokenManager tm) {
@@ -278,10 +2732,13 @@ public class CmdParserCoach implements CmdParserCoachConstants {
         for (int i = 0; i < 0; i++) {
             jj_la1[i] = -1;
         }
+        for (int i = 0; i < jj_2_rtns.length; i++) {
+            jj_2_rtns[i] = new JJCalls();
+        }
     }
 
     /**
-     *
+     * 
      * @param kind
      * @return
      * @throws ParseException
@@ -296,6 +2753,18 @@ public class CmdParserCoach implements CmdParserCoachConstants {
         jj_ntk = -1;
         if (token.kind == kind) {
             jj_gen++;
+            if (++jj_gc > 100) {
+                jj_gc = 0;
+                for (int i = 0; i < jj_2_rtns.length; i++) {
+                    JJCalls c = jj_2_rtns[i];
+                    while (c != null) {
+                        if (c.gen < jj_gen) {
+                            c.first = null;
+                        }
+                        c = c.next;
+                    }
+                }
+            }
             return token;
         }
         token   = oldToken;
@@ -304,7 +2773,43 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Get the next Token.
+     * 
+     * @param kind
+     * @return
+     */
+    private boolean jj_scan_token(int kind) {
+        if (jj_scanpos == jj_lastpos) {
+            jj_la--;
+            if (jj_scanpos.next == null) {
+                jj_lastpos = jj_scanpos = jj_scanpos.next = token_source.getNextToken();
+            } else {
+                jj_lastpos = jj_scanpos = jj_scanpos.next;
+            }
+        } else {
+            jj_scanpos = jj_scanpos.next;
+        }
+        if (jj_rescan) {
+            int   i   = 0;
+            Token tok = token;
+            while ((tok != null) && (tok != jj_scanpos)) {
+                i++;
+                tok = tok.next;
+            }
+            if (tok != null) {
+                jj_add_error_token(kind, i);
+            }
+        }
+        if (jj_scanpos.kind != kind) {
+            return true;
+        }
+        if ((jj_la == 0) && (jj_scanpos == jj_lastpos)) {
+            throw jj_ls;
+        }
+        return false;
+    }
+
+    /**
+     * Get the next Token. 
      * @return
      */
     final public Token getNextToken() {
@@ -319,7 +2824,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Get the specific Token.
+     * Get the specific Token. 
      * @param index
      * @return
      */
@@ -336,7 +2841,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private int jj_ntk() {
@@ -348,7 +2853,42 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Generate ParseException.
+     * 
+     * @param kind
+     * @param pos
+     */
+    private void jj_add_error_token(int kind, int pos) {
+        if (pos >= 100) {
+            return;
+        }
+        if (pos == jj_endpos + 1) {
+            jj_lasttokens[jj_endpos++] = kind;
+        } else if (jj_endpos != 0) {
+            jj_expentry = new int[jj_endpos];
+            for (int i = 0; i < jj_endpos; i++) {
+                jj_expentry[i] = jj_lasttokens[i];
+            }
+            jj_entries_loop:
+            for (java.util.Iterator<?> it = jj_expentries.iterator(); it.hasNext(); ) {
+                int[] oldentry = (int[]) (it.next());
+                if (oldentry.length == jj_expentry.length) {
+                    for (int i = 0; i < jj_expentry.length; i++) {
+                        if (oldentry[i] != jj_expentry[i]) {
+                            continue jj_entries_loop;
+                        }
+                    }
+                    jj_expentries.add(jj_expentry);
+                    break jj_entries_loop;
+                }
+            }
+            if (pos != 0) {
+                jj_lasttokens[(jj_endpos = pos) - 1] = kind;
+            }
+        }
+    }
+
+    /**
+     * Generate ParseException. 
      * @return
      */
     public ParseException generateParseException() {
@@ -380,6 +2920,9 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                 jj_expentries.add(jj_expentry);
             }
         }
+        jj_endpos = 0;
+        jj_rescan_token();
+        jj_add_error_token(0, 0);
         int[][] exptokseq = new int[jj_expentries.size()][];
         for (int i = 0; i < jj_expentries.size(); i++) {
             exptokseq[i] = jj_expentries.get(i);
@@ -392,4 +2935,239 @@ public class CmdParserCoach implements CmdParserCoachConstants {
 
     /** Disable tracing. */
     final public void disable_tracing() {}
+
+    /**
+     * 
+     */
+    private void jj_rescan_token() {
+        jj_rescan = true;
+        for (int i = 0; i < 59; i++) {
+            try {
+                JJCalls p = jj_2_rtns[i];
+                do {
+                    if (p.gen > jj_gen) {
+                        jj_la      = p.arg;
+                        jj_lastpos = jj_scanpos = p.first;
+                        switch (i) {
+                            case 0 :
+                                jj_3_1();
+                                break;
+                            case 1 :
+                                jj_3_2();
+                                break;
+                            case 2 :
+                                jj_3_3();
+                                break;
+                            case 3 :
+                                jj_3_4();
+                                break;
+                            case 4 :
+                                jj_3_5();
+                                break;
+                            case 5 :
+                                jj_3_6();
+                                break;
+                            case 6 :
+                                jj_3_7();
+                                break;
+                            case 7 :
+                                jj_3_8();
+                                break;
+                            case 8 :
+                                jj_3_9();
+                                break;
+                            case 9 :
+                                jj_3_10();
+                                break;
+                            case 10 :
+                                jj_3_11();
+                                break;
+                            case 11 :
+                                jj_3_12();
+                                break;
+                            case 12 :
+                                jj_3_13();
+                                break;
+                            case 13 :
+                                jj_3_14();
+                                break;
+                            case 14 :
+                                jj_3_15();
+                                break;
+                            case 15 :
+                                jj_3_16();
+                                break;
+                            case 16 :
+                                jj_3_17();
+                                break;
+                            case 17 :
+                                jj_3_18();
+                                break;
+                            case 18 :
+                                jj_3_19();
+                                break;
+                            case 19 :
+                                jj_3_20();
+                                break;
+                            case 20 :
+                                jj_3_21();
+                                break;
+                            case 21 :
+                                jj_3_22();
+                                break;
+                            case 22 :
+                                jj_3_23();
+                                break;
+                            case 23 :
+                                jj_3_24();
+                                break;
+                            case 24 :
+                                jj_3_25();
+                                break;
+                            case 25 :
+                                jj_3_26();
+                                break;
+                            case 26 :
+                                jj_3_27();
+                                break;
+                            case 27 :
+                                jj_3_28();
+                                break;
+                            case 28 :
+                                jj_3_29();
+                                break;
+                            case 29 :
+                                jj_3_30();
+                                break;
+                            case 30 :
+                                jj_3_31();
+                                break;
+                            case 31 :
+                                jj_3_32();
+                                break;
+                            case 32 :
+                                jj_3_33();
+                                break;
+                            case 33 :
+                                jj_3_34();
+                                break;
+                            case 34 :
+                                jj_3_35();
+                                break;
+                            case 35 :
+                                jj_3_36();
+                                break;
+                            case 36 :
+                                jj_3_37();
+                                break;
+                            case 37 :
+                                jj_3_38();
+                                break;
+                            case 38 :
+                                jj_3_39();
+                                break;
+                            case 39 :
+                                jj_3_40();
+                                break;
+                            case 40 :
+                                jj_3_41();
+                                break;
+                            case 41 :
+                                jj_3_42();
+                                break;
+                            case 42 :
+                                jj_3_43();
+                                break;
+                            case 43 :
+                                jj_3_44();
+                                break;
+                            case 44 :
+                                jj_3_45();
+                                break;
+                            case 45 :
+                                jj_3_46();
+                                break;
+                            case 46 :
+                                jj_3_47();
+                                break;
+                            case 47 :
+                                jj_3_48();
+                                break;
+                            case 48 :
+                                jj_3_49();
+                                break;
+                            case 49 :
+                                jj_3_50();
+                                break;
+                            case 50 :
+                                jj_3_51();
+                                break;
+                            case 51 :
+                                jj_3_52();
+                                break;
+                            case 52 :
+                                jj_3_53();
+                                break;
+                            case 53 :
+                                jj_3_54();
+                                break;
+                            case 54 :
+                                jj_3_55();
+                                break;
+                            case 55 :
+                                jj_3_56();
+                                break;
+                            case 56 :
+                                jj_3_57();
+                                break;
+                            case 57 :
+                                jj_3_58();
+                                break;
+                            case 58 :
+                                jj_3_59();
+                                break;
+                        }
+                    }
+                    p = p.next;
+                } while (p != null);
+            } catch (LookaheadSuccess ls) {}
+        }
+        jj_rescan = false;
+    }
+
+    /**
+     * 
+     * @param index
+     * @param xla
+     */
+    private void jj_save(int index, int xla) {
+        JJCalls p = jj_2_rtns[index];
+        while (p.gen > jj_gen) {
+            if (p.next == null) {
+                p = p.next = new JJCalls();
+                break;
+            }
+            p = p.next;
+        }
+        p.gen   = jj_gen + xla - jj_la;
+        p.first = token;
+        p.arg   = xla;
+    }
+
+    /**
+     * 
+     * @author author
+     */
+    static final class JJCalls {
+        int     arg;
+        Token   first;
+        int     gen;
+        JJCalls next;
+    }
+
+    /**
+     * 
+     * @author author
+     */
+    static private final class LookaheadSuccess extends java.lang.Error {}
 }

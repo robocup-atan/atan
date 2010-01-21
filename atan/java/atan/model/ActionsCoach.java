@@ -29,10 +29,10 @@ public interface ActionsCoach {
 
     /**
      * This command changes a specified players type.
-     * @param unum //TODO Implement
+     * @param unum 1~11.
      * @param playerType //TODO Implement
      */
-    public void changePlayerType(Object unum, Object playerType);
+    public abstract void changePlayerType(int unum, Object playerType);
 
     /**
      * This command sends a team graphic to the SServer.
@@ -65,7 +65,8 @@ public interface ActionsCoach {
     public boolean isTeamEast();
 
     /**
-     * @param is
+     * Sets the team as east or west.
+     * @param is true if east.
      */
-    public void isTeamEast(boolean is);
+    public void setTeamEast(boolean is);
 }

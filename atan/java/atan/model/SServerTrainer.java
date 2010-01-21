@@ -183,13 +183,13 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     *
-     * @param teamName
-     * @param unum
+     * This command changes a specified players type.
+     * @param teamName The team the specified player belongs to.
+     * @param unum 1~11.
      * @param playerType
      */
     @Override
-    public void changePlayerType(String teamName, Object unum, Object playerType) {
+    public void changePlayerType(String teamName, int unum, Object playerType) {
         this.commandFactory.addChangePlayerTypeCommand(teamName, unum, playerType);
     }
 

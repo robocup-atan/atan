@@ -3,6 +3,7 @@ package sample;
 //~--- non-JDK imports --------------------------------------------------------
 
 import atan.model.AbstractTeam;
+import atan.model.ControllerCoach;
 import atan.model.ControllerPlayer;
 
 /**
@@ -16,9 +17,10 @@ public class SimplySillyTeam extends AbstractTeam {
      * @param name The team name.
      * @param port The port to connect to SServer.
      * @param hostname The SServer hostname.
+     * @param hasCoach True if connecting a coach.
      */
-    public SimplySillyTeam(String name, int port, String hostname) {
-        super(name, port, hostname);
+    public SimplySillyTeam(String name, int port, String hostname, boolean hasCoach) {
+        super(name, port, hostname, hasCoach);
     }
 
     /**
@@ -27,11 +29,19 @@ public class SimplySillyTeam extends AbstractTeam {
      * @return A new controller for that player.
      */
     @Override
-    public ControllerPlayer getNewController(int number) {
+    public ControllerPlayer getNewControllerPlayer(int number) {
         if (number == 0) {
             return new Silly();
         } else {
             return new Simple();
         }
+    }
+
+    /**
+     * Generates a new coach.
+     * @return A new coach controller.
+     */
+    public ControllerCoach getNewControllerCoach() {
+        return new Coach();
     }
 }

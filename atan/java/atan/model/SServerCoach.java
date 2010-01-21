@@ -128,12 +128,12 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
     }
 
     /**
-     *
-     * @param unum
+     * This command changes a specified players type.
+     * @param unum 1~11.
      * @param playerType
      */
     @Override
-    public void changePlayerType(Object unum, Object playerType) {
+    public void changePlayerType(int unum, Object playerType) {
         this.commandFactory.addChangePlayerTypeCommand(unum, playerType);
     }
 
@@ -192,9 +192,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
      */
     @Override
     public boolean isTeamEast() {
-
-        // TODO This needs implementing before a coach will parse messages properly
-        throw new UnsupportedOperationException("Not supported yet.");
+        return isTeamEast;
     }
 
     /**
@@ -202,10 +200,8 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
      * @param is
      */
     @Override
-    public void isTeamEast(boolean is) {
-
-        // TODO This needs implementing before a coach will parse messages properly
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void setTeamEast(boolean is) {
+        this.isTeamEast = is;
     }
 
     /**
@@ -221,7 +217,6 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
         private String playerParamCommand      = null;
         private String playerTypeCommand       = null;
         private String seeCommand              = null;
-        private String senseBodyCommand        = null;
         private String serverParamCommand      = null;
         private String warningCommand          = null;
 
@@ -241,15 +236,6 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
         @Override
         public void hearCommand(String cmd) {
             hearCommand = cmd;
-        }
-
-        /**
-         *
-         * @param cmd
-         */
-        @Override
-        public void senseBodyCommand(String cmd) {
-            senseBodyCommand = cmd;
         }
 
         /**
@@ -325,6 +311,14 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
         }
 
         /**
+         * Method not needed.
+         * @deprecated
+         * @param cmd
+         */
+        @Override
+        public void senseBodyCommand(String cmd) {}
+
+        /**
          *
          * @param controller
          * @param parser
@@ -339,10 +333,6 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
             if (hearCommand != null) {
                 parser.parseHearCommand(hearCommand, controller, c);
                 hearCommand = null;
-            }
-            if (senseBodyCommand != null) {
-                parser.parseSenseBodyCommand(senseBodyCommand, controller, c);
-                senseBodyCommand = null;
             }
             if (initCommand != null) {
                 parser.parseInitCommand(initCommand, controller, c);

@@ -20,12 +20,12 @@ public class Simple1Run {
         BasicConfigurator.configure();
         AbstractTeam team = null;
         if (args.length == 0) {
-            team = new SimplySillyTeam("Simple1", 6000, "localhost");
+            team = new SimplySillyTeam("Simple1", 6000, "localhost", true);
         } else {
             Integer val      = new Integer(args[0]);
             int     port     = val.intValue();
             String  hostname = args[1];
-            team = new SimplySillyTeam("Simple1", port, hostname);
+            team = new SimplySillyTeam("Simple1", port, hostname, true);
         }
         team.connectAll();
     }
