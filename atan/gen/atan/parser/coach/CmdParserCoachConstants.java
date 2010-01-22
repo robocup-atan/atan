@@ -15,7 +15,7 @@ public interface CmdParserCoachConstants {
     int BEFORE_KICK_OFF = 27;
 
     /** RegularExpression Id. */
-    int C = 81;
+    int C = 93;
 
     /** RegularExpression Id. */
     int CANNOT_CHANGE_GOALIE = 78;
@@ -27,7 +27,7 @@ public interface CmdParserCoachConstants {
     int CATCH = 80;
 
     /** RegularExpression Id. */
-    int CB = 85;
+    int CB = 97;
 
     /** RegularExpression Id. */
     int CHANGE_MODE = 64;
@@ -50,6 +50,9 @@ public interface CmdParserCoachConstants {
     /** RegularExpression Id. */
     int DASH = 23;
 
+    /** RegularExpression Id. */
+    int DASH_POWER_RATE = 86;
+
     /** Lexical state. */
     int DEFAULT = 0;
 
@@ -59,8 +62,17 @@ public interface CmdParserCoachConstants {
     /** RegularExpression Id. */
     int EAR = 68;
 
+    /** RegularExpression Id. */
+    int EFFORT_MAX = 91;
+
+    /** RegularExpression Id. */
+    int EFFORT_MIN = 92;
+
     /** End of File. */
     int EOF = 0;
+
+    /** RegularExpression Id. */
+    int EXTRA_STAMINA = 90;
 
     /** RegularExpression Id. */
     int FLAG = 6;
@@ -111,6 +123,9 @@ public interface CmdParserCoachConstants {
     int HIGH = 14;
 
     /** RegularExpression Id. */
+    int ID = 81;
+
+    /** RegularExpression Id. */
     int ILLEGAL_COMMAND_FORM = 54;
 
     /** RegularExpression Id. */
@@ -120,7 +135,13 @@ public interface CmdParserCoachConstants {
     int ILLEGAL_OBJECT_FORM = 55;
 
     /** RegularExpression Id. */
+    int INERTIA_MOMENT = 85;
+
+    /** RegularExpression Id. */
     int KICK = 22;
+
+    /** RegularExpression Id. */
+    int KICKABLE_MARGIN = 88;
 
     /** RegularExpression Id. */
     int KICK_IN_L = 33;
@@ -133,6 +154,9 @@ public interface CmdParserCoachConstants {
 
     /** RegularExpression Id. */
     int KICK_OFF_R = 32;
+
+    /** RegularExpression Id. */
+    int KICK_RAND = 89;
 
     /** RegularExpression Id. */
     int L = 8;
@@ -150,7 +174,7 @@ public interface CmdParserCoachConstants {
     int MOVE = 63;
 
     /** RegularExpression Id. */
-    int NAM = 87;
+    int NAM = 99;
 
     /** RegularExpression Id. */
     int NARROW = 17;
@@ -177,10 +201,10 @@ public interface CmdParserCoachConstants {
     int NO_TEAM_FOUND = 73;
 
     /** RegularExpression Id. */
-    int NUM = 88;
+    int NUM = 100;
 
     /** RegularExpression Id. */
-    int OB = 84;
+    int OB = 96;
 
     /** RegularExpression Id. */
     int OFFSIDE_L = 48;
@@ -192,10 +216,19 @@ public interface CmdParserCoachConstants {
     int P = 7;
 
     /** RegularExpression Id. */
+    int PLAYER_DECAY = 84;
+
+    /** RegularExpression Id. */
+    int PLAYER_SIZE = 87;
+
+    /** RegularExpression Id. */
+    int PLAYER_SPEED_MAX = 82;
+
+    /** RegularExpression Id. */
     int PLAY_ON = 29;
 
     /** RegularExpression Id. */
-    int R = 83;
+    int R = 95;
 
     /** RegularExpression Id. */
     int RECONNECT = 59;
@@ -216,7 +249,7 @@ public interface CmdParserCoachConstants {
     int SELF = 12;
 
     /** RegularExpression Id. */
-    int SEP = 86;
+    int SEP = 98;
 
     /** RegularExpression Id. */
     int SPEED = 20;
@@ -225,10 +258,13 @@ public interface CmdParserCoachConstants {
     int STAMINA = 19;
 
     /** RegularExpression Id. */
+    int STAMINA_INC_MAX = 83;
+
+    /** RegularExpression Id. */
     int START = 66;
 
     /** RegularExpression Id. */
-    int T = 82;
+    int T = 94;
 
     /** RegularExpression Id. */
     int TEAM_GRAPHIC = 72;
@@ -282,6 +318,9 @@ public interface CmdParserCoachConstants {
         "\"change_mode\"", "\"check_ball\"", "\"start\"", "\"recover\"", "\"ear\"", "\"change_player_type\"",
         "\"look\"", "\"team_names\"", "\"team_graphic\"", "\"no_team_found\"", "\"no_such_player\"",
         "\"cannot_sub_while_playon\"", "\"no_subs_left\"", "\"max_of_that_type_on_field\"", "\"cannot_change_goalie\"",
-        "\"change_view\"", "\"catch\"", "\"c\"", "\"t\"", "\"r\"", "\"(\"", "\")\"", "\" \"", "<NAM>", "<NUM>",
+        "\"change_view\"", "\"catch\"", "\"id\"", "\"player_speed_max\"", "\"stamina_inc_max\"", "\"player_decay\"",
+        "\"inertia_moment\"", "\"dash_power_rate\"", "\"player_size\"", "\"kickable_margin\"", "\"kick_rand\"",
+        "\"extra_stamina\"", "\"effort_max\"", "\"effort_min\"", "\"c\"", "\"t\"", "\"r\"", "\"(\"", "\")\"", "\" \"",
+        "<NAM>", "<NUM>",
     };
 }

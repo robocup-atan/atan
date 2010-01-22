@@ -74,4 +74,34 @@ public class Coach implements ControllerCoach {
     public void infoHearWarning(Warning warning) {
         log.warn(warning);
     }
+
+    /**
+     *
+     */
+    @Override
+    public void infoServerParam() {
+        log.info("server param");
+    }
+
+    /**
+     *
+     * @param id
+     * @param playerSpeedMax
+     * @param staminaIncMax
+     * @param playerDecay
+     * @param inertiaMoment
+     * @param dashPowerRate
+     * @param playerSize
+     * @param kickableMargin
+     * @param kickRand
+     * @param extraStamina
+     * @param effortMax
+     * @param effortMin
+     */
+    @Override
+    public void infoPlayerType(int id, double playerSpeedMax, double staminaIncMax, double playerDecay,
+                               double inertiaMoment, double dashPowerRate, double playerSize, double kickableMargin,
+                               double kickRand, double extraStamina, double effortMax, double effortMin) {
+        log.info("player type");
+    }
 }

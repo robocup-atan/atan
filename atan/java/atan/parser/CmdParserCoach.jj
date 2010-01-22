@@ -180,6 +180,18 @@ TOKEN :
   < CANNOT_CHANGE_GOALIE: "cannot_change_goalie">|
   < CHANGE_VIEW: "change_view">|
   < CATCH: "catch">|
+  < ID: "id" >|
+  < PLAYER_SPEED_MAX: "player_speed_max" >|
+  < STAMINA_INC_MAX: "stamina_inc_max" >|
+  < PLAYER_DECAY: "player_decay" >|
+  < INERTIA_MOMENT: "inertia_moment" >|
+  < DASH_POWER_RATE: "dash_power_rate" >|
+  < PLAYER_SIZE: "player_size" >|
+  < KICKABLE_MARGIN: "kickable_margin" >|
+  < KICK_RAND: "kick_rand" >|
+  < EXTRA_STAMINA: "extra_stamina" >|
+  < EFFORT_MAX: "effort_max" >|
+  < EFFORT_MIN: "effort_min" >|
   < C: "c">|
   < T: "t">|
   < R: "r">|
@@ -190,9 +202,11 @@ TOKEN :
   < NUM: ( ["0"-"9"]|"."|"-" )+ >
 }
 
+//See command.
 void startSeeCommand() :
     {}{{}}
 
+//Param & type commands.
 void startCPTCommand() :
     {}{{}}
 
@@ -202,10 +216,53 @@ void startServerParamCommand() :
 void startPlayerParamCommand() :
     {}{{}}
 
-
 void startPlayerTypeCommand() :
-    {}{{}}
+    {Token id=null; Token playerSpeedMax=null; Token staminaIncMax=null; Token playerDecay=null;
+     Token inertiaMoment=null; Token dashPowerRate=null; Token playerSize=null;
+     Token kickableMargin=null; Token kickRand=null; Token extraStamina=null;
+     Token effortMax=null; Token effortMin=null;}{
+		< OB ><ID ><SEP >id=<NUM ><CB >
+		< OB ><PLAYER_SPEED_MAX ><SEP >playerSpeedMax=< NUM ><CB >
+		< OB ><STAMINA_INC_MAX ><SEP >staminaIncMax=< NUM ><CB >
+		< OB ><PLAYER_DECAY ><SEP >playerDecay=< NUM ><CB >
+		< OB ><INERTIA_MOMENT ><SEP >inertiaMoment=< NUM ><CB >
+		< OB ><DASH_POWER_RATE ><SEP >dashPowerRate=< NUM ><CB >
+		< OB ><PLAYER_SIZE ><SEP >playerSize=< NUM ><CB >
+		< OB ><KICKABLE_MARGIN ><SEP >kickableMargin=< NUM ><CB >
+		< OB ><KICK_RAND ><SEP >kickRand=< NUM ><CB >
+		< OB ><EXTRA_STAMINA ><SEP >extraStamina=< NUM ><CB >
+		< OB ><EFFORT_MAX ><SEP >effortMax=< NUM ><CB >
+		< OB ><EFFORT_MIN ><SEP >effortMin=< NUM ><CB >
+		{
+		Integer iid = new Integer(id.image);
+		Double dPlayerSpeedMax = new Double(playerSpeedMax.image);
+		Double dStaminaIncMax = new Double(staminaIncMax.image);
+		Double dPlayerDecay = new Double(playerDecay.image);
+		Double dInertiaMoment = new Double(inertiaMoment.image);
+		Double dDashPowerRate = new Double(dashPowerRate.image);
+		Double dPlayerSize = new Double(playerSize.image);
+		Double dKickableMargin = new Double(kickableMargin.image);
+		Double dKickRand = new Double(kickRand.image);
+		Double dExtraStamina = new Double(extraStamina.image);
+		Double dEffortMax = new Double(effortMax.image);
+		Double dEffortMin = new Double(effortMin.image);
+		controller.infoPlayerType(
+		  iid.intValue(), dPlayerSpeedMax.doubleValue(), dStaminaIncMax.doubleValue(),
+		  dPlayerDecay.doubleValue(), dInertiaMoment.doubleValue(), dDashPowerRate.doubleValue(),
+		  dPlayerSize.doubleValue(), dKickableMargin.doubleValue(), dKickRand.doubleValue(),
+		  dExtraStamina.doubleValue(), dEffortMax.doubleValue(), dEffortMin.doubleValue());
+	}
+}
 
+// Basic init command.
+void startInitCommand() :
+  {Token side=null;} {
+    (side=<L>|side=<R>){
+      coach.setTeamEast(side.image.charAt(0) == 'r');
+    }
+  }
+
+// Simple enum commands.
 void startErrorCommand() :
   {Errors error = null;}{
     error=error(){
@@ -225,13 +282,6 @@ void startWarningCommand() :
         warning=warning(){
             controller.infoHearWarning(warning);
      }
-  }
-
-void startInitCommand() :
-  {Token side=null;} {
-    (side=<L>|side=<R>){
-      coach.setTeamEast(side.image.charAt(0) == 'r');
-    }
   }
 
 void startHearCommand() :

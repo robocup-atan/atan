@@ -24,11 +24,13 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     static private int[] jj_la1_0;
     static private int[] jj_la1_1;
     static private int[] jj_la1_2;
+    static private int[] jj_la1_3;
 
     static {
         jj_la1_init_0();
         jj_la1_init_1();
         jj_la1_init_2();
+        jj_la1_init_3();
     }
 
     private int                    jj_gc         = 0;
@@ -268,11 +270,15 @@ public class CmdParserCoach implements CmdParserCoachConstants {
         startHearCommand();
     }
 
+//  See command.
+
     /**
      * 
      * @throws ParseException
      */
     final public void startSeeCommand() throws ParseException {}
+
+//  Param & type commands.
 
     /**
      * 
@@ -296,7 +302,118 @@ public class CmdParserCoach implements CmdParserCoachConstants {
      * 
      * @throws ParseException
      */
-    final public void startPlayerTypeCommand() throws ParseException {}
+    final public void startPlayerTypeCommand() throws ParseException {
+        Token id             = null;
+        Token playerSpeedMax = null;
+        Token staminaIncMax  = null;
+        Token playerDecay    = null;
+        Token inertiaMoment  = null;
+        Token dashPowerRate  = null;
+        Token playerSize     = null;
+        Token kickableMargin = null;
+        Token kickRand       = null;
+        Token extraStamina   = null;
+        Token effortMax      = null;
+        Token effortMin      = null;
+        jj_consume_token(OB);
+        jj_consume_token(ID);
+        jj_consume_token(SEP);
+        id = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PLAYER_SPEED_MAX);
+        jj_consume_token(SEP);
+        playerSpeedMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(STAMINA_INC_MAX);
+        jj_consume_token(SEP);
+        staminaIncMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PLAYER_DECAY);
+        jj_consume_token(SEP);
+        playerDecay = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(INERTIA_MOMENT);
+        jj_consume_token(SEP);
+        inertiaMoment = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(DASH_POWER_RATE);
+        jj_consume_token(SEP);
+        dashPowerRate = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PLAYER_SIZE);
+        jj_consume_token(SEP);
+        playerSize = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(KICKABLE_MARGIN);
+        jj_consume_token(SEP);
+        kickableMargin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(KICK_RAND);
+        jj_consume_token(SEP);
+        kickRand = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(EXTRA_STAMINA);
+        jj_consume_token(SEP);
+        extraStamina = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(EFFORT_MAX);
+        jj_consume_token(SEP);
+        effortMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(EFFORT_MIN);
+        jj_consume_token(SEP);
+        effortMin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        Integer iid             = new Integer(id.image);
+        Double  dPlayerSpeedMax = new Double(playerSpeedMax.image);
+        Double  dStaminaIncMax  = new Double(staminaIncMax.image);
+        Double  dPlayerDecay    = new Double(playerDecay.image);
+        Double  dInertiaMoment  = new Double(inertiaMoment.image);
+        Double  dDashPowerRate  = new Double(dashPowerRate.image);
+        Double  dPlayerSize     = new Double(playerSize.image);
+        Double  dKickableMargin = new Double(kickableMargin.image);
+        Double  dKickRand       = new Double(kickRand.image);
+        Double  dExtraStamina   = new Double(extraStamina.image);
+        Double  dEffortMax      = new Double(effortMax.image);
+        Double  dEffortMin      = new Double(effortMin.image);
+        controller.infoPlayerType(iid.intValue(), dPlayerSpeedMax.doubleValue(), dStaminaIncMax.doubleValue(),
+                                  dPlayerDecay.doubleValue(), dInertiaMoment.doubleValue(),
+                                  dDashPowerRate.doubleValue(), dPlayerSize.doubleValue(),
+                                  dKickableMargin.doubleValue(), dKickRand.doubleValue(), dExtraStamina.doubleValue(),
+                                  dEffortMax.doubleValue(), dEffortMin.doubleValue());
+    }
+
+//  Basic init command.
+
+    /**
+     * 
+     * @throws ParseException
+     */
+    final public void startInitCommand() throws ParseException {
+        Token side = null;
+        if (jj_2_1(2)) {
+            side = jj_consume_token(L);
+        } else if (jj_2_2(2)) {
+            side = jj_consume_token(R);
+        } else {
+            jj_consume_token(-1);
+            throw new ParseException();
+        }
+        coach.setTeamEast(side.image.charAt(0) == 'r');
+    }
+
+//  Simple enum commands.
 
     /**
      * 
@@ -326,23 +443,6 @@ public class CmdParserCoach implements CmdParserCoachConstants {
         Warning warning = null;
         warning = warning();
         controller.infoHearWarning(warning);
-    }
-
-    /**
-     * 
-     * @throws ParseException
-     */
-    final public void startInitCommand() throws ParseException {
-        Token side = null;
-        if (jj_2_1(2)) {
-            side = jj_consume_token(L);
-        } else if (jj_2_2(2)) {
-            side = jj_consume_token(R);
-        } else {
-            jj_consume_token(-1);
-            throw new ParseException();
-        }
-        coach.setTeamEast(side.image.charAt(0) == 'r');
     }
 
     /**
@@ -1925,6 +2025,303 @@ public class CmdParserCoach implements CmdParserCoachConstants {
      * 
      * @return
      */
+    private boolean jj_3_26() {
+        if (jj_scan_token(ILLEGAL_COMMAND_FORM)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_47() {
+        if (jj_scan_token(CORNER_KICK_L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_25() {
+        if (jj_scan_token(ILLEGAL_MODE)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_2() {
+        if (jj_scan_token(R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_46() {
+        if (jj_scan_token(CORNER_KICK_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_24() {
+        if (jj_scan_token(TEAM_GRAPHIC)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_23() {
+        if (jj_scan_token(TEAM_NAMES)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_45() {
+        if (jj_scan_token(FREE_KICK_FAULT_L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_22() {
+        if (jj_scan_token(LOOK)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_1() {
+        if (jj_scan_token(L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_21() {
+        if (jj_scan_token(CHANGE_PLAYER_TYPE)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_44() {
+        if (jj_scan_token(FREE_KICK_FAULT_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_20() {
+        if (jj_scan_token(SAY)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_19() {
+        if (jj_scan_token(EAR)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_43() {
+        if (jj_scan_token(FREE_KICK_L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_18() {
+        if (jj_scan_token(RECOVER)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_60() {
+        if (jj_scan_token(TIME_EXTENDED)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_17() {
+        if (jj_scan_token(START)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_59() {
+        if (jj_scan_token(TIME_UP_WITHOUT_A_TEAM)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_42() {
+        if (jj_scan_token(FREE_KICK_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_16() {
+        if (jj_scan_token(CHECK_BALL)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_58() {
+        if (jj_scan_token(TIME_UP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_15() {
+        if (jj_scan_token(CHANGE_MODE)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_57() {
+        if (jj_scan_token(DROP_BALL)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_41() {
+        if (jj_scan_token(KICK_IN_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_14() {
+        if (jj_scan_token(MOVE)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_56() {
+        if (jj_scan_token(HALF_TIME)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
     private boolean jj_3_40() {
         if (jj_scan_token(KICK_IN_L)) {
             return true;
@@ -2304,17 +2701,6 @@ public class CmdParserCoach implements CmdParserCoachConstants {
      * 
      * @return
      */
-    private boolean jj_3_2() {
-        if (jj_scan_token(R)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
     private boolean jj_3_3() {
         if (jj_scan_token(SELF)) {
             return true;
@@ -2370,17 +2756,6 @@ public class CmdParserCoach implements CmdParserCoachConstants {
      * 
      * @return
      */
-    private boolean jj_3_1() {
-        if (jj_scan_token(L)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
     private boolean jj_3_28() {
         if (jj_scan_token(NO_MORE_TEAM_OR_PLAYER)) {
             return true;
@@ -2412,281 +2787,6 @@ public class CmdParserCoach implements CmdParserCoachConstants {
 
     /**
      * 
-     * @return
-     */
-    private boolean jj_3_26() {
-        if (jj_scan_token(ILLEGAL_COMMAND_FORM)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    private boolean jj_3_47() {
-        if (jj_scan_token(CORNER_KICK_L)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    private boolean jj_3_25() {
-        if (jj_scan_token(ILLEGAL_MODE)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    private boolean jj_3_46() {
-        if (jj_scan_token(CORNER_KICK_R)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    private boolean jj_3_24() {
-        if (jj_scan_token(TEAM_GRAPHIC)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    private boolean jj_3_23() {
-        if (jj_scan_token(TEAM_NAMES)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    private boolean jj_3_45() {
-        if (jj_scan_token(FREE_KICK_FAULT_L)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    private boolean jj_3_22() {
-        if (jj_scan_token(LOOK)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    private boolean jj_3_21() {
-        if (jj_scan_token(CHANGE_PLAYER_TYPE)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    private boolean jj_3_44() {
-        if (jj_scan_token(FREE_KICK_FAULT_R)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    private boolean jj_3_20() {
-        if (jj_scan_token(SAY)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    private boolean jj_3_19() {
-        if (jj_scan_token(EAR)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    private boolean jj_3_43() {
-        if (jj_scan_token(FREE_KICK_L)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    private boolean jj_3_18() {
-        if (jj_scan_token(RECOVER)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    private boolean jj_3_60() {
-        if (jj_scan_token(TIME_EXTENDED)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    private boolean jj_3_17() {
-        if (jj_scan_token(START)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    private boolean jj_3_59() {
-        if (jj_scan_token(TIME_UP_WITHOUT_A_TEAM)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    private boolean jj_3_42() {
-        if (jj_scan_token(FREE_KICK_R)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    private boolean jj_3_16() {
-        if (jj_scan_token(CHECK_BALL)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    private boolean jj_3_58() {
-        if (jj_scan_token(TIME_UP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    private boolean jj_3_15() {
-        if (jj_scan_token(CHANGE_MODE)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    private boolean jj_3_57() {
-        if (jj_scan_token(DROP_BALL)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    private boolean jj_3_41() {
-        if (jj_scan_token(KICK_IN_R)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    private boolean jj_3_14() {
-        if (jj_scan_token(MOVE)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
-     * @return
-     */
-    private boolean jj_3_56() {
-        if (jj_scan_token(HALF_TIME)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
      */
     private static void jj_la1_init_0() {
         jj_la1_0 = new int[] {};
@@ -2704,6 +2804,13 @@ public class CmdParserCoach implements CmdParserCoachConstants {
      */
     private static void jj_la1_init_2() {
         jj_la1_2 = new int[] {};
+    }
+
+    /**
+     * 
+     */
+    private static void jj_la1_init_3() {
+        jj_la1_3 = new int[] {};
     }
 
     /**
@@ -2928,7 +3035,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
      */
     public ParseException generateParseException() {
         jj_expentries.clear();
-        boolean[] la1tokens = new boolean[89];
+        boolean[] la1tokens = new boolean[101];
         if (jj_kind >= 0) {
             la1tokens[jj_kind] = true;
             jj_kind            = -1;
@@ -2945,10 +3052,13 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                     if ((jj_la1_2[i] & (1 << j)) != 0) {
                         la1tokens[64 + j] = true;
                     }
+                    if ((jj_la1_3[i] & (1 << j)) != 0) {
+                        la1tokens[96 + j] = true;
+                    }
                 }
             }
         }
-        for (int i = 0; i < 89; i++) {
+        for (int i = 0; i < 101; i++) {
             if (la1tokens[i]) {
                 jj_expentry    = new int[1];
                 jj_expentry[0] = i;

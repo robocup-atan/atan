@@ -45,14 +45,38 @@ public interface ControllerCoach {
     public void infoHearError(Errors error);
 
     /**
-     * The player is informed when it hears an ok message.
+     * The coach is informed when it hears an ok message.
      * @param ok The message to handle.
      */
     public void infoHearOk(Ok ok);
 
     /**
-     * The player is informed when it hears a warning.
+     * The coach is informed when it hears a warning.
      * @param warning The warning to handle.
      */
     public void infoHearWarning(Warning warning);
+
+    /**
+     * The coach is informed when the player type message is received.
+     * @param id 
+     * @param playerSpeedMax 
+     * @param staminaIncMax
+     * @param playerDecay
+     * @param inertiaMoment
+     * @param dashPowerRate
+     * @param playerSize
+     * @param kickableMargin
+     * @param kickRand
+     * @param extraStamina
+     * @param effortMax
+     * @param effortMin
+     */
+    public void infoPlayerType(int id, double playerSpeedMax, double staminaIncMax, double playerDecay,
+                               double inertiaMoment, double dashPowerRate, double playerSize, double kickableMargin,
+                               double kickRand, double extraStamina, double effortMax, double effortMin);
+
+    /**
+     * The coach is informed when the server param message is received.
+     */
+    public void infoServerParam();
 }
