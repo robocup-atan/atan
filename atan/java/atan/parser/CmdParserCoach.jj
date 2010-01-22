@@ -157,6 +157,7 @@ TOKEN :
   < ILLEGAL_OBJECT_FORM: "illegal_object_form">|
   < NO_MORE_TEAM_OR_PLAYER: "no_more_team_or_player">|
   < NO_MORE_TEAM_OR_PLAYER_OR_GOALIE: "no_more_team_or_player_or_goalie">|
+  < NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION: "no_more_player_or_goalie_or_illegal_client_version">|	
   < RECONNECT: "reconnect">|
   < UNKNOWN_COMMAND: "unknown_command">|
   < TOO_MANY_MOVES: "too_many_moves">|
@@ -329,6 +330,9 @@ Errors error() :
     }|
     <NO_MORE_TEAM_OR_PLAYER_OR_GOALIE>{
       return Errors.NO_MORE_TEAM_OR_PLAYER_OR_GOALIE;
+    }|
+    <NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION>{
+      return Errors.NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION;
     }|
     <RECONNECT>{
       return Errors.RECONNECT;

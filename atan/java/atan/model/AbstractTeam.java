@@ -9,11 +9,12 @@ import org.apache.log4j.Logger;
  * @author Atan
  */
 public abstract class AbstractTeam {
-    private static Logger   log      = Logger.getLogger(AbstractTeam.class);
-    private String          hostname = "localhost";
-    private SServerPlayer[] players  = new SServerPlayer[11];
-    private int             port     = 6000;
-    private boolean         hasCoach = false;
+    private static Logger   log       = Logger.getLogger(AbstractTeam.class);
+    private String          hostname  = "localhost";
+    private SServerPlayer[] players   = new SServerPlayer[11];
+    private int             port      = 6000;
+    private int             portCoach = 6002;
+    private boolean         hasCoach  = false;
     private SServerCoach    coach;
     private String          teamName;
 
@@ -102,7 +103,7 @@ public abstract class AbstractTeam {
      * Create a new SServerCoach.
      */
     public void createNewCoach() {
-        coach = new SServerCoach(teamName, getNewControllerCoach(), port, hostname);
+        coach = new SServerCoach(teamName, getNewControllerCoach(), portCoach, hostname);
     }
 
     /**

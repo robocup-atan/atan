@@ -39,7 +39,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     * The full constructor for SServerCoach
+     * The full constructor for SServerTrainer
      * @param teamName The teams name.
      * @param t
      * @param port The port to connect to.

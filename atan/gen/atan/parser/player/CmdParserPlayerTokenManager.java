@@ -66,7 +66,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     int                        jjround;
 
     /**
-     * Constructor.
+     * Constructor. 
      * @param stream
      */
     public CmdParserPlayerTokenManager(SimpleCharStream stream) {
@@ -77,7 +77,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     * Constructor.
+     * Constructor. 
      * @param stream
      * @param lexState
      */
@@ -87,7 +87,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     * Set debug output.
+     * Set debug output. 
      * @param ds
      */
     public void setDebugStream(java.io.PrintStream ds) {
@@ -95,7 +95,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param pos
      * @param active0
      * @param active1
@@ -441,7 +441,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param pos
      * @param active0
      * @param active1
@@ -452,7 +452,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param pos
      * @param kind
      * @return
@@ -464,7 +464,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private int jjMoveStringLiteralDfa0_0() {
@@ -524,7 +524,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param active0
      * @param active1
      * @return
@@ -568,7 +568,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -644,7 +644,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -726,7 +726,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -790,7 +790,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -865,7 +865,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -935,7 +935,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -992,7 +992,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1072,7 +1072,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1139,7 +1139,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1214,7 +1214,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1272,7 +1272,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1332,7 +1332,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1385,7 +1385,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1434,7 +1434,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1469,7 +1469,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1516,7 +1516,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1558,7 +1558,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1600,7 +1600,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1643,7 +1643,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1676,7 +1676,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1721,7 +1721,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1755,7 +1755,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1784,7 +1784,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1816,7 +1816,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1843,7 +1843,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @return
@@ -1868,7 +1868,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @return
@@ -1893,7 +1893,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @return
@@ -1918,7 +1918,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @return
@@ -1943,7 +1943,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @return
@@ -1968,7 +1968,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @return
@@ -1996,7 +1996,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param pos
      * @param kind
      * @param state
@@ -2014,7 +2014,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param startState
      * @param curPos
      * @return
@@ -2421,7 +2421,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     * Reinitialise parser.
+     * Reinitialise parser. 
      * @param stream
      */
     public void ReInit(SimpleCharStream stream) {
@@ -2432,7 +2432,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      */
     private void ReInitRounds() {
         int i;
@@ -2443,7 +2443,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     * Reinitialise parser.
+     * Reinitialise parser. 
      * @param stream
      * @param lexState
      */
@@ -2453,7 +2453,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     * Switch to specified lex state.
+     * Switch to specified lex state. 
      * @param lexState
      */
     public void SwitchTo(int lexState) {
@@ -2466,7 +2466,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     protected Token jjFillToken() {
@@ -2491,7 +2491,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     * Get the next Token.
+     * Get the next Token. 
      * @return
      */
     public Token getNextToken() {
@@ -2555,7 +2555,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param state
      */
     private void jjCheckNAdd(int state) {
@@ -2566,7 +2566,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param start
      * @param end
      */
@@ -2577,7 +2577,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param state1
      * @param state2
      */

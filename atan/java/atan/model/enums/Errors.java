@@ -32,6 +32,12 @@ public enum Errors {
     NO_MORE_TEAM_OR_PLAYER_OR_GOALIE,
 
     /**
+     * The server cannot connect any more players or goalies.
+     * Or an illegal client version was sent to SServer.
+     */
+    NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION,
+
+    /**
      * Error reconnecting to the server.
      */
     RECONNECT,

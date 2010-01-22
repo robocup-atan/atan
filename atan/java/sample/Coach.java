@@ -10,71 +10,68 @@ import atan.model.enums.PlayMode;
 import atan.model.enums.RefereeMessage;
 import atan.model.enums.Warning;
 
+import org.apache.log4j.Logger;
+
 /**
- * 
- * @author author
+ *
+ * @author Atan
  */
 public class Coach implements ControllerCoach {
-    private ActionsCoach coach;
+    private static Logger log = Logger.getLogger(Coach.class);
+    private ActionsCoach  coach;
 
     /**
-     * 
+     *
      * @param error
      */
     @Override
     public void infoHearError(Errors error) {
-
-        // TODO Auto-generated method stub
+        log.error(error);
     }
 
     /**
-     * 
+     *
      * @param ok
      */
     @Override
     public void infoHearOk(Ok ok) {
-
-        // TODO Auto-generated method stub
+        log.info(ok);
     }
 
     /**
-     * 
+     *
      * @param playMode
      */
     @Override
     public void infoHearPlayMode(PlayMode playMode) {
-
-        // TODO Auto-generated method stub
+        log.info(playMode);
     }
 
     /**
-     * 
+     *
      * @param direction
      * @param message
      */
     @Override
     public void infoHearPlayer(double direction, String message) {
-
-        // TODO Auto-generated method stub
+        log.info(message + "from " + direction);
     }
 
     /**
-     * 
+     *
      * @param refereeMessage
      */
     @Override
     public void infoHearReferee(RefereeMessage refereeMessage) {
-
-        // TODO Auto-generated method stub
+        log.info(refereeMessage);
     }
 
     /**
-     * 
+     *
      * @param warning
      */
     @Override
     public void infoHearWarning(Warning warning) {
-
-        // TODO Auto-generated method stub
+        log.warn(warning);
     }
 }

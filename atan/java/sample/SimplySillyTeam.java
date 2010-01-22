@@ -41,6 +41,7 @@ public class SimplySillyTeam extends AbstractTeam {
      * Generates a new coach.
      * @return A new coach controller.
      */
+    @Override
     public ControllerCoach getNewControllerCoach() {
         return new Coach();
     }
