@@ -9,13 +9,16 @@ package atan.parser.coach;
 public interface CmdParserCoachConstants {
 
     /** RegularExpression Id. */
+    int ALLOW_MULT_DEFAULT_TYPE = 93;
+
+    /** RegularExpression Id. */
     int B = 5;
 
     /** RegularExpression Id. */
     int BEFORE_KICK_OFF = 27;
 
     /** RegularExpression Id. */
-    int C = 93;
+    int C = 117;
 
     /** RegularExpression Id. */
     int CANNOT_CHANGE_GOALIE = 78;
@@ -27,7 +30,7 @@ public interface CmdParserCoachConstants {
     int CATCH = 80;
 
     /** RegularExpression Id. */
-    int CB = 97;
+    int CB = 121;
 
     /** RegularExpression Id. */
     int CHANGE_MODE = 64;
@@ -53,6 +56,12 @@ public interface CmdParserCoachConstants {
     /** RegularExpression Id. */
     int DASH_POWER_RATE = 86;
 
+    /** RegularExpression Id. */
+    int DASH_POWER_RATE_DELTA_MAX = 94;
+
+    /** RegularExpression Id. */
+    int DASH_POWER_RATE_DELTA_MIN = 95;
+
     /** Lexical state. */
     int DEFAULT = 0;
 
@@ -66,13 +75,25 @@ public interface CmdParserCoachConstants {
     int EFFORT_MAX = 91;
 
     /** RegularExpression Id. */
+    int EFFORT_MAX_DELTA_FACTOR = 96;
+
+    /** RegularExpression Id. */
     int EFFORT_MIN = 92;
+
+    /** RegularExpression Id. */
+    int EFFORT_MIN_DELTA_FACTOR = 97;
 
     /** End of File. */
     int EOF = 0;
 
     /** RegularExpression Id. */
     int EXTRA_STAMINA = 90;
+
+    /** RegularExpression Id. */
+    int EXTRA_STAMINA_DELTA_MAX = 98;
+
+    /** RegularExpression Id. */
+    int EXTRA_STAMINA_DELTA_MIN = 99;
 
     /** RegularExpression Id. */
     int FLAG = 6;
@@ -138,10 +159,19 @@ public interface CmdParserCoachConstants {
     int INERTIA_MOMENT = 85;
 
     /** RegularExpression Id. */
+    int INERTIA_MOMENT_DELTA_FACTOR = 100;
+
+    /** RegularExpression Id. */
     int KICK = 22;
 
     /** RegularExpression Id. */
     int KICKABLE_MARGIN = 88;
+
+    /** RegularExpression Id. */
+    int KICKABLE_MARGIN_DELTA_MAX = 102;
+
+    /** RegularExpression Id. */
+    int KICKABLE_MARGIN_DELTA_MIN = 103;
 
     /** RegularExpression Id. */
     int KICK_IN_L = 33;
@@ -159,6 +189,9 @@ public interface CmdParserCoachConstants {
     int KICK_RAND = 89;
 
     /** RegularExpression Id. */
+    int KICK_RAND_DELTA_FACTOR = 101;
+
+    /** RegularExpression Id. */
     int L = 8;
 
     /** RegularExpression Id. */
@@ -174,10 +207,19 @@ public interface CmdParserCoachConstants {
     int MOVE = 63;
 
     /** RegularExpression Id. */
-    int NAM = 99;
+    int NAM = 123;
 
     /** RegularExpression Id. */
     int NARROW = 17;
+
+    /** RegularExpression Id. */
+    int NEW_DASH_POWER_RATE_DELTA_MAX = 104;
+
+    /** RegularExpression Id. */
+    int NEW_DASH_POWER_RATE_DELTA_MIN = 105;
+
+    /** RegularExpression Id. */
+    int NEW_STAMINA_INC_MAX_DELTA_FACTOR = 106;
 
     /** RegularExpression Id. */
     int NORMAL = 18;
@@ -201,10 +243,10 @@ public interface CmdParserCoachConstants {
     int NO_TEAM_FOUND = 73;
 
     /** RegularExpression Id. */
-    int NUM = 100;
+    int NUM = 124;
 
     /** RegularExpression Id. */
-    int OB = 96;
+    int OB = 120;
 
     /** RegularExpression Id. */
     int OFFSIDE_L = 48;
@@ -219,16 +261,40 @@ public interface CmdParserCoachConstants {
     int PLAYER_DECAY = 84;
 
     /** RegularExpression Id. */
+    int PLAYER_DECAY_DELTA_MAX = 107;
+
+    /** RegularExpression Id. */
+    int PLAYER_DECAY_DELTA_MIN = 108;
+
+    /** RegularExpression Id. */
     int PLAYER_SIZE = 87;
+
+    /** RegularExpression Id. */
+    int PLAYER_SIZE_DELTA_FACTOR = 109;
 
     /** RegularExpression Id. */
     int PLAYER_SPEED_MAX = 82;
 
     /** RegularExpression Id. */
+    int PLAYER_SPEED_MAX_DELTA_MAX = 110;
+
+    /** RegularExpression Id. */
+    int PLAYER_SPEED_MAX_DELTA_MIN = 111;
+
+    /** RegularExpression Id. */
+    int PLAYER_TYPES = 112;
+
+    /** RegularExpression Id. */
     int PLAY_ON = 29;
 
     /** RegularExpression Id. */
-    int R = 95;
+    int PT_MAX = 113;
+
+    /** RegularExpression Id. */
+    int R = 119;
+
+    /** RegularExpression Id. */
+    int RANDOM_SEED = 114;
 
     /** RegularExpression Id. */
     int RECONNECT = 59;
@@ -249,7 +315,7 @@ public interface CmdParserCoachConstants {
     int SELF = 12;
 
     /** RegularExpression Id. */
-    int SEP = 98;
+    int SEP = 122;
 
     /** RegularExpression Id. */
     int SPEED = 20;
@@ -261,10 +327,16 @@ public interface CmdParserCoachConstants {
     int STAMINA_INC_MAX = 83;
 
     /** RegularExpression Id. */
+    int STAMINA_INC_MAX_DELTA_FACTOR = 115;
+
+    /** RegularExpression Id. */
     int START = 66;
 
     /** RegularExpression Id. */
-    int T = 94;
+    int SUBS_MAX = 116;
+
+    /** RegularExpression Id. */
+    int T = 118;
 
     /** RegularExpression Id. */
     int TEAM_GRAPHIC = 72;
@@ -320,7 +392,14 @@ public interface CmdParserCoachConstants {
         "\"cannot_sub_while_playon\"", "\"no_subs_left\"", "\"max_of_that_type_on_field\"", "\"cannot_change_goalie\"",
         "\"change_view\"", "\"catch\"", "\"id\"", "\"player_speed_max\"", "\"stamina_inc_max\"", "\"player_decay\"",
         "\"inertia_moment\"", "\"dash_power_rate\"", "\"player_size\"", "\"kickable_margin\"", "\"kick_rand\"",
-        "\"extra_stamina\"", "\"effort_max\"", "\"effort_min\"", "\"c\"", "\"t\"", "\"r\"", "\"(\"", "\")\"", "\" \"",
-        "<NAM>", "<NUM>",
+        "\"extra_stamina\"", "\"effort_max\"", "\"effort_min\"", "\"allow_mult_default_type\"",
+        "\"dash_power_rate_delta_max\"", "\"dash_power_rate_delta_min\"", "\"effort_max_delta_factor\"",
+        "\"effort_min_delta_factor\"", "\"extra_stamina_delta_max\"", "\"extra_stamina_delta_min\"",
+        "\"inertia_moment_delta_factor\"", "\"kick_rand_delta_factor\"", "\"kickable_margin_delta_max\"",
+        "\"kickable_margin_delta_min\"", "\"new_dash_power_rate_delta_max\"", "\"new_dash_power_rate_delta_min\"",
+        "\"new_stamina_inc_max_delta_factor\"", "\"player_decay_delta_max\"", "\"player_decay_delta_min\"",
+        "\"player_size_delta_factor\"", "\"player_speed_max_delta_max\"", "\"player_speed_max_delta_min\"",
+        "\"player_types\"", "\"pt_max\"", "\"random_seed\"", "\"stamina_inc_max_delta_factor\"", "\"subs_max\"",
+        "\"c\"", "\"t\"", "\"r\"", "\"(\"", "\")\"", "\" \"", "<NAM>", "<NUM>",
     };
 }

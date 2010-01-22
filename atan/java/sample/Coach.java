@@ -104,4 +104,41 @@ public class Coach implements ControllerCoach {
                                double kickRand, double extraStamina, double effortMax, double effortMin) {
         log.info("player type");
     }
+
+    /**
+     *
+     * @param allowMultDefaultType
+     * @param dashPowerRateDeltaMax
+     * @param dashPowerRateDeltaMin
+     * @param effortMaxDeltaFactor
+     * @param effortMinDeltaFactor
+     * @param extraStaminaDeltaMax
+     * @param extraStaminaDeltaMin
+     * @param inertiaMomentDeltaFactor
+     * @param kickRandDeltaFactor
+     * @param kickableMarginDeltaMax
+     * @param kickableMarginDeltaMin
+     * @param newDashPowerRateDeltaMax
+     * @param newDashPowerRateDeltaMin
+     * @param newStaminaIncMaxDeltaFactor
+     * @param playerDecayDeltaMax
+     * @param playerDecayDeltaMin
+     * @param playerTypes
+     * @param ptMax
+     * @param randomSeed
+     * @param staminaIncMaxDeltaFactor
+     * @param subsMax
+     */
+    @Override
+    public void infoPlayerParam(double allowMultDefaultType, double dashPowerRateDeltaMax,
+                                double dashPowerRateDeltaMin, double effortMaxDeltaFactor, double effortMinDeltaFactor,
+                                double extraStaminaDeltaMax, double extraStaminaDeltaMin,
+                                double inertiaMomentDeltaFactor, double kickRandDeltaFactor,
+                                double kickableMarginDeltaMax, double kickableMarginDeltaMin,
+                                double newDashPowerRateDeltaMax, double newDashPowerRateDeltaMin,
+                                double newStaminaIncMaxDeltaFactor, double playerDecayDeltaMax,
+                                double playerDecayDeltaMin, double playerTypes, double ptMax, double randomSeed,
+                                double staminaIncMaxDeltaFactor, double subsMax) {
+        log.info("player param");
+    }
 }

@@ -17,7 +17,7 @@ import atan.model.enums.Warning;
 import java.io.StringReader;
 
 /**
- * 
+ *
  * @author author
  */
 public class CmdParserCoach implements CmdParserCoachConstants {
@@ -61,7 +61,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     public CmdParserCoachTokenManager token_source;
 
     /**
-     * Constructor with generated Token Manager. 
+     * Constructor with generated Token Manager.
      * @param tm
      */
     public CmdParserCoach(CmdParserCoachTokenManager tm) {
@@ -78,7 +78,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Constructor with InputStream. 
+     * Constructor with InputStream.
      * @param stream
      */
     public CmdParserCoach(java.io.InputStream stream) {
@@ -86,7 +86,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Constructor. 
+     * Constructor.
      * @param stream
      */
     public CmdParserCoach(java.io.Reader stream) {
@@ -104,7 +104,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Constructor with InputStream and supplied encoding 
+     * Constructor with InputStream and supplied encoding
      * @param stream
      * @param encoding
      */
@@ -127,7 +127,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param cmd
      * @param controller
      * @param coach
@@ -141,7 +141,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param cmd
      * @param controller
      * @param coach
@@ -155,7 +155,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param cmd
      * @param controller
      * @param coach
@@ -169,7 +169,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param cmd
      * @param controller
      * @param coach
@@ -183,7 +183,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param cmd
      * @param controller
      * @param coach
@@ -197,7 +197,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param cmd
      * @param controller
      * @param coach
@@ -212,7 +212,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param cmd
      * @param controller
      * @param coach
@@ -227,7 +227,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param cmd
      * @param controller
      * @param coach
@@ -242,7 +242,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param cmd
      * @param controller
      * @param coach
@@ -257,7 +257,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param cmd
      * @param controller
      * @param coach
@@ -270,10 +270,10 @@ public class CmdParserCoach implements CmdParserCoachConstants {
         startHearCommand();
     }
 
-//  See command.
+//  The see_global command.
 
     /**
-     * 
+     *
      * @throws ParseException
      */
     final public void startSeeCommand() throws ParseException {}
@@ -281,25 +281,201 @@ public class CmdParserCoach implements CmdParserCoachConstants {
 //  Param & type commands.
 
     /**
-     * 
+     *
      * @throws ParseException
      */
     final public void startCPTCommand() throws ParseException {}
 
     /**
-     * 
+     *
      * @throws ParseException
      */
     final public void startServerParamCommand() throws ParseException {}
 
     /**
-     * 
+     *
      * @throws ParseException
      */
-    final public void startPlayerParamCommand() throws ParseException {}
+    final public void startPlayerParamCommand() throws ParseException {
+        Token allowMultDefaultType        = null;
+        Token dashPowerRateDeltaMax       = null;
+        Token dashPowerRateDeltaMin       = null;
+        Token effortMaxDeltaFactor        = null;
+        Token effortMinDeltaFactor        = null;
+        Token extraStaminaDeltaMax        = null;
+        Token extraStaminaDeltaMin        = null;
+        Token inertiaMomentDeltaFactor    = null;
+        Token kickRandDeltaFactor         = null;
+        Token kickableMarginDeltaMax      = null;
+        Token kickableMarginDeltaMin      = null;
+        Token newDashPowerRateDeltaMax    = null;
+        Token newDashPowerRateDeltaMin    = null;
+        Token newStaminaIncMaxDeltaFactor = null;
+        Token playerDecayDeltaMax         = null;
+        Token playerDecayDeltaMin         = null;
+        Token playerSizeDeltaFactor       = null;
+        Token playerSpeedMaxDeltaMax      = null;
+        Token playerSpeedMaxDeltaMin      = null;
+        Token playerTypes                 = null;
+        Token ptMax                       = null;
+        Token randomSeed                  = null;
+        Token staminaIncMaxDeltaFactor    = null;
+        Token subsMax                     = null;
+        jj_consume_token(OB);
+        jj_consume_token(ALLOW_MULT_DEFAULT_TYPE);
+        jj_consume_token(SEP);
+        allowMultDefaultType = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(DASH_POWER_RATE_DELTA_MAX);
+        jj_consume_token(SEP);
+        dashPowerRateDeltaMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(DASH_POWER_RATE_DELTA_MIN);
+        jj_consume_token(SEP);
+        dashPowerRateDeltaMin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(EFFORT_MAX_DELTA_FACTOR);
+        jj_consume_token(SEP);
+        effortMaxDeltaFactor = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(EFFORT_MIN_DELTA_FACTOR);
+        jj_consume_token(SEP);
+        effortMinDeltaFactor = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(EXTRA_STAMINA_DELTA_MAX);
+        jj_consume_token(SEP);
+        extraStaminaDeltaMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(EXTRA_STAMINA_DELTA_MIN);
+        jj_consume_token(SEP);
+        extraStaminaDeltaMin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(INERTIA_MOMENT_DELTA_FACTOR);
+        jj_consume_token(SEP);
+        inertiaMomentDeltaFactor = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(KICK_RAND_DELTA_FACTOR);
+        jj_consume_token(SEP);
+        kickRandDeltaFactor = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(KICKABLE_MARGIN_DELTA_MAX);
+        jj_consume_token(SEP);
+        kickableMarginDeltaMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(KICKABLE_MARGIN_DELTA_MIN);
+        jj_consume_token(SEP);
+        kickableMarginDeltaMin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(NEW_DASH_POWER_RATE_DELTA_MAX);
+        jj_consume_token(SEP);
+        newDashPowerRateDeltaMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(NEW_DASH_POWER_RATE_DELTA_MIN);
+        jj_consume_token(SEP);
+        newDashPowerRateDeltaMin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(NEW_STAMINA_INC_MAX_DELTA_FACTOR);
+        jj_consume_token(SEP);
+        newStaminaIncMaxDeltaFactor = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PLAYER_DECAY_DELTA_MAX);
+        jj_consume_token(SEP);
+        playerDecayDeltaMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PLAYER_DECAY_DELTA_MIN);
+        jj_consume_token(SEP);
+        playerDecayDeltaMin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PLAYER_SIZE_DELTA_FACTOR);
+        jj_consume_token(SEP);
+        playerSizeDeltaFactor = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PLAYER_SPEED_MAX_DELTA_MAX);
+        jj_consume_token(SEP);
+        playerSpeedMaxDeltaMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PLAYER_SPEED_MAX_DELTA_MIN);
+        jj_consume_token(SEP);
+        playerSpeedMaxDeltaMin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PLAYER_TYPES);
+        jj_consume_token(SEP);
+        playerTypes = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PT_MAX);
+        jj_consume_token(SEP);
+        ptMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(RANDOM_SEED);
+        jj_consume_token(SEP);
+        randomSeed = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(STAMINA_INC_MAX_DELTA_FACTOR);
+        jj_consume_token(SEP);
+        staminaIncMaxDeltaFactor = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(SUBS_MAX);
+        jj_consume_token(SEP);
+        subsMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        Double dAllowMultDefaultType        = new Double(allowMultDefaultType.image);
+        Double dDashPowerRateDeltaMax       = new Double(dashPowerRateDeltaMax.image);
+        Double dDashPowerRateDeltaMin       = new Double(dashPowerRateDeltaMin.image);
+        Double dEffortMaxDeltaFactor        = new Double(effortMaxDeltaFactor.image);
+        Double dEffortMinDeltaFactor        = new Double(effortMinDeltaFactor.image);
+        Double dExtraStaminaDeltaMax        = new Double(extraStaminaDeltaMax.image);
+        Double dExtraStaminaDeltaMin        = new Double(extraStaminaDeltaMin.image);
+        Double dInertiaMomentDeltaFactor    = new Double(inertiaMomentDeltaFactor.image);
+        Double dKickRandDeltaFactor         = new Double(kickRandDeltaFactor.image);
+        Double dKickableMarginDeltaMax      = new Double(kickableMarginDeltaMax.image);
+        Double dKickableMarginDeltaMin      = new Double(kickableMarginDeltaMin.image);
+        Double dNewDashPowerRateDeltaMax    = new Double(newDashPowerRateDeltaMax.image);
+        Double dNewDashPowerRateDeltaMin    = new Double(newDashPowerRateDeltaMin.image);
+        Double dNewStaminaIncMaxDeltaFactor = new Double(newStaminaIncMaxDeltaFactor.image);
+        Double dPlayerDecayDeltaMax         = new Double(playerDecayDeltaMax.image);
+        Double dPlayerDecayDeltaMin         = new Double(playerDecayDeltaMin.image);
+        Double dPlayerTypes                 = new Double(playerTypes.image);
+        Double dPtMax                       = new Double(ptMax.image);
+        Double dRandomSeed                  = new Double(randomSeed.image);
+        Double dStaminaIncMaxDeltaFactor    = new Double(staminaIncMaxDeltaFactor.image);
+        Double dSubsMax                     = new Double(subsMax.image);
+        controller.infoPlayerParam(dAllowMultDefaultType.doubleValue(), dDashPowerRateDeltaMax.doubleValue(),
+                                   dDashPowerRateDeltaMin.doubleValue(), dEffortMaxDeltaFactor.doubleValue(),
+                                   dEffortMinDeltaFactor.doubleValue(), dExtraStaminaDeltaMax.doubleValue(),
+                                   dExtraStaminaDeltaMin.doubleValue(), dInertiaMomentDeltaFactor.doubleValue(),
+                                   dKickRandDeltaFactor.doubleValue(), dKickableMarginDeltaMax.doubleValue(),
+                                   dKickableMarginDeltaMin.doubleValue(), dNewDashPowerRateDeltaMax.doubleValue(),
+                                   dNewDashPowerRateDeltaMin.doubleValue(), dNewStaminaIncMaxDeltaFactor.doubleValue(),
+                                   dPlayerDecayDeltaMax.doubleValue(), dPlayerDecayDeltaMin.doubleValue(),
+                                   dPlayerTypes.doubleValue(), dPtMax.doubleValue(), dRandomSeed.doubleValue(),
+                                   dStaminaIncMaxDeltaFactor.doubleValue(), dSubsMax.doubleValue());
+    }
 
     /**
-     * 
+     *
      * @throws ParseException
      */
     final public void startPlayerTypeCommand() throws ParseException {
@@ -397,7 +573,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
 //  Basic init command.
 
     /**
-     * 
+     *
      * @throws ParseException
      */
     final public void startInitCommand() throws ParseException {
@@ -416,7 +592,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
 //  Simple enum commands.
 
     /**
-     * 
+     *
      * @throws ParseException
      */
     final public void startErrorCommand() throws ParseException {
@@ -426,7 +602,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @throws ParseException
      */
     final public void startOkCommand() throws ParseException {
@@ -436,7 +612,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @throws ParseException
      */
     final public void startWarningCommand() throws ParseException {
@@ -446,7 +622,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @throws ParseException
      */
     final public void startHearCommand() throws ParseException {
@@ -473,7 +649,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @throws ParseException
      */
     final public void hearReferee() throws ParseException {
@@ -494,7 +670,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
 //  Enum Switches
 
     /**
-     * 
+     *
      * @return
      * @throws ParseException
      */
@@ -549,7 +725,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      * @throws ParseException
      */
@@ -639,7 +815,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      * @throws ParseException
      */
@@ -722,7 +898,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      * @throws ParseException
      */
@@ -910,7 +1086,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      * @throws ParseException
      */
@@ -1002,7 +1178,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1019,7 +1195,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1036,7 +1212,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1053,7 +1229,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1070,7 +1246,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1087,7 +1263,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1104,7 +1280,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1121,7 +1297,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1138,7 +1314,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1155,7 +1331,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1172,7 +1348,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1189,7 +1365,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1206,7 +1382,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1223,7 +1399,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1240,7 +1416,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1257,7 +1433,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1274,7 +1450,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1291,7 +1467,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1308,7 +1484,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1325,7 +1501,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1342,7 +1518,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1359,7 +1535,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1376,7 +1552,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1393,7 +1569,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1410,7 +1586,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1427,7 +1603,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1444,7 +1620,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1461,7 +1637,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1478,7 +1654,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1495,7 +1671,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1512,7 +1688,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1529,7 +1705,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1546,7 +1722,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1563,7 +1739,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1580,7 +1756,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1597,7 +1773,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1614,7 +1790,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1631,7 +1807,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1648,7 +1824,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1665,7 +1841,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1682,7 +1858,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1699,7 +1875,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1716,7 +1892,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1733,7 +1909,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1750,7 +1926,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1767,7 +1943,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1784,7 +1960,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1801,7 +1977,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1818,7 +1994,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1835,7 +2011,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1852,7 +2028,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1869,7 +2045,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1886,7 +2062,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1903,7 +2079,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1920,7 +2096,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1937,7 +2113,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1954,7 +2130,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1971,7 +2147,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -1988,7 +2164,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -2005,7 +2181,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param xla
      * @return
      */
@@ -2022,7 +2198,18 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
+     * @return
+     */
+    private boolean jj_3_27() {
+        if (jj_scan_token(ILLEGAL_OBJECT_FORM)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
      * @return
      */
     private boolean jj_3_26() {
@@ -2033,7 +2220,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_47() {
@@ -2044,7 +2231,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_25() {
@@ -2055,7 +2242,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_2() {
@@ -2066,7 +2253,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_46() {
@@ -2077,7 +2264,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_24() {
@@ -2088,7 +2275,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_23() {
@@ -2099,7 +2286,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_45() {
@@ -2110,7 +2297,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_22() {
@@ -2121,7 +2308,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_1() {
@@ -2132,7 +2319,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_21() {
@@ -2143,7 +2330,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_44() {
@@ -2154,7 +2341,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_20() {
@@ -2165,7 +2352,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_19() {
@@ -2176,7 +2363,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_43() {
@@ -2187,7 +2374,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_18() {
@@ -2198,7 +2385,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_60() {
@@ -2209,7 +2396,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_17() {
@@ -2220,7 +2407,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_59() {
@@ -2231,7 +2418,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_42() {
@@ -2242,7 +2429,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_16() {
@@ -2253,7 +2440,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_58() {
@@ -2264,7 +2451,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_15() {
@@ -2275,7 +2462,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_57() {
@@ -2286,7 +2473,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_41() {
@@ -2297,7 +2484,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_14() {
@@ -2308,7 +2495,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_56() {
@@ -2319,7 +2506,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_40() {
@@ -2330,7 +2517,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_13() {
@@ -2341,7 +2528,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_55() {
@@ -2352,7 +2539,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_12() {
@@ -2363,7 +2550,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_39() {
@@ -2374,7 +2561,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_11() {
@@ -2385,7 +2572,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_54() {
@@ -2396,7 +2583,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_10() {
@@ -2407,7 +2594,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_38() {
@@ -2418,7 +2605,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_9() {
@@ -2429,7 +2616,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_53() {
@@ -2440,7 +2627,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_37() {
@@ -2451,7 +2638,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_8() {
@@ -2462,7 +2649,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_36() {
@@ -2473,7 +2660,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3R_2() {
@@ -2510,7 +2697,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3R_1() {
@@ -2571,7 +2758,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_52() {
@@ -2582,7 +2769,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_35() {
@@ -2593,7 +2780,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_7() {
@@ -2604,7 +2791,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_6() {
@@ -2615,7 +2802,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_34() {
@@ -2626,7 +2813,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_51() {
@@ -2637,7 +2824,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_33() {
@@ -2648,7 +2835,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_32() {
@@ -2659,7 +2846,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_5() {
@@ -2673,7 +2860,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_50() {
@@ -2684,7 +2871,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_4() {
@@ -2698,7 +2885,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_3() {
@@ -2709,7 +2896,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_31() {
@@ -2720,7 +2907,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_30() {
@@ -2731,7 +2918,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_49() {
@@ -2742,7 +2929,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_29() {
@@ -2753,7 +2940,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_28() {
@@ -2764,7 +2951,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private boolean jj_3_48() {
@@ -2775,46 +2962,35 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
-     * @return
-     */
-    private boolean jj_3_27() {
-        if (jj_scan_token(ILLEGAL_OBJECT_FORM)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 
+     *
      */
     private static void jj_la1_init_0() {
         jj_la1_0 = new int[] {};
     }
 
     /**
-     * 
+     *
      */
     private static void jj_la1_init_1() {
         jj_la1_1 = new int[] {};
     }
 
     /**
-     * 
+     *
      */
     private static void jj_la1_init_2() {
         jj_la1_2 = new int[] {};
     }
 
     /**
-     * 
+     *
      */
     private static void jj_la1_init_3() {
         jj_la1_3 = new int[] {};
     }
 
     /**
-     * Reinitialise. 
+     * Reinitialise.
      * @param stream
      */
     public void ReInit(java.io.InputStream stream) {
@@ -2822,7 +2998,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Reinitialise. 
+     * Reinitialise.
      * @param stream
      * @param encoding
      */
@@ -2845,7 +3021,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Reinitialise. 
+     * Reinitialise.
      * @param stream
      */
     public void ReInit(java.io.Reader stream) {
@@ -2863,7 +3039,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Reinitialise. 
+     * Reinitialise.
      * @param tm
      */
     public void ReInit(CmdParserCoachTokenManager tm) {
@@ -2880,7 +3056,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param kind
      * @return
      * @throws ParseException
@@ -2915,7 +3091,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param kind
      * @return
      */
@@ -2951,7 +3127,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Get the next Token. 
+     * Get the next Token.
      * @return
      */
     final public Token getNextToken() {
@@ -2966,7 +3142,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Get the specific Token. 
+     * Get the specific Token.
      * @param index
      * @return
      */
@@ -2983,7 +3159,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private int jj_ntk() {
@@ -2995,7 +3171,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param kind
      * @param pos
      */
@@ -3030,12 +3206,12 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Generate ParseException. 
+     * Generate ParseException.
      * @return
      */
     public ParseException generateParseException() {
         jj_expentries.clear();
-        boolean[] la1tokens = new boolean[101];
+        boolean[] la1tokens = new boolean[125];
         if (jj_kind >= 0) {
             la1tokens[jj_kind] = true;
             jj_kind            = -1;
@@ -3058,7 +3234,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                 }
             }
         }
-        for (int i = 0; i < 101; i++) {
+        for (int i = 0; i < 125; i++) {
             if (la1tokens[i]) {
                 jj_expentry    = new int[1];
                 jj_expentry[0] = i;
@@ -3082,7 +3258,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     final public void disable_tracing() {}
 
     /**
-     * 
+     *
      */
     private void jj_rescan_token() {
         jj_rescan = true;
@@ -3284,7 +3460,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @param index
      * @param xla
      */
@@ -3303,7 +3479,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @author author
      */
     static final class JJCalls {
@@ -3314,7 +3490,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * 
+     *
      * @author author
      */
     static private final class LookaheadSuccess extends java.lang.Error {}

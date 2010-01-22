@@ -51,10 +51,33 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
         "\144\141\163\150\137\160\157\167\145\162\137\162\141\164\145", "\160\154\141\171\145\162\137\163\151\172\145",
         "\153\151\143\153\141\142\154\145\137\155\141\162\147\151\156", "\153\151\143\153\137\162\141\156\144",
         "\145\170\164\162\141\137\163\164\141\155\151\156\141", "\145\146\146\157\162\164\137\155\141\170",
-        "\145\146\146\157\162\164\137\155\151\156", "\143", "\164", "\162", "\50", "\51", "\40", null, null,
+        "\145\146\146\157\162\164\137\155\151\156",
+        "\141\154\154\157\167\137\155\165\154\164\137\144\145\146\141\165\154\164\137\164\171\160\145",
+        "\144\141\163\150\137\160\157\167\145\162\137\162\141\164\145\137\144\145\154\164\141\137\155\141\170",
+        "\144\141\163\150\137\160\157\167\145\162\137\162\141\164\145\137\144\145\154\164\141\137\155\151\156",
+        "\145\146\146\157\162\164\137\155\141\170\137\144\145\154\164\141\137\146\141\143\164\157\162",
+        "\145\146\146\157\162\164\137\155\151\156\137\144\145\154\164\141\137\146\141\143\164\157\162",
+        "\145\170\164\162\141\137\163\164\141\155\151\156\141\137\144\145\154\164\141\137\155\141\170",
+        "\145\170\164\162\141\137\163\164\141\155\151\156\141\137\144\145\154\164\141\137\155\151\156",
+        "\151\156\145\162\164\151\141\137\155\157\155\145\156\164\137\144\145\154\164\141\137\146\141\143\164\157\162",
+        "\153\151\143\153\137\162\141\156\144\137\144\145\154\164\141\137\146\141\143\164\157\162",
+        "\153\151\143\153\141\142\154\145\137\155\141\162\147\151\156\137\144\145\154\164\141\137\155\141\170",
+        "\153\151\143\153\141\142\154\145\137\155\141\162\147\151\156\137\144\145\154\164\141\137\155\151\156",
+        "\156\145\167\137\144\141\163\150\137\160\157\167\145\162\137\162\141\164\145\137\144\145\154\164\141\137\155\141\170",
+        "\156\145\167\137\144\141\163\150\137\160\157\167\145\162\137\162\141\164\145\137\144\145\154\164\141\137\155\151\156",
+        "\156\145\167\137\163\164\141\155\151\156\141\137\151\156\143\137\155\141\170\137\144\145\154\164\141\137\146\141\143\164\157\162",
+        "\160\154\141\171\145\162\137\144\145\143\141\171\137\144\145\154\164\141\137\155\141\170",
+        "\160\154\141\171\145\162\137\144\145\143\141\171\137\144\145\154\164\141\137\155\151\156",
+        "\160\154\141\171\145\162\137\163\151\172\145\137\144\145\154\164\141\137\146\141\143\164\157\162",
+        "\160\154\141\171\145\162\137\163\160\145\145\144\137\155\141\170\137\144\145\154\164\141\137\155\141\170",
+        "\160\154\141\171\145\162\137\163\160\145\145\144\137\155\141\170\137\144\145\154\164\141\137\155\151\156",
+        "\160\154\141\171\145\162\137\164\171\160\145\163", "\160\164\137\155\141\170",
+        "\162\141\156\144\157\155\137\163\145\145\144",
+        "\163\164\141\155\151\156\141\137\151\156\143\137\155\141\170\137\144\145\154\164\141\137\146\141\143\164\157\162",
+        "\163\165\142\163\137\155\141\170", "\143", "\164", "\162", "\50", "\51", "\40", null, null,
     };
     static final long[] jjtoSkip  = {0x1eL, 0x0L, };
-    static final long[] jjtoToken = {0xffffffffffffffe1L, 0x1fffffffffL, };
+    static final long[] jjtoToken = {0xffffffffffffffe1L, 0x1fffffffffffffffL, };
 
     /** Lexer state names. */
     public static final String[] lexStateNames = {"DEFAULT", };
@@ -111,10 +134,6 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
     private final int jjStopStringLiteralDfa_0(int pos, long active0, long active1) {
         switch (pos) {
             case 0 :
-                if ((active0 & 0xd7e38007c2ff7000L) != 0L || (active1 & 0x1f6a3614L) != 0L) {
-                    jjmatchedKind = 99;
-                    return 19;
-                }
                 if ((active0 & 0x60000000400L) != 0L) {
                     jjmatchedKind = 9;
                     return 28;
@@ -123,7 +142,7 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                     jjmatchedKind = 6;
                     return 19;
                 }
-                if ((active0 & 0x20000000L) != 0L || (active1 & 0x940000L) != 0L) {
+                if ((active0 & 0x20000000L) != 0L || (active1 & 0x3f80000940000L) != 0L) {
                     jjmatchedKind = 7;
                     return 19;
                 }
@@ -131,30 +150,34 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                     jjmatchedKind = 8;
                     return 19;
                 }
-                if ((active0 & 0x800000000000000L) != 0L || (active1 & 0x80000008L) != 0L) {
+                if ((active0 & 0x800000000000000L) != 0L || (active1 & 0x84000000000008L) != 0L) {
                     return 10;
                 }
                 if ((active0 & 0x8000000L) != 0L) {
                     jjmatchedKind = 5;
                     return 19;
                 }
-                if ((active0 & 0x201c018015000000L) != 0L || (active1 & 0x6001c9a3L) != 0L) {
+                if ((active0 & 0xd7e38007c2ff7000L) != 0L || (active1 & 0x1807ffff6a3614L) != 0L) {
+                    jjmatchedKind = 123;
+                    return 19;
+                }
+                if ((active0 & 0x201c018015000000L) != 0L || (active1 & 0x6000000001c9a3L) != 0L) {
                     return 19;
                 }
                 return -1;
             case 1 :
                 if ((active0 & 0x800000000000000L) != 0L || (active1 & 0x8L) != 0L) {
-                    jjmatchedKind = 99;
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 1;
                     return 9;
                 }
-                if ((active0 & 0xf7ffe1fffffff000L) != 0L || (active1 & 0x1ffdfff7L) != 0L) {
-                    jjmatchedKind = 99;
+                if ((active0 & 0xf7ffe1fffffff000L) != 0L || (active1 & 0x1ffffffffdfff7L) != 0L) {
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 1;
                     return 19;
                 }
                 if ((active0 & 0x60000000400L) != 0L) {
-                    jjmatchedKind = 99;
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 1;
                     return 27;
                 }
@@ -164,12 +187,12 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                 return -1;
             case 2 :
                 if ((active0 & 0x60000000400L) != 0L) {
-                    jjmatchedKind = 99;
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 2;
                     return 26;
                 }
-                if ((active0 & 0xffffe1fffdff7000L) != 0L || (active1 & 0x1ffdffefL) != 0L) {
-                    jjmatchedKind = 99;
+                if ((active0 & 0xffffe1fffdff7000L) != 0L || (active1 & 0x1ffffffffdffefL) != 0L) {
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 2;
                     return 19;
                 }
@@ -180,149 +203,168 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
             case 3 :
                 if ((active0 & 0x60000000400L) != 0L) {
                     if (jjmatchedPos != 3) {
-                        jjmatchedKind = 99;
+                        jjmatchedKind = 123;
                         jjmatchedPos  = 3;
                     }
                     return 25;
                 }
-                if ((active0 & 0x7fffe1f8783e2000L) != 0L || (active1 & 0x1cbdffafL) != 0L) {
+                if ((active0 & 0x7fffe1f8783e2000L) != 0L || (active1 & 0x1fff1f3cbdffafL) != 0L) {
                     if (jjmatchedPos != 3) {
-                        jjmatchedKind = 99;
+                        jjmatchedKind = 123;
                         jjmatchedPos  = 3;
                     }
                     return 19;
                 }
-                if ((active0 & 0x8000000785c15000L) != 0L || (active1 & 0x3400040L) != 0L) {
+                if ((active0 & 0x8000000785c15000L) != 0L || (active1 & 0xe0c3400040L) != 0L) {
                     return 19;
                 }
                 return -1;
             case 4 :
-                if ((active0 & 0x7fffe1fffc2e2400L) != 0L || (active1 & 0x1ffcffabL) != 0L) {
-                    jjmatchedKind = 99;
-                    jjmatchedPos  = 4;
-                    return 19;
-                }
                 if ((active0 & 0x60000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 4;
                     return 24;
+                }
+                if ((active0 & 0x7fffe1fffc2e2400L) != 0L || (active1 & 0x1ffffffffcffabL) != 0L) {
+                    jjmatchedKind = 123;
+                    jjmatchedPos  = 4;
+                    return 19;
                 }
                 if ((active0 & 0x100000L) != 0L || (active1 & 0x10004L) != 0L) {
                     return 19;
                 }
                 return -1;
             case 5 :
-                if ((active0 & 0x7fff87fffc282000L) != 0L || (active1 & 0x1ffcffabL) != 0L) {
-                    jjmatchedKind = 99;
+                if ((active0 & 0x7fff87fffc282000L) != 0L || (active1 & 0x1dfffffffcffabL) != 0L) {
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 5;
                     return 19;
                 }
-                if ((active0 & 0x600000060400L) != 0L) {
+                if ((active0 & 0x600000060400L) != 0L || (active1 & 0x2000000000000L) != 0L) {
                     return 19;
                 }
                 return -1;
             case 6 :
-                if ((active0 & 0x7ff387ffdc202000L) != 0L || (active1 & 0x1ff4ffa3L) != 0L) {
+                if ((active0 & 0x7ff387ffdc202000L) != 0L || (active1 & 0x15fffffff4ffa3L) != 0L) {
                     if (jjmatchedPos != 6) {
-                        jjmatchedKind = 99;
+                        jjmatchedKind = 123;
                         jjmatchedPos  = 6;
                     }
                     return 19;
                 }
-                if ((active0 & 0xc000020080000L) != 0L || (active1 & 0x80008L) != 0L) {
+                if ((active0 & 0xc000020080000L) != 0L || (active1 & 0x8000000080008L) != 0L) {
                     return 19;
                 }
                 return -1;
             case 7 :
-                if ((active0 & 0x7ffb87ffdc202000L) != 0L || (active1 & 0x1ffcffa3L) != 0L) {
-                    jjmatchedKind = 99;
+                if ((active0 & 0x7ffb87ffdc202000L) != 0L || (active1 & 0xdfffffffcffa3L) != 0L) {
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 7;
+                    return 19;
+                }
+                if ((active1 & 0x10000000000000L) != 0L) {
                     return 19;
                 }
                 return -1;
             case 8 :
-                if ((active0 & 0x77f807f988200000L) != 0L || (active1 & 0x1dfcffa3L) != 0L) {
-                    jjmatchedKind = 99;
-                    jjmatchedPos  = 8;
+                if ((active0 & 0x77f807f988200000L) != 0L || (active1 & 0xdffdffdfcffa3L) != 0L) {
+                    if (jjmatchedPos != 8) {
+                        jjmatchedKind = 123;
+                        jjmatchedPos  = 8;
+                    }
                     return 19;
                 }
-                if ((active0 & 0x803800654002000L) != 0L || (active1 & 0x2000000L) != 0L) {
+                if ((active0 & 0x803800654002000L) != 0L || (active1 & 0x2002000000L) != 0L) {
                     return 19;
                 }
                 return -1;
             case 9 :
-                if ((active0 & 0x77f807f808000000L) != 0L || (active1 & 0x5fcff21L) != 0L) {
-                    jjmatchedKind = 99;
-                    jjmatchedPos  = 9;
+                if ((active0 & 0x77f807f808000000L) != 0L || (active1 & 0xdfffce5fcff21L) != 0L) {
+                    if (jjmatchedPos != 9) {
+                        jjmatchedKind = 123;
+                        jjmatchedPos  = 9;
+                    }
                     return 19;
                 }
-                if ((active0 & 0x180200000L) != 0L || (active1 & 0x18000082L) != 0L) {
+                if ((active0 & 0x180200000L) != 0L || (active1 & 0x318000082L) != 0L) {
                     return 19;
                 }
                 return -1;
             case 10 :
-                if ((active0 & 0x61800000000L) != 0L || (active1 & 0x808001L) != 0L) {
+                if ((active0 & 0x77f801e008000000L) != 0L || (active1 & 0x9dfffe57c7f20L) != 0L) {
+                    if (jjmatchedPos != 10) {
+                        jjmatchedKind = 123;
+                        jjmatchedPos  = 10;
+                    }
                     return 19;
                 }
-                if ((active0 & 0x77f801e008000000L) != 0L || (active1 & 0x57c7f20L) != 0L) {
-                    jjmatchedKind = 99;
-                    jjmatchedPos  = 10;
+                if ((active0 & 0x61800000000L) != 0L || (active1 & 0x4200000808001L) != 0L) {
                     return 19;
                 }
                 return -1;
             case 11 :
-                if ((active0 & 0x77d801e008000000L) != 0L || (active1 & 0x56c6e20L) != 0L) {
-                    jjmatchedKind = 99;
-                    jjmatchedPos  = 11;
+                if ((active0 & 0x77d801e008000000L) != 0L || (active1 & 0x8e7ffe56c6e20L) != 0L) {
+                    if (jjmatchedPos != 11) {
+                        jjmatchedKind = 123;
+                        jjmatchedPos  = 11;
+                    }
                     return 19;
                 }
-                if ((active0 & 0x20000000000000L) != 0L || (active1 & 0x101100L) != 0L) {
+                if ((active0 & 0x20000000000000L) != 0L || (active1 & 0x1180000101100L) != 0L) {
                     return 19;
                 }
                 return -1;
             case 12 :
-                if ((active0 & 0x77c8006008000000L) != 0L || (active1 & 0x16c6c20L) != 0L) {
-                    jjmatchedKind = 99;
-                    jjmatchedPos  = 12;
+                if ((active0 & 0x77c8006008000000L) != 0L || (active1 & 0x8fff3e16c6c20L) != 0L) {
+                    if (jjmatchedPos != 12) {
+                        jjmatchedKind = 123;
+                        jjmatchedPos  = 12;
+                    }
                     return 19;
                 }
-                if ((active0 & 0x10018000000000L) != 0L || (active1 & 0x4000200L) != 0L) {
+                if ((active0 & 0x10018000000000L) != 0L || (active1 & 0xc04000200L) != 0L) {
                     return 19;
                 }
                 return -1;
             case 13 :
-                if ((active0 & 0x57c8006008000000L) != 0L || (active1 & 0x14c6820L) != 0L) {
-                    jjmatchedKind = 99;
-                    jjmatchedPos  = 13;
+                if ((active0 & 0x57c8006008000000L) != 0L || (active1 & 0x8ffefe14c6820L) != 0L) {
+                    if (jjmatchedPos != 13) {
+                        jjmatchedKind = 123;
+                        jjmatchedPos  = 13;
+                    }
                     return 19;
                 }
-                if ((active0 & 0x2000000000000000L) != 0L || (active1 & 0x200400L) != 0L) {
+                if ((active0 & 0x2000000000000000L) != 0L || (active1 & 0x1000200400L) != 0L) {
                     return 19;
                 }
                 return -1;
             case 14 :
-                if ((active0 & 0x47c8006000000000L) != 0L || (active1 & 0x46820L) != 0L) {
-                    jjmatchedKind = 99;
-                    jjmatchedPos  = 14;
+                if ((active0 & 0x47c8006000000000L) != 0L || (active1 & 0xff3f20046820L) != 0L) {
+                    if (jjmatchedPos != 14) {
+                        jjmatchedKind = 123;
+                        jjmatchedPos  = 14;
+                    }
                     return 19;
                 }
-                if ((active0 & 0x1000000008000000L) != 0L || (active1 & 0x1480000L) != 0L) {
+                if ((active0 & 0x1000000008000000L) != 0L || (active1 & 0x800c0c1480000L) != 0L) {
                     return 19;
                 }
                 return -1;
             case 15 :
-                if ((active0 & 0x47c8006000000000L) != 0L || (active1 & 0x6820L) != 0L) {
-                    jjmatchedKind = 99;
-                    jjmatchedPos  = 15;
+                if ((active0 & 0x47c8006000000000L) != 0L || (active1 & 0x83fffe0006820L) != 0L) {
+                    if (jjmatchedPos != 15) {
+                        jjmatchedKind = 123;
+                        jjmatchedPos  = 15;
+                    }
                     return 19;
                 }
-                if ((active1 & 0x40000L) != 0L) {
+                if ((active1 & 0xc00000040000L) != 0L) {
                     return 19;
                 }
                 return -1;
             case 16 :
-                if ((active0 & 0x47c8000000000000L) != 0L || (active1 & 0x6820L) != 0L) {
-                    jjmatchedKind = 99;
+                if ((active0 & 0x47c8000000000000L) != 0L || (active1 & 0x8ffffe0006820L) != 0L) {
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 16;
                     return 19;
                 }
@@ -331,8 +373,8 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                 }
                 return -1;
             case 17 :
-                if ((active0 & 0x47c8000000000000L) != 0L || (active1 & 0x6800L) != 0L) {
-                    jjmatchedKind = 99;
+                if ((active0 & 0x47c8000000000000L) != 0L || (active1 & 0x8ffffe0006800L) != 0L) {
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 17;
                     return 19;
                 }
@@ -341,8 +383,8 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                 }
                 return -1;
             case 18 :
-                if ((active0 & 0x4748000000000000L) != 0L || (active1 & 0x6800L) != 0L) {
-                    jjmatchedKind = 99;
+                if ((active0 & 0x4748000000000000L) != 0L || (active1 & 0x8ffffe0006800L) != 0L) {
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 18;
                     return 19;
                 }
@@ -351,8 +393,8 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                 }
                 return -1;
             case 19 :
-                if ((active0 & 0x4708000000000000L) != 0L || (active1 & 0x2800L) != 0L) {
-                    jjmatchedKind = 99;
+                if ((active0 & 0x4708000000000000L) != 0L || (active1 & 0x8ffffe0002800L) != 0L) {
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 19;
                     return 19;
                 }
@@ -361,218 +403,233 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                 }
                 return -1;
             case 20 :
-                if ((active0 & 0x4708000000000000L) != 0L || (active1 & 0x2800L) != 0L) {
-                    jjmatchedKind = 99;
+                if ((active0 & 0x4708000000000000L) != 0L || (active1 & 0x8ffffe0002800L) != 0L) {
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 20;
                     return 19;
                 }
                 return -1;
             case 21 :
-                if ((active0 & 0x400000000000000L) != 0L || (active1 & 0x2800L) != 0L) {
+                if ((active0 & 0x400000000000000L) != 0L || (active1 & 0x8e7dfe0002800L) != 0L) {
                     if (jjmatchedPos != 21) {
-                        jjmatchedKind = 99;
+                        jjmatchedKind = 123;
                         jjmatchedPos  = 21;
                     }
                     return 19;
                 }
-                if ((active0 & 0x4308000000000000L) != 0L) {
+                if ((active0 & 0x4308000000000000L) != 0L || (active1 & 0x182000000000L) != 0L) {
                     return 19;
                 }
                 return -1;
             case 22 :
-                if ((active0 & 0x600000000000000L) != 0L || (active1 & 0x2000L) != 0L) {
-                    jjmatchedKind = 99;
-                    jjmatchedPos  = 22;
+                if ((active1 & 0xf20000800L) != 0L) {
                     return 19;
                 }
-                if ((active1 & 0x800L) != 0L) {
+                if ((active0 & 0x600000000000000L) != 0L || (active1 & 0x8e7d0c0002000L) != 0L) {
+                    jjmatchedKind = 123;
+                    jjmatchedPos  = 22;
                     return 19;
                 }
                 return -1;
             case 23 :
-                if ((active0 & 0x600000000000000L) != 0L || (active1 & 0x2000L) != 0L) {
-                    jjmatchedKind = 99;
+                if ((active0 & 0x600000000000000L) != 0L || (active1 & 0x8c7d0c0002000L) != 0L) {
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 23;
+                    return 19;
+                }
+                if ((active1 & 0x200000000000L) != 0L) {
                     return 19;
                 }
                 return -1;
             case 24 :
-                if ((active0 & 0x600000000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                if ((active0 & 0x600000000000000L) != 0L || (active1 & 0x8c71000000000L) != 0L) {
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 24;
                     return 19;
                 }
-                if ((active1 & 0x2000L) != 0L) {
+                if ((active1 & 0xc0c0002000L) != 0L) {
                     return 19;
                 }
                 return -1;
             case 25 :
-                if ((active0 & 0x600000000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                if ((active1 & 0xc00000000000L) != 0L) {
+                    return 19;
+                }
+                if ((active0 & 0x600000000000000L) != 0L || (active1 & 0x8071000000000L) != 0L) {
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 25;
                     return 19;
                 }
                 return -1;
             case 26 :
-                if ((active0 & 0x600000000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                if ((active0 & 0x600000000000000L) != 0L || (active1 & 0x8070000000000L) != 0L) {
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 26;
+                    return 19;
+                }
+                if ((active1 & 0x1000000000L) != 0L) {
                     return 19;
                 }
                 return -1;
             case 27 :
-                if ((active0 & 0x600000000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                if ((active0 & 0x600000000000000L) != 0L || (active1 & 0x70000000000L) != 0L) {
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 27;
+                    return 19;
+                }
+                if ((active1 & 0x8000000000000L) != 0L) {
                     return 19;
                 }
                 return -1;
             case 28 :
-                if ((active0 & 0x600000000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                if ((active0 & 0x600000000000000L) != 0L || (active1 & 0x40000000000L) != 0L) {
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 28;
+                    return 19;
+                }
+                if ((active1 & 0x30000000000L) != 0L) {
                     return 19;
                 }
                 return -1;
             case 29 :
-                if ((active0 & 0x600000000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                if ((active0 & 0x600000000000000L) != 0L || (active1 & 0x40000000000L) != 0L) {
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 29;
                     return 19;
                 }
                 return -1;
             case 30 :
-                if ((active0 & 0x600000000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                if ((active0 & 0x600000000000000L) != 0L || (active1 & 0x40000000000L) != 0L) {
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 30;
                     return 19;
                 }
                 return -1;
             case 31 :
                 if ((active0 & 0x400000000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 31;
                     return 19;
                 }
-                if ((active0 & 0x200000000000000L) != 0L) {
+                if ((active0 & 0x200000000000000L) != 0L || (active1 & 0x40000000000L) != 0L) {
                     return 19;
                 }
                 return -1;
             case 32 :
                 if ((active0 & 0x400000000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 32;
                     return 19;
                 }
                 return -1;
             case 33 :
                 if ((active0 & 0x400000000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 33;
                     return 19;
                 }
                 return -1;
             case 34 :
                 if ((active0 & 0x400000000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 34;
                     return 19;
                 }
                 return -1;
             case 35 :
                 if ((active0 & 0x400000000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 35;
                     return 19;
                 }
                 return -1;
             case 36 :
                 if ((active0 & 0x400000000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 36;
                     return 19;
                 }
                 return -1;
             case 37 :
                 if ((active0 & 0x400000000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 37;
                     return 19;
                 }
                 return -1;
             case 38 :
                 if ((active0 & 0x400000000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 38;
                     return 19;
                 }
                 return -1;
             case 39 :
                 if ((active0 & 0x400000000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 39;
                     return 19;
                 }
                 return -1;
             case 40 :
                 if ((active0 & 0x400000000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 40;
                     return 19;
                 }
                 return -1;
             case 41 :
                 if ((active0 & 0x400000000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 41;
                     return 19;
                 }
                 return -1;
             case 42 :
                 if ((active0 & 0x400000000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 42;
                     return 19;
                 }
                 return -1;
             case 43 :
                 if ((active0 & 0x400000000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 43;
                     return 19;
                 }
                 return -1;
             case 44 :
                 if ((active0 & 0x400000000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 44;
                     return 19;
                 }
                 return -1;
             case 45 :
                 if ((active0 & 0x400000000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 45;
                     return 19;
                 }
                 return -1;
             case 46 :
                 if ((active0 & 0x400000000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 46;
                     return 19;
                 }
                 return -1;
             case 47 :
                 if ((active0 & 0x400000000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 47;
                     return 19;
                 }
                 return -1;
             case 48 :
                 if ((active0 & 0x400000000000000L) != 0L) {
-                    jjmatchedKind = 99;
+                    jjmatchedKind = 123;
                     jjmatchedPos  = 48;
                     return 19;
                 }
@@ -612,20 +669,22 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
     private int jjMoveStringLiteralDfa0_0() {
         switch (curChar) {
             case 32 :
-                return jjStopAtPos(0, 98);
+                return jjStopAtPos(0, 122);
             case 40 :
-                return jjStopAtPos(0, 96);
+                return jjStopAtPos(0, 120);
             case 41 :
-                return jjStopAtPos(0, 97);
+                return jjStopAtPos(0, 121);
+            case 97 :
+                return jjMoveStringLiteralDfa1_0(0x0L, 0x20000000L);
             case 98 :
                 return jjMoveStringLiteralDfa1_0(0x8000000L, 0x0L);
             case 99 :
-                jjmatchedKind = 93;
+                jjmatchedKind = 117;
                 return jjMoveStringLiteralDfa1_0(0x18000000000L, 0x1c823L);
             case 100 :
-                return jjMoveStringLiteralDfa1_0(0x40800000L, 0x400000L);
+                return jjMoveStringLiteralDfa1_0(0x40800000L, 0xc0400000L);
             case 101 :
-                return jjMoveStringLiteralDfa1_0(0x0L, 0x1c000010L);
+                return jjMoveStringLiteralDfa1_0(0x0L, 0xf1c000010L);
             case 102 :
                 return jjMoveStringLiteralDfa1_0(0x607800000000L, 0x0L);
             case 103 :
@@ -633,26 +692,26 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
             case 104 :
                 return jjMoveStringLiteralDfa1_0(0x2000000204000L, 0x0L);
             case 105 :
-                return jjMoveStringLiteralDfa1_0(0xe0000000000000L, 0x220000L);
+                return jjMoveStringLiteralDfa1_0(0xe0000000000000L, 0x1000220000L);
             case 107 :
-                return jjMoveStringLiteralDfa1_0(0x780400000L, 0x3000000L);
+                return jjMoveStringLiteralDfa1_0(0x780400000L, 0xe003000000L);
             case 108 :
                 return jjMoveStringLiteralDfa1_0(0x8000L, 0x40L);
             case 109 :
                 return jjMoveStringLiteralDfa1_0(0x8000000000000000L, 0x2000L);
             case 110 :
-                return jjMoveStringLiteralDfa1_0(0x700000000060000L, 0x1600L);
+                return jjMoveStringLiteralDfa1_0(0x700000000060000L, 0x70000001600L);
             case 111 :
                 return jjMoveStringLiteralDfa1_0(0x1800000000000L, 0x0L);
             case 112 :
-                return jjMoveStringLiteralDfa1_0(0x20000000L, 0x940000L);
+                return jjMoveStringLiteralDfa1_0(0x20000000L, 0x3f80000940000L);
             case 114 :
-                jjmatchedKind = 95;
-                return jjMoveStringLiteralDfa1_0(0x800000000000000L, 0x8L);
+                jjmatchedKind = 119;
+                return jjMoveStringLiteralDfa1_0(0x800000000000000L, 0x4000000000008L);
             case 115 :
-                return jjMoveStringLiteralDfa1_0(0x4000000002181000L, 0x80004L);
+                return jjMoveStringLiteralDfa1_0(0x4000000002181000L, 0x18000000080004L);
             case 116 :
-                jjmatchedKind = 94;
+                jjmatchedKind = 118;
                 return jjMoveStringLiteralDfa1_0(0x201c000015000000L, 0x180L);
             case 117 :
                 return jjMoveStringLiteralDfa1_0(0x1000000000000000L, 0x0L);
@@ -680,24 +739,24 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
         }
         switch (curChar) {
             case 97 :
-                return jjMoveStringLiteralDfa2_0(active0, 0x4002000002820000L, active1, 0x416810L);
+                return jjMoveStringLiteralDfa2_0(active0, 0x4002000002820000L, active1, 0x40000c0416810L);
             case 100 :
                 if ((active1 & 0x20000L) != 0L) {
                     return jjStartNfaWithStates_0(1, 81, 19);
                 }
                 break;
             case 101 :
-                return jjMoveStringLiteralDfa2_0(active0, 0x800000008201000L, active1, 0x188L);
+                return jjMoveStringLiteralDfa2_0(active0, 0x800000008201000L, active1, 0x70000000188L);
             case 102 :
-                return jjMoveStringLiteralDfa2_0(active0, 0x1800000000000L, active1, 0x18000000L);
+                return jjMoveStringLiteralDfa2_0(active0, 0x1800000000000L, active1, 0x318000000L);
             case 104 :
                 return jjMoveStringLiteralDfa2_0(active0, 0L, active1, 0x8023L);
             case 105 :
-                return jjMoveStringLiteralDfa2_0(active0, 0x1c000790416000L, active1, 0x3000000L);
+                return jjMoveStringLiteralDfa2_0(active0, 0x1c000790416000L, active1, 0xe003000000L);
             case 108 :
-                return jjMoveStringLiteralDfa2_0(active0, 0xe0000020000000L, active1, 0x940000L);
+                return jjMoveStringLiteralDfa2_0(active0, 0xe0000020000000L, active1, 0x1f80020940000L);
             case 110 :
-                return jjMoveStringLiteralDfa2_0(active0, 0x1000000000000000L, active1, 0x200000L);
+                return jjMoveStringLiteralDfa2_0(active0, 0x1000000000000000L, active1, 0x1000200000L);
             case 111 :
                 return jjMoveStringLiteralDfa2_0(active0, 0xa700678000048400L, active1, 0x1640L);
             case 112 :
@@ -705,11 +764,11 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
             case 114 :
                 return jjMoveStringLiteralDfa2_0(active0, 0x7840000000L, active1, 0L);
             case 116 :
-                return jjMoveStringLiteralDfa2_0(active0, 0x80000L, active1, 0x80004L);
+                return jjMoveStringLiteralDfa2_0(active0, 0x80000L, active1, 0xa000000080004L);
             case 117 :
-                return jjMoveStringLiteralDfa2_0(active0, 0x5000000L, active1, 0L);
+                return jjMoveStringLiteralDfa2_0(active0, 0x5000000L, active1, 0x10000000000000L);
             case 120 :
-                return jjMoveStringLiteralDfa2_0(active0, 0L, active1, 0x4000000L);
+                return jjMoveStringLiteralDfa2_0(active0, 0L, active1, 0xc04000000L);
             default :
                 break;
         }
@@ -736,17 +795,19 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
         }
         switch (curChar) {
             case 95 :
-                return jjMoveStringLiteralDfa3_0(active0, 0x700000000000000L, active1, 0x1600L);
+                return jjMoveStringLiteralDfa3_0(active0, 0x700000000000000L, active1, 0x2000000001600L);
             case 97 :
-                return jjMoveStringLiteralDfa3_0(active0, 0x60020280400L, active1, 0x9c81a5L);
+                return jjMoveStringLiteralDfa3_0(active0, 0x60020280400L, active1, 0x9f800009c81a5L);
+            case 98 :
+                return jjMoveStringLiteralDfa3_0(active0, 0L, active1, 0x10000000000000L);
             case 99 :
-                return jjMoveStringLiteralDfa3_0(active0, 0x800000780400000L, active1, 0x3000008L);
+                return jjMoveStringLiteralDfa3_0(active0, 0x800000780400000L, active1, 0xe003000008L);
             case 100 :
                 return jjMoveStringLiteralDfa3_0(active0, 0x10000L, active1, 0L);
             case 101 :
-                return jjMoveStringLiteralDfa3_0(active0, 0x7800102000L, active1, 0x200002L);
+                return jjMoveStringLiteralDfa3_0(active0, 0x7800102000L, active1, 0x1000200002L);
             case 102 :
-                return jjMoveStringLiteralDfa3_0(active0, 0x1800008000000L, active1, 0x18000000L);
+                return jjMoveStringLiteralDfa3_0(active0, 0x1800008000000L, active1, 0x318000000L);
             case 103 :
                 return jjMoveStringLiteralDfa3_0(active0, 0x4000L, active1, 0L);
             case 105 :
@@ -754,11 +815,11 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
             case 107 :
                 return jjMoveStringLiteralDfa3_0(active0, 0x1000000000000000L, active1, 0L);
             case 108 :
-                return jjMoveStringLiteralDfa3_0(active0, 0xe2000000001000L, active1, 0L);
+                return jjMoveStringLiteralDfa3_0(active0, 0xe2000000001000L, active1, 0x20000000L);
             case 109 :
                 return jjMoveStringLiteralDfa3_0(active0, 0x1c000010000000L, active1, 0L);
             case 110 :
-                return jjMoveStringLiteralDfa3_0(active0, 0L, active1, 0x4800L);
+                return jjMoveStringLiteralDfa3_0(active0, 0L, active1, 0x4000000004800L);
             case 111 :
                 return jjMoveStringLiteralDfa3_0(active0, 0x2000000040000000L, active1, 0x40L);
             case 114 :
@@ -767,9 +828,9 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                 }
                 return jjMoveStringLiteralDfa3_0(active0, 0x18005060000L, active1, 0L);
             case 115 :
-                return jjMoveStringLiteralDfa3_0(active0, 0x800000L, active1, 0x400000L);
+                return jjMoveStringLiteralDfa3_0(active0, 0x800000L, active1, 0xc0400000L);
             case 116 :
-                return jjMoveStringLiteralDfa3_0(active0, 0L, active1, 0x4010000L);
+                return jjMoveStringLiteralDfa3_0(active0, 0L, active1, 0xc04010000L);
             case 117 :
                 return jjMoveStringLiteralDfa3_0(active0, 0x600000000000L, active1, 0L);
             case 118 :
@@ -778,7 +839,7 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                 if ((active0 & 0x8000L) != 0L) {
                     return jjStartNfaWithStates_0(2, 15, 19);
                 }
-                break;
+                return jjMoveStringLiteralDfa3_0(active0, 0L, active1, 0x70000000000L);
             case 120 :
                 return jjMoveStringLiteralDfa3_0(active0, 0L, active1, 0x2000L);
             case 121 :
@@ -812,11 +873,11 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
         }
         switch (curChar) {
             case 95 :
-                return jjMoveStringLiteralDfa4_0(active0, 0x2000000000000000L, active1, 0x2000L);
+                return jjMoveStringLiteralDfa4_0(active0, 0x2000000000000000L, active1, 0x70000002000L);
             case 99 :
                 return jjMoveStringLiteralDfa4_0(active0, 0L, active1, 0x10002L);
             case 100 :
-                return jjMoveStringLiteralDfa4_0(active0, 0x4000000000200000L, active1, 0L);
+                return jjMoveStringLiteralDfa4_0(active0, 0x4000000000200000L, active1, 0x4000000000000L);
             case 101 :
                 if ((active0 & 0x10000L) != 0L) {
                     return jjStartNfaWithStates_0(3, 16, 19);
@@ -836,7 +897,7 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                     jjmatchedKind = 23;
                     jjmatchedPos  = 3;
                 }
-                return jjMoveStringLiteralDfa4_0(active0, 0L, active1, 0x400000L);
+                return jjMoveStringLiteralDfa4_0(active0, 0L, active1, 0xc0400000L);
             case 107 :
                 if ((active0 & 0x400000L) != 0L) {
                     jjmatchedKind = 22;
@@ -844,11 +905,11 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                 } else if ((active1 & 0x40L) != 0L) {
                     return jjStartNfaWithStates_0(3, 70, 19);
                 }
-                return jjMoveStringLiteralDfa4_0(active0, 0x780000000L, active1, 0x3000000L);
+                return jjMoveStringLiteralDfa4_0(active0, 0x780000000L, active1, 0xe003000000L);
             case 108 :
                 return jjMoveStringLiteralDfa4_0(active0, 0x660000000400L, active1, 0L);
             case 109 :
-                return jjMoveStringLiteralDfa4_0(active0, 0x7000000000c0000L, active1, 0x80180L);
+                return jjMoveStringLiteralDfa4_0(active0, 0x7000000000c0000L, active1, 0xa000000080180L);
             case 110 :
                 if ((active0 & 0x1000000L) != 0L) {
                     jjmatchedKind = 24;
@@ -856,19 +917,19 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                 }
                 return jjMoveStringLiteralDfa4_0(active0, 0x1000018004000000L, active1, 0xc821L);
             case 111 :
-                return jjMoveStringLiteralDfa4_0(active0, 0x800000008000000L, active1, 0x18000008L);
+                return jjMoveStringLiteralDfa4_0(active0, 0x800000008000000L, active1, 0x338000008L);
             case 112 :
                 return jjMoveStringLiteralDfa4_0(active0, 0x40000000L, active1, 0L);
             case 114 :
-                return jjMoveStringLiteralDfa4_0(active0, 0x20000L, active1, 0x4200004L);
+                return jjMoveStringLiteralDfa4_0(active0, 0x20000L, active1, 0x1c04200004L);
             case 115 :
-                return jjMoveStringLiteralDfa4_0(active0, 0x1800000000000L, active1, 0x1400L);
+                return jjMoveStringLiteralDfa4_0(active0, 0x1800000000000L, active1, 0x10000000001400L);
             case 116 :
                 return jjMoveStringLiteralDfa4_0(active0, 0L, active1, 0x200L);
             case 119 :
                 return jjMoveStringLiteralDfa4_0(active0, 0x2000L, active1, 0L);
             case 121 :
-                return jjMoveStringLiteralDfa4_0(active0, 0x20000000L, active1, 0x940000L);
+                return jjMoveStringLiteralDfa4_0(active0, 0x20000000L, active1, 0x1f80000940000L);
             default :
                 break;
         }
@@ -895,16 +956,16 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
         }
         switch (curChar) {
             case 95 :
-                return jjMoveStringLiteralDfa5_0(active0, 0x401e667ff4202000L, active1, 0x2400180L);
+                return jjMoveStringLiteralDfa5_0(active0, 0x401e667ff4202000L, active1, 0x100020c2400180L);
             case 97 :
-                return jjMoveStringLiteralDfa5_0(active0, 0x40000L, active1, 0x5000000L);
+                return jjMoveStringLiteralDfa5_0(active0, 0x40000L, active1, 0x200cc05000000L);
             case 100 :
                 if ((active0 & 0x100000L) != 0L) {
                     return jjStartNfaWithStates_0(4, 20, 19);
                 }
-                break;
+                return jjMoveStringLiteralDfa5_0(active0, 0L, active1, 0x30000000000L);
             case 101 :
-                return jjMoveStringLiteralDfa5_0(active0, 0x18000000000L, active1, 0x940200L);
+                return jjMoveStringLiteralDfa5_0(active0, 0x18000000000L, active1, 0x1f80000940200L);
             case 103 :
                 return jjMoveStringLiteralDfa5_0(active0, 0xe0000000000000L, active1, 0x8021L);
             case 104 :
@@ -913,7 +974,7 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                 }
                 break;
             case 105 :
-                return jjMoveStringLiteralDfa5_0(active0, 0x1800000080400L, active1, 0x80000L);
+                return jjMoveStringLiteralDfa5_0(active0, 0x1800000080400L, active1, 0x8000000080000L);
             case 107 :
                 return jjMoveStringLiteralDfa5_0(active0, 0L, active1, 0x2L);
             case 109 :
@@ -921,18 +982,22 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
             case 110 :
                 return jjMoveStringLiteralDfa5_0(active0, 0x800000000000000L, active1, 0L);
             case 111 :
-                return jjMoveStringLiteralDfa5_0(active0, 0x1700000000020000L, active1, 0x6800L);
+                return jjMoveStringLiteralDfa5_0(active0, 0x1700000000020000L, active1, 0x4000000006800L);
             case 114 :
-                return jjMoveStringLiteralDfa5_0(active0, 0x8000000L, active1, 0x18000000L);
+                return jjMoveStringLiteralDfa5_0(active0, 0x8000000L, active1, 0x318000000L);
+            case 115 :
+                return jjMoveStringLiteralDfa5_0(active0, 0L, active1, 0x40000000000L);
             case 116 :
                 if ((active1 & 0x4L) != 0L) {
                     return jjStartNfaWithStates_0(4, 66, 19);
                 }
-                return jjMoveStringLiteralDfa5_0(active0, 0L, active1, 0x200000L);
+                return jjMoveStringLiteralDfa5_0(active0, 0L, active1, 0x1000200000L);
             case 117 :
                 return jjMoveStringLiteralDfa5_0(active0, 0L, active1, 0x1400L);
             case 118 :
                 return jjMoveStringLiteralDfa5_0(active0, 0L, active1, 0x8L);
+            case 119 :
+                return jjMoveStringLiteralDfa5_0(active0, 0L, active1, 0x20000000L);
             default :
                 break;
         }
@@ -959,11 +1024,11 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
         }
         switch (curChar) {
             case 95 :
-                return jjMoveStringLiteralDfa6_0(active0, 0L, active1, 0x4000002L);
+                return jjMoveStringLiteralDfa6_0(active0, 0L, active1, 0xc24000002L);
             case 97 :
-                return jjMoveStringLiteralDfa6_0(active0, 0x20e0000000200000L, active1, 0x200L);
+                return jjMoveStringLiteralDfa6_0(active0, 0x20e0000000200000L, active1, 0x30000000200L);
             case 98 :
-                return jjMoveStringLiteralDfa6_0(active0, 0x40000000L, active1, 0x1001000L);
+                return jjMoveStringLiteralDfa6_0(active0, 0x40000000L, active1, 0xc001001000L);
             case 99 :
                 return jjMoveStringLiteralDfa6_0(active0, 0L, active1, 0x400L);
             case 100 :
@@ -978,7 +1043,7 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
             case 103 :
                 return jjMoveStringLiteralDfa6_0(active0, 0L, active1, 0x100L);
             case 105 :
-                return jjMoveStringLiteralDfa6_0(active0, 0x600000000L, active1, 0x200000L);
+                return jjMoveStringLiteralDfa6_0(active0, 0x600000000L, active1, 0x1000200000L);
             case 107 :
                 return jjMoveStringLiteralDfa6_0(active0, 0x67800000000L, active1, 0L);
             case 108 :
@@ -989,20 +1054,20 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                 }
                 break;
             case 109 :
-                return jjMoveStringLiteralDfa6_0(active0, 0x2000L, active1, 0L);
+                return jjMoveStringLiteralDfa6_0(active0, 0x2000L, active1, 0x14000000000000L);
             case 110 :
-                return jjMoveStringLiteralDfa6_0(active0, 0x800000004080000L, active1, 0x80080L);
+                return jjMoveStringLiteralDfa6_0(active0, 0x800000004080000L, active1, 0x8000000080080L);
             case 111 :
                 return jjMoveStringLiteralDfa6_0(active0, 0x1b0000000L, active1, 0L);
             case 112 :
-                return jjMoveStringLiteralDfa6_0(active0, 0L, active1, 0x400000L);
+                return jjMoveStringLiteralDfa6_0(active0, 0L, active1, 0xc0400000L);
             case 114 :
                 if ((active0 & 0x200000000000L) != 0L) {
                     return jjStartNfaWithStates_0(5, 45, 19);
                 }
-                return jjMoveStringLiteralDfa6_0(active0, 0x700018000000000L, active1, 0x2940000L);
+                return jjMoveStringLiteralDfa6_0(active0, 0x700018000000000L, active1, 0x1f82002940000L);
             case 116 :
-                return jjMoveStringLiteralDfa6_0(active0, 0x4002000000000000L, active1, 0x18004800L);
+                return jjMoveStringLiteralDfa6_0(active0, 0x4002000000000000L, active1, 0x40318004800L);
             case 117 :
                 return jjMoveStringLiteralDfa6_0(active0, 0xc000000000000L, active1, 0L);
             case 119 :
@@ -1010,6 +1075,11 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                     return jjStartNfaWithStates_0(5, 17, 19);
                 }
                 return jjMoveStringLiteralDfa6_0(active0, 0x1000000000000000L, active1, 0L);
+            case 120 :
+                if ((active1 & 0x2000000000000L) != 0L) {
+                    return jjStartNfaWithStates_0(5, 113, 19);
+                }
+                break;
             default :
                 break;
         }
@@ -1036,13 +1106,13 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
         }
         switch (curChar) {
             case 95 :
-                return jjMoveStringLiteralDfa7_0(active0, 0x18008000000L, active1, 0x1894e821L);
+                return jjMoveStringLiteralDfa7_0(active0, 0x18008000000L, active1, 0x5f8031894e821L);
             case 97 :
                 if ((active0 & 0x80000L) != 0L) {
                     jjmatchedKind = 19;
                     jjmatchedPos  = 6;
                 }
-                return jjMoveStringLiteralDfa7_0(active0, 0x40000000L, active1, 0x2280080L);
+                return jjMoveStringLiteralDfa7_0(active0, 0x40000000L, active1, 0x18043002280080L);
             case 98 :
                 return jjMoveStringLiteralDfa7_0(active0, 0L, active1, 0x2L);
             case 101 :
@@ -1054,16 +1124,16 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
             case 105 :
                 return jjMoveStringLiteralDfa7_0(active0, 0x2067800000000L, active1, 0L);
             case 108 :
-                return jjMoveStringLiteralDfa7_0(active0, 0xe0000000000000L, active1, 0x1000000L);
+                return jjMoveStringLiteralDfa7_0(active0, 0xe0000000000000L, active1, 0xc001000000L);
             case 109 :
-                return jjMoveStringLiteralDfa7_0(active0, 0L, active1, 0x200L);
+                return jjMoveStringLiteralDfa7_0(active0, 0L, active1, 0x20000200L);
             case 110 :
                 if ((active0 & 0x20000000L) != 0L) {
                     return jjStartNfaWithStates_0(6, 29, 19);
                 }
                 return jjMoveStringLiteralDfa7_0(active0, 0x3000000600200000L, active1, 0L);
             case 111 :
-                return jjMoveStringLiteralDfa7_0(active0, 0x4000000000002000L, active1, 0x400000L);
+                return jjMoveStringLiteralDfa7_0(active0, 0x4000000000002000L, active1, 0xc0400000L);
             case 112 :
                 if ((active0 & 0x4000000000000L) != 0L) {
                     jjmatchedKind = 50;
@@ -1076,7 +1146,7 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                 }
                 return jjMoveStringLiteralDfa7_0(active0, 0L, active1, 0x100L);
             case 115 :
-                return jjMoveStringLiteralDfa7_0(active0, 0L, active1, 0x4001000L);
+                return jjMoveStringLiteralDfa7_0(active0, 0L, active1, 0x30c04001000L);
             case 118 :
                 return jjMoveStringLiteralDfa7_0(active0, 0x10000000L, active1, 0L);
             case 120 :
@@ -1107,39 +1177,48 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
         }
         switch (curChar) {
             case 95 :
-                return jjMoveStringLiteralDfa8_0(active0, 0x17e9800600000000L, active1, 0x281600L);
+                return jjMoveStringLiteralDfa8_0(active0, 0x17e9800600000000L, active1, 0x8001000281600L);
             case 97 :
                 return jjMoveStringLiteralDfa8_0(active0, 0L, active1, 0x102L);
             case 99 :
                 return jjMoveStringLiteralDfa8_0(active0, 0x800067804000000L, active1, 0x4000L);
             case 100 :
-                return jjMoveStringLiteralDfa8_0(active0, 0x2000L, active1, 0x100000L);
+                return jjMoveStringLiteralDfa8_0(active0, 0x2000L, active1, 0x180000100000L);
             case 101 :
-                return jjMoveStringLiteralDfa8_0(active0, 0x10000000L, active1, 0x1000000L);
+                return jjMoveStringLiteralDfa8_0(active0, 0x10000000L, active1, 0xc001000000L);
             case 102 :
                 return jjMoveStringLiteralDfa8_0(active0, 0x180000000L, active1, 0L);
             case 103 :
                 return jjMoveStringLiteralDfa8_0(active0, 0x200000L, active1, 0L);
+            case 104 :
+                return jjMoveStringLiteralDfa8_0(active0, 0L, active1, 0x30000000000L);
             case 107 :
                 return jjMoveStringLiteralDfa8_0(active0, 0x18008000000L, active1, 0L);
             case 108 :
                 return jjMoveStringLiteralDfa8_0(active0, 0x40000000L, active1, 0L);
             case 109 :
-                return jjMoveStringLiteralDfa8_0(active0, 0x2000000000000L, active1, 0x18000081L);
+                return jjMoveStringLiteralDfa8_0(active0, 0x2000000000000L, active1, 0x40318000081L);
             case 110 :
-                return jjMoveStringLiteralDfa8_0(active0, 0L, active1, 0x2000000L);
+                return jjMoveStringLiteralDfa8_0(active0, 0L, active1, 0x2002000000L);
             case 111 :
                 return jjMoveStringLiteralDfa8_0(active0, 0x4000000000000000L, active1, 0L);
             case 112 :
                 return jjMoveStringLiteralDfa8_0(active0, 0L, active1, 0x20L);
             case 115 :
-                return jjMoveStringLiteralDfa8_0(active0, 0L, active1, 0x840800L);
+                return jjMoveStringLiteralDfa8_0(active0, 0L, active1, 0x4e00000840800L);
             case 116 :
-                return jjMoveStringLiteralDfa8_0(active0, 0x10000000000000L, active1, 0x4002000L);
+                return jjMoveStringLiteralDfa8_0(active0, 0x10000000000000L, active1, 0x1000c04002000L);
+            case 117 :
+                return jjMoveStringLiteralDfa8_0(active0, 0L, active1, 0x20000000L);
             case 118 :
                 return jjMoveStringLiteralDfa8_0(active0, 0L, active1, 0x8000L);
             case 119 :
-                return jjMoveStringLiteralDfa8_0(active0, 0L, active1, 0x400000L);
+                return jjMoveStringLiteralDfa8_0(active0, 0L, active1, 0xc0400000L);
+            case 120 :
+                if ((active1 & 0x10000000000000L) != 0L) {
+                    return jjStartNfaWithStates_0(7, 116, 19);
+                }
+                break;
             case 121 :
                 return jjMoveStringLiteralDfa8_0(active0, 0x2000000000000000L, active1, 0L);
             default :
@@ -1168,29 +1247,30 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
         }
         switch (curChar) {
             case 95 :
-                return jjMoveStringLiteralDfa9_0(active0, 0x6000000180000000L, active1, 0x1000000L);
+                return jjMoveStringLiteralDfa9_0(active0, 0x6000000180000000L, active1, 0x3c001000000L);
             case 97 :
-                return jjMoveStringLiteralDfa9_0(active0, 0L, active1, 0xc000000L);
+                return jjMoveStringLiteralDfa9_0(active0, 0L, active1, 0xd0c000000L);
             case 99 :
                 return jjMoveStringLiteralDfa9_0(active0, 0x1040000000000000L, active1, 0L);
             case 100 :
                 if ((active1 & 0x2000000L) != 0L) {
-                    return jjStartNfaWithStates_0(8, 89, 19);
+                    jjmatchedKind = 89;
+                    jjmatchedPos  = 8;
                 }
-                break;
+                return jjMoveStringLiteralDfa9_0(active0, 0L, active1, 0x2000000000L);
             case 101 :
                 if ((active0 & 0x2000L) != 0L) {
                     return jjStartNfaWithStates_0(8, 13, 19);
                 } else if ((active0 & 0x2000000000000L) != 0L) {
                     return jjStartNfaWithStates_0(8, 49, 19);
                 }
-                return jjMoveStringLiteralDfa9_0(active0, 0x10000000000000L, active1, 0x500080L);
+                return jjMoveStringLiteralDfa9_0(active0, 0x10000000000000L, active1, 0x41800c0500080L);
             case 102 :
                 return jjMoveStringLiteralDfa9_0(active0, 0L, active1, 0x200L);
             case 104 :
                 return jjMoveStringLiteralDfa9_0(active0, 0L, active1, 0x6000L);
             case 105 :
-                return jjMoveStringLiteralDfa9_0(active0, 0x18008000000L, active1, 0x10888000L);
+                return jjMoveStringLiteralDfa9_0(active0, 0x18008000000L, active1, 0x8240210888000L);
             case 107 :
                 if ((active0 & 0x4000000L) != 0L) {
                     return jjStartNfaWithStates_0(8, 26, 19);
@@ -1204,13 +1284,13 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                 } else if ((active0 & 0x1000000000000L) != 0L) {
                     return jjStartNfaWithStates_0(8, 48, 19);
                 }
-                return jjMoveStringLiteralDfa9_0(active0, 0x200000L, active1, 0x1022L);
+                return jjMoveStringLiteralDfa9_0(active0, 0x200000L, active1, 0x20001022L);
             case 109 :
-                return jjMoveStringLiteralDfa9_0(active0, 0x20000000000000L, active1, 0x200000L);
+                return jjMoveStringLiteralDfa9_0(active0, 0x20000000000000L, active1, 0x1000200000L);
             case 111 :
                 return jjMoveStringLiteralDfa9_0(active0, 0x80000000000000L, active1, 0x1L);
             case 112 :
-                return jjMoveStringLiteralDfa9_0(active0, 0x400000000000000L, active1, 0x40500L);
+                return jjMoveStringLiteralDfa9_0(active0, 0x400000000000000L, active1, 0xc00000040500L);
             case 114 :
                 if ((active0 & 0x10000000L) != 0L) {
                     return jjStartNfaWithStates_0(8, 28, 19);
@@ -1229,6 +1309,8 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                 return jjMoveStringLiteralDfa9_0(active0, 0L, active1, 0x800L);
             case 119 :
                 return jjMoveStringLiteralDfa9_0(active0, 0x8000000000000L, active1, 0L);
+            case 121 :
+                return jjMoveStringLiteralDfa9_0(active0, 0L, active1, 0x1000000000000L);
             default :
                 break;
         }
@@ -1255,20 +1337,20 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
         }
         switch (curChar) {
             case 95 :
-                return jjMoveStringLiteralDfa10_0(active0, 0x67800000000L, active1, 0L);
+                return jjMoveStringLiteralDfa10_0(active0, 0x67800000000L, active1, 0x2000000000L);
             case 97 :
                 return jjMoveStringLiteralDfa10_0(active0, 0L, active1, 0x6020L);
             case 98 :
                 return jjMoveStringLiteralDfa10_0(active0, 0x80000000000000L, active1, 0x800L);
             case 99 :
-                return jjMoveStringLiteralDfa10_0(active0, 0x18008000000L, active1, 0x100000L);
+                return jjMoveStringLiteralDfa10_0(active0, 0x18008000000L, active1, 0x180000100000L);
             case 100 :
                 return jjMoveStringLiteralDfa10_0(active0, 0L, active1, 0x1L);
             case 101 :
                 if ((active0 & 0x200000L) != 0L) {
                     return jjStartNfaWithStates_0(9, 21, 19);
                 }
-                return jjMoveStringLiteralDfa10_0(active0, 0x300000000000000L, active1, 0x49000L);
+                return jjMoveStringLiteralDfa10_0(active0, 0x300000000000000L, active1, 0x4c00000049000L);
             case 104 :
                 return jjMoveStringLiteralDfa10_0(active0, 0L, active1, 0x100L);
             case 105 :
@@ -1281,31 +1363,37 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                 }
                 return jjMoveStringLiteralDfa10_0(active0, 0x400000000000000L, active1, 0x400L);
             case 109 :
-                return jjMoveStringLiteralDfa10_0(active0, 0x6000000000000000L, active1, 0x5000000L);
+                return jjMoveStringLiteralDfa10_0(active0, 0x6000000000000000L, active1, 0xcc05000000L);
             case 110 :
                 if ((active1 & 0x10000000L) != 0L) {
-                    return jjStartNfaWithStates_0(9, 92, 19);
+                    jjmatchedKind = 92;
+                    jjmatchedPos  = 9;
                 }
-                return jjMoveStringLiteralDfa10_0(active0, 0x10000000000000L, active1, 0x80000L);
+                return jjMoveStringLiteralDfa10_0(active0, 0x10000000000000L, active1, 0x8040200080000L);
             case 111 :
-                return jjMoveStringLiteralDfa10_0(active0, 0x1060000000000000L, active1, 0x200200L);
+                return jjMoveStringLiteralDfa10_0(active0, 0x1060000000000000L, active1, 0x1000200200L);
+            case 112 :
+                return jjMoveStringLiteralDfa10_0(active0, 0L, active1, 0x1030000000000L);
             case 114 :
                 if ((active0 & 0x100000000L) != 0L) {
                     return jjStartNfaWithStates_0(9, 32, 19);
                 }
-                return jjMoveStringLiteralDfa10_0(active0, 0L, active1, 0x400000L);
+                return jjMoveStringLiteralDfa10_0(active0, 0L, active1, 0xc0400000L);
             case 115 :
                 if ((active1 & 0x80L) != 0L) {
                     return jjStartNfaWithStates_0(9, 71, 19);
                 }
                 break;
+            case 116 :
+                return jjMoveStringLiteralDfa10_0(active0, 0L, active1, 0x20000000L);
             case 120 :
                 if ((active1 & 0x8000000L) != 0L) {
-                    return jjStartNfaWithStates_0(9, 91, 19);
+                    jjmatchedKind = 91;
+                    jjmatchedPos  = 9;
                 }
-                break;
+                return jjMoveStringLiteralDfa10_0(active0, 0L, active1, 0x100000000L);
             case 122 :
-                return jjMoveStringLiteralDfa10_0(active0, 0L, active1, 0x800000L);
+                return jjMoveStringLiteralDfa10_0(active0, 0L, active1, 0x200000800000L);
             default :
                 break;
         }
@@ -1332,24 +1420,28 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
         }
         switch (curChar) {
             case 95 :
-                return jjMoveStringLiteralDfa11_0(active0, 0L, active1, 0x400800L);
+                return jjMoveStringLiteralDfa11_0(active0, 0L, active1, 0x3e0400800L);
             case 97 :
-                return jjMoveStringLiteralDfa11_0(active0, 0x4700000000000000L, active1, 0x1100400L);
+                return jjMoveStringLiteralDfa11_0(active0, 0x4700000000000000L, active1, 0x1cc001100400L);
             case 99 :
-                return jjMoveStringLiteralDfa11_0(active0, 0L, active1, 0x80000L);
+                return jjMoveStringLiteralDfa11_0(active0, 0L, active1, 0x8000000080000L);
             case 100 :
-                return jjMoveStringLiteralDfa11_0(active0, 0x30000000000000L, active1, 0L);
+                if ((active1 & 0x4000000000000L) != 0L) {
+                    return jjStartNfaWithStates_0(10, 114, 19);
+                }
+                return jjMoveStringLiteralDfa11_0(active0, 0x30000000000000L, active1, 0x2000000000L);
             case 101 :
                 if ((active1 & 0x1L) != 0L) {
                     return jjStartNfaWithStates_0(10, 64, 19);
                 } else if ((active1 & 0x800000L) != 0L) {
-                    return jjStartNfaWithStates_0(10, 87, 19);
+                    jjmatchedKind = 87;
+                    jjmatchedPos  = 10;
                 }
-                return jjMoveStringLiteralDfa11_0(active0, 0L, active1, 0x40000L);
+                return jjMoveStringLiteralDfa11_0(active0, 0L, active1, 0x1e00000040000L);
             case 102 :
                 return jjMoveStringLiteralDfa11_0(active0, 0x6000000000L, active1, 0x1000L);
             case 105 :
-                return jjMoveStringLiteralDfa11_0(active0, 0L, active1, 0x4000100L);
+                return jjMoveStringLiteralDfa11_0(active0, 0L, active1, 0xc04000100L);
             case 106 :
                 return jjMoveStringLiteralDfa11_0(active0, 0x80000000000000L, active1, 0L);
             case 107 :
@@ -1362,11 +1454,11 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                 }
                 break;
             case 109 :
-                return jjMoveStringLiteralDfa11_0(active0, 0x1040000000000000L, active1, 0x200000L);
+                return jjMoveStringLiteralDfa11_0(active0, 0x1040000000000000L, active1, 0x1000200000L);
             case 110 :
                 return jjMoveStringLiteralDfa11_0(active0, 0L, active1, 0x4000L);
             case 111 :
-                return jjMoveStringLiteralDfa11_0(active0, 0x2000000000000000L, active1, 0L);
+                return jjMoveStringLiteralDfa11_0(active0, 0x2000000000000000L, active1, 0x30000000000L);
             case 114 :
                 if ((active0 & 0x800000000L) != 0L) {
                     return jjStartNfaWithStates_0(10, 35, 19);
@@ -1411,7 +1503,7 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
         }
         switch (curChar) {
             case 95 :
-                return jjMoveStringLiteralDfa12_0(active0, 0x18008000000L, active1, 0x82000L);
+                return jjMoveStringLiteralDfa12_0(active0, 0x18008000000L, active1, 0x8240000082000L);
             case 97 :
                 return jjMoveStringLiteralDfa12_0(active0, 0x6000000000L, active1, 0L);
             case 99 :
@@ -1420,12 +1512,12 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                 }
                 break;
             case 100 :
-                return jjMoveStringLiteralDfa12_0(active0, 0L, active1, 0x40000L);
+                return jjMoveStringLiteralDfa12_0(active0, 0L, active1, 0xc00320040000L);
             case 101 :
                 if ((active0 & 0x20000000000000L) != 0L) {
                     return jjStartNfaWithStates_0(11, 53, 19);
                 }
-                return jjMoveStringLiteralDfa12_0(active0, 0x90000000000000L, active1, 0x200020L);
+                return jjMoveStringLiteralDfa12_0(active0, 0x90000000000000L, active1, 0x3000200020L);
             case 103 :
                 return jjMoveStringLiteralDfa12_0(active0, 0L, active1, 0x4000L);
             case 104 :
@@ -1433,9 +1525,14 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
             case 109 :
                 return jjMoveStringLiteralDfa12_0(active0, 0x1340000000000000L, active1, 0L);
             case 110 :
-                return jjMoveStringLiteralDfa12_0(active0, 0x4000000000000000L, active1, 0x4000200L);
+                return jjMoveStringLiteralDfa12_0(active0, 0x4000000000000000L, active1, 0xc04000200L);
             case 114 :
-                return jjMoveStringLiteralDfa12_0(active0, 0L, active1, 0x1400000L);
+                return jjMoveStringLiteralDfa12_0(active0, 0L, active1, 0xc0c1400000L);
+            case 115 :
+                if ((active1 & 0x1000000000000L) != 0L) {
+                    return jjStartNfaWithStates_0(11, 112, 19);
+                }
+                break;
             case 116 :
                 if ((active1 & 0x1000L) != 0L) {
                     return jjStartNfaWithStates_0(11, 76, 19);
@@ -1444,12 +1541,13 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
             case 118 :
                 return jjMoveStringLiteralDfa12_0(active0, 0x2000000000000000L, active1, 0L);
             case 119 :
-                return jjMoveStringLiteralDfa12_0(active0, 0L, active1, 0x800L);
+                return jjMoveStringLiteralDfa12_0(active0, 0L, active1, 0x30000000800L);
             case 121 :
                 if ((active1 & 0x100000L) != 0L) {
-                    return jjStartNfaWithStates_0(11, 84, 19);
+                    jjmatchedKind = 84;
+                    jjmatchedPos  = 11;
                 }
-                return jjMoveStringLiteralDfa12_0(active0, 0x400000000000000L, active1, 0x400L);
+                return jjMoveStringLiteralDfa12_0(active0, 0x400000000000000L, active1, 0x180000000400L);
             default :
                 break;
         }
@@ -1476,12 +1574,13 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
         }
         switch (curChar) {
             case 95 :
-                return jjMoveStringLiteralDfa13_0(active0, 0x300000000000000L, active1, 0x40000L);
+                return jjMoveStringLiteralDfa13_0(active0, 0x300000000000000L, active1, 0xd80000040000L);
             case 97 :
                 if ((active1 & 0x4000000L) != 0L) {
-                    return jjStartNfaWithStates_0(12, 90, 19);
+                    jjmatchedKind = 90;
+                    jjmatchedPos  = 12;
                 }
-                return jjMoveStringLiteralDfa13_0(active0, 0x1040000000000000L, active1, 0x400000L);
+                return jjMoveStringLiteralDfa13_0(active0, 0x1040000000000000L, active1, 0xcc0400000L);
             case 99 :
                 return jjMoveStringLiteralDfa13_0(active0, 0x80000000000000L, active1, 0L);
             case 100 :
@@ -1490,22 +1589,24 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                 } else if ((active1 & 0x200L) != 0L) {
                     return jjStartNfaWithStates_0(12, 73, 19);
                 }
-                break;
+                return jjMoveStringLiteralDfa13_0(active0, 0L, active1, 0x200000000000L);
             case 101 :
-                return jjMoveStringLiteralDfa13_0(active0, 0x2400000000000000L, active1, 0x4400L);
+                return jjMoveStringLiteralDfa13_0(active0, 0x2400000000000000L, active1, 0x30320004400L);
             case 103 :
-                return jjMoveStringLiteralDfa13_0(active0, 0L, active1, 0x1000000L);
+                return jjMoveStringLiteralDfa13_0(active0, 0L, active1, 0xc001000000L);
             case 104 :
                 return jjMoveStringLiteralDfa13_0(active0, 0L, active1, 0x800L);
+            case 105 :
+                return jjMoveStringLiteralDfa13_0(active0, 0L, active1, 0x40000000000L);
             case 108 :
                 if ((active0 & 0x10000000000L) != 0L) {
                     return jjStartNfaWithStates_0(12, 40, 19);
                 }
-                break;
+                return jjMoveStringLiteralDfa13_0(active0, 0L, active1, 0x2000000000L);
             case 109 :
-                return jjMoveStringLiteralDfa13_0(active0, 0L, active1, 0x80000L);
+                return jjMoveStringLiteralDfa13_0(active0, 0L, active1, 0x8000000080000L);
             case 110 :
-                return jjMoveStringLiteralDfa13_0(active0, 0L, active1, 0x200000L);
+                return jjMoveStringLiteralDfa13_0(active0, 0L, active1, 0x1000200000L);
             case 111 :
                 return jjMoveStringLiteralDfa13_0(active0, 0x8000008000000L, active1, 0L);
             case 114 :
@@ -1545,26 +1646,30 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
         }
         switch (curChar) {
             case 95 :
-                return jjMoveStringLiteralDfa14_0(active0, 0x4000000000000000L, active1, 0x4020L);
+                return jjMoveStringLiteralDfa14_0(active0, 0x4000000000000000L, active1, 0xc00004020L);
             case 97 :
-                return jjMoveStringLiteralDfa14_0(active0, 0L, active1, 0x80000L);
+                return jjMoveStringLiteralDfa14_0(active0, 0L, active1, 0x8000000080000L);
+            case 100 :
+                return jjMoveStringLiteralDfa14_0(active0, 0L, active1, 0x180000000000L);
+            case 101 :
+                return jjMoveStringLiteralDfa14_0(active0, 0L, active1, 0x200000000000L);
             case 102 :
-                return jjMoveStringLiteralDfa14_0(active0, 0x8000000L, active1, 0L);
+                return jjMoveStringLiteralDfa14_0(active0, 0x8000000L, active1, 0x20000000L);
             case 105 :
-                return jjMoveStringLiteralDfa14_0(active0, 0L, active1, 0x1000800L);
+                return jjMoveStringLiteralDfa14_0(active0, 0L, active1, 0xc001000800L);
             case 108 :
-                return jjMoveStringLiteralDfa14_0(active0, 0x6000000000L, active1, 0L);
+                return jjMoveStringLiteralDfa14_0(active0, 0x6000000000L, active1, 0x300000000L);
             case 109 :
-                return jjMoveStringLiteralDfa14_0(active0, 0L, active1, 0x40000L);
+                return jjMoveStringLiteralDfa14_0(active0, 0L, active1, 0xc00000040000L);
             case 110 :
-                return jjMoveStringLiteralDfa14_0(active0, 0x1040000000000000L, active1, 0L);
+                return jjMoveStringLiteralDfa14_0(active0, 0x1040000000000000L, active1, 0x40000000000L);
             case 111 :
                 return jjMoveStringLiteralDfa14_0(active0, 0x300000000000000L, active1, 0L);
             case 114 :
                 if ((active1 & 0x400L) != 0L) {
                     return jjStartNfaWithStates_0(13, 74, 19);
                 }
-                return jjMoveStringLiteralDfa14_0(active0, 0x400000000000000L, active1, 0L);
+                return jjMoveStringLiteralDfa14_0(active0, 0x400000000000000L, active1, 0x30000000000L);
             case 115 :
                 if ((active0 & 0x2000000000000000L) != 0L) {
                     return jjStartNfaWithStates_0(13, 61, 19);
@@ -1572,9 +1677,10 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                 break;
             case 116 :
                 if ((active1 & 0x200000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 85, 19);
+                    jjmatchedKind = 85;
+                    jjmatchedPos  = 13;
                 }
-                return jjMoveStringLiteralDfa14_0(active0, 0x80000000000000L, active1, 0x400000L);
+                return jjMoveStringLiteralDfa14_0(active0, 0x80000000000000L, active1, 0x30c0400000L);
             case 117 :
                 return jjMoveStringLiteralDfa14_0(active0, 0x8000000000000L, active1, 0L);
             case 121 :
@@ -1605,19 +1711,22 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
         }
         switch (curChar) {
             case 95 :
-                return jjMoveStringLiteralDfa15_0(active0, 0x480000000000000L, active1, 0L);
+                return jjMoveStringLiteralDfa15_0(active0, 0x480000000000000L, active1, 0x31000000000L);
             case 97 :
-                return jjMoveStringLiteralDfa15_0(active0, 0L, active1, 0x40000L);
+                return jjMoveStringLiteralDfa15_0(active0, 0L, active1, 0xc02020040000L);
+            case 99 :
+                return jjMoveStringLiteralDfa15_0(active0, 0L, active1, 0x40000000000L);
             case 100 :
                 if ((active0 & 0x1000000000000000L) != 0L) {
                     return jjStartNfaWithStates_0(14, 60, 19);
                 }
-                return jjMoveStringLiteralDfa15_0(active0, 0x40000000000000L, active1, 0L);
+                return jjMoveStringLiteralDfa15_0(active0, 0x40000000000000L, active1, 0xc00000000L);
             case 101 :
                 if ((active1 & 0x400000L) != 0L) {
-                    return jjStartNfaWithStates_0(14, 86, 19);
+                    jjmatchedKind = 86;
+                    jjmatchedPos  = 14;
                 }
-                break;
+                return jjMoveStringLiteralDfa15_0(active0, 0L, active1, 0x1800c0000000L);
             case 102 :
                 if ((active0 & 0x8000000L) != 0L) {
                     return jjStartNfaWithStates_0(14, 27, 19);
@@ -1626,25 +1735,27 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
             case 103 :
                 return jjMoveStringLiteralDfa15_0(active0, 0L, active1, 0x4000L);
             case 108 :
-                return jjMoveStringLiteralDfa15_0(active0, 0L, active1, 0x800L);
+                return jjMoveStringLiteralDfa15_0(active0, 0L, active1, 0x200000000800L);
             case 109 :
                 return jjMoveStringLiteralDfa15_0(active0, 0x4000000000000000L, active1, 0L);
             case 110 :
                 if ((active1 & 0x1000000L) != 0L) {
-                    return jjStartNfaWithStates_0(14, 88, 19);
+                    jjmatchedKind = 88;
+                    jjmatchedPos  = 14;
                 }
-                break;
+                return jjMoveStringLiteralDfa15_0(active0, 0L, active1, 0xc000000000L);
             case 112 :
                 return jjMoveStringLiteralDfa15_0(active0, 0L, active1, 0x2000L);
             case 114 :
                 return jjMoveStringLiteralDfa15_0(active0, 0x300000000000000L, active1, 0L);
             case 116 :
-                return jjMoveStringLiteralDfa15_0(active0, 0x8006000000000L, active1, 0x20L);
+                return jjMoveStringLiteralDfa15_0(active0, 0x8006000000000L, active1, 0x300000020L);
             case 120 :
                 if ((active1 & 0x80000L) != 0L) {
-                    return jjStartNfaWithStates_0(14, 83, 19);
+                    jjmatchedKind = 83;
+                    jjmatchedPos  = 14;
                 }
-                break;
+                return jjMoveStringLiteralDfa15_0(active0, 0L, active1, 0x8000000000000L);
             default :
                 break;
         }
@@ -1671,18 +1782,31 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
         }
         switch (curChar) {
             case 95 :
-                return jjMoveStringLiteralDfa16_0(active0, 0x348006000000000L, active1, 0L);
+                return jjMoveStringLiteralDfa16_0(active0, 0x348006000000000L, active1, 0x804e0c0000000L);
+            case 97 :
+                return jjMoveStringLiteralDfa16_0(active0, 0L, active1, 0x300000000L);
+            case 100 :
+                return jjMoveStringLiteralDfa16_0(active0, 0L, active1, 0x1000000000L);
             case 101 :
-                return jjMoveStringLiteralDfa16_0(active0, 0x4000000000000000L, active1, 0x2800L);
+                return jjMoveStringLiteralDfa16_0(active0, 0x4000000000000000L, active1, 0xc00002800L);
             case 102 :
                 return jjMoveStringLiteralDfa16_0(active0, 0x80000000000000L, active1, 0L);
+            case 108 :
+                return jjMoveStringLiteralDfa16_0(active0, 0L, active1, 0x180000000000L);
             case 111 :
                 return jjMoveStringLiteralDfa16_0(active0, 0x400000000000000L, active1, 0x4000L);
+            case 114 :
+                return jjMoveStringLiteralDfa16_0(active0, 0L, active1, 0x30000000000L);
+            case 116 :
+                return jjMoveStringLiteralDfa16_0(active0, 0L, active1, 0x200000000000L);
+            case 117 :
+                return jjMoveStringLiteralDfa16_0(active0, 0L, active1, 0x20000000L);
             case 120 :
                 if ((active1 & 0x40000L) != 0L) {
-                    return jjStartNfaWithStates_0(15, 82, 19);
+                    jjmatchedKind = 82;
+                    jjmatchedPos  = 15;
                 }
-                break;
+                return jjMoveStringLiteralDfa16_0(active0, 0L, active1, 0xc00000000000L);
             case 121 :
                 return jjMoveStringLiteralDfa16_0(active0, 0L, active1, 0x20L);
             default :
@@ -1711,16 +1835,22 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
         }
         switch (curChar) {
             case 95 :
-                return jjMoveStringLiteralDfa17_0(active0, 0L, active1, 0x2800L);
+                return jjMoveStringLiteralDfa17_0(active0, 0L, active1, 0xc00300002800L);
             case 97 :
-                return jjMoveStringLiteralDfa17_0(active0, 0x8000000000000L, active1, 0x4000L);
+                return jjMoveStringLiteralDfa17_0(active0, 0x8000000000000L, active1, 0x230000004000L);
+            case 100 :
+                return jjMoveStringLiteralDfa17_0(active0, 0L, active1, 0x800c0c0000000L);
+            case 101 :
+                return jjMoveStringLiteralDfa17_0(active0, 0L, active1, 0x1000000000L);
             case 102 :
-                return jjMoveStringLiteralDfa17_0(active0, 0x40000000000000L, active1, 0L);
+                return jjMoveStringLiteralDfa17_0(active0, 0x40000000000000L, active1, 0x2000000000L);
             case 108 :
                 if ((active0 & 0x4000000000L) != 0L) {
                     return jjStartNfaWithStates_0(16, 38, 19);
                 }
-                break;
+                return jjMoveStringLiteralDfa17_0(active0, 0L, active1, 0xc20000000L);
+            case 109 :
+                return jjMoveStringLiteralDfa17_0(active0, 0L, active1, 0x40000000000L);
             case 111 :
                 return jjMoveStringLiteralDfa17_0(active0, 0x80000000000000L, active1, 0L);
             case 112 :
@@ -1732,6 +1862,8 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                 return jjMoveStringLiteralDfa17_0(active0, 0x400000000000000L, active1, 0L);
             case 115 :
                 return jjMoveStringLiteralDfa17_0(active0, 0x4000000000000000L, active1, 0L);
+            case 116 :
+                return jjMoveStringLiteralDfa17_0(active0, 0L, active1, 0x180000000000L);
             default :
                 break;
         }
@@ -1758,14 +1890,20 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
         }
         switch (curChar) {
             case 95 :
-                return jjMoveStringLiteralDfa18_0(active0, 0x408000000000000L, active1, 0L);
+                return jjMoveStringLiteralDfa18_0(active0, 0x408000000000000L, active1, 0x200000000000L);
+            case 97 :
+                return jjMoveStringLiteralDfa18_0(active0, 0L, active1, 0x1c2000000000L);
+            case 100 :
+                return jjMoveStringLiteralDfa18_0(active0, 0L, active1, 0xc00000000000L);
             case 101 :
                 if ((active1 & 0x20L) != 0L) {
                     return jjStartNfaWithStates_0(17, 69, 19);
                 }
-                break;
+                return jjMoveStringLiteralDfa18_0(active0, 0L, active1, 0x800c0c0000000L);
+            case 102 :
+                return jjMoveStringLiteralDfa18_0(active0, 0L, active1, 0x300000000L);
             case 108 :
-                return jjMoveStringLiteralDfa18_0(active0, 0x300000000000000L, active1, 0x4000L);
+                return jjMoveStringLiteralDfa18_0(active0, 0x300000000000000L, active1, 0x1000004000L);
             case 111 :
                 return jjMoveStringLiteralDfa18_0(active0, 0x40000000000000L, active1, 0x2000L);
             case 112 :
@@ -1774,6 +1912,8 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                 return jjMoveStringLiteralDfa18_0(active0, 0x80000000000000L, active1, 0L);
             case 115 :
                 return jjMoveStringLiteralDfa18_0(active0, 0x4000000000000000L, active1, 0L);
+            case 116 :
+                return jjMoveStringLiteralDfa18_0(active0, 0L, active1, 0x30c20000000L);
             default :
                 break;
         }
@@ -1799,14 +1939,22 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
             return 18;
         }
         switch (curChar) {
+            case 95 :
+                return jjMoveStringLiteralDfa19_0(active0, 0L, active1, 0x180020000000L);
             case 97 :
-                return jjMoveStringLiteralDfa19_0(active0, 0x4300000000000000L, active1, 0L);
+                return jjMoveStringLiteralDfa19_0(active0, 0x4300000000000000L, active1, 0xf00000000L);
+            case 99 :
+                return jjMoveStringLiteralDfa19_0(active0, 0L, active1, 0x2000000000L);
+            case 101 :
+                return jjMoveStringLiteralDfa19_0(active0, 0L, active1, 0xc30000000000L);
+            case 102 :
+                return jjMoveStringLiteralDfa19_0(active0, 0L, active1, 0x200000000000L);
             case 103 :
                 return jjMoveStringLiteralDfa19_0(active0, 0x400000000000000L, active1, 0L);
             case 105 :
                 return jjMoveStringLiteralDfa19_0(active0, 0L, active1, 0x4000L);
             case 108 :
-                return jjMoveStringLiteralDfa19_0(active0, 0L, active1, 0x800L);
+                return jjMoveStringLiteralDfa19_0(active0, 0L, active1, 0x800c0c0000800L);
             case 109 :
                 if ((active0 & 0x80000000000000L) != 0L) {
                     return jjStartNfaWithStates_0(18, 55, 19);
@@ -1817,7 +1965,9 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
             case 114 :
                 return jjMoveStringLiteralDfa19_0(active0, 0x40000000000000L, active1, 0L);
             case 116 :
-                return jjMoveStringLiteralDfa19_0(active0, 0x8000000000000L, active1, 0L);
+                return jjMoveStringLiteralDfa19_0(active0, 0x8000000000000L, active1, 0x1000000000L);
+            case 120 :
+                return jjMoveStringLiteralDfa19_0(active0, 0L, active1, 0x40000000000L);
             default :
                 break;
         }
@@ -1844,9 +1994,11 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
         }
         switch (curChar) {
             case 95 :
-                return jjMoveStringLiteralDfa20_0(active0, 0L, active1, 0x2000L);
+                return jjMoveStringLiteralDfa20_0(active0, 0L, active1, 0x70c00002000L);
             case 97 :
-                return jjMoveStringLiteralDfa20_0(active0, 0L, active1, 0x800L);
+                return jjMoveStringLiteralDfa20_0(active0, 0L, active1, 0x201000000800L);
+            case 99 :
+                return jjMoveStringLiteralDfa20_0(active0, 0L, active1, 0x300000000L);
             case 101 :
                 if ((active1 & 0x4000L) != 0L) {
                     return jjStartNfaWithStates_0(19, 78, 19);
@@ -1854,13 +2006,17 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                 return jjMoveStringLiteralDfa20_0(active0, 0x8000000000000L, active1, 0L);
             case 103 :
                 return jjMoveStringLiteralDfa20_0(active0, 0x4000000000000000L, active1, 0L);
+            case 108 :
+                return jjMoveStringLiteralDfa20_0(active0, 0L, active1, 0xc00000000000L);
             case 109 :
                 if ((active0 & 0x40000000000000L) != 0L) {
                     return jjStartNfaWithStates_0(19, 54, 19);
                 }
-                break;
+                return jjMoveStringLiteralDfa20_0(active0, 0L, active1, 0x180000000000L);
             case 111 :
                 return jjMoveStringLiteralDfa20_0(active0, 0x400000000000000L, active1, 0L);
+            case 116 :
+                return jjMoveStringLiteralDfa20_0(active0, 0L, active1, 0x800e0e0000000L);
             case 121 :
                 return jjMoveStringLiteralDfa20_0(active0, 0x300000000000000L, active1, 0L);
             default :
@@ -1888,14 +2044,28 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
             return 20;
         }
         switch (curChar) {
+            case 95 :
+                return jjMoveStringLiteralDfa21_0(active0, 0L, active1, 0x1000000000L);
             case 97 :
-                return jjMoveStringLiteralDfa21_0(active0, 0x408000000000000L, active1, 0L);
+                return jjMoveStringLiteralDfa21_0(active0, 0x408000000000000L, active1, 0x808c0c0000000L);
+            case 99 :
+                return jjMoveStringLiteralDfa21_0(active0, 0L, active1, 0x200000000000L);
+            case 100 :
+                return jjMoveStringLiteralDfa21_0(active0, 0L, active1, 0x70000000000L);
             case 101 :
                 return jjMoveStringLiteralDfa21_0(active0, 0x4300000000000000L, active1, 0L);
             case 102 :
                 return jjMoveStringLiteralDfa21_0(active0, 0L, active1, 0x2000L);
+            case 105 :
+                return jjMoveStringLiteralDfa21_0(active0, 0L, active1, 0x100000000000L);
+            case 109 :
+                return jjMoveStringLiteralDfa21_0(active0, 0L, active1, 0xc00000000L);
+            case 111 :
+                return jjMoveStringLiteralDfa21_0(active0, 0L, active1, 0x2000000000L);
+            case 116 :
+                return jjMoveStringLiteralDfa21_0(active0, 0L, active1, 0xc00300000000L);
             case 121 :
-                return jjMoveStringLiteralDfa21_0(active0, 0L, active1, 0x800L);
+                return jjMoveStringLiteralDfa21_0(active0, 0L, active1, 0x20000800L);
             default :
                 break;
         }
@@ -1921,8 +2091,16 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
             return 21;
         }
         switch (curChar) {
+            case 95 :
+                return jjMoveStringLiteralDfa22_0(active0, 0L, active1, 0x800c0c0000000L);
+            case 97 :
+                return jjMoveStringLiteralDfa22_0(active0, 0L, active1, 0xc00400000000L);
+            case 101 :
+                return jjMoveStringLiteralDfa22_0(active0, 0L, active1, 0x70000000000L);
+            case 102 :
+                return jjMoveStringLiteralDfa22_0(active0, 0L, active1, 0x1000000000L);
             case 105 :
-                return jjMoveStringLiteralDfa22_0(active0, 0L, active1, 0x2000L);
+                return jjMoveStringLiteralDfa22_0(active0, 0L, active1, 0x800002000L);
             case 108 :
                 return jjMoveStringLiteralDfa22_0(active0, 0x400000000000000L, active1, 0L);
             case 109 :
@@ -1930,17 +2108,33 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                     return jjStartNfaWithStates_0(21, 51, 19);
                 }
                 break;
+            case 110 :
+                if ((active1 & 0x100000000000L) != 0L) {
+                    return jjStartNfaWithStates_0(21, 108, 19);
+                }
+                break;
             case 111 :
-                return jjMoveStringLiteralDfa22_0(active0, 0L, active1, 0x800L);
+                return jjMoveStringLiteralDfa22_0(active0, 0L, active1, 0x300000800L);
+            case 112 :
+                return jjMoveStringLiteralDfa22_0(active0, 0L, active1, 0x20000000L);
             case 114 :
                 if ((active0 & 0x100000000000000L) != 0L) {
                     jjmatchedKind = 56;
                     jjmatchedPos  = 21;
+                } else if ((active1 & 0x2000000000L) != 0L) {
+                    return jjStartNfaWithStates_0(21, 101, 19);
                 }
                 return jjMoveStringLiteralDfa22_0(active0, 0x200000000000000L, active1, 0L);
             case 115 :
                 if ((active0 & 0x4000000000000000L) != 0L) {
                     return jjStartNfaWithStates_0(21, 62, 19);
+                }
+                break;
+            case 116 :
+                return jjMoveStringLiteralDfa22_0(active0, 0L, active1, 0x200000000000L);
+            case 120 :
+                if ((active1 & 0x80000000000L) != 0L) {
+                    return jjStartNfaWithStates_0(21, 107, 19);
                 }
                 break;
             default :
@@ -1969,14 +2163,41 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
         }
         switch (curChar) {
             case 95 :
-                return jjMoveStringLiteralDfa23_0(active0, 0x200000000000000L, active1, 0L);
+                return jjMoveStringLiteralDfa23_0(active0, 0x200000000000000L, active1, 0xc00000000000L);
+            case 97 :
+                return jjMoveStringLiteralDfa23_0(active0, 0L, active1, 0x1000000000L);
             case 101 :
+                if ((active1 & 0x20000000L) != 0L) {
+                    return jjStartNfaWithStates_0(22, 93, 19);
+                }
                 return jjMoveStringLiteralDfa23_0(active0, 0L, active1, 0x2000L);
+            case 102 :
+                return jjMoveStringLiteralDfa23_0(active0, 0L, active1, 0x8000000000000L);
             case 105 :
                 return jjMoveStringLiteralDfa23_0(active0, 0x400000000000000L, active1, 0L);
+            case 108 :
+                return jjMoveStringLiteralDfa23_0(active0, 0L, active1, 0x70000000000L);
+            case 109 :
+                return jjMoveStringLiteralDfa23_0(active0, 0L, active1, 0xc0c0000000L);
             case 110 :
                 if ((active1 & 0x800L) != 0L) {
                     return jjStartNfaWithStates_0(22, 75, 19);
+                } else if ((active1 & 0x800000000L) != 0L) {
+                    return jjStartNfaWithStates_0(22, 99, 19);
+                }
+                break;
+            case 111 :
+                return jjMoveStringLiteralDfa23_0(active0, 0L, active1, 0x200000000000L);
+            case 114 :
+                if ((active1 & 0x100000000L) != 0L) {
+                    return jjStartNfaWithStates_0(22, 96, 19);
+                } else if ((active1 & 0x200000000L) != 0L) {
+                    return jjStartNfaWithStates_0(22, 97, 19);
+                }
+                break;
+            case 120 :
+                if ((active1 & 0x400000000L) != 0L) {
+                    return jjStartNfaWithStates_0(22, 98, 19);
                 }
                 break;
             default :
@@ -2004,12 +2225,27 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
             return 23;
         }
         switch (curChar) {
+            case 97 :
+                return jjMoveStringLiteralDfa24_0(active0, 0L, active1, 0x8004040000000L);
+            case 99 :
+                return jjMoveStringLiteralDfa24_0(active0, 0L, active1, 0x1000000000L);
             case 101 :
                 return jjMoveStringLiteralDfa24_0(active0, 0x400000000000000L, active1, 0L);
+            case 105 :
+                return jjMoveStringLiteralDfa24_0(active0, 0L, active1, 0x8080000000L);
             case 108 :
                 return jjMoveStringLiteralDfa24_0(active0, 0L, active1, 0x2000L);
+            case 109 :
+                return jjMoveStringLiteralDfa24_0(active0, 0L, active1, 0xc00000000000L);
             case 111 :
                 return jjMoveStringLiteralDfa24_0(active0, 0x200000000000000L, active1, 0L);
+            case 114 :
+                if ((active1 & 0x200000000000L) != 0L) {
+                    return jjStartNfaWithStates_0(23, 109, 19);
+                }
+                break;
+            case 116 :
+                return jjMoveStringLiteralDfa24_0(active0, 0L, active1, 0x70000000000L);
             default :
                 break;
         }
@@ -2037,13 +2273,35 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
         switch (curChar) {
             case 95 :
                 return jjMoveStringLiteralDfa25_0(active0, 0x400000000000000L, active1, 0L);
+            case 97 :
+                return jjMoveStringLiteralDfa25_0(active0, 0L, active1, 0x470000000000L);
+            case 99 :
+                return jjMoveStringLiteralDfa25_0(active0, 0L, active1, 0x8000000000000L);
             case 100 :
                 if ((active1 & 0x2000L) != 0L) {
                     return jjStartNfaWithStates_0(24, 77, 19);
                 }
                 break;
+            case 105 :
+                return jjMoveStringLiteralDfa25_0(active0, 0L, active1, 0x800000000000L);
+            case 110 :
+                if ((active1 & 0x80000000L) != 0L) {
+                    return jjStartNfaWithStates_0(24, 95, 19);
+                } else if ((active1 & 0x8000000000L) != 0L) {
+                    return jjStartNfaWithStates_0(24, 103, 19);
+                }
+                break;
             case 114 :
                 return jjMoveStringLiteralDfa25_0(active0, 0x200000000000000L, active1, 0L);
+            case 116 :
+                return jjMoveStringLiteralDfa25_0(active0, 0L, active1, 0x1000000000L);
+            case 120 :
+                if ((active1 & 0x40000000L) != 0L) {
+                    return jjStartNfaWithStates_0(24, 94, 19);
+                } else if ((active1 & 0x4000000000L) != 0L) {
+                    return jjStartNfaWithStates_0(24, 102, 19);
+                }
+                break;
             default :
                 break;
         }
@@ -2065,167 +2323,225 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
         try {
             curChar = input_stream.readChar();
         } catch (java.io.IOException e) {
-            jjStopStringLiteralDfa_0(24, active0, 0L);
+            jjStopStringLiteralDfa_0(24, active0, active1);
             return 25;
         }
         switch (curChar) {
             case 95 :
-                return jjMoveStringLiteralDfa26_0(active0, 0x200000000000000L);
+                return jjMoveStringLiteralDfa26_0(active0, 0x200000000000000L, active1, 0x70000000000L);
+            case 110 :
+                if ((active1 & 0x800000000000L) != 0L) {
+                    return jjStartNfaWithStates_0(25, 111, 19);
+                }
+                break;
             case 111 :
-                return jjMoveStringLiteralDfa26_0(active0, 0x400000000000000L);
+                return jjMoveStringLiteralDfa26_0(active0, 0x400000000000000L, active1, 0x1000000000L);
+            case 116 :
+                return jjMoveStringLiteralDfa26_0(active0, 0L, active1, 0x8000000000000L);
+            case 120 :
+                if ((active1 & 0x400000000000L) != 0L) {
+                    return jjStartNfaWithStates_0(25, 110, 19);
+                }
+                break;
             default :
                 break;
         }
-        return jjStartNfa_0(24, active0, 0L);
+        return jjStartNfa_0(24, active0, active1);
     }
 
     /**
      * 
      * @param old0
      * @param active0
+     * @param old1
+     * @param active1
      * @return
      */
-    private int jjMoveStringLiteralDfa26_0(long old0, long active0) {
-        if (((active0 &= old0)) == 0L) {
-            return jjStartNfa_0(24, old0, 0L);
+    private int jjMoveStringLiteralDfa26_0(long old0, long active0, long old1, long active1) {
+        if (((active0 &= old0) | (active1 &= old1)) == 0L) {
+            return jjStartNfa_0(24, old0, old1);
         }
         try {
             curChar = input_stream.readChar();
         } catch (java.io.IOException e) {
-            jjStopStringLiteralDfa_0(25, active0, 0L);
+            jjStopStringLiteralDfa_0(25, active0, active1);
             return 26;
         }
         switch (curChar) {
+            case 102 :
+                return jjMoveStringLiteralDfa27_0(active0, 0L, active1, 0x40000000000L);
             case 103 :
-                return jjMoveStringLiteralDfa27_0(active0, 0x200000000000000L);
+                return jjMoveStringLiteralDfa27_0(active0, 0x200000000000000L, active1, 0L);
+            case 109 :
+                return jjMoveStringLiteralDfa27_0(active0, 0L, active1, 0x30000000000L);
+            case 111 :
+                return jjMoveStringLiteralDfa27_0(active0, 0L, active1, 0x8000000000000L);
             case 114 :
-                return jjMoveStringLiteralDfa27_0(active0, 0x400000000000000L);
+                if ((active1 & 0x1000000000L) != 0L) {
+                    return jjStartNfaWithStates_0(26, 100, 19);
+                }
+                return jjMoveStringLiteralDfa27_0(active0, 0x400000000000000L, active1, 0L);
             default :
                 break;
         }
-        return jjStartNfa_0(25, active0, 0L);
+        return jjStartNfa_0(25, active0, active1);
     }
 
     /**
      * 
      * @param old0
      * @param active0
+     * @param old1
+     * @param active1
      * @return
      */
-    private int jjMoveStringLiteralDfa27_0(long old0, long active0) {
-        if (((active0 &= old0)) == 0L) {
-            return jjStartNfa_0(25, old0, 0L);
+    private int jjMoveStringLiteralDfa27_0(long old0, long active0, long old1, long active1) {
+        if (((active0 &= old0) | (active1 &= old1)) == 0L) {
+            return jjStartNfa_0(25, old0, old1);
         }
         try {
             curChar = input_stream.readChar();
         } catch (java.io.IOException e) {
-            jjStopStringLiteralDfa_0(26, active0, 0L);
+            jjStopStringLiteralDfa_0(26, active0, active1);
             return 27;
         }
         switch (curChar) {
             case 95 :
-                return jjMoveStringLiteralDfa28_0(active0, 0x400000000000000L);
+                return jjMoveStringLiteralDfa28_0(active0, 0x400000000000000L, active1, 0L);
+            case 97 :
+                return jjMoveStringLiteralDfa28_0(active0, 0L, active1, 0x50000000000L);
+            case 105 :
+                return jjMoveStringLiteralDfa28_0(active0, 0L, active1, 0x20000000000L);
             case 111 :
-                return jjMoveStringLiteralDfa28_0(active0, 0x200000000000000L);
+                return jjMoveStringLiteralDfa28_0(active0, 0x200000000000000L, active1, 0L);
+            case 114 :
+                if ((active1 & 0x8000000000000L) != 0L) {
+                    return jjStartNfaWithStates_0(27, 115, 19);
+                }
+                break;
             default :
                 break;
         }
-        return jjStartNfa_0(26, active0, 0L);
+        return jjStartNfa_0(26, active0, active1);
     }
 
     /**
      * 
      * @param old0
      * @param active0
+     * @param old1
+     * @param active1
      * @return
      */
-    private int jjMoveStringLiteralDfa28_0(long old0, long active0) {
-        if (((active0 &= old0)) == 0L) {
-            return jjStartNfa_0(26, old0, 0L);
+    private int jjMoveStringLiteralDfa28_0(long old0, long active0, long old1, long active1) {
+        if (((active0 &= old0) | (active1 &= old1)) == 0L) {
+            return jjStartNfa_0(26, old0, old1);
         }
         try {
             curChar = input_stream.readChar();
         } catch (java.io.IOException e) {
-            jjStopStringLiteralDfa_0(27, active0, 0L);
+            jjStopStringLiteralDfa_0(27, active0, active1);
             return 28;
         }
         switch (curChar) {
             case 97 :
-                return jjMoveStringLiteralDfa29_0(active0, 0x200000000000000L);
+                return jjMoveStringLiteralDfa29_0(active0, 0x200000000000000L, active1, 0L);
+            case 99 :
+                return jjMoveStringLiteralDfa29_0(active0, 0L, active1, 0x40000000000L);
             case 105 :
-                return jjMoveStringLiteralDfa29_0(active0, 0x400000000000000L);
+                return jjMoveStringLiteralDfa29_0(active0, 0x400000000000000L, active1, 0L);
+            case 110 :
+                if ((active1 & 0x20000000000L) != 0L) {
+                    return jjStartNfaWithStates_0(28, 105, 19);
+                }
+                break;
+            case 120 :
+                if ((active1 & 0x10000000000L) != 0L) {
+                    return jjStartNfaWithStates_0(28, 104, 19);
+                }
+                break;
             default :
                 break;
         }
-        return jjStartNfa_0(27, active0, 0L);
+        return jjStartNfa_0(27, active0, active1);
     }
 
     /**
      * 
      * @param old0
      * @param active0
+     * @param old1
+     * @param active1
      * @return
      */
-    private int jjMoveStringLiteralDfa29_0(long old0, long active0) {
-        if (((active0 &= old0)) == 0L) {
-            return jjStartNfa_0(27, old0, 0L);
+    private int jjMoveStringLiteralDfa29_0(long old0, long active0, long old1, long active1) {
+        if (((active0 &= old0) | (active1 &= old1)) == 0L) {
+            return jjStartNfa_0(27, old0, old1);
         }
         try {
             curChar = input_stream.readChar();
         } catch (java.io.IOException e) {
-            jjStopStringLiteralDfa_0(28, active0, 0L);
+            jjStopStringLiteralDfa_0(28, active0, active1);
             return 29;
         }
         switch (curChar) {
             case 108 :
-                return jjMoveStringLiteralDfa30_0(active0, 0x600000000000000L);
+                return jjMoveStringLiteralDfa30_0(active0, 0x600000000000000L, active1, 0L);
+            case 116 :
+                return jjMoveStringLiteralDfa30_0(active0, 0L, active1, 0x40000000000L);
             default :
                 break;
         }
-        return jjStartNfa_0(28, active0, 0L);
+        return jjStartNfa_0(28, active0, active1);
     }
 
     /**
      * 
      * @param old0
      * @param active0
+     * @param old1
+     * @param active1
      * @return
      */
-    private int jjMoveStringLiteralDfa30_0(long old0, long active0) {
-        if (((active0 &= old0)) == 0L) {
-            return jjStartNfa_0(28, old0, 0L);
+    private int jjMoveStringLiteralDfa30_0(long old0, long active0, long old1, long active1) {
+        if (((active0 &= old0) | (active1 &= old1)) == 0L) {
+            return jjStartNfa_0(28, old0, old1);
         }
         try {
             curChar = input_stream.readChar();
         } catch (java.io.IOException e) {
-            jjStopStringLiteralDfa_0(29, active0, 0L);
+            jjStopStringLiteralDfa_0(29, active0, active1);
             return 30;
         }
         switch (curChar) {
             case 105 :
-                return jjMoveStringLiteralDfa31_0(active0, 0x200000000000000L);
+                return jjMoveStringLiteralDfa31_0(active0, 0x200000000000000L, active1, 0L);
             case 108 :
-                return jjMoveStringLiteralDfa31_0(active0, 0x400000000000000L);
+                return jjMoveStringLiteralDfa31_0(active0, 0x400000000000000L, active1, 0L);
+            case 111 :
+                return jjMoveStringLiteralDfa31_0(active0, 0L, active1, 0x40000000000L);
             default :
                 break;
         }
-        return jjStartNfa_0(29, active0, 0L);
+        return jjStartNfa_0(29, active0, active1);
     }
 
     /**
      * 
      * @param old0
      * @param active0
+     * @param old1
+     * @param active1
      * @return
      */
-    private int jjMoveStringLiteralDfa31_0(long old0, long active0) {
-        if (((active0 &= old0)) == 0L) {
-            return jjStartNfa_0(29, old0, 0L);
+    private int jjMoveStringLiteralDfa31_0(long old0, long active0, long old1, long active1) {
+        if (((active0 &= old0) | (active1 &= old1)) == 0L) {
+            return jjStartNfa_0(29, old0, old1);
         }
         try {
             curChar = input_stream.readChar();
         } catch (java.io.IOException e) {
-            jjStopStringLiteralDfa_0(30, active0, 0L);
+            jjStopStringLiteralDfa_0(30, active0, active1);
             return 31;
         }
         switch (curChar) {
@@ -2233,22 +2549,29 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                 if ((active0 & 0x200000000000000L) != 0L) {
                     return jjStartNfaWithStates_0(31, 57, 19);
                 }
-                return jjMoveStringLiteralDfa32_0(active0, 0x400000000000000L);
+                return jjMoveStringLiteralDfa32_0(active0, 0x400000000000000L, active1, 0L);
+            case 114 :
+                if ((active1 & 0x40000000000L) != 0L) {
+                    return jjStartNfaWithStates_0(31, 106, 19);
+                }
+                break;
             default :
                 break;
         }
-        return jjStartNfa_0(30, active0, 0L);
+        return jjStartNfa_0(30, active0, active1);
     }
 
     /**
      * 
      * @param old0
      * @param active0
+     * @param old1
+     * @param active1
      * @return
      */
-    private int jjMoveStringLiteralDfa32_0(long old0, long active0) {
-        if (((active0 &= old0)) == 0L) {
-            return jjStartNfa_0(30, old0, 0L);
+    private int jjMoveStringLiteralDfa32_0(long old0, long active0, long old1, long active1) {
+        if (((active0 &= old0) | (active1 &= old1)) == 0L) {
+            return jjStartNfa_0(30, old0, old1);
         }
         try {
             curChar = input_stream.readChar();
@@ -2736,8 +3059,8 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                             if ((0x3ff000000000000L & l) == 0L) {
                                 break;
                             }
-                            if (kind > 99) {
-                                kind = 99;
+                            if (kind > 123) {
+                                kind = 123;
                             }
                             jjCheckNAdd(19);
                             break;
@@ -2745,8 +3068,8 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                             if ((0x3ff000000000000L & l) == 0L) {
                                 break;
                             }
-                            if (kind > 99) {
-                                kind = 99;
+                            if (kind > 123) {
+                                kind = 123;
                             }
                             jjCheckNAdd(19);
                             break;
@@ -2754,8 +3077,8 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                             if ((0x3ff000000000000L & l) == 0L) {
                                 break;
                             }
-                            if (kind > 99) {
-                                kind = 99;
+                            if (kind > 123) {
+                                kind = 123;
                             }
                             jjCheckNAdd(19);
                             break;
@@ -2763,8 +3086,8 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                             if ((0x3ff000000000000L & l) == 0L) {
                                 break;
                             }
-                            if (kind > 99) {
-                                kind = 99;
+                            if (kind > 123) {
+                                kind = 123;
                             }
                             jjCheckNAdd(19);
                             break;
@@ -2773,8 +3096,8 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                             if ((0x3ff600000000000L & l) == 0L) {
                                 break;
                             }
-                            if (kind > 100) {
-                                kind = 100;
+                            if (kind > 124) {
+                                kind = 124;
                             }
                             jjCheckNAdd(20);
                             break;
@@ -2782,8 +3105,8 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                             if ((0x3ff000000000000L & l) == 0L) {
                                 break;
                             }
-                            if (kind > 99) {
-                                kind = 99;
+                            if (kind > 123) {
+                                kind = 123;
                             }
                             jjCheckNAdd(19);
                             break;
@@ -2791,8 +3114,8 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                             if ((0x3ff000000000000L & l) == 0L) {
                                 break;
                             }
-                            if (kind > 99) {
-                                kind = 99;
+                            if (kind > 123) {
+                                kind = 123;
                             }
                             jjCheckNAdd(19);
                             break;
@@ -2800,8 +3123,8 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                             if ((0x3ff000000000000L & l) == 0L) {
                                 break;
                             }
-                            if (kind > 99) {
-                                kind = 99;
+                            if (kind > 123) {
+                                kind = 123;
                             }
                             jjCheckNAdd(19);
                             break;
@@ -2833,8 +3156,8 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                     switch (jjstateSet[--i]) {
                         case 9 :
                             if ((0x7fffffe87fffffeL & l) != 0L) {
-                                if (kind > 99) {
-                                    kind = 99;
+                                if (kind > 123) {
+                                    kind = 123;
                                 }
                                 jjCheckNAdd(19);
                             }
@@ -2844,8 +3167,8 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                             break;
                         case 25 :
                             if ((0x7fffffe87fffffeL & l) != 0L) {
-                                if (kind > 99) {
-                                    kind = 99;
+                                if (kind > 123) {
+                                    kind = 123;
                                 }
                                 jjCheckNAdd(19);
                             }
@@ -2858,8 +3181,8 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                             break;
                         case 27 :
                             if ((0x7fffffe87fffffeL & l) != 0L) {
-                                if (kind > 99) {
-                                    kind = 99;
+                                if (kind > 123) {
+                                    kind = 123;
                                 }
                                 jjCheckNAdd(19);
                             }
@@ -2872,8 +3195,8 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                             break;
                         case 10 :
                             if ((0x7fffffe87fffffeL & l) != 0L) {
-                                if (kind > 99) {
-                                    kind = 99;
+                                if (kind > 123) {
+                                    kind = 123;
                                 }
                                 jjCheckNAdd(19);
                             }
@@ -2883,8 +3206,8 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                             break;
                         case 0 :
                             if ((0x7fffffe87fffffeL & l) != 0L) {
-                                if (kind > 99) {
-                                    kind = 99;
+                                if (kind > 123) {
+                                    kind = 123;
                                 }
                                 jjCheckNAdd(19);
                             }
@@ -2919,8 +3242,8 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                             break;
                         case 24 :
                             if ((0x7fffffe87fffffeL & l) != 0L) {
-                                if (kind > 99) {
-                                    kind = 99;
+                                if (kind > 123) {
+                                    kind = 123;
                                 }
                                 jjCheckNAdd(19);
                             }
@@ -2932,8 +3255,8 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                             break;
                         case 26 :
                             if ((0x7fffffe87fffffeL & l) != 0L) {
-                                if (kind > 99) {
-                                    kind = 99;
+                                if (kind > 123) {
+                                    kind = 123;
                                 }
                                 jjCheckNAdd(19);
                             }
@@ -2946,8 +3269,8 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                             break;
                         case 28 :
                             if ((0x7fffffe87fffffeL & l) != 0L) {
-                                if (kind > 99) {
-                                    kind = 99;
+                                if (kind > 123) {
+                                    kind = 123;
                                 }
                                 jjCheckNAdd(19);
                             }
@@ -3033,8 +3356,8 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                             if ((0x7fffffe87fffffeL & l) == 0L) {
                                 break;
                             }
-                            if (kind > 99) {
-                                kind = 99;
+                            if (kind > 123) {
+                                kind = 123;
                             }
                             jjCheckNAdd(19);
                             break;
@@ -3042,8 +3365,8 @@ public class CmdParserCoachTokenManager implements CmdParserCoachConstants {
                             if ((0x7fffffe87fffffeL & l) == 0L) {
                                 break;
                             }
-                            if (kind > 99) {
-                                kind = 99;
+                            if (kind > 123) {
+                                kind = 123;
                             }
                             jjCheckNAdd(19);
                             break;
