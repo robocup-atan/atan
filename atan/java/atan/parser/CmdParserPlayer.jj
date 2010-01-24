@@ -184,6 +184,7 @@ TOKEN :
   < ILLEGAL_OBJECT_FORM: "illegal_object_form">|
   < NO_MORE_TEAM_OR_PLAYER: "no_more_team_or_player">|
   < NO_MORE_TEAM_OR_PLAYER_OR_GOALIE: "no_more_team_or_player_or_goalie">|
+  < NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION: "no_more_player_or_goalie_or_illegal_client_version">|	
   < RECONNECT: "reconnect">|
   < UNKNOWN_COMMAND: "unknown_command">|
   < TOO_MANY_MOVES: "too_many_moves">|
@@ -206,6 +207,42 @@ TOKEN :
   < CANNOT_CHANGE_GOALIE: "cannot_change_goalie">|
   < CHANGE_VIEW: "change_view">|
   < CATCH: "catch">|
+  < ID: "id" >|
+  < PLAYER_SPEED_MAX: "player_speed_max" >|
+  < STAMINA_INC_MAX: "stamina_inc_max" >|
+  < PLAYER_DECAY: "player_decay" >|
+  < INERTIA_MOMENT: "inertia_moment" >|
+  < DASH_POWER_RATE: "dash_power_rate" >|
+  < PLAYER_SIZE: "player_size" >|
+  < KICKABLE_MARGIN: "kickable_margin" >|
+  < KICK_RAND: "kick_rand" >|
+  < EXTRA_STAMINA: "extra_stamina" >|
+  < EFFORT_MAX: "effort_max" >|
+  < EFFORT_MIN: "effort_min" >|
+  < ALLOW_MULT_DEFAULT_TYPE: "allow_mult_default_type" >|
+  < DASH_POWER_RATE_DELTA_MAX: "dash_power_rate_delta_max" >|
+  < DASH_POWER_RATE_DELTA_MIN: "dash_power_rate_delta_min" >|
+  < EFFORT_MAX_DELTA_FACTOR: "effort_max_delta_factor" >|
+  < EFFORT_MIN_DELTA_FACTOR: "effort_min_delta_factor" >|
+  < EXTRA_STAMINA_DELTA_MAX: "extra_stamina_delta_max" >|
+  < EXTRA_STAMINA_DELTA_MIN: "extra_stamina_delta_min" >|
+  < INERTIA_MOMENT_DELTA_FACTOR: "inertia_moment_delta_factor" >|
+  < KICK_RAND_DELTA_FACTOR: "kick_rand_delta_factor" >|
+  < KICKABLE_MARGIN_DELTA_MAX: "kickable_margin_delta_max" >|
+  < KICKABLE_MARGIN_DELTA_MIN: "kickable_margin_delta_min" >|
+  < NEW_DASH_POWER_RATE_DELTA_MAX: "new_dash_power_rate_delta_max" >|
+  < NEW_DASH_POWER_RATE_DELTA_MIN: "new_dash_power_rate_delta_min" >|
+  < NEW_STAMINA_INC_MAX_DELTA_FACTOR: "new_stamina_inc_max_delta_factor" >|
+  < PLAYER_DECAY_DELTA_MAX: "player_decay_delta_max" >|
+  < PLAYER_DECAY_DELTA_MIN: "player_decay_delta_min" >|
+  < PLAYER_SIZE_DELTA_FACTOR: "player_size_delta_factor" >|
+  < PLAYER_SPEED_MAX_DELTA_MAX: "player_speed_max_delta_max" >|
+  < PLAYER_SPEED_MAX_DELTA_MIN: "player_speed_max_delta_min" >|
+  < PLAYER_TYPES: "player_types" >|
+  < PT_MAX: "pt_max" >|
+  < RANDOM_SEED: "random_seed" >|
+  < STAMINA_INC_MAX_DELTA_FACTOR: "stamina_inc_max_delta_factor" >|
+  < SUBS_MAX: "subs_max" >|
   < C: "c">|
   < T: "t">|
   < R: "r">|
@@ -215,6 +252,13 @@ TOKEN :
   < NAM: ["a"-"z","A"-"Z","_"] ( ["a"-"z","A"-"Z","_","0"-"9"] )* >|
   < NUM: ( ["0"-"9"]|"."|"-" )+ >
 }
+
+//TODO Commands still to implement.
+void startServerParamCommand() :
+    {}{{}}
+
+void startChangePlayerTypeCommand() :
+    {}{{}}
 
 void startHearCommand() :
   {Token num;Token msg;} {
@@ -311,6 +355,117 @@ void startSenseBodyCommand() :
     }
 }
 
+void startPlayerParamCommand() :
+    {Token allowMultDefaultType=null; Token dashPowerRateDeltaMax=null;
+     Token dashPowerRateDeltaMin=null; Token effortMaxDeltaFactor=null;
+     Token effortMinDeltaFactor=null; Token extraStaminaDeltaMax=null;
+     Token extraStaminaDeltaMin=null; Token inertiaMomentDeltaFactor=null;
+     Token kickRandDeltaFactor=null; Token kickableMarginDeltaMax=null;
+     Token kickableMarginDeltaMin=null; Token newDashPowerRateDeltaMax=null;
+     Token newDashPowerRateDeltaMin=null; Token newStaminaIncMaxDeltaFactor=null;
+     Token playerDecayDeltaMax=null; Token playerDecayDeltaMin=null;
+     Token playerSizeDeltaFactor=null; Token playerSpeedMaxDeltaMax=null;
+     Token playerSpeedMaxDeltaMin=null; Token playerTypes=null; Token ptMax=null;
+     Token randomSeed=null; Token staminaIncMaxDeltaFactor=null; Token subsMax=null;}
+     {
+       < OB ><ALLOW_MULT_DEFAULT_TYPE ><SEP >allowMultDefaultType=< NUM ><CB >
+       < OB ><DASH_POWER_RATE_DELTA_MAX ><SEP >dashPowerRateDeltaMax=< NUM ><CB >
+       < OB ><DASH_POWER_RATE_DELTA_MIN ><SEP >dashPowerRateDeltaMin=< NUM ><CB >
+       < OB ><EFFORT_MAX_DELTA_FACTOR ><SEP >effortMaxDeltaFactor=< NUM ><CB >
+       < OB ><EFFORT_MIN_DELTA_FACTOR ><SEP >effortMinDeltaFactor=< NUM ><CB >
+       < OB ><EXTRA_STAMINA_DELTA_MAX ><SEP >extraStaminaDeltaMax=< NUM ><CB >
+       < OB ><EXTRA_STAMINA_DELTA_MIN ><SEP >extraStaminaDeltaMin=< NUM ><CB >
+       < OB ><INERTIA_MOMENT_DELTA_FACTOR ><SEP >inertiaMomentDeltaFactor=< NUM ><CB >
+       < OB ><KICK_RAND_DELTA_FACTOR ><SEP >kickRandDeltaFactor=< NUM ><CB >
+       < OB ><KICKABLE_MARGIN_DELTA_MAX ><SEP >kickableMarginDeltaMax=< NUM ><CB >
+       < OB ><KICKABLE_MARGIN_DELTA_MIN ><SEP >kickableMarginDeltaMin=< NUM ><CB >
+       < OB ><NEW_DASH_POWER_RATE_DELTA_MAX ><SEP >newDashPowerRateDeltaMax=< NUM ><CB >
+	   < OB ><NEW_DASH_POWER_RATE_DELTA_MIN ><SEP >newDashPowerRateDeltaMin=< NUM ><CB >
+	   < OB ><NEW_STAMINA_INC_MAX_DELTA_FACTOR ><SEP >newStaminaIncMaxDeltaFactor=< NUM ><CB >
+	   < OB ><PLAYER_DECAY_DELTA_MAX ><SEP >playerDecayDeltaMax=< NUM ><CB >
+	   < OB ><PLAYER_DECAY_DELTA_MIN ><SEP >playerDecayDeltaMin=< NUM ><CB >
+	   < OB ><PLAYER_SIZE_DELTA_FACTOR ><SEP >playerSizeDeltaFactor=< NUM ><CB >
+	   < OB ><PLAYER_SPEED_MAX_DELTA_MAX ><SEP >playerSpeedMaxDeltaMax=< NUM ><CB >
+	   < OB ><PLAYER_SPEED_MAX_DELTA_MIN ><SEP >playerSpeedMaxDeltaMin=< NUM ><CB >
+	   < OB ><PLAYER_TYPES ><SEP >playerTypes=< NUM ><CB >
+	   < OB ><PT_MAX ><SEP >ptMax=< NUM ><CB >
+	   < OB ><RANDOM_SEED ><SEP >randomSeed=< NUM ><CB >
+	   < OB ><STAMINA_INC_MAX_DELTA_FACTOR ><SEP >staminaIncMaxDeltaFactor=< NUM ><CB >
+	   < OB ><SUBS_MAX ><SEP >subsMax=< NUM ><CB >
+       {
+		Double dAllowMultDefaultType = new Double(allowMultDefaultType.image);
+		Double dDashPowerRateDeltaMax = new Double(dashPowerRateDeltaMax.image);		
+		Double dDashPowerRateDeltaMin = new Double(dashPowerRateDeltaMin.image);
+		Double dEffortMaxDeltaFactor = new Double(effortMaxDeltaFactor.image);
+		Double dEffortMinDeltaFactor = new Double(effortMinDeltaFactor.image);
+		Double dExtraStaminaDeltaMax = new Double(extraStaminaDeltaMax.image);
+		Double dExtraStaminaDeltaMin = new Double(extraStaminaDeltaMin.image);
+		Double dInertiaMomentDeltaFactor = new Double(inertiaMomentDeltaFactor.image);
+		Double dKickRandDeltaFactor = new Double(kickRandDeltaFactor.image);
+		Double dKickableMarginDeltaMax = new Double(kickableMarginDeltaMax.image);
+		Double dKickableMarginDeltaMin = new Double(kickableMarginDeltaMin.image);
+		Double dNewDashPowerRateDeltaMax = new Double(newDashPowerRateDeltaMax.image);
+		Double dNewDashPowerRateDeltaMin = new Double(newDashPowerRateDeltaMin.image);
+		Double dNewStaminaIncMaxDeltaFactor = new Double(newStaminaIncMaxDeltaFactor.image);
+		Double dPlayerDecayDeltaMax = new Double(playerDecayDeltaMax.image);
+		Double dPlayerDecayDeltaMin = new Double(playerDecayDeltaMin.image);
+		Double dPlayerTypes = new Double(playerTypes.image);
+		Double dPtMax = new Double(ptMax.image);
+		Double dRandomSeed = new Double(randomSeed.image);
+		Double dStaminaIncMaxDeltaFactor = new Double(staminaIncMaxDeltaFactor.image);
+		Double dSubsMax = new Double(subsMax.image);
+		controller.infoPlayerParam(
+		  dAllowMultDefaultType.doubleValue(), dDashPowerRateDeltaMax.doubleValue(),
+		  dDashPowerRateDeltaMin.doubleValue(), dEffortMaxDeltaFactor.doubleValue(),
+		  dEffortMinDeltaFactor.doubleValue(), dExtraStaminaDeltaMax.doubleValue(),
+		  dExtraStaminaDeltaMin.doubleValue(), dInertiaMomentDeltaFactor.doubleValue(),
+		  dKickRandDeltaFactor.doubleValue(), dKickableMarginDeltaMax.doubleValue(),
+		  dKickableMarginDeltaMin.doubleValue(),
+		  dNewDashPowerRateDeltaMax.doubleValue(), dNewDashPowerRateDeltaMin.doubleValue(),
+		  dNewStaminaIncMaxDeltaFactor.doubleValue(), dPlayerDecayDeltaMax.doubleValue(),
+		  dPlayerDecayDeltaMin.doubleValue(), dPlayerTypes.doubleValue(), dPtMax.doubleValue(),
+		  dRandomSeed.doubleValue(), dStaminaIncMaxDeltaFactor.doubleValue(), dSubsMax.doubleValue());
+	}
+}
+
+void startPlayerTypeCommand() :
+    {Token id=null; Token playerSpeedMax=null; Token staminaIncMax=null; Token playerDecay=null;
+     Token inertiaMoment=null; Token dashPowerRate=null; Token playerSize=null;
+     Token kickableMargin=null; Token kickRand=null; Token extraStamina=null;
+     Token effortMax=null; Token effortMin=null;}{
+		< OB ><ID ><SEP >id=<NUM ><CB >
+		< OB ><PLAYER_SPEED_MAX ><SEP >playerSpeedMax=< NUM ><CB >
+		< OB ><STAMINA_INC_MAX ><SEP >staminaIncMax=< NUM ><CB >
+		< OB ><PLAYER_DECAY ><SEP >playerDecay=< NUM ><CB >
+		< OB ><INERTIA_MOMENT ><SEP >inertiaMoment=< NUM ><CB >
+		< OB ><DASH_POWER_RATE ><SEP >dashPowerRate=< NUM ><CB >
+		< OB ><PLAYER_SIZE ><SEP >playerSize=< NUM ><CB >
+		< OB ><KICKABLE_MARGIN ><SEP >kickableMargin=< NUM ><CB >
+		< OB ><KICK_RAND ><SEP >kickRand=< NUM ><CB >
+		< OB ><EXTRA_STAMINA ><SEP >extraStamina=< NUM ><CB >
+		< OB ><EFFORT_MAX ><SEP >effortMax=< NUM ><CB >
+		< OB ><EFFORT_MIN ><SEP >effortMin=< NUM ><CB >
+		{
+		Integer iid = new Integer(id.image);
+		Double dPlayerSpeedMax = new Double(playerSpeedMax.image);
+		Double dStaminaIncMax = new Double(staminaIncMax.image);
+		Double dPlayerDecay = new Double(playerDecay.image);
+		Double dInertiaMoment = new Double(inertiaMoment.image);
+		Double dDashPowerRate = new Double(dashPowerRate.image);
+		Double dPlayerSize = new Double(playerSize.image);
+		Double dKickableMargin = new Double(kickableMargin.image);
+		Double dKickRand = new Double(kickRand.image);
+		Double dExtraStamina = new Double(extraStamina.image);
+		Double dEffortMax = new Double(effortMax.image);
+		Double dEffortMin = new Double(effortMin.image);
+		controller.infoPlayerType(
+		  iid.intValue(), dPlayerSpeedMax.doubleValue(), dStaminaIncMax.doubleValue(),
+		  dPlayerDecay.doubleValue(), dInertiaMoment.doubleValue(), dDashPowerRate.doubleValue(),
+		  dPlayerSize.doubleValue(), dKickableMargin.doubleValue(), dKickRand.doubleValue(),
+		  dExtraStamina.doubleValue(), dEffortMax.doubleValue(), dEffortMin.doubleValue());
+	}
+}
+
 //Basic commands
 void startErrorCommand() :
   {Errors error = null;}{
@@ -332,19 +487,6 @@ void startWarningCommand() :
             controller.infoHearWarning(warning);
      }
   }
-
-//Commands still to implement...
-void startServerParamCommand() :
-    {}{{}}
-
-void startPlayerParamCommand() : 
-    {}{{}}
-
-void startPlayerTypeCommand() : 
-    {}{{}}
-
-void startChangePlayerTypeCommand() :
-    {}{{}}
 
 //Most important command!
 void startSeeCommand() :

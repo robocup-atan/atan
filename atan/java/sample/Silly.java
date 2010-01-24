@@ -373,4 +373,59 @@ public class Silly implements ControllerPlayer {
     @Override
     public void infoSeePlayerOwn(int number, boolean goalie, double distance, double direction, double distChange,
                                  double dirChange, double bodyFacingDirection, double headFacingDirection) {}
+
+    /**
+     *
+     * @param allowMultDefaultType
+     * @param dashPowerRateDeltaMax
+     * @param dashPowerRateDeltaMin
+     * @param effortMaxDeltaFactor
+     * @param effortMinDeltaFactor
+     * @param extraStaminaDeltaMax
+     * @param extraStaminaDeltaMin
+     * @param inertiaMomentDeltaFactor
+     * @param kickRandDeltaFactor
+     * @param kickableMarginDeltaMax
+     * @param kickableMarginDeltaMin
+     * @param newDashPowerRateDeltaMax
+     * @param newDashPowerRateDeltaMin
+     * @param newStaminaIncMaxDeltaFactor
+     * @param playerDecayDeltaMax
+     * @param playerDecayDeltaMin
+     * @param playerTypes
+     * @param ptMax
+     * @param randomSeed
+     * @param staminaIncMaxDeltaFactor
+     * @param subsMax
+     */
+    @Override
+    public void infoPlayerParam(double allowMultDefaultType, double dashPowerRateDeltaMax,
+                                double dashPowerRateDeltaMin, double effortMaxDeltaFactor, double effortMinDeltaFactor,
+                                double extraStaminaDeltaMax, double extraStaminaDeltaMin,
+                                double inertiaMomentDeltaFactor, double kickRandDeltaFactor,
+                                double kickableMarginDeltaMax, double kickableMarginDeltaMin,
+                                double newDashPowerRateDeltaMax, double newDashPowerRateDeltaMin,
+                                double newStaminaIncMaxDeltaFactor, double playerDecayDeltaMax,
+                                double playerDecayDeltaMin, double playerTypes, double ptMax, double randomSeed,
+                                double staminaIncMaxDeltaFactor, double subsMax) {}
+
+    /**
+     *
+     * @param id
+     * @param playerSpeedMax
+     * @param staminaIncMax
+     * @param playerDecay
+     * @param inertiaMoment
+     * @param dashPowerRate
+     * @param playerSize
+     * @param kickableMargin
+     * @param kickRand
+     * @param extraStamina
+     * @param effortMax
+     * @param effortMin
+     */
+    @Override
+    public void infoPlayerType(int id, double playerSpeedMax, double staminaIncMax, double playerDecay,
+                               double inertiaMoment, double dashPowerRate, double playerSize, double kickableMargin,
+                               double kickRand, double extraStamina, double effortMax, double effortMin) {}
 }

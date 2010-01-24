@@ -226,11 +226,10 @@ TOKEN :
   < NUM: ( ["0"-"9"]|"."|"-" )+ >
 }
 
-//The see_global command.
-void startSeeCommand() : 
+//TODO Commands still to implement.
+void startSeeCommand() : //The see_global command.
     {}{{}}
 
-//Param & type commands.
 void startCPTCommand() :
     {}{{}}
 

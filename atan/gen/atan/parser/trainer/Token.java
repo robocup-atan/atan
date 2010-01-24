@@ -130,7 +130,7 @@ public class Token implements java.io.Serializable {
     }
 
     /**
-     *
+     * 
      * @param ofKind
      * @return
      */

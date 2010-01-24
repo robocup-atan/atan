@@ -120,6 +120,7 @@ TOKEN :
   < ILLEGAL_OBJECT_FORM: "illegal_object_form">|
   < NO_MORE_TEAM_OR_PLAYER: "no_more_team_or_player">|
   < NO_MORE_TEAM_OR_PLAYER_OR_GOALIE: "no_more_team_or_player_or_goalie">|
+  < NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION: "no_more_player_or_goalie_or_illegal_client_version">|	
   < RECONNECT: "reconnect">|
   < UNKNOWN_COMMAND: "unknown_command">|
   < TOO_MANY_MOVES: "too_many_moves">|
@@ -142,6 +143,42 @@ TOKEN :
   < CANNOT_CHANGE_GOALIE: "cannot_change_goalie">|
   < CHANGE_VIEW: "change_view">|
   < CATCH: "catch">|
+  < ID: "id" >|
+  < PLAYER_SPEED_MAX: "player_speed_max" >|
+  < STAMINA_INC_MAX: "stamina_inc_max" >|
+  < PLAYER_DECAY: "player_decay" >|
+  < INERTIA_MOMENT: "inertia_moment" >|
+  < DASH_POWER_RATE: "dash_power_rate" >|
+  < PLAYER_SIZE: "player_size" >|
+  < KICKABLE_MARGIN: "kickable_margin" >|
+  < KICK_RAND: "kick_rand" >|
+  < EXTRA_STAMINA: "extra_stamina" >|
+  < EFFORT_MAX: "effort_max" >|
+  < EFFORT_MIN: "effort_min" >|
+  < ALLOW_MULT_DEFAULT_TYPE: "allow_mult_default_type" >|
+  < DASH_POWER_RATE_DELTA_MAX: "dash_power_rate_delta_max" >|
+  < DASH_POWER_RATE_DELTA_MIN: "dash_power_rate_delta_min" >|
+  < EFFORT_MAX_DELTA_FACTOR: "effort_max_delta_factor" >|
+  < EFFORT_MIN_DELTA_FACTOR: "effort_min_delta_factor" >|
+  < EXTRA_STAMINA_DELTA_MAX: "extra_stamina_delta_max" >|
+  < EXTRA_STAMINA_DELTA_MIN: "extra_stamina_delta_min" >|
+  < INERTIA_MOMENT_DELTA_FACTOR: "inertia_moment_delta_factor" >|
+  < KICK_RAND_DELTA_FACTOR: "kick_rand_delta_factor" >|
+  < KICKABLE_MARGIN_DELTA_MAX: "kickable_margin_delta_max" >|
+  < KICKABLE_MARGIN_DELTA_MIN: "kickable_margin_delta_min" >|
+  < NEW_DASH_POWER_RATE_DELTA_MAX: "new_dash_power_rate_delta_max" >|
+  < NEW_DASH_POWER_RATE_DELTA_MIN: "new_dash_power_rate_delta_min" >|
+  < NEW_STAMINA_INC_MAX_DELTA_FACTOR: "new_stamina_inc_max_delta_factor" >|
+  < PLAYER_DECAY_DELTA_MAX: "player_decay_delta_max" >|
+  < PLAYER_DECAY_DELTA_MIN: "player_decay_delta_min" >|
+  < PLAYER_SIZE_DELTA_FACTOR: "player_size_delta_factor" >|
+  < PLAYER_SPEED_MAX_DELTA_MAX: "player_speed_max_delta_max" >|
+  < PLAYER_SPEED_MAX_DELTA_MIN: "player_speed_max_delta_min" >|
+  < PLAYER_TYPES: "player_types" >|
+  < PT_MAX: "pt_max" >|
+  < RANDOM_SEED: "random_seed" >|
+  < STAMINA_INC_MAX_DELTA_FACTOR: "stamina_inc_max_delta_factor" >|
+  < SUBS_MAX: "subs_max" >|
   < C: "c">|
   < T: "t">|
   < R: "r">|

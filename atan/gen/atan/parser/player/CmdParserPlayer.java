@@ -37,18 +37,20 @@ import atan.parser.objects.ObjNamePlayerWest;
 import java.io.StringReader;
 
 /**
- *
+ * 
  * @author author
  */
 public class CmdParserPlayer implements CmdParserPlayerConstants {
     static private int[] jj_la1_0;
     static private int[] jj_la1_1;
     static private int[] jj_la1_2;
+    static private int[] jj_la1_3;
 
     static {
         jj_la1_init_0();
         jj_la1_init_1();
         jj_la1_init_2();
+        jj_la1_init_3();
     }
 
     private int                    jj_gc         = 0;
@@ -79,7 +81,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     public CmdParserPlayerTokenManager token_source;
 
     /**
-     * Constructor with generated Token Manager.
+     * Constructor with generated Token Manager. 
      * @param tm
      */
     public CmdParserPlayer(CmdParserPlayerTokenManager tm) {
@@ -96,7 +98,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     * Constructor with InputStream.
+     * Constructor with InputStream. 
      * @param stream
      */
     public CmdParserPlayer(java.io.InputStream stream) {
@@ -104,7 +106,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     * Constructor.
+     * Constructor. 
      * @param stream
      */
     public CmdParserPlayer(java.io.Reader stream) {
@@ -122,7 +124,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     * Constructor with InputStream and supplied encoding
+     * Constructor with InputStream and supplied encoding 
      * @param stream
      * @param encoding
      */
@@ -145,7 +147,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param player
@@ -159,7 +161,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param player
@@ -173,7 +175,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param player
@@ -187,7 +189,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param player
@@ -201,7 +203,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param player
@@ -216,7 +218,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param player
@@ -230,7 +232,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param player
@@ -245,7 +247,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param player
@@ -260,7 +262,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param player
@@ -275,7 +277,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param player
@@ -290,7 +292,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param player
@@ -304,8 +306,22 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
         startChangePlayerTypeCommand();
     }
 
+//  TODO Commands still to implement.
+
     /**
-     *
+     * 
+     * @throws ParseException
+     */
+    final public void startServerParamCommand() throws ParseException {}
+
+    /**
+     * 
+     * @throws ParseException
+     */
+    final public void startChangePlayerTypeCommand() throws ParseException {}
+
+    /**
+     * 
      * @throws ParseException
      */
     final public void startHearCommand() throws ParseException {
@@ -332,7 +348,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @throws ParseException
      */
     final public void hearReferee() throws ParseException {
@@ -351,7 +367,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @throws ParseException
      */
     final public void startInitCommand() throws ParseException {
@@ -377,7 +393,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @throws ParseException
      */
     final public void startSenseBodyCommand() throws ParseException {
@@ -536,10 +552,288 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                                  iChangeView.intValue());
     }
 
+    /**
+     * 
+     * @throws ParseException
+     */
+    final public void startPlayerParamCommand() throws ParseException {
+        Token allowMultDefaultType        = null;
+        Token dashPowerRateDeltaMax       = null;
+        Token dashPowerRateDeltaMin       = null;
+        Token effortMaxDeltaFactor        = null;
+        Token effortMinDeltaFactor        = null;
+        Token extraStaminaDeltaMax        = null;
+        Token extraStaminaDeltaMin        = null;
+        Token inertiaMomentDeltaFactor    = null;
+        Token kickRandDeltaFactor         = null;
+        Token kickableMarginDeltaMax      = null;
+        Token kickableMarginDeltaMin      = null;
+        Token newDashPowerRateDeltaMax    = null;
+        Token newDashPowerRateDeltaMin    = null;
+        Token newStaminaIncMaxDeltaFactor = null;
+        Token playerDecayDeltaMax         = null;
+        Token playerDecayDeltaMin         = null;
+        Token playerSizeDeltaFactor       = null;
+        Token playerSpeedMaxDeltaMax      = null;
+        Token playerSpeedMaxDeltaMin      = null;
+        Token playerTypes                 = null;
+        Token ptMax                       = null;
+        Token randomSeed                  = null;
+        Token staminaIncMaxDeltaFactor    = null;
+        Token subsMax                     = null;
+        jj_consume_token(OB);
+        jj_consume_token(ALLOW_MULT_DEFAULT_TYPE);
+        jj_consume_token(SEP);
+        allowMultDefaultType = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(DASH_POWER_RATE_DELTA_MAX);
+        jj_consume_token(SEP);
+        dashPowerRateDeltaMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(DASH_POWER_RATE_DELTA_MIN);
+        jj_consume_token(SEP);
+        dashPowerRateDeltaMin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(EFFORT_MAX_DELTA_FACTOR);
+        jj_consume_token(SEP);
+        effortMaxDeltaFactor = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(EFFORT_MIN_DELTA_FACTOR);
+        jj_consume_token(SEP);
+        effortMinDeltaFactor = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(EXTRA_STAMINA_DELTA_MAX);
+        jj_consume_token(SEP);
+        extraStaminaDeltaMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(EXTRA_STAMINA_DELTA_MIN);
+        jj_consume_token(SEP);
+        extraStaminaDeltaMin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(INERTIA_MOMENT_DELTA_FACTOR);
+        jj_consume_token(SEP);
+        inertiaMomentDeltaFactor = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(KICK_RAND_DELTA_FACTOR);
+        jj_consume_token(SEP);
+        kickRandDeltaFactor = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(KICKABLE_MARGIN_DELTA_MAX);
+        jj_consume_token(SEP);
+        kickableMarginDeltaMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(KICKABLE_MARGIN_DELTA_MIN);
+        jj_consume_token(SEP);
+        kickableMarginDeltaMin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(NEW_DASH_POWER_RATE_DELTA_MAX);
+        jj_consume_token(SEP);
+        newDashPowerRateDeltaMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(NEW_DASH_POWER_RATE_DELTA_MIN);
+        jj_consume_token(SEP);
+        newDashPowerRateDeltaMin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(NEW_STAMINA_INC_MAX_DELTA_FACTOR);
+        jj_consume_token(SEP);
+        newStaminaIncMaxDeltaFactor = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PLAYER_DECAY_DELTA_MAX);
+        jj_consume_token(SEP);
+        playerDecayDeltaMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PLAYER_DECAY_DELTA_MIN);
+        jj_consume_token(SEP);
+        playerDecayDeltaMin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PLAYER_SIZE_DELTA_FACTOR);
+        jj_consume_token(SEP);
+        playerSizeDeltaFactor = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PLAYER_SPEED_MAX_DELTA_MAX);
+        jj_consume_token(SEP);
+        playerSpeedMaxDeltaMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PLAYER_SPEED_MAX_DELTA_MIN);
+        jj_consume_token(SEP);
+        playerSpeedMaxDeltaMin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PLAYER_TYPES);
+        jj_consume_token(SEP);
+        playerTypes = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PT_MAX);
+        jj_consume_token(SEP);
+        ptMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(RANDOM_SEED);
+        jj_consume_token(SEP);
+        randomSeed = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(STAMINA_INC_MAX_DELTA_FACTOR);
+        jj_consume_token(SEP);
+        staminaIncMaxDeltaFactor = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(SUBS_MAX);
+        jj_consume_token(SEP);
+        subsMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        Double dAllowMultDefaultType        = new Double(allowMultDefaultType.image);
+        Double dDashPowerRateDeltaMax       = new Double(dashPowerRateDeltaMax.image);
+        Double dDashPowerRateDeltaMin       = new Double(dashPowerRateDeltaMin.image);
+        Double dEffortMaxDeltaFactor        = new Double(effortMaxDeltaFactor.image);
+        Double dEffortMinDeltaFactor        = new Double(effortMinDeltaFactor.image);
+        Double dExtraStaminaDeltaMax        = new Double(extraStaminaDeltaMax.image);
+        Double dExtraStaminaDeltaMin        = new Double(extraStaminaDeltaMin.image);
+        Double dInertiaMomentDeltaFactor    = new Double(inertiaMomentDeltaFactor.image);
+        Double dKickRandDeltaFactor         = new Double(kickRandDeltaFactor.image);
+        Double dKickableMarginDeltaMax      = new Double(kickableMarginDeltaMax.image);
+        Double dKickableMarginDeltaMin      = new Double(kickableMarginDeltaMin.image);
+        Double dNewDashPowerRateDeltaMax    = new Double(newDashPowerRateDeltaMax.image);
+        Double dNewDashPowerRateDeltaMin    = new Double(newDashPowerRateDeltaMin.image);
+        Double dNewStaminaIncMaxDeltaFactor = new Double(newStaminaIncMaxDeltaFactor.image);
+        Double dPlayerDecayDeltaMax         = new Double(playerDecayDeltaMax.image);
+        Double dPlayerDecayDeltaMin         = new Double(playerDecayDeltaMin.image);
+        Double dPlayerTypes                 = new Double(playerTypes.image);
+        Double dPtMax                       = new Double(ptMax.image);
+        Double dRandomSeed                  = new Double(randomSeed.image);
+        Double dStaminaIncMaxDeltaFactor    = new Double(staminaIncMaxDeltaFactor.image);
+        Double dSubsMax                     = new Double(subsMax.image);
+        controller.infoPlayerParam(dAllowMultDefaultType.doubleValue(), dDashPowerRateDeltaMax.doubleValue(),
+                                   dDashPowerRateDeltaMin.doubleValue(), dEffortMaxDeltaFactor.doubleValue(),
+                                   dEffortMinDeltaFactor.doubleValue(), dExtraStaminaDeltaMax.doubleValue(),
+                                   dExtraStaminaDeltaMin.doubleValue(), dInertiaMomentDeltaFactor.doubleValue(),
+                                   dKickRandDeltaFactor.doubleValue(), dKickableMarginDeltaMax.doubleValue(),
+                                   dKickableMarginDeltaMin.doubleValue(), dNewDashPowerRateDeltaMax.doubleValue(),
+                                   dNewDashPowerRateDeltaMin.doubleValue(), dNewStaminaIncMaxDeltaFactor.doubleValue(),
+                                   dPlayerDecayDeltaMax.doubleValue(), dPlayerDecayDeltaMin.doubleValue(),
+                                   dPlayerTypes.doubleValue(), dPtMax.doubleValue(), dRandomSeed.doubleValue(),
+                                   dStaminaIncMaxDeltaFactor.doubleValue(), dSubsMax.doubleValue());
+    }
+
+    /**
+     * 
+     * @throws ParseException
+     */
+    final public void startPlayerTypeCommand() throws ParseException {
+        Token id             = null;
+        Token playerSpeedMax = null;
+        Token staminaIncMax  = null;
+        Token playerDecay    = null;
+        Token inertiaMoment  = null;
+        Token dashPowerRate  = null;
+        Token playerSize     = null;
+        Token kickableMargin = null;
+        Token kickRand       = null;
+        Token extraStamina   = null;
+        Token effortMax      = null;
+        Token effortMin      = null;
+        jj_consume_token(OB);
+        jj_consume_token(ID);
+        jj_consume_token(SEP);
+        id = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PLAYER_SPEED_MAX);
+        jj_consume_token(SEP);
+        playerSpeedMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(STAMINA_INC_MAX);
+        jj_consume_token(SEP);
+        staminaIncMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PLAYER_DECAY);
+        jj_consume_token(SEP);
+        playerDecay = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(INERTIA_MOMENT);
+        jj_consume_token(SEP);
+        inertiaMoment = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(DASH_POWER_RATE);
+        jj_consume_token(SEP);
+        dashPowerRate = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PLAYER_SIZE);
+        jj_consume_token(SEP);
+        playerSize = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(KICKABLE_MARGIN);
+        jj_consume_token(SEP);
+        kickableMargin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(KICK_RAND);
+        jj_consume_token(SEP);
+        kickRand = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(EXTRA_STAMINA);
+        jj_consume_token(SEP);
+        extraStamina = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(EFFORT_MAX);
+        jj_consume_token(SEP);
+        effortMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(EFFORT_MIN);
+        jj_consume_token(SEP);
+        effortMin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        Integer iid             = new Integer(id.image);
+        Double  dPlayerSpeedMax = new Double(playerSpeedMax.image);
+        Double  dStaminaIncMax  = new Double(staminaIncMax.image);
+        Double  dPlayerDecay    = new Double(playerDecay.image);
+        Double  dInertiaMoment  = new Double(inertiaMoment.image);
+        Double  dDashPowerRate  = new Double(dashPowerRate.image);
+        Double  dPlayerSize     = new Double(playerSize.image);
+        Double  dKickableMargin = new Double(kickableMargin.image);
+        Double  dKickRand       = new Double(kickRand.image);
+        Double  dExtraStamina   = new Double(extraStamina.image);
+        Double  dEffortMax      = new Double(effortMax.image);
+        Double  dEffortMin      = new Double(effortMin.image);
+        controller.infoPlayerType(iid.intValue(), dPlayerSpeedMax.doubleValue(), dStaminaIncMax.doubleValue(),
+                                  dPlayerDecay.doubleValue(), dInertiaMoment.doubleValue(),
+                                  dDashPowerRate.doubleValue(), dPlayerSize.doubleValue(),
+                                  dKickableMargin.doubleValue(), dKickRand.doubleValue(), dExtraStamina.doubleValue(),
+                                  dEffortMax.doubleValue(), dEffortMin.doubleValue());
+    }
+
 //  Basic commands
 
     /**
-     *
+     * 
      * @throws ParseException
      */
     final public void startErrorCommand() throws ParseException {
@@ -549,7 +843,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @throws ParseException
      */
     final public void startOkCommand() throws ParseException {
@@ -559,7 +853,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @throws ParseException
      */
     final public void startWarningCommand() throws ParseException {
@@ -568,36 +862,10 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
         controller.infoHearWarning(warning);
     }
 
-//  Commands still to implement...
-
-    /**
-     *
-     * @throws ParseException
-     */
-    final public void startServerParamCommand() throws ParseException {}
-
-    /**
-     *
-     * @throws ParseException
-     */
-    final public void startPlayerParamCommand() throws ParseException {}
-
-    /**
-     *
-     * @throws ParseException
-     */
-    final public void startPlayerTypeCommand() throws ParseException {}
-
-    /**
-     *
-     * @throws ParseException
-     */
-    final public void startChangePlayerTypeCommand() throws ParseException {}
-
 //  Most important command!
 
     /**
-     *
+     * 
      * @throws ParseException
      */
     final public void startSeeCommand() throws ParseException {
@@ -628,7 +896,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
 //  Get object details.
 
     /**
-     *
+     * 
      * @throws ParseException
      */
     final public void objInfo() throws ParseException {
@@ -762,7 +1030,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
@@ -849,7 +1117,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
@@ -971,7 +1239,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
@@ -1056,7 +1324,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
@@ -1120,7 +1388,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
@@ -1162,7 +1430,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
@@ -1190,7 +1458,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
@@ -1252,7 +1520,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
@@ -1314,7 +1582,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
@@ -1356,7 +1624,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
@@ -1398,7 +1666,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
@@ -1446,7 +1714,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
@@ -1481,7 +1749,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
@@ -1518,7 +1786,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
 //  Enum Switches
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
@@ -1573,7 +1841,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
@@ -1663,7 +1931,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
@@ -1739,7 +2007,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
@@ -1927,7 +2195,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
@@ -2019,7 +2287,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2036,7 +2304,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2053,7 +2321,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2070,7 +2338,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2087,7 +2355,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2104,7 +2372,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2121,7 +2389,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2138,7 +2406,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2155,7 +2423,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2172,7 +2440,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2189,7 +2457,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2206,7 +2474,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2223,7 +2491,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2240,7 +2508,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2257,7 +2525,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2274,7 +2542,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2291,7 +2559,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2308,7 +2576,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2325,7 +2593,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2342,7 +2610,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2359,7 +2627,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2376,7 +2644,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2393,7 +2661,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2410,7 +2678,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2427,7 +2695,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2444,7 +2712,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2461,7 +2729,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2478,7 +2746,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2495,7 +2763,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2512,7 +2780,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2529,7 +2797,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2546,7 +2814,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2563,7 +2831,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2580,7 +2848,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2597,7 +2865,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2614,7 +2882,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2631,7 +2899,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2648,7 +2916,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2665,7 +2933,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2682,7 +2950,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2699,7 +2967,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2716,7 +2984,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2733,7 +3001,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2750,7 +3018,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2767,7 +3035,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2784,7 +3052,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2801,7 +3069,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2818,7 +3086,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2835,7 +3103,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2852,7 +3120,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2869,7 +3137,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2886,7 +3154,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2903,7 +3171,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2920,7 +3188,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2937,7 +3205,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2954,7 +3222,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2971,7 +3239,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -2988,7 +3256,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3005,7 +3273,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3022,7 +3290,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3039,7 +3307,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3056,7 +3324,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3073,7 +3341,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3090,7 +3358,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3107,7 +3375,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3124,7 +3392,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3141,7 +3409,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3158,7 +3426,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3175,7 +3443,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3192,7 +3460,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3209,7 +3477,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3226,7 +3494,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3243,7 +3511,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3260,7 +3528,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3277,7 +3545,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3294,7 +3562,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3311,7 +3579,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3328,7 +3596,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3345,7 +3613,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3362,7 +3630,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3379,7 +3647,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3396,7 +3664,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3413,7 +3681,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3430,7 +3698,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3447,7 +3715,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3464,7 +3732,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3481,7 +3749,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3498,7 +3766,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3515,7 +3783,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3532,7 +3800,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3549,7 +3817,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3566,7 +3834,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3583,7 +3851,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3600,7 +3868,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3617,7 +3885,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3634,7 +3902,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3651,7 +3919,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3668,7 +3936,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3685,7 +3953,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3702,7 +3970,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3719,7 +3987,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3736,7 +4004,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3753,7 +4021,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3770,7 +4038,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3787,7 +4055,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3804,7 +4072,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3821,7 +4089,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3838,7 +4106,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3855,7 +4123,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3872,7 +4140,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3889,7 +4157,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3906,7 +4174,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3923,7 +4191,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3940,7 +4208,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3957,7 +4225,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3974,7 +4242,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3991,7 +4259,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4008,7 +4276,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4025,7 +4293,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4042,7 +4310,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4059,7 +4327,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4076,7 +4344,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4093,7 +4361,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4110,7 +4378,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4127,7 +4395,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4144,7 +4412,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4161,7 +4429,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4178,7 +4446,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4195,7 +4463,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4212,7 +4480,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4229,7 +4497,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4246,7 +4514,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4263,7 +4531,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4280,7 +4548,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4297,7 +4565,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4314,7 +4582,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4331,7 +4599,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4348,7 +4616,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4365,7 +4633,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4382,7 +4650,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4399,7 +4667,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4416,7 +4684,1403 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
+     * @return
+     */
+    private boolean jj_3_78() {
+        if (jj_scan_token(L)) {
+            return true;
+        }
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_77() {
+        if (jj_scan_token(R)) {
+            return true;
+        }
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_76() {
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_75() {
+        if (jj_scan_token(L)) {
+            return true;
+        }
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_74() {
+        if (jj_scan_token(R)) {
+            return true;
+        }
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_12() {
+        if (jj_scan_token(NORMAL)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_73() {
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_70() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_72() {
+        if (jj_scan_token(B)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_70()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_69() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_71() {
+        if (jj_scan_token(T)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_69()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_11() {
+        if (jj_scan_token(NARROW)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_9() {
+        if (jj_scan_token(LOW)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_68() {
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_65() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_67() {
+        if (jj_scan_token(B)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_65()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_64() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_10() {
+        if (jj_scan_token(WIDE)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_66() {
+        if (jj_scan_token(T)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_64()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_8() {
+        if (jj_scan_token(HIGH)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_63() {
+        if (jj_scan_token(B)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3R_8() {
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_62()) {
+            jj_scanpos = xsp;
+            if (jj_3_63()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_62() {
+        if (jj_scan_token(T)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_7() {
+        if (jj_scan_token(R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_61() {
+        if (jj_scan_token(L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_54() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        if (jj_scan_token(B)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_60() {
+        if (jj_scan_token(R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_6() {
+        if (jj_scan_token(L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_59() {
+        if (jj_scan_token(B)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_51() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        if (jj_scan_token(B)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_58() {
+        if (jj_scan_token(T)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_55() {
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_53()) {
+            jj_scanpos = xsp;
+            if (jj_3_54()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_53() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        if (jj_scan_token(T)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_5() {
+        if (jj_3R_3()) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_4() {
+        if (jj_3R_2()) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_57() {
+        if (jj_scan_token(R)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_55()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_52() {
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_50()) {
+            jj_scanpos = xsp;
+            if (jj_3_51()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_50() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        if (jj_scan_token(T)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3R_7() {
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_56()) {
+            jj_scanpos = xsp;
+            if (jj_3_57()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_56() {
+        if (jj_scan_token(L)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_52()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_3() {
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_2() {
+        if (jj_scan_token(REFEREE)) {
+            return true;
+        }
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_1() {
+        if (jj_scan_token(SELF)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_49() {
+        if (jj_scan_token(GOAL)) {
+            return true;
+        }
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_48() {
+        if (jj_scan_token(B)) {
+            return true;
+        }
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_141() {
+        if (jj_scan_token(TIME_EXTENDED)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_47() {
+        if (jj_scan_token(T)) {
+            return true;
+        }
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_140() {
+        if (jj_scan_token(TIME_UP_WITHOUT_A_TEAM)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_46() {
+        if (jj_scan_token(R)) {
+            return true;
+        }
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_139() {
+        if (jj_scan_token(TIME_UP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_45() {
+        if (jj_scan_token(L)) {
+            return true;
+        }
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_138() {
+        if (jj_scan_token(DROP_BALL)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_44() {
+        if (jj_scan_token(P)) {
+            return true;
+        }
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_42() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        if (jj_3R_8()) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_137() {
+        if (jj_scan_token(HALF_TIME)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3R_6() {
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_43()) {
+            jj_scanpos = xsp;
+            if (jj_3_44()) {
+                jj_scanpos = xsp;
+                if (jj_3_45()) {
+                    jj_scanpos = xsp;
+                    if (jj_3_46()) {
+                        jj_scanpos = xsp;
+                        if (jj_3_47()) {
+                            jj_scanpos = xsp;
+                            if (jj_3_48()) {
+                                jj_scanpos = xsp;
+                                if (jj_3_49()) {
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_43() {
+        if (jj_scan_token(C)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_42()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_136() {
+        if (jj_scan_token(FOUL_L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_135() {
+        if (jj_scan_token(FOUL_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_41() {
+        if (jj_scan_token(R)) {
+            return true;
+        }
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_134() {
+        if (jj_scan_token(OFFSIDE_L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_38() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        if (jj_scan_token(GOALIE)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_40() {
+        if (jj_scan_token(L)) {
+            return true;
+        }
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_133() {
+        if (jj_scan_token(OFFSIDE_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3R_3() {
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_133()) {
+            jj_scanpos = xsp;
+            if (jj_3_134()) {
+                jj_scanpos = xsp;
+                if (jj_3_135()) {
+                    jj_scanpos = xsp;
+                    if (jj_3_136()) {
+                        jj_scanpos = xsp;
+                        if (jj_3_137()) {
+                            jj_scanpos = xsp;
+                            if (jj_3_138()) {
+                                jj_scanpos = xsp;
+                                if (jj_3_139()) {
+                                    jj_scanpos = xsp;
+                                    if (jj_3_140()) {
+                                        jj_scanpos = xsp;
+                                        if (jj_3_141()) {
+                                            return true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_132() {
+        if (jj_scan_token(GOAL_L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_37() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_131() {
+        if (jj_scan_token(GOAL_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_130() {
+        if (jj_scan_token(GOAL_KICK_L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3R_5() {
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_39()) {
+            jj_scanpos = xsp;
+            if (jj_3_40()) {
+                jj_scanpos = xsp;
+                if (jj_3_41()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_39() {
+        if (jj_scan_token(NAM)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_37()) {
+            jj_scanpos = xsp;
+        }
+        xsp = jj_scanpos;
+        if (jj_3_38()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_31() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        if (jj_3R_7()) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_129() {
+        if (jj_scan_token(GOAL_KICK_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_36() {
+        if (jj_scan_token(GOAL)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_31()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_30() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        if (jj_3R_6()) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_128() {
+        if (jj_scan_token(CORNER_KICK_L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_35() {
+        if (jj_scan_token(L)) {
+            return true;
+        }
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_34() {
+        if (jj_scan_token(FLAG)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_30()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_127() {
+        if (jj_scan_token(CORNER_KICK_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_28() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_29() {
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_28()) {
+            jj_scanpos = xsp;
+        }
+        if (jj_3R_5()) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_33() {
+        if (jj_scan_token(B)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_126() {
+        if (jj_scan_token(FREE_KICK_FAULT_L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_32() {
+        if (jj_scan_token(P)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_29()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_125() {
+        if (jj_scan_token(FREE_KICK_FAULT_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_124() {
+        if (jj_scan_token(FREE_KICK_L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_123() {
+        if (jj_scan_token(FREE_KICK_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_26() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_24() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_22() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_122() {
+        if (jj_scan_token(KICK_IN_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_20() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_18() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_16() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_121() {
+        if (jj_scan_token(KICK_IN_L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_27() {
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_26()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_25() {
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_24()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_23() {
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_22()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_21() {
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_20()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_19() {
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_18()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_17() {
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_16()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_120() {
+        if (jj_scan_token(KICK_OFF_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_13() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_119() {
+        if (jj_scan_token(KICK_OFF_L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
      * @return
      */
     private boolean jj_3_118() {
@@ -4427,7 +6091,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_117() {
@@ -4438,7 +6102,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_116() {
@@ -4449,7 +6113,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3R_2() {
@@ -4510,7 +6174,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_115() {
@@ -4521,7 +6185,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_14() {
@@ -4535,7 +6199,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_114() {
@@ -4546,7 +6210,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_113() {
@@ -4557,7 +6221,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3R_4() {
@@ -4568,7 +6232,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_15() {
@@ -4590,7 +6254,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_112() {
@@ -4601,7 +6265,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_111() {
@@ -4612,7 +6276,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_110() {
@@ -4623,7 +6287,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_109() {
@@ -4634,7 +6298,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_108() {
@@ -4645,7 +6309,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_107() {
@@ -4656,7 +6320,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_106() {
@@ -4667,7 +6331,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_105() {
@@ -4678,7 +6342,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_104() {
@@ -4689,7 +6353,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_103() {
@@ -4700,7 +6364,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_102() {
@@ -4711,7 +6375,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_101() {
@@ -4722,7 +6386,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_100() {
@@ -4733,7 +6397,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_99() {
@@ -4744,18 +6408,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
-     * @return
-     */
-    private boolean jj_3_12() {
-        if (jj_scan_token(NORMAL)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_98() {
@@ -4766,7 +6419,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_97() {
@@ -4777,7 +6430,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_96() {
@@ -4788,7 +6441,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_95() {
@@ -4799,7 +6452,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_94() {
@@ -4810,7 +6463,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_93() {
@@ -4821,7 +6474,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_92() {
@@ -4832,18 +6485,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
-     * @return
-     */
-    private boolean jj_3_11() {
-        if (jj_scan_token(NARROW)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_91() {
@@ -4854,18 +6496,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
-     * @return
-     */
-    private boolean jj_3_9() {
-        if (jj_scan_token(LOW)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_90() {
@@ -4876,7 +6507,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_89() {
@@ -4887,7 +6518,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_88() {
@@ -4898,7 +6529,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3R_10() {
@@ -4917,7 +6548,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_87() {
@@ -4928,29 +6559,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
-     * @return
-     */
-    private boolean jj_3_10() {
-        if (jj_scan_token(WIDE)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_8() {
-        if (jj_scan_token(HIGH)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_86() {
@@ -4961,7 +6570,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_85() {
@@ -4972,7 +6581,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3R_9() {
@@ -4991,7 +6600,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_84() {
@@ -5002,18 +6611,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
-     * @return
-     */
-    private boolean jj_3_7() {
-        if (jj_scan_token(R)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_81() {
@@ -5027,7 +6625,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_80() {
@@ -5041,7 +6639,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_83() {
@@ -5057,7 +6655,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_82() {
@@ -5073,18 +6671,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
-     * @return
-     */
-    private boolean jj_3_6() {
-        if (jj_scan_token(L)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_79() {
@@ -5095,1347 +6682,35 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
-     * @return
-     */
-    private boolean jj_3_5() {
-        if (jj_3R_3()) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_78() {
-        if (jj_scan_token(L)) {
-            return true;
-        }
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_4() {
-        if (jj_3R_2()) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_77() {
-        if (jj_scan_token(R)) {
-            return true;
-        }
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_3() {
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_2() {
-        if (jj_scan_token(REFEREE)) {
-            return true;
-        }
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_1() {
-        if (jj_scan_token(SELF)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_76() {
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_75() {
-        if (jj_scan_token(L)) {
-            return true;
-        }
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_74() {
-        if (jj_scan_token(R)) {
-            return true;
-        }
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_73() {
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_70() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_72() {
-        if (jj_scan_token(B)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_70()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_69() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_71() {
-        if (jj_scan_token(T)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_69()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_68() {
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_65() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_67() {
-        if (jj_scan_token(B)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_65()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_64() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_66() {
-        if (jj_scan_token(T)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_64()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_63() {
-        if (jj_scan_token(B)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3R_8() {
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_62()) {
-            jj_scanpos = xsp;
-            if (jj_3_63()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_62() {
-        if (jj_scan_token(T)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_61() {
-        if (jj_scan_token(L)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_54() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        if (jj_scan_token(B)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_60() {
-        if (jj_scan_token(R)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_59() {
-        if (jj_scan_token(B)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_51() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        if (jj_scan_token(B)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_58() {
-        if (jj_scan_token(T)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_55() {
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_53()) {
-            jj_scanpos = xsp;
-            if (jj_3_54()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_53() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        if (jj_scan_token(T)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_57() {
-        if (jj_scan_token(R)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_55()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_52() {
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_50()) {
-            jj_scanpos = xsp;
-            if (jj_3_51()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_50() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        if (jj_scan_token(T)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3R_7() {
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_56()) {
-            jj_scanpos = xsp;
-            if (jj_3_57()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_56() {
-        if (jj_scan_token(L)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_52()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_49() {
-        if (jj_scan_token(GOAL)) {
-            return true;
-        }
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_48() {
-        if (jj_scan_token(B)) {
-            return true;
-        }
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_141() {
-        if (jj_scan_token(TIME_EXTENDED)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_47() {
-        if (jj_scan_token(T)) {
-            return true;
-        }
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_140() {
-        if (jj_scan_token(TIME_UP_WITHOUT_A_TEAM)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_46() {
-        if (jj_scan_token(R)) {
-            return true;
-        }
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_139() {
-        if (jj_scan_token(TIME_UP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_45() {
-        if (jj_scan_token(L)) {
-            return true;
-        }
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_138() {
-        if (jj_scan_token(DROP_BALL)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_44() {
-        if (jj_scan_token(P)) {
-            return true;
-        }
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_42() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        if (jj_3R_8()) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_137() {
-        if (jj_scan_token(HALF_TIME)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3R_6() {
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_43()) {
-            jj_scanpos = xsp;
-            if (jj_3_44()) {
-                jj_scanpos = xsp;
-                if (jj_3_45()) {
-                    jj_scanpos = xsp;
-                    if (jj_3_46()) {
-                        jj_scanpos = xsp;
-                        if (jj_3_47()) {
-                            jj_scanpos = xsp;
-                            if (jj_3_48()) {
-                                jj_scanpos = xsp;
-                                if (jj_3_49()) {
-                                    return true;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_43() {
-        if (jj_scan_token(C)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_42()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_136() {
-        if (jj_scan_token(FOUL_L)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_135() {
-        if (jj_scan_token(FOUL_R)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_41() {
-        if (jj_scan_token(R)) {
-            return true;
-        }
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_134() {
-        if (jj_scan_token(OFFSIDE_L)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_38() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        if (jj_scan_token(GOALIE)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_40() {
-        if (jj_scan_token(L)) {
-            return true;
-        }
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_133() {
-        if (jj_scan_token(OFFSIDE_R)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3R_3() {
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_133()) {
-            jj_scanpos = xsp;
-            if (jj_3_134()) {
-                jj_scanpos = xsp;
-                if (jj_3_135()) {
-                    jj_scanpos = xsp;
-                    if (jj_3_136()) {
-                        jj_scanpos = xsp;
-                        if (jj_3_137()) {
-                            jj_scanpos = xsp;
-                            if (jj_3_138()) {
-                                jj_scanpos = xsp;
-                                if (jj_3_139()) {
-                                    jj_scanpos = xsp;
-                                    if (jj_3_140()) {
-                                        jj_scanpos = xsp;
-                                        if (jj_3_141()) {
-                                            return true;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_132() {
-        if (jj_scan_token(GOAL_L)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_37() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_131() {
-        if (jj_scan_token(GOAL_R)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_130() {
-        if (jj_scan_token(GOAL_KICK_L)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3R_5() {
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_39()) {
-            jj_scanpos = xsp;
-            if (jj_3_40()) {
-                jj_scanpos = xsp;
-                if (jj_3_41()) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_39() {
-        if (jj_scan_token(NAM)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_37()) {
-            jj_scanpos = xsp;
-        }
-        xsp = jj_scanpos;
-        if (jj_3_38()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_31() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        if (jj_3R_7()) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_129() {
-        if (jj_scan_token(GOAL_KICK_R)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_36() {
-        if (jj_scan_token(GOAL)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_31()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_30() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        if (jj_3R_6()) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_128() {
-        if (jj_scan_token(CORNER_KICK_L)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_35() {
-        if (jj_scan_token(L)) {
-            return true;
-        }
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_34() {
-        if (jj_scan_token(FLAG)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_30()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_127() {
-        if (jj_scan_token(CORNER_KICK_R)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_28() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_29() {
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_28()) {
-            jj_scanpos = xsp;
-        }
-        if (jj_3R_5()) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_33() {
-        if (jj_scan_token(B)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_126() {
-        if (jj_scan_token(FREE_KICK_FAULT_L)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_32() {
-        if (jj_scan_token(P)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_29()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_125() {
-        if (jj_scan_token(FREE_KICK_FAULT_R)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_124() {
-        if (jj_scan_token(FREE_KICK_L)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_123() {
-        if (jj_scan_token(FREE_KICK_R)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_26() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_24() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_22() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_122() {
-        if (jj_scan_token(KICK_IN_R)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_20() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_18() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_16() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_121() {
-        if (jj_scan_token(KICK_IN_L)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_27() {
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_26()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_25() {
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_24()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_23() {
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_22()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_21() {
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_20()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_19() {
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_18()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_17() {
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_16()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_120() {
-        if (jj_scan_token(KICK_OFF_R)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_13() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_119() {
-        if (jj_scan_token(KICK_OFF_L)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
+     * 
      */
     private static void jj_la1_init_0() {
         jj_la1_0 = new int[] {};
     }
 
     /**
-     *
+     * 
      */
     private static void jj_la1_init_1() {
         jj_la1_1 = new int[] {};
     }
 
     /**
-     *
+     * 
      */
     private static void jj_la1_init_2() {
         jj_la1_2 = new int[] {};
     }
 
     /**
-     * Reinitialise.
+     * 
+     */
+    private static void jj_la1_init_3() {
+        jj_la1_3 = new int[] {};
+    }
+
+    /**
+     * Reinitialise. 
      * @param stream
      */
     public void ReInit(java.io.InputStream stream) {
@@ -6443,7 +6718,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     * Reinitialise.
+     * Reinitialise. 
      * @param stream
      * @param encoding
      */
@@ -6466,7 +6741,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     * Reinitialise.
+     * Reinitialise. 
      * @param stream
      */
     public void ReInit(java.io.Reader stream) {
@@ -6484,7 +6759,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     * Reinitialise.
+     * Reinitialise. 
      * @param tm
      */
     public void ReInit(CmdParserPlayerTokenManager tm) {
@@ -6501,7 +6776,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param kind
      * @return
      * @throws ParseException
@@ -6536,7 +6811,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param kind
      * @return
      */
@@ -6572,7 +6847,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     * Get the next Token.
+     * Get the next Token. 
      * @return
      */
     final public Token getNextToken() {
@@ -6587,7 +6862,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     * Get the specific Token.
+     * Get the specific Token. 
      * @param index
      * @return
      */
@@ -6604,7 +6879,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private int jj_ntk() {
@@ -6616,7 +6891,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param kind
      * @param pos
      */
@@ -6651,12 +6926,12 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     * Generate ParseException.
+     * Generate ParseException. 
      * @return
      */
     public ParseException generateParseException() {
         jj_expentries.clear();
-        boolean[] la1tokens = new boolean[88];
+        boolean[] la1tokens = new boolean[125];
         if (jj_kind >= 0) {
             la1tokens[jj_kind] = true;
             jj_kind            = -1;
@@ -6673,10 +6948,13 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     if ((jj_la1_2[i] & (1 << j)) != 0) {
                         la1tokens[64 + j] = true;
                     }
+                    if ((jj_la1_3[i] & (1 << j)) != 0) {
+                        la1tokens[96 + j] = true;
+                    }
                 }
             }
         }
-        for (int i = 0; i < 88; i++) {
+        for (int i = 0; i < 125; i++) {
             if (la1tokens[i]) {
                 jj_expentry    = new int[1];
                 jj_expentry[0] = i;
@@ -6700,7 +6978,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     final public void disable_tracing() {}
 
     /**
-     *
+     * 
      */
     private void jj_rescan_token() {
         jj_rescan = true;
@@ -7145,7 +7423,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param index
      * @param xla
      */
@@ -7164,7 +7442,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @author author
      */
     static final class JJCalls {
@@ -7175,7 +7453,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @author author
      */
     static private final class LookaheadSuccess extends java.lang.Error {}
