@@ -341,6 +341,19 @@ public interface ControllerPlayer {
                               int catchCount, int moveCount, int changeViewCount);
 
     /**
+     * The controller is informed when the change player type message is received.
+     * @param unum The players uniform number.
+     * @param type The players type.
+     */
+    public void infoCPTOwn(int unum, int type);
+
+    /**
+     * The controller is informed when the change player type message is received.
+     * @param unum The players uniform number.
+     */
+    public void infoCPTOther(int unum);
+
+    /**
      * The player is informed when the player type message is received.
      * @param id
      * @param playerSpeedMax

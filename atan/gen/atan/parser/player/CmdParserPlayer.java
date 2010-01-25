@@ -56,7 +56,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     private int                    jj_gc         = 0;
     private int                    jj_kind       = -1;
     final private int[]            jj_la1        = new int[0];
-    final private JJCalls[]        jj_2_rtns     = new JJCalls[141];
+    final private JJCalls[]        jj_2_rtns     = new JJCalls[144];
     private int[]                  jj_lasttokens = new int[100];
     private boolean                jj_rescan     = false;
     final private LookaheadSuccess jj_ls         = new LookaheadSuccess();
@@ -303,7 +303,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
         ReInit(new StringReader(cmd));
         this.controller = controller;
         this.player     = player;
-        startChangePlayerTypeCommand();
+        startCPTCommand();
     }
 
 //  TODO Commands still to implement.
@@ -318,7 +318,26 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @throws ParseException
      */
-    final public void startChangePlayerTypeCommand() throws ParseException {}
+    final public void startCPTCommand() throws ParseException {
+        Token unum = null;
+        Token type = null;
+        unum = jj_consume_token(NUM);
+        if (jj_2_1(2)) {
+            type = jj_consume_token(NUM);
+        } else {
+            ;
+        }
+        Integer iUnum = 0;
+        Integer iType = 0;
+        if (type != null) {
+            iUnum = new Integer(unum.image);
+            iType = new Integer(type.image);
+            controller.infoCPTOwn(iUnum.intValue(), iType.intValue());
+        } else {
+            iUnum = new Integer(unum.image);
+            controller.infoCPTOther(iUnum.intValue());
+        }
+    }
 
     /**
      *
@@ -329,13 +348,13 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
         Token msg;
         jj_consume_token(NUM);
         jj_consume_token(SEP);
-        if (jj_2_1(2)) {
+        if (jj_2_2(2)) {
             jj_consume_token(SELF);
-        } else if (jj_2_2(2)) {
+        } else if (jj_2_3(2)) {
             jj_consume_token(REFEREE);
             jj_consume_token(SEP);
             hearReferee();
-        } else if (jj_2_3(2)) {
+        } else if (jj_2_4(2)) {
             num = jj_consume_token(NUM);
             jj_consume_token(SEP);
             msg = jj_consume_token(NAM);
@@ -354,10 +373,10 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     final public void hearReferee() throws ParseException {
         PlayMode       playMode       = null;
         RefereeMessage refereeMessage = null;
-        if (jj_2_4(2)) {
+        if (jj_2_5(2)) {
             playMode = playMode();
             controller.infoHearPlayMode(playMode);
-        } else if (jj_2_5(2)) {
+        } else if (jj_2_6(2)) {
             refereeMessage = refereeMessage();
             controller.infoHearReferee(refereeMessage);
         } else {
@@ -374,9 +393,9 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
         Token    side     = null;
         PlayMode playMode = null;
         Token    num;
-        if (jj_2_6(2)) {
+        if (jj_2_7(2)) {
             side = jj_consume_token(L);
-        } else if (jj_2_7(2)) {
+        } else if (jj_2_8(2)) {
             side = jj_consume_token(R);
         } else {
             jj_consume_token(-1);
@@ -418,20 +437,20 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
         jj_consume_token(OB);
         jj_consume_token(VIEW_MODE);
         jj_consume_token(SEP);
-        if (jj_2_8(2)) {
+        if (jj_2_9(2)) {
             viewModeQual = jj_consume_token(HIGH);
-        } else if (jj_2_9(2)) {
+        } else if (jj_2_10(2)) {
             viewModeQual = jj_consume_token(LOW);
         } else {
             jj_consume_token(-1);
             throw new ParseException();
         }
         jj_consume_token(SEP);
-        if (jj_2_10(2)) {
+        if (jj_2_11(2)) {
             viewModeAngle = jj_consume_token(WIDE);
-        } else if (jj_2_11(2)) {
-            viewModeAngle = jj_consume_token(NARROW);
         } else if (jj_2_12(2)) {
+            viewModeAngle = jj_consume_token(NARROW);
+        } else if (jj_2_13(2)) {
             viewModeAngle = jj_consume_token(NORMAL);
         } else {
             jj_consume_token(-1);
@@ -870,19 +889,19 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      */
     final public void startSeeCommand() throws ParseException {
         jj_consume_token(NUM);
-        if (jj_2_15(2)) {
+        if (jj_2_16(2)) {
             jj_consume_token(SEP);
             label_1:
             while (true) {
                 jj_consume_token(OB);
                 objInfo();
                 jj_consume_token(CB);
-                if (jj_2_13(2)) {
+                if (jj_2_14(2)) {
                     jj_consume_token(SEP);
                 } else {
                     ;
                 }
-                if (jj_2_14(2)) {
+                if (jj_2_15(2)) {
                     ;
                 } else {
                     break label_1;
@@ -901,20 +920,21 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      */
     final public void objInfo() throws ParseException {
         ObjName name;
-        Token   p1 = null;
-        Token   p2 = null;
-        Token   p3 = null;
-        Token   p4 = null;
-        Token   p5 = null;
-        Token   p6 = null;
-        Token   p7 = null;
+        Token   p1     = null;
+        Token   p2     = null;
+        Token   p3     = null;
+        Token   p4     = null;
+        Token   p5     = null;
+        Token   p6     = null;
+        Token   p7     = null;
+        Token   kicked = null;
         jj_consume_token(OB);
         name = objName();
         jj_consume_token(CB);
         jj_consume_token(SEP);
-        if (jj_2_17(2)) {
+        if (jj_2_18(2)) {
             p1 = jj_consume_token(NUM);
-            if (jj_2_16(2)) {
+            if (jj_2_17(2)) {
                 jj_consume_token(SEP);
             } else {
                 ;
@@ -922,9 +942,9 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
         } else {
             ;
         }
-        if (jj_2_19(2)) {
+        if (jj_2_20(2)) {
             p2 = jj_consume_token(NUM);
-            if (jj_2_18(2)) {
+            if (jj_2_19(2)) {
                 jj_consume_token(SEP);
             } else {
                 ;
@@ -932,9 +952,9 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
         } else {
             ;
         }
-        if (jj_2_21(2)) {
+        if (jj_2_22(2)) {
             p3 = jj_consume_token(NUM);
-            if (jj_2_20(2)) {
+            if (jj_2_21(2)) {
                 jj_consume_token(SEP);
             } else {
                 ;
@@ -942,9 +962,9 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
         } else {
             ;
         }
-        if (jj_2_23(2)) {
+        if (jj_2_24(2)) {
             p4 = jj_consume_token(NUM);
-            if (jj_2_22(2)) {
+            if (jj_2_23(2)) {
                 jj_consume_token(SEP);
             } else {
                 ;
@@ -952,9 +972,9 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
         } else {
             ;
         }
-        if (jj_2_25(2)) {
+        if (jj_2_26(2)) {
             p5 = jj_consume_token(NUM);
-            if (jj_2_24(2)) {
+            if (jj_2_25(2)) {
                 jj_consume_token(SEP);
             } else {
                 ;
@@ -962,9 +982,19 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
         } else {
             ;
         }
-        if (jj_2_27(2)) {
+        if (jj_2_28(2)) {
             p6 = jj_consume_token(NUM);
-            if (jj_2_26(2)) {
+            if (jj_2_27(2)) {
+                jj_consume_token(SEP);
+            } else {
+                ;
+            }
+        } else {
+            ;
+        }
+        if (jj_2_30(2)) {
+            kicked = jj_consume_token(NAM);
+            if (jj_2_29(2)) {
                 jj_consume_token(SEP);
             } else {
                 ;
@@ -973,7 +1003,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
             ;
         }
 
-        // HeadFacingDir
+        // Player kicked last turn
         Double dDistance      = 0.0;
         Double dDirection     = 0.0;
         Double dDistChange    = 0.0;
@@ -1038,10 +1068,10 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
         Token   name;
         Token   num;
         ObjName objName = null;
-        if (jj_2_32(2)) {
+        if (jj_2_35(2)) {
             jj_consume_token(P);
-            if (jj_2_29(2)) {
-                if (jj_2_28(2)) {
+            if (jj_2_32(2)) {
+                if (jj_2_31(2)) {
                     jj_consume_token(SEP);
                 } else {
                     ;
@@ -1059,16 +1089,16 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return objName;
                 }
             }
-        } else if (jj_2_33(2)) {
+        } else if (jj_2_36(2)) {
             jj_consume_token(B);
             {
                 if (true) {
                     return new ObjNameBall();
                 }
             }
-        } else if (jj_2_34(2)) {
+        } else if (jj_2_37(2)) {
             jj_consume_token(FLAG);
-            if (jj_2_30(2)) {
+            if (jj_2_33(2)) {
                 jj_consume_token(SEP);
                 objName = objNameFlag();
             } else {
@@ -1083,7 +1113,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return objName;
                 }
             }
-        } else if (jj_2_35(2)) {
+        } else if (jj_2_38(2)) {
             jj_consume_token(L);
             jj_consume_token(SEP);
             objName = objNameLine();
@@ -1092,9 +1122,9 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return objName;
                 }
             }
-        } else if (jj_2_36(2)) {
+        } else if (jj_2_39(2)) {
             jj_consume_token(GOAL);
-            if (jj_2_31(2)) {
+            if (jj_2_34(2)) {
                 jj_consume_token(SEP);
                 objName = objNameFlagGoal();
             } else {
@@ -1126,15 +1156,15 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
         Token   num     = null;
         Token   goalie  = null;
         ObjName objName = null;
-        if (jj_2_39(2)) {
+        if (jj_2_42(2)) {
             name = jj_consume_token(NAM);
-            if (jj_2_37(2)) {
+            if (jj_2_40(2)) {
                 jj_consume_token(SEP);
                 num = jj_consume_token(NUM);
             } else {
                 ;
             }
-            if (jj_2_38(2)) {
+            if (jj_2_41(2)) {
                 jj_consume_token(SEP);
                 goalie = jj_consume_token(GOALIE);
             } else {
@@ -1195,7 +1225,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     }
                 }
             }
-        } else if (jj_2_40(2)) {
+        } else if (jj_2_43(2)) {
             jj_consume_token(L);
             jj_consume_token(SEP);
             num = jj_consume_token(NUM);
@@ -1213,7 +1243,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     }
                 }
             }
-        } else if (jj_2_41(2)) {
+        } else if (jj_2_44(2)) {
             jj_consume_token(R);
             jj_consume_token(SEP);
             num = jj_consume_token(NUM);
@@ -1245,9 +1275,9 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      */
     final public ObjName objNameFlag() throws ParseException {
         ObjName objName = null;
-        if (jj_2_43(2)) {
+        if (jj_2_46(2)) {
             jj_consume_token(C);
-            if (jj_2_42(2)) {
+            if (jj_2_45(2)) {
                 jj_consume_token(SEP);
                 objName = objNameFlagCenter();
             } else {
@@ -1262,7 +1292,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return objName;
                 }
             }
-        } else if (jj_2_44(2)) {
+        } else if (jj_2_47(2)) {
             jj_consume_token(P);
             jj_consume_token(SEP);
             objName = objNameFlagPenalty();
@@ -1271,7 +1301,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return objName;
                 }
             }
-        } else if (jj_2_45(2)) {
+        } else if (jj_2_48(2)) {
             jj_consume_token(L);
             jj_consume_token(SEP);
             objName = objNameFlagLeft();
@@ -1280,7 +1310,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return objName;
                 }
             }
-        } else if (jj_2_46(2)) {
+        } else if (jj_2_49(2)) {
             jj_consume_token(R);
             jj_consume_token(SEP);
             objName = objNameFlagRight();
@@ -1289,7 +1319,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return objName;
                 }
             }
-        } else if (jj_2_47(2)) {
+        } else if (jj_2_50(2)) {
             jj_consume_token(T);
             jj_consume_token(SEP);
             objName = objNameFlagTop();
@@ -1298,7 +1328,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return objName;
                 }
             }
-        } else if (jj_2_48(2)) {
+        } else if (jj_2_51(2)) {
             jj_consume_token(B);
             jj_consume_token(SEP);
             objName = objNameFlagBottom();
@@ -1307,7 +1337,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return objName;
                 }
             }
-        } else if (jj_2_49(2)) {
+        } else if (jj_2_52(2)) {
             jj_consume_token(GOAL);
             jj_consume_token(SEP);
             objName = objNameFlagGoal();
@@ -1330,13 +1360,13 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      */
     final public ObjName objNameFlagGoal() throws ParseException {
         Token q = null;
-        if (jj_2_56(2)) {
+        if (jj_2_59(2)) {
             jj_consume_token(L);
-            if (jj_2_52(2)) {
-                if (jj_2_50(2)) {
+            if (jj_2_55(2)) {
+                if (jj_2_53(2)) {
                     jj_consume_token(SEP);
                     q = jj_consume_token(T);
-                } else if (jj_2_51(2)) {
+                } else if (jj_2_54(2)) {
                     jj_consume_token(SEP);
                     q = jj_consume_token(B);
                 } else {
@@ -1355,13 +1385,13 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return new ObjNameFlagGoalLeft(q.image.charAt(0));
                 }
             }
-        } else if (jj_2_57(2)) {
+        } else if (jj_2_60(2)) {
             jj_consume_token(R);
-            if (jj_2_55(2)) {
-                if (jj_2_53(2)) {
+            if (jj_2_58(2)) {
+                if (jj_2_56(2)) {
                     jj_consume_token(SEP);
                     q = jj_consume_token(T);
-                } else if (jj_2_54(2)) {
+                } else if (jj_2_57(2)) {
                     jj_consume_token(SEP);
                     q = jj_consume_token(B);
                 } else {
@@ -1394,28 +1424,28 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      */
     final public ObjName objNameLine() throws ParseException {
         ObjName objName;
-        if (jj_2_58(2)) {
+        if (jj_2_61(2)) {
             jj_consume_token(T);
             {
                 if (true) {
                     return new ObjNameLine('t');
                 }
             }
-        } else if (jj_2_59(2)) {
+        } else if (jj_2_62(2)) {
             jj_consume_token(B);
             {
                 if (true) {
                     return new ObjNameLine('b');
                 }
             }
-        } else if (jj_2_60(2)) {
+        } else if (jj_2_63(2)) {
             jj_consume_token(R);
             {
                 if (true) {
                     return new ObjNameLine('r');
                 }
             }
-        } else if (jj_2_61(2)) {
+        } else if (jj_2_64(2)) {
             jj_consume_token(L);
             {
                 if (true) {
@@ -1436,14 +1466,14 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      */
     final public ObjName objNameFlagCenter() throws ParseException {
         ObjName objName;
-        if (jj_2_62(2)) {
+        if (jj_2_65(2)) {
             jj_consume_token(T);
             {
                 if (true) {
                     return new ObjNameFlagCenter('t');
                 }
             }
-        } else if (jj_2_63(2)) {
+        } else if (jj_2_66(2)) {
             jj_consume_token(B);
             {
                 if (true) {
@@ -1465,9 +1495,9 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     final public ObjName objNameFlagLeft() throws ParseException {
         ObjName objName;
         Token   num = null;
-        if (jj_2_66(2)) {
+        if (jj_2_69(2)) {
             jj_consume_token(T);
-            if (jj_2_64(2)) {
+            if (jj_2_67(2)) {
                 jj_consume_token(SEP);
                 num = jj_consume_token(NUM);
             } else {
@@ -1485,9 +1515,9 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     }
                 }
             }
-        } else if (jj_2_67(2)) {
+        } else if (jj_2_70(2)) {
             jj_consume_token(B);
-            if (jj_2_65(2)) {
+            if (jj_2_68(2)) {
                 jj_consume_token(SEP);
                 num = jj_consume_token(NUM);
             } else {
@@ -1505,7 +1535,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     }
                 }
             }
-        } else if (jj_2_68(2)) {
+        } else if (jj_2_71(2)) {
             jj_consume_token(NUM);
             {
                 if (true) {
@@ -1527,9 +1557,9 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     final public ObjName objNameFlagRight() throws ParseException {
         ObjName objName;
         Token   num = null;
-        if (jj_2_71(2)) {
+        if (jj_2_74(2)) {
             jj_consume_token(T);
-            if (jj_2_69(2)) {
+            if (jj_2_72(2)) {
                 jj_consume_token(SEP);
                 num = jj_consume_token(NUM);
             } else {
@@ -1547,9 +1577,9 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     }
                 }
             }
-        } else if (jj_2_72(2)) {
+        } else if (jj_2_75(2)) {
             jj_consume_token(B);
-            if (jj_2_70(2)) {
+            if (jj_2_73(2)) {
                 jj_consume_token(SEP);
                 num = jj_consume_token(NUM);
             } else {
@@ -1567,7 +1597,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     }
                 }
             }
-        } else if (jj_2_73(2)) {
+        } else if (jj_2_76(2)) {
             jj_consume_token(NUM);
             {
                 if (true) {
@@ -1589,7 +1619,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     final public ObjName objNameFlagTop() throws ParseException {
         ObjName objName;
         Token   num;
-        if (jj_2_74(2)) {
+        if (jj_2_77(2)) {
             jj_consume_token(R);
             jj_consume_token(SEP);
             num = jj_consume_token(NUM);
@@ -1599,7 +1629,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return new ObjNameFlagTop('r', iNum.intValue());
                 }
             }
-        } else if (jj_2_75(2)) {
+        } else if (jj_2_78(2)) {
             jj_consume_token(L);
             jj_consume_token(SEP);
             num = jj_consume_token(NUM);
@@ -1609,7 +1639,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return new ObjNameFlagTop('l', iNum.intValue());
                 }
             }
-        } else if (jj_2_76(2)) {
+        } else if (jj_2_79(2)) {
             jj_consume_token(NUM);
             {
                 if (true) {
@@ -1631,7 +1661,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     final public ObjName objNameFlagBottom() throws ParseException {
         ObjName objName;
         Token   num;
-        if (jj_2_77(2)) {
+        if (jj_2_80(2)) {
             jj_consume_token(R);
             jj_consume_token(SEP);
             num = jj_consume_token(NUM);
@@ -1641,7 +1671,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return new ObjNameFlagBottom('r', iNum.intValue());
                 }
             }
-        } else if (jj_2_78(2)) {
+        } else if (jj_2_81(2)) {
             jj_consume_token(L);
             jj_consume_token(SEP);
             num = jj_consume_token(NUM);
@@ -1651,7 +1681,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return new ObjNameFlagBottom('l', iNum.intValue());
                 }
             }
-        } else if (jj_2_79(2)) {
+        } else if (jj_2_82(2)) {
             jj_consume_token(NUM);
             {
                 if (true) {
@@ -1672,9 +1702,9 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      */
     final public ObjName objNameFlagPenalty() throws ParseException {
         ObjName objName = null;
-        if (jj_2_82(2)) {
+        if (jj_2_85(2)) {
             jj_consume_token(L);
-            if (jj_2_80(2)) {
+            if (jj_2_83(2)) {
                 jj_consume_token(SEP);
                 objName = objNameFlagPenaltyWest();
             } else {
@@ -1689,9 +1719,9 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return objName;
                 }
             }
-        } else if (jj_2_83(2)) {
+        } else if (jj_2_86(2)) {
             jj_consume_token(R);
-            if (jj_2_81(2)) {
+            if (jj_2_84(2)) {
                 jj_consume_token(SEP);
                 objName = objNameFlagPenaltyEast();
             } else {
@@ -1720,21 +1750,21 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      */
     final public ObjName objNameFlagPenaltyWest() throws ParseException {
         ObjName objName;
-        if (jj_2_84(2)) {
+        if (jj_2_87(2)) {
             jj_consume_token(T);
             {
                 if (true) {
                     return new ObjNameFlagPenaltyWest('t');
                 }
             }
-        } else if (jj_2_85(2)) {
+        } else if (jj_2_88(2)) {
             jj_consume_token(B);
             {
                 if (true) {
                     return new ObjNameFlagPenaltyWest('b');
                 }
             }
-        } else if (jj_2_86(2)) {
+        } else if (jj_2_89(2)) {
             jj_consume_token(C);
             {
                 if (true) {
@@ -1755,21 +1785,21 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      */
     final public ObjName objNameFlagPenaltyEast() throws ParseException {
         ObjName objName;
-        if (jj_2_87(2)) {
+        if (jj_2_90(2)) {
             jj_consume_token(T);
             {
                 if (true) {
                     return new ObjNameFlagPenaltyEast('t');
                 }
             }
-        } else if (jj_2_88(2)) {
+        } else if (jj_2_91(2)) {
             jj_consume_token(B);
             {
                 if (true) {
                     return new ObjNameFlagPenaltyEast('b');
                 }
             }
-        } else if (jj_2_89(2)) {
+        } else if (jj_2_92(2)) {
             jj_consume_token(C);
             {
                 if (true) {
@@ -1791,42 +1821,42 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      * @throws ParseException
      */
     final public Warning warning() throws ParseException {
-        if (jj_2_90(2)) {
+        if (jj_2_93(2)) {
             jj_consume_token(NO_TEAM_FOUND);
             {
                 if (true) {
                     return Warning.NO_TEAM_FOUND;
                 }
             }
-        } else if (jj_2_91(2)) {
+        } else if (jj_2_94(2)) {
             jj_consume_token(NO_SUCH_PLAYER);
             {
                 if (true) {
                     return Warning.NO_SUCH_PLAYER;
                 }
             }
-        } else if (jj_2_92(2)) {
+        } else if (jj_2_95(2)) {
             jj_consume_token(CANNOT_SUB_WHILE_PLAYON);
             {
                 if (true) {
                     return Warning.CANNOT_SUB_WHILE_PLAYON;
                 }
             }
-        } else if (jj_2_93(2)) {
+        } else if (jj_2_96(2)) {
             jj_consume_token(NO_SUBS_LEFT);
             {
                 if (true) {
                     return Warning.NO_SUBS_LEFT;
                 }
             }
-        } else if (jj_2_94(2)) {
+        } else if (jj_2_97(2)) {
             jj_consume_token(MAX_OF_THAT_TYPE_ON_FIELD);
             {
                 if (true) {
                     return Warning.MAX_OF_THAT_TYPE_ON_FIELD;
                 }
             }
-        } else if (jj_2_95(2)) {
+        } else if (jj_2_98(2)) {
             jj_consume_token(CANNOT_CHANGE_GOALIE);
             {
                 if (true) {
@@ -1846,77 +1876,77 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      * @throws ParseException
      */
     final public Ok ok() throws ParseException {
-        if (jj_2_96(2)) {
+        if (jj_2_99(2)) {
             jj_consume_token(MOVE);
             {
                 if (true) {
                     return Ok.MOVE;
                 }
             }
-        } else if (jj_2_97(2)) {
+        } else if (jj_2_100(2)) {
             jj_consume_token(CHANGE_MODE);
             {
                 if (true) {
                     return Ok.CHANGE_MODE;
                 }
             }
-        } else if (jj_2_98(2)) {
+        } else if (jj_2_101(2)) {
             jj_consume_token(CHECK_BALL);
             {
                 if (true) {
                     return Ok.CHECK_BALL;
                 }
             }
-        } else if (jj_2_99(2)) {
+        } else if (jj_2_102(2)) {
             jj_consume_token(START);
             {
                 if (true) {
                     return Ok.START;
                 }
             }
-        } else if (jj_2_100(2)) {
+        } else if (jj_2_103(2)) {
             jj_consume_token(RECOVER);
             {
                 if (true) {
                     return Ok.RECOVER;
                 }
             }
-        } else if (jj_2_101(2)) {
+        } else if (jj_2_104(2)) {
             jj_consume_token(EAR);
             {
                 if (true) {
                     return Ok.EAR;
                 }
             }
-        } else if (jj_2_102(2)) {
+        } else if (jj_2_105(2)) {
             jj_consume_token(SAY);
             {
                 if (true) {
                     return Ok.SAY;
                 }
             }
-        } else if (jj_2_103(2)) {
+        } else if (jj_2_106(2)) {
             jj_consume_token(CHANGE_PLAYER_TYPE);
             {
                 if (true) {
                     return Ok.CHANGE_PLAYER_TYPE;
                 }
             }
-        } else if (jj_2_104(2)) {
+        } else if (jj_2_107(2)) {
             jj_consume_token(LOOK);
             {
                 if (true) {
                     return Ok.LOOK;
                 }
             }
-        } else if (jj_2_105(2)) {
+        } else if (jj_2_108(2)) {
             jj_consume_token(TEAM_NAMES);
             {
                 if (true) {
                     return Ok.TEAM_NAMES;
                 }
             }
-        } else if (jj_2_106(2)) {
+        } else if (jj_2_109(2)) {
             jj_consume_token(TEAM_GRAPHIC);
             {
                 if (true) {
@@ -1936,63 +1966,63 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      * @throws ParseException
      */
     final public Errors error() throws ParseException {
-        if (jj_2_107(2)) {
+        if (jj_2_110(2)) {
             jj_consume_token(ILLEGAL_MODE);
             {
                 if (true) {
                     return Errors.ILLEGAL_MODE;
                 }
             }
-        } else if (jj_2_108(2)) {
+        } else if (jj_2_111(2)) {
             jj_consume_token(ILLEGAL_COMMAND_FORM);
             {
                 if (true) {
                     return Errors.ILLEGAL_COMMAND_FORM;
                 }
             }
-        } else if (jj_2_109(2)) {
+        } else if (jj_2_112(2)) {
             jj_consume_token(ILLEGAL_OBJECT_FORM);
             {
                 if (true) {
                     return Errors.ILLEGAL_OBJECT_FORM;
                 }
             }
-        } else if (jj_2_110(2)) {
+        } else if (jj_2_113(2)) {
             jj_consume_token(NO_MORE_TEAM_OR_PLAYER);
             {
                 if (true) {
                     return Errors.NO_MORE_TEAM_OR_PLAYER;
                 }
             }
-        } else if (jj_2_111(2)) {
+        } else if (jj_2_114(2)) {
             jj_consume_token(NO_MORE_TEAM_OR_PLAYER_OR_GOALIE);
             {
                 if (true) {
                     return Errors.NO_MORE_TEAM_OR_PLAYER_OR_GOALIE;
                 }
             }
-        } else if (jj_2_112(2)) {
+        } else if (jj_2_115(2)) {
             jj_consume_token(RECONNECT);
             {
                 if (true) {
                     return Errors.RECONNECT;
                 }
             }
-        } else if (jj_2_113(2)) {
+        } else if (jj_2_116(2)) {
             jj_consume_token(UNKNOWN_COMMAND);
             {
                 if (true) {
                     return Errors.UNKNOWN_COMMAND;
                 }
             }
-        } else if (jj_2_114(2)) {
+        } else if (jj_2_117(2)) {
             jj_consume_token(TOO_MANY_MOVES);
             {
                 if (true) {
                     return Errors.TOO_MANY_MOVES;
                 }
             }
-        } else if (jj_2_115(2)) {
+        } else if (jj_2_118(2)) {
             jj_consume_token(SAID_TOO_MANY_MESSAGES);
             {
                 if (true) {
@@ -2012,28 +2042,28 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      * @throws ParseException
      */
     final public PlayMode playMode() throws ParseException {
-        if (jj_2_116(2)) {
+        if (jj_2_119(2)) {
             jj_consume_token(BEFORE_KICK_OFF);
             {
                 if (true) {
                     return PlayMode.BEFORE_KICK_OFF;
                 }
             }
-        } else if (jj_2_117(2)) {
+        } else if (jj_2_120(2)) {
             jj_consume_token(TIME_OVER);
             {
                 if (true) {
                     return PlayMode.TIME_OVER;
                 }
             }
-        } else if (jj_2_118(2)) {
+        } else if (jj_2_121(2)) {
             jj_consume_token(PLAY_ON);
             {
                 if (true) {
                     return PlayMode.PLAY_ON;
                 }
             }
-        } else if (jj_2_119(2)) {
+        } else if (jj_2_122(2)) {
             jj_consume_token(KICK_OFF_L);
             if (player.isTeamEast()) {
                 if (true) {
@@ -2044,7 +2074,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return PlayMode.KICK_OFF_OWN;
                 }
             }
-        } else if (jj_2_120(2)) {
+        } else if (jj_2_123(2)) {
             jj_consume_token(KICK_OFF_R);
             if (!player.isTeamEast()) {
                 if (true) {
@@ -2055,7 +2085,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return PlayMode.KICK_OFF_OWN;
                 }
             }
-        } else if (jj_2_121(2)) {
+        } else if (jj_2_124(2)) {
             jj_consume_token(KICK_IN_L);
             if (player.isTeamEast()) {
                 if (true) {
@@ -2066,7 +2096,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return PlayMode.KICK_IN_OWN;
                 }
             }
-        } else if (jj_2_122(2)) {
+        } else if (jj_2_125(2)) {
             jj_consume_token(KICK_IN_R);
             if (!player.isTeamEast()) {
                 if (true) {
@@ -2077,7 +2107,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return PlayMode.KICK_IN_OWN;
                 }
             }
-        } else if (jj_2_123(2)) {
+        } else if (jj_2_126(2)) {
             jj_consume_token(FREE_KICK_R);
             if (!player.isTeamEast()) {
                 if (true) {
@@ -2088,7 +2118,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return PlayMode.FREE_KICK_OWN;
                 }
             }
-        } else if (jj_2_124(2)) {
+        } else if (jj_2_127(2)) {
             jj_consume_token(FREE_KICK_L);
             if (player.isTeamEast()) {
                 if (true) {
@@ -2099,7 +2129,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return PlayMode.FREE_KICK_OWN;
                 }
             }
-        } else if (jj_2_125(2)) {
+        } else if (jj_2_128(2)) {
             jj_consume_token(FREE_KICK_FAULT_R);
             if (!player.isTeamEast()) {
                 if (true) {
@@ -2110,7 +2140,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return PlayMode.FREE_KICK_FAULT_OWN;
                 }
             }
-        } else if (jj_2_126(2)) {
+        } else if (jj_2_129(2)) {
             jj_consume_token(FREE_KICK_FAULT_L);
             if (player.isTeamEast()) {
                 if (true) {
@@ -2121,7 +2151,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return PlayMode.FREE_KICK_FAULT_OWN;
                 }
             }
-        } else if (jj_2_127(2)) {
+        } else if (jj_2_130(2)) {
             jj_consume_token(CORNER_KICK_R);
             if (!player.isTeamEast()) {
                 if (true) {
@@ -2132,7 +2162,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return PlayMode.CORNER_KICK_OWN;
                 }
             }
-        } else if (jj_2_128(2)) {
+        } else if (jj_2_131(2)) {
             jj_consume_token(CORNER_KICK_L);
             if (player.isTeamEast()) {
                 if (true) {
@@ -2143,7 +2173,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return PlayMode.CORNER_KICK_OWN;
                 }
             }
-        } else if (jj_2_129(2)) {
+        } else if (jj_2_132(2)) {
             jj_consume_token(GOAL_KICK_R);
             if (!player.isTeamEast()) {
                 if (true) {
@@ -2154,7 +2184,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return PlayMode.GOAL_KICK_OWN;
                 }
             }
-        } else if (jj_2_130(2)) {
+        } else if (jj_2_133(2)) {
             jj_consume_token(GOAL_KICK_L);
             if (player.isTeamEast()) {
                 if (true) {
@@ -2165,7 +2195,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return PlayMode.GOAL_KICK_OWN;
                 }
             }
-        } else if (jj_2_131(2)) {
+        } else if (jj_2_134(2)) {
             jj_consume_token(GOAL_R);
             if (!player.isTeamEast()) {
                 if (true) {
@@ -2176,7 +2206,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return PlayMode.GOAL_OWN;
                 }
             }
-        } else if (jj_2_132(2)) {
+        } else if (jj_2_135(2)) {
             jj_consume_token(GOAL_L);
             if (player.isTeamEast()) {
                 if (true) {
@@ -2200,7 +2230,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      * @throws ParseException
      */
     final public RefereeMessage refereeMessage() throws ParseException {
-        if (jj_2_133(2)) {
+        if (jj_2_136(2)) {
             jj_consume_token(OFFSIDE_R);
             if (!player.isTeamEast()) {
                 if (true) {
@@ -2211,7 +2241,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return RefereeMessage.OFFSIDE_OWN;
                 }
             }
-        } else if (jj_2_134(2)) {
+        } else if (jj_2_137(2)) {
             jj_consume_token(OFFSIDE_L);
             if (player.isTeamEast()) {
                 if (true) {
@@ -2222,7 +2252,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return RefereeMessage.OFFSIDE_OWN;
                 }
             }
-        } else if (jj_2_135(2)) {
+        } else if (jj_2_138(2)) {
             jj_consume_token(FOUL_R);
             if (!player.isTeamEast()) {
                 if (true) {
@@ -2233,7 +2263,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return RefereeMessage.FOUL_OWN;
                 }
             }
-        } else if (jj_2_136(2)) {
+        } else if (jj_2_139(2)) {
             jj_consume_token(FOUL_L);
             if (player.isTeamEast()) {
                 if (true) {
@@ -2244,35 +2274,35 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     return RefereeMessage.FOUL_OWN;
                 }
             }
-        } else if (jj_2_137(2)) {
+        } else if (jj_2_140(2)) {
             jj_consume_token(HALF_TIME);
             {
                 if (true) {
                     return RefereeMessage.HALF_TIME;
                 }
             }
-        } else if (jj_2_138(2)) {
+        } else if (jj_2_141(2)) {
             jj_consume_token(DROP_BALL);
             {
                 if (true) {
                     return RefereeMessage.DROP_BALL;
                 }
             }
-        } else if (jj_2_139(2)) {
+        } else if (jj_2_142(2)) {
             jj_consume_token(TIME_UP);
             {
                 if (true) {
                     return RefereeMessage.TIME_UP;
                 }
             }
-        } else if (jj_2_140(2)) {
+        } else if (jj_2_143(2)) {
             jj_consume_token(TIME_UP_WITHOUT_A_TEAM);
             {
                 if (true) {
                     return RefereeMessage.TIME_UP_WITHOUT_A_TEAM;
                 }
             }
-        } else if (jj_2_141(2)) {
+        } else if (jj_2_144(2)) {
             jj_consume_token(TIME_EXTENDED);
             {
                 if (true) {
@@ -4685,16 +4715,53 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
 
     /**
      *
+     * @param xla
      * @return
      */
-    private boolean jj_3_78() {
-        if (jj_scan_token(L)) {
+    private boolean jj_2_142(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_142();
+        } catch (LookaheadSuccess ls) {
             return true;
+        } finally {
+            jj_save(141, xla);
         }
-        if (jj_scan_token(SEP)) {
+    }
+
+    /**
+     *
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_143(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_143();
+        } catch (LookaheadSuccess ls) {
             return true;
+        } finally {
+            jj_save(142, xla);
         }
-        return false;
+    }
+
+    /**
+     *
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_144(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_144();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(143, xla);
+        }
     }
 
     /**
@@ -4715,6 +4782,17 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
+    private boolean jj_3_13() {
+        if (jj_scan_token(NORMAL)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
     private boolean jj_3_76() {
         if (jj_scan_token(NUM)) {
             return true;
@@ -4726,11 +4804,41 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_75() {
-        if (jj_scan_token(L)) {
+    private boolean jj_3_73() {
+        if (jj_scan_token(SEP)) {
             return true;
         }
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_75() {
+        if (jj_scan_token(B)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_73()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_72() {
         if (jj_scan_token(SEP)) {
+            return true;
+        }
+        if (jj_scan_token(NUM)) {
             return true;
         }
         return false;
@@ -4741,11 +4849,13 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      * @return
      */
     private boolean jj_3_74() {
-        if (jj_scan_token(R)) {
+        if (jj_scan_token(T)) {
             return true;
         }
-        if (jj_scan_token(SEP)) {
-            return true;
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_72()) {
+            jj_scanpos = xsp;
         }
         return false;
     }
@@ -4755,7 +4865,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      * @return
      */
     private boolean jj_3_12() {
-        if (jj_scan_token(NORMAL)) {
+        if (jj_scan_token(NARROW)) {
             return true;
         }
         return false;
@@ -4765,7 +4875,32 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_73() {
+    private boolean jj_3_10() {
+        if (jj_scan_token(LOW)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_71() {
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_68() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
         if (jj_scan_token(NUM)) {
             return true;
         }
@@ -4777,26 +4912,12 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      * @return
      */
     private boolean jj_3_70() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_72() {
         if (jj_scan_token(B)) {
             return true;
         }
         Token xsp;
         xsp = jj_scanpos;
-        if (jj_3_70()) {
+        if (jj_3_68()) {
             jj_scanpos = xsp;
         }
         return false;
@@ -4806,7 +4927,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_69() {
+    private boolean jj_3_67() {
         if (jj_scan_token(SEP)) {
             return true;
         }
@@ -4820,13 +4941,13 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_71() {
+    private boolean jj_3_69() {
         if (jj_scan_token(T)) {
             return true;
         }
         Token xsp;
         xsp = jj_scanpos;
-        if (jj_3_69()) {
+        if (jj_3_67()) {
             jj_scanpos = xsp;
         }
         return false;
@@ -4837,83 +4958,6 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      * @return
      */
     private boolean jj_3_11() {
-        if (jj_scan_token(NARROW)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_9() {
-        if (jj_scan_token(LOW)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_68() {
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_65() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_67() {
-        if (jj_scan_token(B)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_65()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_64() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_10() {
         if (jj_scan_token(WIDE)) {
             return true;
         }
@@ -4924,23 +4968,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_66() {
-        if (jj_scan_token(T)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_64()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_8() {
+    private boolean jj_3_9() {
         if (jj_scan_token(HIGH)) {
             return true;
         }
@@ -4951,7 +4979,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_63() {
+    private boolean jj_3_66() {
         if (jj_scan_token(B)) {
             return true;
         }
@@ -4965,9 +4993,9 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     private boolean jj_3R_8() {
         Token xsp;
         xsp = jj_scanpos;
-        if (jj_3_62()) {
+        if (jj_3_65()) {
             jj_scanpos = xsp;
-            if (jj_3_63()) {
+            if (jj_3_66()) {
                 return true;
             }
         }
@@ -4978,7 +5006,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_62() {
+    private boolean jj_3_65() {
         if (jj_scan_token(T)) {
             return true;
         }
@@ -4989,7 +5017,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_7() {
+    private boolean jj_3_8() {
         if (jj_scan_token(R)) {
             return true;
         }
@@ -5000,8 +5028,44 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_61() {
+    private boolean jj_3_64() {
         if (jj_scan_token(L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_57() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        if (jj_scan_token(B)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_63() {
+        if (jj_scan_token(R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_62() {
+        if (jj_scan_token(B)) {
             return true;
         }
         return false;
@@ -5025,18 +5089,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_60() {
-        if (jj_scan_token(R)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_6() {
+    private boolean jj_3_7() {
         if (jj_scan_token(L)) {
             return true;
         }
@@ -5047,22 +5100,8 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_59() {
-        if (jj_scan_token(B)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_51() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        if (jj_scan_token(B)) {
+    private boolean jj_3_61() {
+        if (jj_scan_token(T)) {
             return true;
         }
         return false;
@@ -5073,8 +5112,54 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      * @return
      */
     private boolean jj_3_58() {
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_56()) {
+            jj_scanpos = xsp;
+            if (jj_3_57()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_56() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
         if (jj_scan_token(T)) {
             return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_6() {
+        if (jj_3R_3()) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_60() {
+        if (jj_scan_token(R)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_58()) {
+            jj_scanpos = xsp;
         }
         return false;
     }
@@ -5114,17 +5199,6 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      * @return
      */
     private boolean jj_3_5() {
-        if (jj_3R_3()) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_4() {
         if (jj_3R_2()) {
             return true;
         }
@@ -5135,8 +5209,24 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_57() {
-        if (jj_scan_token(R)) {
+    private boolean jj_3R_7() {
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_59()) {
+            jj_scanpos = xsp;
+            if (jj_3_60()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_59() {
+        if (jj_scan_token(L)) {
             return true;
         }
         Token xsp;
@@ -5151,69 +5241,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_52() {
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_50()) {
-            jj_scanpos = xsp;
-            if (jj_3_51()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_50() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        if (jj_scan_token(T)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3R_7() {
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_56()) {
-            jj_scanpos = xsp;
-            if (jj_3_57()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_56() {
-        if (jj_scan_token(L)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_52()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_3() {
+    private boolean jj_3_4() {
         if (jj_scan_token(NUM)) {
             return true;
         }
@@ -5227,7 +5255,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_2() {
+    private boolean jj_3_3() {
         if (jj_scan_token(REFEREE)) {
             return true;
         }
@@ -5241,18 +5269,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_1() {
-        if (jj_scan_token(SELF)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_49() {
+    private boolean jj_3_52() {
         if (jj_scan_token(GOAL)) {
             return true;
         }
@@ -5266,7 +5283,18 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_48() {
+    private boolean jj_3_2() {
+        if (jj_scan_token(SELF)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_51() {
         if (jj_scan_token(B)) {
             return true;
         }
@@ -5280,7 +5308,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_141() {
+    private boolean jj_3_144() {
         if (jj_scan_token(TIME_EXTENDED)) {
             return true;
         }
@@ -5291,7 +5319,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_47() {
+    private boolean jj_3_50() {
         if (jj_scan_token(T)) {
             return true;
         }
@@ -5305,7 +5333,18 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_140() {
+    private boolean jj_3_1() {
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_143() {
         if (jj_scan_token(TIME_UP_WITHOUT_A_TEAM)) {
             return true;
         }
@@ -5316,7 +5355,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_46() {
+    private boolean jj_3_49() {
         if (jj_scan_token(R)) {
             return true;
         }
@@ -5330,7 +5369,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_139() {
+    private boolean jj_3_142() {
         if (jj_scan_token(TIME_UP)) {
             return true;
         }
@@ -5341,7 +5380,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_45() {
+    private boolean jj_3_48() {
         if (jj_scan_token(L)) {
             return true;
         }
@@ -5355,7 +5394,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_138() {
+    private boolean jj_3_141() {
         if (jj_scan_token(DROP_BALL)) {
             return true;
         }
@@ -5366,7 +5405,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_44() {
+    private boolean jj_3_47() {
         if (jj_scan_token(P)) {
             return true;
         }
@@ -5380,7 +5419,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_42() {
+    private boolean jj_3_45() {
         if (jj_scan_token(SEP)) {
             return true;
         }
@@ -5394,7 +5433,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_137() {
+    private boolean jj_3_140() {
         if (jj_scan_token(HALF_TIME)) {
             return true;
         }
@@ -5408,19 +5447,19 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     private boolean jj_3R_6() {
         Token xsp;
         xsp = jj_scanpos;
-        if (jj_3_43()) {
+        if (jj_3_46()) {
             jj_scanpos = xsp;
-            if (jj_3_44()) {
+            if (jj_3_47()) {
                 jj_scanpos = xsp;
-                if (jj_3_45()) {
+                if (jj_3_48()) {
                     jj_scanpos = xsp;
-                    if (jj_3_46()) {
+                    if (jj_3_49()) {
                         jj_scanpos = xsp;
-                        if (jj_3_47()) {
+                        if (jj_3_50()) {
                             jj_scanpos = xsp;
-                            if (jj_3_48()) {
+                            if (jj_3_51()) {
                                 jj_scanpos = xsp;
-                                if (jj_3_49()) {
+                                if (jj_3_52()) {
                                     return true;
                                 }
                             }
@@ -5436,13 +5475,13 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_43() {
+    private boolean jj_3_46() {
         if (jj_scan_token(C)) {
             return true;
         }
         Token xsp;
         xsp = jj_scanpos;
-        if (jj_3_42()) {
+        if (jj_3_45()) {
             jj_scanpos = xsp;
         }
         return false;
@@ -5452,7 +5491,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_136() {
+    private boolean jj_3_139() {
         if (jj_scan_token(FOUL_L)) {
             return true;
         }
@@ -5463,7 +5502,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_135() {
+    private boolean jj_3_138() {
         if (jj_scan_token(FOUL_R)) {
             return true;
         }
@@ -5474,7 +5513,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_41() {
+    private boolean jj_3_44() {
         if (jj_scan_token(R)) {
             return true;
         }
@@ -5488,7 +5527,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_134() {
+    private boolean jj_3_137() {
         if (jj_scan_token(OFFSIDE_L)) {
             return true;
         }
@@ -5499,7 +5538,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_38() {
+    private boolean jj_3_41() {
         if (jj_scan_token(SEP)) {
             return true;
         }
@@ -5513,7 +5552,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_40() {
+    private boolean jj_3_43() {
         if (jj_scan_token(L)) {
             return true;
         }
@@ -5527,37 +5566,26 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_133() {
-        if (jj_scan_token(OFFSIDE_R)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
     private boolean jj_3R_3() {
         Token xsp;
         xsp = jj_scanpos;
-        if (jj_3_133()) {
+        if (jj_3_136()) {
             jj_scanpos = xsp;
-            if (jj_3_134()) {
+            if (jj_3_137()) {
                 jj_scanpos = xsp;
-                if (jj_3_135()) {
+                if (jj_3_138()) {
                     jj_scanpos = xsp;
-                    if (jj_3_136()) {
+                    if (jj_3_139()) {
                         jj_scanpos = xsp;
-                        if (jj_3_137()) {
+                        if (jj_3_140()) {
                             jj_scanpos = xsp;
-                            if (jj_3_138()) {
+                            if (jj_3_141()) {
                                 jj_scanpos = xsp;
-                                if (jj_3_139()) {
+                                if (jj_3_142()) {
                                     jj_scanpos = xsp;
-                                    if (jj_3_140()) {
+                                    if (jj_3_143()) {
                                         jj_scanpos = xsp;
-                                        if (jj_3_141()) {
+                                        if (jj_3_144()) {
                                             return true;
                                         }
                                     }
@@ -5575,7 +5603,18 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_132() {
+    private boolean jj_3_136() {
+        if (jj_scan_token(OFFSIDE_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_135() {
         if (jj_scan_token(GOAL_L)) {
             return true;
         }
@@ -5586,7 +5625,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_37() {
+    private boolean jj_3_40() {
         if (jj_scan_token(SEP)) {
             return true;
         }
@@ -5600,7 +5639,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_131() {
+    private boolean jj_3_134() {
         if (jj_scan_token(GOAL_R)) {
             return true;
         }
@@ -5611,7 +5650,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_130() {
+    private boolean jj_3_133() {
         if (jj_scan_token(GOAL_KICK_L)) {
             return true;
         }
@@ -5625,11 +5664,11 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     private boolean jj_3R_5() {
         Token xsp;
         xsp = jj_scanpos;
-        if (jj_3_39()) {
+        if (jj_3_42()) {
             jj_scanpos = xsp;
-            if (jj_3_40()) {
+            if (jj_3_43()) {
                 jj_scanpos = xsp;
-                if (jj_3_41()) {
+                if (jj_3_44()) {
                     return true;
                 }
             }
@@ -5641,17 +5680,17 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_39() {
+    private boolean jj_3_42() {
         if (jj_scan_token(NAM)) {
             return true;
         }
         Token xsp;
         xsp = jj_scanpos;
-        if (jj_3_37()) {
+        if (jj_3_40()) {
             jj_scanpos = xsp;
         }
         xsp = jj_scanpos;
-        if (jj_3_38()) {
+        if (jj_3_41()) {
             jj_scanpos = xsp;
         }
         return false;
@@ -5661,7 +5700,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_31() {
+    private boolean jj_3_34() {
         if (jj_scan_token(SEP)) {
             return true;
         }
@@ -5675,7 +5714,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_129() {
+    private boolean jj_3_132() {
         if (jj_scan_token(GOAL_KICK_R)) {
             return true;
         }
@@ -5686,13 +5725,13 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_36() {
+    private boolean jj_3_39() {
         if (jj_scan_token(GOAL)) {
             return true;
         }
         Token xsp;
         xsp = jj_scanpos;
-        if (jj_3_31()) {
+        if (jj_3_34()) {
             jj_scanpos = xsp;
         }
         return false;
@@ -5702,7 +5741,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_30() {
+    private boolean jj_3_33() {
         if (jj_scan_token(SEP)) {
             return true;
         }
@@ -5716,7 +5755,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_128() {
+    private boolean jj_3_131() {
         if (jj_scan_token(CORNER_KICK_L)) {
             return true;
         }
@@ -5727,7 +5766,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_35() {
+    private boolean jj_3_38() {
         if (jj_scan_token(L)) {
             return true;
         }
@@ -5741,13 +5780,13 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_34() {
+    private boolean jj_3_37() {
         if (jj_scan_token(FLAG)) {
             return true;
         }
         Token xsp;
         xsp = jj_scanpos;
-        if (jj_3_30()) {
+        if (jj_3_33()) {
             jj_scanpos = xsp;
         }
         return false;
@@ -5757,7 +5796,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_127() {
+    private boolean jj_3_130() {
         if (jj_scan_token(CORNER_KICK_R)) {
             return true;
         }
@@ -5768,7 +5807,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_28() {
+    private boolean jj_3_31() {
         if (jj_scan_token(SEP)) {
             return true;
         }
@@ -5779,10 +5818,21 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_29() {
+    private boolean jj_3_36() {
+        if (jj_scan_token(B)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_32() {
         Token xsp;
         xsp = jj_scanpos;
-        if (jj_3_28()) {
+        if (jj_3_31()) {
             jj_scanpos = xsp;
         }
         if (jj_3R_5()) {
@@ -5795,18 +5845,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_33() {
-        if (jj_scan_token(B)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_126() {
+    private boolean jj_3_129() {
         if (jj_scan_token(FREE_KICK_FAULT_L)) {
             return true;
         }
@@ -5817,8 +5856,156 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_32() {
+    private boolean jj_3_35() {
         if (jj_scan_token(P)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_32()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_128() {
+        if (jj_scan_token(FREE_KICK_FAULT_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_127() {
+        if (jj_scan_token(FREE_KICK_L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_29() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_126() {
+        if (jj_scan_token(FREE_KICK_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_27() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_25() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_125() {
+        if (jj_scan_token(KICK_IN_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_23() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_21() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_19() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_17() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_124() {
+        if (jj_scan_token(KICK_IN_L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_30() {
+        if (jj_scan_token(NAM)) {
             return true;
         }
         Token xsp;
@@ -5833,31 +6020,14 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_125() {
-        if (jj_scan_token(FREE_KICK_FAULT_R)) {
+    private boolean jj_3_28() {
+        if (jj_scan_token(NUM)) {
             return true;
         }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_124() {
-        if (jj_scan_token(FREE_KICK_L)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_123() {
-        if (jj_scan_token(FREE_KICK_R)) {
-            return true;
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_27()) {
+            jj_scanpos = xsp;
         }
         return false;
     }
@@ -5867,8 +6037,13 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      * @return
      */
     private boolean jj_3_26() {
-        if (jj_scan_token(SEP)) {
+        if (jj_scan_token(NUM)) {
             return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_25()) {
+            jj_scanpos = xsp;
         }
         return false;
     }
@@ -5878,8 +6053,13 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      * @return
      */
     private boolean jj_3_24() {
-        if (jj_scan_token(SEP)) {
+        if (jj_scan_token(NUM)) {
             return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_23()) {
+            jj_scanpos = xsp;
         }
         return false;
     }
@@ -5889,19 +6069,13 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      * @return
      */
     private boolean jj_3_22() {
-        if (jj_scan_token(SEP)) {
+        if (jj_scan_token(NUM)) {
             return true;
         }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_122() {
-        if (jj_scan_token(KICK_IN_R)) {
-            return true;
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_21()) {
+            jj_scanpos = xsp;
         }
         return false;
     }
@@ -5911,7 +6085,23 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      * @return
      */
     private boolean jj_3_20() {
-        if (jj_scan_token(SEP)) {
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_19()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_123() {
+        if (jj_scan_token(KICK_OFF_R)) {
             return true;
         }
         return false;
@@ -5922,7 +6112,23 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      * @return
      */
     private boolean jj_3_18() {
-        if (jj_scan_token(SEP)) {
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_17()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_122() {
+        if (jj_scan_token(KICK_OFF_L)) {
             return true;
         }
         return false;
@@ -5932,7 +6138,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_16() {
+    private boolean jj_3_14() {
         if (jj_scan_token(SEP)) {
             return true;
         }
@@ -5944,146 +6150,6 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      * @return
      */
     private boolean jj_3_121() {
-        if (jj_scan_token(KICK_IN_L)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_27() {
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_26()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_25() {
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_24()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_23() {
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_22()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_21() {
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_20()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_19() {
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_18()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_17() {
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_16()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_120() {
-        if (jj_scan_token(KICK_OFF_R)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_13() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_119() {
-        if (jj_scan_token(KICK_OFF_L)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_118() {
         if (jj_scan_token(PLAY_ON)) {
             return true;
         }
@@ -6094,19 +6160,8 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_117() {
+    private boolean jj_3_120() {
         if (jj_scan_token(TIME_OVER)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_116() {
-        if (jj_scan_token(BEFORE_KICK_OFF)) {
             return true;
         }
         return false;
@@ -6119,39 +6174,39 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     private boolean jj_3R_2() {
         Token xsp;
         xsp = jj_scanpos;
-        if (jj_3_116()) {
+        if (jj_3_119()) {
             jj_scanpos = xsp;
-            if (jj_3_117()) {
+            if (jj_3_120()) {
                 jj_scanpos = xsp;
-                if (jj_3_118()) {
+                if (jj_3_121()) {
                     jj_scanpos = xsp;
-                    if (jj_3_119()) {
+                    if (jj_3_122()) {
                         jj_scanpos = xsp;
-                        if (jj_3_120()) {
+                        if (jj_3_123()) {
                             jj_scanpos = xsp;
-                            if (jj_3_121()) {
+                            if (jj_3_124()) {
                                 jj_scanpos = xsp;
-                                if (jj_3_122()) {
+                                if (jj_3_125()) {
                                     jj_scanpos = xsp;
-                                    if (jj_3_123()) {
+                                    if (jj_3_126()) {
                                         jj_scanpos = xsp;
-                                        if (jj_3_124()) {
+                                        if (jj_3_127()) {
                                             jj_scanpos = xsp;
-                                            if (jj_3_125()) {
+                                            if (jj_3_128()) {
                                                 jj_scanpos = xsp;
-                                                if (jj_3_126()) {
+                                                if (jj_3_129()) {
                                                     jj_scanpos = xsp;
-                                                    if (jj_3_127()) {
+                                                    if (jj_3_130()) {
                                                         jj_scanpos = xsp;
-                                                        if (jj_3_128()) {
+                                                        if (jj_3_131()) {
                                                             jj_scanpos = xsp;
-                                                            if (jj_3_129()) {
+                                                            if (jj_3_132()) {
                                                                 jj_scanpos = xsp;
-                                                                if (jj_3_130()) {
+                                                                if (jj_3_133()) {
                                                                     jj_scanpos = xsp;
-                                                                    if (jj_3_131()) {
+                                                                    if (jj_3_134()) {
                                                                         jj_scanpos = xsp;
-                                                                        if (jj_3_132()) {
+                                                                        if (jj_3_135()) {
                                                                             return true;
                                                                         }
                                                                     }
@@ -6177,7 +6232,18 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_115() {
+    private boolean jj_3_119() {
+        if (jj_scan_token(BEFORE_KICK_OFF)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_118() {
         if (jj_scan_token(SAID_TOO_MANY_MESSAGES)) {
             return true;
         }
@@ -6188,7 +6254,18 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_14() {
+    private boolean jj_3_117() {
+        if (jj_scan_token(TOO_MANY_MOVES)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_15() {
         if (jj_scan_token(OB)) {
             return true;
         }
@@ -6202,18 +6279,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_114() {
-        if (jj_scan_token(TOO_MANY_MOVES)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_113() {
+    private boolean jj_3_116() {
         if (jj_scan_token(UNKNOWN_COMMAND)) {
             return true;
         }
@@ -6235,17 +6301,28 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_15() {
+    private boolean jj_3_115() {
+        if (jj_scan_token(RECONNECT)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_16() {
         if (jj_scan_token(SEP)) {
             return true;
         }
         Token xsp;
-        if (jj_3_14()) {
+        if (jj_3_15()) {
             return true;
         }
         while (true) {
             xsp = jj_scanpos;
-            if (jj_3_14()) {
+            if (jj_3_15()) {
                 jj_scanpos = xsp;
                 break;
             }
@@ -6257,18 +6334,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_112() {
-        if (jj_scan_token(RECONNECT)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_111() {
+    private boolean jj_3_114() {
         if (jj_scan_token(NO_MORE_TEAM_OR_PLAYER_OR_GOALIE)) {
             return true;
         }
@@ -6279,7 +6345,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_110() {
+    private boolean jj_3_113() {
         if (jj_scan_token(NO_MORE_TEAM_OR_PLAYER)) {
             return true;
         }
@@ -6290,7 +6356,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_109() {
+    private boolean jj_3_112() {
         if (jj_scan_token(ILLEGAL_OBJECT_FORM)) {
             return true;
         }
@@ -6301,7 +6367,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_108() {
+    private boolean jj_3_111() {
         if (jj_scan_token(ILLEGAL_COMMAND_FORM)) {
             return true;
         }
@@ -6312,7 +6378,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_107() {
+    private boolean jj_3_110() {
         if (jj_scan_token(ILLEGAL_MODE)) {
             return true;
         }
@@ -6323,7 +6389,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_106() {
+    private boolean jj_3_109() {
         if (jj_scan_token(TEAM_GRAPHIC)) {
             return true;
         }
@@ -6334,7 +6400,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_105() {
+    private boolean jj_3_108() {
         if (jj_scan_token(TEAM_NAMES)) {
             return true;
         }
@@ -6345,7 +6411,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_104() {
+    private boolean jj_3_107() {
         if (jj_scan_token(LOOK)) {
             return true;
         }
@@ -6356,7 +6422,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_103() {
+    private boolean jj_3_106() {
         if (jj_scan_token(CHANGE_PLAYER_TYPE)) {
             return true;
         }
@@ -6367,7 +6433,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_102() {
+    private boolean jj_3_105() {
         if (jj_scan_token(SAY)) {
             return true;
         }
@@ -6378,7 +6444,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_101() {
+    private boolean jj_3_104() {
         if (jj_scan_token(EAR)) {
             return true;
         }
@@ -6389,7 +6455,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_100() {
+    private boolean jj_3_103() {
         if (jj_scan_token(RECOVER)) {
             return true;
         }
@@ -6400,7 +6466,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_99() {
+    private boolean jj_3_102() {
         if (jj_scan_token(START)) {
             return true;
         }
@@ -6411,7 +6477,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_98() {
+    private boolean jj_3_101() {
         if (jj_scan_token(CHECK_BALL)) {
             return true;
         }
@@ -6422,7 +6488,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_97() {
+    private boolean jj_3_100() {
         if (jj_scan_token(CHANGE_MODE)) {
             return true;
         }
@@ -6433,7 +6499,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_96() {
+    private boolean jj_3_99() {
         if (jj_scan_token(MOVE)) {
             return true;
         }
@@ -6444,7 +6510,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_95() {
+    private boolean jj_3_98() {
         if (jj_scan_token(CANNOT_CHANGE_GOALIE)) {
             return true;
         }
@@ -6455,7 +6521,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_94() {
+    private boolean jj_3_97() {
         if (jj_scan_token(MAX_OF_THAT_TYPE_ON_FIELD)) {
             return true;
         }
@@ -6466,7 +6532,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_93() {
+    private boolean jj_3_96() {
         if (jj_scan_token(NO_SUBS_LEFT)) {
             return true;
         }
@@ -6477,7 +6543,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_92() {
+    private boolean jj_3_95() {
         if (jj_scan_token(CANNOT_SUB_WHILE_PLAYON)) {
             return true;
         }
@@ -6488,7 +6554,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_91() {
+    private boolean jj_3_94() {
         if (jj_scan_token(NO_SUCH_PLAYER)) {
             return true;
         }
@@ -6499,8 +6565,60 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_90() {
+    private boolean jj_3_93() {
         if (jj_scan_token(NO_TEAM_FOUND)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_92() {
+        if (jj_scan_token(C)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_91() {
+        if (jj_scan_token(B)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3R_10() {
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_90()) {
+            jj_scanpos = xsp;
+            if (jj_3_91()) {
+                jj_scanpos = xsp;
+                if (jj_3_92()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_90() {
+        if (jj_scan_token(T)) {
             return true;
         }
         return false;
@@ -6532,7 +6650,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3R_10() {
+    private boolean jj_3R_9() {
         Token xsp;
         xsp = jj_scanpos;
         if (jj_3_87()) {
@@ -6562,59 +6680,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_86() {
-        if (jj_scan_token(C)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_85() {
-        if (jj_scan_token(B)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3R_9() {
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_84()) {
-            jj_scanpos = xsp;
-            if (jj_3_85()) {
-                jj_scanpos = xsp;
-                if (jj_3_86()) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
     private boolean jj_3_84() {
-        if (jj_scan_token(T)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_81() {
         if (jj_scan_token(SEP)) {
             return true;
         }
@@ -6628,7 +6694,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_80() {
+    private boolean jj_3_83() {
         if (jj_scan_token(SEP)) {
             return true;
         }
@@ -6642,13 +6708,29 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_83() {
+    private boolean jj_3_86() {
         if (jj_scan_token(R)) {
             return true;
         }
         Token xsp;
         xsp = jj_scanpos;
-        if (jj_3_81()) {
+        if (jj_3_84()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_85() {
+        if (jj_scan_token(L)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_83()) {
             jj_scanpos = xsp;
         }
         return false;
@@ -6659,13 +6741,36 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      * @return
      */
     private boolean jj_3_82() {
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_81() {
         if (jj_scan_token(L)) {
             return true;
         }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_80()) {
-            jj_scanpos = xsp;
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_80() {
+        if (jj_scan_token(R)) {
+            return true;
+        }
+        if (jj_scan_token(SEP)) {
+            return true;
         }
         return false;
     }
@@ -6676,6 +6781,20 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      */
     private boolean jj_3_79() {
         if (jj_scan_token(NUM)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_78() {
+        if (jj_scan_token(L)) {
+            return true;
+        }
+        if (jj_scan_token(SEP)) {
             return true;
         }
         return false;
@@ -6982,7 +7101,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      */
     private void jj_rescan_token() {
         jj_rescan = true;
-        for (int i = 0; i < 141; i++) {
+        for (int i = 0; i < 144; i++) {
             try {
                 JJCalls p = jj_2_rtns[i];
                 do {
@@ -7412,6 +7531,15 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                                 break;
                             case 140 :
                                 jj_3_141();
+                                break;
+                            case 141 :
+                                jj_3_142();
+                                break;
+                            case 142 :
+                                jj_3_143();
+                                break;
+                            case 143 :
+                                jj_3_144();
                                 break;
                         }
                     }

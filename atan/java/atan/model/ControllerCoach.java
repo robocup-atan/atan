@@ -76,6 +76,19 @@ public interface ControllerCoach {
                                double kickRand, double extraStamina, double effortMax, double effortMin);
 
     /**
+     * The controller is informed when the change player type message is received.
+     * @param unum The players uniform number.
+     * @param type The players type.
+     */
+    public void infoCPTOwn(int unum, int type);
+
+    /**
+     * The controller is informed when the change player type message is received.
+     * @param unum The players uniform number.
+     */
+    public void infoCPTOther(int unum);
+
+    /**
      * The coach is informed when the server param message is received.
      */
     public void infoServerParam();

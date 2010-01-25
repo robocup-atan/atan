@@ -228,10 +228,26 @@ TOKEN :
 
 //TODO Commands still to implement.
 void startSeeCommand() : //The see_global command.
-    {}{{}}
+	{}{{}}
 
 void startCPTCommand() :
-    {}{{}}
+    {Token unum=null; Token type=null;}
+    {
+      unum=< NUM >[type=< NUM >]
+      {
+        Integer iUnum = 0;
+        Integer iType = 0;
+
+        if(type != null){ 
+			iUnum = new Integer(unum.image);
+			iType = new Integer(type.image);	  
+		  	controller.infoCPTOwn(iUnum.intValue(), iType.intValue());
+		}else{
+		  iUnum = new Integer(unum.image);
+		  controller.infoCPTOther(iUnum.intValue());
+		}
+	}
+}
 
 void startServerParamCommand() :
     {}{{}}

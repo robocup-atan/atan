@@ -121,7 +121,7 @@ import java.io.StringReader;
       ReInit(new StringReader(cmd));
       this.controller = controller;
       this.player = player;
-      startChangePlayerTypeCommand();
+      startCPTCommand();
     }
 }
 PARSER_END(CmdParserPlayer)
@@ -254,11 +254,27 @@ TOKEN :
 }
 
 //TODO Commands still to implement.
-void startServerParamCommand() :
+void startServerParamCommand() : //Over 100 parameters!
     {}{{}}
 
-void startChangePlayerTypeCommand() :
-    {}{{}}
+void startCPTCommand() :
+    {Token unum=null; Token type=null;}
+    {
+      unum=< NUM >[type=< NUM >]
+      {
+        Integer iUnum = 0;
+        Integer iType = 0;
+
+        if(type != null){ 
+			iUnum = new Integer(unum.image);
+			iType = new Integer(type.image);	  
+		  	controller.infoCPTOwn(iUnum.intValue(), iType.intValue());
+		}else{
+		  iUnum = new Integer(unum.image);
+		  controller.infoCPTOther(iUnum.intValue());
+		}
+	}
+}
 
 void startHearCommand() :
   {Token num;Token msg;} {
@@ -488,7 +504,6 @@ void startWarningCommand() :
      }
   }
 
-//Most important command!
 void startSeeCommand() :
   {} {
     <NUM>[<SEP>(<OB>objInfo()<CB>[<SEP>])+]
@@ -496,13 +511,16 @@ void startSeeCommand() :
 
 //Get object details.
 void objInfo() :
-  {ObjName name; Token p1=null; Token p2=null; Token p3=null; Token p4=null; Token p5=null; Token p6=null; Token p7=null;} {
+  {ObjName name; Token p1=null; Token p2=null; Token p3=null;
+  Token p4=null; Token p5=null; Token p6=null; Token p7=null;
+  Token kicked=null;} {
     <OB>name=objName()<CB><SEP>[p1=<NUM>[<SEP>]]  //Distance
                                [p2=<NUM>[<SEP>]]  //Direction
                                [p3=<NUM>[<SEP>]]  //DistChange
                                [p4=<NUM>[<SEP>]]  //DirChange
                                [p5=<NUM>[<SEP>]]  //BodyFacingDir
-                               [p6=<NUM>[<SEP>]]{ //HeadFacingDir
+                               [p6=<NUM>[<SEP>]]  //HeadFacingDir
+                               [kicked=<NAM>[<SEP>]]{ //Player kicked last turn - Currently only stopping the exception!
       Double dDistance = 0.0;
       Double dDirection = 0.0;
       Double dDistChange = 0.0;

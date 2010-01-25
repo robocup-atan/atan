@@ -428,4 +428,19 @@ public class Silly implements ControllerPlayer {
     public void infoPlayerType(int id, double playerSpeedMax, double staminaIncMax, double playerDecay,
                                double inertiaMoment, double dashPowerRate, double playerSize, double kickableMargin,
                                double kickRand, double extraStamina, double effortMax, double effortMin) {}
+
+    /**
+     *
+     * @param unum
+     */
+    @Override
+    public void infoCPTOther(int unum) {}
+
+    /**
+     *
+     * @param unum
+     * @param type
+     */
+    @Override
+    public void infoCPTOwn(int unum, int type) {}
 }

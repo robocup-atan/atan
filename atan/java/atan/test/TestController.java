@@ -668,4 +668,25 @@ public class TestController implements ControllerPlayer {
 
         // TODO Auto-generated method stub
     }
+
+    /**
+     *
+     * @param unum
+     */
+    @Override
+    public void infoCPTOther(int unum) {
+
+        // TODO Auto-generated method stub
+    }
+
+    /**
+     *
+     * @param unum
+     * @param type
+     */
+    @Override
+    public void infoCPTOwn(int unum, int type) {
+
+        // TODO Auto-generated method stub
+    }
 }

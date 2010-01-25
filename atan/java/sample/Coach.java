@@ -141,4 +141,23 @@ public class Coach implements ControllerCoach {
                                 double staminaIncMaxDeltaFactor, double subsMax) {
         log.info("player param");
     }
+
+    /**
+     *
+     * @param unum
+     */
+    @Override
+    public void infoCPTOther(int unum) {
+        log.info("change player type other");
+    }
+
+    /**
+     *
+     * @param unum
+     * @param type
+     */
+    @Override
+    public void infoCPTOwn(int unum, int type) {
+        log.info("change player type own");
+    }
 }
