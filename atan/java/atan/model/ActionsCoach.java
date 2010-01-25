@@ -29,7 +29,7 @@ public interface ActionsCoach {
 
     /**
      * This command changes a specified players type.
-     * @param unum 1~11.
+     * @param unum The players uniform number (1~11 on pitch usually, subs <= 17).
      * @param playerType //TODO Implement
      */
     public abstract void changePlayerType(int unum, Object playerType);

@@ -67,7 +67,7 @@ public interface ActionsTrainer {
     /**
      * This command changes a specified players type.
      * @param teamName The team the player belongs to.
-     * @param unum 1~11.
+     * @param unum The players uniform number (1~11 on pitch usually, subs <= 17).
      * @param playerType //TODO Implement
      */
     public void changePlayerType(String teamName, int unum, Object playerType);

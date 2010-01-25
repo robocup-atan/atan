@@ -20,6 +20,7 @@ import java.io.StringReader;
  * @author Atan
  */
 public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer {
+    private static final int           TRAINER_PORT   = 6001;
     private static Logger              log            = Logger.getLogger(SServerTrainer.class);
     private String                     initMessage    = null;
     private final CmdParserTrainer     parser         = new CmdParserTrainer(new StringReader(""));
@@ -35,7 +36,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
      * @param t
      */
     public SServerTrainer(String teamName, ControllerTrainer t) {
-        this(teamName, t, 6001, "localhost");
+        this(teamName, t, TRAINER_PORT, "localhost");
     }
 
     /**
@@ -185,7 +186,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     /**
      * This command changes a specified players type.
      * @param teamName The team the specified player belongs to.
-     * @param unum 1~11.
+     * @param unum The players uniform number (1~11 on pitch usually, subs <= 17).
      * @param playerType
      */
     @Override

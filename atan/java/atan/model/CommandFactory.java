@@ -379,11 +379,11 @@ public class CommandFactory {
      * Trainer only command.
      * This command changes the specified players type.
      * @param teamName The name of the team the player belongs to.
-     * @param unum //TODO Implement
+     * @param unum The players uniform number (1~11 on pitch usually, subs <= 17).
      * @param playerType //TODO Implement
      */
     @SuppressWarnings("unchecked")
-    public void addChangePlayerTypeCommand(String teamName, Object unum, Object playerType) {
+    public void addChangePlayerTypeCommand(String teamName, int unum, Object playerType) {
         StringBuffer buf = new StringBuffer();
         buf.append("(change_player_type ");
         buf.append(' ');
@@ -437,11 +437,11 @@ public class CommandFactory {
     /**
      * Coach only command.
      * This command changes the specified players type.
-     * @param unum //TODO Implement
+     * @param unum The players uniform number (1~11 on pitch usually, subs <= 17).
      * @param playerType //TODO Implement
      */
     @SuppressWarnings("unchecked")
-    public void addChangePlayerTypeCommand(Object unum, Object playerType) {
+    public void addChangePlayerTypeCommand(int unum, Object playerType) {
         StringBuffer buf = new StringBuffer();
         buf.append("(change_player_type ");
         buf.append(unum);

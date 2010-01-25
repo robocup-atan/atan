@@ -18,6 +18,7 @@ import java.io.StringReader;
  * @author Atan
  */
 public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
+    private static final int           COACH_PORT     = 6002;
     private static Logger              log            = Logger.getLogger(SServerCoach.class);
     private String                     initMessage    = null;
     private final CmdParserCoach       parser         = new CmdParserCoach(new StringReader(""));
@@ -34,7 +35,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
      * @param o
      */
     public SServerCoach(String teamName, ControllerCoach o) {
-        this(teamName, o, 6002, "localhost");
+        this(teamName, o, COACH_PORT, "localhost");
     }
 
     /**
@@ -129,7 +130,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
 
     /**
      * This command changes a specified players type.
-     * @param unum 1~11.
+     * @param unum The players uniform number (1~11 on pitch usually, subs <= 17).
      * @param playerType
      */
     @Override

@@ -9,17 +9,19 @@ import org.apache.log4j.Logger;
  * @author Atan
  */
 public abstract class AbstractTeam {
-    private static Logger   log       = Logger.getLogger(AbstractTeam.class);
-    private String          hostname  = "localhost";
-    private SServerPlayer[] players   = new SServerPlayer[11];
-    private int             port      = 6000;
-    private int             portCoach = 6002;
-    private boolean         hasCoach  = false;
-    private SServerCoach    coach;
-    private String          teamName;
+    private static final int COACH_PORT   = 6002;    // Static final until passed as parameter.
+    private static final int TRAINER_PORT = 6001;    // Static final until passed as parameter.
+    private static Logger    log          = Logger.getLogger(AbstractTeam.class);
+    private String           hostname     = "localhost";
+    private int              playerPort   = 6000;    // Can't be static final due to inclusion of port in constructor.
+    private SServerPlayer[]  players      = new SServerPlayer[11];
+    private boolean          hasCoach     = false;
+    private SServerCoach     coach;
+    private String           teamName;
 
     /**
-     * Connect the team to the server using the default settings.
+     * Connect the team to the server using the default player settings.
+     * No coach.
      * @param teamName
      */
     public AbstractTeam(String teamName) {
@@ -27,34 +29,18 @@ public abstract class AbstractTeam {
     }
 
     /**
-     * Connect the team to the server using specified settings.
-     * @param teamName
-     * @param port
-     * @param hostname
-     * @deprecated Due to inclusion of the coach variable.
-     */
-    public AbstractTeam(String teamName, int port, String hostname) {
-        this.teamName = teamName;
-        this.port     = port;
-        this.hostname = hostname;
-        createNewPlayers();
-        int n = players.length;
-        log.info("Created new team. " + teamName + " with " + n + " players. Connecting to " + hostname + ":" + port
-                 + ".");
-    }
-
-    /**
-     * Connect the team to the server using specified settings.
+     * Connect the team to the server using specified player settings.
+     * Uses default coach port.
      * @param teamName
      * @param port
      * @param hostname
      * @param hasCoach
      */
     public AbstractTeam(String teamName, int port, String hostname, boolean hasCoach) {
-        this.teamName = teamName;
-        this.port     = port;
-        this.hostname = hostname;
-        this.hasCoach = hasCoach;
+        this.teamName   = teamName;
+        this.playerPort = port;
+        this.hostname   = hostname;
+        this.hasCoach   = hasCoach;
         createNewPlayers();
         if (hasCoach) {
             createNewCoach();
@@ -95,7 +81,7 @@ public abstract class AbstractTeam {
      */
     public void createNewPlayers() {
         for (int i = 0; i < size(); i++) {
-            players[i] = new SServerPlayer(teamName, getNewControllerPlayer(i), port, hostname);
+            players[i] = new SServerPlayer(teamName, getNewControllerPlayer(i), playerPort, hostname);
         }
     }
 
@@ -103,7 +89,7 @@ public abstract class AbstractTeam {
      * Create a new SServerCoach.
      */
     public void createNewCoach() {
-        coach = new SServerCoach(teamName, getNewControllerCoach(), portCoach, hostname);
+        coach = new SServerCoach(teamName, getNewControllerCoach(), COACH_PORT, hostname);
     }
 
     /**

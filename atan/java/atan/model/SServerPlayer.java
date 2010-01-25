@@ -21,6 +21,7 @@ import java.io.StringReader;
  * @author Atan
  */
 public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
+    private static final int     PLAYER_PORT    = 6000;
     private static Logger        log            = Logger.getLogger(SServerPlayer.class);
     private String               initMessage    = null;
     private int                  number         = -1;
@@ -38,7 +39,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
      * @param c The controller for the player.
      */
     public SServerPlayer(String teamName, ControllerPlayer c) {
-        this(teamName, c, 6000, "localhost");
+        this(teamName, c, PLAYER_PORT, "localhost");
     }
 
     /**
