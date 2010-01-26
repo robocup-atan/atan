@@ -230,6 +230,9 @@ TOKEN :
 void startSeeCommand() : //The see_global command.
 	{}{{}}
 
+void startServerParamCommand() :
+    {}{{}}
+
 void startCPTCommand() :
     {Token unum=null; Token type=null;}
     {
@@ -248,9 +251,6 @@ void startCPTCommand() :
 		}
 	}
 }
-
-void startServerParamCommand() :
-    {}{{}}
 
 void startPlayerParamCommand() :
     {Token allowMultDefaultType=null; Token dashPowerRateDeltaMax=null;
