@@ -646,7 +646,7 @@ void startServerParamCommand() : //Possibly the biggest method ever!
 		Double dAudioCutDist = new Double(audioCutDist.image);
 		Double dAutoMode = new Double(autoMode.image);
 		Double dBackDashRate = new Double(backDashRate.image);
-		Double dBackPasses = new Double(backDashRate.image);
+		Double dBackPasses = new Double(backPasses.image);
 		Double dBallAccelMax = new Double(ballAccelMax.image);
 		Double dBallDecay = new Double(ballDecay.image);
 		Double dBallRand = new Double(ballRand.image);
