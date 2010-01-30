@@ -71,7 +71,7 @@ public abstract class AbstractUDPClient extends Thread {
         try {
             log.info("UDP - client started: " + this.hostname + ":" + this.port);
             isRunning = true;
-            buf       = new ByteBuffer(2000);
+            buf       = new ByteBuffer(5000);
             buf.setString(getInitMessage());
             socket = new DatagramSocket();
             socket.setSoTimeout(3000);

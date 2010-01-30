@@ -16,7 +16,8 @@ import java.io.StringWriter;
 public class ByteBuffer extends ByteArrayOutputStream {
 
     /**
-     * The default constructor for ByteBuffer
+     * The constructor for ByteBuffer, specifying the size,
+     * in bytes, of the byteBuffer.
      * @param size
      */
     public ByteBuffer(int size) {
