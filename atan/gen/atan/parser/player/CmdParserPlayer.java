@@ -10,6 +10,7 @@ import atan.model.enums.Errors;
 import atan.model.enums.Ok;
 import atan.model.enums.PlayMode;
 import atan.model.enums.RefereeMessage;
+import atan.model.enums.ServerParams;
 import atan.model.enums.ViewAngle;
 import atan.model.enums.ViewQuality;
 import atan.model.enums.Warning;
@@ -36,6 +37,8 @@ import atan.parser.objects.ObjNamePlayerWest;
 
 import java.io.StringReader;
 
+import java.util.HashMap;
+
 /**
  *
  * @author author
@@ -45,12 +48,24 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
     static private int[] jj_la1_1;
     static private int[] jj_la1_2;
     static private int[] jj_la1_3;
+    static private int[] jj_la1_4;
+    static private int[] jj_la1_5;
+    static private int[] jj_la1_6;
+    static private int[] jj_la1_7;
+    static private int[] jj_la1_8;
+    static private int[] jj_la1_9;
 
     static {
         jj_la1_init_0();
         jj_la1_init_1();
         jj_la1_init_2();
         jj_la1_init_3();
+        jj_la1_init_4();
+        jj_la1_init_5();
+        jj_la1_init_6();
+        jj_la1_init_7();
+        jj_la1_init_8();
+        jj_la1_init_9();
     }
 
     private int                    jj_gc         = 0;
@@ -306,18 +321,1476 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
         startCPTCommand();
     }
 
-//  TODO Commands still to implement.
+    /**
+     *
+     * @throws ParseException
+     */
+    final public void startServerParamCommand() throws ParseException {
+        Token audioCutDist              = null;
+        Token autoMode                  = null;
+        Token backDashRate              = null;
+        Token backPasses                = null;
+        Token ballAccelMax              = null;
+        Token ballDecay                 = null;
+        Token ballRand                  = null;
+        Token ballSize                  = null;
+        Token ballSpeedMax              = null;
+        Token ballStuckArea             = null;
+        Token ballWeight                = null;
+        Token catchBanCycle             = null;
+        Token catchProbability          = null;
+        Token catchableAreaL            = null;
+        Token catchableAreaW            = null;
+        Token ckickMargin               = null;
+        Token clangAdviceWin            = null;
+        Token clangDefineWin            = null;
+        Token clangDelWin               = null;
+        Token clangInfoWin              = null;
+        Token clangMessDelay            = null;
+        Token clangMessPerCycle         = null;
+        Token clangMetaWin              = null;
+        Token clangRuleWin              = null;
+        Token clangWinSize              = null;
+        Token coach                     = null;
+        Token coachPort                 = null;
+        Token coachWReferee             = null;
+        Token connectWait               = null;
+        Token controlRadius             = null;
+        Token dashAngleStep             = null;
+        Token dashPowerRate             = null;
+        Token dropBallTime              = null;
+        Token effortDec                 = null;
+        Token effortDecThr              = null;
+        Token effortInc                 = null;
+        Token effortIncThr              = null;
+        Token effortInit                = null;
+        Token effortMin                 = null;
+        Token extraHalfTime             = null;
+        Token extraStamina              = null;
+        Token forbidKickOffOffside      = null;
+        Token freeKickFaults            = null;
+        Token freeformSendPeriod        = null;
+        Token freeformWaitPeriod        = null;
+        Token fullstateL                = null;
+        Token fullstateR                = null;
+        Token gameLogCompression        = null;
+        Token gameLogDated              = null;
+        Token gameLogDir                = null;
+        Token gameLogFixed              = null;
+        Token gameLogFixedName          = null;
+        Token gameLogVersion            = null;
+        Token gameLogging               = null;
+        Token gameOverWait              = null;
+        Token goalWidth                 = null;
+        Token goalieMaxMoves            = null;
+        Token halfTime                  = null;
+        Token hearDecay                 = null;
+        Token hearInc                   = null;
+        Token hearMax                   = null;
+        Token inertiaMoment             = null;
+        Token keepaway                  = null;
+        Token keepawayLength            = null;
+        Token keepawayLogDated          = null;
+        Token keepawayLogDir            = null;
+        Token keepawayLogFixed          = null;
+        Token keepawayLogFixedName      = null;
+        Token keepawayLogging           = null;
+        Token keepawayStart             = null;
+        Token keepawayWidth             = null;
+        Token kickOffWait               = null;
+        Token kickPowerRate             = null;
+        Token kickRand                  = null;
+        Token kickRandFactorL           = null;
+        Token kickRandFactorR           = null;
+        Token kickableMargin            = null;
+        Token landmarkFile              = null;
+        Token logDateFormat             = null;
+        Token logTimes                  = null;
+        Token maxBackTacklePower        = null;
+        Token maxDashAngle              = null;
+        Token maxDashPower              = null;
+        Token maxGoalKicks              = null;
+        Token maxTacklePower            = null;
+        Token maxmoment                 = null;
+        Token maxneckang                = null;
+        Token maxneckmoment             = null;
+        Token maxpower                  = null;
+        Token minDashAngle              = null;
+        Token minDashPower              = null;
+        Token minmoment                 = null;
+        Token minneckang                = null;
+        Token minneckmoment             = null;
+        Token minpower                  = null;
+        Token nrExtraHalfs              = null;
+        Token nrNormalHalfs             = null;
+        Token offsideActiveAreaSize     = null;
+        Token offsideKickMargin         = null;
+        Token olcoachPort               = null;
+        Token oldCoachHear              = null;
+        Token penAllowMultKicks         = null;
+        Token penBeforeSetupWait        = null;
+        Token penCoachMovesPlayers      = null;
+        Token penDistX                  = null;
+        Token penMaxExtraKicks          = null;
+        Token penMaxGoalieDistX         = null;
+        Token penNrKicks                = null;
+        Token penRandomWinner           = null;
+        Token penReadyWait              = null;
+        Token penSetupWait              = null;
+        Token penTakenWait              = null;
+        Token penaltyShootOuts          = null;
+        Token playerAccelMax            = null;
+        Token playerDecay               = null;
+        Token playerRand                = null;
+        Token playerSize                = null;
+        Token playerSpeedMax            = null;
+        Token playerSpeedMaxMin         = null;
+        Token playerWeight              = null;
+        Token pointToBan                = null;
+        Token pointToDuration           = null;
+        Token port                      = null;
+        Token prandFactorL              = null;
+        Token prandFactorR              = null;
+        Token profile                   = null;
+        Token properGoalKicks           = null;
+        Token quantizeStep              = null;
+        Token quantizeStepL             = null;
+        Token recordMessages            = null;
+        Token recoverDec                = null;
+        Token recoverDecThr             = null;
+        Token recoverInit               = null;
+        Token recoverMin                = null;
+        Token recvStep                  = null;
+        Token sayCoachCntMax            = null;
+        Token sayCoachMsgSize           = null;
+        Token sayMsgSize                = null;
+        Token sendComms                 = null;
+        Token sendStep                  = null;
+        Token sendViStep                = null;
+        Token senseBodyStep             = null;
+        Token sideDashRate              = null;
+        Token simulatorStep             = null;
+        Token slowDownFactor            = null;
+        Token slownessOnTopForLeftTeam  = null;
+        Token slownessOnTopForRightTeam = null;
+        Token staminaCapacity           = null;
+        Token staminaIncMax             = null;
+        Token staminaMax                = null;
+        Token startGoalL                = null;
+        Token startGoalR                = null;
+        Token stoppedBallVel            = null;
+        Token synchMicroSleep           = null;
+        Token synchMode                 = null;
+        Token synchOffset               = null;
+        Token synchSeeOffset            = null;
+        Token tackleBackDist            = null;
+        Token tackleCycles              = null;
+        Token tackleDist                = null;
+        Token tackleExponent            = null;
+        Token tacklePowerRate           = null;
+        Token tackleWidth               = null;
+        Token teamActuatorNoise         = null;
+        Token teamLStart                = null;
+        Token teamRStart                = null;
+        Token textLogCompression        = null;
+        Token textLogDated              = null;
+        Token textLogDir                = null;
+        Token textLogFixed              = null;
+        Token textLogFixedName          = null;
+        Token textLogging               = null;
+        Token useOffside                = null;
+        Token verbose                   = null;
+        Token visibleAngle              = null;
+        Token visibleDistance           = null;
+        Token windAng                   = null;
+        Token windDir                   = null;
+        Token windForce                 = null;
+        Token windNone                  = null;
+        Token windRand                  = null;
+        Token windRandom                = null;
+        jj_consume_token(OB);
+        jj_consume_token(AUDIO_CUT_DIST);
+        jj_consume_token(SEP);
+        audioCutDist = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(AUTO_MODE);
+        jj_consume_token(SEP);
+        autoMode = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(BACK_DASH_RATE);
+        jj_consume_token(SEP);
+        backDashRate = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(BACK_PASSES);
+        jj_consume_token(SEP);
+        backPasses = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(BALL_ACCEL_MAX);
+        jj_consume_token(SEP);
+        ballAccelMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(BALL_DECAY);
+        jj_consume_token(SEP);
+        ballDecay = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(BALL_RAND);
+        jj_consume_token(SEP);
+        ballRand = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(BALL_SIZE);
+        jj_consume_token(SEP);
+        ballSize = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(BALL_SPEED_MAX);
+        jj_consume_token(SEP);
+        ballSpeedMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(BALL_STUCK_AREA);
+        jj_consume_token(SEP);
+        ballStuckArea = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(BALL_WEIGHT);
+        jj_consume_token(SEP);
+        ballWeight = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(CATCH_BAN_CYCLE);
+        jj_consume_token(SEP);
+        catchBanCycle = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(CATCH_PROBABILITY);
+        jj_consume_token(SEP);
+        catchProbability = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(CATCHABLE_AREA_L);
+        jj_consume_token(SEP);
+        catchableAreaL = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(CATCHABLE_AREA_W);
+        jj_consume_token(SEP);
+        catchableAreaW = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(CKICK_MARGIN);
+        jj_consume_token(SEP);
+        ckickMargin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(CLANG_ADVICE_WIN);
+        jj_consume_token(SEP);
+        clangAdviceWin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(CLANG_DEFINE_WIN);
+        jj_consume_token(SEP);
+        clangDefineWin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(CLANG_DEL_WIN);
+        jj_consume_token(SEP);
+        clangDelWin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(CLANG_INFO_WIN);
+        jj_consume_token(SEP);
+        clangInfoWin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(CLANG_MESS_DELAY);
+        jj_consume_token(SEP);
+        clangMessDelay = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(CLANG_MESS_PER_CYCLE);
+        jj_consume_token(SEP);
+        clangMessPerCycle = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(CLANG_META_WIN);
+        jj_consume_token(SEP);
+        clangMetaWin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(CLANG_RULE_WIN);
+        jj_consume_token(SEP);
+        clangRuleWin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(CLANG_WIN_SIZE);
+        jj_consume_token(SEP);
+        clangWinSize = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(COACH);
+        jj_consume_token(SEP);
+        coach = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(COACH_PORT);
+        jj_consume_token(SEP);
+        coachPort = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(COACH_W_REFEREE);
+        jj_consume_token(SEP);
+        coachWReferee = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(CONNECT_WAIT);
+        jj_consume_token(SEP);
+        connectWait = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(CONTROL_RADIUS);
+        jj_consume_token(SEP);
+        controlRadius = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(DASH_ANGLE_STEP);
+        jj_consume_token(SEP);
+        dashAngleStep = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(DASH_POWER_RATE);
+        jj_consume_token(SEP);
+        dashPowerRate = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(DROP_BALL_TIME);
+        jj_consume_token(SEP);
+        dropBallTime = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(EFFORT_DEC);
+        jj_consume_token(SEP);
+        effortDec = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(EFFORT_DEC_THR);
+        jj_consume_token(SEP);
+        effortDecThr = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(EFFORT_INC);
+        jj_consume_token(SEP);
+        effortInc = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(EFFORT_INC_THR);
+        jj_consume_token(SEP);
+        effortIncThr = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(EFFORT_INIT);
+        jj_consume_token(SEP);
+        effortInit = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(EFFORT_MIN);
+        jj_consume_token(SEP);
+        effortMin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(EXTRA_HALF_TIME);
+        jj_consume_token(SEP);
+        extraHalfTime = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(EXTRA_STAMINA);
+        jj_consume_token(SEP);
+        extraStamina = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(FORBID_KICK_OFF_OFFSIDE);
+        jj_consume_token(SEP);
+        forbidKickOffOffside = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(FREE_KICK_FAULTS);
+        jj_consume_token(SEP);
+        freeKickFaults = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(FREEFORM_SEND_PERIOD);
+        jj_consume_token(SEP);
+        freeformSendPeriod = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(FREEFORM_WAIT_PERIOD);
+        jj_consume_token(SEP);
+        freeformWaitPeriod = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(FULLSTATE_L);
+        jj_consume_token(SEP);
+        fullstateL = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(FULLSTATE_R);
+        jj_consume_token(SEP);
+        fullstateR = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(GAME_LOG_COMPRESSION);
+        jj_consume_token(SEP);
+        gameLogCompression = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(GAME_LOG_DATED);
+        jj_consume_token(SEP);
+        gameLogDated = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(GAME_LOG_DIR);
+        jj_consume_token(SEP);
+        gameLogDir = jj_consume_token(NAM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(GAME_LOG_FIXED);
+        jj_consume_token(SEP);
+        gameLogFixed = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(GAME_LOG_FIXED_NAME);
+        jj_consume_token(SEP);
+        gameLogFixedName = jj_consume_token(NAM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(GAME_LOG_VERSION);
+        jj_consume_token(SEP);
+        gameLogVersion = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(GAME_LOGGING);
+        jj_consume_token(SEP);
+        gameLogging = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(GAME_OVER_WAIT);
+        jj_consume_token(SEP);
+        gameOverWait = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(GOAL_WIDTH);
+        jj_consume_token(SEP);
+        goalWidth = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(GOALIE_MAX_MOVES);
+        jj_consume_token(SEP);
+        goalieMaxMoves = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(HALF_TIME);
+        jj_consume_token(SEP);
+        halfTime = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(HEAR_DECAY);
+        jj_consume_token(SEP);
+        hearDecay = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(HEAR_INC);
+        jj_consume_token(SEP);
+        hearInc = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(HEAR_MAX);
+        jj_consume_token(SEP);
+        hearMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(INERTIA_MOMENT);
+        jj_consume_token(SEP);
+        inertiaMoment = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(KEEPAWAY);
+        jj_consume_token(SEP);
+        keepaway = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(KEEPAWAY_LENGTH);
+        jj_consume_token(SEP);
+        keepawayLength = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(KEEPAWAY_LOG_DATED);
+        jj_consume_token(SEP);
+        keepawayLogDated = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(KEEPAWAY_LOG_DIR);
+        jj_consume_token(SEP);
+        keepawayLogDir = jj_consume_token(NAM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(KEEPAWAY_LOG_FIXED);
+        jj_consume_token(SEP);
+        keepawayLogFixed = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(KEEPAWAY_LOG_FIXED_NAME);
+        jj_consume_token(SEP);
+        keepawayLogFixedName = jj_consume_token(NAM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(KEEPAWAY_LOGGING);
+        jj_consume_token(SEP);
+        keepawayLogging = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(KEEPAWAY_START);
+        jj_consume_token(SEP);
+        keepawayStart = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(KEEPAWAY_WIDTH);
+        jj_consume_token(SEP);
+        keepawayWidth = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(KICK_OFF_WAIT);
+        jj_consume_token(SEP);
+        kickOffWait = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(KICK_POWER_RATE);
+        jj_consume_token(SEP);
+        kickPowerRate = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(KICK_RAND);
+        jj_consume_token(SEP);
+        kickRand = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(KICK_RAND_FACTOR_L);
+        jj_consume_token(SEP);
+        kickRandFactorL = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(KICK_RAND_FACTOR_R);
+        jj_consume_token(SEP);
+        kickRandFactorR = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(KICKABLE_MARGIN);
+        jj_consume_token(SEP);
+        kickableMargin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(LANDMARK_FILE);
+        jj_consume_token(SEP);
+        landmarkFile = jj_consume_token(NAM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(LOG_DATE_FORMAT);
+        jj_consume_token(SEP);
+        logDateFormat = jj_consume_token(NAM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(LOG_TIMES);
+        jj_consume_token(SEP);
+        logTimes = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(MAX_BACK_TACKLE_POWER);
+        jj_consume_token(SEP);
+        maxBackTacklePower = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(MAX_DASH_ANGLE);
+        jj_consume_token(SEP);
+        maxDashAngle = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(MAX_DASH_POWER);
+        jj_consume_token(SEP);
+        maxDashPower = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(MAX_GOAL_KICKS);
+        jj_consume_token(SEP);
+        maxGoalKicks = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(MAX_TACKLE_POWER);
+        jj_consume_token(SEP);
+        maxTacklePower = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(MAXMOMENT);
+        jj_consume_token(SEP);
+        maxmoment = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(MAXNECKANG);
+        jj_consume_token(SEP);
+        maxneckang = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(MAXNECKMOMENT);
+        jj_consume_token(SEP);
+        maxneckmoment = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(MAXPOWER);
+        jj_consume_token(SEP);
+        maxpower = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(MIN_DASH_ANGLE);
+        jj_consume_token(SEP);
+        minDashAngle = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(MIN_DASH_POWER);
+        jj_consume_token(SEP);
+        minDashPower = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(MINMOMENT);
+        jj_consume_token(SEP);
+        minmoment = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(MINNECKANG);
+        jj_consume_token(SEP);
+        minneckang = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(MINNECKMOMENT);
+        jj_consume_token(SEP);
+        minneckmoment = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(MINPOWER);
+        jj_consume_token(SEP);
+        minpower = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(NR_EXTRA_HALFS);
+        jj_consume_token(SEP);
+        nrExtraHalfs = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(NR_NORMAL_HALFS);
+        jj_consume_token(SEP);
+        nrNormalHalfs = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(OFFSIDE_ACTIVE_AREA_SIZE);
+        jj_consume_token(SEP);
+        offsideActiveAreaSize = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(OFFSIDE_KICK_MARGIN);
+        jj_consume_token(SEP);
+        offsideKickMargin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(OLCOACH_PORT);
+        jj_consume_token(SEP);
+        olcoachPort = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(OLD_COACH_HEAR);
+        jj_consume_token(SEP);
+        oldCoachHear = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PEN_ALLOW_MULT_KICKS);
+        jj_consume_token(SEP);
+        penAllowMultKicks = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PEN_BEFORE_SETUP_WAIT);
+        jj_consume_token(SEP);
+        penBeforeSetupWait = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PEN_COACH_MOVES_PLAYERS);
+        jj_consume_token(SEP);
+        penCoachMovesPlayers = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PEN_DIST_X);
+        jj_consume_token(SEP);
+        penDistX = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PEN_MAX_EXTRA_KICKS);
+        jj_consume_token(SEP);
+        penMaxExtraKicks = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PEN_MAX_GOALIE_DIST_X);
+        jj_consume_token(SEP);
+        penMaxGoalieDistX = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PEN_NR_KICKS);
+        jj_consume_token(SEP);
+        penNrKicks = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PEN_RANDOM_WINNER);
+        jj_consume_token(SEP);
+        penRandomWinner = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PEN_READY_WAIT);
+        jj_consume_token(SEP);
+        penReadyWait = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PEN_SETUP_WAIT);
+        jj_consume_token(SEP);
+        penSetupWait = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PEN_TAKEN_WAIT);
+        jj_consume_token(SEP);
+        penTakenWait = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PENALTY_SHOOT_OUTS);
+        jj_consume_token(SEP);
+        penaltyShootOuts = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PLAYER_ACCEL_MAX);
+        jj_consume_token(SEP);
+        playerAccelMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PLAYER_DECAY);
+        jj_consume_token(SEP);
+        playerDecay = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PLAYER_RAND);
+        jj_consume_token(SEP);
+        playerRand = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PLAYER_SIZE);
+        jj_consume_token(SEP);
+        playerSize = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PLAYER_SPEED_MAX);
+        jj_consume_token(SEP);
+        playerSpeedMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PLAYER_SPEED_MAX_MIN);
+        jj_consume_token(SEP);
+        playerSpeedMaxMin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PLAYER_WEIGHT);
+        jj_consume_token(SEP);
+        playerSpeedMaxMin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(POINT_TO_BAN);
+        jj_consume_token(SEP);
+        pointToBan = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(POINT_TO_DURATION);
+        jj_consume_token(SEP);
+        pointToDuration = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PORT);
+        jj_consume_token(SEP);
+        port = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PRAND_FACTOR_L);
+        jj_consume_token(SEP);
+        prandFactorL = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PRAND_FACTOR_R);
+        jj_consume_token(SEP);
+        prandFactorR = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PROFILE);
+        jj_consume_token(SEP);
+        profile = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(PROPER_GOAL_KICKS);
+        jj_consume_token(SEP);
+        properGoalKicks = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(QUANTIZE_STEP);
+        jj_consume_token(SEP);
+        quantizeStep = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(QUANTIZE_STEP_L);
+        jj_consume_token(SEP);
+        quantizeStepL = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(RECORD_MESSAGES);
+        jj_consume_token(SEP);
+        recordMessages = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(RECOVER_DEC);
+        jj_consume_token(SEP);
+        recoverDec = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(RECOVER_DEC_THR);
+        jj_consume_token(SEP);
+        recoverDecThr = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(RECOVER_INIT);
+        jj_consume_token(SEP);
+        recoverInit = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(RECOVER_MIN);
+        jj_consume_token(SEP);
+        recoverMin = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(RECV_STEP);
+        jj_consume_token(SEP);
+        recvStep = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(SAY_COACH_CNT_MAX);
+        jj_consume_token(SEP);
+        sayCoachCntMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(SAY_COACH_MSG_SIZE);
+        jj_consume_token(SEP);
+        sayCoachMsgSize = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(SAY_MSG_SIZE);
+        jj_consume_token(SEP);
+        sayMsgSize = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(SEND_COMMS);
+        jj_consume_token(SEP);
+        sendComms = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(SEND_STEP);
+        jj_consume_token(SEP);
+        sendStep = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(SEND_VI_STEP);
+        jj_consume_token(SEP);
+        sendViStep = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(SENSE_BODY_STEP);
+        jj_consume_token(SEP);
+        senseBodyStep = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(SIDE_DASH_RATE);
+        jj_consume_token(SEP);
+        sideDashRate = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(SIMULATOR_STEP);
+        jj_consume_token(SEP);
+        simulatorStep = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(SLOW_DOWN_FACTOR);
+        jj_consume_token(SEP);
+        slowDownFactor = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(SLOWNESS_ON_TOP_FOR_LEFT_TEAM);
+        jj_consume_token(SEP);
+        slownessOnTopForLeftTeam = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(SLOWNESS_ON_TOP_FOR_RIGHT_TEAM);
+        jj_consume_token(SEP);
+        slownessOnTopForRightTeam = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(STAMINA_CAPACITY);
+        jj_consume_token(SEP);
+        staminaCapacity = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(STAMINA_INC_MAX);
+        jj_consume_token(SEP);
+        staminaIncMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(STAMINA_MAX);
+        jj_consume_token(SEP);
+        staminaMax = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(START_GOAL_L);
+        jj_consume_token(SEP);
+        startGoalL = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(START_GOAL_R);
+        jj_consume_token(SEP);
+        startGoalR = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(STOPPED_BALL_VEL);
+        jj_consume_token(SEP);
+        stoppedBallVel = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(SYNCH_MICRO_SLEEP);
+        jj_consume_token(SEP);
+        synchMicroSleep = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(SYNCH_MODE);
+        jj_consume_token(SEP);
+        synchMode = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(SYNCH_OFFSET);
+        jj_consume_token(SEP);
+        synchOffset = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(SYNCH_SEE_OFFSET);
+        jj_consume_token(SEP);
+        synchSeeOffset = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(TACKLE_BACK_DIST);
+        jj_consume_token(SEP);
+        tackleBackDist = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(TACKLE_CYCLES);
+        jj_consume_token(SEP);
+        tackleCycles = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(TACKLE_DIST);
+        jj_consume_token(SEP);
+        tackleDist = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(TACKLE_EXPONENT);
+        jj_consume_token(SEP);
+        tackleExponent = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(TACKLE_POWER_RATE);
+        jj_consume_token(SEP);
+        tacklePowerRate = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(TACKLE_WIDTH);
+        jj_consume_token(SEP);
+        tackleWidth = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(TEAM_ACTUATOR_NOISE);
+        jj_consume_token(SEP);
+        teamActuatorNoise = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(TEAM_L_START);
+        jj_consume_token(SEP);
+        teamLStart = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(TEAM_R_START);
+        jj_consume_token(SEP);
+        teamRStart = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(TEXT_LOG_COMPRESSION);
+        jj_consume_token(SEP);
+        textLogCompression = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(TEXT_LOG_DATED);
+        jj_consume_token(SEP);
+        textLogDated = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(TEXT_LOG_DIR);
+        jj_consume_token(SEP);
+        textLogDir = jj_consume_token(NAM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(TEXT_LOG_FIXED);
+        jj_consume_token(SEP);
+        textLogFixed = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(TEXT_LOG_FIXED_NAME);
+        jj_consume_token(SEP);
+        textLogFixedName = jj_consume_token(NAM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(TEXT_LOGGING);
+        jj_consume_token(SEP);
+        textLogging = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(USE_OFFSIDE);
+        jj_consume_token(SEP);
+        useOffside = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(VERBOSE);
+        jj_consume_token(SEP);
+        verbose = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(VISIBLE_ANGLE);
+        jj_consume_token(SEP);
+        visibleAngle = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(VISIBLE_DISTANCE);
+        jj_consume_token(SEP);
+        visibleDistance = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(WIND_ANG);
+        jj_consume_token(SEP);
+        windAng = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(WIND_DIR);
+        jj_consume_token(SEP);
+        windDir = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(WIND_FORCE);
+        jj_consume_token(SEP);
+        windForce = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(WIND_NONE);
+        jj_consume_token(SEP);
+        windNone = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(WIND_RAND);
+        jj_consume_token(SEP);
+        windRand = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        jj_consume_token(OB);
+        jj_consume_token(WIND_RANDOM);
+        jj_consume_token(SEP);
+        windRandom = jj_consume_token(NUM);
+        jj_consume_token(CB);
+        Double  dAudioCutDist              = new Double(audioCutDist.image);
+        Double  dAutoMode                  = new Double(autoMode.image);
+        Double  dBackDashRate              = new Double(backDashRate.image);
+        Double  dBackPasses                = new Double(backPasses.image);
+        Double  dBallAccelMax              = new Double(ballAccelMax.image);
+        Double  dBallDecay                 = new Double(ballDecay.image);
+        Double  dBallRand                  = new Double(ballRand.image);
+        Double  dBallSize                  = new Double(ballSize.image);
+        Double  dBallSpeedMax              = new Double(ballSpeedMax.image);
+        Double  dBallStuckArea             = new Double(ballStuckArea.image);
+        Double  dBallWeight                = new Double(ballWeight.image);
+        Double  dCatchBanCycle             = new Double(catchBanCycle.image);
+        Double  dCatchProbability          = new Double(catchProbability.image);
+        Double  dCatchableAreaL            = new Double(catchableAreaL.image);
+        Double  dCatchableAreaW            = new Double(catchableAreaW.image);
+        Double  dCkickMargin               = new Double(ckickMargin.image);
+        Double  dClangAdviceWin            = new Double(clangAdviceWin.image);
+        Double  dClangDefineWin            = new Double(clangDefineWin.image);
+        Double  dClangDelWin               = new Double(clangDelWin.image);
+        Double  dClangInfoWin              = new Double(clangInfoWin.image);
+        Double  dClangMessDelay            = new Double(clangMessDelay.image);
+        Double  dClangMessPerCycle         = new Double(clangMessPerCycle.image);
+        Double  dClangMetaWin              = new Double(clangMetaWin.image);
+        Double  dClangRuleWin              = new Double(clangRuleWin.image);
+        Double  dClangWinSize              = new Double(clangWinSize.image);
+        Double  dCoach                     = new Double(coach.image);
+        Double  dCoachPort                 = new Double(coachPort.image);
+        Double  dCoachWReferee             = new Double(coachWReferee.image);
+        Double  dConnectWait               = new Double(connectWait.image);
+        Double  dControlRadius             = new Double(controlRadius.image);
+        Double  dDashAngleStep             = new Double(dashAngleStep.image);
+        Double  dDashPowerRate             = new Double(dashPowerRate.image);
+        Double  dDropBallTime              = new Double(dropBallTime.image);
+        Double  dEffortDec                 = new Double(effortDec.image);
+        Double  dEffortDecThr              = new Double(effortDecThr.image);
+        Double  dEffortInc                 = new Double(effortInc.image);
+        Double  dEffortIncThr              = new Double(effortIncThr.image);
+        Double  dEffortInit                = new Double(effortInit.image);
+        Double  dEffortMin                 = new Double(effortMin.image);
+        Double  dExtraHalfTime             = new Double(extraHalfTime.image);
+        Double  dExtraStamina              = new Double(extraStamina.image);
+        Double  dForbidKickOffOffside      = new Double(forbidKickOffOffside.image);
+        Double  dFreeKickFaults            = new Double(freeKickFaults.image);
+        Double  dFreeformSendPeriod        = new Double(freeformSendPeriod.image);
+        Double  dFreeformWaitPeriod        = new Double(freeformWaitPeriod.image);
+        Double  dFullstateL                = new Double(fullstateL.image);
+        Double  dFullstateR                = new Double(fullstateR.image);
+        Double  dGameLogCompression        = new Double(gameLogCompression.image);
+        Double  dGameLogDated              = new Double(gameLogDated.image);
+        String  sGameLogDir                = new String(gameLogDir.image);
+        Double  dGameLogFixed              = new Double(gameLogFixed.image);
+        String  sGameLogFixedName          = new String(gameLogFixedName.image);
+        Double  dGameLogVersion            = new Double(gameLogVersion.image);
+        Double  dGameLogging               = new Double(gameLogging.image);
+        Double  dGameOverWait              = new Double(gameOverWait.image);
+        Double  dGoalWidth                 = new Double(goalWidth.image);
+        Double  dGoalieMaxMoves            = new Double(goalieMaxMoves.image);
+        Double  dHalfTime                  = new Double(halfTime.image);
+        Double  dHearDecay                 = new Double(hearDecay.image);
+        Double  dHearInc                   = new Double(hearInc.image);
+        Double  dHearMax                   = new Double(hearMax.image);
+        Double  dInertiaMoment             = new Double(inertiaMoment.image);
+        Double  dKeepaway                  = new Double(keepaway.image);
+        Double  dKeepawayLength            = new Double(keepawayLength.image);
+        Double  dKeepawayLogDated          = new Double(keepawayLogDated.image);
+        String  sKeepawayLogDir            = new String(keepawayLogDir.image);
+        Double  dKeepawayLogFixed          = new Double(keepawayLogFixed.image);
+        String  sKeepawayLogFixedName      = new String(keepawayLogFixedName.image);
+        Double  dKeepawayLogging           = new Double(keepawayLogging.image);
+        Double  dKeepawayStart             = new Double(keepawayStart.image);
+        Double  dKeepawayWidth             = new Double(keepawayWidth.image);
+        Double  dKickOffWait               = new Double(kickOffWait.image);
+        Double  dKickPowerRate             = new Double(kickPowerRate.image);
+        Double  dKickRand                  = new Double(kickRand.image);
+        Double  dKickRandFactorL           = new Double(kickRandFactorL.image);
+        Double  dKickRandFactorR           = new Double(kickRandFactorR.image);
+        Double  dKickableMargin            = new Double(kickableMargin.image);
+        String  sLandmarkFile              = new String(landmarkFile.image);
+        String  sLogDateFormat             = new String(logDateFormat.image);
+        Double  dLogTimes                  = new Double(logTimes.image);
+        Double  dMaxBackTacklePower        = new Double(maxBackTacklePower.image);
+        Double  dMaxDashAngle              = new Double(maxDashAngle.image);
+        Double  dMaxDashPower              = new Double(maxDashPower.image);
+        Double  dMaxGoalKicks              = new Double(maxGoalKicks.image);
+        Double  dMaxTacklePower            = new Double(maxTacklePower.image);
+        Double  dMaxmoment                 = new Double(maxmoment.image);
+        Double  dMaxneckang                = new Double(maxneckang.image);
+        Double  dMaxneckmoment             = new Double(maxneckmoment.image);
+        Double  dMaxpower                  = new Double(maxpower.image);
+        Double  dMinDashAngle              = new Double(minDashAngle.image);
+        Double  dMinDashPower              = new Double(minDashPower.image);
+        Double  dMinmoment                 = new Double(minmoment.image);
+        Double  dMinneckang                = new Double(minneckang.image);
+        Double  dMinneckmoment             = new Double(minneckmoment.image);
+        Double  dMinpower                  = new Double(minpower.image);
+        Double  dNrExtraHalfs              = new Double(nrExtraHalfs.image);
+        Double  dNrNormalHalfs             = new Double(nrNormalHalfs.image);
+        Double  dOffsideActiveAreaSize     = new Double(offsideActiveAreaSize.image);
+        Double  dOffsideKickMargin         = new Double(offsideKickMargin.image);
+        Double  dOlcoachPort               = new Double(olcoachPort.image);
+        Double  dOldCoachHear              = new Double(oldCoachHear.image);
+        Double  dPenAllowMultKicks         = new Double(penAllowMultKicks.image);
+        Double  dPenBeforeSetupWait        = new Double(penBeforeSetupWait.image);
+        Double  dPenCoachMovesPlayers      = new Double(penCoachMovesPlayers.image);
+        Double  dPenDistX                  = new Double(penDistX.image);
+        Double  dPenMaxExtraKicks          = new Double(penMaxExtraKicks.image);
+        Double  dPenMaxGoalieDistX         = new Double(penMaxGoalieDistX.image);
+        Double  dPenNrKicks                = new Double(penNrKicks.image);
+        Double  dPenRandomWinner           = new Double(penRandomWinner.image);
+        Double  dPenReadyWait              = new Double(penReadyWait.image);
+        Double  dPenSetupWait              = new Double(penSetupWait.image);
+        Double  dPenTakenWait              = new Double(penTakenWait.image);
+        Double  dPenaltyShootOuts          = new Double(penaltyShootOuts.image);
+        Double  dPlayerAccelMax            = new Double(playerAccelMax.image);
+        Double  dPlayerDecay               = new Double(playerDecay.image);
+        Double  dPlayerRand                = new Double(playerRand.image);
+        Double  dPlayerSize                = new Double(playerSize.image);
+        Double  dPlayerSpeedMax            = new Double(playerSpeedMax.image);
+        Double  dPlayerSpeedMaxMin         = new Double(playerSpeedMaxMin.image);
+        Double  dPlayerWeight              = new Double(playerWeight.image);
+        Double  dPointToBan                = new Double(pointToBan.image);
+        Double  dPointToDuration           = new Double(pointToDuration.image);
+        Double  dPort                      = new Double(port.image);
+        Double  dPrandFactorL              = new Double(prandFactorL.image);
+        Double  dPrandFactorR              = new Double(prandFactorR.image);
+        Double  dProfile                   = new Double(profile.image);
+        Double  dProperGoalKicks           = new Double(properGoalKicks.image);
+        Double  dQuantizeStep              = new Double(quantizeStep.image);
+        Double  dQuantizeStepL             = new Double(quantizeStepL.image);
+        Double  dRecordMessages            = new Double(recordMessages.image);
+        Double  dRecoverDec                = new Double(recoverDec.image);
+        Double  dRecoverDecThr             = new Double(recoverDecThr.image);
+        Double  dRecoverInit               = new Double(recoverInit.image);
+        Double  dRecoverMin                = new Double(recoverMin.image);
+        Double  dRecvStep                  = new Double(recvStep.image);
+        Double  dSayCoachCntMax            = new Double(sayCoachCntMax.image);
+        Double  dSayCoachMsgSize           = new Double(sayCoachMsgSize.image);
+        Double  dSayMsgSize                = new Double(sayMsgSize.image);
+        Double  dSendComms                 = new Double(sendComms.image);
+        Double  dSendStep                  = new Double(sendStep.image);
+        Double  dSendViStep                = new Double(sendViStep.image);
+        Double  dSenseBodyStep             = new Double(senseBodyStep.image);
+        Double  dSideDashRate              = new Double(sideDashRate.image);
+        Double  dSimulatorStep             = new Double(simulatorStep.image);
+        Double  dSlowDownFactor            = new Double(slowDownFactor.image);
+        Double  dSlownessOnTopForLeftTeam  = new Double(slownessOnTopForLeftTeam.image);
+        Double  dSlownessOnTopForRightTeam = new Double(slownessOnTopForRightTeam.image);
+        Double  dStaminaCapacity           = new Double(staminaCapacity.image);
+        Double  dStaminaIncMax             = new Double(staminaIncMax.image);
+        Double  dStaminaMax                = new Double(staminaMax.image);
+        Double  dStartGoalL                = new Double(startGoalL.image);
+        Double  dStartGoalR                = new Double(startGoalR.image);
+        Double  dStoppedBallVel            = new Double(stoppedBallVel.image);
+        Double  dSynchMicroSleep           = new Double(synchMicroSleep.image);
+        Double  dSynchMode                 = new Double(synchMode.image);
+        Double  dSynchOffset               = new Double(synchOffset.image);
+        Double  dSynchSeeOffset            = new Double(synchSeeOffset.image);
+        Double  dTackleBackDist            = new Double(tackleBackDist.image);
+        Double  dTackleCycles              = new Double(tackleCycles.image);
+        Double  dTackleDist                = new Double(tackleDist.image);
+        Double  dTackleExponent            = new Double(tackleExponent.image);
+        Double  dTacklePowerRate           = new Double(tacklePowerRate.image);
+        Double  dTackleWidth               = new Double(tackleWidth.image);
+        Double  dTeamActuatorNoise         = new Double(teamActuatorNoise.image);
+        Double  dTeamLStart                = new Double(teamLStart.image);
+        Double  dTeamRStart                = new Double(teamRStart.image);
+        Double  dTextLogCompression        = new Double(textLogCompression.image);
+        Double  dTextLogDated              = new Double(textLogDated.image);
+        String  sTextLogDir                = new String(textLogDir.image);
+        Double  dTextLogFixed              = new Double(textLogFixed.image);
+        String  sTextLogFixedName          = new String(textLogFixedName.image);
+        Double  dTextLogging               = new Double(textLogging.image);
+        Double  dUseOffside                = new Double(useOffside.image);
+        Double  dVerbose                   = new Double(verbose.image);
+        Double  dVisibleAngle              = new Double(visibleAngle.image);
+        Double  dVisibleDistance           = new Double(visibleDistance.image);
+        Double  dWindAng                   = new Double(windAng.image);
+        Double  dWindDir                   = new Double(windDir.image);
+        Double  dWindForce                 = new Double(windForce.image);
+        Double  dWindNone                  = new Double(windNone.image);
+        Double  dWindRand                  = new Double(windRand.image);
+        Double  dWindRandom                = new Double(windRandom.image);
+        HashMap info                       = new HashMap<ServerParams, Object>();
+        info.put(ServerParams.AUDIO_CUT_DIST, dAudioCutDist.doubleValue());
+        info.put(ServerParams.AUTO_MODE, dAutoMode.doubleValue());
+        info.put(ServerParams.BACK_DASH_RATE, dBackDashRate.doubleValue());
+        info.put(ServerParams.BACK_PASSES, dBackPasses.doubleValue());
+        info.put(ServerParams.BALL_ACCEL_MAX, dBallAccelMax.doubleValue());
+        info.put(ServerParams.BALL_DECAY, dBallDecay.doubleValue());
+        info.put(ServerParams.BALL_RAND, dBallRand.doubleValue());
+        info.put(ServerParams.BALL_SIZE, dBallSize.doubleValue());
+        info.put(ServerParams.BALL_SPEED_MAX, dBallSpeedMax.doubleValue());
+        info.put(ServerParams.BALL_STUCK_AREA, dBallStuckArea.doubleValue());
+        info.put(ServerParams.BALL_WEIGHT, dBallWeight.doubleValue());
+        info.put(ServerParams.CATCH_BAN_CYCLE, dCatchBanCycle.doubleValue());
+        info.put(ServerParams.CATCH_PROBABILITY, dCatchProbability.doubleValue());
+        info.put(ServerParams.CATCHABLE_AREA_L, dCatchableAreaL.doubleValue());
+        info.put(ServerParams.CATCHABLE_AREA_W, dCatchableAreaW.doubleValue());
+        info.put(ServerParams.CKICK_MARGIN, dCkickMargin.doubleValue());
+        info.put(ServerParams.CLANG_ADVICE_WIN, dClangAdviceWin.doubleValue());
+        info.put(ServerParams.CLANG_DEFINE_WIN, dClangDefineWin.doubleValue());
+        info.put(ServerParams.CLANG_DEL_WIN, dClangDelWin.doubleValue());
+        info.put(ServerParams.CLANG_INFO_WIN, dClangInfoWin.doubleValue());
+        info.put(ServerParams.CLANG_MESS_DELAY, dClangMessDelay.doubleValue());
+        info.put(ServerParams.CLANG_MESS_PER_CYCLE, dClangMessPerCycle.doubleValue());
+        info.put(ServerParams.CLANG_META_WIN, dClangMetaWin.doubleValue());
+        info.put(ServerParams.CLANG_RULE_WIN, dClangRuleWin.doubleValue());
+        info.put(ServerParams.CLANG_WIN_SIZE, dClangWinSize.doubleValue());
+        info.put(ServerParams.COACH, dCoach.doubleValue());
+        info.put(ServerParams.COACH_PORT, dCoachPort.doubleValue());
+        info.put(ServerParams.COACH_W_REFEREE, dCoachWReferee.doubleValue());
+        info.put(ServerParams.CONNECT_WAIT, dConnectWait.doubleValue());
+        info.put(ServerParams.CONTROL_RADIUS, dControlRadius.doubleValue());
+        info.put(ServerParams.DASH_ANGLE_STEP, dDashAngleStep.doubleValue());
+        info.put(ServerParams.DASH_POWER_RATE, dDashPowerRate.doubleValue());
+        info.put(ServerParams.DROP_BALL_TIME, dDropBallTime.doubleValue());
+        info.put(ServerParams.EFFORT_DEC, dEffortDec.doubleValue());
+        info.put(ServerParams.EFFORT_DEC_THR, dEffortDecThr.doubleValue());
+        info.put(ServerParams.EFFORT_INC, dEffortInc.doubleValue());
+        info.put(ServerParams.EFFORT_INC_THR, dEffortIncThr.doubleValue());
+        info.put(ServerParams.EFFORT_INIT, dEffortInit.doubleValue());
+        info.put(ServerParams.EFFORT_MIN, dEffortMin.doubleValue());
+        info.put(ServerParams.EXTRA_HALF_TIME, dExtraHalfTime.doubleValue());
+        info.put(ServerParams.EXTRA_STAMINA, dExtraStamina.doubleValue());
+        info.put(ServerParams.FORBID_KICK_OFF_OFFSIDE, dForbidKickOffOffside.doubleValue());
+        info.put(ServerParams.FREE_KICK_FAULTS, dFreeKickFaults.doubleValue());
+        info.put(ServerParams.FREEFORM_SEND_PERIOD, dFreeformSendPeriod.doubleValue());
+        info.put(ServerParams.FREEFORM_WAIT_PERIOD, dFreeformWaitPeriod.doubleValue());
+        info.put(ServerParams.FULLSTATE_L, dFullstateL.doubleValue());
+        info.put(ServerParams.FULLSTATE_R, dFullstateR.doubleValue());
+        info.put(ServerParams.GAME_LOG_COMPRESSION, dGameLogCompression.doubleValue());
+        info.put(ServerParams.GAME_LOG_FIXED_NAME, sGameLogFixedName.trim());
+        info.put(ServerParams.GAME_LOG_VERSION, dGameLogVersion.doubleValue());
+        info.put(ServerParams.GAME_LOGGING, dGameLogging.doubleValue());
+        info.put(ServerParams.GAME_LOG_DATED, dGameLogDated.doubleValue());
+        info.put(ServerParams.GAME_LOG_DIR, sGameLogDir.trim());
+        info.put(ServerParams.GAME_LOG_FIXED, dGameLogFixed.doubleValue());
+        info.put(ServerParams.GAME_OVER_WAIT, dGameOverWait.doubleValue());
+        info.put(ServerParams.GOAL_WIDTH, dGoalWidth.doubleValue());
+        info.put(ServerParams.GOALIE_MAX_MOVES, dGoalieMaxMoves.doubleValue());
+        info.put(ServerParams.HALF_TIME, dHalfTime.doubleValue());
+        info.put(ServerParams.HEAR_DECAY, dHearDecay.doubleValue());
+        info.put(ServerParams.HEAR_INC, dHearInc.doubleValue());
+        info.put(ServerParams.HEAR_MAX, dHearMax.doubleValue());
+        info.put(ServerParams.INERTIA_MOMENT, dInertiaMoment.doubleValue());
+        info.put(ServerParams.KEEPAWAY, dKeepaway.doubleValue());
+        info.put(ServerParams.KEEPAWAY_LENGTH, dKeepawayLength.doubleValue());
+        info.put(ServerParams.KEEPAWAY_LOG_DATED, dKeepawayLogDated.doubleValue());
+        info.put(ServerParams.KEEPAWAY_LOG_DIR, sKeepawayLogDir.trim());
+        info.put(ServerParams.KEEPAWAY_LOG_FIXED, dKeepawayLogFixed.doubleValue());
+        info.put(ServerParams.KEEPAWAY_LOG_FIXED_NAME, sKeepawayLogFixedName.trim());
+        info.put(ServerParams.KEEPAWAY_LOGGING, dKeepawayLogging.doubleValue());
+        info.put(ServerParams.KEEPAWAY_START, dKeepawayStart.doubleValue());
+        info.put(ServerParams.KEEPAWAY_WIDTH, dKeepawayWidth.doubleValue());
+        info.put(ServerParams.KICK_OFF_WAIT, dKickOffWait.doubleValue());
+        info.put(ServerParams.KICK_POWER_RATE, dKickPowerRate.doubleValue());
+        info.put(ServerParams.KICK_RAND, dKickRand.doubleValue());
+        info.put(ServerParams.KICK_RAND_FACTOR_L, dKickRandFactorL.doubleValue());
+        info.put(ServerParams.KICK_RAND_FACTOR_R, dKickRandFactorR.doubleValue());
+        info.put(ServerParams.KICKABLE_MARGIN, dKickableMargin.doubleValue());
+        info.put(ServerParams.LANDMARK_FILE, sLandmarkFile.trim());
+        info.put(ServerParams.LOG_DATE_FORMAT, sLogDateFormat.trim());
+        info.put(ServerParams.LOG_TIMES, dLogTimes.doubleValue());
+        info.put(ServerParams.MAX_BACK_TACKLE_POWER, dMaxBackTacklePower.doubleValue());
+        info.put(ServerParams.MAX_DASH_ANGLE, dMaxDashAngle.doubleValue());
+        info.put(ServerParams.MAX_DASH_POWER, dMaxDashPower.doubleValue());
+        info.put(ServerParams.MAX_GOAL_KICKS, dMaxGoalKicks.doubleValue());
+        info.put(ServerParams.MAX_TACKLE_POWER, dMaxTacklePower.doubleValue());
+        info.put(ServerParams.MAXMOMENT, dMaxmoment.doubleValue());
+        info.put(ServerParams.MAXNECKANG, dMaxneckang.doubleValue());
+        info.put(ServerParams.MAXNECKMOMENT, dMaxneckmoment.doubleValue());
+        info.put(ServerParams.MAXPOWER, dMaxpower.doubleValue());
+        info.put(ServerParams.MIN_DASH_ANGLE, dMinDashAngle.doubleValue());
+        info.put(ServerParams.MIN_DASH_POWER, dMinDashPower.doubleValue());
+        info.put(ServerParams.MINMOMENT, dMinmoment.doubleValue());
+        info.put(ServerParams.MINNECKANG, dMinneckang.doubleValue());
+        info.put(ServerParams.MINNECKMOMENT, dMinneckmoment.doubleValue());
+        info.put(ServerParams.MINPOWER, dMinpower.doubleValue());
+        info.put(ServerParams.NR_EXTRA_HALFS, dNrExtraHalfs.doubleValue());
+        info.put(ServerParams.NR_NORMAL_HALFS, dNrNormalHalfs.doubleValue());
+        info.put(ServerParams.OFFSIDE_ACTIVE_AREA_SIZE, dOffsideActiveAreaSize.doubleValue());
+        info.put(ServerParams.OFFSIDE_KICK_MARGIN, dOffsideKickMargin.doubleValue());
+        info.put(ServerParams.OLCOACH_PORT, dOlcoachPort.doubleValue());
+        info.put(ServerParams.OLD_COACH_HEAR, dOldCoachHear.doubleValue());
+        info.put(ServerParams.PEN_ALLOW_MULT_KICKS, dPenAllowMultKicks.doubleValue());
+        info.put(ServerParams.PEN_BEFORE_SETUP_WAIT, dPenBeforeSetupWait.doubleValue());
+        info.put(ServerParams.PEN_COACH_MOVES_PLAYERS, dPenCoachMovesPlayers.doubleValue());
+        info.put(ServerParams.PEN_DIST_X, dPenDistX.doubleValue());
+        info.put(ServerParams.PEN_MAX_EXTRA_KICKS, dPenMaxExtraKicks.doubleValue());
+        info.put(ServerParams.PEN_MAX_GOALIE_DIST_X, dPenMaxGoalieDistX.doubleValue());
+        info.put(ServerParams.PEN_NR_KICKS, dPenNrKicks.doubleValue());
+        info.put(ServerParams.PEN_RANDOM_WINNER, dPenRandomWinner.doubleValue());
+        info.put(ServerParams.PEN_READY_WAIT, dPenReadyWait.doubleValue());
+        info.put(ServerParams.PEN_SETUP_WAIT, dPenSetupWait.doubleValue());
+        info.put(ServerParams.PEN_TAKEN_WAIT, dPenTakenWait.doubleValue());
+        info.put(ServerParams.PENALTY_SHOOT_OUTS, dPenaltyShootOuts.doubleValue());
+        info.put(ServerParams.PLAYER_ACCEL_MAX, dPlayerAccelMax.doubleValue());
+        info.put(ServerParams.PLAYER_DECAY, dPlayerDecay.doubleValue());
+        info.put(ServerParams.PLAYER_RAND, dPlayerRand.doubleValue());
+        info.put(ServerParams.PLAYER_SIZE, dPlayerSize.doubleValue());
+        info.put(ServerParams.PLAYER_SPEED_MAX, dPlayerSpeedMax.doubleValue());
+        info.put(ServerParams.PLAYER_SPEED_MAX_MIN, dPlayerSpeedMaxMin.doubleValue());
+        info.put(ServerParams.PLAYER_WEIGHT, dPlayerWeight.doubleValue());
+        info.put(ServerParams.POINT_TO_BAN, dPointToBan.doubleValue());
+        info.put(ServerParams.POINT_TO_DURATION, dPointToDuration.doubleValue());
+        info.put(ServerParams.PORT, dPort.doubleValue());
+        info.put(ServerParams.PRAND_FACTOR_L, dPrandFactorL.doubleValue());
+        info.put(ServerParams.PRAND_FACTOR_R, dPrandFactorR.doubleValue());
+        info.put(ServerParams.PROFILE, dProfile.doubleValue());
+        info.put(ServerParams.PROPER_GOAL_KICKS, dProperGoalKicks.doubleValue());
+        info.put(ServerParams.QUANTIZE_STEP, dQuantizeStep.doubleValue());
+        info.put(ServerParams.QUANTIZE_STEP_L, dQuantizeStepL.doubleValue());
+        info.put(ServerParams.RECORD_MESSAGES, dRecordMessages.doubleValue());
+        info.put(ServerParams.RECOVER_DEC, dRecoverDec.doubleValue());
+        info.put(ServerParams.RECOVER_DEC_THR, dRecoverDecThr.doubleValue());
+        info.put(ServerParams.RECOVER_INIT, dRecoverInit.doubleValue());
+        info.put(ServerParams.RECOVER_MIN, dRecoverMin.doubleValue());
+        info.put(ServerParams.RECV_STEP, dRecvStep.doubleValue());
+        info.put(ServerParams.SAY_COACH_CNT_MAX, dSayCoachCntMax.doubleValue());
+        info.put(ServerParams.SAY_COACH_MSG_SIZE, dSayCoachMsgSize.doubleValue());
+        info.put(ServerParams.SAY_MSG_SIZE, dSayMsgSize.doubleValue());
+        info.put(ServerParams.SEND_COMMS, dSendComms.doubleValue());
+        info.put(ServerParams.SEND_STEP, dSendStep.doubleValue());
+        info.put(ServerParams.SEND_VI_STEP, dSendViStep.doubleValue());
+        info.put(ServerParams.SENSE_BODY_STEP, dSenseBodyStep.doubleValue());
+        info.put(ServerParams.SIDE_DASH_RATE, dSideDashRate.doubleValue());
+        info.put(ServerParams.SIMULATOR_STEP, dSimulatorStep.doubleValue());
+        info.put(ServerParams.SLOW_DOWN_FACTOR, dSlowDownFactor.doubleValue());
+        info.put(ServerParams.SLOWNESS_ON_TOP_FOR_LEFT_TEAM, dSlownessOnTopForLeftTeam.doubleValue());
+        info.put(ServerParams.SLOWNESS_ON_TOP_FOR_RIGHT_TEAM, dSlownessOnTopForRightTeam.doubleValue());
+        info.put(ServerParams.STAMINA_CAPACITY, dStaminaCapacity.doubleValue());
+        info.put(ServerParams.STAMINA_INC_MAX, dStaminaIncMax.doubleValue());
+        info.put(ServerParams.STAMINA_MAX, dStaminaMax.doubleValue());
+        info.put(ServerParams.START_GOAL_L, dStartGoalL.doubleValue());
+        info.put(ServerParams.START_GOAL_R, dStartGoalR.doubleValue());
+        info.put(ServerParams.STOPPED_BALL_VEL, dStoppedBallVel.doubleValue());
+        info.put(ServerParams.SYNCH_MICRO_SLEEP, dSynchMicroSleep.doubleValue());
+        info.put(ServerParams.SYNCH_MODE, dSynchMode.doubleValue());
+        info.put(ServerParams.SYNCH_OFFSET, dSynchOffset.doubleValue());
+        info.put(ServerParams.SYNCH_SEE_OFFSET, dSynchSeeOffset.doubleValue());
+        info.put(ServerParams.TACKLE_BACK_DIST, dTackleBackDist.doubleValue());
+        info.put(ServerParams.TACKLE_CYCLES, dTackleCycles.doubleValue());
+        info.put(ServerParams.TACKLE_DIST, dTackleDist.doubleValue());
+        info.put(ServerParams.TACKLE_EXPONENT, dTackleExponent.doubleValue());
+        info.put(ServerParams.TACKLE_POWER_RATE, dTacklePowerRate.doubleValue());
+        info.put(ServerParams.TACKLE_WIDTH, dTackleWidth.doubleValue());
+        info.put(ServerParams.TEAM_ACTUATOR_NOISE, dTeamActuatorNoise.doubleValue());
+        info.put(ServerParams.TEAM_L_START, dTeamLStart.doubleValue());
+        info.put(ServerParams.TEAM_R_START, dTeamRStart.doubleValue());
+        info.put(ServerParams.TEXT_LOG_COMPRESSION, dTextLogCompression.doubleValue());
+        info.put(ServerParams.TEXT_LOG_DATED, dTextLogDated.doubleValue());
+        info.put(ServerParams.TEXT_LOG_DIR, sTextLogDir.trim());
+        info.put(ServerParams.TEXT_LOG_FIXED, dTextLogFixed.doubleValue());
+        info.put(ServerParams.TEXT_LOG_FIXED_NAME, sTextLogFixedName.trim());
+        info.put(ServerParams.TEXT_LOGGING, dTextLogging.doubleValue());
+        info.put(ServerParams.USE_OFFSIDE, dUseOffside.doubleValue());
+        info.put(ServerParams.VERBOSE, dVerbose.doubleValue());
+        info.put(ServerParams.VISIBLE_ANGLE, dVisibleAngle.doubleValue());
+        info.put(ServerParams.VISIBLE_DISTANCE, dVisibleDistance.doubleValue());
+        info.put(ServerParams.WIND_ANG, dWindAng.doubleValue());
+        info.put(ServerParams.WIND_DIR, dWindDir.doubleValue());
+        info.put(ServerParams.WIND_FORCE, dWindForce.doubleValue());
+        info.put(ServerParams.WIND_NONE, dWindNone.doubleValue());
+        info.put(ServerParams.WIND_RAND, dWindRand.doubleValue());
+        info.put(ServerParams.WIND_RANDOM, dWindRandom.doubleValue());
+        controller.infoServerParam(info);
+    }
 
     /**
      *
      * @throws ParseException
      */
-    final public void startServerParamCommand() throws ParseException {}
-
-    /**
-     *
-     * @throws ParseException
-     */
+    @SuppressWarnings("empty-statement")
     final public void startCPTCommand() throws ParseException {
         Token unum = null;
         Token type = null;
@@ -881,12 +2354,11 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
         controller.infoHearWarning(warning);
     }
 
-//  Most important command!
-
     /**
      *
      * @throws ParseException
      */
+    @SuppressWarnings({"empty-statement", "empty-statement", "empty-statement"})
     final public void startSeeCommand() throws ParseException {
         jj_consume_token(NUM);
         if (jj_2_16(2)) {
@@ -918,6 +2390,11 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @throws ParseException
      */
+    @SuppressWarnings( {
+        "empty-statement", "empty-statement", "empty-statement", "empty-statement", "empty-statement",
+        "empty-statement", "empty-statement", "empty-statement", "empty-statement", "empty-statement",
+        "empty-statement", "empty-statement", "empty-statement", "empty-statement"
+    })
     final public void objInfo() throws ParseException {
         ObjName name;
         Token   p1     = null;
@@ -1003,7 +2480,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
             ;
         }
 
-        // Player kicked last turn
+        // Player kicked last turn - Currently only stopping the exception!
         Double dDistance      = 0.0;
         Double dDirection     = 0.0;
         Double dDistChange    = 0.0;
@@ -1064,6 +2541,9 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      * @return
      * @throws ParseException
      */
+    @SuppressWarnings( {
+        "empty-statement", "empty-statement", "empty-statement", "empty-statement"
+    })
     final public ObjName objName() throws ParseException {
         Token   name;
         Token   num;
@@ -1151,6 +2631,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      * @return
      * @throws ParseException
      */
+    @SuppressWarnings({"empty-statement", "empty-statement"})
     final public ObjName objNamePlayer() throws ParseException {
         Token   name    = null;
         Token   num     = null;
@@ -1273,6 +2754,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      * @return
      * @throws ParseException
      */
+    @SuppressWarnings("empty-statement")
     final public ObjName objNameFlag() throws ParseException {
         ObjName objName = null;
         if (jj_2_46(2)) {
@@ -1358,6 +2840,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      * @return
      * @throws ParseException
      */
+    @SuppressWarnings({"empty-statement", "empty-statement"})
     final public ObjName objNameFlagGoal() throws ParseException {
         Token q = null;
         if (jj_2_59(2)) {
@@ -1492,6 +2975,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      * @return
      * @throws ParseException
      */
+    @SuppressWarnings({"empty-statement", "empty-statement"})
     final public ObjName objNameFlagLeft() throws ParseException {
         ObjName objName;
         Token   num = null;
@@ -1554,6 +3038,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      * @return
      * @throws ParseException
      */
+    @SuppressWarnings({"empty-statement", "empty-statement"})
     final public ObjName objNameFlagRight() throws ParseException {
         ObjName objName;
         Token   num = null;
@@ -1700,6 +3185,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      * @return
      * @throws ParseException
      */
+    @SuppressWarnings({"empty-statement", "empty-statement"})
     final public ObjName objNameFlagPenalty() throws ParseException {
         ObjName objName = null;
         if (jj_2_85(2)) {
@@ -4768,42 +6254,6 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_77() {
-        if (jj_scan_token(R)) {
-            return true;
-        }
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_13() {
-        if (jj_scan_token(NORMAL)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_76() {
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
     private boolean jj_3_73() {
         if (jj_scan_token(SEP)) {
             return true;
@@ -5269,11 +6719,8 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_52() {
-        if (jj_scan_token(GOAL)) {
-            return true;
-        }
-        if (jj_scan_token(SEP)) {
+    private boolean jj_3_2() {
+        if (jj_scan_token(SELF)) {
             return true;
         }
         return false;
@@ -5283,8 +6730,11 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_2() {
-        if (jj_scan_token(SELF)) {
+    private boolean jj_3_52() {
+        if (jj_scan_token(GOAL)) {
+            return true;
+        }
+        if (jj_scan_token(SEP)) {
             return true;
         }
         return false;
@@ -5319,11 +6769,8 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_50() {
-        if (jj_scan_token(T)) {
-            return true;
-        }
-        if (jj_scan_token(SEP)) {
+    private boolean jj_3_1() {
+        if (jj_scan_token(NUM)) {
             return true;
         }
         return false;
@@ -5333,8 +6780,11 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      *
      * @return
      */
-    private boolean jj_3_1() {
-        if (jj_scan_token(NUM)) {
+    private boolean jj_3_50() {
+        if (jj_scan_token(T)) {
+            return true;
+        }
+        if (jj_scan_token(SEP)) {
             return true;
         }
         return false;
@@ -6802,6 +8252,42 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
 
     /**
      *
+     * @return
+     */
+    private boolean jj_3_77() {
+        if (jj_scan_token(R)) {
+            return true;
+        }
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_13() {
+        if (jj_scan_token(NORMAL)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean jj_3_76() {
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     *
      */
     private static void jj_la1_init_0() {
         jj_la1_0 = new int[] {};
@@ -6826,6 +8312,48 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      */
     private static void jj_la1_init_3() {
         jj_la1_3 = new int[] {};
+    }
+
+    /**
+     *
+     */
+    private static void jj_la1_init_4() {
+        jj_la1_4 = new int[] {};
+    }
+
+    /**
+     *
+     */
+    private static void jj_la1_init_5() {
+        jj_la1_5 = new int[] {};
+    }
+
+    /**
+     *
+     */
+    private static void jj_la1_init_6() {
+        jj_la1_6 = new int[] {};
+    }
+
+    /**
+     *
+     */
+    private static void jj_la1_init_7() {
+        jj_la1_7 = new int[] {};
+    }
+
+    /**
+     *
+     */
+    private static void jj_la1_init_8() {
+        jj_la1_8 = new int[] {};
+    }
+
+    /**
+     *
+     */
+    private static void jj_la1_init_9() {
+        jj_la1_9 = new int[] {};
     }
 
     /**
@@ -7050,7 +8578,7 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
      */
     public ParseException generateParseException() {
         jj_expentries.clear();
-        boolean[] la1tokens = new boolean[125];
+        boolean[] la1tokens = new boolean[296];
         if (jj_kind >= 0) {
             la1tokens[jj_kind] = true;
             jj_kind            = -1;
@@ -7070,10 +8598,28 @@ public class CmdParserPlayer implements CmdParserPlayerConstants {
                     if ((jj_la1_3[i] & (1 << j)) != 0) {
                         la1tokens[96 + j] = true;
                     }
+                    if ((jj_la1_4[i] & (1 << j)) != 0) {
+                        la1tokens[128 + j] = true;
+                    }
+                    if ((jj_la1_5[i] & (1 << j)) != 0) {
+                        la1tokens[160 + j] = true;
+                    }
+                    if ((jj_la1_6[i] & (1 << j)) != 0) {
+                        la1tokens[192 + j] = true;
+                    }
+                    if ((jj_la1_7[i] & (1 << j)) != 0) {
+                        la1tokens[224 + j] = true;
+                    }
+                    if ((jj_la1_8[i] & (1 << j)) != 0) {
+                        la1tokens[256 + j] = true;
+                    }
+                    if ((jj_la1_9[i] & (1 << j)) != 0) {
+                        la1tokens[288 + j] = true;
+                    }
                 }
             }
         }
-        for (int i = 0; i < 125; i++) {
+        for (int i = 0; i < 296; i++) {
             if (la1tokens[i]) {
                 jj_expentry    = new int[1];
                 jj_expentry[0] = i;

@@ -8,9 +8,14 @@ import atan.model.enums.Line;
 import atan.model.enums.Ok;
 import atan.model.enums.PlayMode;
 import atan.model.enums.RefereeMessage;
+import atan.model.enums.ServerParams;
 import atan.model.enums.ViewAngle;
 import atan.model.enums.ViewQuality;
 import atan.model.enums.Warning;
+
+//~--- JDK imports ------------------------------------------------------------
+
+import java.util.HashMap;
 
 /**
  * Interface that has to be implemented in order to control players. The methods
@@ -405,4 +410,10 @@ public interface ControllerPlayer {
                                 double newStaminaIncMaxDeltaFactor, double playerDecayDeltaMax,
                                 double playerDecayDeltaMin, double playerTypes, double ptMax, double randomSeed,
                                 double staminaIncMaxDeltaFactor, double subsMax);
+
+    /**
+     * The controller is informed when the server param message is received.
+     * @param info A hashmap containing all the server param details.
+     */
+    public void infoServerParam(HashMap<ServerParams, Object> info);
 }

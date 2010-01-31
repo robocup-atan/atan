@@ -10,12 +10,14 @@ import atan.model.enums.Line;
 import atan.model.enums.Ok;
 import atan.model.enums.PlayMode;
 import atan.model.enums.RefereeMessage;
+import atan.model.enums.ServerParams;
 import atan.model.enums.ViewAngle;
 import atan.model.enums.ViewQuality;
 import atan.model.enums.Warning;
 
 //~--- JDK imports ------------------------------------------------------------
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -686,6 +688,16 @@ public class TestController implements ControllerPlayer {
      */
     @Override
     public void infoCPTOwn(int unum, int type) {
+
+        // TODO Auto-generated method stub
+    }
+
+    /**
+     *
+     * @param info
+     */
+    @Override
+    public void infoServerParam(HashMap<ServerParams, Object> info) {
 
         // TODO Auto-generated method stub
     }

@@ -163,6 +163,7 @@ public class TokenMgrError extends Error {
      * from this method for such cases in the release version of your parser.
      * @return
      */
+    @Override
     public String getMessage() {
         return super.getMessage();
     }

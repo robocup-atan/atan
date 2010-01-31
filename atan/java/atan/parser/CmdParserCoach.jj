@@ -13,6 +13,7 @@ import atan.model.enums.Ok;
 import atan.model.enums.PlayMode;
 import atan.model.enums.RefereeMessage;
 import atan.model.enums.Warning;
+import atan.model.enums.ServerParams;
 
 import atan.model.ActionsCoach;
 import atan.model.ControllerCoach;
@@ -20,6 +21,7 @@ import atan.model.ControllerCoach;
 //~--- JDK imports ------------------------------------------------------------
 
 import java.io.StringReader;
+import java.util.HashMap;
 
   public class CmdParserCoach {
 
@@ -825,69 +827,190 @@ void startServerParamCommand() : //Possibly the biggest method ever!
 		Double dWindNone = new Double(windNone.image);
 		Double dWindRand = new Double(windRand.image);
 		Double dWindRandom = new Double(windRandom.image);
-
-                controller.infoServerParam(
-                dAudioCutDist.doubleValue(),dAutoMode.doubleValue(),dBackDashRate.doubleValue(),
-                dBackPasses.doubleValue(),dBallAccelMax.doubleValue(),dBallDecay.doubleValue(),
-                dBallRand.doubleValue(),dBallSize.doubleValue(),dBallSpeedMax.doubleValue(),
-                dBallStuckArea.doubleValue(),dBallWeight.doubleValue(),dCatchBanCycle.doubleValue(),
-                dCatchProbability.doubleValue(),dCatchableAreaL.doubleValue(),dCatchableAreaW.doubleValue(),
-                dCkickMargin.doubleValue(),dClangAdviceWin.doubleValue(),dClangDefineWin.doubleValue(),
-                dClangDelWin.doubleValue(),dClangInfoWin.doubleValue(),dClangMessDelay.doubleValue(),
-                dClangMessPerCycle.doubleValue(),dClangMetaWin.doubleValue(),dClangRuleWin.doubleValue(),
-                dClangWinSize.doubleValue(),dCoach.doubleValue(),dCoachPort.doubleValue(),
-                dCoachWReferee.doubleValue(),dConnectWait.doubleValue(),dControlRadius.doubleValue(),
-                dDashAngleStep.doubleValue(),dDashPowerRate.doubleValue(),dDropBallTime.doubleValue(),
-                dEffortDec.doubleValue(),dEffortDecThr.doubleValue(),dEffortInc.doubleValue(),
-                dEffortIncThr.doubleValue(),dEffortInit.doubleValue(),dEffortMin.doubleValue(),
-                dExtraHalfTime.doubleValue(),dExtraStamina.doubleValue(),dForbidKickOffOffside.doubleValue(),
-                dFreeKickFaults.doubleValue(),dFreeformSendPeriod.doubleValue(),dFreeformWaitPeriod.doubleValue(),
-                dFullstateL.doubleValue(),dFullstateR.doubleValue(),dGameLogCompression.doubleValue(),
-                sGameLogFixedName.trim(),dGameLogVersion.doubleValue(),dGameLogging.doubleValue(),
-                dGameLogDated.doubleValue(),sGameLogDir.trim(),dGameLogFixed.doubleValue(),
-                dGameOverWait.doubleValue(),dGoalWidth.doubleValue(),dGoalieMaxMoves.doubleValue(),
-                dHalfTime.doubleValue(),dHearDecay.doubleValue(),dHearInc.doubleValue(),
-                dHearMax.doubleValue(),dInertiaMoment.doubleValue(),dKeepaway.doubleValue(),
-                dKeepawayLength.doubleValue(),dKeepawayLogDated.doubleValue(),sKeepawayLogDir.trim(),
-                dKeepawayLogFixed.doubleValue(),sKeepawayLogFixedName.trim(),dKeepawayLogging.doubleValue(),
-                dKeepawayStart.doubleValue(),dKeepawayWidth.doubleValue(),dKickOffWait.doubleValue(),
-                dKickPowerRate.doubleValue(),dKickRand.doubleValue(),dKickRandFactorL.doubleValue(),
-                dKickRandFactorR.doubleValue(),dKickableMargin.doubleValue(),sLandmarkFile.trim(),
-                sLogDateFormat.trim(),dLogTimes.doubleValue(),dMaxBackTacklePower.doubleValue(),
-                dMaxDashAngle.doubleValue(),dMaxDashPower.doubleValue(),dMaxGoalKicks.doubleValue(),
-                dMaxTacklePower.doubleValue(),dMaxmoment.doubleValue(),dMaxneckang.doubleValue(),
-                dMaxneckmoment.doubleValue(),dMaxpower.doubleValue(),dMinDashAngle.doubleValue(),
-                dMinDashPower.doubleValue(),dMinmoment.doubleValue(),dMinneckang.doubleValue(),
-                dMinneckmoment.doubleValue(),dMinpower.doubleValue(),dNrExtraHalfs.doubleValue(),
-                dNrNormalHalfs.doubleValue(),dOffsideActiveAreaSize.doubleValue(),dOffsideKickMargin.doubleValue(),
-                dOlcoachPort.doubleValue(),dOldCoachHear.doubleValue(),dPenAllowMultKicks.doubleValue(),
-                dPenBeforeSetupWait.doubleValue(),dPenCoachMovesPlayers.doubleValue(),dPenDistX.doubleValue(),
-                dPenMaxExtraKicks.doubleValue(),dPenMaxGoalieDistX.doubleValue(),dPenNrKicks.doubleValue(),
-                dPenRandomWinner.doubleValue(),dPenReadyWait.doubleValue(),dPenSetupWait.doubleValue(),
-                dPenTakenWait.doubleValue(),dPenaltyShootOuts.doubleValue(),dPlayerAccelMax.doubleValue(),
-                dPlayerDecay.doubleValue(),dPlayerRand.doubleValue(),dPlayerSize.doubleValue(),
-                dPlayerSpeedMax.doubleValue(),dPlayerSpeedMaxMin.doubleValue(),dPlayerWeight.doubleValue(),
-                dPointToBan.doubleValue(),dPointToDuration.doubleValue(),dPort.doubleValue(),
-                dPrandFactorL.doubleValue(),dPrandFactorR.doubleValue(),dProfile.doubleValue(),
-                dProperGoalKicks.doubleValue(),dQuantizeStep.doubleValue(),dQuantizeStepL.doubleValue(),
-                dRecordMessages.doubleValue(),dRecoverDec.doubleValue(),dRecoverDecThr.doubleValue(),
-                dRecoverInit.doubleValue(),dRecoverMin.doubleValue(),dRecvStep.doubleValue(),
-                dSayCoachCntMax.doubleValue(),dSayCoachMsgSize.doubleValue(),dSayMsgSize.doubleValue(),
-                dSendComms.doubleValue(),dSendStep.doubleValue(),dSendViStep.doubleValue(),
-                dSenseBodyStep.doubleValue(),dSideDashRate.doubleValue(),dSimulatorStep.doubleValue(),
-                dSlowDownFactor.doubleValue(),dSlownessOnTopForLeftTeam.doubleValue(),dSlownessOnTopForRightTeam.doubleValue(),
-                dStaminaCapacity.doubleValue(),dStaminaIncMax.doubleValue(),dStaminaMax.doubleValue(),
-                dStartGoalL.doubleValue(),dStartGoalR.doubleValue(),dStoppedBallVel.doubleValue(),
-                dSynchMicroSleep.doubleValue(),dSynchMode.doubleValue(),dSynchOffset.doubleValue(),
-                dSynchSeeOffset.doubleValue(),dTackleBackDist.doubleValue(),dTackleCycles.doubleValue(),
-                dTackleDist.doubleValue(),dTackleExponent.doubleValue(),dTacklePowerRate.doubleValue(),
-                dTackleWidth.doubleValue(),dTeamActuatorNoise.doubleValue(),dTeamLStart.doubleValue(),
-                dTeamRStart.doubleValue(),dTextLogCompression.doubleValue(),dTextLogDated.doubleValue(),
-                sTextLogDir.trim(),dTextLogFixed.doubleValue(),sTextLogFixedName.trim(),
-                dTextLogging.doubleValue(),dUseOffside.doubleValue(),dVerbose.doubleValue(),
-                dVisibleAngle.doubleValue(),dVisibleDistance.doubleValue(),dWindAng.doubleValue(),
-                dWindDir.doubleValue(),dWindForce.doubleValue(),dWindNone.doubleValue(),dWindRand.doubleValue(),
-                dWindRandom.doubleValue());
+        HashMap info                       = new HashMap<ServerParams, Object>();
+        info.put(ServerParams.AUDIO_CUT_DIST, dAudioCutDist.doubleValue());
+        info.put(ServerParams.AUTO_MODE, dAutoMode.doubleValue());
+        info.put(ServerParams.BACK_DASH_RATE, dBackDashRate.doubleValue());
+        info.put(ServerParams.BACK_PASSES, dBackPasses.doubleValue());
+        info.put(ServerParams.BALL_ACCEL_MAX, dBallAccelMax.doubleValue());
+        info.put(ServerParams.BALL_DECAY, dBallDecay.doubleValue());
+        info.put(ServerParams.BALL_RAND, dBallRand.doubleValue());
+        info.put(ServerParams.BALL_SIZE, dBallSize.doubleValue());
+        info.put(ServerParams.BALL_SPEED_MAX, dBallSpeedMax.doubleValue());
+        info.put(ServerParams.BALL_STUCK_AREA, dBallStuckArea.doubleValue());
+        info.put(ServerParams.BALL_WEIGHT, dBallWeight.doubleValue());
+        info.put(ServerParams.CATCH_BAN_CYCLE, dCatchBanCycle.doubleValue());
+        info.put(ServerParams.CATCH_PROBABILITY, dCatchProbability.doubleValue());
+        info.put(ServerParams.CATCHABLE_AREA_L, dCatchableAreaL.doubleValue());
+        info.put(ServerParams.CATCHABLE_AREA_W, dCatchableAreaW.doubleValue());
+        info.put(ServerParams.CKICK_MARGIN, dCkickMargin.doubleValue());
+        info.put(ServerParams.CLANG_ADVICE_WIN, dClangAdviceWin.doubleValue());
+        info.put(ServerParams.CLANG_DEFINE_WIN, dClangDefineWin.doubleValue());
+        info.put(ServerParams.CLANG_DEL_WIN, dClangDelWin.doubleValue());
+        info.put(ServerParams.CLANG_INFO_WIN, dClangInfoWin.doubleValue());
+        info.put(ServerParams.CLANG_MESS_DELAY, dClangMessDelay.doubleValue());
+        info.put(ServerParams.CLANG_MESS_PER_CYCLE, dClangMessPerCycle.doubleValue());
+        info.put(ServerParams.CLANG_META_WIN, dClangMetaWin.doubleValue());
+        info.put(ServerParams.CLANG_RULE_WIN, dClangRuleWin.doubleValue());
+        info.put(ServerParams.CLANG_WIN_SIZE, dClangWinSize.doubleValue());
+        info.put(ServerParams.COACH, dCoach.doubleValue());
+        info.put(ServerParams.COACH_PORT, dCoachPort.doubleValue());
+        info.put(ServerParams.COACH_W_REFEREE, dCoachWReferee.doubleValue());
+        info.put(ServerParams.CONNECT_WAIT, dConnectWait.doubleValue());
+        info.put(ServerParams.CONTROL_RADIUS, dControlRadius.doubleValue());
+        info.put(ServerParams.DASH_ANGLE_STEP, dDashAngleStep.doubleValue());
+        info.put(ServerParams.DASH_POWER_RATE, dDashPowerRate.doubleValue());
+        info.put(ServerParams.DROP_BALL_TIME, dDropBallTime.doubleValue());
+        info.put(ServerParams.EFFORT_DEC, dEffortDec.doubleValue());
+        info.put(ServerParams.EFFORT_DEC_THR, dEffortDecThr.doubleValue());
+        info.put(ServerParams.EFFORT_INC, dEffortInc.doubleValue());
+        info.put(ServerParams.EFFORT_INC_THR, dEffortIncThr.doubleValue());
+        info.put(ServerParams.EFFORT_INIT, dEffortInit.doubleValue());
+        info.put(ServerParams.EFFORT_MIN, dEffortMin.doubleValue());
+        info.put(ServerParams.EXTRA_HALF_TIME, dExtraHalfTime.doubleValue());
+        info.put(ServerParams.EXTRA_STAMINA, dExtraStamina.doubleValue());
+        info.put(ServerParams.FORBID_KICK_OFF_OFFSIDE, dForbidKickOffOffside.doubleValue());
+        info.put(ServerParams.FREE_KICK_FAULTS, dFreeKickFaults.doubleValue());
+        info.put(ServerParams.FREEFORM_SEND_PERIOD, dFreeformSendPeriod.doubleValue());
+        info.put(ServerParams.FREEFORM_WAIT_PERIOD, dFreeformWaitPeriod.doubleValue());
+        info.put(ServerParams.FULLSTATE_L, dFullstateL.doubleValue());
+        info.put(ServerParams.FULLSTATE_R, dFullstateR.doubleValue());
+        info.put(ServerParams.GAME_LOG_COMPRESSION, dGameLogCompression.doubleValue());
+        info.put(ServerParams.GAME_LOG_FIXED_NAME, sGameLogFixedName.trim());
+        info.put(ServerParams.GAME_LOG_VERSION, dGameLogVersion.doubleValue());
+        info.put(ServerParams.GAME_LOGGING, dGameLogging.doubleValue());
+        info.put(ServerParams.GAME_LOG_DATED, dGameLogDated.doubleValue());
+        info.put(ServerParams.GAME_LOG_DIR, sGameLogDir.trim());
+        info.put(ServerParams.GAME_LOG_FIXED, dGameLogFixed.doubleValue());
+        info.put(ServerParams.GAME_OVER_WAIT, dGameOverWait.doubleValue());
+        info.put(ServerParams.GOAL_WIDTH, dGoalWidth.doubleValue());
+        info.put(ServerParams.GOALIE_MAX_MOVES, dGoalieMaxMoves.doubleValue());
+        info.put(ServerParams.HALF_TIME, dHalfTime.doubleValue());
+        info.put(ServerParams.HEAR_DECAY, dHearDecay.doubleValue());
+        info.put(ServerParams.HEAR_INC, dHearInc.doubleValue());
+        info.put(ServerParams.HEAR_MAX, dHearMax.doubleValue());
+        info.put(ServerParams.INERTIA_MOMENT, dInertiaMoment.doubleValue());
+        info.put(ServerParams.KEEPAWAY, dKeepaway.doubleValue());
+        info.put(ServerParams.KEEPAWAY_LENGTH, dKeepawayLength.doubleValue());
+        info.put(ServerParams.KEEPAWAY_LOG_DATED, dKeepawayLogDated.doubleValue());
+        info.put(ServerParams.KEEPAWAY_LOG_DIR, sKeepawayLogDir.trim());
+        info.put(ServerParams.KEEPAWAY_LOG_FIXED, dKeepawayLogFixed.doubleValue());
+        info.put(ServerParams.KEEPAWAY_LOG_FIXED_NAME, sKeepawayLogFixedName.trim());
+        info.put(ServerParams.KEEPAWAY_LOGGING, dKeepawayLogging.doubleValue());
+        info.put(ServerParams.KEEPAWAY_START, dKeepawayStart.doubleValue());
+        info.put(ServerParams.KEEPAWAY_WIDTH, dKeepawayWidth.doubleValue());
+        info.put(ServerParams.KICK_OFF_WAIT, dKickOffWait.doubleValue());
+        info.put(ServerParams.KICK_POWER_RATE, dKickPowerRate.doubleValue());
+        info.put(ServerParams.KICK_RAND, dKickRand.doubleValue());
+        info.put(ServerParams.KICK_RAND_FACTOR_L, dKickRandFactorL.doubleValue());
+        info.put(ServerParams.KICK_RAND_FACTOR_R, dKickRandFactorR.doubleValue());
+        info.put(ServerParams.KICKABLE_MARGIN, dKickableMargin.doubleValue());
+        info.put(ServerParams.LANDMARK_FILE, sLandmarkFile.trim());
+        info.put(ServerParams.LOG_DATE_FORMAT, sLogDateFormat.trim());
+        info.put(ServerParams.LOG_TIMES, dLogTimes.doubleValue());
+        info.put(ServerParams.MAX_BACK_TACKLE_POWER, dMaxBackTacklePower.doubleValue());
+        info.put(ServerParams.MAX_DASH_ANGLE, dMaxDashAngle.doubleValue());
+        info.put(ServerParams.MAX_DASH_POWER, dMaxDashPower.doubleValue());
+        info.put(ServerParams.MAX_GOAL_KICKS, dMaxGoalKicks.doubleValue());
+        info.put(ServerParams.MAX_TACKLE_POWER, dMaxTacklePower.doubleValue());
+        info.put(ServerParams.MAXMOMENT, dMaxmoment.doubleValue());
+        info.put(ServerParams.MAXNECKANG, dMaxneckang.doubleValue());
+        info.put(ServerParams.MAXNECKMOMENT, dMaxneckmoment.doubleValue());
+        info.put(ServerParams.MAXPOWER, dMaxpower.doubleValue());
+        info.put(ServerParams.MIN_DASH_ANGLE, dMinDashAngle.doubleValue());
+        info.put(ServerParams.MIN_DASH_POWER, dMinDashPower.doubleValue());
+        info.put(ServerParams.MINMOMENT, dMinmoment.doubleValue());
+        info.put(ServerParams.MINNECKANG, dMinneckang.doubleValue());
+        info.put(ServerParams.MINNECKMOMENT, dMinneckmoment.doubleValue());
+        info.put(ServerParams.MINPOWER, dMinpower.doubleValue());
+        info.put(ServerParams.NR_EXTRA_HALFS, dNrExtraHalfs.doubleValue());
+        info.put(ServerParams.NR_NORMAL_HALFS, dNrNormalHalfs.doubleValue());
+        info.put(ServerParams.OFFSIDE_ACTIVE_AREA_SIZE, dOffsideActiveAreaSize.doubleValue());
+        info.put(ServerParams.OFFSIDE_KICK_MARGIN, dOffsideKickMargin.doubleValue());
+        info.put(ServerParams.OLCOACH_PORT, dOlcoachPort.doubleValue());
+        info.put(ServerParams.OLD_COACH_HEAR, dOldCoachHear.doubleValue());
+        info.put(ServerParams.PEN_ALLOW_MULT_KICKS, dPenAllowMultKicks.doubleValue());
+        info.put(ServerParams.PEN_BEFORE_SETUP_WAIT, dPenBeforeSetupWait.doubleValue());
+        info.put(ServerParams.PEN_COACH_MOVES_PLAYERS, dPenCoachMovesPlayers.doubleValue());
+        info.put(ServerParams.PEN_DIST_X, dPenDistX.doubleValue());
+        info.put(ServerParams.PEN_MAX_EXTRA_KICKS, dPenMaxExtraKicks.doubleValue());
+        info.put(ServerParams.PEN_MAX_GOALIE_DIST_X, dPenMaxGoalieDistX.doubleValue());
+        info.put(ServerParams.PEN_NR_KICKS, dPenNrKicks.doubleValue());
+        info.put(ServerParams.PEN_RANDOM_WINNER, dPenRandomWinner.doubleValue());
+        info.put(ServerParams.PEN_READY_WAIT, dPenReadyWait.doubleValue());
+        info.put(ServerParams.PEN_SETUP_WAIT, dPenSetupWait.doubleValue());
+        info.put(ServerParams.PEN_TAKEN_WAIT, dPenTakenWait.doubleValue());
+        info.put(ServerParams.PENALTY_SHOOT_OUTS, dPenaltyShootOuts.doubleValue());
+        info.put(ServerParams.PLAYER_ACCEL_MAX, dPlayerAccelMax.doubleValue());
+        info.put(ServerParams.PLAYER_DECAY, dPlayerDecay.doubleValue());
+        info.put(ServerParams.PLAYER_RAND, dPlayerRand.doubleValue());
+        info.put(ServerParams.PLAYER_SIZE, dPlayerSize.doubleValue());
+        info.put(ServerParams.PLAYER_SPEED_MAX, dPlayerSpeedMax.doubleValue());
+        info.put(ServerParams.PLAYER_SPEED_MAX_MIN, dPlayerSpeedMaxMin.doubleValue());
+        info.put(ServerParams.PLAYER_WEIGHT, dPlayerWeight.doubleValue());
+        info.put(ServerParams.POINT_TO_BAN, dPointToBan.doubleValue());
+        info.put(ServerParams.POINT_TO_DURATION, dPointToDuration.doubleValue());
+        info.put(ServerParams.PORT, dPort.doubleValue());
+        info.put(ServerParams.PRAND_FACTOR_L, dPrandFactorL.doubleValue());
+        info.put(ServerParams.PRAND_FACTOR_R, dPrandFactorR.doubleValue());
+        info.put(ServerParams.PROFILE, dProfile.doubleValue());
+        info.put(ServerParams.PROPER_GOAL_KICKS, dProperGoalKicks.doubleValue());
+        info.put(ServerParams.QUANTIZE_STEP, dQuantizeStep.doubleValue());
+        info.put(ServerParams.QUANTIZE_STEP_L, dQuantizeStepL.doubleValue());
+        info.put(ServerParams.RECORD_MESSAGES, dRecordMessages.doubleValue());
+        info.put(ServerParams.RECOVER_DEC, dRecoverDec.doubleValue());
+        info.put(ServerParams.RECOVER_DEC_THR, dRecoverDecThr.doubleValue());
+        info.put(ServerParams.RECOVER_INIT, dRecoverInit.doubleValue());
+        info.put(ServerParams.RECOVER_MIN, dRecoverMin.doubleValue());
+        info.put(ServerParams.RECV_STEP, dRecvStep.doubleValue());
+        info.put(ServerParams.SAY_COACH_CNT_MAX, dSayCoachCntMax.doubleValue());
+        info.put(ServerParams.SAY_COACH_MSG_SIZE, dSayCoachMsgSize.doubleValue());
+        info.put(ServerParams.SAY_MSG_SIZE, dSayMsgSize.doubleValue());
+        info.put(ServerParams.SEND_COMMS, dSendComms.doubleValue());
+        info.put(ServerParams.SEND_STEP, dSendStep.doubleValue());
+        info.put(ServerParams.SEND_VI_STEP, dSendViStep.doubleValue());
+        info.put(ServerParams.SENSE_BODY_STEP, dSenseBodyStep.doubleValue());
+        info.put(ServerParams.SIDE_DASH_RATE, dSideDashRate.doubleValue());
+        info.put(ServerParams.SIMULATOR_STEP, dSimulatorStep.doubleValue());
+        info.put(ServerParams.SLOW_DOWN_FACTOR, dSlowDownFactor.doubleValue());
+        info.put(ServerParams.SLOWNESS_ON_TOP_FOR_LEFT_TEAM, dSlownessOnTopForLeftTeam.doubleValue());
+        info.put(ServerParams.SLOWNESS_ON_TOP_FOR_RIGHT_TEAM, dSlownessOnTopForRightTeam.doubleValue());
+        info.put(ServerParams.STAMINA_CAPACITY, dStaminaCapacity.doubleValue());
+        info.put(ServerParams.STAMINA_INC_MAX, dStaminaIncMax.doubleValue());
+        info.put(ServerParams.STAMINA_MAX, dStaminaMax.doubleValue());
+        info.put(ServerParams.START_GOAL_L, dStartGoalL.doubleValue());
+        info.put(ServerParams.START_GOAL_R, dStartGoalR.doubleValue());
+        info.put(ServerParams.STOPPED_BALL_VEL, dStoppedBallVel.doubleValue());
+        info.put(ServerParams.SYNCH_MICRO_SLEEP, dSynchMicroSleep.doubleValue());
+        info.put(ServerParams.SYNCH_MODE, dSynchMode.doubleValue());
+        info.put(ServerParams.SYNCH_OFFSET, dSynchOffset.doubleValue());
+        info.put(ServerParams.SYNCH_SEE_OFFSET, dSynchSeeOffset.doubleValue());
+        info.put(ServerParams.TACKLE_BACK_DIST, dTackleBackDist.doubleValue());
+        info.put(ServerParams.TACKLE_CYCLES, dTackleCycles.doubleValue());
+        info.put(ServerParams.TACKLE_DIST, dTackleDist.doubleValue());
+        info.put(ServerParams.TACKLE_EXPONENT, dTackleExponent.doubleValue());
+        info.put(ServerParams.TACKLE_POWER_RATE, dTacklePowerRate.doubleValue());
+        info.put(ServerParams.TACKLE_WIDTH, dTackleWidth.doubleValue());
+        info.put(ServerParams.TEAM_ACTUATOR_NOISE, dTeamActuatorNoise.doubleValue());
+        info.put(ServerParams.TEAM_L_START, dTeamLStart.doubleValue());
+        info.put(ServerParams.TEAM_R_START, dTeamRStart.doubleValue());
+        info.put(ServerParams.TEXT_LOG_COMPRESSION, dTextLogCompression.doubleValue());
+        info.put(ServerParams.TEXT_LOG_DATED, dTextLogDated.doubleValue());
+        info.put(ServerParams.TEXT_LOG_DIR, sTextLogDir.trim());
+        info.put(ServerParams.TEXT_LOG_FIXED, dTextLogFixed.doubleValue());
+        info.put(ServerParams.TEXT_LOG_FIXED_NAME, sTextLogFixedName.trim());
+        info.put(ServerParams.TEXT_LOGGING, dTextLogging.doubleValue());
+        info.put(ServerParams.USE_OFFSIDE, dUseOffside.doubleValue());
+        info.put(ServerParams.VERBOSE, dVerbose.doubleValue());
+        info.put(ServerParams.VISIBLE_ANGLE, dVisibleAngle.doubleValue());
+        info.put(ServerParams.VISIBLE_DISTANCE, dVisibleDistance.doubleValue());
+        info.put(ServerParams.WIND_ANG, dWindAng.doubleValue());
+        info.put(ServerParams.WIND_DIR, dWindDir.doubleValue());
+        info.put(ServerParams.WIND_FORCE, dWindForce.doubleValue());
+        info.put(ServerParams.WIND_NONE, dWindNone.doubleValue());
+        info.put(ServerParams.WIND_RAND, dWindRand.doubleValue());
+        info.put(ServerParams.WIND_RANDOM, dWindRandom.doubleValue());
+        controller.infoServerParam(info);
     }
 }
 

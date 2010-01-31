@@ -10,11 +10,16 @@ import atan.model.enums.Line;
 import atan.model.enums.Ok;
 import atan.model.enums.PlayMode;
 import atan.model.enums.RefereeMessage;
+import atan.model.enums.ServerParams;
 import atan.model.enums.ViewAngle;
 import atan.model.enums.ViewQuality;
 import atan.model.enums.Warning;
 
 import org.apache.log4j.Logger;
+
+//~--- JDK imports ------------------------------------------------------------
+
+import java.util.HashMap;
 
 /**
  *
@@ -443,4 +448,11 @@ public class Silly implements ControllerPlayer {
      */
     @Override
     public void infoCPTOwn(int unum, int type) {}
+
+    /**
+     *
+     * @param info
+     */
+    @Override
+    public void infoServerParam(HashMap<ServerParams, Object> info) {}
 }

@@ -13,19 +13,63 @@ public class SimpleCharStream {
     public static final boolean staticFlag = false;
 
     /** Position in buffer. */
-    public int               bufpos         = -1;
-    protected int            column         = 0;
-    protected int            inBuf          = 0;
-    protected int            line           = 1;
-    protected int            maxNextCharInd = 0;
-    protected boolean        prevCharIsCR   = false;
-    protected boolean        prevCharIsLF   = false;
-    protected int            tabSize        = 8;
-    int                      available;
-    protected int            bufcolumn[];
-    protected char[]         buffer;
-    protected int            bufline[];
-    int                      bufsize;
+    public int bufpos = -1;
+
+    /**
+     *
+     */
+    protected int column = 0;
+
+    /**
+     *
+     */
+    protected int inBuf = 0;
+
+    /**
+     *
+     */
+    protected int line = 1;
+
+    /**
+     *
+     */
+    protected int maxNextCharInd = 0;
+
+    /**
+     *
+     */
+    protected boolean prevCharIsCR = false;
+
+    /**
+     *
+     */
+    protected boolean prevCharIsLF = false;
+
+    /**
+     *
+     */
+    protected int tabSize = 8;
+    int           available;
+
+    /**
+     *
+     */
+    protected int bufcolumn[];
+
+    /**
+     *
+     */
+    protected char[] buffer;
+
+    /**
+     *
+     */
+    protected int bufline[];
+    int           bufsize;
+
+    /**
+     *
+     */
     protected java.io.Reader inputStream;
     int                      tokenBegin;
 
@@ -300,6 +344,7 @@ public class SimpleCharStream {
     /**
      *
      * @return
+     * @deprecated
      */
     @Deprecated
 
@@ -314,6 +359,7 @@ public class SimpleCharStream {
     /**
      *
      * @return
+     * @deprecated
      */
     @Deprecated
 

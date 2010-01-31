@@ -88,7 +88,15 @@ public class CmdParserTrainerTokenManager implements CmdParserTrainerConstants {
     int                        defaultLexState = 0;
     private final int[]        jjrounds        = new int[36];
     private final int[]        jjstateSet      = new int[72];
-    protected char             curChar;
+
+    /**
+     *
+     */
+    protected char curChar;
+
+    /**
+     *
+     */
     protected SimpleCharStream input_stream;
     int                        jjmatchedKind;
     int                        jjmatchedPos;
