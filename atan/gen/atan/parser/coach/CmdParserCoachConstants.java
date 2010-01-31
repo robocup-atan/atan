@@ -589,9 +589,9 @@ public interface CmdParserCoachConstants {
   /** RegularExpression Id. */
   int SEP = 293;
   /** RegularExpression Id. */
-  int NAM = 294;
+  int NUM = 294;
   /** RegularExpression Id. */
-  int NUM = 295;
+  int NAM = 295;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -892,8 +892,8 @@ public interface CmdParserCoachConstants {
     "\"(\"",
     "\")\"",
     "\" \"",
-    "<NAM>",
     "<NUM>",
+    "<NAM>",
   };
 
 }

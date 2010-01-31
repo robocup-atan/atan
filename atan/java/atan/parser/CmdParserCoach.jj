@@ -106,7 +106,7 @@ SKIP: {
 }
 TOKEN :
 {
-  < B: "b"|"B">|
+ < B: "b"|"B">|
   < FLAG: "f"|"F">|
   < P: "p"|"P">|
   < L: "l"|"L">|
@@ -395,8 +395,8 @@ TOKEN :
   < OB: "(">|
   < CB: ")">|
   < SEP: " ">|
-  < NAM: ["a"-"z","A"-"Z","_"] ( ["a"-"z","A"-"Z","_","0"-"9"] )* >|
-  < NUM: ( ["0"-"9"]|"."|"-" )+ >
+  < NUM: ( ["0"-"9"]|"."|"-"["0"-"9"] )+ >|
+  < NAM: ["a"-"z","A"-"Z","_",".","/","-","%"] ( ["a"-"z","A"-"Z","_","0"-"9",".","/","-","%"] )* >
 }
 
 //TODO Commands still to implement.
@@ -581,7 +581,7 @@ void startServerParamCommand() : //Possibly the biggest method ever!
 		< OB ><PLAYER_SIZE ><SEP >playerSize=< NUM ><CB >
 		< OB ><PLAYER_SPEED_MAX><SEP >playerSpeedMax=< NUM ><CB >
 		< OB ><PLAYER_SPEED_MAX_MIN ><SEP >playerSpeedMaxMin=< NUM ><CB >
-		< OB ><PLAYER_WEIGHT ><SEP >playerSpeedMaxMin=< NUM ><CB >
+		< OB ><PLAYER_WEIGHT ><SEP >playerWeight=< NUM ><CB >
 		< OB ><POINT_TO_BAN ><SEP >pointToBan=< NUM ><CB >
 		< OB ><POINT_TO_DURATION ><SEP >pointToDuration=< NUM ><CB >
 		< OB ><PORT ><SEP >port=< NUM ><CB >
@@ -626,8 +626,8 @@ void startServerParamCommand() : //Possibly the biggest method ever!
 		< OB ><TACKLE_POWER_RATE ><SEP >tacklePowerRate=< NUM ><CB >
 		< OB ><TACKLE_WIDTH ><SEP >tackleWidth=< NUM ><CB >
 		< OB ><TEAM_ACTUATOR_NOISE ><SEP >teamActuatorNoise=< NUM ><CB >
-		< OB ><TEAM_L_START ><SEP >teamLStart=< NUM ><CB >
-		< OB ><TEAM_R_START ><SEP >teamRStart=< NUM ><CB >
+		< OB ><TEAM_L_START ><SEP >[teamLStart=< NAM >]<CB >
+		< OB ><TEAM_R_START ><SEP >[teamRStart=< NAM >]<CB >
 		< OB ><TEXT_LOG_COMPRESSION ><SEP >textLogCompression=< NUM ><CB >
 		< OB ><TEXT_LOG_DATED ><SEP >textLogDated=< NUM ><CB >
 		< OB ><TEXT_LOG_DIR ><SEP >textLogDir=< NAM ><CB >
@@ -694,9 +694,19 @@ void startServerParamCommand() : //Possibly the biggest method ever!
 		Double dFullstateR = new Double(fullstateR.image);
 		Double dGameLogCompression = new Double(gameLogCompression.image);
 		Double dGameLogDated = new Double(gameLogDated.image);
-		String sGameLogDir = new String(gameLogDir.image);
+		String sGameLogDir = null;
+		if (gameLogDir == null){
+			sGameLogDir = new String("");
+		}else{
+		  	sGameLogDir = new String(gameLogDir.image);
+		}
 		Double dGameLogFixed = new Double(gameLogFixed.image);
-		String sGameLogFixedName = new String(gameLogFixedName.image);
+		String sGameLogFixedName = null;
+		if (gameLogFixedName == null){
+			sGameLogFixedName = new String("");
+		}else{
+		  	sGameLogFixedName = new String(gameLogFixedName.image);
+		}
 		Double dGameLogVersion = new Double(gameLogVersion.image);
 		Double dGameLogging = new Double(gameLogging.image);
 		Double dGameOverWait = new Double(gameOverWait.image);
@@ -710,9 +720,19 @@ void startServerParamCommand() : //Possibly the biggest method ever!
 		Double dKeepaway = new Double(keepaway.image);
 		Double dKeepawayLength = new Double(keepawayLength.image);
 		Double dKeepawayLogDated = new Double(keepawayLogDated.image);
-		String sKeepawayLogDir = new String(keepawayLogDir.image);
+		String sKeepawayLogDir = null;
+		if (keepawayLogDir == null){
+			sKeepawayLogDir = new String("");
+		}else{
+		  	sKeepawayLogDir = new String(keepawayLogDir.image);
+		}
 		Double dKeepawayLogFixed = new Double(keepawayLogFixed.image);
-		String sKeepawayLogFixedName = new String(keepawayLogFixedName.image);
+		String sKeepawayLogFixedName = null;
+		if (keepawayLogFixedName == null){
+			sKeepawayLogFixedName = new String("");
+		}else{
+		  	sKeepawayLogFixedName = new String(keepawayLogFixedName.image);
+		}
 		Double dKeepawayLogging = new Double(keepawayLogging.image);
 		Double dKeepawayStart = new Double(keepawayStart.image);
 		Double dKeepawayWidth = new Double(keepawayWidth.image);
@@ -722,8 +742,18 @@ void startServerParamCommand() : //Possibly the biggest method ever!
 		Double dKickRandFactorL = new Double(kickRandFactorL.image);
 		Double dKickRandFactorR = new Double(kickRandFactorR.image);
 		Double dKickableMargin = new Double(kickableMargin.image);
-		String sLandmarkFile = new String(landmarkFile.image);
-		String sLogDateFormat = new String(logDateFormat.image);
+		String sLandmarkFile = null;
+		if (landmarkFile == null){
+			sLandmarkFile = new String("");
+		}else{
+		  	sLandmarkFile = new String(landmarkFile.image);
+		}
+		String sLogDateFormat = null;
+		if (logDateFormat == null){
+			sLogDateFormat = new String("");
+		}else{
+		  	sLogDateFormat = new String(logDateFormat.image);
+		}
 		Double dLogTimes = new Double(logTimes.image);
 		Double dMaxBackTacklePower = new Double(maxBackTacklePower.image);
 		Double dMaxDashAngle = new Double(maxDashAngle.image);
@@ -809,13 +839,33 @@ void startServerParamCommand() : //Possibly the biggest method ever!
 		Double dTacklePowerRate = new Double(tacklePowerRate.image);
 		Double dTackleWidth = new Double(tackleWidth.image);
 		Double dTeamActuatorNoise = new Double(teamActuatorNoise.image);
-		Double dTeamLStart = new Double(teamLStart.image);
-		Double dTeamRStart = new Double(teamRStart.image);
+		String sTeamLStart = null;
+		if (teamLStart == null){
+			sTeamLStart = new String("");
+		}else{
+		  	sTeamLStart = new String(teamLStart.image);
+		}
+		String sTeamRStart = null;
+		if (teamRStart == null){
+			sTeamRStart = new String("");
+		}else{
+		  	sTeamRStart = new String(teamRStart.image);
+		}
 		Double dTextLogCompression = new Double(textLogCompression.image);
 		Double dTextLogDated = new Double(textLogDated.image);
-		String sTextLogDir = new String(textLogDir.image);
+		String sTextLogDir = null;
+		if (textLogDir == null){
+			sTextLogDir = new String("");
+		}else{
+		  	sTextLogDir = new String(textLogDir.image);
+		}
 		Double dTextLogFixed = new Double(textLogFixed.image);
-		String sTextLogFixedName = new String(textLogFixedName.image);
+		String sTextLogFixedName = null;
+		if (textLogFixedName == null){
+			sTextLogFixedName = new String("");
+		}else{
+		  	sTextLogFixedName = new String(textLogFixedName.image);
+		}
 		Double dTextLogging = new Double(textLogging.image);
 		Double dUseOffside = new Double(useOffside.image);
 		Double dVerbose = new Double(verbose.image);
@@ -992,8 +1042,8 @@ void startServerParamCommand() : //Possibly the biggest method ever!
         info.put(ServerParams.TACKLE_POWER_RATE, dTacklePowerRate.doubleValue());
         info.put(ServerParams.TACKLE_WIDTH, dTackleWidth.doubleValue());
         info.put(ServerParams.TEAM_ACTUATOR_NOISE, dTeamActuatorNoise.doubleValue());
-        info.put(ServerParams.TEAM_L_START, dTeamLStart.doubleValue());
-        info.put(ServerParams.TEAM_R_START, dTeamRStart.doubleValue());
+        info.put(ServerParams.TEAM_L_START, sTeamLStart.trim());
+        info.put(ServerParams.TEAM_R_START, sTeamRStart.trim());
         info.put(ServerParams.TEXT_LOG_COMPRESSION, dTextLogCompression.doubleValue());
         info.put(ServerParams.TEXT_LOG_DATED, dTextLogDated.doubleValue());
         info.put(ServerParams.TEXT_LOG_DIR, sTextLogDir.trim());
