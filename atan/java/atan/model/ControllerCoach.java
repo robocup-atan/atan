@@ -20,6 +20,45 @@ import java.util.HashMap;
 public interface ControllerCoach {
 
     /**
+     *
+     * @param number
+     * @param goalie
+     * @param x
+     * @param y
+     * @param deltaX
+     * @param deltaY
+     * @param bodyAngle
+     * @param neckAngle
+     */
+    public void infoSeePlayerOwn(int number, boolean goalie, double x, double y, double deltaX, double deltaY,
+                                 double bodyAngle, double neckAngle);
+
+    /**
+     *
+     * @param number
+     * @param goalie
+     * @param x
+     * @param y
+     * @param deltaX
+     * @param deltaY
+     * @param bodyAngle
+     * @param neckAngle
+     */
+    public void infoSeePlayerOther(int number, boolean goalie, double x, double y, double deltaX, double deltaY,
+                                   double bodyAngle, double neckAngle);
+
+    /**
+     * The controller is informed that the Ball is in sight.
+     * @param x
+     * @param y
+     * @param deltaX
+     * @param deltaY
+     * @param bodyAngle
+     * @param neckAngle
+     */
+    public void infoSeeBall(double x, double y, double deltaX, double deltaY, double bodyAngle, double neckAngle);
+
+    /**
      * The observer is informed when a referee message is broadcast.
      * @param refereeMessage possible values: FOUL_OWN, FOUL_OTHER,
      * HALF_TIME, TIME_UP, TIME_UP_WITHOUT_A_TEAM,

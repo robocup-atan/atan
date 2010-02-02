@@ -206,6 +206,15 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
     }
 
     /**
+     *
+     * @return
+     */
+    @Override
+    public String getTeamName() {
+        return teamName;
+    }
+
+    /**
      * A private coach-style filter
      * @author Atan
      */

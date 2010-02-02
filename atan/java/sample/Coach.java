@@ -166,4 +166,52 @@ public class Coach implements ControllerCoach {
     public void infoServerParam(HashMap<ServerParams, Object> info) {
         log.info("server param");
     }
+
+    /**
+     *
+     * @param x
+     * @param y
+     * @param deltaX
+     * @param deltaY
+     * @param bodyAngle
+     * @param neckAngle
+     */
+    @Override
+    public void infoSeeBall(double x, double y, double deltaX, double deltaY, double bodyAngle, double neckAngle) {
+        log.info("see ball");
+    }
+
+    /**
+     *
+     * @param number
+     * @param goalie
+     * @param x
+     * @param y
+     * @param deltaX
+     * @param deltaY
+     * @param bodyAngle
+     * @param neckAngle
+     */
+    @Override
+    public void infoSeePlayerOther(int number, boolean goalie, double x, double y, double deltaX, double deltaY,
+                                   double bodyAngle, double neckAngle) {
+        log.info("see player other");
+    }
+
+    /**
+     *
+     * @param number
+     * @param goalie
+     * @param x
+     * @param y
+     * @param deltaX
+     * @param deltaY
+     * @param bodyAngle
+     * @param neckAngle
+     */
+    @Override
+    public void infoSeePlayerOwn(int number, boolean goalie, double x, double y, double deltaX, double deltaY,
+                                 double bodyAngle, double neckAngle) {
+        log.info("see player own");
+    }
 }

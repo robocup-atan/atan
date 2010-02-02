@@ -69,4 +69,10 @@ public interface ActionsCoach {
      * @param is true if east.
      */
     public void setTeamEast(boolean is);
+
+    /**
+     *
+     * @return
+     */
+    public String getTeamName();
 }

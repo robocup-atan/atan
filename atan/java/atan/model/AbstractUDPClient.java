@@ -74,7 +74,7 @@ public abstract class AbstractUDPClient extends Thread {
             buf       = new ByteBuffer(5000);
             buf.setString(getInitMessage());
             socket = new DatagramSocket();
-            socket.setSoTimeout(3000);
+            socket.setSoTimeout(999999999);    // Ridiculous long timeout to stop the coach disconnecting.
             DatagramPacket p = new DatagramPacket(buf.getByteArray(), buf.getByteArray().length,
                                    InetAddress.getByName(hostname), port);
             socket.send(p);
