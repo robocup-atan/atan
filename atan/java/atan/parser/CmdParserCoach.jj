@@ -135,6 +135,8 @@ TOKEN :
   < DASH: "dash">|
   < TURN: "turn">|
   < SAY: "say">|
+  < EYEON: "eye on" >|
+  < EYEOFF: "eye off" >|
   < TURN_NECK: "turn_neck">|
   < BEFORE_KICK_OFF: "before_kick_off">|
   < TIME_OVER: "time_over">|
@@ -410,7 +412,7 @@ TOKEN :
 //TODO Commands still to implement.
 void startSeeCommand() : //The see_global command.
   {} {
-    [(<OB>objInfo()<CB>)+]
+    <NUM>[<SEP>(<OB>objInfo()<CB>[<SEP>])+]
   }
 
 //Get object details.
@@ -642,6 +644,12 @@ Ok ok() :
         }|
     <EAR>{
         return Ok.EAR;
+        }|
+    <EYEON>{
+        return Ok.EYE_ON;
+        }|
+    <EYEOFF>{
+        return Ok.EYE_OFF;
         }|
     <SAY>{
         return Ok.SAY;

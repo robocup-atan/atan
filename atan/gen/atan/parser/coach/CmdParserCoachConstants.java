@@ -9,268 +9,274 @@ package atan.parser.coach;
 public interface CmdParserCoachConstants {
 
     /** RegularExpression Id. */
-    int ALLOW_MULT_DEFAULT_TYPE = 92;
+    int ALLOW_MULT_DEFAULT_TYPE = 94;
 
     /** RegularExpression Id. */
-    int AUDIO_CUT_DIST = 116;
+    int AUDIO_CUT_DIST = 118;
 
     /** RegularExpression Id. */
-    int AUTO_MODE = 117;
+    int AUTO_MODE = 119;
 
     /** RegularExpression Id. */
     int B = 5;
 
     /** RegularExpression Id. */
-    int BACK_DASH_RATE = 118;
+    int BACK_DASH_RATE = 120;
 
     /** RegularExpression Id. */
-    int BACK_PASSES = 119;
+    int BACK_PASSES = 121;
 
     /** RegularExpression Id. */
-    int BALL_ACCEL_MAX = 120;
+    int BALL_ACCEL_MAX = 122;
 
     /** RegularExpression Id. */
-    int BALL_DECAY = 121;
+    int BALL_DECAY = 123;
 
     /** RegularExpression Id. */
-    int BALL_RAND = 122;
+    int BALL_RAND = 124;
 
     /** RegularExpression Id. */
-    int BALL_SIZE = 123;
+    int BALL_SIZE = 125;
 
     /** RegularExpression Id. */
-    int BALL_SPEED_MAX = 124;
+    int BALL_SPEED_MAX = 126;
 
     /** RegularExpression Id. */
-    int BALL_STUCK_AREA = 125;
+    int BALL_STUCK_AREA = 127;
 
     /** RegularExpression Id. */
-    int BALL_WEIGHT = 126;
+    int BALL_WEIGHT = 128;
 
     /** RegularExpression Id. */
-    int BEFORE_KICK_OFF = 27;
+    int BEFORE_KICK_OFF = 29;
 
     /** RegularExpression Id. */
-    int C = 288;
+    int C = 290;
 
     /** RegularExpression Id. */
-    int CANNOT_CHANGE_GOALIE = 78;
+    int CANNOT_CHANGE_GOALIE = 80;
 
     /** RegularExpression Id. */
-    int CANNOT_SUB_WHILE_PLAYON = 75;
+    int CANNOT_SUB_WHILE_PLAYON = 77;
 
     /** RegularExpression Id. */
-    int CATCH = 80;
+    int CATCH = 82;
 
     /** RegularExpression Id. */
-    int CATCHABLE_AREA_L = 129;
+    int CATCHABLE_AREA_L = 131;
 
     /** RegularExpression Id. */
-    int CATCHABLE_AREA_W = 130;
+    int CATCHABLE_AREA_W = 132;
 
     /** RegularExpression Id. */
-    int CATCH_BAN_CYCLE = 127;
+    int CATCH_BAN_CYCLE = 129;
 
     /** RegularExpression Id. */
-    int CATCH_PROBABILITY = 128;
+    int CATCH_PROBABILITY = 130;
 
     /** RegularExpression Id. */
-    int CB = 292;
+    int CB = 294;
 
     /** RegularExpression Id. */
-    int CHANGE_MODE = 64;
+    int CHANGE_MODE = 66;
 
     /** RegularExpression Id. */
-    int CHANGE_PLAYER_TYPE = 69;
+    int CHANGE_PLAYER_TYPE = 71;
 
     /** RegularExpression Id. */
-    int CHANGE_VIEW = 79;
+    int CHANGE_VIEW = 81;
 
     /** RegularExpression Id. */
-    int CHECK_BALL = 65;
+    int CHECK_BALL = 67;
 
     /** RegularExpression Id. */
-    int CKICK_MARGIN = 131;
+    int CKICK_MARGIN = 133;
 
     /** RegularExpression Id. */
-    int CLANG_ADVICE_WIN = 132;
+    int CLANG_ADVICE_WIN = 134;
 
     /** RegularExpression Id. */
-    int CLANG_DEFINE_WIN = 133;
+    int CLANG_DEFINE_WIN = 135;
 
     /** RegularExpression Id. */
-    int CLANG_DEL_WIN = 134;
+    int CLANG_DEL_WIN = 136;
 
     /** RegularExpression Id. */
-    int CLANG_INFO_WIN = 135;
+    int CLANG_INFO_WIN = 137;
 
     /** RegularExpression Id. */
-    int CLANG_MESS_DELAY = 136;
+    int CLANG_MESS_DELAY = 138;
 
     /** RegularExpression Id. */
-    int CLANG_MESS_PER_CYCLE = 137;
+    int CLANG_MESS_PER_CYCLE = 139;
 
     /** RegularExpression Id. */
-    int CLANG_META_WIN = 138;
+    int CLANG_META_WIN = 140;
 
     /** RegularExpression Id. */
-    int CLANG_RULE_WIN = 139;
+    int CLANG_RULE_WIN = 141;
 
     /** RegularExpression Id. */
-    int CLANG_WIN_SIZE = 140;
+    int CLANG_WIN_SIZE = 142;
 
     /** RegularExpression Id. */
-    int COACH = 141;
+    int COACH = 143;
 
     /** RegularExpression Id. */
-    int COACH_PORT = 142;
+    int COACH_PORT = 144;
 
     /** RegularExpression Id. */
-    int COACH_W_REFEREE = 143;
+    int COACH_W_REFEREE = 145;
 
     /** RegularExpression Id. */
-    int CONNECT_WAIT = 144;
+    int CONNECT_WAIT = 146;
 
     /** RegularExpression Id. */
-    int CONTROL_RADIUS = 145;
+    int CONTROL_RADIUS = 147;
 
     /** RegularExpression Id. */
-    int CORNER_KICK_L = 40;
+    int CORNER_KICK_L = 42;
 
     /** RegularExpression Id. */
-    int CORNER_KICK_R = 39;
+    int CORNER_KICK_R = 41;
 
     /** RegularExpression Id. */
     int DASH = 23;
 
     /** RegularExpression Id. */
-    int DASH_ANGLE_STEP = 146;
+    int DASH_ANGLE_STEP = 148;
 
     /** RegularExpression Id. */
-    int DASH_POWER_RATE = 147;
+    int DASH_POWER_RATE = 149;
 
     /** RegularExpression Id. */
-    int DASH_POWER_RATE_DELTA_MAX = 93;
+    int DASH_POWER_RATE_DELTA_MAX = 95;
 
     /** RegularExpression Id. */
-    int DASH_POWER_RATE_DELTA_MIN = 94;
+    int DASH_POWER_RATE_DELTA_MIN = 96;
 
     /** Lexical state. */
     int DEFAULT = 0;
 
     /** RegularExpression Id. */
-    int DROP_BALL = 30;
+    int DROP_BALL = 32;
 
     /** RegularExpression Id. */
-    int DROP_BALL_TIME = 148;
+    int DROP_BALL_TIME = 150;
 
     /** RegularExpression Id. */
-    int EAR = 68;
+    int EAR = 70;
 
     /** RegularExpression Id. */
-    int EFFORT_DEC = 149;
+    int EFFORT_DEC = 151;
 
     /** RegularExpression Id. */
-    int EFFORT_DEC_THR = 150;
+    int EFFORT_DEC_THR = 152;
 
     /** RegularExpression Id. */
-    int EFFORT_INC = 151;
+    int EFFORT_INC = 153;
 
     /** RegularExpression Id. */
-    int EFFORT_INC_THR = 152;
+    int EFFORT_INC_THR = 154;
 
     /** RegularExpression Id. */
-    int EFFORT_INIT = 153;
+    int EFFORT_INIT = 155;
 
     /** RegularExpression Id. */
-    int EFFORT_MAX = 90;
+    int EFFORT_MAX = 92;
 
     /** RegularExpression Id. */
-    int EFFORT_MAX_DELTA_FACTOR = 95;
+    int EFFORT_MAX_DELTA_FACTOR = 97;
 
     /** RegularExpression Id. */
-    int EFFORT_MIN = 91;
+    int EFFORT_MIN = 93;
 
     /** RegularExpression Id. */
-    int EFFORT_MIN_DELTA_FACTOR = 96;
+    int EFFORT_MIN_DELTA_FACTOR = 98;
 
     /** End of File. */
     int EOF = 0;
 
     /** RegularExpression Id. */
-    int EXTRA_HALF_TIME = 154;
+    int EXTRA_HALF_TIME = 156;
 
     /** RegularExpression Id. */
-    int EXTRA_STAMINA = 89;
+    int EXTRA_STAMINA = 91;
 
     /** RegularExpression Id. */
-    int EXTRA_STAMINA_DELTA_MAX = 97;
+    int EXTRA_STAMINA_DELTA_MAX = 99;
 
     /** RegularExpression Id. */
-    int EXTRA_STAMINA_DELTA_MIN = 98;
+    int EXTRA_STAMINA_DELTA_MIN = 100;
+
+    /** RegularExpression Id. */
+    int EYEOFF = 27;
+
+    /** RegularExpression Id. */
+    int EYEON = 26;
 
     /** RegularExpression Id. */
     int FLAG = 6;
 
     /** RegularExpression Id. */
-    int FORBID_KICK_OFF_OFFSIDE = 155;
+    int FORBID_KICK_OFF_OFFSIDE = 157;
 
     /** RegularExpression Id. */
-    int FOUL_L = 46;
+    int FOUL_L = 48;
 
     /** RegularExpression Id. */
-    int FOUL_R = 45;
+    int FOUL_R = 47;
 
     /** RegularExpression Id. */
-    int FREEFORM_SEND_PERIOD = 157;
+    int FREEFORM_SEND_PERIOD = 159;
 
     /** RegularExpression Id. */
-    int FREEFORM_WAIT_PERIOD = 158;
+    int FREEFORM_WAIT_PERIOD = 160;
 
     /** RegularExpression Id. */
-    int FREE_KICK_FAULTS = 156;
+    int FREE_KICK_FAULTS = 158;
 
     /** RegularExpression Id. */
-    int FREE_KICK_FAULT_L = 38;
+    int FREE_KICK_FAULT_L = 40;
 
     /** RegularExpression Id. */
-    int FREE_KICK_FAULT_R = 37;
+    int FREE_KICK_FAULT_R = 39;
 
     /** RegularExpression Id. */
-    int FREE_KICK_L = 36;
+    int FREE_KICK_L = 38;
 
     /** RegularExpression Id. */
-    int FREE_KICK_R = 35;
+    int FREE_KICK_R = 37;
 
     /** RegularExpression Id. */
-    int FULLSTATE_L = 159;
+    int FULLSTATE_L = 161;
 
     /** RegularExpression Id. */
-    int FULLSTATE_R = 160;
+    int FULLSTATE_R = 162;
 
     /** RegularExpression Id. */
-    int GAME_LOGGING = 167;
+    int GAME_LOGGING = 169;
 
     /** RegularExpression Id. */
-    int GAME_LOG_COMPRESSION = 161;
+    int GAME_LOG_COMPRESSION = 163;
 
     /** RegularExpression Id. */
-    int GAME_LOG_DATED = 162;
+    int GAME_LOG_DATED = 164;
 
     /** RegularExpression Id. */
-    int GAME_LOG_DIR = 163;
+    int GAME_LOG_DIR = 165;
 
     /** RegularExpression Id. */
-    int GAME_LOG_FIXED = 164;
+    int GAME_LOG_FIXED = 166;
 
     /** RegularExpression Id. */
-    int GAME_LOG_FIXED_NAME = 165;
+    int GAME_LOG_FIXED_NAME = 167;
 
     /** RegularExpression Id. */
-    int GAME_LOG_VERSION = 166;
+    int GAME_LOG_VERSION = 168;
 
     /** RegularExpression Id. */
-    int GAME_OVER_WAIT = 168;
+    int GAME_OVER_WAIT = 170;
 
     /** RegularExpression Id. */
     int GOAL = 9;
@@ -279,454 +285,454 @@ public interface CmdParserCoachConstants {
     int GOALIE = 10;
 
     /** RegularExpression Id. */
-    int GOALIE_MAX_MOVES = 170;
+    int GOALIE_MAX_MOVES = 172;
 
     /** RegularExpression Id. */
-    int GOAL_KICK_L = 42;
+    int GOAL_KICK_L = 44;
 
     /** RegularExpression Id. */
-    int GOAL_KICK_R = 41;
+    int GOAL_KICK_R = 43;
 
     /** RegularExpression Id. */
-    int GOAL_L = 44;
+    int GOAL_L = 46;
 
     /** RegularExpression Id. */
-    int GOAL_R = 43;
+    int GOAL_R = 45;
 
     /** RegularExpression Id. */
-    int GOAL_WIDTH = 169;
+    int GOAL_WIDTH = 171;
 
     /** RegularExpression Id. */
-    int HALF_TIME = 49;
+    int HALF_TIME = 51;
 
     /** RegularExpression Id. */
     int HEAD_ANGLE = 21;
 
     /** RegularExpression Id. */
-    int HEAR_DECAY = 171;
+    int HEAR_DECAY = 173;
 
     /** RegularExpression Id. */
-    int HEAR_INC = 172;
+    int HEAR_INC = 174;
 
     /** RegularExpression Id. */
-    int HEAR_MAX = 173;
+    int HEAR_MAX = 175;
 
     /** RegularExpression Id. */
     int HIGH = 14;
 
     /** RegularExpression Id. */
-    int ID = 81;
+    int ID = 83;
 
     /** RegularExpression Id. */
-    int ILLEGAL_COMMAND_FORM = 54;
+    int ILLEGAL_COMMAND_FORM = 56;
 
     /** RegularExpression Id. */
-    int ILLEGAL_MODE = 53;
+    int ILLEGAL_MODE = 55;
 
     /** RegularExpression Id. */
-    int ILLEGAL_OBJECT_FORM = 55;
+    int ILLEGAL_OBJECT_FORM = 57;
 
     /** RegularExpression Id. */
-    int INERTIA_MOMENT = 85;
+    int INERTIA_MOMENT = 87;
 
     /** RegularExpression Id. */
-    int INERTIA_MOMENT_DELTA_FACTOR = 99;
+    int INERTIA_MOMENT_DELTA_FACTOR = 101;
 
     /** RegularExpression Id. */
-    int KEEPAWAY = 174;
+    int KEEPAWAY = 176;
 
     /** RegularExpression Id. */
-    int KEEPAWAY_LENGTH = 175;
+    int KEEPAWAY_LENGTH = 177;
 
     /** RegularExpression Id. */
-    int KEEPAWAY_LOGGING = 180;
+    int KEEPAWAY_LOGGING = 182;
 
     /** RegularExpression Id. */
-    int KEEPAWAY_LOG_DATED = 176;
+    int KEEPAWAY_LOG_DATED = 178;
 
     /** RegularExpression Id. */
-    int KEEPAWAY_LOG_DIR = 177;
+    int KEEPAWAY_LOG_DIR = 179;
 
     /** RegularExpression Id. */
-    int KEEPAWAY_LOG_FIXED = 178;
+    int KEEPAWAY_LOG_FIXED = 180;
 
     /** RegularExpression Id. */
-    int KEEPAWAY_LOG_FIXED_NAME = 179;
+    int KEEPAWAY_LOG_FIXED_NAME = 181;
 
     /** RegularExpression Id. */
-    int KEEPAWAY_START = 181;
+    int KEEPAWAY_START = 183;
 
     /** RegularExpression Id. */
-    int KEEPAWAY_WIDTH = 182;
+    int KEEPAWAY_WIDTH = 184;
 
     /** RegularExpression Id. */
     int KICK = 22;
 
     /** RegularExpression Id. */
-    int KICKABLE_MARGIN = 87;
+    int KICKABLE_MARGIN = 89;
 
     /** RegularExpression Id. */
-    int KICKABLE_MARGIN_DELTA_MAX = 101;
+    int KICKABLE_MARGIN_DELTA_MAX = 103;
 
     /** RegularExpression Id. */
-    int KICKABLE_MARGIN_DELTA_MIN = 102;
+    int KICKABLE_MARGIN_DELTA_MIN = 104;
 
     /** RegularExpression Id. */
-    int KICK_IN_L = 33;
+    int KICK_IN_L = 35;
 
     /** RegularExpression Id. */
-    int KICK_IN_R = 34;
+    int KICK_IN_R = 36;
 
     /** RegularExpression Id. */
-    int KICK_OFF_L = 31;
+    int KICK_OFF_L = 33;
 
     /** RegularExpression Id. */
-    int KICK_OFF_R = 32;
+    int KICK_OFF_R = 34;
 
     /** RegularExpression Id. */
-    int KICK_OFF_WAIT = 183;
+    int KICK_OFF_WAIT = 185;
 
     /** RegularExpression Id. */
-    int KICK_POWER_RATE = 184;
+    int KICK_POWER_RATE = 186;
 
     /** RegularExpression Id. */
-    int KICK_RAND = 88;
+    int KICK_RAND = 90;
 
     /** RegularExpression Id. */
-    int KICK_RAND_DELTA_FACTOR = 100;
+    int KICK_RAND_DELTA_FACTOR = 102;
 
     /** RegularExpression Id. */
-    int KICK_RAND_FACTOR_L = 185;
+    int KICK_RAND_FACTOR_L = 187;
 
     /** RegularExpression Id. */
-    int KICK_RAND_FACTOR_R = 186;
+    int KICK_RAND_FACTOR_R = 188;
 
     /** RegularExpression Id. */
     int L = 8;
 
     /** RegularExpression Id. */
-    int LANDMARK_FILE = 187;
+    int LANDMARK_FILE = 189;
 
     /** RegularExpression Id. */
-    int LOG_DATE_FORMAT = 188;
+    int LOG_DATE_FORMAT = 190;
 
     /** RegularExpression Id. */
-    int LOG_TIMES = 189;
+    int LOG_TIMES = 191;
 
     /** RegularExpression Id. */
-    int LOOK = 70;
+    int LOOK = 72;
 
     /** RegularExpression Id. */
     int LOW = 15;
 
     /** RegularExpression Id. */
-    int MAXMOMENT = 195;
+    int MAXMOMENT = 197;
 
     /** RegularExpression Id. */
-    int MAXNECKANG = 196;
+    int MAXNECKANG = 198;
 
     /** RegularExpression Id. */
-    int MAXNECKMOMENT = 197;
+    int MAXNECKMOMENT = 199;
 
     /** RegularExpression Id. */
-    int MAXPOWER = 198;
+    int MAXPOWER = 200;
 
     /** RegularExpression Id. */
-    int MAX_BACK_TACKLE_POWER = 190;
+    int MAX_BACK_TACKLE_POWER = 192;
 
     /** RegularExpression Id. */
-    int MAX_DASH_ANGLE = 191;
+    int MAX_DASH_ANGLE = 193;
 
     /** RegularExpression Id. */
-    int MAX_DASH_POWER = 192;
+    int MAX_DASH_POWER = 194;
 
     /** RegularExpression Id. */
-    int MAX_GOAL_KICKS = 193;
+    int MAX_GOAL_KICKS = 195;
 
     /** RegularExpression Id. */
-    int MAX_OF_THAT_TYPE_ON_FIELD = 77;
+    int MAX_OF_THAT_TYPE_ON_FIELD = 79;
 
     /** RegularExpression Id. */
-    int MAX_TACKLE_POWER = 194;
+    int MAX_TACKLE_POWER = 196;
 
     /** RegularExpression Id. */
-    int MINMOMENT = 201;
+    int MINMOMENT = 203;
 
     /** RegularExpression Id. */
-    int MINNECKANG = 202;
+    int MINNECKANG = 204;
 
     /** RegularExpression Id. */
-    int MINNECKMOMENT = 203;
+    int MINNECKMOMENT = 205;
 
     /** RegularExpression Id. */
-    int MINPOWER = 204;
+    int MINPOWER = 206;
 
     /** RegularExpression Id. */
-    int MIN_DASH_ANGLE = 199;
+    int MIN_DASH_ANGLE = 201;
 
     /** RegularExpression Id. */
-    int MIN_DASH_POWER = 200;
+    int MIN_DASH_POWER = 202;
 
     /** RegularExpression Id. */
-    int MOVE = 63;
+    int MOVE = 65;
 
     /** RegularExpression Id. */
-    int NAM = 295;
+    int NAM = 297;
 
     /** RegularExpression Id. */
     int NARROW = 17;
 
     /** RegularExpression Id. */
-    int NEW_DASH_POWER_RATE_DELTA_MAX = 103;
+    int NEW_DASH_POWER_RATE_DELTA_MAX = 105;
 
     /** RegularExpression Id. */
-    int NEW_DASH_POWER_RATE_DELTA_MIN = 104;
+    int NEW_DASH_POWER_RATE_DELTA_MIN = 106;
 
     /** RegularExpression Id. */
-    int NEW_STAMINA_INC_MAX_DELTA_FACTOR = 105;
+    int NEW_STAMINA_INC_MAX_DELTA_FACTOR = 107;
 
     /** RegularExpression Id. */
     int NORMAL = 18;
 
     /** RegularExpression Id. */
-    int NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION = 58;
+    int NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION = 60;
 
     /** RegularExpression Id. */
-    int NO_MORE_TEAM_OR_PLAYER = 56;
+    int NO_MORE_TEAM_OR_PLAYER = 58;
 
     /** RegularExpression Id. */
-    int NO_MORE_TEAM_OR_PLAYER_OR_GOALIE = 57;
+    int NO_MORE_TEAM_OR_PLAYER_OR_GOALIE = 59;
 
     /** RegularExpression Id. */
-    int NO_SUBS_LEFT = 76;
+    int NO_SUBS_LEFT = 78;
 
     /** RegularExpression Id. */
-    int NO_SUCH_PLAYER = 74;
+    int NO_SUCH_PLAYER = 76;
 
     /** RegularExpression Id. */
-    int NO_TEAM_FOUND = 73;
+    int NO_TEAM_FOUND = 75;
 
     /** RegularExpression Id. */
-    int NR_EXTRA_HALFS = 205;
+    int NR_EXTRA_HALFS = 207;
 
     /** RegularExpression Id. */
-    int NR_NORMAL_HALFS = 206;
+    int NR_NORMAL_HALFS = 208;
 
     /** RegularExpression Id. */
-    int NUM = 294;
+    int NUM = 296;
 
     /** RegularExpression Id. */
-    int OB = 291;
+    int OB = 293;
 
     /** RegularExpression Id. */
-    int OFFSIDE_ACTIVE_AREA_SIZE = 207;
+    int OFFSIDE_ACTIVE_AREA_SIZE = 209;
 
     /** RegularExpression Id. */
-    int OFFSIDE_KICK_MARGIN = 208;
+    int OFFSIDE_KICK_MARGIN = 210;
 
     /** RegularExpression Id. */
-    int OFFSIDE_L = 48;
+    int OFFSIDE_L = 50;
 
     /** RegularExpression Id. */
-    int OFFSIDE_R = 47;
+    int OFFSIDE_R = 49;
 
     /** RegularExpression Id. */
-    int OLCOACH_PORT = 209;
+    int OLCOACH_PORT = 211;
 
     /** RegularExpression Id. */
-    int OLD_COACH_HEAR = 210;
+    int OLD_COACH_HEAR = 212;
 
     /** RegularExpression Id. */
     int P = 7;
 
     /** RegularExpression Id. */
-    int PENALTY_SHOOT_OUTS = 222;
+    int PENALTY_SHOOT_OUTS = 224;
 
     /** RegularExpression Id. */
-    int PEN_ALLOW_MULT_KICKS = 211;
+    int PEN_ALLOW_MULT_KICKS = 213;
 
     /** RegularExpression Id. */
-    int PEN_BEFORE_SETUP_WAIT = 212;
+    int PEN_BEFORE_SETUP_WAIT = 214;
 
     /** RegularExpression Id. */
-    int PEN_COACH_MOVES_PLAYERS = 213;
+    int PEN_COACH_MOVES_PLAYERS = 215;
 
     /** RegularExpression Id. */
-    int PEN_DIST_X = 214;
+    int PEN_DIST_X = 216;
 
     /** RegularExpression Id. */
-    int PEN_MAX_EXTRA_KICKS = 215;
+    int PEN_MAX_EXTRA_KICKS = 217;
 
     /** RegularExpression Id. */
-    int PEN_MAX_GOALIE_DIST_X = 216;
+    int PEN_MAX_GOALIE_DIST_X = 218;
 
     /** RegularExpression Id. */
-    int PEN_NR_KICKS = 217;
+    int PEN_NR_KICKS = 219;
 
     /** RegularExpression Id. */
-    int PEN_RANDOM_WINNER = 218;
+    int PEN_RANDOM_WINNER = 220;
 
     /** RegularExpression Id. */
-    int PEN_READY_WAIT = 219;
+    int PEN_READY_WAIT = 221;
 
     /** RegularExpression Id. */
-    int PEN_SETUP_WAIT = 220;
+    int PEN_SETUP_WAIT = 222;
 
     /** RegularExpression Id. */
-    int PEN_TAKEN_WAIT = 221;
+    int PEN_TAKEN_WAIT = 223;
 
     /** RegularExpression Id. */
-    int PLAYER_ACCEL_MAX = 223;
+    int PLAYER_ACCEL_MAX = 225;
 
     /** RegularExpression Id. */
-    int PLAYER_DECAY = 84;
+    int PLAYER_DECAY = 86;
 
     /** RegularExpression Id. */
-    int PLAYER_DECAY_DELTA_MAX = 106;
+    int PLAYER_DECAY_DELTA_MAX = 108;
 
     /** RegularExpression Id. */
-    int PLAYER_DECAY_DELTA_MIN = 107;
+    int PLAYER_DECAY_DELTA_MIN = 109;
 
     /** RegularExpression Id. */
-    int PLAYER_RAND = 224;
+    int PLAYER_RAND = 226;
 
     /** RegularExpression Id. */
-    int PLAYER_SIZE = 86;
+    int PLAYER_SIZE = 88;
 
     /** RegularExpression Id. */
-    int PLAYER_SIZE_DELTA_FACTOR = 108;
+    int PLAYER_SIZE_DELTA_FACTOR = 110;
 
     /** RegularExpression Id. */
-    int PLAYER_SPEED_MAX = 82;
+    int PLAYER_SPEED_MAX = 84;
 
     /** RegularExpression Id. */
-    int PLAYER_SPEED_MAX_DELTA_MAX = 109;
+    int PLAYER_SPEED_MAX_DELTA_MAX = 111;
 
     /** RegularExpression Id. */
-    int PLAYER_SPEED_MAX_DELTA_MIN = 110;
+    int PLAYER_SPEED_MAX_DELTA_MIN = 112;
 
     /** RegularExpression Id. */
-    int PLAYER_SPEED_MAX_MIN = 225;
+    int PLAYER_SPEED_MAX_MIN = 227;
 
     /** RegularExpression Id. */
-    int PLAYER_TYPES = 111;
+    int PLAYER_TYPES = 113;
 
     /** RegularExpression Id. */
-    int PLAYER_WEIGHT = 226;
+    int PLAYER_WEIGHT = 228;
 
     /** RegularExpression Id. */
-    int PLAY_ON = 29;
+    int PLAY_ON = 31;
 
     /** RegularExpression Id. */
-    int POINT_TO_BAN = 227;
+    int POINT_TO_BAN = 229;
 
     /** RegularExpression Id. */
-    int POINT_TO_DURATION = 228;
+    int POINT_TO_DURATION = 230;
 
     /** RegularExpression Id. */
-    int PORT = 229;
+    int PORT = 231;
 
     /** RegularExpression Id. */
-    int PRAND_FACTOR_L = 230;
+    int PRAND_FACTOR_L = 232;
 
     /** RegularExpression Id. */
-    int PRAND_FACTOR_R = 231;
+    int PRAND_FACTOR_R = 233;
 
     /** RegularExpression Id. */
-    int PROFILE = 232;
+    int PROFILE = 234;
 
     /** RegularExpression Id. */
-    int PROPER_GOAL_KICKS = 233;
+    int PROPER_GOAL_KICKS = 235;
 
     /** RegularExpression Id. */
-    int PT_MAX = 112;
+    int PT_MAX = 114;
 
     /** RegularExpression Id. */
-    int QUANTIZE_STEP = 234;
+    int QUANTIZE_STEP = 236;
 
     /** RegularExpression Id. */
-    int QUANTIZE_STEP_L = 235;
+    int QUANTIZE_STEP_L = 237;
 
     /** RegularExpression Id. */
-    int R = 290;
+    int R = 292;
 
     /** RegularExpression Id. */
-    int RANDOM_SEED = 113;
+    int RANDOM_SEED = 115;
 
     /** RegularExpression Id. */
-    int RECONNECT = 59;
+    int RECONNECT = 61;
 
     /** RegularExpression Id. */
-    int RECORD_MESSAGES = 236;
+    int RECORD_MESSAGES = 238;
 
     /** RegularExpression Id. */
-    int RECOVER = 67;
+    int RECOVER = 69;
 
     /** RegularExpression Id. */
-    int RECOVER_DEC = 237;
+    int RECOVER_DEC = 239;
 
     /** RegularExpression Id. */
-    int RECOVER_DEC_THR = 238;
+    int RECOVER_DEC_THR = 240;
 
     /** RegularExpression Id. */
-    int RECOVER_INIT = 239;
+    int RECOVER_INIT = 241;
 
     /** RegularExpression Id. */
-    int RECOVER_MIN = 240;
+    int RECOVER_MIN = 242;
 
     /** RegularExpression Id. */
-    int RECV_STEP = 241;
+    int RECV_STEP = 243;
 
     /** RegularExpression Id. */
     int REFEREE = 11;
 
     /** RegularExpression Id. */
-    int SAID_TOO_MANY_MESSAGES = 62;
+    int SAID_TOO_MANY_MESSAGES = 64;
 
     /** RegularExpression Id. */
     int SAY = 25;
 
     /** RegularExpression Id. */
-    int SAY_COACH_CNT_MAX = 242;
+    int SAY_COACH_CNT_MAX = 244;
 
     /** RegularExpression Id. */
-    int SAY_COACH_MSG_SIZE = 243;
+    int SAY_COACH_MSG_SIZE = 245;
 
     /** RegularExpression Id. */
-    int SAY_MSG_SIZE = 244;
+    int SAY_MSG_SIZE = 246;
 
     /** RegularExpression Id. */
     int SELF = 12;
 
     /** RegularExpression Id. */
-    int SEND_COMMS = 245;
+    int SEND_COMMS = 247;
 
     /** RegularExpression Id. */
-    int SEND_STEP = 246;
+    int SEND_STEP = 248;
 
     /** RegularExpression Id. */
-    int SEND_VI_STEP = 247;
+    int SEND_VI_STEP = 249;
 
     /** RegularExpression Id. */
-    int SENSE_BODY_STEP = 248;
+    int SENSE_BODY_STEP = 250;
 
     /** RegularExpression Id. */
-    int SEP = 293;
+    int SEP = 295;
 
     /** RegularExpression Id. */
-    int SIDE_DASH_RATE = 249;
+    int SIDE_DASH_RATE = 251;
 
     /** RegularExpression Id. */
-    int SIMULATOR_STEP = 250;
+    int SIMULATOR_STEP = 252;
 
     /** RegularExpression Id. */
-    int SLOWNESS_ON_TOP_FOR_LEFT_TEAM = 252;
+    int SLOWNESS_ON_TOP_FOR_LEFT_TEAM = 254;
 
     /** RegularExpression Id. */
-    int SLOWNESS_ON_TOP_FOR_RIGHT_TEAM = 253;
+    int SLOWNESS_ON_TOP_FOR_RIGHT_TEAM = 255;
 
     /** RegularExpression Id. */
-    int SLOW_DOWN_FACTOR = 251;
+    int SLOW_DOWN_FACTOR = 253;
 
     /** RegularExpression Id. */
     int SPEED = 20;
@@ -735,168 +741,168 @@ public interface CmdParserCoachConstants {
     int STAMINA = 19;
 
     /** RegularExpression Id. */
-    int STAMINA_CAPACITY = 254;
+    int STAMINA_CAPACITY = 256;
 
     /** RegularExpression Id. */
-    int STAMINA_INC_MAX = 83;
+    int STAMINA_INC_MAX = 85;
 
     /** RegularExpression Id. */
-    int STAMINA_INC_MAX_DELTA_FACTOR = 114;
+    int STAMINA_INC_MAX_DELTA_FACTOR = 116;
 
     /** RegularExpression Id. */
-    int STAMINA_MAX = 255;
+    int STAMINA_MAX = 257;
 
     /** RegularExpression Id. */
-    int START = 66;
+    int START = 68;
 
     /** RegularExpression Id. */
-    int START_GOAL_L = 256;
+    int START_GOAL_L = 258;
 
     /** RegularExpression Id. */
-    int START_GOAL_R = 257;
+    int START_GOAL_R = 259;
 
     /** RegularExpression Id. */
-    int STOPPED_BALL_VEL = 258;
+    int STOPPED_BALL_VEL = 260;
 
     /** RegularExpression Id. */
-    int SUBS_MAX = 115;
+    int SUBS_MAX = 117;
 
     /** RegularExpression Id. */
-    int SYNCH_MICRO_SLEEP = 259;
+    int SYNCH_MICRO_SLEEP = 261;
 
     /** RegularExpression Id. */
-    int SYNCH_MODE = 260;
+    int SYNCH_MODE = 262;
 
     /** RegularExpression Id. */
-    int SYNCH_OFFSET = 261;
+    int SYNCH_OFFSET = 263;
 
     /** RegularExpression Id. */
-    int SYNCH_SEE_OFFSET = 262;
+    int SYNCH_SEE_OFFSET = 264;
 
     /** RegularExpression Id. */
-    int T = 289;
+    int T = 291;
 
     /** RegularExpression Id. */
-    int TACKLE_BACK_DIST = 263;
+    int TACKLE_BACK_DIST = 265;
 
     /** RegularExpression Id. */
-    int TACKLE_CYCLES = 264;
+    int TACKLE_CYCLES = 266;
 
     /** RegularExpression Id. */
-    int TACKLE_DIST = 265;
+    int TACKLE_DIST = 267;
 
     /** RegularExpression Id. */
-    int TACKLE_EXPONENT = 266;
+    int TACKLE_EXPONENT = 268;
 
     /** RegularExpression Id. */
-    int TACKLE_POWER_RATE = 267;
+    int TACKLE_POWER_RATE = 269;
 
     /** RegularExpression Id. */
-    int TACKLE_WIDTH = 268;
+    int TACKLE_WIDTH = 270;
 
     /** RegularExpression Id. */
-    int TEAM_ACTUATOR_NOISE = 269;
+    int TEAM_ACTUATOR_NOISE = 271;
 
     /** RegularExpression Id. */
-    int TEAM_GRAPHIC = 72;
+    int TEAM_GRAPHIC = 74;
 
     /** RegularExpression Id. */
-    int TEAM_L_START = 270;
+    int TEAM_L_START = 272;
 
     /** RegularExpression Id. */
-    int TEAM_NAMES = 71;
+    int TEAM_NAMES = 73;
 
     /** RegularExpression Id. */
-    int TEAM_R_START = 271;
+    int TEAM_R_START = 273;
 
     /** RegularExpression Id. */
-    int TEXT_LOGGING = 277;
+    int TEXT_LOGGING = 279;
 
     /** RegularExpression Id. */
-    int TEXT_LOG_COMPRESSION = 272;
+    int TEXT_LOG_COMPRESSION = 274;
 
     /** RegularExpression Id. */
-    int TEXT_LOG_DATED = 273;
+    int TEXT_LOG_DATED = 275;
 
     /** RegularExpression Id. */
-    int TEXT_LOG_DIR = 274;
+    int TEXT_LOG_DIR = 276;
 
     /** RegularExpression Id. */
-    int TEXT_LOG_FIXED = 275;
+    int TEXT_LOG_FIXED = 277;
 
     /** RegularExpression Id. */
-    int TEXT_LOG_FIXED_NAME = 276;
+    int TEXT_LOG_FIXED_NAME = 278;
 
     /** RegularExpression Id. */
-    int TIME_EXTENDED = 52;
+    int TIME_EXTENDED = 54;
 
     /** RegularExpression Id. */
-    int TIME_OVER = 28;
+    int TIME_OVER = 30;
 
     /** RegularExpression Id. */
-    int TIME_UP = 50;
+    int TIME_UP = 52;
 
     /** RegularExpression Id. */
-    int TIME_UP_WITHOUT_A_TEAM = 51;
+    int TIME_UP_WITHOUT_A_TEAM = 53;
 
     /** RegularExpression Id. */
-    int TOO_MANY_MOVES = 61;
+    int TOO_MANY_MOVES = 63;
 
     /** RegularExpression Id. */
     int TURN = 24;
 
     /** RegularExpression Id. */
-    int TURN_NECK = 26;
+    int TURN_NECK = 28;
 
     /** RegularExpression Id. */
-    int UNKNOWN_COMMAND = 60;
+    int UNKNOWN_COMMAND = 62;
 
     /** RegularExpression Id. */
-    int USE_OFFSIDE = 278;
+    int USE_OFFSIDE = 280;
 
     /** RegularExpression Id. */
-    int VERBOSE = 279;
+    int VERBOSE = 281;
 
     /** RegularExpression Id. */
     int VIEW_MODE = 13;
 
     /** RegularExpression Id. */
-    int VISIBLE_ANGLE = 280;
+    int VISIBLE_ANGLE = 282;
 
     /** RegularExpression Id. */
-    int VISIBLE_DISTANCE = 281;
+    int VISIBLE_DISTANCE = 283;
 
     /** RegularExpression Id. */
     int WIDE = 16;
 
     /** RegularExpression Id. */
-    int WIND_ANG = 282;
+    int WIND_ANG = 284;
 
     /** RegularExpression Id. */
-    int WIND_DIR = 283;
+    int WIND_DIR = 285;
 
     /** RegularExpression Id. */
-    int WIND_FORCE = 284;
+    int WIND_FORCE = 286;
 
     /** RegularExpression Id. */
-    int WIND_NONE = 285;
+    int WIND_NONE = 287;
 
     /** RegularExpression Id. */
-    int WIND_RAND = 286;
+    int WIND_RAND = 288;
 
     /** RegularExpression Id. */
-    int WIND_RANDOM = 287;
+    int WIND_RANDOM = 289;
 
     /** Literal token values. */
     String[] tokenImage = {
         "<EOF>", "\"\\t\"", "\"\\n\"", "\"\\r\"", "\"\\\"\"", "<B>", "<FLAG>", "<P>", "<L>", "<GOAL>", "\"goalie\"",
         "<REFEREE>", "\"self\"", "\"view_mode\"", "\"high\"", "\"low\"", "\"wide\"", "\"narrow\"", "\"normal\"",
-        "\"stamina\"", "\"speed\"", "\"head_angle\"", "\"kick\"", "\"dash\"", "\"turn\"", "\"say\"", "\"turn_neck\"",
-        "\"before_kick_off\"", "\"time_over\"", "\"play_on\"", "\"drop_ball\"", "\"kick_off_l\"", "\"kick_off_r\"",
-        "\"kick_in_l\"", "\"kick_in_r\"", "\"free_kick_r\"", "\"free_kick_l\"", "\"free_kick_fault_r\"",
-        "\"free_kick_fault_l\"", "\"corner_kick_r\"", "\"corner_kick_l\"", "\"goal_kick_r\"", "\"goal_kick_l\"",
-        "<GOAL_R>", "<GOAL_L>", "\"foul_r\"", "\"foul_l\"", "\"offside_r\"", "\"offside_l\"", "\"half_time\"",
-        "\"time_up\"", "\"time_up_without_a_team\"", "\"time_extended\"", "\"illegal_mode\"",
+        "\"stamina\"", "\"speed\"", "\"head_angle\"", "\"kick\"", "\"dash\"", "\"turn\"", "\"say\"", "\"eye on\"",
+        "\"eye off\"", "\"turn_neck\"", "\"before_kick_off\"", "\"time_over\"", "\"play_on\"", "\"drop_ball\"",
+        "\"kick_off_l\"", "\"kick_off_r\"", "\"kick_in_l\"", "\"kick_in_r\"", "\"free_kick_r\"", "\"free_kick_l\"",
+        "\"free_kick_fault_r\"", "\"free_kick_fault_l\"", "\"corner_kick_r\"", "\"corner_kick_l\"", "\"goal_kick_r\"",
+        "\"goal_kick_l\"", "<GOAL_R>", "<GOAL_L>", "\"foul_r\"", "\"foul_l\"", "\"offside_r\"", "\"offside_l\"",
+        "\"half_time\"", "\"time_up\"", "\"time_up_without_a_team\"", "\"time_extended\"", "\"illegal_mode\"",
         "\"illegal_command_form\"", "\"illegal_object_form\"", "\"no_more_team_or_player\"",
         "\"no_more_team_or_player_or_goalie\"", "\"no_more_player_or_goalie_or_illegal_client_version\"",
         "\"reconnect\"", "\"unknown_command\"", "\"too_many_moves\"", "\"said_too_many_messages\"", "\"move\"",

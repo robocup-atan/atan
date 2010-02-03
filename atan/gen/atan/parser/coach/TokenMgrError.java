@@ -51,7 +51,7 @@ public class TokenMgrError extends Error {
     public TokenMgrError() {}
 
     /**
-     * Constructor with message and reason.
+     * Constructor with message and reason. 
      * @param message
      * @param reason
      */
@@ -61,7 +61,7 @@ public class TokenMgrError extends Error {
     }
 
     /**
-     * Full Constructor.
+     * Full Constructor. 
      * @param EOFSeen
      * @param lexState
      * @param errorLine
@@ -137,9 +137,9 @@ public class TokenMgrError extends Error {
      *    curchar     : the offending character
      * Note: You can customize the lexical error message by modifying this method.
      * @param EOFSeen
-     * @param errorColumn
-     * @param errorLine
      * @param lexState
+     * @param errorLine
+     * @param errorColumn
      * @param errorAfter
      * @param curChar
      * @return

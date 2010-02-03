@@ -13,60 +13,49 @@ public class SimpleCharStream {
     public static final boolean staticFlag = false;
 
     /** Position in buffer. */
-    public int bufpos = -1;
-
+    public int               bufpos         = -1;
     /**
      *
      */
-    protected int column = 0;
-
+    protected int            column         = 0;
     /**
      *
      */
-    protected int inBuf = 0;
-
+    protected int            inBuf          = 0;
     /**
      *
      */
-    protected int line = 1;
-
+    protected int            line           = 1;
     /**
      *
      */
-    protected int maxNextCharInd = 0;
-
+    protected int            maxNextCharInd = 0;
     /**
      *
      */
-    protected boolean prevCharIsCR = false;
-
+    protected boolean        prevCharIsCR   = false;
     /**
      *
      */
-    protected boolean prevCharIsLF = false;
-
+    protected boolean        prevCharIsLF   = false;
     /**
      *
      */
-    protected int tabSize = 8;
-    int           available;
-
+    protected int            tabSize        = 8;
+    int                      available;
     /**
      *
      */
-    protected int bufcolumn[];
-
+    protected int            bufcolumn[];
     /**
      *
      */
-    protected char[] buffer;
-
+    protected char[]         buffer;
     /**
      *
      */
-    protected int bufline[];
-    int           bufsize;
-
+    protected int            bufline[];
+    int                      bufsize;
     /**
      *
      */
@@ -74,7 +63,7 @@ public class SimpleCharStream {
     int                      tokenBegin;
 
     /**
-     * Constructor.
+     * Constructor. 
      * @param dstream
      */
     public SimpleCharStream(java.io.InputStream dstream) {
@@ -82,7 +71,7 @@ public class SimpleCharStream {
     }
 
     /**
-     * Constructor.
+     * Constructor. 
      * @param dstream
      */
     public SimpleCharStream(java.io.Reader dstream) {
@@ -90,7 +79,7 @@ public class SimpleCharStream {
     }
 
     /**
-     * Constructor.
+     * Constructor. 
      * @param dstream
      * @param encoding
      * @throws java.io.UnsupportedEncodingException
@@ -100,7 +89,7 @@ public class SimpleCharStream {
     }
 
     /**
-     * Constructor.
+     * Constructor. 
      * @param dstream
      * @param startline
      * @param startcolumn
@@ -110,7 +99,7 @@ public class SimpleCharStream {
     }
 
     /**
-     * Constructor.
+     * Constructor. 
      * @param dstream
      * @param startline
      * @param startcolumn
@@ -120,7 +109,7 @@ public class SimpleCharStream {
     }
 
     /**
-     * Constructor.
+     * Constructor. 
      * @param dstream
      * @param startline
      * @param startcolumn
@@ -131,7 +120,7 @@ public class SimpleCharStream {
     }
 
     /**
-     * Constructor.
+     * Constructor. 
      * @param dstream
      * @param encoding
      * @param startline
@@ -144,7 +133,7 @@ public class SimpleCharStream {
     }
 
     /**
-     * Constructor.
+     * Constructor. 
      * @param dstream
      * @param startline
      * @param startcolumn
@@ -161,11 +150,11 @@ public class SimpleCharStream {
     }
 
     /**
-     * Constructor.
+     * Constructor. 
      * @param dstream
      * @param encoding
-     * @param startcolumn
      * @param startline
+     * @param startcolumn
      * @param buffersize
      * @throws java.io.UnsupportedEncodingException
      */
@@ -178,7 +167,7 @@ public class SimpleCharStream {
     }
 
     /**
-     *
+     * 
      * @param i
      */
     protected void setTabSize(int i) {
@@ -186,7 +175,7 @@ public class SimpleCharStream {
     }
 
     /**
-     *
+     * 
      * @param i
      * @return
      */
@@ -195,7 +184,7 @@ public class SimpleCharStream {
     }
 
     /**
-     *
+     * 
      * @param wrapAround
      */
     protected void ExpandBuff(boolean wrapAround) {
@@ -232,7 +221,7 @@ public class SimpleCharStream {
     }
 
     /**
-     *
+     * 
      * @throws java.io.IOException
      */
     protected void FillBuff() throws java.io.IOException {
@@ -274,7 +263,7 @@ public class SimpleCharStream {
     }
 
     /**
-     * Start.
+     * Start. 
      * @return
      * @throws java.io.IOException
      */
@@ -286,7 +275,7 @@ public class SimpleCharStream {
     }
 
     /**
-     *
+     * 
      * @param c
      */
     protected void UpdateLineColumn(char c) {
@@ -321,7 +310,7 @@ public class SimpleCharStream {
     }
 
     /**
-     * Read a character.
+     * Read a character. 
      * @return
      * @throws java.io.IOException
      */
@@ -342,7 +331,7 @@ public class SimpleCharStream {
     }
 
     /**
-     *
+     * 
      * @return
      * @deprecated
      */
@@ -357,7 +346,7 @@ public class SimpleCharStream {
     }
 
     /**
-     *
+     * 
      * @return
      * @deprecated
      */
@@ -372,7 +361,7 @@ public class SimpleCharStream {
     }
 
     /**
-     * Get token end column number.
+     * Get token end column number. 
      * @return
      */
     public int getEndColumn() {
@@ -380,7 +369,7 @@ public class SimpleCharStream {
     }
 
     /**
-     * Get token end line number.
+     * Get token end line number. 
      * @return
      */
     public int getEndLine() {
@@ -388,7 +377,7 @@ public class SimpleCharStream {
     }
 
     /**
-     * Get token beginning column number.
+     * Get token beginning column number. 
      * @return
      */
     public int getBeginColumn() {
@@ -396,7 +385,7 @@ public class SimpleCharStream {
     }
 
     /**
-     * Get token beginning line number.
+     * Get token beginning line number. 
      * @return
      */
     public int getBeginLine() {
@@ -404,7 +393,7 @@ public class SimpleCharStream {
     }
 
     /**
-     * Backup a number of characters.
+     * Backup a number of characters. 
      * @param amount
      */
     public void backup(int amount) {
@@ -415,7 +404,7 @@ public class SimpleCharStream {
     }
 
     /**
-     * Reinitialise.
+     * Reinitialise. 
      * @param dstream
      * @param startline
      * @param startcolumn
@@ -437,7 +426,7 @@ public class SimpleCharStream {
     }
 
     /**
-     * Reinitialise.
+     * Reinitialise. 
      * @param dstream
      * @param startline
      * @param startcolumn
@@ -447,7 +436,7 @@ public class SimpleCharStream {
     }
 
     /**
-     * Reinitialise.
+     * Reinitialise. 
      * @param dstream
      */
     public void ReInit(java.io.Reader dstream) {
@@ -455,11 +444,11 @@ public class SimpleCharStream {
     }
 
     /**
-     * Reinitialise.
+     * Reinitialise. 
      * @param dstream
      * @param encoding
-     * @param startcolumn
      * @param startline
+     * @param startcolumn
      * @param buffersize
      * @throws java.io.UnsupportedEncodingException
      */
@@ -471,18 +460,18 @@ public class SimpleCharStream {
     }
 
     /**
-     * Reinitialise.
+     * Reinitialise. 
      * @param dstream
      * @param startline
-     * @param buffersize
      * @param startcolumn
+     * @param buffersize
      */
     public void ReInit(java.io.InputStream dstream, int startline, int startcolumn, int buffersize) {
         ReInit(new java.io.InputStreamReader(dstream), startline, startcolumn, buffersize);
     }
 
     /**
-     * Reinitialise.
+     * Reinitialise. 
      * @param dstream
      * @param encoding
      * @throws java.io.UnsupportedEncodingException
@@ -492,7 +481,7 @@ public class SimpleCharStream {
     }
 
     /**
-     * Reinitialise.
+     * Reinitialise. 
      * @param dstream
      */
     public void ReInit(java.io.InputStream dstream) {
@@ -500,11 +489,11 @@ public class SimpleCharStream {
     }
 
     /**
-     * Reinitialise.
+     * Reinitialise. 
      * @param dstream
      * @param encoding
-     * @param startcolumn
      * @param startline
+     * @param startcolumn
      * @throws java.io.UnsupportedEncodingException
      */
     public void ReInit(java.io.InputStream dstream, String encoding, int startline, int startcolumn)
@@ -513,7 +502,7 @@ public class SimpleCharStream {
     }
 
     /**
-     * Reinitialise.
+     * Reinitialise. 
      * @param dstream
      * @param startline
      * @param startcolumn
@@ -523,7 +512,7 @@ public class SimpleCharStream {
     }
 
     /**
-     * Get token literal value.
+     * Get token literal value. 
      * @return
      */
     public String GetImage() {
@@ -535,7 +524,7 @@ public class SimpleCharStream {
     }
 
     /**
-     * Get the suffix.
+     * Get the suffix. 
      * @param len
      * @return
      */

@@ -49,6 +49,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
         super(port, hostname);
         this.teamName   = teamName;
         this.controller = con;
+        con.setCoach(this);
     }
 
     /**

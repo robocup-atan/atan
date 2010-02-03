@@ -137,6 +137,7 @@ public class Coach implements ControllerCoach {
                                 double playerDecayDeltaMin, double playerTypes, double ptMax, double randomSeed,
                                 double staminaIncMaxDeltaFactor, double subsMax) {
         log.info("player param");
+        getCoach().eye();
     }
 
     /**
@@ -213,5 +214,43 @@ public class Coach implements ControllerCoach {
     public void infoSeePlayerOwn(int number, boolean goalie, double x, double y, double deltaX, double deltaY,
                                  double bodyAngle, double neckAngle) {
         log.info("see player own");
+    }
+
+    /**
+     *
+     * @param c
+     */
+    @Override
+    public void setCoach(ActionsCoach c) {
+        coach = c;
+    }
+
+    /**
+     *
+     * @return
+     */
+    @Override
+    public ActionsCoach getCoach() {
+        return coach;
+    }
+
+    /**
+     *
+     * @param x
+     * @param y
+     */
+    @Override
+    public void infoSeeGoalOther(double x, double y) {
+        log.info("see goal other");
+    }
+
+    /**
+     *
+     * @param x
+     * @param y
+     */
+    @Override
+    public void infoSeeGoalOwn(double x, double y) {
+        log.info("see goal own");
     }
 }

@@ -48,6 +48,20 @@ public interface ControllerCoach {
                                    double bodyAngle, double neckAngle);
 
     /**
+     *
+     * @param x
+     * @param y
+     */
+    public void infoSeeGoalOwn(double x, double y);
+
+    /**
+     *
+     * @param x
+     * @param y
+     */
+    public void infoSeeGoalOther(double x, double y);
+
+    /**
      * The controller is informed that the Ball is in sight.
      * @param x
      * @param y
@@ -171,4 +185,16 @@ public interface ControllerCoach {
      * @param info A hashmap containing all the server param details.
      */
     public void infoServerParam(HashMap<ServerParams, Object> info);
+
+    /**
+     * Sets the coach that the controller is controlling.
+     * @param sServerCoach
+     */
+    public void setCoach(ActionsCoach sServerCoach);
+
+    /**
+     * Returns the current instance of ActionsCoach.
+     * @return ActionsCoach
+     */
+    public ActionsCoach getCoach();
 }

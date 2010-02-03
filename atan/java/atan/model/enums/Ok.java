@@ -59,5 +59,17 @@ public enum Ok {
     /**
      * The team_graphic command executed successfully.
      */
-    TEAM_GRAPHIC;
+    TEAM_GRAPHIC,
+
+    /**
+     * The eye command was executed successfully.
+     * Eye was turned on.
+     */
+    EYE_ON,
+
+    /**
+     * The eye command was executed successfully.
+     * Eye was turned off.
+     */
+    EYE_OFF;
 }

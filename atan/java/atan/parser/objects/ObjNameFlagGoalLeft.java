@@ -93,8 +93,7 @@ public class ObjNameFlagGoalLeft implements ObjName {
     @Override
     public void infoSeeFromEast(ControllerCoach c, double x, double y, double deltaX, double deltaY, double bodyAngle,
                                 double neckAngle) {
-
-        // TODO Auto-generated method stub
+        c.infoSeeGoalOther(x, y);
     }
 
     /**
@@ -110,8 +109,7 @@ public class ObjNameFlagGoalLeft implements ObjName {
     @Override
     public void infoSeeFromWest(ControllerCoach c, double x, double y, double deltaX, double deltaY, double bodyAngle,
                                 double neckAngle) {
-
-        // TODO Auto-generated method stub
+        c.infoSeeGoalOwn(x, y);
     }
 
     /**
