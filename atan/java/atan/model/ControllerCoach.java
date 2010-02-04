@@ -20,57 +20,55 @@ import java.util.HashMap;
 public interface ControllerCoach {
 
     /**
-     *
-     * @param number
-     * @param goalie
-     * @param x
-     * @param y
-     * @param deltaX
-     * @param deltaY
-     * @param bodyAngle
-     * @param neckAngle
+     * The controller is informed when one of its own players is seen.
+     * @param number The players uniform number.
+     * @param goalie Is the player a goalie?
+     * @param x The players x coordinate.
+     * @param y The players y coordinate.
+     * @param deltaX The players change of speed on the x plane.
+     * @param deltaY The players change of speed on the y plane.
+     * @param bodyAngle The players body angle.
+     * @param neckAngle The players neck angle.
      */
     public void infoSeePlayerOwn(int number, boolean goalie, double x, double y, double deltaX, double deltaY,
                                  double bodyAngle, double neckAngle);
 
     /**
-     *
-     * @param number
-     * @param goalie
-     * @param x
-     * @param y
-     * @param deltaX
-     * @param deltaY
-     * @param bodyAngle
-     * @param neckAngle
+     * The controller is informed when an opposing player is seen.
+     * @param number The players uniform number.
+     * @param goalie Is the player a goalie?
+     * @param x The players x coordinate.
+     * @param y The players y coordinate.
+     * @param deltaX The players change of speed on the x plane.
+     * @param deltaY The players change of speed on the y plane.
+     * @param bodyAngle The players body angle.
+     * @param neckAngle The players neck angle.
      */
     public void infoSeePlayerOther(int number, boolean goalie, double x, double y, double deltaX, double deltaY,
                                    double bodyAngle, double neckAngle);
 
     /**
-     *
-     * @param x
-     * @param y
+     * The controller is informed when its own goal is seen.
+     * @param x The x coordinate of the center of the goal.
+     * @param y The y coordinate of the center of the goal.
      */
     public void infoSeeGoalOwn(double x, double y);
 
     /**
-     *
-     * @param x
-     * @param y
+     * The controller is informed when an opposing goal is seen.
+     * @param x The x coordinate of the center of the goal.
+     * @param y The y coordinate of the center of the goal.
      */
     public void infoSeeGoalOther(double x, double y);
 
     /**
      * The controller is informed that the Ball is in sight.
-     * @param x
-     * @param y
-     * @param deltaX
-     * @param deltaY
-     * @param bodyAngle
-     * @param neckAngle
+     * @param x The x coordinate of the ball.
+     * @param y The y coordinate of the ball.
+     * @param deltaX The balls change in speed on the x plane.
+     * @param deltaY The balls change in speed on the y plane.
      */
-    public void infoSeeBall(double x, double y, double deltaX, double deltaY, double bodyAngle, double neckAngle);
+    public void infoSeeBall(double x, double y, double deltaX, double deltaY);
 
     /**
      * The observer is informed when a referee message is broadcast.
@@ -103,7 +101,7 @@ public interface ControllerCoach {
     public void infoHearError(Errors error);
 
     /**
-     * The coach is informed when it hears an ok message.
+     * The coach is informed when it hears an OK message.
      * @param ok The message to handle.
      */
     public void infoHearOk(Ok ok);
@@ -188,9 +186,9 @@ public interface ControllerCoach {
 
     /**
      * Sets the coach that the controller is controlling.
-     * @param sServerCoach
+     * @param c
      */
-    public void setCoach(ActionsCoach sServerCoach);
+    public void setCoach(ActionsCoach c);
 
     /**
      * Returns the current instance of ActionsCoach.

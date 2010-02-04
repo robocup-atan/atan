@@ -32,7 +32,7 @@ public interface ActionsPlayer {
 
     /**
      * This command broadcasts the message throughout the field. Any player
-     * near enough (specified with audio_cut_dist default 50.0 neters), with
+     * near enough (specified with audio_cut_dist default 50.0 meters), with
      * enough hearing capacity will hear the message.
      * @param message A valid String to say.
      */
@@ -53,7 +53,7 @@ public interface ActionsPlayer {
 
     /**
      * This command can be sent (and will be executed) each cycle independently,
-     * along with other action commands. The neck will rotate witht he given angle
+     * along with other action commands. The neck will rotate with the given angle
      * relative to the previous angle.
      * @param angle Angle to turn the neck (between minneckang and maxneckang) (-90 to +90)
      */

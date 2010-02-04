@@ -174,11 +174,9 @@ public class Coach implements ControllerCoach {
      * @param y
      * @param deltaX
      * @param deltaY
-     * @param bodyAngle
-     * @param neckAngle
      */
     @Override
-    public void infoSeeBall(double x, double y, double deltaX, double deltaY, double bodyAngle, double neckAngle) {
+    public void infoSeeBall(double x, double y, double deltaX, double deltaY) {
         log.info("see ball");
     }
 

@@ -28,6 +28,7 @@ public abstract class AbstractUDPClient extends Thread {
 
     /**
      * Constructs an AbstractUDPClient with default parameters.
+     * This is for players, not coaches or trainers.
      * Assumes localhost
      * Assumes port 6000
      */
@@ -37,6 +38,7 @@ public abstract class AbstractUDPClient extends Thread {
 
     /**
      * Constructs an AbstractUDPClient object given only the port number.
+     * This can be used for players, coaches or trainers.
      * Assumes localhost.
      * @param port Any valid port.
      */
@@ -46,6 +48,7 @@ public abstract class AbstractUDPClient extends Thread {
 
     /**
      * Constructs an AbstractUDPClient object given the port number and hostname.
+     * This can be used for players, coaches or trainers.
      * @param port Any valid port.
      * @param hostname Any valid hostname. (eg. 192.168.1.67 or RCSServerHost)
      */
@@ -57,7 +60,7 @@ public abstract class AbstractUDPClient extends Thread {
 
     /**
      * Checks to see if the thread is running.
-     * @return
+     * @return True if the thread is running.
      */
     public boolean isRunning() {
         return isRunning;
@@ -65,16 +68,17 @@ public abstract class AbstractUDPClient extends Thread {
 
     /**
      * Runs the thread.
+     * This will send commands to the server, and receive messages from it.
      */
     @Override
     public void run() {
         try {
             log.info("UDP - client started: " + this.hostname + ":" + this.port);
             isRunning = true;
-            buf       = new ByteBuffer(5000);
+            buf       = new ByteBuffer(5000);    // Size increased due to the length of (server_param.
             buf.setString(getInitMessage());
             socket = new DatagramSocket();
-            socket.setSoTimeout(999999999);    // Ridiculous long timeout to stop the coach disconnecting.
+            socket.setSoTimeout(999999999);      // Ridiculous long timeout to stop the coach disconnecting.
             DatagramPacket p = new DatagramPacket(buf.getByteArray(), buf.getByteArray().length,
                                    InetAddress.getByName(hostname), port);
             socket.send(p);
@@ -82,7 +86,7 @@ public abstract class AbstractUDPClient extends Thread {
             this.host = p.getAddress();
             this.port = p.getPort();
             received(buf.getString());
-            while (true) {
+            while (true) {    // Continue until the program is closed. This is where sserver messages are received.
                 buf.reset();
                 DatagramPacket packet = new DatagramPacket(buf.getByteArray(), buf.getByteArray().length);
                 socket.receive(packet);
@@ -103,7 +107,7 @@ public abstract class AbstractUDPClient extends Thread {
 
     /**
      * Sends a message.
-     * @param message
+     * @param message A valid SServer message.
      * @throws IOException
      */
     public void send(String message) throws IOException {
@@ -113,21 +117,21 @@ public abstract class AbstractUDPClient extends Thread {
     }
 
     /**
-     *
-     * @return
+     * Returns the init message for this client.
+     * @return The init message.
      */
     public abstract String getInitMessage();
 
     /**
-     * Recieved a message.
-     * @param msg
+     * Received a message.
+     * @param msg The message received.
      * @throws IOException
      */
     public abstract void received(String msg) throws IOException;
 
     /**
-     *
-     * @param ms
+     * Pause the thread.
+     * @param ms The length of time to pause the thread (in ms).
      */
     protected synchronized void pauseMilliseconds(int ms) {
         try {
@@ -136,7 +140,7 @@ public abstract class AbstractUDPClient extends Thread {
     }
 
     /**
-     *
+     * Start the thread.
      */
     @Override
     public void start() {
@@ -149,8 +153,7 @@ public abstract class AbstractUDPClient extends Thread {
 
     /**
      * Returns a string containing the connection details.
-     * (eg. "Host: 192.168.1.67:6000")
-     * @return
+     * @return Connection details (eg. "Host: 192.168.1.67:6000").
      */
     public String toStateString() {
         StringBuffer buff = new StringBuffer();

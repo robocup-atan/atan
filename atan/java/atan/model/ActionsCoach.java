@@ -16,6 +16,7 @@ public interface ActionsCoach {
      * The left and right goals? (Do they move?)
      * The ball.
      * All active players.
+     * This is the same data as from (see_global, but it is only received when look in invoked.
      */
     public void look();
 
@@ -29,7 +30,7 @@ public interface ActionsCoach {
 
     /**
      * This command changes a specified players type.
-     * @param unum The players uniform number (1~11 on pitch usually, subs <= 17).
+     * @param unum The players uniform number (1~11 on pitch usually, subs <= 14).
      * @param playerType //TODO Implement
      */
     public abstract void changePlayerType(int unum, Object playerType);
@@ -60,7 +61,8 @@ public interface ActionsCoach {
     public void handleError(String error);
 
     /**
-     * @return
+     * Is the coach with the east of west team?
+     * @return True if east.
      */
     public boolean isTeamEast();
 
@@ -71,8 +73,8 @@ public interface ActionsCoach {
     public void setTeamEast(boolean is);
 
     /**
-     *
-     * @return
+     * Returns the team name the coach is connected to.
+     * @return The team name.
      */
     public String getTeamName();
 }

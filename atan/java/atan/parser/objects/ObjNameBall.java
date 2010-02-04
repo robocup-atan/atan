@@ -57,7 +57,7 @@ public class ObjNameBall implements ObjName {
     @Override
     public void infoSeeFromEast(ControllerCoach c, double x, double y, double deltaX, double deltaY, double bodyAngle,
                                 double neckAngle) {
-        c.infoSeeBall(x, y, deltaX, deltaY, bodyAngle, neckAngle);
+        c.infoSeeBall(x, y, deltaX, deltaY);
     }
 
     /**
@@ -73,7 +73,7 @@ public class ObjNameBall implements ObjName {
     @Override
     public void infoSeeFromWest(ControllerCoach c, double x, double y, double deltaX, double deltaY, double bodyAngle,
                                 double neckAngle) {
-        c.infoSeeBall(x, y, deltaX, deltaY, bodyAngle, neckAngle);
+        c.infoSeeBall(x, y, deltaX, deltaY);
     }
 
     /**

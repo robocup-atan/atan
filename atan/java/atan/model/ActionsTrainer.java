@@ -77,6 +77,7 @@ public interface ActionsTrainer {
      * The left and right goals? (Do they move?)
      * The ball.
      * All active players.
+     * This is the same data as from (see_global, but it is only received when look in invoked.
      */
     public void look();
 

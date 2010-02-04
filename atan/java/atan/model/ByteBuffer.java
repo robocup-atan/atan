@@ -25,8 +25,8 @@ public class ByteBuffer extends ByteArrayOutputStream {
     }
 
     /**
-     *
-     * @return
+     * Returns the byte array.
+     * @return A byte array.
      */
     public byte[] getByteArray() {
         return buf;
@@ -62,8 +62,8 @@ public class ByteBuffer extends ByteArrayOutputStream {
     }
 
     /**
-     *
-     * @return
+     * Returns the length of the byte buffer.
+     * @return The length of the byte buffer.
      */
     public int length() {
         return buf.length;

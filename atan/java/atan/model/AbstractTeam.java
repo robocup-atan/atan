@@ -22,7 +22,7 @@ public abstract class AbstractTeam {
     /**
      * Connect the team to the server using the default player settings.
      * No coach.
-     * @param teamName
+     * @param teamName The name of the team to connect.
      */
     public AbstractTeam(String teamName) {
         this(teamName, 6000, "localhost", false);
@@ -31,10 +31,10 @@ public abstract class AbstractTeam {
     /**
      * Connect the team to the server using specified player settings.
      * Uses default coach port.
-     * @param teamName
-     * @param port
-     * @param hostname
-     * @param hasCoach
+     * @param teamName The name of the team to connect.
+     * @param port The port for players to connect to.
+     * @param hostname The hostname to connect to.
+     * @param hasCoach Does this team use a coach?
      */
     public AbstractTeam(String teamName, int port, String hostname, boolean hasCoach) {
         this.teamName   = teamName;
@@ -57,21 +57,21 @@ public abstract class AbstractTeam {
 
     /**
      * Returns the team name.
-     * @return
+     * @return Team name.
      */
     public String getTeamName() {
         return teamName;
     }
 
     /**
-     *
-     * @param i
+     * Gets a new ControllerPlayer.
+     * @param i The number of the player.
      * @return A ControllerPlayer implementation.
      */
     public abstract ControllerPlayer getNewControllerPlayer(int i);
 
     /**
-     *
+     * Gets a new ControllerCoach.
      * @return A ControllerCoach implementation.
      */
     public abstract ControllerCoach getNewControllerCoach();
@@ -123,7 +123,7 @@ public abstract class AbstractTeam {
     /**
      * Connect the selected player to the server.
      * The player with index 0 is always the goalie.
-     * @param index
+     * @param index The number of the player to connect.
      */
     public void connect(int index) {
         try {
@@ -139,9 +139,9 @@ public abstract class AbstractTeam {
     }
 
     /**
-     *
-     * @param i
-     * @return
+     * Returns the specified player.
+     * @param i A player number.
+     * @return Returns the specified player.
      */
     public SServerPlayer getPlayer(int i) {
         SServerPlayer re = null;
@@ -152,16 +152,16 @@ public abstract class AbstractTeam {
     }
 
     /**
-     *
-     * @return
+     * Returns the size of the team.
+     * @return The size of the team.
      */
     public int size() {
         return 11;
     }
 
     /**
-     *
-     * @param ms
+     * Pause the thread.
+     * @param ms How long to pause the thread for (in ms).
      */
     private synchronized void pause(int ms) {
         try {
