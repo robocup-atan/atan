@@ -100,6 +100,7 @@ public class Coach implements ControllerCoach {
                                double inertiaMoment, double dashPowerRate, double playerSize, double kickableMargin,
                                double kickRand, double extraStamina, double effortMax, double effortMin) {
         log.info("player type");
+        getCoach().getTeamNames();
     }
 
     /**
@@ -137,7 +138,6 @@ public class Coach implements ControllerCoach {
                                 double playerDecayDeltaMin, double playerTypes, double ptMax, double randomSeed,
                                 double staminaIncMaxDeltaFactor, double subsMax) {
         log.info("player param");
-        getCoach().eye();
     }
 
     /**
@@ -166,6 +166,7 @@ public class Coach implements ControllerCoach {
     @Override
     public void infoServerParam(HashMap<ServerParams, Object> info) {
         log.info("server param");
+        getCoach().eye(false);
     }
 
     /**
@@ -250,5 +251,15 @@ public class Coach implements ControllerCoach {
     @Override
     public void infoSeeGoalOwn(double x, double y) {
         log.info("see goal own");
+    }
+
+    /**
+     *
+     * @param teamWest
+     * @param teamEast
+     */
+    @Override
+    public void infoHearTeamNames(String teamWest, String teamEast) {
+        log.info("Team names" + teamWest + " " + teamEast);
     }
 }

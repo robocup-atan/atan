@@ -153,18 +153,19 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
 
     /**
      *
+     * @param eyeOn
      */
     @Override
-    public void ear() {
-        this.commandFactory.addEarCommand();
+    public void eye(boolean eyeOn) {
+        this.commandFactory.addEyeCommand(eyeOn);
     }
 
     /**
      *
+     * @param earOn
      */
-    @Override
-    public void eye() {
-        this.commandFactory.addEyeCommand();
+    public void ear(boolean earOn) {
+        this.commandFactory.addEarCommand(earOn);
     }
 
     /**
@@ -190,7 +191,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
      * @param playerType
      */
     @Override
-    public void changePlayerType(String teamName, int unum, Object playerType) {
+    public void changePlayerType(String teamName, int unum, int playerType) {
         this.commandFactory.addChangePlayerTypeCommand(teamName, unum, playerType);
     }
 

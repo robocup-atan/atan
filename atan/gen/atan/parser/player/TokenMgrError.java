@@ -63,12 +63,12 @@ public class TokenMgrError extends Error {
     /**
      * Full Constructor.
      * @param EOFSeen
-     * @param reason
      * @param lexState
      * @param errorLine
-     * @param errorAfter
      * @param errorColumn
+     * @param errorAfter
      * @param curChar
+     * @param reason
      */
     public TokenMgrError(boolean EOFSeen, int lexState, int errorLine, int errorColumn, String errorAfter,
                          char curChar, int reason) {
@@ -138,10 +138,10 @@ public class TokenMgrError extends Error {
      * Note: You can customize the lexical error message by modifying this method.
      * @param EOFSeen
      * @param lexState
-     * @param curChar
-     * @param errorColumn
      * @param errorLine
+     * @param errorColumn
      * @param errorAfter
+     * @param curChar
      * @return
      */
     protected static String LexicalError(boolean EOFSeen, int lexState, int errorLine, int errorColumn,
@@ -163,7 +163,6 @@ public class TokenMgrError extends Error {
      * from this method for such cases in the release version of your parser.
      * @return
      */
-    @Override
     public String getMessage() {
         return super.getMessage();
     }

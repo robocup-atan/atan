@@ -33,8 +33,15 @@ public enum Ok {
 
     /**
      * The ear command executed successfully.
+     * Ear was turned on.
      */
-    EAR,
+    EAR_ON,
+
+    /**
+     * The ear command executed successfully.
+     * Ear was turned off.
+     */
+    EAR_OFF,
 
     /**
      * The say command executed successfully.

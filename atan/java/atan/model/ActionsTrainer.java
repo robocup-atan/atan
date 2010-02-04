@@ -47,14 +47,16 @@ public interface ActionsTrainer {
     public void recover();
 
     /**
-     * Turns on or off the sending of auditory information to the trainer.
+     * Turns on or off the sending of "(see_global ...)" information from the server.
+     * @param eyeOn True to turn (see_global on, false to turn it off.
      */
-    public void ear();
+    public void eye(boolean eyeOn);
 
     /**
-     * Turns on or off the sending of "(see_global ...)" information from the server.
+     * Turns on or off the sending of auditory information from the server.
+     * @param earOn True to turn auditory information on, false to turn it off.
      */
-    public void eye();    // TODO Take an on/off parameter
+    public void ear(boolean earOn);
 
     /**
      * This command broadcasts the message throughout the field. Any player
@@ -66,11 +68,13 @@ public interface ActionsTrainer {
 
     /**
      * This command changes a specified players type.
+     * Each time a player is substituted by some other player type, its stamina,
+     * recovery and effort is reset to the initial (maximum) value of the respective player type.
      * @param teamName The team the player belongs to.
-     * @param unum The players uniform number (1~11 on pitch usually, subs <= 17).
-     * @param playerType //TODO Implement
+     * @param unum The players uniform number (1~11 on pitch usually, subs <= 14).
+     * @param playerType A player type between 0 (the standard player) and 18. However, player.conf can change this.
      */
-    public void changePlayerType(String teamName, int unum, Object playerType);
+    public void changePlayerType(String teamName, int unum, int playerType);
 
     /**
      * This command provides information about the positions of the following objects on the field.

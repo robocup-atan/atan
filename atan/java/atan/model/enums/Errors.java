@@ -17,7 +17,7 @@ public enum Errors {
     ILLEGAL_COMMAND_FORM,
 
     /**
-     * The object passed to the server is in aninvalid form.
+     * The object passed to the server is in an invalid form.
      */
     ILLEGAL_OBJECT_FORM,
 
@@ -27,12 +27,12 @@ public enum Errors {
     NO_MORE_TEAM_OR_PLAYER,
 
     /**
-     * The server cannot connect any more teams or players or goalies.
+     * The server cannot connect any more teams or players or goalie's.
      */
     NO_MORE_TEAM_OR_PLAYER_OR_GOALIE,
 
     /**
-     * The server cannot connect any more players or goalies.
+     * The server cannot connect any more players or goalie's.
      * Or an illegal client version was sent to SServer.
      */
     NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION,
@@ -43,7 +43,7 @@ public enum Errors {
     RECONNECT,
 
     /**
-     * The command sent to the server is completly unknown.
+     * The command sent to the server is completely unknown.
      */
     UNKNOWN_COMMAND,
 

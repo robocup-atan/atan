@@ -107,10 +107,11 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
 
     /**
      *
+     * @param eyeOn
      */
     @Override
-    public void eye() {
-        this.commandFactory.addEyeCommand();
+    public void eye(boolean eyeOn) {
+        this.commandFactory.addEyeCommand(eyeOn);
     }
 
     /**
@@ -125,7 +126,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
      *
      */
     @Override
-    public void teamNames() {
+    public void getTeamNames() {
         this.commandFactory.addTeamNamesCommand();
     }
 
@@ -135,7 +136,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
      * @param playerType
      */
     @Override
-    public void changePlayerType(int unum, Object playerType) {
+    public void changePlayerType(int unum, int playerType) {
         this.commandFactory.addChangePlayerTypeCommand(unum, playerType);
     }
 

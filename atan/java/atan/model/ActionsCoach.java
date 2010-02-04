@@ -8,8 +8,9 @@ public interface ActionsCoach {
 
     /**
      * Turns on or off the sending of "(see_global ...)" information from the server.
+     * @param eyeOn True to turn (see_global on, false to turn it off.
      */
-    public void eye();    // TODO Take an on/off parameter
+    public void eye(boolean eyeOn);
 
     /**
      * This command provides information about the positions of the following objects on the field.
@@ -30,10 +31,12 @@ public interface ActionsCoach {
 
     /**
      * This command changes a specified players type.
+     * Each time a player is substituted by some other player type, its stamina,
+     * recovery and effort is reset to the initial (maximum) value of the respective player type.
      * @param unum The players uniform number (1~11 on pitch usually, subs <= 14).
-     * @param playerType //TODO Implement
+     * @param playerType A player type between 0 (the standard player) and 18. However, player.conf can change this.
      */
-    public abstract void changePlayerType(int unum, Object playerType);
+    public abstract void changePlayerType(int unum, int playerType);
 
     /**
      * This command sends a team graphic to the SServer.
@@ -41,12 +44,12 @@ public interface ActionsCoach {
      * @param y The y coordinate of this tile.
      * @param xpm
      */
-    public void teamGraphic(int x, int y, Object xpm);    // TODO Implement this.
+    public void teamGraphic(int x, int y, Object xpm);    // TODO Implement xpm image.
 
     /**
      * This command provides information about the names of both teams and which side they are playing on.
      */
-    public void teamNames();
+    public void getTeamNames();
 
     /**
      * This is used to disconnect a coach from the server.

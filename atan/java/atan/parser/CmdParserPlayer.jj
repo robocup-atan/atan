@@ -920,9 +920,6 @@ Ok ok() :
     <RECOVER>{
         return Ok.RECOVER;
         }|
-    <EAR>{
-        return Ok.EAR;
-        }|
     <SAY>{
         return Ok.SAY;
         }|

@@ -365,25 +365,30 @@ public class CommandFactory {
     /**
      * Trainer only command.
      * It turns on or off the sending of auditory information to the trainer.
+     * @param earOn True to turn auditory information on, false to turn it off.
      */
     @SuppressWarnings("unchecked")
-    public void addEarCommand() {
+    public void addEarCommand(boolean earOn) {
         StringBuffer buf = new StringBuffer();
         buf.append("(ear ");
-        buf.append("on");    // TODO Change this to take an input - Section 7.5 for format.
+        if (earOn) {
+            buf.append("on");
+        } else {
+            buf.append("off");
+        }
         buf.append(')');
         fifo.add(fifo.size(), buf.toString());
     }
 
     /**
      * Trainer only command.
-     * This command changes the specified players type.
+     * This command changes the specified players heterogeneous type.
      * @param teamName The name of the team the player belongs to.
-     * @param unum The players uniform number (1~11 on pitch usually, subs <= 17).
-     * @param playerType //TODO Implement
+     * @param unum The players uniform number (1~11 on pitch usually, subs <= 14).
+     * @param playerType A player type between 0 (the standard player) and 18. However, player.conf can change this.
      */
     @SuppressWarnings("unchecked")
-    public void addChangePlayerTypeCommand(String teamName, int unum, Object playerType) {
+    public void addChangePlayerTypeCommand(String teamName, int unum, int playerType) {
         StringBuffer buf = new StringBuffer();
         buf.append("(change_player_type ");
         buf.append(' ');
@@ -399,12 +404,17 @@ public class CommandFactory {
     /**
      * Trainer command that can be used by online coach.
      * It turns on or off the sending of "(see_global ...)" information from the server.
+     * @param eyeOn
      */
     @SuppressWarnings("unchecked")
-    public void addEyeCommand() {
+    public void addEyeCommand(boolean eyeOn) {
         StringBuffer buf = new StringBuffer();
         buf.append("(eye ");
-        buf.append("on");    // TODO Change this to take an input - Section 7.5 for format.
+        if (eyeOn) {
+            buf.append("on");
+        } else {
+            buf.append("off");
+        }
         buf.append(')');
         fifo.add(fifo.size(), buf.toString());
     }
@@ -436,7 +446,7 @@ public class CommandFactory {
 
     /**
      * Coach only command.
-     * This command changes the specified players type.
+     * This command changes the specified players heterogeneous type.
      * @param unum The players uniform number (1~11 on pitch usually, subs <= 17).
      * @param playerType //TODO Implement
      */

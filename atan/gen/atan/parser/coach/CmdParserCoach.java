@@ -28,7 +28,7 @@ import java.io.StringReader;
 import java.util.HashMap;
 
 /**
- *
+ * 
  * @author author
  */
 public class CmdParserCoach implements CmdParserCoachConstants {
@@ -59,7 +59,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     private int                    jj_gc         = 0;
     private int                    jj_kind       = -1;
     final private int[]            jj_la1        = new int[0];
-    final private JJCalls[]        jj_2_rtns     = new JJCalls[99];
+    final private JJCalls[]        jj_2_rtns     = new JJCalls[103];
     private int[]                  jj_lasttokens = new int[100];
     private boolean                jj_rescan     = false;
     final private LookaheadSuccess jj_ls         = new LookaheadSuccess();
@@ -84,7 +84,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     public CmdParserCoachTokenManager token_source;
 
     /**
-     * Constructor with generated Token Manager.
+     * Constructor with generated Token Manager. 
      * @param tm
      */
     public CmdParserCoach(CmdParserCoachTokenManager tm) {
@@ -101,7 +101,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Constructor with InputStream.
+     * Constructor with InputStream. 
      * @param stream
      */
     public CmdParserCoach(java.io.InputStream stream) {
@@ -109,7 +109,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Constructor.
+     * Constructor. 
      * @param stream
      */
     public CmdParserCoach(java.io.Reader stream) {
@@ -127,7 +127,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Constructor with InputStream and supplied encoding
+     * Constructor with InputStream and supplied encoding 
      * @param stream
      * @param encoding
      */
@@ -150,7 +150,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param coach
@@ -164,7 +164,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param coach
@@ -178,7 +178,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param coach
@@ -192,7 +192,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param coach
@@ -206,7 +206,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param coach
@@ -220,7 +220,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param coach
@@ -235,7 +235,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param coach
@@ -250,7 +250,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param coach
@@ -265,7 +265,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param coach
@@ -280,7 +280,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param coach
@@ -293,28 +293,30 @@ public class CmdParserCoach implements CmdParserCoachConstants {
         startHearCommand();
     }
 
-//  TODO Commands still to implement.
-
     /**
-     *
+     * 
      * @throws ParseException
      */
-    @SuppressWarnings({"empty-statement", "empty-statement", "empty-statement"})
     final public void startSeeCommand() throws ParseException {
+        if (jj_2_1(2)) {
+            jj_consume_token(SEP);
+        } else {
+            ;
+        }
         jj_consume_token(NUM);
-        if (jj_2_3(2)) {
+        if (jj_2_4(2)) {
             jj_consume_token(SEP);
             label_1:
             while (true) {
                 jj_consume_token(OB);
                 objInfo();
                 jj_consume_token(CB);
-                if (jj_2_1(2)) {
+                if (jj_2_2(2)) {
                     jj_consume_token(SEP);
                 } else {
                     ;
                 }
-                if (jj_2_2(2)) {
+                if (jj_2_3(2)) {
                     ;
                 } else {
                     break label_1;
@@ -328,31 +330,25 @@ public class CmdParserCoach implements CmdParserCoachConstants {
 //  Get object details.
 
     /**
-     *
+     * 
      * @throws ParseException
      */
-    @SuppressWarnings( {
-        "empty-statement", "empty-statement", "empty-statement", "empty-statement", "empty-statement",
-        "empty-statement", "empty-statement", "empty-statement", "empty-statement", "empty-statement",
-        "empty-statement", "empty-statement"
-    })
     final public void objInfo() throws ParseException {
         ObjName name;
-        Token   p1     = null;
-        Token   p2     = null;
-        Token   p3     = null;
-        Token   p4     = null;
-        Token   p5     = null;
-        Token   p6     = null;
-        Token   p7     = null;
-        Token   kicked = null;
+        Token   p1 = null;
+        Token   p2 = null;
+        Token   p3 = null;
+        Token   p4 = null;
+        Token   p5 = null;
+        Token   p6 = null;
+        Token   p7 = null;
         jj_consume_token(OB);
         name = objName();
         jj_consume_token(CB);
         jj_consume_token(SEP);
-        if (jj_2_5(2)) {
+        if (jj_2_6(2)) {
             p1 = jj_consume_token(NUM);
-            if (jj_2_4(2)) {
+            if (jj_2_5(2)) {
                 jj_consume_token(SEP);
             } else {
                 ;
@@ -360,9 +356,9 @@ public class CmdParserCoach implements CmdParserCoachConstants {
         } else {
             ;
         }
-        if (jj_2_7(2)) {
+        if (jj_2_8(2)) {
             p2 = jj_consume_token(NUM);
-            if (jj_2_6(2)) {
+            if (jj_2_7(2)) {
                 jj_consume_token(SEP);
             } else {
                 ;
@@ -370,9 +366,9 @@ public class CmdParserCoach implements CmdParserCoachConstants {
         } else {
             ;
         }
-        if (jj_2_9(2)) {
+        if (jj_2_10(2)) {
             p3 = jj_consume_token(NUM);
-            if (jj_2_8(2)) {
+            if (jj_2_9(2)) {
                 jj_consume_token(SEP);
             } else {
                 ;
@@ -380,9 +376,9 @@ public class CmdParserCoach implements CmdParserCoachConstants {
         } else {
             ;
         }
-        if (jj_2_11(2)) {
+        if (jj_2_12(2)) {
             p4 = jj_consume_token(NUM);
-            if (jj_2_10(2)) {
+            if (jj_2_11(2)) {
                 jj_consume_token(SEP);
             } else {
                 ;
@@ -390,9 +386,9 @@ public class CmdParserCoach implements CmdParserCoachConstants {
         } else {
             ;
         }
-        if (jj_2_13(2)) {
+        if (jj_2_14(2)) {
             p5 = jj_consume_token(NUM);
-            if (jj_2_12(2)) {
+            if (jj_2_13(2)) {
                 jj_consume_token(SEP);
             } else {
                 ;
@@ -400,9 +396,9 @@ public class CmdParserCoach implements CmdParserCoachConstants {
         } else {
             ;
         }
-        if (jj_2_15(2)) {
+        if (jj_2_16(2)) {
             p6 = jj_consume_token(NUM);
-            if (jj_2_14(2)) {
+            if (jj_2_15(2)) {
                 jj_consume_token(SEP);
             } else {
                 ;
@@ -462,19 +458,18 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
-    @SuppressWarnings({"empty-statement", "empty-statement", "empty-statement"})
     final public ObjName objName() throws ParseException {
         Token   name;
         Token   num;
         ObjName objName = null;
-        if (jj_2_19(2)) {
+        if (jj_2_20(2)) {
             jj_consume_token(P);
-            if (jj_2_17(2)) {
-                if (jj_2_16(2)) {
+            if (jj_2_18(2)) {
+                if (jj_2_17(2)) {
                     jj_consume_token(SEP);
                 } else {
                     ;
@@ -492,16 +487,16 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                     return objName;
                 }
             }
-        } else if (jj_2_20(2)) {
+        } else if (jj_2_21(2)) {
             jj_consume_token(B);
             {
                 if (true) {
                     return new ObjNameBall();
                 }
             }
-        } else if (jj_2_21(2)) {
+        } else if (jj_2_22(2)) {
             jj_consume_token(GOAL);
-            if (jj_2_18(2)) {
+            if (jj_2_19(2)) {
                 jj_consume_token(SEP);
                 objName = objNameFlagGoal();
             } else {
@@ -524,25 +519,24 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
-    @SuppressWarnings({"empty-statement", "empty-statement"})
     final public ObjName objNamePlayer() throws ParseException {
         Token   name    = null;
         Token   num     = null;
         Token   goalie  = null;
         ObjName objName = null;
-        if (jj_2_24(2)) {
+        if (jj_2_25(2)) {
             name = jj_consume_token(NAM);
-            if (jj_2_22(2)) {
+            if (jj_2_23(2)) {
                 jj_consume_token(SEP);
                 num = jj_consume_token(NUM);
             } else {
                 ;
             }
-            if (jj_2_23(2)) {
+            if (jj_2_24(2)) {
                 jj_consume_token(SEP);
                 goalie = jj_consume_token(GOALIE);
             } else {
@@ -603,7 +597,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                     }
                 }
             }
-        } else if (jj_2_25(2)) {
+        } else if (jj_2_26(2)) {
             jj_consume_token(L);
             jj_consume_token(SEP);
             num = jj_consume_token(NUM);
@@ -621,7 +615,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                     }
                 }
             }
-        } else if (jj_2_26(2)) {
+        } else if (jj_2_27(2)) {
             jj_consume_token(R);
             jj_consume_token(SEP);
             num = jj_consume_token(NUM);
@@ -647,20 +641,19 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
-    @SuppressWarnings({"empty-statement", "empty-statement"})
     final public ObjName objNameFlagGoal() throws ParseException {
         Token q = null;
-        if (jj_2_33(2)) {
+        if (jj_2_34(2)) {
             jj_consume_token(L);
-            if (jj_2_29(2)) {
-                if (jj_2_27(2)) {
+            if (jj_2_30(2)) {
+                if (jj_2_28(2)) {
                     jj_consume_token(SEP);
                     q = jj_consume_token(T);
-                } else if (jj_2_28(2)) {
+                } else if (jj_2_29(2)) {
                     jj_consume_token(SEP);
                     q = jj_consume_token(B);
                 } else {
@@ -679,13 +672,13 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                     return new ObjNameFlagGoalLeft(q.image.charAt(0));
                 }
             }
-        } else if (jj_2_34(2)) {
+        } else if (jj_2_35(2)) {
             jj_consume_token(R);
-            if (jj_2_32(2)) {
-                if (jj_2_30(2)) {
+            if (jj_2_33(2)) {
+                if (jj_2_31(2)) {
                     jj_consume_token(SEP);
                     q = jj_consume_token(T);
-                } else if (jj_2_31(2)) {
+                } else if (jj_2_32(2)) {
                     jj_consume_token(SEP);
                     q = jj_consume_token(B);
                 } else {
@@ -714,14 +707,14 @@ public class CmdParserCoach implements CmdParserCoachConstants {
 //  Basic init command.
 
     /**
-     *
+     * 
      * @throws ParseException
      */
     final public void startInitCommand() throws ParseException {
         Token side = null;
-        if (jj_2_35(2)) {
+        if (jj_2_36(2)) {
             side = jj_consume_token(L);
-        } else if (jj_2_36(2)) {
+        } else if (jj_2_37(2)) {
             side = jj_consume_token(R);
         } else {
             jj_consume_token(-1);
@@ -733,7 +726,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
 //  Simple enum commands.
 
     /**
-     *
+     * 
      * @throws ParseException
      */
     final public void startErrorCommand() throws ParseException {
@@ -743,7 +736,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @throws ParseException
      */
     final public void startOkCommand() throws ParseException {
@@ -753,7 +746,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @throws ParseException
      */
     final public void startWarningCommand() throws ParseException {
@@ -763,7 +756,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @throws ParseException
      */
     final public void startHearCommand() throws ParseException {
@@ -771,13 +764,13 @@ public class CmdParserCoach implements CmdParserCoachConstants {
         Token msg;
         jj_consume_token(NUM);
         jj_consume_token(SEP);
-        if (jj_2_37(2)) {
+        if (jj_2_38(2)) {
             jj_consume_token(SELF);
-        } else if (jj_2_38(2)) {
+        } else if (jj_2_39(2)) {
             jj_consume_token(REFEREE);
             jj_consume_token(SEP);
             hearReferee();
-        } else if (jj_2_39(2)) {
+        } else if (jj_2_40(2)) {
             num = jj_consume_token(NUM);
             jj_consume_token(SEP);
             msg = jj_consume_token(NAM);
@@ -790,16 +783,58 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
+     * @throws ParseException
+     */
+    final public void startTeamNamesCommand() throws ParseException {
+        Token teamName1 = null;
+        Token teamName2 = null;
+        if (jj_2_41(2)) {
+            jj_consume_token(SEP);
+            jj_consume_token(OB);
+            jj_consume_token(TEAM);
+            jj_consume_token(SEP);
+            jj_consume_token(L);
+            jj_consume_token(SEP);
+            teamName1 = jj_consume_token(NAM);
+            jj_consume_token(CB);
+        } else {
+            ;
+        }
+        if (jj_2_42(2)) {
+            jj_consume_token(SEP);
+            jj_consume_token(OB);
+            jj_consume_token(TEAM);
+            jj_consume_token(SEP);
+            jj_consume_token(R);
+            jj_consume_token(SEP);
+            teamName2 = jj_consume_token(NAM);
+            jj_consume_token(CB);
+        } else {
+            ;
+        }
+        String sTeam1Name = new String();
+        String sTeam2Name = new String();
+        if (teamName1 != null) {
+            sTeam1Name = teamName1.image;
+        }
+        if (teamName2 != null) {
+            sTeam2Name = teamName2.image;
+        }
+        controller.infoHearTeamNames(sTeam1Name, sTeam2Name);
+    }
+
+    /**
+     * 
      * @throws ParseException
      */
     final public void hearReferee() throws ParseException {
         PlayMode       playMode       = null;
         RefereeMessage refereeMessage = null;
-        if (jj_2_40(2)) {
+        if (jj_2_43(2)) {
             playMode = playMode();
             controller.infoHearPlayMode(playMode);
-        } else if (jj_2_41(2)) {
+        } else if (jj_2_44(2)) {
             refereeMessage = refereeMessage();
             controller.infoHearReferee(refereeMessage);
         } else {
@@ -811,47 +846,47 @@ public class CmdParserCoach implements CmdParserCoachConstants {
 //  Enum Switches
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
     final public Warning warning() throws ParseException {
-        if (jj_2_42(2)) {
+        if (jj_2_45(2)) {
             jj_consume_token(NO_TEAM_FOUND);
             {
                 if (true) {
                     return Warning.NO_TEAM_FOUND;
                 }
             }
-        } else if (jj_2_43(2)) {
+        } else if (jj_2_46(2)) {
             jj_consume_token(NO_SUCH_PLAYER);
             {
                 if (true) {
                     return Warning.NO_SUCH_PLAYER;
                 }
             }
-        } else if (jj_2_44(2)) {
+        } else if (jj_2_47(2)) {
             jj_consume_token(CANNOT_SUB_WHILE_PLAYON);
             {
                 if (true) {
                     return Warning.CANNOT_SUB_WHILE_PLAYON;
                 }
             }
-        } else if (jj_2_45(2)) {
+        } else if (jj_2_48(2)) {
             jj_consume_token(NO_SUBS_LEFT);
             {
                 if (true) {
                     return Warning.NO_SUBS_LEFT;
                 }
             }
-        } else if (jj_2_46(2)) {
+        } else if (jj_2_49(2)) {
             jj_consume_token(MAX_OF_THAT_TYPE_ON_FIELD);
             {
                 if (true) {
                     return Warning.MAX_OF_THAT_TYPE_ON_FIELD;
                 }
             }
-        } else if (jj_2_47(2)) {
+        } else if (jj_2_50(2)) {
             jj_consume_token(CANNOT_CHANGE_GOALIE);
             {
                 if (true) {
@@ -866,96 +901,105 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
     final public Ok ok() throws ParseException {
-        if (jj_2_48(2)) {
+        if (jj_2_51(2)) {
             jj_consume_token(MOVE);
             {
                 if (true) {
                     return Ok.MOVE;
                 }
             }
-        } else if (jj_2_49(2)) {
+        } else if (jj_2_52(2)) {
             jj_consume_token(CHANGE_MODE);
             {
                 if (true) {
                     return Ok.CHANGE_MODE;
                 }
             }
-        } else if (jj_2_50(2)) {
+        } else if (jj_2_53(2)) {
             jj_consume_token(CHECK_BALL);
             {
                 if (true) {
                     return Ok.CHECK_BALL;
                 }
             }
-        } else if (jj_2_51(2)) {
+        } else if (jj_2_54(2)) {
             jj_consume_token(START);
             {
                 if (true) {
                     return Ok.START;
                 }
             }
-        } else if (jj_2_52(2)) {
+        } else if (jj_2_55(2)) {
             jj_consume_token(RECOVER);
             {
                 if (true) {
                     return Ok.RECOVER;
                 }
             }
-        } else if (jj_2_53(2)) {
-            jj_consume_token(EAR);
+        } else if (jj_2_56(2)) {
+            jj_consume_token(EARON);
             {
                 if (true) {
-                    return Ok.EAR;
+                    return Ok.EAR_ON;
                 }
             }
-        } else if (jj_2_54(2)) {
+        } else if (jj_2_57(2)) {
+            jj_consume_token(EAROFF);
+            {
+                if (true) {
+                    return Ok.EAR_OFF;
+                }
+            }
+        } else if (jj_2_58(2)) {
             jj_consume_token(EYEON);
             {
                 if (true) {
                     return Ok.EYE_ON;
                 }
             }
-        } else if (jj_2_55(2)) {
+        } else if (jj_2_59(2)) {
             jj_consume_token(EYEOFF);
             {
                 if (true) {
                     return Ok.EYE_OFF;
                 }
             }
-        } else if (jj_2_56(2)) {
+        } else if (jj_2_60(2)) {
             jj_consume_token(SAY);
             {
                 if (true) {
                     return Ok.SAY;
                 }
             }
-        } else if (jj_2_57(2)) {
+        } else if (jj_2_61(2)) {
             jj_consume_token(CHANGE_PLAYER_TYPE);
             {
                 if (true) {
                     return Ok.CHANGE_PLAYER_TYPE;
                 }
             }
-        } else if (jj_2_58(2)) {
+        } else if (jj_2_62(2)) {
             jj_consume_token(LOOK);
+            startSeeCommand();
             {
                 if (true) {
                     return Ok.LOOK;
                 }
             }
-        } else if (jj_2_59(2)) {
+        } else if (jj_2_63(2)) {
             jj_consume_token(TEAM_NAMES);
+            startTeamNamesCommand();
             {
                 if (true) {
                     return Ok.TEAM_NAMES;
                 }
             }
-        } else if (jj_2_60(2)) {
+        } else if (jj_2_64(2)) {
             jj_consume_token(TEAM_GRAPHIC);
             {
                 if (true) {
@@ -970,75 +1014,75 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
     final public Errors error() throws ParseException {
-        if (jj_2_61(2)) {
+        if (jj_2_65(2)) {
             jj_consume_token(ILLEGAL_MODE);
             {
                 if (true) {
                     return Errors.ILLEGAL_MODE;
                 }
             }
-        } else if (jj_2_62(2)) {
+        } else if (jj_2_66(2)) {
             jj_consume_token(ILLEGAL_COMMAND_FORM);
             {
                 if (true) {
                     return Errors.ILLEGAL_COMMAND_FORM;
                 }
             }
-        } else if (jj_2_63(2)) {
+        } else if (jj_2_67(2)) {
             jj_consume_token(ILLEGAL_OBJECT_FORM);
             {
                 if (true) {
                     return Errors.ILLEGAL_OBJECT_FORM;
                 }
             }
-        } else if (jj_2_64(2)) {
+        } else if (jj_2_68(2)) {
             jj_consume_token(NO_MORE_TEAM_OR_PLAYER);
             {
                 if (true) {
                     return Errors.NO_MORE_TEAM_OR_PLAYER;
                 }
             }
-        } else if (jj_2_65(2)) {
+        } else if (jj_2_69(2)) {
             jj_consume_token(NO_MORE_TEAM_OR_PLAYER_OR_GOALIE);
             {
                 if (true) {
                     return Errors.NO_MORE_TEAM_OR_PLAYER_OR_GOALIE;
                 }
             }
-        } else if (jj_2_66(2)) {
+        } else if (jj_2_70(2)) {
             jj_consume_token(NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION);
             {
                 if (true) {
                     return Errors.NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION;
                 }
             }
-        } else if (jj_2_67(2)) {
+        } else if (jj_2_71(2)) {
             jj_consume_token(RECONNECT);
             {
                 if (true) {
                     return Errors.RECONNECT;
                 }
             }
-        } else if (jj_2_68(2)) {
+        } else if (jj_2_72(2)) {
             jj_consume_token(UNKNOWN_COMMAND);
             {
                 if (true) {
                     return Errors.UNKNOWN_COMMAND;
                 }
             }
-        } else if (jj_2_69(2)) {
+        } else if (jj_2_73(2)) {
             jj_consume_token(TOO_MANY_MOVES);
             {
                 if (true) {
                     return Errors.TOO_MANY_MOVES;
                 }
             }
-        } else if (jj_2_70(2)) {
+        } else if (jj_2_74(2)) {
             jj_consume_token(SAID_TOO_MANY_MESSAGES);
             {
                 if (true) {
@@ -1053,33 +1097,33 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
     final public PlayMode playMode() throws ParseException {
-        if (jj_2_71(2)) {
+        if (jj_2_75(2)) {
             jj_consume_token(BEFORE_KICK_OFF);
             {
                 if (true) {
                     return PlayMode.BEFORE_KICK_OFF;
                 }
             }
-        } else if (jj_2_72(2)) {
+        } else if (jj_2_76(2)) {
             jj_consume_token(TIME_OVER);
             {
                 if (true) {
                     return PlayMode.TIME_OVER;
                 }
             }
-        } else if (jj_2_73(2)) {
+        } else if (jj_2_77(2)) {
             jj_consume_token(PLAY_ON);
             {
                 if (true) {
                     return PlayMode.PLAY_ON;
                 }
             }
-        } else if (jj_2_74(2)) {
+        } else if (jj_2_78(2)) {
             jj_consume_token(KICK_OFF_L);
             if (coach.isTeamEast()) {
                 if (true) {
@@ -1090,7 +1134,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                     return PlayMode.KICK_OFF_OWN;
                 }
             }
-        } else if (jj_2_75(2)) {
+        } else if (jj_2_79(2)) {
             jj_consume_token(KICK_OFF_R);
             if (!coach.isTeamEast()) {
                 if (true) {
@@ -1101,7 +1145,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                     return PlayMode.KICK_OFF_OWN;
                 }
             }
-        } else if (jj_2_76(2)) {
+        } else if (jj_2_80(2)) {
             jj_consume_token(KICK_IN_L);
             if (coach.isTeamEast()) {
                 if (true) {
@@ -1112,7 +1156,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                     return PlayMode.KICK_IN_OWN;
                 }
             }
-        } else if (jj_2_77(2)) {
+        } else if (jj_2_81(2)) {
             jj_consume_token(KICK_IN_R);
             if (!coach.isTeamEast()) {
                 if (true) {
@@ -1123,7 +1167,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                     return PlayMode.KICK_IN_OWN;
                 }
             }
-        } else if (jj_2_78(2)) {
+        } else if (jj_2_82(2)) {
             jj_consume_token(FREE_KICK_R);
             if (!coach.isTeamEast()) {
                 if (true) {
@@ -1134,7 +1178,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                     return PlayMode.FREE_KICK_OWN;
                 }
             }
-        } else if (jj_2_79(2)) {
+        } else if (jj_2_83(2)) {
             jj_consume_token(FREE_KICK_L);
             if (coach.isTeamEast()) {
                 if (true) {
@@ -1145,7 +1189,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                     return PlayMode.FREE_KICK_OWN;
                 }
             }
-        } else if (jj_2_80(2)) {
+        } else if (jj_2_84(2)) {
             jj_consume_token(FREE_KICK_FAULT_R);
             if (!coach.isTeamEast()) {
                 if (true) {
@@ -1156,7 +1200,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                     return PlayMode.FREE_KICK_FAULT_OWN;
                 }
             }
-        } else if (jj_2_81(2)) {
+        } else if (jj_2_85(2)) {
             jj_consume_token(FREE_KICK_FAULT_L);
             if (coach.isTeamEast()) {
                 if (true) {
@@ -1167,7 +1211,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                     return PlayMode.FREE_KICK_FAULT_OWN;
                 }
             }
-        } else if (jj_2_82(2)) {
+        } else if (jj_2_86(2)) {
             jj_consume_token(CORNER_KICK_R);
             if (!coach.isTeamEast()) {
                 if (true) {
@@ -1178,7 +1222,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                     return PlayMode.CORNER_KICK_OWN;
                 }
             }
-        } else if (jj_2_83(2)) {
+        } else if (jj_2_87(2)) {
             jj_consume_token(CORNER_KICK_L);
             if (coach.isTeamEast()) {
                 if (true) {
@@ -1189,7 +1233,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                     return PlayMode.CORNER_KICK_OWN;
                 }
             }
-        } else if (jj_2_84(2)) {
+        } else if (jj_2_88(2)) {
             jj_consume_token(GOAL_KICK_R);
             if (!coach.isTeamEast()) {
                 if (true) {
@@ -1200,7 +1244,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                     return PlayMode.GOAL_KICK_OWN;
                 }
             }
-        } else if (jj_2_85(2)) {
+        } else if (jj_2_89(2)) {
             jj_consume_token(GOAL_KICK_L);
             if (coach.isTeamEast()) {
                 if (true) {
@@ -1211,7 +1255,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                     return PlayMode.GOAL_KICK_OWN;
                 }
             }
-        } else if (jj_2_86(2)) {
+        } else if (jj_2_90(2)) {
             jj_consume_token(GOAL_R);
             if (!coach.isTeamEast()) {
                 if (true) {
@@ -1222,7 +1266,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                     return PlayMode.GOAL_OWN;
                 }
             }
-        } else if (jj_2_87(2)) {
+        } else if (jj_2_91(2)) {
             jj_consume_token(GOAL_L);
             if (coach.isTeamEast()) {
                 if (true) {
@@ -1241,12 +1285,12 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      * @throws ParseException
      */
     final public RefereeMessage refereeMessage() throws ParseException {
-        if (jj_2_88(2)) {
+        if (jj_2_92(2)) {
             jj_consume_token(OFFSIDE_R);
             if (!coach.isTeamEast()) {
                 if (true) {
@@ -1257,7 +1301,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                     return RefereeMessage.OFFSIDE_OWN;
                 }
             }
-        } else if (jj_2_89(2)) {
+        } else if (jj_2_93(2)) {
             jj_consume_token(OFFSIDE_L);
             if (coach.isTeamEast()) {
                 if (true) {
@@ -1268,7 +1312,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                     return RefereeMessage.OFFSIDE_OWN;
                 }
             }
-        } else if (jj_2_90(2)) {
+        } else if (jj_2_94(2)) {
             jj_consume_token(FOUL_R);
             if (!coach.isTeamEast()) {
                 if (true) {
@@ -1279,7 +1323,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                     return RefereeMessage.FOUL_OWN;
                 }
             }
-        } else if (jj_2_91(2)) {
+        } else if (jj_2_95(2)) {
             jj_consume_token(FOUL_L);
             if (coach.isTeamEast()) {
                 if (true) {
@@ -1290,35 +1334,35 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                     return RefereeMessage.FOUL_OWN;
                 }
             }
-        } else if (jj_2_92(2)) {
+        } else if (jj_2_96(2)) {
             jj_consume_token(HALF_TIME);
             {
                 if (true) {
                     return RefereeMessage.HALF_TIME;
                 }
             }
-        } else if (jj_2_93(2)) {
+        } else if (jj_2_97(2)) {
             jj_consume_token(DROP_BALL);
             {
                 if (true) {
                     return RefereeMessage.DROP_BALL;
                 }
             }
-        } else if (jj_2_94(2)) {
+        } else if (jj_2_98(2)) {
             jj_consume_token(TIME_UP);
             {
                 if (true) {
                     return RefereeMessage.TIME_UP;
                 }
             }
-        } else if (jj_2_95(2)) {
+        } else if (jj_2_99(2)) {
             jj_consume_token(TIME_UP_WITHOUT_A_TEAM);
             {
                 if (true) {
                     return RefereeMessage.TIME_UP_WITHOUT_A_TEAM;
                 }
             }
-        } else if (jj_2_96(2)) {
+        } else if (jj_2_100(2)) {
             jj_consume_token(TIME_EXTENDED);
             {
                 if (true) {
@@ -1333,10 +1377,9 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @throws ParseException
      */
-    @SuppressWarnings({"empty-statement", "empty-statement"})
     final public void startServerParamCommand() throws ParseException {
         Token audioCutDist              = null;
         Token autoMode                  = null;
@@ -2343,7 +2386,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
         jj_consume_token(OB);
         jj_consume_token(TEAM_L_START);
         jj_consume_token(SEP);
-        if (jj_2_97(2)) {
+        if (jj_2_101(2)) {
             teamLStart = jj_consume_token(NAM);
         } else {
             ;
@@ -2352,7 +2395,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
         jj_consume_token(OB);
         jj_consume_token(TEAM_R_START);
         jj_consume_token(SEP);
-        if (jj_2_98(2)) {
+        if (jj_2_102(2)) {
             teamRStart = jj_consume_token(NAM);
         } else {
             ;
@@ -2857,15 +2900,14 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @throws ParseException
      */
-    @SuppressWarnings("empty-statement")
     final public void startCPTCommand() throws ParseException {
         Token unum = null;
         Token type = null;
         unum = jj_consume_token(NUM);
-        if (jj_2_99(2)) {
+        if (jj_2_103(2)) {
             type = jj_consume_token(NUM);
         } else {
             ;
@@ -2883,7 +2925,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @throws ParseException
      */
     final public void startPlayerParamCommand() throws ParseException {
@@ -3065,7 +3107,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @throws ParseException
      */
     final public void startPlayerTypeCommand() throws ParseException {
@@ -3161,7 +3203,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3178,7 +3220,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3195,7 +3237,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3212,7 +3254,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3229,7 +3271,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3246,7 +3288,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3263,7 +3305,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3280,7 +3322,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3297,7 +3339,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3314,7 +3356,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3331,7 +3373,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3348,7 +3390,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3365,7 +3407,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3382,7 +3424,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3399,7 +3441,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3416,7 +3458,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3433,7 +3475,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3450,7 +3492,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3467,7 +3509,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3484,7 +3526,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3501,7 +3543,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3518,7 +3560,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3535,7 +3577,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3552,7 +3594,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3569,7 +3611,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3586,7 +3628,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3603,7 +3645,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3620,7 +3662,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3637,7 +3679,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3654,7 +3696,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3671,7 +3713,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3688,7 +3730,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3705,7 +3747,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3722,7 +3764,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3739,7 +3781,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3756,7 +3798,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3773,7 +3815,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3790,7 +3832,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3807,7 +3849,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3824,7 +3866,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3841,7 +3883,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3858,7 +3900,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3875,7 +3917,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3892,7 +3934,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3909,7 +3951,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3926,7 +3968,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3943,7 +3985,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3960,7 +4002,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3977,7 +4019,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -3994,7 +4036,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4011,7 +4053,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4028,7 +4070,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4045,7 +4087,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4062,7 +4104,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4079,7 +4121,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4096,7 +4138,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4113,7 +4155,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4130,7 +4172,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4147,7 +4189,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4164,7 +4206,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4181,7 +4223,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4198,7 +4240,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4215,7 +4257,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4232,7 +4274,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4249,7 +4291,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4266,7 +4308,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4283,7 +4325,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4300,7 +4342,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4317,7 +4359,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4334,7 +4376,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4351,7 +4393,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4368,7 +4410,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4385,7 +4427,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4402,7 +4444,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4419,7 +4461,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4436,7 +4478,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4453,7 +4495,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4470,7 +4512,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4487,7 +4529,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4504,7 +4546,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4521,7 +4563,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4538,7 +4580,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4555,7 +4597,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4572,7 +4614,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4589,7 +4631,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4606,7 +4648,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4623,7 +4665,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4640,7 +4682,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4657,7 +4699,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4674,7 +4716,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4691,7 +4733,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4708,7 +4750,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4725,7 +4767,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4742,7 +4784,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4759,7 +4801,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4776,7 +4818,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4793,7 +4835,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4810,7 +4852,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4827,7 +4869,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param xla
      * @return
      */
@@ -4844,10 +4886,78 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
+     * @param xla
      * @return
      */
-    private boolean jj_3_36() {
+    private boolean jj_2_100(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_100();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(99, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_101(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_101();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(100, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_102(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_102();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(101, xla);
+        }
+    }
+
+    /**
+     * 
+     * @param xla
+     * @return
+     */
+    private boolean jj_2_103(int xla) {
+        jj_la      = xla;
+        jj_lastpos = jj_scanpos = token;
+        try {
+            return !jj_3_103();
+        } catch (LookaheadSuccess ls) {
+            return true;
+        } finally {
+            jj_save(102, xla);
+        }
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_37() {
         if (jj_scan_token(R)) {
             return true;
         }
@@ -4855,212 +4965,10 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
-     * @return
-     */
-    private boolean jj_3_99() {
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_81() {
-        if (jj_scan_token(FREE_KICK_FAULT_L)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_31() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        if (jj_scan_token(B)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_80() {
-        if (jj_scan_token(FREE_KICK_FAULT_R)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_35() {
-        if (jj_scan_token(L)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_28() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        if (jj_scan_token(B)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_79() {
-        if (jj_scan_token(FREE_KICK_L)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_32() {
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_30()) {
-            jj_scanpos = xsp;
-            if (jj_3_31()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_30() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        if (jj_scan_token(T)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_78() {
-        if (jj_scan_token(FREE_KICK_R)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_34() {
-        if (jj_scan_token(R)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_32()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_29() {
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_27()) {
-            jj_scanpos = xsp;
-            if (jj_3_28()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_27() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        if (jj_scan_token(T)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3R_4() {
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_33()) {
-            jj_scanpos = xsp;
-            if (jj_3_34()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_33() {
-        if (jj_scan_token(L)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_29()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_77() {
         if (jj_scan_token(KICK_IN_R)) {
             return true;
         }
@@ -5068,10 +4976,24 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_76() {
+    private boolean jj_3_32() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        if (jj_scan_token(B)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_80() {
         if (jj_scan_token(KICK_IN_L)) {
             return true;
         }
@@ -5079,46 +5001,57 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_98() {
-        if (jj_scan_token(NAM)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_97() {
-        if (jj_scan_token(NAM)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_26() {
-        if (jj_scan_token(R)) {
-            return true;
-        }
+    private boolean jj_3_29() {
         if (jj_scan_token(SEP)) {
             return true;
         }
+        if (jj_scan_token(B)) {
+            return true;
+        }
         return false;
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_75() {
+    private boolean jj_3_36() {
+        if (jj_scan_token(L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_102() {
+        if (jj_scan_token(NAM)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_101() {
+        if (jj_scan_token(NAM)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_79() {
         if (jj_scan_token(KICK_OFF_R)) {
             return true;
         }
@@ -5126,24 +5059,40 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_23() {
+    private boolean jj_3_33() {
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_31()) {
+            jj_scanpos = xsp;
+            if (jj_3_32()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_31() {
         if (jj_scan_token(SEP)) {
             return true;
         }
-        if (jj_scan_token(GOALIE)) {
+        if (jj_scan_token(T)) {
             return true;
         }
         return false;
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_74() {
+    private boolean jj_3_78() {
         if (jj_scan_token(KICK_OFF_L)) {
             return true;
         }
@@ -5151,24 +5100,56 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_25() {
-        if (jj_scan_token(L)) {
+    private boolean jj_3_35() {
+        if (jj_scan_token(R)) {
             return true;
         }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_33()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_30() {
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_28()) {
+            jj_scanpos = xsp;
+            if (jj_3_29()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_28() {
         if (jj_scan_token(SEP)) {
+            return true;
+        }
+        if (jj_scan_token(T)) {
             return true;
         }
         return false;
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_73() {
+    private boolean jj_3_77() {
         if (jj_scan_token(PLAY_ON)) {
             return true;
         }
@@ -5176,10 +5157,42 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_72() {
+    private boolean jj_3R_4() {
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_34()) {
+            jj_scanpos = xsp;
+            if (jj_3_35()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_34() {
+        if (jj_scan_token(L)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_30()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_76() {
         if (jj_scan_token(TIME_OVER)) {
             return true;
         }
@@ -5187,45 +5200,45 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3R_5() {
         Token xsp;
         xsp = jj_scanpos;
-        if (jj_3_71()) {
+        if (jj_3_75()) {
             jj_scanpos = xsp;
-            if (jj_3_72()) {
+            if (jj_3_76()) {
                 jj_scanpos = xsp;
-                if (jj_3_73()) {
+                if (jj_3_77()) {
                     jj_scanpos = xsp;
-                    if (jj_3_74()) {
+                    if (jj_3_78()) {
                         jj_scanpos = xsp;
-                        if (jj_3_75()) {
+                        if (jj_3_79()) {
                             jj_scanpos = xsp;
-                            if (jj_3_76()) {
+                            if (jj_3_80()) {
                                 jj_scanpos = xsp;
-                                if (jj_3_77()) {
+                                if (jj_3_81()) {
                                     jj_scanpos = xsp;
-                                    if (jj_3_78()) {
+                                    if (jj_3_82()) {
                                         jj_scanpos = xsp;
-                                        if (jj_3_79()) {
+                                        if (jj_3_83()) {
                                             jj_scanpos = xsp;
-                                            if (jj_3_80()) {
+                                            if (jj_3_84()) {
                                                 jj_scanpos = xsp;
-                                                if (jj_3_81()) {
+                                                if (jj_3_85()) {
                                                     jj_scanpos = xsp;
-                                                    if (jj_3_82()) {
+                                                    if (jj_3_86()) {
                                                         jj_scanpos = xsp;
-                                                        if (jj_3_83()) {
+                                                        if (jj_3_87()) {
                                                             jj_scanpos = xsp;
-                                                            if (jj_3_84()) {
+                                                            if (jj_3_88()) {
                                                                 jj_scanpos = xsp;
-                                                                if (jj_3_85()) {
+                                                                if (jj_3_89()) {
                                                                     jj_scanpos = xsp;
-                                                                    if (jj_3_86()) {
+                                                                    if (jj_3_90()) {
                                                                         jj_scanpos = xsp;
-                                                                        if (jj_3_87()) {
+                                                                        if (jj_3_91()) {
                                                                             return true;
                                                                         }
                                                                     }
@@ -5248,10 +5261,10 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_71() {
+    private boolean jj_3_75() {
         if (jj_scan_token(BEFORE_KICK_OFF)) {
             return true;
         }
@@ -5259,10 +5272,140 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_22() {
+    private boolean jj_3_74() {
+        if (jj_scan_token(SAID_TOO_MANY_MESSAGES)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_27() {
+        if (jj_scan_token(R)) {
+            return true;
+        }
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_73() {
+        if (jj_scan_token(TOO_MANY_MOVES)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_72() {
+        if (jj_scan_token(UNKNOWN_COMMAND)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_24() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        if (jj_scan_token(GOALIE)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_26() {
+        if (jj_scan_token(L)) {
+            return true;
+        }
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_71() {
+        if (jj_scan_token(RECONNECT)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_70() {
+        if (jj_scan_token(NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_69() {
+        if (jj_scan_token(NO_MORE_TEAM_OR_PLAYER_OR_GOALIE)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_68() {
+        if (jj_scan_token(NO_MORE_TEAM_OR_PLAYER)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_67() {
+        if (jj_scan_token(ILLEGAL_OBJECT_FORM)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_23() {
         if (jj_scan_token(SEP)) {
             return true;
         }
@@ -5273,61 +5416,50 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_70() {
-        if (jj_scan_token(SAID_TOO_MANY_MESSAGES)) {
+    private boolean jj_3_66() {
+        if (jj_scan_token(ILLEGAL_COMMAND_FORM)) {
             return true;
         }
         return false;
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_69() {
-        if (jj_scan_token(TOO_MANY_MOVES)) {
+    private boolean jj_3_65() {
+        if (jj_scan_token(ILLEGAL_MODE)) {
             return true;
         }
         return false;
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_68() {
-        if (jj_scan_token(UNKNOWN_COMMAND)) {
+    private boolean jj_3_64() {
+        if (jj_scan_token(TEAM_GRAPHIC)) {
             return true;
         }
         return false;
     }
 
     /**
-     *
-     * @return
-     */
-    private boolean jj_3_67() {
-        if (jj_scan_token(RECONNECT)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
+     * 
      * @return
      */
     private boolean jj_3R_3() {
         Token xsp;
         xsp = jj_scanpos;
-        if (jj_3_24()) {
+        if (jj_3_25()) {
             jj_scanpos = xsp;
-            if (jj_3_25()) {
+            if (jj_3_26()) {
                 jj_scanpos = xsp;
-                if (jj_3_26()) {
+                if (jj_3_27()) {
                     return true;
                 }
             }
@@ -5336,30 +5468,30 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_24() {
+    private boolean jj_3_25() {
         if (jj_scan_token(NAM)) {
             return true;
         }
         Token xsp;
         xsp = jj_scanpos;
-        if (jj_3_22()) {
+        if (jj_3_23()) {
             jj_scanpos = xsp;
         }
         xsp = jj_scanpos;
-        if (jj_3_23()) {
+        if (jj_3_24()) {
             jj_scanpos = xsp;
         }
         return false;
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_18() {
+    private boolean jj_3_19() {
         if (jj_scan_token(SEP)) {
             return true;
         }
@@ -5370,33 +5502,109 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_66() {
-        if (jj_scan_token(NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION)) {
+    private boolean jj_3_63() {
+        if (jj_scan_token(TEAM_NAMES)) {
             return true;
         }
         return false;
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_65() {
-        if (jj_scan_token(NO_MORE_TEAM_OR_PLAYER_OR_GOALIE)) {
+    private boolean jj_3_62() {
+        if (jj_scan_token(LOOK)) {
             return true;
         }
         return false;
     }
 
     /**
-     *
+     * 
+     * @return
+     */
+    private boolean jj_3_22() {
+        if (jj_scan_token(GOAL)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_19()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_17() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_61() {
+        if (jj_scan_token(CHANGE_PLAYER_TYPE)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
      * @return
      */
     private boolean jj_3_21() {
-        if (jj_scan_token(GOAL)) {
+        if (jj_scan_token(B)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_18() {
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_17()) {
+            jj_scanpos = xsp;
+        }
+        if (jj_3R_3()) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_60() {
+        if (jj_scan_token(SAY)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_20() {
+        if (jj_scan_token(P)) {
             return true;
         }
         Token xsp;
@@ -5408,229 +5616,10 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
-     * @return
-     */
-    private boolean jj_3_64() {
-        if (jj_scan_token(NO_MORE_TEAM_OR_PLAYER)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_16() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_20() {
-        if (jj_scan_token(B)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_17() {
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_16()) {
-            jj_scanpos = xsp;
-        }
-        if (jj_3R_3()) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_63() {
-        if (jj_scan_token(ILLEGAL_OBJECT_FORM)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_62() {
-        if (jj_scan_token(ILLEGAL_COMMAND_FORM)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_19() {
-        if (jj_scan_token(P)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_17()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_61() {
-        if (jj_scan_token(ILLEGAL_MODE)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_60() {
-        if (jj_scan_token(TEAM_GRAPHIC)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_59() {
-        if (jj_scan_token(TEAM_NAMES)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_58() {
-        if (jj_scan_token(LOOK)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_57() {
-        if (jj_scan_token(CHANGE_PLAYER_TYPE)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_14() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_12() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_10() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_56() {
-        if (jj_scan_token(SAY)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_8() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_6() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_4() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_55() {
         if (jj_scan_token(EYEOFF)) {
             return true;
         }
@@ -5638,37 +5627,10 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_54() {
-        if (jj_scan_token(EYEON)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_15() {
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_14()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_96() {
+    private boolean jj_3_100() {
         if (jj_scan_token(TIME_EXTENDED)) {
             return true;
         }
@@ -5676,69 +5638,21 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_13() {
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_12()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_11() {
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_10()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_53() {
-        if (jj_scan_token(EAR)) {
+    private boolean jj_3_58() {
+        if (jj_scan_token(EYEON)) {
             return true;
         }
         return false;
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_9() {
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_8()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_95() {
+    private boolean jj_3_99() {
         if (jj_scan_token(TIME_UP_WITHOUT_A_TEAM)) {
             return true;
         }
@@ -5746,53 +5660,21 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_7() {
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_6()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_5() {
-        if (jj_scan_token(NUM)) {
-            return true;
-        }
-        Token xsp;
-        xsp = jj_scanpos;
-        if (jj_3_4()) {
-            jj_scanpos = xsp;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_52() {
-        if (jj_scan_token(RECOVER)) {
+    private boolean jj_3_57() {
+        if (jj_scan_token(EAROFF)) {
             return true;
         }
         return false;
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_94() {
+    private boolean jj_3_98() {
         if (jj_scan_token(TIME_UP)) {
             return true;
         }
@@ -5800,21 +5682,21 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_51() {
-        if (jj_scan_token(START)) {
+    private boolean jj_3_56() {
+        if (jj_scan_token(EARON)) {
             return true;
         }
         return false;
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_93() {
+    private boolean jj_3_97() {
         if (jj_scan_token(DROP_BALL)) {
             return true;
         }
@@ -5822,32 +5704,21 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_1() {
-        if (jj_scan_token(SEP)) {
+    private boolean jj_3_55() {
+        if (jj_scan_token(RECOVER)) {
             return true;
         }
         return false;
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_50() {
-        if (jj_scan_token(CHECK_BALL)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_92() {
+    private boolean jj_3_96() {
         if (jj_scan_token(HALF_TIME)) {
             return true;
         }
@@ -5855,32 +5726,76 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_49() {
-        if (jj_scan_token(CHANGE_MODE)) {
+    private boolean jj_3_54() {
+        if (jj_scan_token(START)) {
             return true;
         }
         return false;
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_48() {
-        if (jj_scan_token(MOVE)) {
+    private boolean jj_3_15() {
+        if (jj_scan_token(SEP)) {
             return true;
         }
         return false;
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_91() {
+    private boolean jj_3_13() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_53() {
+        if (jj_scan_token(CHECK_BALL)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_11() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_9() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_95() {
         if (jj_scan_token(FOUL_L)) {
             return true;
         }
@@ -5888,21 +5803,70 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_47() {
-        if (jj_scan_token(CANNOT_CHANGE_GOALIE)) {
+    private boolean jj_3_7() {
+        if (jj_scan_token(SEP)) {
             return true;
         }
         return false;
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_90() {
+    private boolean jj_3_52() {
+        if (jj_scan_token(CHANGE_MODE)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_5() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_51() {
+        if (jj_scan_token(MOVE)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_16() {
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_15()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_94() {
         if (jj_scan_token(FOUL_R)) {
             return true;
         }
@@ -5910,46 +5874,112 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_46() {
-        if (jj_scan_token(MAX_OF_THAT_TYPE_ON_FIELD)) {
+    private boolean jj_3_14() {
+        if (jj_scan_token(NUM)) {
             return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_13()) {
+            jj_scanpos = xsp;
         }
         return false;
     }
 
     /**
-     *
+     * 
+     * @return
+     */
+    private boolean jj_3_12() {
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_11()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     * 
      * @return
      */
     private boolean jj_3_2() {
-        if (jj_scan_token(OB)) {
-            return true;
-        }
-        if (jj_3R_2()) {
+        if (jj_scan_token(SEP)) {
             return true;
         }
         return false;
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_45() {
-        if (jj_scan_token(NO_SUBS_LEFT)) {
+    private boolean jj_3_10() {
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_9()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_8() {
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_7()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_50() {
+        if (jj_scan_token(CANNOT_CHANGE_GOALIE)) {
             return true;
         }
         return false;
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_89() {
+    private boolean jj_3_6() {
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        Token xsp;
+        xsp = jj_scanpos;
+        if (jj_3_5()) {
+            jj_scanpos = xsp;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_93() {
         if (jj_scan_token(OFFSIDE_L)) {
             return true;
         }
@@ -5957,84 +5987,51 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_44() {
-        if (jj_scan_token(CANNOT_SUB_WHILE_PLAYON)) {
+    private boolean jj_3_49() {
+        if (jj_scan_token(MAX_OF_THAT_TYPE_ON_FIELD)) {
             return true;
         }
         return false;
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3R_2() {
-        if (jj_scan_token(OB)) {
+    private boolean jj_3_48() {
+        if (jj_scan_token(NO_SUBS_LEFT)) {
             return true;
         }
         return false;
     }
 
     /**
-     *
-     * @return
-     */
-    private boolean jj_3_3() {
-        if (jj_scan_token(SEP)) {
-            return true;
-        }
-        Token xsp;
-        if (jj_3_2()) {
-            return true;
-        }
-        while (true) {
-            xsp = jj_scanpos;
-            if (jj_3_2()) {
-                jj_scanpos = xsp;
-                break;
-            }
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_43() {
-        if (jj_scan_token(NO_SUCH_PLAYER)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
+     * 
      * @return
      */
     private boolean jj_3R_6() {
         Token xsp;
         xsp = jj_scanpos;
-        if (jj_3_88()) {
+        if (jj_3_92()) {
             jj_scanpos = xsp;
-            if (jj_3_89()) {
+            if (jj_3_93()) {
                 jj_scanpos = xsp;
-                if (jj_3_90()) {
+                if (jj_3_94()) {
                     jj_scanpos = xsp;
-                    if (jj_3_91()) {
+                    if (jj_3_95()) {
                         jj_scanpos = xsp;
-                        if (jj_3_92()) {
+                        if (jj_3_96()) {
                             jj_scanpos = xsp;
-                            if (jj_3_93()) {
+                            if (jj_3_97()) {
                                 jj_scanpos = xsp;
-                                if (jj_3_94()) {
+                                if (jj_3_98()) {
                                     jj_scanpos = xsp;
-                                    if (jj_3_95()) {
+                                    if (jj_3_99()) {
                                         jj_scanpos = xsp;
-                                        if (jj_3_96()) {
+                                        if (jj_3_100()) {
                                             return true;
                                         }
                                     }
@@ -6049,10 +6046,10 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_88() {
+    private boolean jj_3_92() {
         if (jj_scan_token(OFFSIDE_R)) {
             return true;
         }
@@ -6060,10 +6057,32 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_42() {
+    private boolean jj_3_47() {
+        if (jj_scan_token(CANNOT_SUB_WHILE_PLAYON)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_46() {
+        if (jj_scan_token(NO_SUCH_PLAYER)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_45() {
         if (jj_scan_token(NO_TEAM_FOUND)) {
             return true;
         }
@@ -6071,10 +6090,24 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_87() {
+    private boolean jj_3_3() {
+        if (jj_scan_token(OB)) {
+            return true;
+        }
+        if (jj_3R_2()) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_91() {
         if (jj_scan_token(GOAL_L)) {
             return true;
         }
@@ -6082,10 +6115,32 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_41() {
+    private boolean jj_3_4() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        Token xsp;
+        if (jj_3_3()) {
+            return true;
+        }
+        while (true) {
+            xsp = jj_scanpos;
+            if (jj_3_3()) {
+                jj_scanpos = xsp;
+                break;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_44() {
         if (jj_3R_6()) {
             return true;
         }
@@ -6093,21 +6148,10 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_40() {
-        if (jj_3R_5()) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean jj_3_86() {
+    private boolean jj_3_90() {
         if (jj_scan_token(GOAL_R)) {
             return true;
         }
@@ -6115,10 +6159,115 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_39() {
+    private boolean jj_3_43() {
+        if (jj_3R_5()) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3R_2() {
+        if (jj_scan_token(OB)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_89() {
+        if (jj_scan_token(GOAL_KICK_L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_1() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_88() {
+        if (jj_scan_token(GOAL_KICK_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_42() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        if (jj_scan_token(OB)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_41() {
+        if (jj_scan_token(SEP)) {
+            return true;
+        }
+        if (jj_scan_token(OB)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_87() {
+        if (jj_scan_token(CORNER_KICK_L)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_86() {
+        if (jj_scan_token(CORNER_KICK_R)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_40() {
         if (jj_scan_token(NUM)) {
             return true;
         }
@@ -6129,10 +6278,21 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_38() {
+    private boolean jj_3_103() {
+        if (jj_scan_token(NUM)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    private boolean jj_3_39() {
         if (jj_scan_token(REFEREE)) {
             return true;
         }
@@ -6143,21 +6303,21 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_85() {
-        if (jj_scan_token(GOAL_KICK_L)) {
+        if (jj_scan_token(FREE_KICK_FAULT_L)) {
             return true;
         }
         return false;
     }
 
     /**
-     *
+     * 
      * @return
      */
-    private boolean jj_3_37() {
+    private boolean jj_3_38() {
         if (jj_scan_token(SELF)) {
             return true;
         }
@@ -6165,110 +6325,110 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_84() {
-        if (jj_scan_token(GOAL_KICK_R)) {
+        if (jj_scan_token(FREE_KICK_FAULT_R)) {
             return true;
         }
         return false;
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_83() {
-        if (jj_scan_token(CORNER_KICK_L)) {
+        if (jj_scan_token(FREE_KICK_L)) {
             return true;
         }
         return false;
     }
 
     /**
-     *
+     * 
      * @return
      */
     private boolean jj_3_82() {
-        if (jj_scan_token(CORNER_KICK_R)) {
+        if (jj_scan_token(FREE_KICK_R)) {
             return true;
         }
         return false;
     }
 
     /**
-     *
+     * 
      */
     private static void jj_la1_init_0() {
         jj_la1_0 = new int[] {};
     }
 
     /**
-     *
+     * 
      */
     private static void jj_la1_init_1() {
         jj_la1_1 = new int[] {};
     }
 
     /**
-     *
+     * 
      */
     private static void jj_la1_init_2() {
         jj_la1_2 = new int[] {};
     }
 
     /**
-     *
+     * 
      */
     private static void jj_la1_init_3() {
         jj_la1_3 = new int[] {};
     }
 
     /**
-     *
+     * 
      */
     private static void jj_la1_init_4() {
         jj_la1_4 = new int[] {};
     }
 
     /**
-     *
+     * 
      */
     private static void jj_la1_init_5() {
         jj_la1_5 = new int[] {};
     }
 
     /**
-     *
+     * 
      */
     private static void jj_la1_init_6() {
         jj_la1_6 = new int[] {};
     }
 
     /**
-     *
+     * 
      */
     private static void jj_la1_init_7() {
         jj_la1_7 = new int[] {};
     }
 
     /**
-     *
+     * 
      */
     private static void jj_la1_init_8() {
         jj_la1_8 = new int[] {};
     }
 
     /**
-     *
+     * 
      */
     private static void jj_la1_init_9() {
         jj_la1_9 = new int[] {};
     }
 
     /**
-     * Reinitialise.
+     * Reinitialise. 
      * @param stream
      */
     public void ReInit(java.io.InputStream stream) {
@@ -6276,7 +6436,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Reinitialise.
+     * Reinitialise. 
      * @param stream
      * @param encoding
      */
@@ -6299,7 +6459,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Reinitialise.
+     * Reinitialise. 
      * @param stream
      */
     public void ReInit(java.io.Reader stream) {
@@ -6317,7 +6477,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Reinitialise.
+     * Reinitialise. 
      * @param tm
      */
     public void ReInit(CmdParserCoachTokenManager tm) {
@@ -6334,7 +6494,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param kind
      * @return
      * @throws ParseException
@@ -6369,7 +6529,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param kind
      * @return
      */
@@ -6405,7 +6565,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Get the next Token.
+     * Get the next Token. 
      * @return
      */
     final public Token getNextToken() {
@@ -6420,7 +6580,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Get the specific Token.
+     * Get the specific Token. 
      * @param index
      * @return
      */
@@ -6437,7 +6597,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private int jj_ntk() {
@@ -6449,7 +6609,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param kind
      * @param pos
      */
@@ -6484,12 +6644,12 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     * Generate ParseException.
+     * Generate ParseException. 
      * @return
      */
     public ParseException generateParseException() {
         jj_expentries.clear();
-        boolean[] la1tokens = new boolean[298];
+        boolean[] la1tokens = new boolean[300];
         if (jj_kind >= 0) {
             la1tokens[jj_kind] = true;
             jj_kind            = -1;
@@ -6530,7 +6690,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                 }
             }
         }
-        for (int i = 0; i < 298; i++) {
+        for (int i = 0; i < 300; i++) {
             if (la1tokens[i]) {
                 jj_expentry    = new int[1];
                 jj_expentry[0] = i;
@@ -6554,11 +6714,11 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     final public void disable_tracing() {}
 
     /**
-     *
+     * 
      */
     private void jj_rescan_token() {
         jj_rescan = true;
-        for (int i = 0; i < 99; i++) {
+        for (int i = 0; i < 103; i++) {
             try {
                 JJCalls p = jj_2_rtns[i];
                 do {
@@ -6863,6 +7023,18 @@ public class CmdParserCoach implements CmdParserCoachConstants {
                             case 98 :
                                 jj_3_99();
                                 break;
+                            case 99 :
+                                jj_3_100();
+                                break;
+                            case 100 :
+                                jj_3_101();
+                                break;
+                            case 101 :
+                                jj_3_102();
+                                break;
+                            case 102 :
+                                jj_3_103();
+                                break;
                         }
                     }
                     p = p.next;
@@ -6873,7 +7045,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @param index
      * @param xla
      */
@@ -6892,7 +7064,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @author author
      */
     static final class JJCalls {
@@ -6903,7 +7075,7 @@ public class CmdParserCoach implements CmdParserCoachConstants {
     }
 
     /**
-     *
+     * 
      * @author author
      */
     static private final class LookaheadSuccess extends java.lang.Error {}

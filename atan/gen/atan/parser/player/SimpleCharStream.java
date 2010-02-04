@@ -13,63 +13,19 @@ public class SimpleCharStream {
     public static final boolean staticFlag = false;
 
     /** Position in buffer. */
-    public int bufpos = -1;
-
-    /**
-     *
-     */
-    protected int column = 0;
-
-    /**
-     *
-     */
-    protected int inBuf = 0;
-
-    /**
-     *
-     */
-    protected int line = 1;
-
-    /**
-     *
-     */
-    protected int maxNextCharInd = 0;
-
-    /**
-     *
-     */
-    protected boolean prevCharIsCR = false;
-
-    /**
-     *
-     */
-    protected boolean prevCharIsLF = false;
-
-    /**
-     *
-     */
-    protected int tabSize = 8;
-    int           available;
-
-    /**
-     *
-     */
-    protected int bufcolumn[];
-
-    /**
-     *
-     */
-    protected char[] buffer;
-
-    /**
-     *
-     */
-    protected int bufline[];
-    int           bufsize;
-
-    /**
-     *
-     */
+    public int               bufpos         = -1;
+    protected int            column         = 0;
+    protected int            inBuf          = 0;
+    protected int            line           = 1;
+    protected int            maxNextCharInd = 0;
+    protected boolean        prevCharIsCR   = false;
+    protected boolean        prevCharIsLF   = false;
+    protected int            tabSize        = 8;
+    int                      available;
+    protected int            bufcolumn[];
+    protected char[]         buffer;
+    protected int            bufline[];
+    int                      bufsize;
     protected java.io.Reader inputStream;
     int                      tokenBegin;
 
@@ -112,8 +68,8 @@ public class SimpleCharStream {
     /**
      * Constructor.
      * @param dstream
-     * @param startcolumn
      * @param startline
+     * @param startcolumn
      */
     public SimpleCharStream(java.io.Reader dstream, int startline, int startcolumn) {
         this(dstream, startline, startcolumn, 4096);
@@ -122,8 +78,8 @@ public class SimpleCharStream {
     /**
      * Constructor.
      * @param dstream
-     * @param startcolumn
      * @param startline
+     * @param startcolumn
      * @param buffersize
      */
     public SimpleCharStream(java.io.InputStream dstream, int startline, int startcolumn, int buffersize) {
@@ -344,7 +300,6 @@ public class SimpleCharStream {
     /**
      *
      * @return
-     * @deprecated
      */
     @Deprecated
 
@@ -359,7 +314,6 @@ public class SimpleCharStream {
     /**
      *
      * @return
-     * @deprecated
      */
     @Deprecated
 
@@ -417,8 +371,8 @@ public class SimpleCharStream {
     /**
      * Reinitialise.
      * @param dstream
-     * @param startcolumn
      * @param startline
+     * @param startcolumn
      * @param buffersize
      */
     public void ReInit(java.io.Reader dstream, int startline, int startcolumn, int buffersize) {

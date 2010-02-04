@@ -71,6 +71,14 @@ public interface ControllerCoach {
     public void infoSeeBall(double x, double y, double deltaX, double deltaY);
 
     /**
+     * The controller is informed of the connected teams names.
+     * Empty string if no team connected.
+     * @param teamWest The name of the west team.
+     * @param teamEast The name of the east team.
+     */
+    public void infoHearTeamNames(String teamWest, String teamEast);
+
+    /**
      * The observer is informed when a referee message is broadcast.
      * @param refereeMessage possible values: FOUL_OWN, FOUL_OTHER,
      * HALF_TIME, TIME_UP, TIME_UP_WITHOUT_A_TEAM,

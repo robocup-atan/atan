@@ -161,6 +161,7 @@ TOKEN :
   < OFFSIDE_R: "offside_r">|
   < OFFSIDE_L: "offside_l">|
   < HALF_TIME: "half_time">|
+  < TEAM: "team" >|
   < TIME_UP: "time_up">|
   < TIME_UP_WITHOUT_A_TEAM: "time_up_without_a_team">|
   < TIME_EXTENDED: "time_extended">|
@@ -179,7 +180,8 @@ TOKEN :
   < CHECK_BALL: "check_ball">|
   < START: "start">|
   < RECOVER: "recover">|
-  < EAR: "ear">|
+  < EARON: "ear on">|
+  < EAROFF: "ear off">|
   < CHANGE_PLAYER_TYPE: "change_player_type">|
   < LOOK: "look">|
   < TEAM_NAMES: "team_names">|
@@ -409,17 +411,15 @@ TOKEN :
   < NAM: ["a"-"z","A"-"Z","_",".","/","-","%"] ( ["a"-"z","A"-"Z","_","0"-"9",".","/","-","%"] )* >
 }
 
-//TODO Commands still to implement.
 void startSeeCommand() : //The see_global command.
   {} {
-    <NUM>[<SEP>(<OB>objInfo()<CB>[<SEP>])+]
+    [<SEP>]<NUM>[<SEP>(<OB>objInfo()<CB>[<SEP>])+]
   }
 
 //Get object details.
 void objInfo() :
   {ObjName name; Token p1=null; Token p2=null; Token p3=null;
-  Token p4=null; Token p5=null; Token p6=null; Token p7=null;
-  Token kicked=null;} {
+  Token p4=null; Token p5=null; Token p6=null; Token p7=null;} {
     <OB>name=objName()<CB><SEP>[p1=<NUM>[<SEP>]]  //x
                                [p2=<NUM>[<SEP>]]  //y
                                [p3=<NUM>[<SEP>]]  //deltaX
@@ -593,6 +593,20 @@ void startHearCommand() :
     )
   }
 
+void startTeamNamesCommand() :
+	{Token teamName1=null;Token teamName2=null;}{
+	  [<SEP ><OB ><TEAM ><SEP ><L>< SEP >teamName1=<NAM ><CB >]
+	  [<SEP ><OB ><TEAM ><SEP ><R>< SEP >teamName2=<NAM ><CB >]{
+	    String sTeam1Name = new String();
+	    String sTeam2Name = new String();
+	    if (teamName1 != null){	      sTeam1Name = teamName1.image;
+	    }
+	    if (teamName2 != null){	      sTeam2Name = teamName2.image;
+	    }
+	    controller.infoHearTeamNames(sTeam1Name, sTeam2Name);
+	}
+}	    	  	  
+
 void hearReferee() :
   {PlayMode playMode=null; RefereeMessage refereeMessage=null;}{
     playMode=playMode(){
@@ -642,8 +656,11 @@ Ok ok() :
     <RECOVER>{
         return Ok.RECOVER;
         }|
-    <EAR>{
-        return Ok.EAR;
+    <EARON>{
+        return Ok.EAR_ON;
+        }|
+    <EAROFF>{
+        return Ok.EAR_OFF;
         }|
     <EYEON>{
         return Ok.EYE_ON;
@@ -658,9 +675,11 @@ Ok ok() :
         return Ok.CHANGE_PLAYER_TYPE;
         }|
     <LOOK>{
+      	startSeeCommand();
         return Ok.LOOK;
         }|
     <TEAM_NAMES>{
+      	startTeamNamesCommand();
         return Ok.TEAM_NAMES;
         }|
     <TEAM_GRAPHIC>{

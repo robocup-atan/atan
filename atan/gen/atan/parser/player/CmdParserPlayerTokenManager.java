@@ -216,15 +216,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     int                        defaultLexState = 0;
     private final int[]        jjrounds        = new int[38];
     private final int[]        jjstateSet      = new int[76];
-
-    /**
-     *
-     */
-    protected char curChar;
-
-    /**
-     *
-     */
+    protected char             curChar;
     protected SimpleCharStream input_stream;
     int                        jjmatchedKind;
     int                        jjmatchedPos;
