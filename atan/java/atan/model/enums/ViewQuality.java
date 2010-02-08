@@ -1,7 +1,7 @@
 package atan.model.enums;
 
 /**
- * An enum for view wuality.
+ * An enum for view quality.
  * @author Atan
  */
 public enum ViewQuality {

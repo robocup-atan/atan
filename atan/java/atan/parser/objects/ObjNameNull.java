@@ -53,10 +53,7 @@ public class ObjNameNull implements ObjName {
      */
     @Override
     public void infoSeeFromEast(ControllerCoach c, double x, double y, double deltaX, double deltaY, double bodyAngle,
-                                double neckAngle) {
-
-        // TODO Auto-generated method stub
-    }
+                                double neckAngle) {}
 
     /**
      *
@@ -70,18 +67,12 @@ public class ObjNameNull implements ObjName {
      */
     @Override
     public void infoSeeFromWest(ControllerCoach c, double x, double y, double deltaX, double deltaY, double bodyAngle,
-                                double neckAngle) {
-
-        // TODO Auto-generated method stub
-    }
+                                double neckAngle) {}
 
     /**
      *
      * @param c
      */
     @Override
-    public void infoSee(ControllerTrainer c) {
-
-        // TODO Auto-generated method stub
-    }
+    public void infoSee(ControllerTrainer c) {}
 }

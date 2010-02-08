@@ -8,7 +8,7 @@ import atan.model.ActionsTrainer;
 import atan.model.ControllerTrainer;
 
 /**
- *
+ * 
  * @author author
  */
 public class CmdParserTrainer implements CmdParserTrainerConstants {
@@ -16,12 +16,24 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
     static private int[] jj_la1_1;
     static private int[] jj_la1_2;
     static private int[] jj_la1_3;
+    static private int[] jj_la1_4;
+    static private int[] jj_la1_5;
+    static private int[] jj_la1_6;
+    static private int[] jj_la1_7;
+    static private int[] jj_la1_8;
+    static private int[] jj_la1_9;
 
     static {
         jj_la1_init_0();
         jj_la1_init_1();
         jj_la1_init_2();
         jj_la1_init_3();
+        jj_la1_init_4();
+        jj_la1_init_5();
+        jj_la1_init_6();
+        jj_la1_init_7();
+        jj_la1_init_8();
+        jj_la1_init_9();
     }
 
     private int                   jj_kind       = -1;
@@ -44,7 +56,7 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
     ActionsTrainer                      trainer;
 
     /**
-     * Constructor with generated Token Manager.
+     * Constructor with generated Token Manager. 
      * @param tm
      */
     public CmdParserTrainer(CmdParserTrainerTokenManager tm) {
@@ -58,7 +70,7 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
     }
 
     /**
-     * Constructor with InputStream.
+     * Constructor with InputStream. 
      * @param stream
      */
     public CmdParserTrainer(java.io.InputStream stream) {
@@ -66,7 +78,7 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
     }
 
     /**
-     * Constructor.
+     * Constructor. 
      * @param stream
      */
     public CmdParserTrainer(java.io.Reader stream) {
@@ -81,7 +93,7 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
     }
 
     /**
-     * Constructor with InputStream and supplied encoding
+     * Constructor with InputStream and supplied encoding 
      * @param stream
      * @param encoding
      */
@@ -101,7 +113,7 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
     }
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param trainer
@@ -111,7 +123,7 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
             throws ParseException {}
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param trainer
@@ -121,7 +133,7 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
             throws ParseException {}
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param trainer
@@ -131,7 +143,7 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
             throws ParseException {}
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param trainer
@@ -141,7 +153,7 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
             throws ParseException {}
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param trainer
@@ -151,7 +163,7 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
             throws ParseException {}
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param trainer
@@ -161,7 +173,7 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
             throws ParseException {}
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param trainer
@@ -171,7 +183,7 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
             throws ParseException {}
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param trainer
@@ -181,7 +193,7 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
             throws ParseException {}
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param trainer
@@ -191,7 +203,7 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
             throws ParseException {}
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param trainer
@@ -201,7 +213,7 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
             throws ParseException {}
 
     /**
-     *
+     * 
      * @param cmd
      * @param controller
      * @param trainer
@@ -211,35 +223,77 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
             throws ParseException {}
 
     /**
-     *
+     * 
      */
     private static void jj_la1_init_0() {
         jj_la1_0 = new int[] {};
     }
 
     /**
-     *
+     * 
      */
     private static void jj_la1_init_1() {
         jj_la1_1 = new int[] {};
     }
 
     /**
-     *
+     * 
      */
     private static void jj_la1_init_2() {
         jj_la1_2 = new int[] {};
     }
 
     /**
-     *
+     * 
      */
     private static void jj_la1_init_3() {
         jj_la1_3 = new int[] {};
     }
 
     /**
-     * Reinitialise.
+     * 
+     */
+    private static void jj_la1_init_4() {
+        jj_la1_4 = new int[] {};
+    }
+
+    /**
+     * 
+     */
+    private static void jj_la1_init_5() {
+        jj_la1_5 = new int[] {};
+    }
+
+    /**
+     * 
+     */
+    private static void jj_la1_init_6() {
+        jj_la1_6 = new int[] {};
+    }
+
+    /**
+     * 
+     */
+    private static void jj_la1_init_7() {
+        jj_la1_7 = new int[] {};
+    }
+
+    /**
+     * 
+     */
+    private static void jj_la1_init_8() {
+        jj_la1_8 = new int[] {};
+    }
+
+    /**
+     * 
+     */
+    private static void jj_la1_init_9() {
+        jj_la1_9 = new int[] {};
+    }
+
+    /**
+     * Reinitialise. 
      * @param stream
      */
     public void ReInit(java.io.InputStream stream) {
@@ -247,7 +301,7 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
     }
 
     /**
-     * Reinitialise.
+     * Reinitialise. 
      * @param stream
      * @param encoding
      */
@@ -267,7 +321,7 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
     }
 
     /**
-     * Reinitialise.
+     * Reinitialise. 
      * @param stream
      */
     public void ReInit(java.io.Reader stream) {
@@ -282,7 +336,7 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
     }
 
     /**
-     * Reinitialise.
+     * Reinitialise. 
      * @param tm
      */
     public void ReInit(CmdParserTrainerTokenManager tm) {
@@ -296,7 +350,7 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
     }
 
     /**
-     *
+     * 
      * @param kind
      * @return
      * @throws ParseException
@@ -319,7 +373,7 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
     }
 
     /**
-     * Get the next Token.
+     * Get the next Token. 
      * @return
      */
     final public Token getNextToken() {
@@ -334,7 +388,7 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
     }
 
     /**
-     * Get the specific Token.
+     * Get the specific Token. 
      * @param index
      * @return
      */
@@ -351,7 +405,7 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private int jj_ntk() {
@@ -363,12 +417,12 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
     }
 
     /**
-     * Generate ParseException.
+     * Generate ParseException. 
      * @return
      */
     public ParseException generateParseException() {
         jj_expentries.clear();
-        boolean[] la1tokens = new boolean[125];
+        boolean[] la1tokens = new boolean[298];
         if (jj_kind >= 0) {
             la1tokens[jj_kind] = true;
             jj_kind            = -1;
@@ -388,10 +442,28 @@ public class CmdParserTrainer implements CmdParserTrainerConstants {
                     if ((jj_la1_3[i] & (1 << j)) != 0) {
                         la1tokens[96 + j] = true;
                     }
+                    if ((jj_la1_4[i] & (1 << j)) != 0) {
+                        la1tokens[128 + j] = true;
+                    }
+                    if ((jj_la1_5[i] & (1 << j)) != 0) {
+                        la1tokens[160 + j] = true;
+                    }
+                    if ((jj_la1_6[i] & (1 << j)) != 0) {
+                        la1tokens[192 + j] = true;
+                    }
+                    if ((jj_la1_7[i] & (1 << j)) != 0) {
+                        la1tokens[224 + j] = true;
+                    }
+                    if ((jj_la1_8[i] & (1 << j)) != 0) {
+                        la1tokens[256 + j] = true;
+                    }
+                    if ((jj_la1_9[i] & (1 << j)) != 0) {
+                        la1tokens[288 + j] = true;
+                    }
                 }
             }
         }
-        for (int i = 0; i < 125; i++) {
+        for (int i = 0; i < 298; i++) {
             if (la1tokens[i]) {
                 jj_expentry    = new int[1];
                 jj_expentry[0] = i;

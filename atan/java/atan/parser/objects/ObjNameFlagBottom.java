@@ -170,7 +170,7 @@ public class ObjNameFlagBottom implements ObjName {
     }
 
     /**
-     *
+     * Not used be the coach.
      * @param c
      * @param x
      * @param y
@@ -178,16 +178,14 @@ public class ObjNameFlagBottom implements ObjName {
      * @param deltaY
      * @param bodyAngle
      * @param neckAngle
+     * @deprecated
      */
     @Override
     public void infoSeeFromEast(ControllerCoach c, double x, double y, double deltaX, double deltaY, double bodyAngle,
-                                double neckAngle) {
-
-        // TODO Auto-generated method stub
-    }
+                                double neckAngle) {}
 
     /**
-     *
+     * Not used be the coach.
      * @param c
      * @param x
      * @param y
@@ -195,21 +193,17 @@ public class ObjNameFlagBottom implements ObjName {
      * @param deltaY
      * @param bodyAngle
      * @param neckAngle
+     * @deprecated
      */
     @Override
     public void infoSeeFromWest(ControllerCoach c, double x, double y, double deltaX, double deltaY, double bodyAngle,
-                                double neckAngle) {
-
-        // TODO Auto-generated method stub
-    }
+                                double neckAngle) {}
 
     /**
-     *
+     * Not used be the trainer.
      * @param c
+     * @deprecated
      */
     @Override
-    public void infoSee(ControllerTrainer c) {
-
-        // TODO Auto-generated method stub
-    }
+    public void infoSee(ControllerTrainer c) {}
 }

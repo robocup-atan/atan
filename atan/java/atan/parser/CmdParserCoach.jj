@@ -180,8 +180,6 @@ TOKEN :
   < CHECK_BALL: "check_ball">|
   < START: "start">|
   < RECOVER: "recover">|
-  < EARON: "ear on">|
-  < EAROFF: "ear off">|
   < CHANGE_PLAYER_TYPE: "change_player_type">|
   < LOOK: "look">|
   < TEAM_NAMES: "team_names">|
@@ -407,8 +405,8 @@ TOKEN :
   < OB: "(">|
   < CB: ")">|
   < SEP: " ">|
-  < NUM: ( ["0"-"9"]|"."|"-"["0"-"9"] )+ >|
-  < NAM: ["a"-"z","A"-"Z","_",".","/","-","%"] ( ["a"-"z","A"-"Z","_","0"-"9",".","/","-","%"] )* >
+  < NUM:(["-", "+"])?(["0"-"9"])*(".")?(["0"-"9"])+(["e", "E"](["-", "+"])?(["0"-"9"])+)? >|
+  < NAM: ["a"-"z","A"-"Z","_",".","/","-","%","~"] ( ["a"-"z","A"-"Z","_","0"-"9",".","/","-","%","~"] )* >
 }
 
 void startSeeCommand() : //The see_global command.
@@ -567,7 +565,7 @@ void startErrorCommand() :
     }
   }
 
-void startOkCommand() : //TODO Add support for look/team_names/team_graphic commands.
+void startOkCommand() : //TODO Add support for team_graphic command.
     {Ok ok = null;}{
         ok=ok(){
             controller.infoHearOk(ok);
@@ -656,12 +654,6 @@ Ok ok() :
     <RECOVER>{
         return Ok.RECOVER;
         }|
-    <EARON>{
-        return Ok.EAR_ON;
-        }|
-    <EAROFF>{
-        return Ok.EAR_OFF;
-        }|
     <EYEON>{
         return Ok.EYE_ON;
         }|
@@ -672,6 +664,7 @@ Ok ok() :
         return Ok.SAY;
         }|
     <CHANGE_PLAYER_TYPE>{
+        startCPTCommand();
         return Ok.CHANGE_PLAYER_TYPE;
         }|
     <LOOK>{
@@ -1522,7 +1515,7 @@ void startServerParamCommand() : //Possibly the biggest method ever!
 void startCPTCommand() :
     {Token unum=null; Token type=null;}
     {
-      unum=< NUM >[type=< NUM >]
+      unum=< NUM >[<SEP >type=< NUM >]
       {
         Integer iUnum = 0;
         Integer iType = 0;

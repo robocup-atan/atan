@@ -103,7 +103,6 @@ public class Token implements java.io.Serializable {
      * Returns the image.
      * @return
      */
-    @Override
     public String toString() {
         return image;
     }
@@ -131,7 +130,7 @@ public class Token implements java.io.Serializable {
     }
 
     /**
-     *
+     * 
      * @param ofKind
      * @return
      */

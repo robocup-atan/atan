@@ -40,11 +40,9 @@ public interface ActionsCoach {
 
     /**
      * This command sends a team graphic to the SServer.
-     * @param x The x coordinate of this tile.
-     * @param y The y coordinate of this tile.
-     * @param xpm
+     * @param xpm An XPMImage to use.
      */
-    public void teamGraphic(int x, int y, Object xpm);    // TODO Implement xpm image.
+    public void teamGraphic(XPMImage xpm);
 
     /**
      * This command provides information about the names of both teams and which side they are playing on.

@@ -4,6 +4,7 @@ package sample;
 
 import atan.model.ActionsCoach;
 import atan.model.ControllerCoach;
+import atan.model.XPMImage;
 import atan.model.enums.Errors;
 import atan.model.enums.Ok;
 import atan.model.enums.PlayMode;
@@ -100,7 +101,7 @@ public class Coach implements ControllerCoach {
                                double inertiaMoment, double dashPowerRate, double playerSize, double kickableMargin,
                                double kickRand, double extraStamina, double effortMax, double effortMin) {
         log.info("player type");
-        getCoach().getTeamNames();
+        getCoach().look();
     }
 
     /**
@@ -167,6 +168,7 @@ public class Coach implements ControllerCoach {
     public void infoServerParam(HashMap<ServerParams, Object> info) {
         log.info("server param");
         getCoach().eye(false);
+        getCoach().teamGraphic(new XPMImage());
     }
 
     /**

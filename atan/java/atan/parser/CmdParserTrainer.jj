@@ -67,7 +67,7 @@ SKIP: {
 }
 TOKEN :
 {
-  < B: "b"|"B">|
+ < B: "b"|"B">|
   < FLAG: "f"|"F">|
   < P: "p"|"P">|
   < L: "l"|"L">|
@@ -88,6 +88,8 @@ TOKEN :
   < DASH: "dash">|
   < TURN: "turn">|
   < SAY: "say">|
+  < EYEON: "eye on" >|
+  < EYEOFF: "eye off" >|
   < TURN_NECK: "turn_neck">|
   < BEFORE_KICK_OFF: "before_kick_off">|
   < TIME_OVER: "time_over">|
@@ -112,6 +114,7 @@ TOKEN :
   < OFFSIDE_R: "offside_r">|
   < OFFSIDE_L: "offside_l">|
   < HALF_TIME: "half_time">|
+  < TEAM: "team" >|
   < TIME_UP: "time_up">|
   < TIME_UP_WITHOUT_A_TEAM: "time_up_without_a_team">|
   < TIME_EXTENDED: "time_extended">|
@@ -130,7 +133,6 @@ TOKEN :
   < CHECK_BALL: "check_ball">|
   < START: "start">|
   < RECOVER: "recover">|
-  < EAR: "ear">|
   < CHANGE_PLAYER_TYPE: "change_player_type">|
   < LOOK: "look">|
   < TEAM_NAMES: "team_names">|
@@ -148,7 +150,6 @@ TOKEN :
   < STAMINA_INC_MAX: "stamina_inc_max" >|
   < PLAYER_DECAY: "player_decay" >|
   < INERTIA_MOMENT: "inertia_moment" >|
-  < DASH_POWER_RATE: "dash_power_rate" >|
   < PLAYER_SIZE: "player_size" >|
   < KICKABLE_MARGIN: "kickable_margin" >|
   < KICK_RAND: "kick_rand" >|
@@ -179,12 +180,184 @@ TOKEN :
   < RANDOM_SEED: "random_seed" >|
   < STAMINA_INC_MAX_DELTA_FACTOR: "stamina_inc_max_delta_factor" >|
   < SUBS_MAX: "subs_max" >|
+  < AUDIO_CUT_DIST: "audio_cut_dist" >|
+  < AUTO_MODE: "auto_mode" >|
+  < BACK_DASH_RATE: "back_dash_rate" >|
+  < BACK_PASSES: "back_passes" >|
+  < BALL_ACCEL_MAX: "ball_accel_max" >|
+  < BALL_DECAY: "ball_decay" >|
+  < BALL_RAND: "ball_rand" >|
+  < BALL_SIZE: "ball_size" >|
+  < BALL_SPEED_MAX: "ball_speed_max" >|
+  < BALL_STUCK_AREA: "ball_stuck_area" >|
+  < BALL_WEIGHT: "ball_weight" >|
+  < CATCH_BAN_CYCLE: "catch_ban_cycle" >|
+  < CATCH_PROBABILITY: "catch_probability" >|
+  < CATCHABLE_AREA_L: "catchable_area_l" >|
+  < CATCHABLE_AREA_W: "catchable_area_w" >|
+  < CKICK_MARGIN: "ckick_margin" >|
+  < CLANG_ADVICE_WIN: "clang_advice_win" >|
+  < CLANG_DEFINE_WIN: "clang_define_win" >|
+  < CLANG_DEL_WIN: "clang_del_win" >|
+  < CLANG_INFO_WIN: "clang_info_win" >|
+  < CLANG_MESS_DELAY: "clang_mess_delay" >|
+  < CLANG_MESS_PER_CYCLE: "clang_mess_per_cycle" >|
+  < CLANG_META_WIN: "clang_meta_win" >|
+  < CLANG_RULE_WIN: "clang_rule_win" >|
+  < CLANG_WIN_SIZE: "clang_win_size" >|
+  < COACH: "coach" >|
+  < COACH_PORT: "coach_port" >|
+  < COACH_W_REFEREE: "coach_w_referee" >|
+  < CONNECT_WAIT: "connect_wait" >|
+  < CONTROL_RADIUS: "control_radius" >|
+  < DASH_ANGLE_STEP: "dash_angle_step" >|
+  < DASH_POWER_RATE: "dash_power_rate" >|
+  < DROP_BALL_TIME: "drop_ball_time" >|
+  < EFFORT_DEC: "effort_dec" >|
+  < EFFORT_DEC_THR: "effort_dec_thr" >|
+  < EFFORT_INC: "effort_inc" >|
+  < EFFORT_INC_THR: "effort_inc_thr" >|
+  < EFFORT_INIT: "effort_init" >|
+  < EXTRA_HALF_TIME: "extra_half_time" >|
+  < FORBID_KICK_OFF_OFFSIDE: "forbid_kick_off_offside" >|
+  < FREE_KICK_FAULTS: "free_kick_faults" >|
+  < FREEFORM_SEND_PERIOD: "freeform_send_period" >|
+  < FREEFORM_WAIT_PERIOD: "freeform_wait_period" >|
+  < FULLSTATE_L: "fullstate_l" >|
+  < FULLSTATE_R: "fullstate_r" >|
+  < GAME_LOG_COMPRESSION: "game_log_compression" >|
+  < GAME_LOG_DATED: "game_log_dated" >|
+  < GAME_LOG_DIR: "game_log_dir" >|
+  < GAME_LOG_FIXED: "game_log_fixed" >|
+  < GAME_LOG_FIXED_NAME: "game_log_fixed_name" >|
+  < GAME_LOG_VERSION: "game_log_version" >|
+  < GAME_LOGGING: "game_logging" >|
+  < GAME_OVER_WAIT: "game_over_wait" >|
+  < GOAL_WIDTH: "goal_width" >|
+  < GOALIE_MAX_MOVES: "goalie_max_moves" >|
+  < HEAR_DECAY: "hear_decay" >|
+  < HEAR_INC: "hear_inc" >|
+  < HEAR_MAX:  "hear_max" >|
+  < KEEPAWAY: "keepaway" >|
+  < KEEPAWAY_LENGTH: "keepaway_length" >|
+  < KEEPAWAY_LOG_DATED: "keepaway_log_dated" >|
+  < KEEPAWAY_LOG_DIR: "keepaway_log_dir" >|
+  < KEEPAWAY_LOG_FIXED: "keepaway_log_fixed" >|
+  < KEEPAWAY_LOG_FIXED_NAME: "keepaway_log_fixed_name" >|
+  < KEEPAWAY_LOGGING: "keepaway_logging" >|
+  < KEEPAWAY_START: "keepaway_start" >|
+  < KEEPAWAY_WIDTH: "keepaway_width" >|
+  < KICK_OFF_WAIT: "kick_off_wait" >|
+  < KICK_POWER_RATE: "kick_power_rate" >|
+  < KICK_RAND_FACTOR_L: "kick_rand_factor_l" >|
+  < KICK_RAND_FACTOR_R: "kick_rand_factor_r" >|
+  < LANDMARK_FILE: "landmark_file" >|
+  < LOG_DATE_FORMAT: "log_date_format" >|
+  < LOG_TIMES: "log_times" >|
+  < MAX_BACK_TACKLE_POWER: "max_back_tackle_power" >|
+  < MAX_DASH_ANGLE: "max_dash_angle" >|
+  < MAX_DASH_POWER: "max_dash_power" >|
+  < MAX_GOAL_KICKS: "max_goal_kicks" >|
+  < MAX_TACKLE_POWER: "max_tackle_power" >|
+  < MAXMOMENT: "maxmoment" >|
+  < MAXNECKANG: "maxneckang" >|
+  < MAXNECKMOMENT: "maxneckmoment" >|
+  < MAXPOWER: "maxpower" >|
+  < MIN_DASH_ANGLE: "min_dash_angle" >|
+  < MIN_DASH_POWER: "min_dash_power" >|
+  < MINMOMENT: "minmoment" >|
+  < MINNECKANG: "minneckang" >|
+  < MINNECKMOMENT: "minneckmoment" >|
+  < MINPOWER: "minpower" >|
+  < NR_EXTRA_HALFS: "nr_extra_halfs" >|
+  < NR_NORMAL_HALFS: "nr_normal_halfs" >|
+  < OFFSIDE_ACTIVE_AREA_SIZE: "offside_active_area_size" >|
+  < OFFSIDE_KICK_MARGIN: "offside_kick_margin" >|
+  < OLCOACH_PORT: "olcoach_port" >|
+  < OLD_COACH_HEAR: "old_coach_hear" >|
+  < PEN_ALLOW_MULT_KICKS: "pen_allow_mult_kicks" >|
+  < PEN_BEFORE_SETUP_WAIT: "pen_before_setup_wait" >|
+  < PEN_COACH_MOVES_PLAYERS: "pen_coach_moves_players" >|
+  < PEN_DIST_X: "pen_dist_x" >|
+  < PEN_MAX_EXTRA_KICKS: "pen_max_extra_kicks" >|
+  < PEN_MAX_GOALIE_DIST_X: "pen_max_goalie_dist_x" >|
+  < PEN_NR_KICKS: "pen_nr_kicks" >|
+  < PEN_RANDOM_WINNER: "pen_random_winner" >|
+  < PEN_READY_WAIT: "pen_ready_wait" >|
+  < PEN_SETUP_WAIT: "pen_setup_wait" >|
+  < PEN_TAKEN_WAIT: "pen_taken_wait" >|
+  < PENALTY_SHOOT_OUTS: "penalty_shoot_outs" >|
+  < PLAYER_ACCEL_MAX: "player_accel_max" >|
+  < PLAYER_RAND: "player_rand" >|
+  < PLAYER_SPEED_MAX_MIN: "player_speed_max_min" >|
+  < PLAYER_WEIGHT: "player_weight" >|
+  < POINT_TO_BAN: "point_to_ban" >|
+  < POINT_TO_DURATION: "point_to_duration" >|
+  < PORT: "port" >|
+  < PRAND_FACTOR_L: "prand_factor_l" >|
+  < PRAND_FACTOR_R: "prand_factor_r" >|
+  < PROFILE: "profile" >|
+  < PROPER_GOAL_KICKS: "proper_goal_kicks" >|
+  < QUANTIZE_STEP: "quantize_step" >|
+  < QUANTIZE_STEP_L: "quantize_step_l" >|
+  < RECORD_MESSAGES: "record_messages" >|
+  < RECOVER_DEC: "recover_dec" >|
+  < RECOVER_DEC_THR: "recover_dec_thr" >|
+  < RECOVER_INIT: "recover_init" >|
+  < RECOVER_MIN: "recover_min" >|
+  < RECV_STEP: "recv_step" >|
+  < SAY_COACH_CNT_MAX: "say_coach_cnt_max" >|
+  < SAY_COACH_MSG_SIZE: "say_coach_msg_size" >|
+  < SAY_MSG_SIZE: "say_msg_size" >|
+  < SEND_COMMS: "send_comms" >|
+  < SEND_STEP: "send_step" >|
+  < SEND_VI_STEP: "send_vi_step" >|
+  < SENSE_BODY_STEP: "sense_body_step" >|
+  < SIDE_DASH_RATE: "side_dash_rate" >|
+  < SIMULATOR_STEP: "simulator_step" >|
+  < SLOW_DOWN_FACTOR: "slow_down_factor" >|
+  < SLOWNESS_ON_TOP_FOR_LEFT_TEAM: "slowness_on_top_for_left_team" >|
+  < SLOWNESS_ON_TOP_FOR_RIGHT_TEAM: "slowness_on_top_for_right_team" >|
+  < STAMINA_CAPACITY: "stamina_capacity" >|
+  < STAMINA_MAX: "stamina_max" >|
+  < START_GOAL_L: "start_goal_l" >|
+  < START_GOAL_R: "start_goal_r" >|
+  < STOPPED_BALL_VEL: "stopped_ball_vel" >|
+  < SYNCH_MICRO_SLEEP: "synch_micro_sleep" >|
+  < SYNCH_MODE: "synch_mode" >|
+  < SYNCH_OFFSET: "synch_offset" >|
+  < SYNCH_SEE_OFFSET: "synch_see_offset" >|
+  < TACKLE_BACK_DIST: "tackle_back_dist" >|
+  < TACKLE_CYCLES: "tackle_cycles" >|
+  < TACKLE_DIST: "tackle_dist" >|
+  < TACKLE_EXPONENT: "tackle_exponent" >|
+  < TACKLE_POWER_RATE: "tackle_power_rate" >|
+  < TACKLE_WIDTH: "tackle_width" >|
+  < TEAM_ACTUATOR_NOISE: "team_actuator_noise" >|
+  < TEAM_L_START: "team_l_start" >|
+  < TEAM_R_START: "team_r_start" >|
+  < TEXT_LOG_COMPRESSION: "text_log_compression" >|
+  < TEXT_LOG_DATED: "text_log_dated" >|
+  < TEXT_LOG_DIR: "text_log_dir" >|
+  < TEXT_LOG_FIXED: "text_log_fixed" >|
+  < TEXT_LOG_FIXED_NAME: "text_log_fixed_name" >|
+  < TEXT_LOGGING: "text_logging" >|
+  < USE_OFFSIDE: "use_offside" >|
+  < VERBOSE: "verbose" >|
+  < VISIBLE_ANGLE: "visible_angle" >|
+  < VISIBLE_DISTANCE: "visible_distance" >|
+  < WIND_ANG: "wind_ang" >|
+  < WIND_DIR: "wind_dir" >|
+  < WIND_FORCE: "wind_force" >|
+  < WIND_NONE: "wind_none" >|
+  < WIND_RAND: "wind_rand" >|
+  < WIND_RANDOM: "wind_random" >|
   < C: "c">|
   < T: "t">|
   < R: "r">|
   < OB: "(">|
   < CB: ")">|
   < SEP: " ">|
-  < NAM: ["a"-"z","A"-"Z","_"] ( ["a"-"z","A"-"Z","_","0"-"9"] )* >|
-  < NUM: ( ["0"-"9"]|"."|"-" )+ >
+  < NUM:(["-", "+"])?(["0"-"9"])*(".")?(["0"-"9"])+(["e", "E"](["-", "+"])?(["0"-"9"])+)? >|
+  < NAM: ["a"-"z","A"-"Z","_",".","/","-","%","~"] ( ["a"-"z","A"-"Z","_","0"-"9",".","/","-","%","~"] )* >
 }

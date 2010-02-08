@@ -468,21 +468,35 @@ public class CommandFactory {
      * X and Y are the coordinates of this tile,
      * so they range from 0 to 31 and 0 to 7 respectively.
      * Each XPM line is a line from the 8x8 XPM tile.
-     * @param x The x coordinate of this tile.
-     * @param y The y coordinate of this tile.
-     * @param xpm //TODO Implement this.
+     * @param xpm
      */
     @SuppressWarnings("unchecked")
-    public void addTeamGraphicCommand(int x, int y, Object xpm) {
-        StringBuffer buf = new StringBuffer();
-        buf.append("(team_graphic (");
-        buf.append(x);
-        buf.append(' ');
-        buf.append(y);
-        buf.append(' ');
-        buf.append(xpm);
-        buf.append("))");
-        fifo.add(fifo.size(), buf.toString());
+    public void addTeamGraphicCommand(XPMImage xpm) {
+        StringBuffer buf  = new StringBuffer();
+        String[][]   tile = new String[xpm.getTileWidth()][xpm.getTileWidth()];
+        for (int row = 0; row < xpm.getXPMHeight(); row++) {
+            for (int col = 0; col < xpm.getTileWidth(); col++) {
+                if ((col % xpm.getTileWidth() == 0) && (row % xpm.getTileWidth()) == 0) {
+                    tile = xpm.getTile(col, row);
+                    buf  = new StringBuffer();
+                    buf.append("(team_graphic (");
+                    buf.append(col);
+                    buf.append(' ');
+                    buf.append(row);
+                    buf.append(' ');
+                    buf.append(tile[0][0].toString());
+                    buf.append(' ');
+                } else if ((col % xpm.getTileWidth() == xpm.getTileWidth() - 1)
+                           && (row % xpm.getTileWidth()) == xpm.getTileWidth() - 1) {
+                    buf.append(tile[xpm.getTileWidth() - 1][xpm.getTileWidth() - 1].toString());
+                    buf.append("))");
+                    fifo.add(fifo.size(), buf.toString());
+                } else {
+                    buf.append(tile[col % xpm.getTileWidth()][row % xpm.getTileWidth()].toString());
+                    buf.append(' ');
+                }
+            }
+        }
     }
 
     /**

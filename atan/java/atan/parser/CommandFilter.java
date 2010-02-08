@@ -66,7 +66,7 @@ public interface CommandFilter {
     public void changePlayerTypeCommand(String cmd);
 
     /**
-     * Filter for the ok command.
+     * Filter for the OK command.
      * @param cmd
      */
     public void okCommand(String cmd);

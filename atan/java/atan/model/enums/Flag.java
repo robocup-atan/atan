@@ -24,8 +24,6 @@ public enum Flag {
      */
     CENTER,
 
-    // <editor-fold defaultstate="collapsed" desc="Boundry Flags">
-
     /**
      *
      */
@@ -105,8 +103,6 @@ public enum Flag {
      *
      */
     RIGHT_30;
-
-    // </editor-fold>
 
     /**
      * Checks if the enum flag is LEFT RIGHT or CENTER.

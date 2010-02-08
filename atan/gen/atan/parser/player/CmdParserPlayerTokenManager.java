@@ -4,7 +4,9 @@ package atan.parser.player;
 
 /** Token Manager. */
 public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
-    static final int[] jjnextStates = {30, 37, };
+    static final int[] jjnextStates = {
+        19, 20, 21, 24, 34, 41, 22, 23,
+    };
 
     /** Token literal values. */
     public static final String[] jjstrLiteralImages = {
@@ -214,8 +216,8 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     /** Debug output. */
     public java.io.PrintStream debugStream     = System.out;
     int                        defaultLexState = 0;
-    private final int[]        jjrounds        = new int[38];
-    private final int[]        jjstateSet      = new int[76];
+    private final int[]        jjrounds        = new int[42];
+    private final int[]        jjstateSet      = new int[84];
     protected char             curChar;
     protected SimpleCharStream input_stream;
     int                        jjmatchedKind;
@@ -224,7 +226,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     int                        jjround;
 
     /**
-     * Constructor.
+     * Constructor. 
      * @param stream
      */
     public CmdParserPlayerTokenManager(SimpleCharStream stream) {
@@ -235,7 +237,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     * Constructor.
+     * Constructor. 
      * @param stream
      * @param lexState
      */
@@ -245,7 +247,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     * Set debug output.
+     * Set debug output. 
      * @param ds
      */
     public void setDebugStream(java.io.PrintStream ds) {
@@ -253,7 +255,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param pos
      * @param active0
      * @param active1
@@ -266,50 +268,57 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
             long active4) {
         switch (pos) {
             case 0 :
-                if ((active0 & 0x201c018015000000L) != 0L || (active1 & 0x800000000001c9a3L) != 0L
-                        || (active2 & 0x3ffffL) != 0L || (active4 & 0x3003fff80L) != 0L) {
-                    return 22;
-                }
-                if ((active0 & 0x60000000400L) != 0L || (active2 & 0x7fe00000000L) != 0L) {
-                    jjmatchedKind = 9;
-                    return 30;
-                }
-                if ((active0 & 0xd7e38007c2ff7000L) != 0L || (active1 & 0x3c03ffffaa3614L) != 0L
-                        || (active2 & 0xc7fff80007fc0000L) != 0L || (active3 & 0xfffc0c000007ffffL) != 0L
-                        || (active4 & 0xffc0007fL) != 0L) {
-                    jjmatchedKind = 295;
-                    return 22;
-                }
-                if ((active0 & 0x607800000000L) != 0L || (active2 & 0x1f8000000L) != 0L) {
-                    jjmatchedKind = 6;
-                    return 22;
-                }
-                if ((active0 & 0x20000000L) != 0L || (active1 & 0x1fc0000540000L) != 0L
-                        || (active3 & 0x3fffff80000L) != 0L) {
-                    jjmatchedKind = 7;
-                    return 22;
-                }
-                if ((active0 & 0x8000L) != 0L || (active1 & 0x40L) != 0L || (active2 & 0x3800000000000000L) != 0L) {
-                    jjmatchedKind = 8;
-                    return 22;
-                }
                 if ((active0 & 0x800000000000000L) != 0L || (active1 & 0x2000000000008L) != 0L
                         || (active3 & 0x3f00000000000L) != 0L || (active4 & 0x400000000L) != 0L) {
                     return 10;
                 }
                 if ((active0 & 0x8000000L) != 0L || (active1 & 0x7fc0000000000000L) != 0L) {
                     jjmatchedKind = 5;
-                    return 22;
+                    return 26;
+                }
+                if ((active0 & 0x201c018015000000L) != 0L || (active1 & 0x800000000001c9a3L) != 0L
+                        || (active2 & 0x3ffffL) != 0L || (active4 & 0x3003fff80L) != 0L) {
+                    return 26;
+                }
+                if ((active0 & 0x60000000400L) != 0L || (active2 & 0x7fe00000000L) != 0L) {
+                    jjmatchedKind = 9;
+                    return 34;
+                }
+                if ((active0 & 0xd7e38007c2ff7000L) != 0L || (active1 & 0x3c03ffffaa3614L) != 0L
+                        || (active2 & 0xc7fff80007fc0000L) != 0L || (active3 & 0xfffc0c000007ffffL) != 0L
+                        || (active4 & 0xffc0007fL) != 0L) {
+                    jjmatchedKind = 295;
+                    return 26;
+                }
+                if ((active0 & 0x607800000000L) != 0L || (active2 & 0x1f8000000L) != 0L) {
+                    jjmatchedKind = 6;
+                    return 26;
+                }
+                if ((active0 & 0x20000000L) != 0L || (active1 & 0x1fc0000540000L) != 0L
+                        || (active3 & 0x3fffff80000L) != 0L) {
+                    jjmatchedKind = 7;
+                    return 26;
+                }
+                if ((active0 & 0x8000L) != 0L || (active1 & 0x40L) != 0L || (active2 & 0x3800000000000000L) != 0L) {
+                    jjmatchedKind = 8;
+                    return 26;
                 }
                 return -1;
             case 1 :
+                if ((active0 & 0xf7ffe1fffffff000L) != 0L || (active1 & 0xfffffffffffdfff7L) != 0L
+                        || (active2 & 0xfffff9ffffffffffL) != 0L || (active3 & 0xfffc0fffffffffffL) != 0L
+                        || (active4 & 0xffffffffL) != 0L) {
+                    jjmatchedKind = 295;
+                    jjmatchedPos  = 1;
+                    return 26;
+                }
                 if ((active1 & 0x20000L) != 0L) {
-                    return 22;
+                    return 26;
                 }
                 if ((active0 & 0x60000000400L) != 0L || (active2 & 0x60000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 1;
-                    return 29;
+                    return 33;
                 }
                 if ((active0 & 0x800000000000000L) != 0L || (active1 & 0x8L) != 0L
                         || (active3 & 0x3f00000000000L) != 0L) {
@@ -317,17 +326,10 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                     jjmatchedPos  = 1;
                     return 9;
                 }
-                if ((active0 & 0xf7ffe1fffffff000L) != 0L || (active1 & 0xfffffffffffdfff7L) != 0L
-                        || (active2 & 0xfffff9ffffffffffL) != 0L || (active3 & 0xfffc0fffffffffffL) != 0L
-                        || (active4 & 0xffffffffL) != 0L) {
-                    jjmatchedKind = 295;
-                    jjmatchedPos  = 1;
-                    return 22;
-                }
                 return -1;
             case 2 :
                 if ((active0 & 0x2008000L) != 0L || (active1 & 0x10L) != 0L || (active3 & 0x1c000000000000L) != 0L) {
-                    return 22;
+                    return 26;
                 }
                 if ((active0 & 0xffffe1fffdff7000L) != 0L || (active1 & 0xfffffffffffdffefL) != 0L
                         || (active2 & 0xfffff9ffffffffffL) != 0L || (active3 & 0xffe3ffffffffffffL) != 0L
@@ -336,20 +338,20 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                         jjmatchedKind = 295;
                         jjmatchedPos  = 2;
                     }
-                    return 22;
+                    return 26;
                 }
                 if ((active0 & 0x60000000400L) != 0L || (active2 & 0x60000000000L) != 0L) {
                     if (jjmatchedPos != 2) {
                         jjmatchedKind = 295;
                         jjmatchedPos  = 2;
                     }
-                    return 28;
+                    return 32;
                 }
                 return -1;
             case 3 :
                 if ((active0 & 0x8000000785c15000L) != 0L || (active1 & 0x7061800040L) != 0L
                         || (active2 & 0x7800000000c0000L) != 0L || (active3 & 0x2000000000L) != 0L) {
-                    return 22;
+                    return 26;
                 }
                 if ((active0 & 0x7fffe1f8783e2000L) != 0L || (active1 & 0xffffff8f9e7dffafL) != 0L
                         || (active2 & 0xf87ff9fffff3ffffL) != 0L || (active3 & 0xffffffdfffffffffL) != 0L
@@ -358,14 +360,14 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                         jjmatchedKind = 295;
                         jjmatchedPos  = 3;
                     }
-                    return 22;
+                    return 26;
                 }
                 if ((active0 & 0x60000000400L) != 0L || (active2 & 0x60000000000L) != 0L) {
                     if (jjmatchedPos != 3) {
                         jjmatchedKind = 295;
                         jjmatchedPos  = 3;
                     }
-                    return 27;
+                    return 31;
                 }
                 return -1;
             case 4 :
@@ -374,11 +376,11 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                         jjmatchedKind = 295;
                         jjmatchedPos  = 4;
                     }
-                    return 26;
+                    return 30;
                 }
                 if ((active0 & 0x100000L) != 0L || (active1 & 0x8000000000010004L) != 0L || (active2 & 0xe007L) != 0L
                         || (active4 & 0x3L) != 0L) {
-                    return 22;
+                    return 26;
                 }
                 if ((active0 & 0x7fffe1fffc2e2400L) != 0L || (active1 & 0x7ffffffffffcffabL) != 0L
                         || (active2 & 0xfffffdffffff1ff8L) != 0L || (active3 & 0xffffffdfffffffffL) != 0L
@@ -387,14 +389,10 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                         jjmatchedKind = 295;
                         jjmatchedPos  = 4;
                     }
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 5 :
-                if ((active0 & 0x600000060400L) != 0L || (active1 & 0x1000000000000L) != 0L
-                        || (active2 & 0x40000000000L) != 0L) {
-                    return 22;
-                }
                 if ((active0 & 0x7fff87fffc282000L) != 0L || (active1 & 0xfffefffffffcffabL) != 0L
                         || (active2 & 0xfffffbffffffdfffL) != 0L || (active3 & 0xffffffdfffffffffL) != 0L
                         || (active4 & 0xffffffffL) != 0L) {
@@ -402,13 +400,17 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                         jjmatchedKind = 295;
                         jjmatchedPos  = 5;
                     }
-                    return 22;
+                    return 26;
+                }
+                if ((active0 & 0x600000060400L) != 0L || (active1 & 0x1000000000000L) != 0L
+                        || (active2 & 0x40000000000L) != 0L) {
+                    return 26;
                 }
                 return -1;
             case 6 :
                 if ((active0 & 0xc000020080000L) != 0L || (active1 & 0x4000000080008L) != 0L
                         || (active3 & 0xc001e10000000000L) != 0L || (active4 & 0x800000L) != 0L) {
-                    return 22;
+                    return 26;
                 }
                 if ((active0 & 0x7ff387ffdc202000L) != 0L || (active1 & 0xfffafffffff4ffa3L) != 0L
                         || (active2 & 0xffffffffffffdfffL) != 0L || (active3 & 0x3ffe1edfffffffffL) != 0L
@@ -417,13 +419,13 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                         jjmatchedKind = 295;
                         jjmatchedPos  = 6;
                     }
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 7 :
                 if ((active1 & 0x8000000000000L) != 0L || (active2 & 0x7ff00000000000L) != 0L
                         || (active3 & 0x1040L) != 0L || (active4 & 0xc000000L) != 0L) {
-                    return 22;
+                    return 26;
                 }
                 if ((active0 & 0x7ffb87ffdc202000L) != 0L || (active1 & 0xfff6fffffffcffa3L) != 0L
                         || (active2 & 0xff800fffffffdfffL) != 0L || (active3 & 0xfffffedfffffefbfL) != 0L
@@ -432,15 +434,10 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                         jjmatchedKind = 295;
                         jjmatchedPos  = 7;
                     }
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 8 :
-                if ((active0 & 0x803800654002000L) != 0L || (active1 & 0xc20001001000000L) != 0L
-                        || (active2 & 0x2600000000100000L) != 0L || (active3 & 0x42000000000208L) != 0L
-                        || (active4 & 0xe0000000L) != 0L) {
-                    return 22;
-                }
                 if ((active0 & 0x77f807f988200000L) != 0L || (active1 & 0xf3d6ffeffefcffa3L) != 0L
                         || (active2 & 0xd9ff8fffffefdfffL) != 0L || (active3 & 0xffbdfedfffffedb7L) != 0L
                         || (active4 & 0x137fffffL) != 0L) {
@@ -448,14 +445,19 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                         jjmatchedKind = 295;
                         jjmatchedPos  = 8;
                     }
-                    return 22;
+                    return 26;
+                }
+                if ((active0 & 0x803800654002000L) != 0L || (active1 & 0xc20001001000000L) != 0L
+                        || (active2 & 0x2600000000100000L) != 0L || (active3 & 0x42000000000208L) != 0L
+                        || (active4 & 0xe0000000L) != 0L) {
+                    return 26;
                 }
                 return -1;
             case 9 :
                 if ((active0 & 0x180200000L) != 0L || (active1 & 0x20000018c000082L) != 0L
                         || (active2 & 0xa0001e04000L) != 0L || (active3 & 0x20000000400410L) != 0L
                         || (active4 & 0x10000010L) != 0L) {
-                    return 22;
+                    return 26;
                 }
                 if ((active0 & 0x77f807f808000000L) != 0L || (active1 & 0xf1d6fffe72fcff21L) != 0L
                         || (active2 & 0xdfff85fffe1f9fffL) != 0L || (active3 & 0xff9dfedfffbfe9a7L) != 0L
@@ -464,14 +466,14 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                         jjmatchedKind = 295;
                         jjmatchedPos  = 9;
                     }
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 10 :
                 if ((active0 & 0x61800000000L) != 0L || (active1 & 0x4082100000408001L) != 0L
                         || (active2 & 0x182000000L) != 0L || (active3 & 0x8001600100000000L) != 0L
                         || (active4 & 0x80400200L) != 0L) {
-                    return 22;
+                    return 26;
                 }
                 if ((active0 & 0x77f801e008000000L) != 0L || (active1 & 0xb154effff2bc7f20L) != 0L
                         || (active2 & 0xdfff85fe7d5f9fffL) != 0L || (active3 & 0x7f9c9edeffbfe9a7L) != 0L
@@ -480,14 +482,14 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                         jjmatchedKind = 295;
                         jjmatchedPos  = 10;
                     }
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 11 :
                 if ((active0 & 0x20000000000000L) != 0L || (active1 & 0x8c0000101100L) != 0L
                         || (active2 & 0x8800010008L) != 0L || (active3 & 0x90800802020000L) != 0L
                         || (active4 & 0x24d023L) != 0L) {
-                    return 22;
+                    return 26;
                 }
                 if ((active0 & 0x77d801e008000000L) != 0L || (active1 & 0xb15473fff2ac6e20L) != 0L
                         || (active2 & 0xdfff85767d5e9ff7L) != 0L || (active3 & 0x7f0c5ed6fdbde9a7L) != 0L
@@ -496,14 +498,14 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                         jjmatchedKind = 295;
                         jjmatchedPos  = 11;
                     }
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 12 :
                 if ((active0 & 0x10018000000000L) != 0L || (active1 & 0x602000200L) != 0L
                         || (active2 & 0x880000000000040L) != 0L || (active3 & 0xc0400000820L) != 0L
                         || (active4 & 0x1000100L) != 0L) {
-                    return 22;
+                    return 26;
                 }
                 if ((active0 & 0x77c8006008000000L) != 0L || (active1 & 0xb1547ff9f0ac6c20L) != 0L
                         || (active2 & 0xd77f85767d5e9fb7L) != 0L || (active3 & 0x7f0c52d2fdbde187L) != 0L
@@ -512,14 +514,14 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                         jjmatchedKind = 295;
                         jjmatchedPos  = 12;
                     }
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 13 :
                 if ((active0 & 0x2000000000000000L) != 0L || (active1 & 0x1150000800200400L) != 0L
                         || (active2 & 0x8060013401521c80L) != 0L || (active3 & 0x60000c038042183L) != 0L
                         || (active4 & 0x1a0000L) != 0L) {
-                    return 22;
+                    return 26;
                 }
                 if ((active0 & 0x57c8006008000000L) != 0L || (active1 & 0xa0047ff7f08c6820L) != 0L
                         || (active2 & 0x571f84427c0c8337L) != 0L || (active3 & 0x790c5a12c5b9c004L) != 0L
@@ -528,14 +530,14 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                         jjmatchedKind = 295;
                         jjmatchedPos  = 13;
                     }
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 14 :
                 if ((active0 & 0x1000000008000000L) != 0L || (active1 & 0xa004006060880000L) != 0L
                         || (active2 & 0x11008000040c8000L) != 0L || (active3 & 0x100580000004000L) != 0L
                         || (active4 & 0x400L) != 0L) {
-                    return 22;
+                    return 26;
                 }
                 if ((active0 & 0x47c8006000000000L) != 0L || (active1 & 0x7f9f90046820L) != 0L
                         || (active2 & 0x461f046278000337L) != 0L || (active3 & 0x780c0212c5b98004L) != 0L
@@ -544,14 +546,10 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                         jjmatchedKind = 295;
                         jjmatchedPos  = 14;
                     }
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 15 :
-                if ((active1 & 0x600000040000L) != 0L || (active2 & 0x12044010000136L) != 0L
-                        || (active3 & 0x4800000280000004L) != 0L || (active4 & 0x20000c4L) != 0L) {
-                    return 22;
-                }
                 if ((active0 & 0x47c8006000000000L) != 0L || (active1 & 0x41ffff0006820L) != 0L
                         || (active2 & 0x460d002268000201L) != 0L || (active3 & 0x300c021045b98000L) != 0L
                         || (active4 & 0x112808L) != 0L) {
@@ -559,26 +557,30 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                         jjmatchedKind = 295;
                         jjmatchedPos  = 15;
                     }
-                    return 22;
+                    return 26;
+                }
+                if ((active1 & 0x600000040000L) != 0L || (active2 & 0x12044010000136L) != 0L
+                        || (active3 & 0x4800000280000004L) != 0L || (active4 & 0x20000c4L) != 0L) {
+                    return 26;
                 }
                 return -1;
             case 16 :
                 if ((active0 & 0x6000000000L) != 0L || (active2 & 0x1L) != 0L || (active3 & 0x4021004000000L) != 0L
                         || (active4 & 0x808L) != 0L) {
-                    return 22;
+                    return 26;
                 }
                 if ((active0 & 0x47c8000000000000L) != 0L || (active1 & 0x47ffff0006820L) != 0L
                         || (active2 & 0x460d002268000200L) != 0L || (active3 & 0x3008000241b98000L) != 0L
                         || (active4 & 0x112000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 16;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 17 :
                 if ((active1 & 0x20L) != 0L || (active2 & 0x60d000000000000L) != 0L
                         || (active3 & 0x8000040000000L) != 0L) {
-                    return 22;
+                    return 26;
                 }
                 if ((active0 & 0x47c8000000000000L) != 0L || (active1 & 0x47ffff0006800L) != 0L
                         || (active2 & 0x4000002268000200L) != 0L || (active3 & 0x3000000201b98000L) != 0L
@@ -587,48 +589,48 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                         jjmatchedKind = 295;
                         jjmatchedPos  = 17;
                     }
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 18 :
-                if ((active0 & 0x80000000000000L) != 0L || (active2 & 0x2000000000L) != 0L
-                        || (active3 & 0x810000L) != 0L || (active4 & 0x102000L) != 0L) {
-                    return 22;
-                }
                 if ((active0 & 0x4748000000000000L) != 0L || (active1 & 0x47ffff0006800L) != 0L
                         || (active2 & 0x4008000268000200L) != 0L || (active3 & 0x3000000201388000L) != 0L
                         || (active4 & 0x10000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 18;
-                    return 22;
+                    return 26;
+                }
+                if ((active0 & 0x80000000000000L) != 0L || (active2 & 0x2000000000L) != 0L
+                        || (active3 & 0x810000L) != 0L || (active4 & 0x102000L) != 0L) {
+                    return 26;
                 }
                 return -1;
             case 19 :
                 if ((active0 & 0x40000000000000L) != 0L || (active1 & 0x4000L) != 0L || (active2 & 0x260000200L) != 0L
                         || (active3 & 0x200080000L) != 0L || (active4 & 0x10000L) != 0L) {
-                    return 22;
+                    return 26;
                 }
                 if ((active0 & 0x4708000000000000L) != 0L || (active1 & 0x47ffff0002800L) != 0L
                         || (active2 & 0x4008000008000000L) != 0L || (active3 & 0x3000000001308000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 19;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 20 :
-                if ((active2 & 0x4000000000000000L) != 0L || (active3 & 0x1100000L) != 0L) {
-                    return 22;
-                }
                 if ((active0 & 0x4708000000000000L) != 0L || (active1 & 0x47ffff0002800L) != 0L
                         || (active2 & 0x8000008000000L) != 0L || (active3 & 0x3000000000208000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 20;
-                    return 22;
+                    return 26;
+                }
+                if ((active2 & 0x4000000000000000L) != 0L || (active3 & 0x1100000L) != 0L) {
+                    return 26;
                 }
                 return -1;
             case 21 :
                 if ((active0 & 0x4308000000000000L) != 0L || (active1 & 0xc1000000000L) != 0L) {
-                    return 22;
+                    return 26;
                 }
                 if ((active0 & 0x400000000000000L) != 0L || (active1 & 0x473eff0002800L) != 0L
                         || (active2 & 0x8000008000000L) != 0L || (active3 & 0x3000000000208000L) != 0L) {
@@ -636,231 +638,231 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                         jjmatchedKind = 295;
                         jjmatchedPos  = 21;
                     }
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 22 :
                 if ((active1 & 0x790000800L) != 0L || (active2 & 0x8000008000000L) != 0L
                         || (active3 & 0x200000L) != 0L) {
-                    return 22;
+                    return 26;
                 }
                 if ((active0 & 0x600000000000000L) != 0L || (active1 & 0x473e860002000L) != 0L
                         || (active3 & 0x3000000000008000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 22;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 23 :
                 if ((active1 & 0x100000000000L) != 0L || (active3 & 0x8000L) != 0L) {
-                    return 22;
+                    return 26;
                 }
                 if ((active0 & 0x600000000000000L) != 0L || (active1 & 0x463e860002000L) != 0L
                         || (active3 & 0x3000000000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 23;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 24 :
-                if ((active1 & 0x6060002000L) != 0L) {
-                    return 22;
-                }
                 if ((active0 & 0x600000000000000L) != 0L || (active1 & 0x4638800000000L) != 0L
                         || (active3 & 0x3000000000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 24;
-                    return 22;
+                    return 26;
+                }
+                if ((active1 & 0x6060002000L) != 0L) {
+                    return 26;
                 }
                 return -1;
             case 25 :
                 if ((active1 & 0x600000000000L) != 0L) {
-                    return 22;
+                    return 26;
                 }
                 if ((active0 & 0x600000000000000L) != 0L || (active1 & 0x4038800000000L) != 0L
                         || (active3 & 0x3000000000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 25;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 26 :
                 if ((active1 & 0x800000000L) != 0L) {
-                    return 22;
+                    return 26;
                 }
                 if ((active0 & 0x600000000000000L) != 0L || (active1 & 0x4038000000000L) != 0L
                         || (active3 & 0x3000000000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 26;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 27 :
-                if ((active1 & 0x4000000000000L) != 0L) {
-                    return 22;
-                }
                 if ((active0 & 0x600000000000000L) != 0L || (active1 & 0x38000000000L) != 0L
                         || (active3 & 0x3000000000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 27;
-                    return 22;
+                    return 26;
+                }
+                if ((active1 & 0x4000000000000L) != 0L) {
+                    return 26;
                 }
                 return -1;
             case 28 :
                 if ((active1 & 0x18000000000L) != 0L || (active3 & 0x1000000000000000L) != 0L) {
-                    return 22;
+                    return 26;
                 }
                 if ((active0 & 0x600000000000000L) != 0L || (active1 & 0x20000000000L) != 0L
                         || (active3 & 0x2000000000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 28;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 29 :
                 if ((active3 & 0x2000000000000000L) != 0L) {
-                    return 22;
+                    return 26;
                 }
                 if ((active0 & 0x600000000000000L) != 0L || (active1 & 0x20000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 29;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 30 :
                 if ((active0 & 0x600000000000000L) != 0L || (active1 & 0x20000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 30;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 31 :
                 if ((active0 & 0x200000000000000L) != 0L || (active1 & 0x20000000000L) != 0L) {
-                    return 22;
+                    return 26;
                 }
                 if ((active0 & 0x400000000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 31;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 32 :
                 if ((active0 & 0x400000000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 32;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 33 :
                 if ((active0 & 0x400000000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 33;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 34 :
                 if ((active0 & 0x400000000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 34;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 35 :
                 if ((active0 & 0x400000000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 35;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 36 :
                 if ((active0 & 0x400000000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 36;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 37 :
                 if ((active0 & 0x400000000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 37;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 38 :
                 if ((active0 & 0x400000000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 38;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 39 :
                 if ((active0 & 0x400000000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 39;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 40 :
                 if ((active0 & 0x400000000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 40;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 41 :
                 if ((active0 & 0x400000000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 41;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 42 :
                 if ((active0 & 0x400000000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 42;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 43 :
                 if ((active0 & 0x400000000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 43;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 44 :
                 if ((active0 & 0x400000000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 44;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 45 :
                 if ((active0 & 0x400000000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 45;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 46 :
                 if ((active0 & 0x400000000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 46;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 47 :
                 if ((active0 & 0x400000000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 47;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             case 48 :
                 if ((active0 & 0x400000000000000L) != 0L) {
                     jjmatchedKind = 295;
                     jjmatchedPos  = 48;
-                    return 22;
+                    return 26;
                 }
                 return -1;
             default :
@@ -869,7 +871,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param pos
      * @param active0
      * @param active1
@@ -883,7 +885,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param pos
      * @param kind
      * @return
@@ -895,7 +897,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     private int jjMoveStringLiteralDfa0_0() {
@@ -960,7 +962,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param active0
      * @param active1
      * @param active2
@@ -981,7 +983,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                  0xc80001fe000c0007L, active3, 0x1c00000000007fL, active4, 0x1f80L);
             case 100 :
                 if ((active1 & 0x20000L) != 0L) {
-                    return jjStartNfaWithStates_0(1, 81, 22);
+                    return jjStartNfaWithStates_0(1, 81, 26);
                 }
                 break;
             case 101 :
@@ -1033,7 +1035,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1102,7 +1104,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                  active3, 0x3800030000000000L, active4, 0x4L);
             case 114 :
                 if ((active1 & 0x10L) != 0L) {
-                    return jjStartNfaWithStates_0(2, 68, 22);
+                    return jjStartNfaWithStates_0(2, 68, 26);
                 }
                 return jjMoveStringLiteralDfa3_0(active0, 0x18005060000L, active1, 0L, active2, 0x8000000L, active3,
                                                  0x2000000000L, active4, 0x800000L);
@@ -1120,7 +1122,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                  active4, 0L);
             case 119 :
                 if ((active0 & 0x8000L) != 0L) {
-                    return jjStartNfaWithStates_0(2, 15, 22);
+                    return jjStartNfaWithStates_0(2, 15, 26);
                 }
                 return jjMoveStringLiteralDfa3_0(active0, 0L, active1, 0x38000000000L, active2, 0L, active3, 0L,
                                                  active4, 0L);
@@ -1141,7 +1143,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1183,21 +1185,21 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                  0x800000000000000L, active3, 0xe0000000000000L, active4, 0xfc000000L);
             case 101 :
                 if ((active0 & 0x10000L) != 0L) {
-                    return jjStartNfaWithStates_0(3, 16, 22);
+                    return jjStartNfaWithStates_0(3, 16, 26);
                 } else if ((active0 & 0x8000000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(3, 63, 22);
+                    return jjStartNfaWithStates_0(3, 63, 26);
                 }
                 return jjMoveStringLiteralDfa4_0(active0, 0xfc007810100000L, active1, 0L, active2, 0x1fe70000000L,
                                                  active3, 0x200000000002000L, active4, 0L);
             case 102 :
                 if ((active0 & 0x1000L) != 0L) {
-                    return jjStartNfaWithStates_0(3, 12, 22);
+                    return jjStartNfaWithStates_0(3, 12, 26);
                 }
                 return jjMoveStringLiteralDfa4_0(active0, 0x2000000000000L, active1, 0L, active2, 0L, active3,
                                                  0x10000000000L, active4, 0L);
             case 104 :
                 if ((active0 & 0x4000L) != 0L) {
-                    return jjStartNfaWithStates_0(3, 14, 22);
+                    return jjStartNfaWithStates_0(3, 14, 26);
                 } else if ((active0 & 0x800000L) != 0L) {
                     jjmatchedKind = 23;
                     jjmatchedPos  = 3;
@@ -1212,7 +1214,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                     jjmatchedKind = 22;
                     jjmatchedPos  = 3;
                 } else if ((active1 & 0x40L) != 0L) {
-                    return jjStartNfaWithStates_0(3, 70, 22);
+                    return jjStartNfaWithStates_0(3, 70, 26);
                 }
                 return jjMoveStringLiteralDfa4_0(active0, 0x780000000L, active1, 0xc0007001800000L, active2,
                                                  0x780000000000000L, active3, 0L, active4, 0x1f80L);
@@ -1243,7 +1245,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                  active3, 0x100000000018000L, active4, 0L);
             case 116 :
                 if ((active3 & 0x2000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(3, 229, 22);
+                    return jjStartNfaWithStates_0(3, 229, 26);
                 }
                 return jjMoveStringLiteralDfa4_0(active0, 0L, active1, 0x200L, active2, 0x20000L, active3, 0L, active4,
                                                  0x3f0000L);
@@ -1266,7 +1268,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1305,7 +1307,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                  active4, 0L);
             case 100 :
                 if ((active0 & 0x100000L) != 0L) {
-                    return jjStartNfaWithStates_0(4, 20, 22);
+                    return jjStartNfaWithStates_0(4, 20, 26);
                 }
                 return jjMoveStringLiteralDfa5_0(active0, 0L, active1, 0x18000000000L, active2, 0x9000000000000000L,
                                                  active3, 0xc000400181L, active4, 0L);
@@ -1377,7 +1379,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1437,9 +1439,9 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                  0L, active4, 0L);
             case 108 :
                 if ((active0 & 0x40000L) != 0L) {
-                    return jjStartNfaWithStates_0(5, 18, 22);
+                    return jjStartNfaWithStates_0(5, 18, 26);
                 } else if ((active0 & 0x400000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(5, 46, 22);
+                    return jjStartNfaWithStates_0(5, 46, 26);
                 }
                 return jjMoveStringLiteralDfa6_0(active0, 0L, active1, 0L, active2, 0xfe00000000L, active3,
                                                  0x10000080000L, active4, 0x33f4000L);
@@ -1457,7 +1459,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                  active3, 0L, active4, 0L);
             case 114 :
                 if ((active0 & 0x200000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(5, 45, 22);
+                    return jjStartNfaWithStates_0(5, 45, 26);
                 }
                 return jjMoveStringLiteralDfa6_0(active0, 0x700018000000000L, active1, 0x400fc1001540000L, active2,
                                                  0x600000000000000L, active3, 0x20782004000L, active4, 0xc0008000L);
@@ -1475,13 +1477,13 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                  active4, 0L);
             case 119 :
                 if ((active0 & 0x20000L) != 0L) {
-                    return jjStartNfaWithStates_0(5, 17, 22);
+                    return jjStartNfaWithStates_0(5, 17, 26);
                 }
                 return jjMoveStringLiteralDfa6_0(active0, 0x1000000000000000L, active1, 0x4000000000000000L, active2,
                                                  0x7fc20000000000L, active3, 0x1040L, active4, 0L);
             case 120 :
                 if ((active1 & 0x1000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(5, 112, 22);
+                    return jjStartNfaWithStates_0(5, 112, 26);
                 }
                 break;
             default :
@@ -1491,7 +1493,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1537,9 +1539,9 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                 return jjMoveStringLiteralDfa7_0(active0, 0L, active1, 0L, active2, 0x60L, active3, 0L, active4, 0x4L);
             case 101 :
                 if ((active3 & 0x10000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(6, 232, 22);
+                    return jjStartNfaWithStates_0(6, 232, 26);
                 } else if ((active4 & 0x800000L) != 0L) {
-                    return jjStartNfaWithStates_0(6, 279, 22);
+                    return jjStartNfaWithStates_0(6, 279, 26);
                 }
                 return jjMoveStringLiteralDfa7_0(active0, 0xf01800004000000L, active1, 0x4200000000000000L, active2,
                                                  0x80000000000L, active3, 0x19248L, active4, 0x3000000L);
@@ -1566,7 +1568,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                  active3, 0x4000L, active4, 0x18L);
             case 110 :
                 if ((active0 & 0x20000000L) != 0L) {
-                    return jjStartNfaWithStates_0(6, 29, 22);
+                    return jjStartNfaWithStates_0(6, 29, 26);
                 }
                 return jjMoveStringLiteralDfa7_0(active0, 0x3000000600200000L, active1, 0L, active2, 0x100000040000L,
                                                  active3, 0x4000000L, active4, 0x4000000L);
@@ -1614,7 +1616,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1649,7 +1651,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                 return jjMoveStringLiteralDfa8_0(active0, 0L, active1, 0L, active2, 0L, active3, 0L, active4, 0x80L);
             case 99 :
                 if ((active2 & 0x100000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(7, 172, 22);
+                    return jjStartNfaWithStates_0(7, 172, 26);
                 }
                 return jjMoveStringLiteralDfa8_0(active0, 0x800067804000000L, active1, 0x300000000004000L, active2,
                                                  0x80010000000L, active3, 0xc000000240000L, active4, 0x100L);
@@ -1664,7 +1666,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                  active3, 0L, active4, 0x20L);
             case 103 :
                 if ((active4 & 0x4000000L) != 0L) {
-                    return jjStartNfaWithStates_0(7, 282, 22);
+                    return jjStartNfaWithStates_0(7, 282, 26);
                 }
                 return jjMoveStringLiteralDfa8_0(active0, 0x200000L, active1, 0L, active2, 0xfe00040000L, active3,
                                                  0x20000000000L, active4, 0x3f0000L);
@@ -1694,11 +1696,11 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                  0x800L);
             case 114 :
                 if ((active3 & 0x40L) != 0L) {
-                    return jjStartNfaWithStates_0(7, 198, 22);
+                    return jjStartNfaWithStates_0(7, 198, 26);
                 } else if ((active3 & 0x1000L) != 0L) {
-                    return jjStartNfaWithStates_0(7, 204, 22);
+                    return jjStartNfaWithStates_0(7, 204, 26);
                 } else if ((active4 & 0x8000000L) != 0L) {
-                    return jjStartNfaWithStates_0(7, 283, 22);
+                    return jjStartNfaWithStates_0(7, 283, 26);
                 }
                 return jjMoveStringLiteralDfa8_0(active0, 0L, active1, 0L, active2, 0x1L, active3, 0x100000000L,
                                                  active4, 0x10000000L);
@@ -1718,9 +1720,9 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                  active3, 0x800000400000000L, active4, 0x1000L);
             case 120 :
                 if ((active1 & 0x8000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(7, 115, 22);
+                    return jjStartNfaWithStates_0(7, 115, 26);
                 } else if ((active2 & 0x200000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(7, 173, 22);
+                    return jjStartNfaWithStates_0(7, 173, 26);
                 }
                 break;
             case 121 :
@@ -1740,7 +1742,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1781,7 +1783,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                     jjmatchedKind = 88;
                     jjmatchedPos  = 8;
                 } else if ((active1 & 0x400000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(8, 122, 22);
+                    return jjStartNfaWithStates_0(8, 122, 26);
                 } else if ((active4 & 0x40000000L) != 0L) {
                     jjmatchedKind = 286;
                     jjmatchedPos  = 8;
@@ -1790,15 +1792,15 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                  active3, 0x100600000000000L, active4, 0x82000010L);
             case 101 :
                 if ((active0 & 0x2000L) != 0L) {
-                    return jjStartNfaWithStates_0(8, 13, 22);
+                    return jjStartNfaWithStates_0(8, 13, 26);
                 } else if ((active0 & 0x2000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(8, 49, 22);
+                    return jjStartNfaWithStates_0(8, 49, 26);
                 } else if ((active1 & 0x20000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(8, 117, 22);
+                    return jjStartNfaWithStates_0(8, 117, 26);
                 } else if ((active1 & 0x800000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(8, 123, 22);
+                    return jjStartNfaWithStates_0(8, 123, 26);
                 } else if ((active4 & 0x20000000L) != 0L) {
-                    return jjStartNfaWithStates_0(8, 285, 22);
+                    return jjStartNfaWithStates_0(8, 285, 26);
                 }
                 return jjMoveStringLiteralDfa9_0(active0, 0x10000000000000L, active1, 0x11020c0060100080L, active2,
                                                  0x100000180680006L, active3, 0x100400800000L, active4, 0x40L);
@@ -1816,7 +1818,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                  0x8000000L, active3, 0x800002000000L, active4, 0x401200L);
             case 107 :
                 if ((active0 & 0x4000000L) != 0L) {
-                    return jjStartNfaWithStates_0(8, 26, 22);
+                    return jjStartNfaWithStates_0(8, 26, 26);
                 }
                 return jjMoveStringLiteralDfa9_0(active0, 0x67800000000L, active1, 0L, active2, 0x10000000L, active3,
                                                  0x10000L, active4, 0L);
@@ -1825,9 +1827,9 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                     jjmatchedKind = 30;
                     jjmatchedPos  = 8;
                 } else if ((active0 & 0x200000000L) != 0L) {
-                    return jjStartNfaWithStates_0(8, 33, 22);
+                    return jjStartNfaWithStates_0(8, 33, 26);
                 } else if ((active0 & 0x1000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(8, 48, 22);
+                    return jjStartNfaWithStates_0(8, 48, 26);
                 }
                 return jjMoveStringLiteralDfa9_0(active0, 0x200000L, active1, 0x10001022L, active2, 0x4140840L,
                                                  active3, 0x4004L, active4, 0L);
@@ -1842,35 +1844,35 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                  0x20004000820L, active4, 0x800L);
             case 112 :
                 if ((active3 & 0x2000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(8, 241, 22);
+                    return jjStartNfaWithStates_0(8, 241, 26);
                 } else if ((active3 & 0x40000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(8, 246, 22);
+                    return jjStartNfaWithStates_0(8, 246, 26);
                 }
                 return jjMoveStringLiteralDfa9_0(active0, 0x400000000000000L, active1, 0x600000040500L, active2, 0L,
                                                  active3, 0x210020000L, active4, 0L);
             case 114 :
                 if ((active0 & 0x10000000L) != 0L) {
-                    return jjStartNfaWithStates_0(8, 28, 22);
+                    return jjStartNfaWithStates_0(8, 28, 26);
                 } else if ((active0 & 0x400000000L) != 0L) {
-                    return jjStartNfaWithStates_0(8, 34, 22);
+                    return jjStartNfaWithStates_0(8, 34, 26);
                 } else if ((active0 & 0x800000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(8, 47, 22);
+                    return jjStartNfaWithStates_0(8, 47, 26);
                 }
                 return jjMoveStringLiteralDfa9_0(active0, 0L, active1, 0L, active2, 0x1000002c008L, active3,
                                                  0x400000000100000L, active4, 0L);
             case 115 :
                 if ((active2 & 0x2000000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(8, 189, 22);
+                    return jjStartNfaWithStates_0(8, 189, 26);
                 }
                 return jjMoveStringLiteralDfa9_0(active0, 0L, active1, 0x80000000000000L, active2, 0x300L, active3,
                                                  0x90000040000000L, active4, 0L);
             case 116 :
                 if ((active0 & 0x800000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(8, 59, 22);
+                    return jjStartNfaWithStates_0(8, 59, 26);
                 } else if ((active3 & 0x8L) != 0L) {
-                    return jjStartNfaWithStates_0(8, 195, 22);
+                    return jjStartNfaWithStates_0(8, 195, 26);
                 } else if ((active3 & 0x200L) != 0L) {
-                    return jjStartNfaWithStates_0(8, 201, 22);
+                    return jjStartNfaWithStates_0(8, 201, 26);
                 }
                 return jjMoveStringLiteralDfa9_0(active0, 0x300000000000000L, active1, 0x10000000000000L, active2,
                                                  0x20000000400L, active3, 0L, active4, 0xc000L);
@@ -1894,7 +1896,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -1943,11 +1945,11 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   active3, 0x1000000000L, active4, 0x461000L);
             case 101 :
                 if ((active0 & 0x200000L) != 0L) {
-                    return jjStartNfaWithStates_0(9, 21, 22);
+                    return jjStartNfaWithStates_0(9, 21, 26);
                 } else if ((active4 & 0x10L) != 0L) {
-                    return jjStartNfaWithStates_0(9, 260, 22);
+                    return jjStartNfaWithStates_0(9, 260, 26);
                 } else if ((active4 & 0x10000000L) != 0L) {
-                    return jjStartNfaWithStates_0(9, 284, 22);
+                    return jjStartNfaWithStates_0(9, 284, 26);
                 }
                 return jjMoveStringLiteralDfa10_0(active0, 0x300000000000000L, active1, 0x82600000049000L, active2,
                                                   0x48800L, active3, 0x600200100004L, active4, 0L);
@@ -1956,14 +1958,14 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   active4, 0x180000L);
             case 103 :
                 if ((active3 & 0x10L) != 0L) {
-                    return jjStartNfaWithStates_0(9, 196, 22);
+                    return jjStartNfaWithStates_0(9, 196, 26);
                 } else if ((active3 & 0x400L) != 0L) {
-                    return jjStartNfaWithStates_0(9, 202, 22);
+                    return jjStartNfaWithStates_0(9, 202, 26);
                 }
                 return jjMoveStringLiteralDfa10_0(active0, 0L, active1, 0L, active2, 0x8L, active3, 0L, active4, 0L);
             case 104 :
                 if ((active2 & 0x20000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(9, 169, 22);
+                    return jjStartNfaWithStates_0(9, 169, 26);
                 }
                 return jjMoveStringLiteralDfa10_0(active0, 0L, active1, 0x4000000000000100L, active2, 0L, active3,
                                                   0x40002000L, active4, 0L);
@@ -1975,9 +1977,9 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   0x2L, active4, 0L);
             case 108 :
                 if ((active0 & 0x80000000L) != 0L) {
-                    return jjStartNfaWithStates_0(9, 31, 22);
+                    return jjStartNfaWithStates_0(9, 31, 26);
                 } else if ((active1 & 0x2L) != 0L) {
-                    return jjStartNfaWithStates_0(9, 65, 22);
+                    return jjStartNfaWithStates_0(9, 65, 26);
                 }
                 return jjMoveStringLiteralDfa10_0(active0, 0x400000000000000L, active1, 0x100000000000400L, active2,
                                                   0x1f800000000000L, active3, 0L, active4, 0x3L);
@@ -1999,21 +2001,21 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   active4, 0x400L);
             case 114 :
                 if ((active0 & 0x100000000L) != 0L) {
-                    return jjStartNfaWithStates_0(9, 32, 22);
+                    return jjStartNfaWithStates_0(9, 32, 26);
                 }
                 return jjMoveStringLiteralDfa10_0(active0, 0L, active1, 0x60000000L, active2, 0x100000000080000L,
                                                   active3, 0L, active4, 0x8L);
             case 115 :
                 if ((active1 & 0x80L) != 0L) {
-                    return jjStartNfaWithStates_0(9, 71, 22);
+                    return jjStartNfaWithStates_0(9, 71, 26);
                 } else if ((active3 & 0x20000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(9, 245, 22);
+                    return jjStartNfaWithStates_0(9, 245, 26);
                 }
                 return jjMoveStringLiteralDfa10_0(active0, 0L, active1, 0L, active2, 0x20000020000300L, active3,
                                                   0x1c0000000000L, active4, 0x220L);
             case 116 :
                 if ((active2 & 0x4000L) != 0L) {
-                    return jjStartNfaWithStates_0(9, 142, 22);
+                    return jjStartNfaWithStates_0(9, 142, 26);
                 }
                 return jjMoveStringLiteralDfa10_0(active0, 0L, active1, 0x10000000L, active2, 0x4000000000000000L,
                                                   active3, 0x8000c000000000L, active4, 0L);
@@ -2028,15 +2030,15 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                     jjmatchedKind = 90;
                     jjmatchedPos  = 9;
                 } else if ((active3 & 0x400000L) != 0L) {
-                    return jjStartNfaWithStates_0(9, 214, 22);
+                    return jjStartNfaWithStates_0(9, 214, 26);
                 }
                 return jjMoveStringLiteralDfa10_0(active0, 0L, active1, 0x80000000L, active2, 0x40000000000L, active3,
                                                   0x800000L, active4, 0L);
             case 121 :
                 if ((active1 & 0x200000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(9, 121, 22);
+                    return jjStartNfaWithStates_0(9, 121, 26);
                 } else if ((active2 & 0x80000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(9, 171, 22);
+                    return jjStartNfaWithStates_0(9, 171, 26);
                 }
                 return jjMoveStringLiteralDfa10_0(active0, 0L, active1, 0L, active2, 0L, active3, 0x100000000000000L,
                                                   active4, 0L);
@@ -2050,7 +2052,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -2090,20 +2092,20 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   0x4400000010000L, active4, 0L);
             case 100 :
                 if ((active1 & 0x2000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(10, 113, 22);
+                    return jjStartNfaWithStates_0(10, 113, 26);
                 } else if ((active3 & 0x100000000L) != 0L) {
-                    return jjStartNfaWithStates_0(10, 224, 22);
+                    return jjStartNfaWithStates_0(10, 224, 26);
                 }
                 return jjMoveStringLiteralDfa11_0(active0, 0x30000000000000L, active1, 0x10001000000000L, active2,
                                                   0x20000L, active3, 0L, active4, 0L);
             case 101 :
                 if ((active1 & 0x1L) != 0L) {
-                    return jjStartNfaWithStates_0(10, 64, 22);
+                    return jjStartNfaWithStates_0(10, 64, 26);
                 } else if ((active1 & 0x400000L) != 0L) {
                     jjmatchedKind = 86;
                     jjmatchedPos  = 10;
                 } else if ((active4 & 0x400000L) != 0L) {
-                    return jjStartNfaWithStates_0(10, 278, 22);
+                    return jjStartNfaWithStates_0(10, 278, 26);
                 }
                 return jjMoveStringLiteralDfa11_0(active0, 0L, active1, 0xf00000040000L, active2, 0x804020000000L,
                                                   active3, 0x80000280000820L, active4, 0x820L);
@@ -2127,23 +2129,23 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   0x2000000L, active4, 0x80L);
             case 108 :
                 if ((active0 & 0x1000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(10, 36, 22);
+                    return jjStartNfaWithStates_0(10, 36, 26);
                 } else if ((active0 & 0x40000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(10, 42, 22);
+                    return jjStartNfaWithStates_0(10, 42, 26);
                 } else if ((active2 & 0x80000000L) != 0L) {
-                    return jjStartNfaWithStates_0(10, 159, 22);
+                    return jjStartNfaWithStates_0(10, 159, 26);
                 }
                 return jjMoveStringLiteralDfa11_0(active0, 0L, active1, 0L, active2, 0L, active3, 0x20000000000L,
                                                   active4, 0x104L);
             case 109 :
                 if ((active4 & 0x80000000L) != 0L) {
-                    return jjStartNfaWithStates_0(10, 287, 22);
+                    return jjStartNfaWithStates_0(10, 287, 26);
                 }
                 return jjMoveStringLiteralDfa11_0(active0, 0x1040000000000000L, active1, 0x800200000L, active2, 0L,
                                                   active3, 0x8000000280000L, active4, 0L);
             case 110 :
                 if ((active3 & 0x1000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(10, 240, 22);
+                    return jjStartNfaWithStates_0(10, 240, 26);
                 }
                 return jjMoveStringLiteralDfa11_0(active0, 0L, active1, 0x4000L, active2, 0x8000008000000020L, active3,
                                                   0x3000000000000080L, active4, 0x200000L);
@@ -2155,27 +2157,27 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   active4, 0L);
             case 114 :
                 if ((active0 & 0x800000000L) != 0L) {
-                    return jjStartNfaWithStates_0(10, 35, 22);
+                    return jjStartNfaWithStates_0(10, 35, 26);
                 } else if ((active0 & 0x20000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(10, 41, 22);
+                    return jjStartNfaWithStates_0(10, 41, 26);
                 } else if ((active2 & 0x100000000L) != 0L) {
-                    return jjStartNfaWithStates_0(10, 160, 22);
+                    return jjStartNfaWithStates_0(10, 160, 26);
                 }
                 return jjMoveStringLiteralDfa11_0(active0, 0L, active1, 0x40000000000000L, active2, 0L, active3,
                                                   0x200000000020000L, active4, 0xc000L);
             case 115 :
                 if ((active1 & 0x80000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(10, 119, 22);
+                    return jjStartNfaWithStates_0(10, 119, 26);
                 }
                 return jjMoveStringLiteralDfa11_0(active0, 0L, active1, 0L, active2, 0x1000L, active3,
                                                   0x400100000000000L, active4, 0x2000000L);
             case 116 :
                 if ((active1 & 0x4000000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(10, 126, 22);
+                    return jjStartNfaWithStates_0(10, 126, 26);
                 } else if ((active2 & 0x2000000L) != 0L) {
-                    return jjStartNfaWithStates_0(10, 153, 22);
+                    return jjStartNfaWithStates_0(10, 153, 26);
                 } else if ((active4 & 0x200L) != 0L) {
-                    return jjStartNfaWithStates_0(10, 265, 22);
+                    return jjStartNfaWithStates_0(10, 265, 26);
                 }
                 return jjMoveStringLiteralDfa11_0(active0, 0x8000000000000L, active1, 0x2000L, active2,
                                                   0x20000000100000L, active3, 0xc0000808000L, active4, 0x3000L);
@@ -2184,13 +2186,13 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   active4, 0L);
             case 119 :
                 if ((active1 & 0x8000L) != 0L) {
-                    return jjStartNfaWithStates_0(10, 79, 22);
+                    return jjStartNfaWithStates_0(10, 79, 26);
                 }
                 return jjMoveStringLiteralDfa11_0(active0, 0L, active1, 0L, active2, 0x10000000040L, active3,
                                                   0x38000000L, active4, 0L);
             case 120 :
                 if ((active3 & 0x8000000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(10, 255, 22);
+                    return jjStartNfaWithStates_0(10, 255, 26);
                 }
                 break;
             case 121 :
@@ -2205,7 +2207,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -2240,7 +2242,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                 return jjMoveStringLiteralDfa12_0(active0, 0L, active1, 0L, active2, 0x1L, active3, 0L, active4, 0L);
             case 99 :
                 if ((active1 & 0x100L) != 0L) {
-                    return jjStartNfaWithStates_0(11, 72, 22);
+                    return jjStartNfaWithStates_0(11, 72, 26);
                 }
                 return jjMoveStringLiteralDfa12_0(active0, 0L, active1, 0L, active2, 0x4000000000000000L, active3,
                                                   0x2L, active4, 0L);
@@ -2249,9 +2251,9 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   active3, 0x200000000L, active4, 0L);
             case 101 :
                 if ((active0 & 0x20000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(11, 53, 22);
+                    return jjStartNfaWithStates_0(11, 53, 26);
                 } else if ((active3 & 0x10000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(11, 244, 22);
+                    return jjStartNfaWithStates_0(11, 244, 26);
                 }
                 return jjMoveStringLiteralDfa12_0(active0, 0x90000000000000L, active1, 0x1800200020L, active2, 0x8030L,
                                                   active3, 0xc0000040000L, active4, 0x100L);
@@ -2259,15 +2261,15 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                 return jjMoveStringLiteralDfa12_0(active0, 0L, active1, 0L, active2, 0L, active3, 0L, active4, 0x40L);
             case 103 :
                 if ((active2 & 0x8000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(11, 167, 22);
+                    return jjStartNfaWithStates_0(11, 167, 26);
                 } else if ((active4 & 0x200000L) != 0L) {
-                    return jjStartNfaWithStates_0(11, 277, 22);
+                    return jjStartNfaWithStates_0(11, 277, 26);
                 }
                 return jjMoveStringLiteralDfa12_0(active0, 0L, active1, 0x4000L, active2, 0x801f000000000000L, active3,
                                                   0x80L, active4, 0L);
             case 104 :
                 if ((active4 & 0x1000L) != 0L) {
-                    return jjStartNfaWithStates_0(11, 268, 22);
+                    return jjStartNfaWithStates_0(11, 268, 26);
                 }
                 return jjMoveStringLiteralDfa12_0(active0, 0x8000000000000L, active1, 0L, active2, 0L, active3,
                                                   0x400000000L, active4, 0L);
@@ -2279,7 +2281,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   0L);
             case 108 :
                 if ((active4 & 0x1L) != 0L) {
-                    return jjStartNfaWithStates_0(11, 256, 22);
+                    return jjStartNfaWithStates_0(11, 256, 26);
                 }
                 return jjMoveStringLiteralDfa12_0(active0, 0L, active1, 0L, active2, 0x800000000000000L, active3,
                                                   0x81002000L, active4, 0x1000004L);
@@ -2288,9 +2290,9 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   0x40200000000L, active3, 0L, active4, 0x10000L);
             case 110 :
                 if ((active2 & 0x8L) != 0L) {
-                    return jjStartNfaWithStates_0(11, 131, 22);
+                    return jjStartNfaWithStates_0(11, 131, 26);
                 } else if ((active3 & 0x800000000L) != 0L) {
-                    return jjStartNfaWithStates_0(11, 227, 22);
+                    return jjStartNfaWithStates_0(11, 227, 26);
                 }
                 return jjMoveStringLiteralDfa12_0(active0, 0x4000000000000000L, active1, 0x602000200L, active2,
                                                   0x800020000000L, active3, 0x4000000000820L, active4, 0x400L);
@@ -2299,43 +2301,43 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   0x2000L);
             case 112 :
                 if ((active3 & 0x80000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(11, 247, 22);
+                    return jjStartNfaWithStates_0(11, 247, 26);
                 }
                 return jjMoveStringLiteralDfa12_0(active0, 0L, active1, 0L, active2, 0x200L, active3, 0x4L, active4,
                                                   0L);
             case 114 :
                 if ((active2 & 0x800000000L) != 0L) {
-                    return jjStartNfaWithStates_0(11, 163, 22);
+                    return jjStartNfaWithStates_0(11, 163, 26);
                 } else if ((active4 & 0x2L) != 0L) {
-                    return jjStartNfaWithStates_0(11, 257, 22);
+                    return jjStartNfaWithStates_0(11, 257, 26);
                 } else if ((active4 & 0x40000L) != 0L) {
-                    return jjStartNfaWithStates_0(11, 274, 22);
+                    return jjStartNfaWithStates_0(11, 274, 26);
                 }
                 return jjMoveStringLiteralDfa12_0(active0, 0L, active1, 0x6060800000L, active2, 0x1100004000080006L,
                                                   active3, 0xd000800000L, active4, 0x800L);
             case 115 :
                 if ((active1 & 0x800000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(11, 111, 22);
+                    return jjStartNfaWithStates_0(11, 111, 26);
                 } else if ((active3 & 0x2000000L) != 0L) {
-                    return jjStartNfaWithStates_0(11, 217, 22);
+                    return jjStartNfaWithStates_0(11, 217, 26);
                 }
                 return jjMoveStringLiteralDfa12_0(active0, 0L, active1, 0L, active2, 0x40000L, active3,
                                                   0x108000000100000L, active4, 0L);
             case 116 :
                 if ((active1 & 0x1000L) != 0L) {
-                    return jjStartNfaWithStates_0(11, 76, 22);
+                    return jjStartNfaWithStates_0(11, 76, 26);
                 } else if ((active2 & 0x10000L) != 0L) {
-                    return jjStartNfaWithStates_0(11, 144, 22);
+                    return jjStartNfaWithStates_0(11, 144, 26);
                 } else if ((active3 & 0x20000L) != 0L) {
-                    return jjStartNfaWithStates_0(11, 209, 22);
+                    return jjStartNfaWithStates_0(11, 209, 26);
                 } else if ((active3 & 0x800000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(11, 239, 22);
+                    return jjStartNfaWithStates_0(11, 239, 26);
                 } else if ((active4 & 0x20L) != 0L) {
-                    return jjStartNfaWithStates_0(11, 261, 22);
+                    return jjStartNfaWithStates_0(11, 261, 26);
                 } else if ((active4 & 0x4000L) != 0L) {
-                    return jjStartNfaWithStates_0(11, 270, 22);
+                    return jjStartNfaWithStates_0(11, 270, 26);
                 } else if ((active4 & 0x8000L) != 0L) {
-                    return jjStartNfaWithStates_0(11, 271, 22);
+                    return jjStartNfaWithStates_0(11, 271, 26);
                 }
                 return jjMoveStringLiteralDfa12_0(active0, 0L, active1, 0L, active2, 0x405400000L, active3,
                                                   0x400000000000000L, active4, 0x2020000L);
@@ -2365,7 +2367,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -2405,17 +2407,17 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   0x600000000000000L, active3, 0x4800000000000000L, active4, 0L);
             case 100 :
                 if ((active0 & 0x10000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(12, 52, 22);
+                    return jjStartNfaWithStates_0(12, 52, 26);
                 } else if ((active1 & 0x200L) != 0L) {
-                    return jjStartNfaWithStates_0(12, 73, 22);
+                    return jjStartNfaWithStates_0(12, 73, 26);
                 }
                 return jjMoveStringLiteralDfa13_0(active0, 0L, active1, 0x100000000000L, active2, 0x20000000L, active3,
                                                   0L, active4, 0x80L);
             case 101 :
                 if ((active2 & 0x800000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(12, 187, 22);
+                    return jjStartNfaWithStates_0(12, 187, 26);
                 } else if ((active4 & 0x1000000L) != 0L) {
-                    return jjStartNfaWithStates_0(12, 280, 22);
+                    return jjStartNfaWithStates_0(12, 280, 26);
                 }
                 return jjMoveStringLiteralDfa13_0(active0, 0x2400000000000000L, active1, 0x18190004400L, active2,
                                                   0x3400000306L, active3, 0x400000000100101L, active4, 0x1a0400L);
@@ -2436,7 +2438,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   0x20000000002L, active4, 0L);
             case 108 :
                 if ((active0 & 0x10000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(12, 40, 22);
+                    return jjStartNfaWithStates_0(12, 40, 26);
                 }
                 return jjMoveStringLiteralDfa13_0(active0, 0L, active1, 0x1000000000L, active2, 0x8000000000000000L,
                                                   active3, 0x84080L, active4, 0L);
@@ -2445,7 +2447,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   active3, 0L, active4, 0L);
             case 110 :
                 if ((active2 & 0x40L) != 0L) {
-                    return jjStartNfaWithStates_0(12, 134, 22);
+                    return jjStartNfaWithStates_0(12, 134, 26);
                 }
                 return jjMoveStringLiteralDfa13_0(active0, 0L, active1, 0x800200000L, active2, 0L, active3, 0L,
                                                   active4, 0L);
@@ -2461,25 +2463,25 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   0x80000000000L, active4, 0x10000L);
             case 114 :
                 if ((active0 & 0x8000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(12, 39, 22);
+                    return jjStartNfaWithStates_0(12, 39, 26);
                 }
                 return jjMoveStringLiteralDfa13_0(active0, 0L, active1, 0x2000000000000020L, active2,
                                                   0x20000000008000L, active3, 0L, active4, 0x2000L);
             case 115 :
                 if ((active4 & 0x100L) != 0L) {
-                    return jjStartNfaWithStates_0(12, 264, 22);
+                    return jjStartNfaWithStates_0(12, 264, 26);
                 }
                 return jjMoveStringLiteralDfa13_0(active0, 0L, active1, 0x10000000000000L, active2, 0x4000000000L,
                                                   active3, 0L, active4, 0x8L);
             case 116 :
                 if ((active2 & 0x80000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(12, 183, 22);
+                    return jjStartNfaWithStates_0(12, 183, 26);
                 } else if ((active3 & 0x20L) != 0L) {
-                    return jjStartNfaWithStates_0(12, 197, 22);
+                    return jjStartNfaWithStates_0(12, 197, 26);
                 } else if ((active3 & 0x800L) != 0L) {
-                    return jjStartNfaWithStates_0(12, 203, 22);
+                    return jjStartNfaWithStates_0(12, 203, 26);
                 } else if ((active3 & 0x400000000L) != 0L) {
-                    return jjStartNfaWithStates_0(12, 226, 22);
+                    return jjStartNfaWithStates_0(12, 226, 26);
                 }
                 return jjMoveStringLiteralDfa13_0(active0, 0L, active1, 0x40000000002000L, active2, 0x40000040040000L,
                                                   active3, 0x3304400040000000L, active4, 0L);
@@ -2501,7 +2503,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -2534,12 +2536,12 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   active3, 0L, active4, 0L);
             case 100 :
                 if ((active2 & 0x400000000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 162, 22);
+                    return jjStartNfaWithStates_0(13, 162, 26);
                 } else if ((active2 & 0x1000000000L) != 0L) {
                     jjmatchedKind = 164;
                     jjmatchedPos  = 13;
                 } else if ((active4 & 0x20000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 273, 22);
+                    return jjStartNfaWithStates_0(13, 273, 26);
                 } else if ((active4 & 0x80000L) != 0L) {
                     jjmatchedKind = 275;
                     jjmatchedPos  = 13;
@@ -2548,17 +2550,17 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   active3, 0L, active4, 0x100000L);
             case 101 :
                 if ((active1 & 0x40000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 118, 22);
+                    return jjStartNfaWithStates_0(13, 118, 26);
                 } else if ((active2 & 0x1000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 140, 22);
+                    return jjStartNfaWithStates_0(13, 140, 26);
                 } else if ((active2 & 0x100000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 148, 22);
+                    return jjStartNfaWithStates_0(13, 148, 26);
                 } else if ((active2 & 0x8000000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 191, 22);
+                    return jjStartNfaWithStates_0(13, 191, 26);
                 } else if ((active3 & 0x80L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 199, 22);
+                    return jjStartNfaWithStates_0(13, 199, 26);
                 } else if ((active3 & 0x200000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 249, 22);
+                    return jjStartNfaWithStates_0(13, 249, 26);
                 }
                 return jjMoveStringLiteralDfa14_0(active0, 0L, active1, 0x2000100000000000L, active2, 0x48000L,
                                                   active3, 0x100100001208000L, active4, 0L);
@@ -2567,7 +2569,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   active3, 0x4000L, active4, 0L);
             case 104 :
                 if ((active2 & 0x40000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 182, 22);
+                    return jjStartNfaWithStates_0(13, 182, 26);
                 }
                 return jjMoveStringLiteralDfa14_0(active0, 0L, active1, 0L, active2, 0L, active3, 0x400000000000L,
                                                   active4, 0L);
@@ -2576,7 +2578,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   active3, 0x4000020000000000L, active4, 0x80L);
             case 108 :
                 if ((active3 & 0x4000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 230, 22);
+                    return jjStartNfaWithStates_0(13, 230, 26);
                 }
                 return jjMoveStringLiteralDfa14_0(active0, 0x6000000000L, active1, 0x8000000180000000L, active2,
                                                   0x4000000010000101L, active3, 0L, active4, 0x8L);
@@ -2585,11 +2587,11 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   0x280010000L, active4, 0L);
             case 110 :
                 if ((active2 & 0x80L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 135, 22);
+                    return jjStartNfaWithStates_0(13, 135, 26);
                 } else if ((active2 & 0x400L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 138, 22);
+                    return jjStartNfaWithStates_0(13, 138, 26);
                 } else if ((active2 & 0x800L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 139, 22);
+                    return jjStartNfaWithStates_0(13, 139, 26);
                 }
                 return jjMoveStringLiteralDfa14_0(active0, 0x1040000000000000L, active1, 0x20000000000L, active2, 0L,
                                                   active3, 0x4000000L, active4, 0x2000400L);
@@ -2598,36 +2600,36 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   0x3000000000000000L, active4, 0L);
             case 112 :
                 if ((active3 & 0x400000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 250, 22);
+                    return jjStartNfaWithStates_0(13, 250, 26);
                 }
                 break;
             case 114 :
                 if ((active1 & 0x400L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 74, 22);
+                    return jjStartNfaWithStates_0(13, 74, 26);
                 } else if ((active2 & 0x400000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 150, 22);
+                    return jjStartNfaWithStates_0(13, 150, 26);
                 } else if ((active2 & 0x1000000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 152, 22);
+                    return jjStartNfaWithStates_0(13, 152, 26);
                 } else if ((active3 & 0x1L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 192, 22);
+                    return jjStartNfaWithStates_0(13, 192, 26);
                 } else if ((active3 & 0x100L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 200, 22);
+                    return jjStartNfaWithStates_0(13, 200, 26);
                 } else if ((active3 & 0x40000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 210, 22);
+                    return jjStartNfaWithStates_0(13, 210, 26);
                 } else if ((active3 & 0x8000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 231, 22);
+                    return jjStartNfaWithStates_0(13, 231, 26);
                 }
                 return jjMoveStringLiteralDfa14_0(active0, 0x400000000000000L, active1, 0x18000000000L, active2,
                                                   0x200000200L, active3, 0L, active4, 0x10800L);
             case 115 :
                 if ((active0 & 0x2000000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 61, 22);
+                    return jjStartNfaWithStates_0(13, 61, 26);
                 } else if ((active2 & 0x20000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 145, 22);
+                    return jjStartNfaWithStates_0(13, 145, 26);
                 } else if ((active3 & 0x2L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 193, 22);
+                    return jjStartNfaWithStates_0(13, 193, 26);
                 } else if ((active3 & 0x2000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 205, 22);
+                    return jjStartNfaWithStates_0(13, 205, 26);
                 }
                 return jjMoveStringLiteralDfa14_0(active0, 0L, active1, 0L, active2, 0L, active3, 0L, active4, 0x40L);
             case 116 :
@@ -2635,17 +2637,17 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                     jjmatchedKind = 85;
                     jjmatchedPos  = 13;
                 } else if ((active1 & 0x10000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 116, 22);
+                    return jjStartNfaWithStates_0(13, 116, 26);
                 } else if ((active2 & 0x10000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 168, 22);
+                    return jjStartNfaWithStates_0(13, 168, 26);
                 } else if ((active2 & 0x20000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 181, 22);
+                    return jjStartNfaWithStates_0(13, 181, 26);
                 } else if ((active3 & 0x8000000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 219, 22);
+                    return jjStartNfaWithStates_0(13, 219, 26);
                 } else if ((active3 & 0x10000000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 220, 22);
+                    return jjStartNfaWithStates_0(13, 220, 26);
                 } else if ((active3 & 0x20000000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 221, 22);
+                    return jjStartNfaWithStates_0(13, 221, 26);
                 }
                 return jjMoveStringLiteralDfa14_0(active0, 0x80000000000000L, active1, 0x1860000000L, active2,
                                                   0x700800000080000L, active3, 0x800001000180000L, active4, 0L);
@@ -2659,9 +2661,9 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                 return jjMoveStringLiteralDfa14_0(active0, 0L, active1, 0L, active2, 0x30L, active3, 0x4L, active4, 0L);
             case 120 :
                 if ((active1 & 0x100000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 120, 22);
+                    return jjStartNfaWithStates_0(13, 120, 26);
                 } else if ((active1 & 0x1000000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(13, 124, 22);
+                    return jjStartNfaWithStates_0(13, 124, 26);
                 }
                 break;
             case 121 :
@@ -2673,7 +2675,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -2703,7 +2705,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   0x2000000206L, active3, 0x1088000L, active4, 0x100000L);
             case 97 :
                 if ((active1 & 0x2000000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(14, 125, 22);
+                    return jjStartNfaWithStates_0(14, 125, 26);
                 }
                 return jjMoveStringLiteralDfa15_0(active0, 0L, active1, 0x601010040000L, active2, 0x1000000000100L,
                                                   active3, 0x280010000L, active4, 0x800L);
@@ -2712,28 +2714,28 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   0x20000000000L, active4, 0x2000000L);
             case 100 :
                 if ((active0 & 0x1000000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(14, 60, 22);
+                    return jjStartNfaWithStates_0(14, 60, 26);
                 }
                 return jjMoveStringLiteralDfa15_0(active0, 0x40000000000000L, active1, 0x600000000L, active2, 0L,
                                                   active3, 0L, active4, 0L);
             case 101 :
                 if ((active1 & 0x8000000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(14, 127, 22);
+                    return jjStartNfaWithStates_0(14, 127, 26);
                 } else if ((active2 & 0x8000L) != 0L) {
-                    return jjStartNfaWithStates_0(14, 143, 22);
+                    return jjStartNfaWithStates_0(14, 143, 26);
                 } else if ((active2 & 0x80000L) != 0L) {
                     jjmatchedKind = 147;
                     jjmatchedPos  = 14;
                 } else if ((active2 & 0x4000000L) != 0L) {
-                    return jjStartNfaWithStates_0(14, 154, 22);
+                    return jjStartNfaWithStates_0(14, 154, 26);
                 } else if ((active2 & 0x100000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(14, 184, 22);
+                    return jjStartNfaWithStates_0(14, 184, 26);
                 }
                 return jjMoveStringLiteralDfa15_0(active0, 0L, active1, 0xc0060000000L, active2, 0x4000040200000000L,
                                                   active3, 0x4L, active4, 0x1004cL);
             case 102 :
                 if ((active0 & 0x8000000L) != 0L) {
-                    return jjStartNfaWithStates_0(14, 27, 22);
+                    return jjStartNfaWithStates_0(14, 27, 26);
                 }
                 return jjMoveStringLiteralDfa15_0(active0, 0L, active1, 0L, active2, 0x8000000L, active3, 0L, active4,
                                                   0L);
@@ -2741,7 +2743,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                 return jjMoveStringLiteralDfa15_0(active0, 0L, active1, 0x4000L, active2, 0L, active3, 0L, active4, 0L);
             case 104 :
                 if ((active2 & 0x800000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(14, 175, 22);
+                    return jjStartNfaWithStates_0(14, 175, 26);
                 }
                 break;
             case 105 :
@@ -2752,7 +2754,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   0L);
             case 108 :
                 if ((active3 & 0x80000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(14, 235, 22);
+                    return jjStartNfaWithStates_0(14, 235, 26);
                 }
                 return jjMoveStringLiteralDfa15_0(active0, 0L, active1, 0x100000000800L, active2, 0L, active3, 0L,
                                                   active4, 0L);
@@ -2771,31 +2773,31 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   0x800000040000000L, active4, 0L);
             case 112 :
                 if ((active2 & 0x40000L) != 0L) {
-                    return jjStartNfaWithStates_0(14, 146, 22);
+                    return jjStartNfaWithStates_0(14, 146, 26);
                 } else if ((active3 & 0x100000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(14, 248, 22);
+                    return jjStartNfaWithStates_0(14, 248, 26);
                 }
                 return jjMoveStringLiteralDfa15_0(active0, 0L, active1, 0x2000L, active2, 0x60000000L, active3,
                                                   0x3000000000000000L, active4, 0L);
             case 114 :
                 if ((active3 & 0x400000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(14, 238, 22);
+                    return jjStartNfaWithStates_0(14, 238, 26);
                 }
                 return jjMoveStringLiteralDfa15_0(active0, 0x300000000000000L, active1, 0L, active2, 0L, active3, 0L,
                                                   active4, 0L);
             case 115 :
                 if ((active3 & 0x4000L) != 0L) {
-                    return jjStartNfaWithStates_0(14, 206, 22);
+                    return jjStartNfaWithStates_0(14, 206, 26);
                 } else if ((active3 & 0x100000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(14, 236, 22);
+                    return jjStartNfaWithStates_0(14, 236, 26);
                 }
                 return jjMoveStringLiteralDfa15_0(active0, 0L, active1, 0L, active2, 0L, active3, 0x8000000200000L,
                                                   active4, 0x80L);
             case 116 :
                 if ((active2 & 0x1000000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(14, 188, 22);
+                    return jjStartNfaWithStates_0(14, 188, 26);
                 } else if ((active4 & 0x400L) != 0L) {
-                    return jjStartNfaWithStates_0(14, 266, 22);
+                    return jjStartNfaWithStates_0(14, 266, 26);
                 }
                 return jjMoveStringLiteralDfa15_0(active0, 0x8006000000000L, active1, 0x180000020L, active2,
                                                   0x10000000L, active3, 0x4000000000000000L, active4, 0L);
@@ -2816,7 +2818,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -2854,7 +2856,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   active4, 0L);
             case 101 :
                 if ((active4 & 0x2000000L) != 0L) {
-                    return jjStartNfaWithStates_0(15, 281, 22);
+                    return jjStartNfaWithStates_0(15, 281, 26);
                 }
                 return jjMoveStringLiteralDfa16_0(active0, 0x4000000000000000L, active1, 0x600002800L, active2,
                                                   0x60000000L, active3, 0x4000000L, active4, 0x8L);
@@ -2863,7 +2865,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   active4, 0L);
             case 103 :
                 if ((active2 & 0x10000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(15, 180, 22);
+                    return jjStartNfaWithStates_0(15, 180, 26);
                 }
                 break;
             case 105 :
@@ -2874,19 +2876,19 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   active4, 0L);
             case 108 :
                 if ((active2 & 0x2L) != 0L) {
-                    return jjStartNfaWithStates_0(15, 129, 22);
+                    return jjStartNfaWithStates_0(15, 129, 26);
                 } else if ((active4 & 0x4L) != 0L) {
-                    return jjStartNfaWithStates_0(15, 258, 22);
+                    return jjStartNfaWithStates_0(15, 258, 26);
                 }
                 return jjMoveStringLiteralDfa16_0(active0, 0L, active1, 0xc0000000000L, active2, 0L, active3, 0L,
                                                   active4, 0L);
             case 110 :
                 if ((active2 & 0x10L) != 0L) {
-                    return jjStartNfaWithStates_0(15, 132, 22);
+                    return jjStartNfaWithStates_0(15, 132, 26);
                 } else if ((active2 & 0x20L) != 0L) {
-                    return jjStartNfaWithStates_0(15, 133, 22);
+                    return jjStartNfaWithStates_0(15, 133, 26);
                 } else if ((active2 & 0x4000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(15, 166, 22);
+                    return jjStartNfaWithStates_0(15, 166, 26);
                 }
                 return jjMoveStringLiteralDfa16_0(active0, 0L, active1, 0L, active2, 0x2000000000L, active3, 0L,
                                                   active4, 0x100000L);
@@ -2898,27 +2900,27 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   0L);
             case 114 :
                 if ((active2 & 0x2000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(15, 177, 22);
+                    return jjStartNfaWithStates_0(15, 177, 26);
                 } else if ((active3 & 0x4L) != 0L) {
-                    return jjStartNfaWithStates_0(15, 194, 22);
+                    return jjStartNfaWithStates_0(15, 194, 26);
                 } else if ((active3 & 0x800000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(15, 251, 22);
+                    return jjStartNfaWithStates_0(15, 251, 26);
                 }
                 return jjMoveStringLiteralDfa16_0(active0, 0L, active1, 0x18000000000L, active2, 0x600000000000000L,
                                                   active3, 0x10000L, active4, 0L);
             case 115 :
                 if ((active2 & 0x10000000L) != 0L) {
-                    return jjStartNfaWithStates_0(15, 156, 22);
+                    return jjStartNfaWithStates_0(15, 156, 26);
                 } else if ((active2 & 0x40000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(15, 170, 22);
+                    return jjStartNfaWithStates_0(15, 170, 26);
                 }
                 return jjMoveStringLiteralDfa16_0(active0, 0L, active1, 0L, active2, 0x200000000L, active3, 0L,
                                                   active4, 0x10000L);
             case 116 :
                 if ((active4 & 0x40L) != 0L) {
-                    return jjStartNfaWithStates_0(15, 262, 22);
+                    return jjStartNfaWithStates_0(15, 262, 26);
                 } else if ((active4 & 0x80L) != 0L) {
-                    return jjStartNfaWithStates_0(15, 263, 22);
+                    return jjStartNfaWithStates_0(15, 263, 26);
                 }
                 return jjMoveStringLiteralDfa16_0(active0, 0L, active1, 0x100000000000L, active2, 0x1000000000001L,
                                                   active3, 0L, active4, 0x800L);
@@ -2927,7 +2929,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   active4, 0L);
             case 119 :
                 if ((active2 & 0x4L) != 0L) {
-                    return jjStartNfaWithStates_0(15, 130, 22);
+                    return jjStartNfaWithStates_0(15, 130, 26);
                 }
                 break;
             case 120 :
@@ -2935,15 +2937,15 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                     jjmatchedKind = 82;
                     jjmatchedPos  = 15;
                 } else if ((active3 & 0x80000000L) != 0L) {
-                    return jjStartNfaWithStates_0(15, 223, 22);
+                    return jjStartNfaWithStates_0(15, 223, 26);
                 }
                 return jjMoveStringLiteralDfa16_0(active0, 0L, active1, 0x600000000000L, active2, 0xc000000000000L,
                                                   active3, 0x200000000L, active4, 0L);
             case 121 :
                 if ((active2 & 0x100L) != 0L) {
-                    return jjStartNfaWithStates_0(15, 136, 22);
+                    return jjStartNfaWithStates_0(15, 136, 26);
                 } else if ((active3 & 0x4000000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(15, 254, 22);
+                    return jjStartNfaWithStates_0(15, 254, 26);
                 }
                 return jjMoveStringLiteralDfa16_0(active0, 0L, active1, 0x20L, active2, 0L, active3, 0L, active4, 0L);
             default :
@@ -2953,7 +2955,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -2992,7 +2994,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   active4, 0L);
             case 101 :
                 if ((active4 & 0x800L) != 0L) {
-                    return jjStartNfaWithStates_0(16, 267, 22);
+                    return jjStartNfaWithStates_0(16, 267, 26);
                 }
                 return jjMoveStringLiteralDfa17_0(active0, 0L, active1, 0x800000000L, active2, 0xd000000000000L,
                                                   active3, 0L, active4, 0L);
@@ -3007,7 +3009,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   0x2000L);
             case 108 :
                 if ((active0 & 0x4000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(16, 38, 22);
+                    return jjStartNfaWithStates_0(16, 38, 26);
                 }
                 return jjMoveStringLiteralDfa17_0(active0, 0L, active1, 0x610000000L, active2, 0L, active3, 0L,
                                                   active4, 0L);
@@ -3016,7 +3018,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   active4, 0L);
             case 110 :
                 if ((active3 & 0x1000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(16, 228, 22);
+                    return jjStartNfaWithStates_0(16, 228, 26);
                 }
                 break;
             case 111 :
@@ -3024,21 +3026,21 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   active3, 0L, active4, 0L);
             case 112 :
                 if ((active4 & 0x8L) != 0L) {
-                    return jjStartNfaWithStates_0(16, 259, 22);
+                    return jjStartNfaWithStates_0(16, 259, 26);
                 }
                 return jjMoveStringLiteralDfa17_0(active0, 0x300000000000000L, active1, 0x20L, active2,
                                                   0x4000000000000000L, active3, 0x200000L, active4, 0L);
             case 114 :
                 if ((active0 & 0x2000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(16, 37, 22);
+                    return jjStartNfaWithStates_0(16, 37, 26);
                 } else if ((active3 & 0x4000000L) != 0L) {
-                    return jjStartNfaWithStates_0(16, 218, 22);
+                    return jjStartNfaWithStates_0(16, 218, 26);
                 }
                 return jjMoveStringLiteralDfa17_0(active0, 0x400000000000000L, active1, 0L, active2, 0x60000000L,
                                                   active3, 0x8000L, active4, 0L);
             case 115 :
                 if ((active3 & 0x20000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(16, 233, 22);
+                    return jjStartNfaWithStates_0(16, 233, 26);
                 }
                 return jjMoveStringLiteralDfa17_0(active0, 0x4000000000000000L, active1, 0L, active2, 0x200000000L,
                                                   active3, 0L, active4, 0x10000L);
@@ -3047,12 +3049,12 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   0x40000000L, active4, 0L);
             case 120 :
                 if ((active3 & 0x4000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(16, 242, 22);
+                    return jjStartNfaWithStates_0(16, 242, 26);
                 }
                 break;
             case 121 :
                 if ((active2 & 0x1L) != 0L) {
-                    return jjStartNfaWithStates_0(16, 128, 22);
+                    return jjStartNfaWithStates_0(16, 128, 26);
                 }
                 return jjMoveStringLiteralDfa17_0(active0, 0L, active1, 0L, active2, 0x200L, active3, 0L, active4, 0L);
             case 122 :
@@ -3065,7 +3067,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -3101,7 +3103,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   active4, 0L);
             case 100 :
                 if ((active2 & 0x1000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(17, 176, 22);
+                    return jjStartNfaWithStates_0(17, 176, 26);
                 } else if ((active2 & 0x4000000000000L) != 0L) {
                     jjmatchedKind = 178;
                     jjmatchedPos  = 17;
@@ -3110,9 +3112,9 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   active3, 0L, active4, 0L);
             case 101 :
                 if ((active1 & 0x20L) != 0L) {
-                    return jjStartNfaWithStates_0(17, 69, 22);
+                    return jjStartNfaWithStates_0(17, 69, 26);
                 } else if ((active3 & 0x8000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(17, 243, 22);
+                    return jjStartNfaWithStates_0(17, 243, 26);
                 }
                 return jjMoveStringLiteralDfa18_0(active0, 0L, active1, 0x4006060000000L, active2, 0L, active3,
                                                   0x8000L, active4, 0L);
@@ -3127,7 +3129,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   0L);
             case 108 :
                 if ((active2 & 0x200000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(17, 185, 22);
+                    return jjStartNfaWithStates_0(17, 185, 26);
                 }
                 return jjMoveStringLiteralDfa18_0(active0, 0x300000000000000L, active1, 0x800004000L, active2, 0L,
                                                   active3, 0x200000L, active4, 0L);
@@ -3141,13 +3143,13 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                 return jjMoveStringLiteralDfa18_0(active0, 0L, active1, 0x800L, active2, 0L, active3, 0L, active4, 0L);
             case 114 :
                 if ((active2 & 0x400000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(17, 186, 22);
+                    return jjStartNfaWithStates_0(17, 186, 26);
                 }
                 return jjMoveStringLiteralDfa18_0(active0, 0x80000000000000L, active1, 0L, active2, 0L, active3, 0L,
                                                   active4, 0L);
             case 115 :
                 if ((active3 & 0x40000000L) != 0L) {
-                    return jjStartNfaWithStates_0(17, 222, 22);
+                    return jjStartNfaWithStates_0(17, 222, 26);
                 }
                 return jjMoveStringLiteralDfa18_0(active0, 0x4000000000000000L, active1, 0L, active2, 0L, active3,
                                                   0x1000000L, active4, 0x2000L);
@@ -3164,7 +3166,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -3200,11 +3202,11 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   active4, 0L);
             case 101 :
                 if ((active2 & 0x2000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(18, 165, 22);
+                    return jjStartNfaWithStates_0(18, 165, 26);
                 } else if ((active4 & 0x2000L) != 0L) {
-                    return jjStartNfaWithStates_0(18, 269, 22);
+                    return jjStartNfaWithStates_0(18, 269, 26);
                 } else if ((active4 & 0x100000L) != 0L) {
-                    return jjStartNfaWithStates_0(18, 276, 22);
+                    return jjStartNfaWithStates_0(18, 276, 26);
                 }
                 return jjMoveStringLiteralDfa19_0(active0, 0L, active1, 0x618000000000L, active2, 0L, active3, 0L,
                                                   active4, 0L);
@@ -3225,12 +3227,12 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   active4, 0L);
             case 109 :
                 if ((active0 & 0x80000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(18, 55, 22);
+                    return jjStartNfaWithStates_0(18, 55, 26);
                 }
                 break;
             case 110 :
                 if ((active3 & 0x10000L) != 0L) {
-                    return jjStartNfaWithStates_0(18, 208, 22);
+                    return jjStartNfaWithStates_0(18, 208, 26);
                 }
                 return jjMoveStringLiteralDfa19_0(active0, 0L, active1, 0x2000L, active2, 0L, active3, 0L, active4, 0L);
             case 111 :
@@ -3241,7 +3243,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   0x3000000000000000L, active4, 0L);
             case 115 :
                 if ((active3 & 0x800000L) != 0L) {
-                    return jjStartNfaWithStates_0(18, 215, 22);
+                    return jjStartNfaWithStates_0(18, 215, 26);
                 }
                 break;
             case 116 :
@@ -3260,7 +3262,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -3296,16 +3298,16 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   active4, 0L);
             case 100 :
                 if ((active2 & 0x20000000L) != 0L) {
-                    return jjStartNfaWithStates_0(19, 157, 22);
+                    return jjStartNfaWithStates_0(19, 157, 26);
                 } else if ((active2 & 0x40000000L) != 0L) {
-                    return jjStartNfaWithStates_0(19, 158, 22);
+                    return jjStartNfaWithStates_0(19, 158, 26);
                 }
                 break;
             case 101 :
                 if ((active1 & 0x4000L) != 0L) {
-                    return jjStartNfaWithStates_0(19, 78, 22);
+                    return jjStartNfaWithStates_0(19, 78, 26);
                 } else if ((active2 & 0x200L) != 0L) {
-                    return jjStartNfaWithStates_0(19, 137, 22);
+                    return jjStartNfaWithStates_0(19, 137, 26);
                 }
                 return jjMoveStringLiteralDfa20_0(active0, 0x8000000000000L, active1, 0L, active2, 0x4000000000000000L,
                                                   active3, 0L, active4, 0L);
@@ -3320,17 +3322,17 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   active4, 0L);
             case 109 :
                 if ((active0 & 0x40000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(19, 54, 22);
+                    return jjStartNfaWithStates_0(19, 54, 26);
                 }
                 return jjMoveStringLiteralDfa20_0(active0, 0L, active1, 0xc0000000000L, active2, 0L, active3, 0L,
                                                   active4, 0L);
             case 110 :
                 if ((active2 & 0x200000000L) != 0L) {
-                    return jjStartNfaWithStates_0(19, 161, 22);
+                    return jjStartNfaWithStates_0(19, 161, 26);
                 } else if ((active3 & 0x200000000L) != 0L) {
-                    return jjStartNfaWithStates_0(19, 225, 22);
+                    return jjStartNfaWithStates_0(19, 225, 26);
                 } else if ((active4 & 0x10000L) != 0L) {
-                    return jjStartNfaWithStates_0(19, 272, 22);
+                    return jjStartNfaWithStates_0(19, 272, 26);
                 }
                 return jjMoveStringLiteralDfa20_0(active0, 0L, active1, 0L, active2, 0x8000000000000L, active3, 0L,
                                                   active4, 0L);
@@ -3339,7 +3341,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   active4, 0L);
             case 115 :
                 if ((active3 & 0x80000L) != 0L) {
-                    return jjStartNfaWithStates_0(19, 211, 22);
+                    return jjStartNfaWithStates_0(19, 211, 26);
                 }
                 return jjMoveStringLiteralDfa20_0(active0, 0L, active1, 0L, active2, 0x8000000L, active3, 0L, active4,
                                                   0L);
@@ -3356,7 +3358,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -3406,19 +3408,19 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                 return jjMoveStringLiteralDfa21_0(active0, 0L, active1, 0x1000000000L, active2, 0L, active3, 0L);
             case 114 :
                 if ((active2 & 0x4000000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(20, 190, 22);
+                    return jjStartNfaWithStates_0(20, 190, 26);
                 }
                 return jjMoveStringLiteralDfa21_0(active0, 0L, active1, 0L, active2, 0L, active3, 0x2000000000000000L);
             case 115 :
                 return jjMoveStringLiteralDfa21_0(active0, 0L, active1, 0L, active2, 0L, active3, 0x8000L);
             case 116 :
                 if ((active3 & 0x100000L) != 0L) {
-                    return jjStartNfaWithStates_0(20, 212, 22);
+                    return jjStartNfaWithStates_0(20, 212, 26);
                 }
                 return jjMoveStringLiteralDfa21_0(active0, 0L, active1, 0x600180000000L, active2, 0L, active3, 0L);
             case 120 :
                 if ((active3 & 0x1000000L) != 0L) {
-                    return jjStartNfaWithStates_0(20, 216, 22);
+                    return jjStartNfaWithStates_0(20, 216, 26);
                 }
                 break;
             case 121 :
@@ -3430,7 +3432,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -3471,12 +3473,12 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                 return jjMoveStringLiteralDfa22_0(active0, 0x400000000000000L, active1, 0L, active2, 0L, active3, 0L);
             case 109 :
                 if ((active0 & 0x8000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(21, 51, 22);
+                    return jjStartNfaWithStates_0(21, 51, 26);
                 }
                 return jjMoveStringLiteralDfa22_0(active0, 0L, active1, 0L, active2, 0x8000000000000L, active3, 0L);
             case 110 :
                 if ((active1 & 0x80000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(21, 107, 22);
+                    return jjStartNfaWithStates_0(21, 107, 26);
                 }
                 break;
             case 111 :
@@ -3488,20 +3490,20 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                     jjmatchedKind = 56;
                     jjmatchedPos  = 21;
                 } else if ((active1 & 0x1000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(21, 100, 22);
+                    return jjStartNfaWithStates_0(21, 100, 26);
                 }
                 return jjMoveStringLiteralDfa22_0(active0, 0x200000000000000L, active1, 0L, active2, 0L, active3,
                                                   0x200000L);
             case 115 :
                 if ((active0 & 0x4000000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(21, 62, 22);
+                    return jjStartNfaWithStates_0(21, 62, 26);
                 }
                 break;
             case 116 :
                 return jjMoveStringLiteralDfa22_0(active0, 0L, active1, 0x100000000000L, active2, 0L, active3, 0L);
             case 120 :
                 if ((active1 & 0x40000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(21, 106, 22);
+                    return jjStartNfaWithStates_0(21, 106, 26);
                 }
                 break;
             default :
@@ -3511,7 +3513,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -3541,11 +3543,11 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                 return jjMoveStringLiteralDfa23_0(active0, 0L, active1, 0x800000000L, active2, 0L, active3, 0L);
             case 101 :
                 if ((active1 & 0x10000000L) != 0L) {
-                    return jjStartNfaWithStates_0(22, 92, 22);
+                    return jjStartNfaWithStates_0(22, 92, 26);
                 } else if ((active2 & 0x8000000L) != 0L) {
-                    return jjStartNfaWithStates_0(22, 155, 22);
+                    return jjStartNfaWithStates_0(22, 155, 26);
                 } else if ((active2 & 0x8000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(22, 179, 22);
+                    return jjStartNfaWithStates_0(22, 179, 26);
                 }
                 return jjMoveStringLiteralDfa23_0(active0, 0L, active1, 0x2000L, active2, 0L, active3, 0L);
             case 102 :
@@ -3561,28 +3563,28 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                 return jjMoveStringLiteralDfa23_0(active0, 0L, active1, 0x6060000000L, active2, 0L, active3, 0L);
             case 110 :
                 if ((active1 & 0x800L) != 0L) {
-                    return jjStartNfaWithStates_0(22, 75, 22);
+                    return jjStartNfaWithStates_0(22, 75, 26);
                 } else if ((active1 & 0x400000000L) != 0L) {
-                    return jjStartNfaWithStates_0(22, 98, 22);
+                    return jjStartNfaWithStates_0(22, 98, 26);
                 }
                 break;
             case 111 :
                 return jjMoveStringLiteralDfa23_0(active0, 0L, active1, 0x100000000000L, active2, 0L, active3, 0L);
             case 114 :
                 if ((active1 & 0x80000000L) != 0L) {
-                    return jjStartNfaWithStates_0(22, 95, 22);
+                    return jjStartNfaWithStates_0(22, 95, 26);
                 } else if ((active1 & 0x100000000L) != 0L) {
-                    return jjStartNfaWithStates_0(22, 96, 22);
+                    return jjStartNfaWithStates_0(22, 96, 26);
                 }
                 break;
             case 115 :
                 if ((active3 & 0x200000L) != 0L) {
-                    return jjStartNfaWithStates_0(22, 213, 22);
+                    return jjStartNfaWithStates_0(22, 213, 26);
                 }
                 break;
             case 120 :
                 if ((active1 & 0x200000000L) != 0L) {
-                    return jjStartNfaWithStates_0(22, 97, 22);
+                    return jjStartNfaWithStates_0(22, 97, 26);
                 }
                 break;
             case 122 :
@@ -3594,7 +3596,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -3623,7 +3625,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                 return jjMoveStringLiteralDfa24_0(active0, 0L, active1, 0x800000000L, active3, 0L);
             case 101 :
                 if ((active3 & 0x8000L) != 0L) {
-                    return jjStartNfaWithStates_0(23, 207, 22);
+                    return jjStartNfaWithStates_0(23, 207, 26);
                 }
                 return jjMoveStringLiteralDfa24_0(active0, 0x400000000000000L, active1, 0L, active3, 0L);
             case 104 :
@@ -3638,7 +3640,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                 return jjMoveStringLiteralDfa24_0(active0, 0x200000000000000L, active1, 0L, active3, 0L);
             case 114 :
                 if ((active1 & 0x100000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(23, 108, 22);
+                    return jjStartNfaWithStates_0(23, 108, 26);
                 }
                 break;
             case 116 :
@@ -3650,7 +3652,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -3679,16 +3681,16 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                 return jjMoveStringLiteralDfa25_0(active0, 0L, active1, 0x4000000000000L, active3, 0L);
             case 100 :
                 if ((active1 & 0x2000L) != 0L) {
-                    return jjStartNfaWithStates_0(24, 77, 22);
+                    return jjStartNfaWithStates_0(24, 77, 26);
                 }
                 break;
             case 105 :
                 return jjMoveStringLiteralDfa25_0(active0, 0L, active1, 0x400000000000L, active3, 0L);
             case 110 :
                 if ((active1 & 0x40000000L) != 0L) {
-                    return jjStartNfaWithStates_0(24, 94, 22);
+                    return jjStartNfaWithStates_0(24, 94, 26);
                 } else if ((active1 & 0x4000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(24, 102, 22);
+                    return jjStartNfaWithStates_0(24, 102, 26);
                 }
                 break;
             case 114 :
@@ -3697,9 +3699,9 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                 return jjMoveStringLiteralDfa25_0(active0, 0L, active1, 0x800000000L, active3, 0x2000000000000000L);
             case 120 :
                 if ((active1 & 0x20000000L) != 0L) {
-                    return jjStartNfaWithStates_0(24, 93, 22);
+                    return jjStartNfaWithStates_0(24, 93, 26);
                 } else if ((active1 & 0x2000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(24, 101, 22);
+                    return jjStartNfaWithStates_0(24, 101, 26);
                 }
                 break;
             default :
@@ -3709,7 +3711,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -3734,7 +3736,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                                   0x2000000000000000L);
             case 110 :
                 if ((active1 & 0x400000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(25, 110, 22);
+                    return jjStartNfaWithStates_0(25, 110, 26);
                 }
                 break;
             case 111 :
@@ -3743,7 +3745,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                 return jjMoveStringLiteralDfa26_0(active0, 0L, active1, 0x4000000000000L, active3, 0x1000000000000000L);
             case 120 :
                 if ((active1 & 0x200000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(25, 109, 22);
+                    return jjStartNfaWithStates_0(25, 109, 26);
                 }
                 break;
             default :
@@ -3753,7 +3755,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -3785,7 +3787,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                 return jjMoveStringLiteralDfa27_0(active0, 0L, active1, 0x4000000000000L, active3, 0L);
             case 114 :
                 if ((active1 & 0x800000000L) != 0L) {
-                    return jjStartNfaWithStates_0(26, 99, 22);
+                    return jjStartNfaWithStates_0(26, 99, 26);
                 }
                 return jjMoveStringLiteralDfa27_0(active0, 0x400000000000000L, active1, 0L, active3, 0L);
             case 116 :
@@ -3797,7 +3799,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -3829,7 +3831,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                 return jjMoveStringLiteralDfa28_0(active0, 0x200000000000000L, active1, 0L, active3, 0L);
             case 114 :
                 if ((active1 & 0x4000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(27, 114, 22);
+                    return jjStartNfaWithStates_0(27, 114, 26);
                 }
                 break;
             default :
@@ -3839,7 +3841,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -3868,17 +3870,17 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                 return jjMoveStringLiteralDfa29_0(active0, 0x400000000000000L, active1, 0L, active3, 0L);
             case 109 :
                 if ((active3 & 0x1000000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(28, 252, 22);
+                    return jjStartNfaWithStates_0(28, 252, 26);
                 }
                 break;
             case 110 :
                 if ((active1 & 0x10000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(28, 104, 22);
+                    return jjStartNfaWithStates_0(28, 104, 26);
                 }
                 break;
             case 120 :
                 if ((active1 & 0x8000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(28, 103, 22);
+                    return jjStartNfaWithStates_0(28, 103, 26);
                 }
                 break;
             default :
@@ -3888,7 +3890,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -3912,7 +3914,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                 return jjMoveStringLiteralDfa30_0(active0, 0x600000000000000L, active1, 0L, active3, 0L);
             case 109 :
                 if ((active3 & 0x2000000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(29, 253, 22);
+                    return jjStartNfaWithStates_0(29, 253, 26);
                 }
                 break;
             case 116 :
@@ -3924,7 +3926,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -3957,7 +3959,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -3977,12 +3979,12 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
         switch (curChar) {
             case 101 :
                 if ((active0 & 0x200000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(31, 57, 22);
+                    return jjStartNfaWithStates_0(31, 57, 26);
                 }
                 return jjMoveStringLiteralDfa32_0(active0, 0x400000000000000L, active1, 0L);
             case 114 :
                 if ((active1 & 0x20000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(31, 105, 22);
+                    return jjStartNfaWithStates_0(31, 105, 26);
                 }
                 break;
             default :
@@ -3992,7 +3994,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @param old1
@@ -4019,7 +4021,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @return
@@ -4044,7 +4046,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @return
@@ -4069,7 +4071,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @return
@@ -4094,7 +4096,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @return
@@ -4119,7 +4121,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @return
@@ -4144,7 +4146,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @return
@@ -4169,7 +4171,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @return
@@ -4194,7 +4196,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @return
@@ -4219,7 +4221,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @return
@@ -4244,7 +4246,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @return
@@ -4269,7 +4271,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @return
@@ -4294,7 +4296,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @return
@@ -4319,7 +4321,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @return
@@ -4344,7 +4346,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @return
@@ -4369,7 +4371,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @return
@@ -4394,7 +4396,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @return
@@ -4419,7 +4421,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param old0
      * @param active0
      * @return
@@ -4437,7 +4439,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
         switch (curChar) {
             case 110 :
                 if ((active0 & 0x400000000000000L) != 0L) {
-                    return jjStartNfaWithStates_0(49, 58, 22);
+                    return jjStartNfaWithStates_0(49, 58, 26);
                 }
                 break;
             default :
@@ -4447,7 +4449,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param pos
      * @param kind
      * @param state
@@ -4465,14 +4467,14 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param startState
      * @param curPos
      * @return
      */
     private int jjMoveNfa_0(int startState, int curPos) {
         int startsAt = 0;
-        jjnewStateCnt = 38;
+        jjnewStateCnt = 42;
         int i = 1;
         jjstateSet[0] = startState;
         int kind = 0x7fffffff;
@@ -4484,15 +4486,24 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                 long l = 1L << curChar;
                 do {
                     switch (jjstateSet[--i]) {
-                        case 28 :
-                        case 22 :
+                        case 30 :
+                        case 26 :
                             if ((0x3ffe02000000000L & l) == 0L) {
                                 break;
                             }
                             if (kind > 295) {
                                 kind = 295;
                             }
-                            jjCheckNAdd(22);
+                            jjCheckNAdd(26);
+                            break;
+                        case 32 :
+                            if ((0x3ffe02000000000L & l) == 0L) {
+                                break;
+                            }
+                            if (kind > 295) {
+                                kind = 295;
+                            }
+                            jjCheckNAdd(26);
                             break;
                         case 9 :
                             if ((0x3ffe02000000000L & l) == 0L) {
@@ -4501,41 +4512,43 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                             if (kind > 295) {
                                 kind = 295;
                             }
-                            jjCheckNAdd(22);
+                            jjCheckNAdd(26);
                             break;
-                        case 27 :
+                        case 33 :
                             if ((0x3ffe02000000000L & l) == 0L) {
                                 break;
                             }
                             if (kind > 295) {
                                 kind = 295;
                             }
-                            jjCheckNAdd(22);
+                            jjCheckNAdd(26);
                             break;
                         case 0 :
-                            if ((0x3ff400000000000L & l) != 0L) {
+                            if ((0x3ff000000000000L & l) != 0L) {
                                 if (kind > 294) {
                                     kind = 294;
                                 }
-                                jjCheckNAddTwoStates(18, 19);
-                            } else if (curChar == 45) {
-                                jjstateSet[jjnewStateCnt++] = 20;
-                            }
-                            if ((0xe02000000000L & l) != 0L) {
+                                jjCheckNAddStates(0, 3);
+                            } else if ((0xe02000000000L & l) != 0L) {
                                 if (kind > 295) {
                                     kind = 295;
                                 }
-                                jjCheckNAdd(22);
+                                jjCheckNAdd(26);
+                            }
+                            if ((0x280000000000L & l) != 0L) {
+                                jjCheckNAddTwoStates(19, 24);
+                            } else if (curChar == 46) {
+                                jjCheckNAdd(20);
                             }
                             break;
-                        case 29 :
+                        case 31 :
                             if ((0x3ffe02000000000L & l) == 0L) {
                                 break;
                             }
                             if (kind > 295) {
                                 kind = 295;
                             }
-                            jjCheckNAdd(22);
+                            jjCheckNAdd(26);
                             break;
                         case 10 :
                             if ((0x3ffe02000000000L & l) == 0L) {
@@ -4544,38 +4557,25 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                             if (kind > 295) {
                                 kind = 295;
                             }
-                            jjCheckNAdd(22);
+                            jjCheckNAdd(26);
                             break;
-                        case 26 :
+                        case 34 :
                             if ((0x3ffe02000000000L & l) == 0L) {
                                 break;
                             }
                             if (kind > 295) {
                                 kind = 295;
                             }
-                            jjCheckNAdd(22);
-                            break;
-                        case 30 :
-                            if ((0x3ffe02000000000L & l) == 0L) {
-                                break;
-                            }
-                            if (kind > 295) {
-                                kind = 295;
-                            }
-                            jjCheckNAdd(22);
+                            jjCheckNAdd(26);
                             break;
                         case 18 :
-                            if ((0x3ff400000000000L & l) == 0L) {
-                                break;
+                            if ((0x280000000000L & l) != 0L) {
+                                jjCheckNAddTwoStates(19, 24);
                             }
-                            if (kind > 294) {
-                                kind = 294;
-                            }
-                            jjCheckNAddTwoStates(18, 19);
                             break;
                         case 19 :
-                            if (curChar == 45) {
-                                jjstateSet[jjnewStateCnt++] = 20;
+                            if (curChar == 46) {
+                                jjCheckNAdd(20);
                             }
                             break;
                         case 20 :
@@ -4585,34 +4585,57 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                             if (kind > 294) {
                                 kind = 294;
                             }
-                            jjCheckNAddTwoStates(18, 19);
+                            jjCheckNAddTwoStates(20, 21);
                             break;
-                        case 21 :
+                        case 22 :
+                            if ((0x280000000000L & l) != 0L) {
+                                jjCheckNAdd(23);
+                            }
+                            break;
+                        case 23 :
+                            if ((0x3ff000000000000L & l) == 0L) {
+                                break;
+                            }
+                            if (kind > 294) {
+                                kind = 294;
+                            }
+                            jjCheckNAdd(23);
+                            break;
+                        case 24 :
+                            if ((0x3ff000000000000L & l) == 0L) {
+                                break;
+                            }
+                            if (kind > 294) {
+                                kind = 294;
+                            }
+                            jjCheckNAddStates(0, 3);
+                            break;
+                        case 25 :
                             if ((0xe02000000000L & l) == 0L) {
                                 break;
                             }
                             if (kind > 295) {
                                 kind = 295;
                             }
-                            jjCheckNAdd(22);
+                            jjCheckNAdd(26);
                             break;
-                        case 25 :
+                        case 29 :
                             if ((0x3ff000000000000L & l) == 0L) {
                                 break;
                             }
                             if (kind > 43) {
                                 kind = 43;
                             }
-                            jjstateSet[jjnewStateCnt++] = 25;
+                            jjstateSet[jjnewStateCnt++] = 29;
                             break;
-                        case 32 :
+                        case 36 :
                             if ((0x3ff000000000000L & l) == 0L) {
                                 break;
                             }
                             if (kind > 44) {
                                 kind = 44;
                             }
-                            jjstateSet[jjnewStateCnt++] = 32;
+                            jjstateSet[jjnewStateCnt++] = 36;
                             break;
                         default :
                             break;
@@ -4622,51 +4645,64 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                 long l = 1L << (curChar & 077);
                 do {
                     switch (jjstateSet[--i]) {
-                        case 28 :
-                            if ((0x7fffffe87fffffeL & l) != 0L) {
+                        case 30 :
+                            if ((0x47fffffe87fffffeL & l) != 0L) {
                                 if (kind > 295) {
                                     kind = 295;
                                 }
-                                jjCheckNAdd(22);
+                                jjCheckNAdd(26);
                             }
                             if (curChar == 108) {
-                                jjstateSet[jjnewStateCnt++] = 34;
+                                jjstateSet[jjnewStateCnt++] = 35;
+                            } else if (curChar == 114) {
+                                jjstateSet[jjnewStateCnt++] = 28;
+                            }
+                            break;
+                        case 32 :
+                            if ((0x47fffffe87fffffeL & l) != 0L) {
+                                if (kind > 295) {
+                                    kind = 295;
+                                }
+                                jjCheckNAdd(26);
                             }
                             if (curChar == 108) {
-                                jjstateSet[jjnewStateCnt++] = 27;
+                                jjstateSet[jjnewStateCnt++] = 38;
+                            }
+                            if (curChar == 108) {
+                                jjstateSet[jjnewStateCnt++] = 31;
                             }
                             break;
                         case 9 :
-                            if ((0x7fffffe87fffffeL & l) != 0L) {
+                            if ((0x47fffffe87fffffeL & l) != 0L) {
                                 if (kind > 295) {
                                     kind = 295;
                                 }
-                                jjCheckNAdd(22);
+                                jjCheckNAdd(26);
                             }
                             if (curChar == 102) {
                                 jjstateSet[jjnewStateCnt++] = 8;
                             }
                             break;
-                        case 27 :
-                            if ((0x7fffffe87fffffeL & l) != 0L) {
+                        case 33 :
+                            if ((0x47fffffe87fffffeL & l) != 0L) {
                                 if (kind > 295) {
                                     kind = 295;
                                 }
-                                jjCheckNAdd(22);
+                                jjCheckNAdd(26);
                             }
-                            if (curChar == 95) {
-                                jjstateSet[jjnewStateCnt++] = 33;
+                            if (curChar == 97) {
+                                jjstateSet[jjnewStateCnt++] = 39;
                             }
-                            if (curChar == 95) {
-                                jjstateSet[jjnewStateCnt++] = 26;
+                            if (curChar == 97) {
+                                jjstateSet[jjnewStateCnt++] = 32;
                             }
                             break;
                         case 0 :
-                            if ((0x7fffffe87fffffeL & l) != 0L) {
+                            if ((0x47fffffe87fffffeL & l) != 0L) {
                                 if (kind > 295) {
                                     kind = 295;
                                 }
-                                jjCheckNAdd(22);
+                                jjCheckNAdd(26);
                             }
                             if ((0x8000000080L & l) != 0L) {
                                 if (kind > 9) {
@@ -4694,59 +4730,46 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                                 jjstateSet[jjnewStateCnt++] = 10;
                             }
                             if (curChar == 103) {
-                                jjAddStates(0, 1);
+                                jjAddStates(4, 5);
                             }
                             break;
-                        case 29 :
-                            if ((0x7fffffe87fffffeL & l) != 0L) {
+                        case 31 :
+                            if ((0x47fffffe87fffffeL & l) != 0L) {
                                 if (kind > 295) {
                                     kind = 295;
                                 }
-                                jjCheckNAdd(22);
+                                jjCheckNAdd(26);
                             }
-                            if (curChar == 97) {
-                                jjstateSet[jjnewStateCnt++] = 35;
+                            if (curChar == 95) {
+                                jjstateSet[jjnewStateCnt++] = 37;
                             }
-                            if (curChar == 97) {
-                                jjstateSet[jjnewStateCnt++] = 28;
+                            if (curChar == 95) {
+                                jjstateSet[jjnewStateCnt++] = 30;
                             }
                             break;
                         case 10 :
-                            if ((0x7fffffe87fffffeL & l) != 0L) {
+                            if ((0x47fffffe87fffffeL & l) != 0L) {
                                 if (kind > 295) {
                                     kind = 295;
                                 }
-                                jjCheckNAdd(22);
+                                jjCheckNAdd(26);
                             }
                             if (curChar == 101) {
                                 jjstateSet[jjnewStateCnt++] = 9;
                             }
                             break;
-                        case 26 :
-                            if ((0x7fffffe87fffffeL & l) != 0L) {
+                        case 34 :
+                            if ((0x47fffffe87fffffeL & l) != 0L) {
                                 if (kind > 295) {
                                     kind = 295;
                                 }
-                                jjCheckNAdd(22);
-                            }
-                            if (curChar == 108) {
-                                jjstateSet[jjnewStateCnt++] = 31;
-                            } else if (curChar == 114) {
-                                jjstateSet[jjnewStateCnt++] = 24;
-                            }
-                            break;
-                        case 30 :
-                            if ((0x7fffffe87fffffeL & l) != 0L) {
-                                if (kind > 295) {
-                                    kind = 295;
-                                }
-                                jjCheckNAdd(22);
+                                jjCheckNAdd(26);
                             }
                             if (curChar == 111) {
-                                jjstateSet[jjnewStateCnt++] = 36;
+                                jjstateSet[jjnewStateCnt++] = 40;
                             }
                             if (curChar == 111) {
-                                jjstateSet[jjnewStateCnt++] = 29;
+                                jjstateSet[jjnewStateCnt++] = 33;
                             }
                             break;
                         case 1 :
@@ -4821,61 +4844,66 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                             }
                             break;
                         case 21 :
-                            if ((0x7fffffe87fffffeL & l) == 0L) {
+                            if ((0x2000000020L & l) != 0L) {
+                                jjAddStates(6, 7);
+                            }
+                            break;
+                        case 25 :
+                            if ((0x47fffffe87fffffeL & l) == 0L) {
                                 break;
                             }
                             if (kind > 295) {
                                 kind = 295;
                             }
-                            jjCheckNAdd(22);
+                            jjCheckNAdd(26);
                             break;
-                        case 22 :
-                            if ((0x7fffffe87fffffeL & l) == 0L) {
+                        case 26 :
+                            if ((0x47fffffe87fffffeL & l) == 0L) {
                                 break;
                             }
                             if (kind > 295) {
                                 kind = 295;
                             }
-                            jjCheckNAdd(22);
+                            jjCheckNAdd(26);
                             break;
-                        case 23 :
+                        case 27 :
                             if (curChar == 103) {
-                                jjAddStates(0, 1);
+                                jjAddStates(4, 5);
                             }
                             break;
-                        case 24 :
+                        case 28 :
                             if (curChar == 95) {
-                                jjstateSet[jjnewStateCnt++] = 25;
-                            }
-                            break;
-                        case 31 :
-                            if (curChar == 95) {
-                                jjstateSet[jjnewStateCnt++] = 32;
-                            }
-                            break;
-                        case 33 :
-                            if (curChar == 108) {
-                                jjstateSet[jjnewStateCnt++] = 31;
-                            }
-                            break;
-                        case 34 :
-                            if (curChar == 95) {
-                                jjstateSet[jjnewStateCnt++] = 33;
+                                jjstateSet[jjnewStateCnt++] = 29;
                             }
                             break;
                         case 35 :
-                            if (curChar == 108) {
-                                jjstateSet[jjnewStateCnt++] = 34;
-                            }
-                            break;
-                        case 36 :
-                            if (curChar == 97) {
-                                jjstateSet[jjnewStateCnt++] = 35;
+                            if (curChar == 95) {
+                                jjstateSet[jjnewStateCnt++] = 36;
                             }
                             break;
                         case 37 :
+                            if (curChar == 108) {
+                                jjstateSet[jjnewStateCnt++] = 35;
+                            }
+                            break;
+                        case 38 :
+                            if (curChar == 95) {
+                                jjstateSet[jjnewStateCnt++] = 37;
+                            }
+                            break;
+                        case 39 :
+                            if (curChar == 108) {
+                                jjstateSet[jjnewStateCnt++] = 38;
+                            }
+                            break;
+                        case 40 :
+                            if (curChar == 97) {
+                                jjstateSet[jjnewStateCnt++] = 39;
+                            }
+                            break;
+                        case 41 :
                             if (curChar == 111) {
-                                jjstateSet[jjnewStateCnt++] = 36;
+                                jjstateSet[jjnewStateCnt++] = 40;
                             }
                             break;
                         default :
@@ -4898,7 +4926,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
                 kind          = 0x7fffffff;
             }
             ++curPos;
-            if ((i = jjnewStateCnt) == (startsAt = 38 - (jjnewStateCnt = startsAt))) {
+            if ((i = jjnewStateCnt) == (startsAt = 42 - (jjnewStateCnt = startsAt))) {
                 return curPos;
             }
             try {
@@ -4910,7 +4938,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     * Reinitialise parser.
+     * Reinitialise parser. 
      * @param stream
      */
     public void ReInit(SimpleCharStream stream) {
@@ -4921,18 +4949,18 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      */
     private void ReInitRounds() {
         int i;
         jjround = 0x80000001;
-        for (i = 38; i-- > 0; ) {
+        for (i = 42; i-- > 0; ) {
             jjrounds[i] = 0x80000000;
         }
     }
 
     /**
-     * Reinitialise parser.
+     * Reinitialise parser. 
      * @param stream
      * @param lexState
      */
@@ -4942,7 +4970,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     * Switch to specified lex state.
+     * Switch to specified lex state. 
      * @param lexState
      */
     public void SwitchTo(int lexState) {
@@ -4955,7 +4983,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @return
      */
     protected Token jjFillToken() {
@@ -4980,7 +5008,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     * Get the next Token.
+     * Get the next Token. 
      * @return
      */
     public Token getNextToken() {
@@ -5044,7 +5072,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param state
      */
     private void jjCheckNAdd(int state) {
@@ -5055,7 +5083,7 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param start
      * @param end
      */
@@ -5066,12 +5094,23 @@ public class CmdParserPlayerTokenManager implements CmdParserPlayerConstants {
     }
 
     /**
-     *
+     * 
      * @param state1
      * @param state2
      */
     private void jjCheckNAddTwoStates(int state1, int state2) {
         jjCheckNAdd(state1);
         jjCheckNAdd(state2);
+    }
+
+    /**
+     * 
+     * @param start
+     * @param end
+     */
+    private void jjCheckNAddStates(int start, int end) {
+        do {
+            jjCheckNAdd(jjnextStates[start]);
+        } while (start++ != end);
     }
 }

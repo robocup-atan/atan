@@ -151,13 +151,11 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
 
     /**
      *
-     * @param x
-     * @param y
      * @param xpm
      */
     @Override
-    public void teamGraphic(int x, int y, Object xpm) {
-        this.commandFactory.addTeamGraphicCommand(x, y, xpm);
+    public void teamGraphic(XPMImage xpm) {
+        this.commandFactory.addTeamGraphicCommand(xpm);
     }
 
     /**
