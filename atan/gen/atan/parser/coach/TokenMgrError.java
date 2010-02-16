@@ -51,7 +51,7 @@ public class TokenMgrError extends Error {
     public TokenMgrError() {}
 
     /**
-     * Constructor with message and reason. 
+     * Constructor with message and reason.
      * @param message
      * @param reason
      */
@@ -61,14 +61,14 @@ public class TokenMgrError extends Error {
     }
 
     /**
-     * Full Constructor. 
+     * Full Constructor.
      * @param EOFSeen
      * @param lexState
      * @param errorLine
      * @param errorColumn
      * @param errorAfter
-     * @param curChar
      * @param reason
+     * @param curChar
      */
     public TokenMgrError(boolean EOFSeen, int lexState, int errorLine, int errorColumn, String errorAfter,
                          char curChar, int reason) {
@@ -163,6 +163,7 @@ public class TokenMgrError extends Error {
      * from this method for such cases in the release version of your parser.
      * @return
      */
+    @Override
     public String getMessage() {
         return super.getMessage();
     }

@@ -164,6 +164,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
      *
      * @param earOn
      */
+    @Override
     public void ear(boolean earOn) {
         this.commandFactory.addEarCommand(earOn);
     }

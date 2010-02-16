@@ -417,13 +417,15 @@ void startSeeCommand() : //The see_global command.
 //Get object details.
 void objInfo() :
   {ObjName name; Token p1=null; Token p2=null; Token p3=null;
-  Token p4=null; Token p5=null; Token p6=null; Token p7=null;} {
+  Token p4=null; Token p5=null; Token p6=null; Token p7=null;
+  Token kicked=null;} {
     <OB>name=objName()<CB><SEP>[p1=<NUM>[<SEP>]]  //x
                                [p2=<NUM>[<SEP>]]  //y
                                [p3=<NUM>[<SEP>]]  //deltaX
                                [p4=<NUM>[<SEP>]]  //deltaY
                                [p5=<NUM>[<SEP>]]  //bodyAngle
-                               [p6=<NUM>[<SEP>]]{ //neckAngle
+                               [p6=<NUM>[<SEP>]]  //neckAngle
+							   [kicked=<NAM>[<SEP>]]{ //Player kicked last turn - Currently only stopping the exception!
 
       Double dX = 0.0;
       Double dY = 0.0;

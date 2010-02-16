@@ -101,7 +101,6 @@ public class Coach implements ControllerCoach {
                                double inertiaMoment, double dashPowerRate, double playerSize, double kickableMargin,
                                double kickRand, double extraStamina, double effortMax, double effortMin) {
         log.info("player type");
-        getCoach().look();
     }
 
     /**
@@ -167,8 +166,7 @@ public class Coach implements ControllerCoach {
     @Override
     public void infoServerParam(HashMap<ServerParams, Object> info) {
         log.info("server param");
-        getCoach().eye(false);
-        getCoach().teamGraphic(new XPMImage());
+        getCoach().eye(true);
     }
 
     /**
