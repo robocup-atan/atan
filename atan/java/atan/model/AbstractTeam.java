@@ -93,6 +93,36 @@ public abstract class AbstractTeam {
     }
 
     /**
+     * Kill all players.
+     */
+    public boolean killAll(){
+        for (int i = 0; i < size(); i++) {
+            if (i == 0) {
+                players[i].bye();
+                players[i].stopRunning();
+            } else if (i >= 1) {
+                try {
+                    players[i].bye();
+                    players[i].stopRunning();
+                } catch (Exception ex) {
+                    players[i].handleError(ex.getMessage());
+                }
+            }
+            pause(500);
+        }
+        if (hasCoach) {
+            try {
+                coach.bye();
+                coach.stopRunning();
+            } catch (Exception ex) {
+                coach.handleError(ex.getMessage());
+            }
+            pause(500);
+        }
+        return true;
+    }
+
+    /**
      * Connect all the players to the server.
      * ActionsPlayer with index 0 is always the goalie.
      * Connects a coach if there is one.

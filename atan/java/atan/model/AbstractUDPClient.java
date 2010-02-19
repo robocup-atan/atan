@@ -67,6 +67,13 @@ public abstract class AbstractUDPClient extends Thread {
     }
 
     /**
+     * Stops the thread running.
+     */
+    public void stopRunning(){
+        isRunning = false;
+    }
+
+    /**
      * Runs the thread.
      * This will send commands to the server, and receive messages from it.
      */
@@ -86,7 +93,7 @@ public abstract class AbstractUDPClient extends Thread {
             this.host = p.getAddress();
             this.port = p.getPort();
             received(buf.getString());
-            while (true) {    // Continue until the program is closed. This is where sserver messages are received.
+            while (isRunning) {    // Continue until the program is closed. This is where sserver messages are received.
                 buf.reset();
                 DatagramPacket packet = new DatagramPacket(buf.getByteArray(), buf.getByteArray().length);
                 socket.receive(packet);
