@@ -94,8 +94,9 @@ public abstract class AbstractTeam {
 
     /**
      * Kill all players.
+     * @return
      */
-    public boolean killAll(){
+    public boolean killAll() {
         for (int i = 0; i < size(); i++) {
             if (i == 0) {
                 players[i].bye();

@@ -69,7 +69,7 @@ public abstract class AbstractUDPClient extends Thread {
     /**
      * Stops the thread running.
      */
-    public void stopRunning(){
+    public void stopRunning() {
         isRunning = false;
     }
 
@@ -102,6 +102,15 @@ public abstract class AbstractUDPClient extends Thread {
         } catch (Exception ex) {
             log.error("Stopped running " + getName() + " " + getDescription() + " because: " + ex.toString());
         }
+
+        // Clean up.
+        socket.close();
+        try {
+            this.finalize();
+        } catch (Throwable ex) {
+            log.error("Error cleaning up thread - " + ex.getMessage());
+        }
+        log.info("UDP - client terminated: " + this.hostname + ":" + this.port);
     }
 
     /**

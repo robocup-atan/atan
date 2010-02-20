@@ -225,6 +225,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     @Override
     public void setNumber(int num) {
         number = num;
+        super.setName(teamName + " Player # " + getNumber());
     }
 
     /**

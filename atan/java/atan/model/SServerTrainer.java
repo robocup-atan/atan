@@ -69,6 +69,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         f.addTrainerInitCommand("");
         initMessage = f.next();
         super.start();
+        super.setName("Trainer");
     }
 
     /**
