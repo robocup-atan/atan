@@ -4,6 +4,10 @@ package atan.model;
 
 import org.apache.log4j.Logger;
 
+//~--- JDK imports ------------------------------------------------------------
+
+import java.util.Properties;
+
 /**
  * An abstract class to use for teams.
  * @author Atan
@@ -16,6 +20,7 @@ public abstract class AbstractTeam {
     private int              playerPort   = 6000;    // Can't be static final due to inclusion of port in constructor.
     private SServerPlayer[]  players      = new SServerPlayer[11];
     private boolean          hasCoach     = false;
+    private Properties       additional;
     private SServerCoach     coach;
     private String           teamName;
 
@@ -25,7 +30,7 @@ public abstract class AbstractTeam {
      * @param teamName The name of the team to connect.
      */
     public AbstractTeam(String teamName) {
-        this(teamName, 6000, "localhost", false);
+        this(teamName, 6000, "localhost", false, new Properties());
     }
 
     /**
@@ -37,10 +42,24 @@ public abstract class AbstractTeam {
      * @param hasCoach Does this team use a coach?
      */
     public AbstractTeam(String teamName, int port, String hostname, boolean hasCoach) {
+        this(teamName, port, hostname, hasCoach, new Properties());
+    }
+
+    /**
+     * Connect the team to the server using specified player settings.
+     * Uses default coach port.
+     * @param teamName The name of the team to connect.
+     * @param port The port for players to connect to.
+     * @param hostname The hostname to connect to.
+     * @param hasCoach Does this team use a coach?
+     * @param additional Any additionl properties you may want for your team.
+     */
+    public AbstractTeam(String teamName, int port, String hostname, boolean hasCoach, Properties additional) {
         this.teamName   = teamName;
         this.playerPort = port;
         this.hostname   = hostname;
         this.hasCoach   = hasCoach;
+        this.additional = additional;
         createNewPlayers();
         if (hasCoach) {
             createNewCoach();
@@ -61,6 +80,14 @@ public abstract class AbstractTeam {
      */
     public String getTeamName() {
         return teamName;
+    }
+
+    /**
+     * Returns the additional properties.
+     * @return Your properties. Or a blank Properties if none specified in the Constructor.
+     */
+    public Properties getProperties() {
+        return additional;
     }
 
     /**
@@ -168,7 +195,7 @@ public abstract class AbstractTeam {
         }
         pause(500);
     }
-    
+
     /**
      * Returns the size of the team.
      * @return The size of the team.

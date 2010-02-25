@@ -85,7 +85,7 @@ public abstract class AbstractUDPClient extends Thread {
             buf       = new ByteBuffer(5000);    // Size increased due to the length of (server_param.
             buf.setString(getInitMessage());
             socket = new DatagramSocket();
-            socket.setSoTimeout(300000);    // Timeout of 5 mins, which should be enough to keep everything connected.
+            socket.setSoTimeout(300000);         // Timeout of 5 mins, which should be enough to keep everything connected.
             DatagramPacket p = new DatagramPacket(buf.getByteArray(), buf.getByteArray().length,
                                    InetAddress.getByName(hostname), port);
             socket.send(p);
