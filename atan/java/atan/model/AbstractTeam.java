@@ -168,20 +168,7 @@ public abstract class AbstractTeam {
         }
         pause(500);
     }
-
-    /**
-     * Returns the specified player.
-     * @param i A player number.
-     * @return Returns the specified player.
-     */
-    public SServerPlayer getPlayer(int i) {
-        SServerPlayer re = null;
-        if ((i >= 0) && (i < players.length)) {
-            re = players[i];
-        }
-        return re;
-    }
-
+    
     /**
      * Returns the size of the team.
      * @return The size of the team.

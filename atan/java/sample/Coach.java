@@ -166,7 +166,6 @@ public class Coach implements ControllerCoach {
     @Override
     public void infoServerParam(HashMap<ServerParams, Object> info) {
         log.info("server param");
-        getCoach().eye(true);
     }
 
     /**
