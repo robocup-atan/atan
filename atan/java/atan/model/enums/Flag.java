@@ -7,10 +7,81 @@ package atan.model.enums;
 public enum Flag {
 
     /**
+     * A flag used to indicate the center of something. Could be of a goal,
+     * penalty box etc.
+     */
+    CENTER,
+
+    /**
      * A flag used to indicate the left of something. Could be of a goal,
      * left corner flag, penalty box etc.
      */
     LEFT,
+
+    /**
+     * The flag on the left hand side of the goal, 10 along from the center of the goal. (could be left or right goal)
+     */
+    LEFT_10,
+
+    /**
+     * The flag on the left hand side of the goal, 20 along from the center of the goal. (could be left or right goal)
+     */
+    LEFT_20,
+
+    /**
+     * The flag on the left hand side of the goal, 30 along from the center of the goal. (could be left or right goal)
+     */
+    LEFT_30,
+
+    /**
+     * The flag on the other side of the pitch, 10 along from the center line. (could be top or bottom)
+     */
+    OTHER_10,
+
+    /**
+     * The flag on the other side of the pitch, 20 along from the center line. (could be top or bottom)
+     */
+    OTHER_20,
+
+    /**
+     * The flag on the other side of the pitch, 30 along from the center line. (could be top or bottom)
+     */
+    OTHER_30,
+
+    /**
+     * The flag on the other side of the pitch, 40 along from the center line. (could be top or bottom)
+     */
+    OTHER_40,
+
+    /**
+     * The flag on the other side of the pitch, 50 along from the center line. (could be top or bottom)
+     */
+    OTHER_50,
+
+    /**
+     * The flag on our side of the pitch, 10 along from the center line. (could be top or bottom)
+     */
+    OWN_10,
+
+    /**
+     * The flag on our side of the pitch, 20 along from the center line. (could be top or bottom)
+     */
+    OWN_20,
+
+    /**
+     * The flag on our side of the pitch, 30 along from the center line. (could be top or bottom)
+     */
+    OWN_30,
+
+    /**
+     * The flag on our side of the pitch, 40 along from the center line. (could be top or bottom)
+     */
+    OWN_40,
+
+    /**
+     * The flag on our side of the pitch, 50 along from the center line. (could be top or bottom)
+     */
+    OWN_50,
 
     /**
      * A flag used to indicate the right of something. Could be of a goal,
@@ -19,88 +90,17 @@ public enum Flag {
     RIGHT,
 
     /**
-     * A flag used to indicate the center of something. Could be of a goal,
-     * penalty box etc.
-     */
-    CENTER,
-
-    /**
-     *
-     */
-    OWN_50,
-
-    /**
-     *
-     */
-    OWN_40,
-
-    /**
-     *
-     */
-    OWN_30,
-
-    /**
-     *
-     */
-    OWN_20,
-
-    /**
-     *
-     */
-    OWN_10,
-
-    /**
-     *
-     */
-    OTHER_10,
-
-    /**
-     *
-     */
-    OTHER_20,
-
-    /**
-     *
-     */
-    OTHER_30,
-
-    /**
-     *
-     */
-    OTHER_40,
-
-    /**
-     *
-     */
-    OTHER_50,
-
-    /**
-     *
-     */
-    LEFT_10,
-
-    /**
-     *
-     */
-    LEFT_20,
-
-    /**
-     *
-     */
-    LEFT_30,
-
-    /**
-     *
+     * The flag on the right hand side of the goal, 10 along from the center of the goal. (could be left or right goal)
      */
     RIGHT_10,
 
     /**
-     *
+     * The flag on the right hand side of the goal, 20 along from the center of the goal. (could be left or right goal)
      */
     RIGHT_20,
 
     /**
-     *
+     * The flag on the right hand side of the goal, 30 along from the center of the goal. (could be left or right goal)
      */
     RIGHT_30;
 

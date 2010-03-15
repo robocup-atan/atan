@@ -1,15 +1,18 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
+/*
+* To change this template, choose Tools | Templates
+* and open the template in the editor.
+ */
 package atan.model.enums;
+
+//~--- non-JDK imports --------------------------------------------------------
 
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**
@@ -18,24 +21,36 @@ import static org.junit.Assert.*;
  */
 public class FlagTest {
 
-    public FlagTest() {
-    }
+    /**
+     *
+     */
+    public FlagTest() {}
 
+    /**
+     *
+     * @throws Exception
+     */
     @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
+    public static void setUpClass() throws Exception {}
 
+    /**
+     *
+     * @throws Exception
+     */
     @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
+    public static void tearDownClass() throws Exception {}
 
+    /**
+     *
+     */
     @Before
-    public void setUp() {
-    }
+    public void setUp() {}
 
+    /**
+     *
+     */
     @After
-    public void tearDown() {
-    }
+    public void tearDown() {}
 
     /**
      * Test of values method, of class Flag.
@@ -43,11 +58,13 @@ public class FlagTest {
     @Test
     public void testValues() {
         System.out.println("values");
-        Flag[] expResult = null;
+        Flag[] expResult = {
+            Flag.CENTER, Flag.LEFT, Flag.LEFT_10, Flag.LEFT_20, Flag.LEFT_30, Flag.OTHER_10, Flag.OTHER_20,
+            Flag.OTHER_30, Flag.OTHER_40, Flag.OTHER_50, Flag.OWN_10, Flag.OWN_20, Flag.OWN_30, Flag.OWN_40,
+            Flag.OWN_50, Flag.RIGHT, Flag.RIGHT_10, Flag.RIGHT_20, Flag.RIGHT_30
+        };
         Flag[] result = Flag.values();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertArrayEquals(expResult, result);
     }
 
     /**
@@ -56,12 +73,19 @@ public class FlagTest {
     @Test
     public void testValueOf() {
         System.out.println("valueOf");
-        String name = "";
-        Flag expResult = null;
-        Flag result = Flag.valueOf(name);
+        String name      = "CENTER";
+        Flag   expResult = Flag.CENTER;
+        Flag   result    = Flag.valueOf(name);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("valueOf");
+        name      = "LEFT";
+        expResult = Flag.LEFT;
+        result    = Flag.valueOf(name);
+        assertEquals(expResult, result);
+        System.out.println("valueOf");
+        name      = "LEFT_10";
+        expResult = Flag.LEFT_10;
+        result    = Flag.valueOf(name);
     }
 
     /**
@@ -70,12 +94,30 @@ public class FlagTest {
     @Test
     public void testIsLeftRightCenter() {
         System.out.println("isLeftRightCenter");
-        Flag pointer = null;
+        Flag    pointer   = Flag.LEFT_30;
         boolean expResult = false;
-        boolean result = Flag.isLeftRightCenter(pointer);
+        boolean result    = Flag.isLeftRightCenter(pointer);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("isLeftRightCenter");
+        pointer   = Flag.OWN_10;
+        expResult = false;
+        result    = Flag.isLeftRightCenter(pointer);
+        assertEquals(expResult, result);
+        System.out.println("isLeftRightCenter");
+        pointer   = Flag.RIGHT;
+        expResult = true;
+        result    = Flag.isLeftRightCenter(pointer);
+        assertEquals(expResult, result);
+        System.out.println("isLeftRightCenter");
+        pointer   = Flag.CENTER;
+        expResult = true;
+        result    = Flag.isLeftRightCenter(pointer);
+        assertEquals(expResult, result);
+        System.out.println("isLeftRightCenter");
+        pointer   = Flag.LEFT;
+        expResult = true;
+        result    = Flag.isLeftRightCenter(pointer);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -83,13 +125,30 @@ public class FlagTest {
      */
     @Test
     public void testIsLeftRight() {
-        System.out.println("isLeftRight");
-        Flag pointer = null;
+        System.out.println("isLeftRightCenter");
+        Flag    pointer   = Flag.LEFT_30;
         boolean expResult = false;
-        boolean result = Flag.isLeftRight(pointer);
+        boolean result    = Flag.isLeftRight(pointer);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("isLeftRightCenter");
+        pointer   = Flag.OWN_10;
+        expResult = false;
+        result    = Flag.isLeftRight(pointer);
+        assertEquals(expResult, result);
+        System.out.println("isLeftRightCenter");
+        pointer   = Flag.RIGHT;
+        expResult = true;
+        result    = Flag.isLeftRight(pointer);
+        assertEquals(expResult, result);
+        System.out.println("isLeftRightCenter");
+        pointer   = Flag.CENTER;
+        expResult = false;
+        result    = Flag.isLeftRight(pointer);
+        assertEquals(expResult, result);
+        System.out.println("isLeftRightCenter");
+        pointer   = Flag.LEFT;
+        expResult = true;
+        result    = Flag.isLeftRight(pointer);
+        assertEquals(expResult, result);
     }
-
 }
