@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Nick
+ * @author Stu
  */
 public class OkTest {
 
@@ -43,11 +43,12 @@ public class OkTest {
     @Test
     public void testValues() {
         System.out.println("values");
-        Ok[] expResult = null;
+        Ok[] expResult = {Ok.MOVE, Ok.CHANGE_MODE, Ok.CHECK_BALL, Ok.START,
+                          Ok.RECOVER, Ok.EAR_ON, Ok.EAR_OFF, Ok.SAY,
+                          Ok.CHANGE_PLAYER_TYPE, Ok.LOOK, Ok.TEAM_NAMES,
+                          Ok.TEAM_GRAPHIC, Ok.EYE_ON, Ok.EYE_OFF};
         Ok[] result = Ok.values();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertArrayEquals(expResult, result);        
     }
 
     /**
@@ -56,12 +57,26 @@ public class OkTest {
     @Test
     public void testValueOf() {
         System.out.println("valueOf");
-        String name = "";
-        Ok expResult = null;
+        String name = "START";
+        Ok expResult = Ok.START;
         Ok result = Ok.valueOf(name);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        name = "EAR_OFF";
+        expResult = Ok.EAR_OFF;
+        result = Ok.valueOf(name);
+        assertEquals(expResult, result);
+        name = "EYE_ON";
+        expResult = Ok.EYE_ON;
+        result = Ok.valueOf(name);
+        assertEquals(expResult, result);
+        name = "TEAM_NAMES";
+        expResult = Ok.TEAM_NAMES;
+        result = Ok.valueOf(name);
+        assertEquals(expResult, result);
+        name = "EYE_OFF";
+        expResult = Ok.EAR_OFF;
+        result = Ok.valueOf(name);
+        assertFalse(result.equals(expResult));
     }
 
 }

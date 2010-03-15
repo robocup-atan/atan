@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Nick
+ * @author Stu
  */
 public class ErrorsTest {
 
@@ -43,11 +43,12 @@ public class ErrorsTest {
     @Test
     public void testValues() {
         System.out.println("values");
-        Errors[] expResult = null;
+        Errors[] expResult = {Errors.ILLEGAL_MODE, Errors.ILLEGAL_COMMAND_FORM, Errors.ILLEGAL_OBJECT_FORM,
+                              Errors.NO_MORE_TEAM_OR_PLAYER, Errors.NO_MORE_TEAM_OR_PLAYER_OR_GOALIE, Errors.NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION,
+                              Errors.RECONNECT, Errors.UNKNOWN_COMMAND, Errors.TOO_MANY_MOVES, Errors.SAID_TOO_MANY_MESSAGES};
+
         Errors[] result = Errors.values();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertArrayEquals(expResult, result);
     }
 
     /**
@@ -56,12 +57,14 @@ public class ErrorsTest {
     @Test
     public void testValueOf() {
         System.out.println("valueOf");
-        String name = "";
-        Errors expResult = null;
+        String name = "NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION";
+        Errors expResult = Errors.NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION;
         Errors result = Errors.valueOf(name);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        name = "ILLEGAL_OBJECT_FORM";
+        expResult = Errors.ILLEGAL_OBJECT_FORM;
+        result = Errors.valueOf(name);
+        assertEquals(expResult, result);
     }
 
 }

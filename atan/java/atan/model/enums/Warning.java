@@ -17,7 +17,7 @@ public enum Warning {
     NO_SUCH_PLAYER,
 
     /**
-     * Can now substitute a player whilst game mode is play on.
+     * Cannot substitute a player whilst game mode is play on.
      */
     CANNOT_SUB_WHILE_PLAYON,
 

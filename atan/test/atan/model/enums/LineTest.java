@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Nick
+ * @author Stu
  */
 public class LineTest {
 
@@ -43,11 +43,9 @@ public class LineTest {
     @Test
     public void testValues() {
         System.out.println("values");
-        Line[] expResult = null;
+        Line[] expResult = {Line.CENTER, Line.OWN, Line.OTHER, Line.LEFT, Line.RIGHT};
         Line[] result = Line.values();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertArrayEquals(expResult, result);
     }
 
     /**
@@ -56,12 +54,26 @@ public class LineTest {
     @Test
     public void testValueOf() {
         System.out.println("valueOf");
-        String name = "";
-        Line expResult = null;
+        String name = "CENTER";
+        Line expResult = Line.CENTER;
         Line result = Line.valueOf(name);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        name = "LEFT";
+        expResult = Line.LEFT;
+        result = Line.valueOf(name);
+        assertEquals(expResult, result);
+        name = "RIGHT";
+        expResult = Line.RIGHT;
+        result = Line.valueOf(name);
+        assertEquals(expResult, result);
+        name = "OWN";
+        expResult = Line.OWN;
+        result = Line.valueOf(name);
+        assertEquals(expResult, result);
+        name = "OTHER";
+        expResult = Line.OTHER;
+        result = Line.valueOf(name);
+        assertEquals(expResult, result);
     }
 
 }

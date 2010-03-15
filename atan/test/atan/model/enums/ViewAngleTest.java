@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Nick
+ * @author Stu
  */
 public class ViewAngleTest {
 
@@ -43,11 +43,9 @@ public class ViewAngleTest {
     @Test
     public void testValues() {
         System.out.println("values");
-        ViewAngle[] expResult = null;
+        ViewAngle[] expResult = {ViewAngle.NARROW, ViewAngle.NORMAL, ViewAngle.WIDE};
         ViewAngle[] result = ViewAngle.values();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertArrayEquals(expResult, result);
     }
 
     /**
@@ -56,12 +54,18 @@ public class ViewAngleTest {
     @Test
     public void testValueOf() {
         System.out.println("valueOf");
-        String name = "";
-        ViewAngle expResult = null;
+        String name = "NARROW";
+        ViewAngle expResult = ViewAngle.NARROW;
         ViewAngle result = ViewAngle.valueOf(name);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        name = "NORMAL";
+        expResult = ViewAngle.NORMAL;
+        result = ViewAngle.valueOf(name);
+        assertEquals(expResult, result);
+        name = "WIDE";
+        expResult = ViewAngle.WIDE;
+        result = ViewAngle.valueOf(name);
+        assertEquals(expResult, result);       
     }
 
 }

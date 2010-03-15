@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Nick
+ * @author Stu
  */
 public class ViewQualityTest {
 
@@ -43,11 +43,9 @@ public class ViewQualityTest {
     @Test
     public void testValues() {
         System.out.println("values");
-        ViewQuality[] expResult = null;
+        ViewQuality[] expResult = {ViewQuality.HIGH, ViewQuality.LOW};
         ViewQuality[] result = ViewQuality.values();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertArrayEquals(expResult, result);
     }
 
     /**
@@ -56,12 +54,18 @@ public class ViewQualityTest {
     @Test
     public void testValueOf() {
         System.out.println("valueOf");
-        String name = "";
-        ViewQuality expResult = null;
+        String name = "HIGH";
+        ViewQuality expResult = ViewQuality.HIGH;
         ViewQuality result = ViewQuality.valueOf(name);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        name = "LOW";
+        expResult = ViewQuality.LOW;
+        result = ViewQuality.valueOf(name);
+        assertEquals(expResult, result);
+        name = "LOW";
+        expResult = ViewQuality.HIGH;
+        result = ViewQuality.valueOf(name);
+        assertFalse(result.equals(expResult));
     }
 
 }

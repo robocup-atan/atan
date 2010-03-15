@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Nick
+ * @author Stu
  */
 public class RefereeMessageTest {
 
@@ -43,11 +43,16 @@ public class RefereeMessageTest {
     @Test
     public void testValues() {
         System.out.println("values");
-        RefereeMessage[] expResult = null;
+        RefereeMessage[] expResult = {RefereeMessage.HALF_TIME, RefereeMessage.TIME_UP,
+                                      RefereeMessage.TIME_UP_WITHOUT_A_TEAM, RefereeMessage.TIME_EXTENDED,
+                                      RefereeMessage.DROP_BALL, RefereeMessage.OFFSIDE_OWN,
+                                      RefereeMessage.OFFSIDE_OTHER, RefereeMessage.FOUL_OWN,
+                                      RefereeMessage.FOUL_OTHER, RefereeMessage.OFFSIDE_R,
+                                      RefereeMessage.OFFSIDE_L, RefereeMessage.FOUL_R,
+                                      RefereeMessage.FOUL_L};
+
         RefereeMessage[] result = RefereeMessage.values();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertArrayEquals(expResult, result);
     }
 
     /**
@@ -56,12 +61,22 @@ public class RefereeMessageTest {
     @Test
     public void testValueOf() {
         System.out.println("valueOf");
-        String name = "";
-        RefereeMessage expResult = null;
+        String name = "TIME_EXTENDED";
+        RefereeMessage expResult = RefereeMessage.TIME_EXTENDED;
         RefereeMessage result = RefereeMessage.valueOf(name);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        name = "DROP_BALL";
+        expResult = RefereeMessage.DROP_BALL;
+        result = RefereeMessage.valueOf(name);
+        assertEquals(expResult, result);
+        name = "OFFSIDE_R";
+        expResult = RefereeMessage.OFFSIDE_R;
+        result = RefereeMessage.valueOf(name);
+        assertEquals(expResult, result);
+        name = "FOUL_R";
+        expResult = RefereeMessage.FOUL_L;
+        result = RefereeMessage.valueOf(name);
+        assertFalse(result.equals(expResult));
     }
 
 }

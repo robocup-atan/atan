@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Nick
+ * @author Stu
  */
 public class WarningTest {
 
@@ -43,11 +43,11 @@ public class WarningTest {
     @Test
     public void testValues() {
         System.out.println("values");
-        Warning[] expResult = null;
+        Warning[] expResult = {Warning.NO_TEAM_FOUND, Warning.NO_SUCH_PLAYER,
+                               Warning.CANNOT_SUB_WHILE_PLAYON, Warning.NO_SUBS_LEFT,
+                               Warning.MAX_OF_THAT_TYPE_ON_FIELD, Warning.CANNOT_CHANGE_GOALIE};
         Warning[] result = Warning.values();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertArrayEquals(expResult, result);
     }
 
     /**
@@ -56,12 +56,30 @@ public class WarningTest {
     @Test
     public void testValueOf() {
         System.out.println("valueOf");
-        String name = "";
-        Warning expResult = null;
+        String name = "NO_TEAM_FOUND";
+        Warning expResult = Warning.NO_TEAM_FOUND;
         Warning result = Warning.valueOf(name);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        name = "NO_SUCH_PLAYER";
+        expResult = Warning.NO_SUCH_PLAYER;
+        result = Warning.valueOf(name);
+        assertEquals(expResult, result);
+        name = "CANNOT_SUB_WHILE_PLAYON";
+        expResult = Warning.CANNOT_SUB_WHILE_PLAYON;
+        result = Warning.valueOf(name);
+        assertEquals(expResult, result);
+        name = "NO_SUBS_LEFT";
+        expResult = Warning.NO_SUBS_LEFT;
+        result = Warning.valueOf(name);
+        assertEquals(expResult, result);
+        name = "MAX_OF_THAT_TYPE_ON_FIELD";
+        expResult = Warning.MAX_OF_THAT_TYPE_ON_FIELD;
+        result = Warning.valueOf(name);
+        assertEquals(expResult, result);
+        name = "CANNOT_CHANGE_GOALIE";
+        expResult = Warning.CANNOT_CHANGE_GOALIE;
+        result = Warning.valueOf(name);
+        assertEquals(expResult, result);
     }
 
 }
