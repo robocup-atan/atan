@@ -206,7 +206,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     public void handleError(String error) {
         log.error(error);
     }
-    
+
     /**
      * Pause the thread.
      * @param ms How long to pause the thread for (in ms).
@@ -214,7 +214,9 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     private synchronized void pause(int ms) {
         try {
             this.wait(ms);
-        } catch (InterruptedException ex) {log.warn("Interrupted Exception ", ex);}
+        } catch (InterruptedException ex) {
+            log.warn("Interrupted Exception ", ex);
+        }
     }
 
     /**

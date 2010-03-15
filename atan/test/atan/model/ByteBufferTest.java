@@ -1,41 +1,51 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package atan.model;
+
+//~--- non-JDK imports --------------------------------------------------------
 
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**
  *
- * @author Nick
+ * @author Atan
  */
 public class ByteBufferTest {
 
-    public ByteBufferTest() {
-    }
+    /**
+     *
+     */
+    public ByteBufferTest() {}
 
+    /**
+     *
+     * @throws Exception
+     */
     @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
+    public static void setUpClass() throws Exception {}
 
+    /**
+     *
+     * @throws Exception
+     */
     @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
+    public static void tearDownClass() throws Exception {}
 
+    /**
+     *
+     */
     @Before
-    public void setUp() {
-    }
+    public void setUp() {}
 
+    /**
+     *
+     */
     @After
-    public void tearDown() {
-    }
+    public void tearDown() {}
 
     /**
      * Test of getByteArray method, of class ByteBuffer.
@@ -43,10 +53,11 @@ public class ByteBufferTest {
     @Test
     public void testGetByteArray() {
         System.out.println("getByteArray");
-        ByteBuffer instance = null;
-        byte[] expResult = null;
-        byte[] result = instance.getByteArray();
+        ByteBuffer instance  = null;
+        byte[]     expResult = null;
+        byte[]     result    = instance.getByteArray();
         assertEquals(expResult, result);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -57,9 +68,10 @@ public class ByteBufferTest {
     @Test
     public void testSetString() throws Exception {
         System.out.println("setString");
-        String str = "";
+        String     str      = "";
         ByteBuffer instance = null;
         instance.setString(str);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -70,10 +82,11 @@ public class ByteBufferTest {
     @Test
     public void testGetString() throws Exception {
         System.out.println("getString");
-        ByteBuffer instance = null;
-        String expResult = "";
-        String result = instance.getString();
+        ByteBuffer instance  = null;
+        String     expResult = "";
+        String     result    = instance.getString();
         assertEquals(expResult, result);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -84,10 +97,11 @@ public class ByteBufferTest {
     @Test
     public void testLength() {
         System.out.println("length");
-        ByteBuffer instance = null;
-        int expResult = 0;
-        int result = instance.length();
+        ByteBuffer instance  = null;
+        int        expResult = 0;
+        int        result    = instance.length();
         assertEquals(expResult, result);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -100,8 +114,8 @@ public class ByteBufferTest {
         System.out.println("reset");
         ByteBuffer instance = null;
         instance.reset();
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-
 }

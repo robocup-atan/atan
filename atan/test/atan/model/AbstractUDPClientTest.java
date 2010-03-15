@@ -1,42 +1,55 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package atan.model;
 
-import java.io.IOException;
+//~--- non-JDK imports --------------------------------------------------------
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
+
+//~--- JDK imports ------------------------------------------------------------
+
+import java.io.IOException;
 
 /**
  *
- * @author Nick
+ * @author Atan
  */
 public class AbstractUDPClientTest {
 
-    public AbstractUDPClientTest() {
-    }
+    /**
+     *
+     */
+    public AbstractUDPClientTest() {}
 
+    /**
+     *
+     * @throws Exception
+     */
     @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
+    public static void setUpClass() throws Exception {}
 
+    /**
+     *
+     * @throws Exception
+     */
     @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
+    public static void tearDownClass() throws Exception {}
 
+    /**
+     *
+     */
     @Before
-    public void setUp() {
-    }
+    public void setUp() {}
 
+    /**
+     *
+     */
     @After
-    public void tearDown() {
-    }
+    public void tearDown() {}
 
     /**
      * Test of isRunning method, of class AbstractUDPClient.
@@ -44,10 +57,11 @@ public class AbstractUDPClientTest {
     @Test
     public void testIsRunning() {
         System.out.println("isRunning");
-        AbstractUDPClient instance = new AbstractUDPClientImpl();
-        boolean expResult = false;
-        boolean result = instance.isRunning();
+        AbstractUDPClient instance  = new AbstractUDPClientImpl();
+        boolean           expResult = false;
+        boolean           result    = instance.isRunning();
         assertEquals(expResult, result);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -60,6 +74,7 @@ public class AbstractUDPClientTest {
         System.out.println("stopRunning");
         AbstractUDPClient instance = new AbstractUDPClientImpl();
         instance.stopRunning();
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -72,6 +87,7 @@ public class AbstractUDPClientTest {
         System.out.println("run");
         AbstractUDPClient instance = new AbstractUDPClientImpl();
         instance.run();
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -82,9 +98,10 @@ public class AbstractUDPClientTest {
     @Test
     public void testSend() throws Exception {
         System.out.println("send");
-        String message = "";
+        String            message  = "";
         AbstractUDPClient instance = new AbstractUDPClientImpl();
         instance.send(message);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -95,10 +112,11 @@ public class AbstractUDPClientTest {
     @Test
     public void testGetInitMessage() {
         System.out.println("getInitMessage");
-        AbstractUDPClient instance = new AbstractUDPClientImpl();
-        String expResult = "";
-        String result = instance.getInitMessage();
+        AbstractUDPClient instance  = new AbstractUDPClientImpl();
+        String            expResult = "";
+        String            result    = instance.getInitMessage();
         assertEquals(expResult, result);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -109,9 +127,10 @@ public class AbstractUDPClientTest {
     @Test
     public void testReceived() throws Exception {
         System.out.println("received");
-        String msg = "";
+        String            msg      = "";
         AbstractUDPClient instance = new AbstractUDPClientImpl();
         instance.received(msg);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -124,6 +143,7 @@ public class AbstractUDPClientTest {
         System.out.println("start");
         AbstractUDPClient instance = new AbstractUDPClientImpl();
         instance.start();
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -134,10 +154,11 @@ public class AbstractUDPClientTest {
     @Test
     public void testToStateString() {
         System.out.println("toStateString");
-        AbstractUDPClient instance = new AbstractUDPClientImpl();
-        String expResult = "";
-        String result = instance.toStateString();
+        AbstractUDPClient instance  = new AbstractUDPClientImpl();
+        String            expResult = "";
+        String            result    = instance.toStateString();
         assertEquals(expResult, result);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -148,10 +169,11 @@ public class AbstractUDPClientTest {
     @Test
     public void testGetDescription() {
         System.out.println("getDescription");
-        AbstractUDPClient instance = new AbstractUDPClientImpl();
-        String expResult = "";
-        String result = instance.getDescription();
+        AbstractUDPClient instance  = new AbstractUDPClientImpl();
+        String            expResult = "";
+        String            result    = instance.getDescription();
         assertEquals(expResult, result);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -162,21 +184,33 @@ public class AbstractUDPClientTest {
     @Test
     public void testPauseMilliseconds() {
         System.out.println("pauseMilliseconds");
-        int ms = 0;
+        int               ms       = 0;
         AbstractUDPClient instance = new AbstractUDPClientImpl();
         instance.pauseMilliseconds(ms);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
+    /**
+     *
+     * @author author
+     */
     public class AbstractUDPClientImpl extends AbstractUDPClient {
 
+        /**
+         *
+         * @return
+         */
         public String getInitMessage() {
             return "";
         }
 
-        public void received(String msg) throws IOException {
-        }
+        /**
+         *
+         * @param msg
+         * @throws IOException
+         */
+        public void received(String msg) throws IOException {}
     }
-
 }

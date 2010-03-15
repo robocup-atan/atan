@@ -22,7 +22,7 @@ import org.apache.log4j.Logger;
 import java.util.HashMap;
 
 /**
- * 
+ *
  * @author author
  */
 public class Silly implements ControllerPlayer {

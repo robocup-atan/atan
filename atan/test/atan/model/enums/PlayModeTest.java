@@ -1,41 +1,51 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package atan.model.enums;
+
+//~--- non-JDK imports --------------------------------------------------------
 
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**
  *
- * @author Nick
+ * @author Atan
  */
 public class PlayModeTest {
 
-    public PlayModeTest() {
-    }
+    /**
+     *
+     */
+    public PlayModeTest() {}
 
+    /**
+     *
+     * @throws Exception
+     */
     @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
+    public static void setUpClass() throws Exception {}
 
+    /**
+     *
+     * @throws Exception
+     */
     @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
+    public static void tearDownClass() throws Exception {}
 
+    /**
+     *
+     */
     @Before
-    public void setUp() {
-    }
+    public void setUp() {}
 
+    /**
+     *
+     */
     @After
-    public void tearDown() {
-    }
+    public void tearDown() {}
 
     /**
      * Test of values method, of class PlayMode.
@@ -43,11 +53,18 @@ public class PlayModeTest {
     @Test
     public void testValues() {
         System.out.println("values");
-        PlayMode[] expResult = null;
+        PlayMode[] expResult = {
+            PlayMode.BEFORE_KICK_OFF, PlayMode.TIME_OVER, PlayMode.PLAY_ON, PlayMode.KICK_OFF_OWN,
+            PlayMode.KICK_OFF_OTHER, PlayMode.KICK_IN_OWN, PlayMode.KICK_IN_OTHER, PlayMode.FREE_KICK_OWN,
+            PlayMode.FREE_KICK_OTHER, PlayMode.FREE_KICK_FAULT_OWN, PlayMode.FREE_KICK_FAULT_OTHER,
+            PlayMode.CORNER_KICK_OWN, PlayMode.CORNER_KICK_OTHER, PlayMode.GOAL_KICK_OWN, PlayMode.GOAL_KICK_OTHER,
+            PlayMode.GOAL_OWN, PlayMode.GOAL_OTHER, PlayMode.KICK_OFF_L, PlayMode.KICK_OFF_R, PlayMode.KICK_IN_L,
+            PlayMode.KICK_IN_R, PlayMode.FREE_KICK_R, PlayMode.FREE_KICK_L, PlayMode.FREE_KICK_FAULT_L,
+            PlayMode.FREE_KICK_FAULT_R, PlayMode.CORNER_KICK_R, PlayMode.CORNER_KICK_L, PlayMode.GOAL_KICK_R,
+            PlayMode.GOAL_KICK_L, PlayMode.GOAL_R, PlayMode.GOAL_L
+        };
         PlayMode[] result = PlayMode.values();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertArrayEquals(expResult, result);
     }
 
     /**
@@ -56,12 +73,18 @@ public class PlayModeTest {
     @Test
     public void testValueOf() {
         System.out.println("valueOf");
-        String name = "";
-        PlayMode expResult = null;
-        PlayMode result = PlayMode.valueOf(name);
+        String   name      = "FREE_KICK_R";
+        PlayMode expResult = PlayMode.FREE_KICK_R;
+        PlayMode result    = PlayMode.valueOf(name);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("valueOf");
+        name      = "TIME_OVER";
+        expResult = PlayMode.TIME_OVER;
+        result    = PlayMode.valueOf(name);
+        assertEquals(expResult, result);
+        System.out.println("valueOf");
+        name      = "GOAL_OTHER";
+        expResult = PlayMode.GOAL_OTHER;
+        result    = PlayMode.valueOf(name);
     }
-
 }

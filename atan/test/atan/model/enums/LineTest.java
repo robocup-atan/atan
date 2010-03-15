@@ -1,41 +1,51 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package atan.model.enums;
+
+//~--- non-JDK imports --------------------------------------------------------
 
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**
  *
- * @author Stu
+ * @author Atan
  */
 public class LineTest {
 
-    public LineTest() {
-    }
+    /**
+     *
+     */
+    public LineTest() {}
 
+    /**
+     *
+     * @throws Exception
+     */
     @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
+    public static void setUpClass() throws Exception {}
 
+    /**
+     *
+     * @throws Exception
+     */
     @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
+    public static void tearDownClass() throws Exception {}
 
+    /**
+     *
+     */
     @Before
-    public void setUp() {
-    }
+    public void setUp() {}
 
+    /**
+     *
+     */
     @After
-    public void tearDown() {
-    }
+    public void tearDown() {}
 
     /**
      * Test of values method, of class Line.
@@ -44,7 +54,7 @@ public class LineTest {
     public void testValues() {
         System.out.println("values");
         Line[] expResult = {Line.CENTER, Line.OWN, Line.OTHER, Line.LEFT, Line.RIGHT};
-        Line[] result = Line.values();
+        Line[] result    = Line.values();
         assertArrayEquals(expResult, result);
     }
 
@@ -54,26 +64,25 @@ public class LineTest {
     @Test
     public void testValueOf() {
         System.out.println("valueOf");
-        String name = "CENTER";
-        Line expResult = Line.CENTER;
-        Line result = Line.valueOf(name);
+        String name      = "CENTER";
+        Line   expResult = Line.CENTER;
+        Line   result    = Line.valueOf(name);
         assertEquals(expResult, result);
-        name = "LEFT";
+        name      = "LEFT";
         expResult = Line.LEFT;
-        result = Line.valueOf(name);
+        result    = Line.valueOf(name);
         assertEquals(expResult, result);
-        name = "RIGHT";
+        name      = "RIGHT";
         expResult = Line.RIGHT;
-        result = Line.valueOf(name);
+        result    = Line.valueOf(name);
         assertEquals(expResult, result);
-        name = "OWN";
+        name      = "OWN";
         expResult = Line.OWN;
-        result = Line.valueOf(name);
+        result    = Line.valueOf(name);
         assertEquals(expResult, result);
-        name = "OTHER";
+        name      = "OTHER";
         expResult = Line.OTHER;
-        result = Line.valueOf(name);
+        result    = Line.valueOf(name);
         assertEquals(expResult, result);
     }
-
 }

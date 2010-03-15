@@ -1,41 +1,51 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package atan.model.enums;
+
+//~--- non-JDK imports --------------------------------------------------------
 
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**
  *
- * @author Stu
+ * @author Atan
  */
 public class ViewQualityTest {
 
-    public ViewQualityTest() {
-    }
+    /**
+     *
+     */
+    public ViewQualityTest() {}
 
+    /**
+     *
+     * @throws Exception
+     */
     @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
+    public static void setUpClass() throws Exception {}
 
+    /**
+     *
+     * @throws Exception
+     */
     @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
+    public static void tearDownClass() throws Exception {}
 
+    /**
+     *
+     */
     @Before
-    public void setUp() {
-    }
+    public void setUp() {}
 
+    /**
+     *
+     */
     @After
-    public void tearDown() {
-    }
+    public void tearDown() {}
 
     /**
      * Test of values method, of class ViewQuality.
@@ -44,7 +54,7 @@ public class ViewQualityTest {
     public void testValues() {
         System.out.println("values");
         ViewQuality[] expResult = {ViewQuality.HIGH, ViewQuality.LOW};
-        ViewQuality[] result = ViewQuality.values();
+        ViewQuality[] result    = ViewQuality.values();
         assertArrayEquals(expResult, result);
     }
 
@@ -54,18 +64,17 @@ public class ViewQualityTest {
     @Test
     public void testValueOf() {
         System.out.println("valueOf");
-        String name = "HIGH";
+        String      name      = "HIGH";
         ViewQuality expResult = ViewQuality.HIGH;
-        ViewQuality result = ViewQuality.valueOf(name);
+        ViewQuality result    = ViewQuality.valueOf(name);
         assertEquals(expResult, result);
-        name = "LOW";
+        name      = "LOW";
         expResult = ViewQuality.LOW;
-        result = ViewQuality.valueOf(name);
+        result    = ViewQuality.valueOf(name);
         assertEquals(expResult, result);
-        name = "LOW";
+        name      = "LOW";
         expResult = ViewQuality.HIGH;
-        result = ViewQuality.valueOf(name);
+        result    = ViewQuality.valueOf(name);
         assertFalse(result.equals(expResult));
     }
-
 }

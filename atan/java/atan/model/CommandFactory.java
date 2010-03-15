@@ -18,6 +18,7 @@ import java.util.Vector;
  * @author Atan
  */
 public class CommandFactory {
+
     // The SServer version that Atan can parse.
     private String defaultVersion = new String("13");
     @SuppressWarnings("unchecked")

@@ -26,43 +26,6 @@ public class CommandFactoryTest extends TestCase {
     /**
      *
      */
-    public void test00() {
-        CommandFactory f = new CommandFactory();
-        f.addPlayerInitCommand("hallo", false, "13");
-        assertTrue("no command", f.hasNext());
-        assertEquals("(init hallo (version 13))", f.next());
-        assertTrue("a command", !f.hasNext());
-    }
-
-    /**
-     *
-     */
-    public void test01() {
-        CommandFactory f = new CommandFactory();
-        f.addPlayerInitCommand("hallo", true, "13");
-        assertTrue("no command", f.hasNext());
-        assertEquals("(init hallo (version 13) (goalie))", f.next());
-        assertTrue("a command", !f.hasNext());
-        f.addPlayerInitCommand("hello", false, "13");
-        assertTrue("no command", f.hasNext());
-        assertEquals("(init hello (version 13))", f.next());
-        assertTrue("a command", !f.hasNext());
-    }
-
-    /**
-     *
-     */
-    public void test02() {
-        CommandFactory f = new CommandFactory();
-        f.addPlayerInitCommand("hallo", true, "13");
-        f.addPlayerInitCommand("hello", false, "13");
-        assertEquals("(init hallo (version 13) (goalie))", f.next());
-        assertEquals("(init hello (version 13))", f.next());
-    }
-
-    /**
-     *
-     */
     public void test03() {
         CommandFactory f = new CommandFactory();
         f.addReconnectCommand("hallo", 1);

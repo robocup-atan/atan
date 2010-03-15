@@ -1,41 +1,51 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package atan.model;
+
+//~--- non-JDK imports --------------------------------------------------------
 
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**
  *
- * @author Nick
+ * @author Atan
  */
 public class XPMImageTest {
 
-    public XPMImageTest() {
-    }
+    /**
+     *
+     */
+    public XPMImageTest() {}
 
+    /**
+     *
+     * @throws Exception
+     */
     @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
+    public static void setUpClass() throws Exception {}
 
+    /**
+     *
+     * @throws Exception
+     */
     @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
+    public static void tearDownClass() throws Exception {}
 
+    /**
+     *
+     */
     @Before
-    public void setUp() {
-    }
+    public void setUp() {}
 
+    /**
+     *
+     */
     @After
-    public void tearDown() {
-    }
+    public void tearDown() {}
 
     /**
      * Test of getTile method, of class XPMImage.
@@ -43,12 +53,13 @@ public class XPMImageTest {
     @Test
     public void testGetTile() {
         System.out.println("getTile");
-        int x = 0;
-        int y = 0;
-        XPMImage instance = new XPMImage();
+        int        x         = 0;
+        int        y         = 0;
+        XPMImage   instance  = new XPMImage();
         String[][] expResult = null;
-        String[][] result = instance.getTile(x, y);
+        String[][] result    = instance.getTile(x, y);
         assertEquals(expResult, result);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -59,11 +70,12 @@ public class XPMImageTest {
     @Test
     public void testUpdateTile() {
         System.out.println("updateTile");
-        int x = 0;
-        int y = 0;
-        String[][] tile = null;
-        XPMImage instance = new XPMImage();
+        int        x        = 0;
+        int        y        = 0;
+        String[][] tile     = null;
+        XPMImage   instance = new XPMImage();
         instance.updateTile(x, y, tile);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -74,10 +86,11 @@ public class XPMImageTest {
     @Test
     public void testGetXPMHeight() {
         System.out.println("getXPMHeight");
-        XPMImage instance = new XPMImage();
-        int expResult = 0;
-        int result = instance.getXPMHeight();
+        XPMImage instance  = new XPMImage();
+        int      expResult = 0;
+        int      result    = instance.getXPMHeight();
         assertEquals(expResult, result);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -88,10 +101,11 @@ public class XPMImageTest {
     @Test
     public void testGetXPMWidth() {
         System.out.println("getXPMWidth");
-        XPMImage instance = new XPMImage();
-        int expResult = 0;
-        int result = instance.getXPMWidth();
+        XPMImage instance  = new XPMImage();
+        int      expResult = 0;
+        int      result    = instance.getXPMWidth();
         assertEquals(expResult, result);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -102,12 +116,12 @@ public class XPMImageTest {
     @Test
     public void testGetTileWidth() {
         System.out.println("getTileWidth");
-        XPMImage instance = new XPMImage();
-        int expResult = 0;
-        int result = instance.getTileWidth();
+        XPMImage instance  = new XPMImage();
+        int      expResult = 0;
+        int      result    = instance.getTileWidth();
         assertEquals(expResult, result);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-
 }

@@ -1,43 +1,54 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package sample;
+
+//~--- non-JDK imports --------------------------------------------------------
 
 import atan.model.ControllerCoach;
 import atan.model.ControllerPlayer;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**
  *
- * @author Nick
+ * @author Atan
  */
 public class SimplySillyTeamTest {
 
-    public SimplySillyTeamTest() {
-    }
+    /**
+     *
+     */
+    public SimplySillyTeamTest() {}
 
+    /**
+     *
+     * @throws Exception
+     */
     @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
+    public static void setUpClass() throws Exception {}
 
+    /**
+     *
+     * @throws Exception
+     */
     @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
+    public static void tearDownClass() throws Exception {}
 
+    /**
+     *
+     */
     @Before
-    public void setUp() {
-    }
+    public void setUp() {}
 
+    /**
+     *
+     */
     @After
-    public void tearDown() {
-    }
+    public void tearDown() {}
 
     /**
      * Test of getNewControllerPlayer method, of class SimplySillyTeam.
@@ -45,11 +56,12 @@ public class SimplySillyTeamTest {
     @Test
     public void testGetNewControllerPlayer() {
         System.out.println("getNewControllerPlayer");
-        int number = 0;
-        SimplySillyTeam instance = null;
+        int              number    = 0;
+        SimplySillyTeam  instance  = null;
         ControllerPlayer expResult = null;
-        ControllerPlayer result = instance.getNewControllerPlayer(number);
+        ControllerPlayer result    = instance.getNewControllerPlayer(number);
         assertEquals(expResult, result);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -60,12 +72,12 @@ public class SimplySillyTeamTest {
     @Test
     public void testGetNewControllerCoach() {
         System.out.println("getNewControllerCoach");
-        SimplySillyTeam instance = null;
+        SimplySillyTeam instance  = null;
         ControllerCoach expResult = null;
-        ControllerCoach result = instance.getNewControllerCoach();
+        ControllerCoach result    = instance.getNewControllerCoach();
         assertEquals(expResult, result);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-
 }

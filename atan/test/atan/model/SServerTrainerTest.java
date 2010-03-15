@@ -1,42 +1,53 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package atan.model;
 
+//~--- non-JDK imports --------------------------------------------------------
+
 import atan.model.enums.PlayMode;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**
  *
- * @author Nick
+ * @author Atan
  */
 public class SServerTrainerTest {
 
-    public SServerTrainerTest() {
-    }
+    /**
+     *
+     */
+    public SServerTrainerTest() {}
 
+    /**
+     *
+     * @throws Exception
+     */
     @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
+    public static void setUpClass() throws Exception {}
 
+    /**
+     *
+     * @throws Exception
+     */
     @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
+    public static void tearDownClass() throws Exception {}
 
+    /**
+     *
+     */
     @Before
-    public void setUp() {
-    }
+    public void setUp() {}
 
+    /**
+     *
+     */
     @After
-    public void tearDown() {
-    }
+    public void tearDown() {}
 
     /**
      * Test of getInitMessage method, of class SServerTrainer.
@@ -44,10 +55,11 @@ public class SServerTrainerTest {
     @Test
     public void testGetInitMessage() {
         System.out.println("getInitMessage");
-        SServerTrainer instance = null;
-        String expResult = "";
-        String result = instance.getInitMessage();
+        SServerTrainer instance  = null;
+        String         expResult = "";
+        String         result    = instance.getInitMessage();
         assertEquals(expResult, result);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -60,6 +72,7 @@ public class SServerTrainerTest {
         System.out.println("connect");
         SServerTrainer instance = null;
         instance.connect();
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -70,9 +83,10 @@ public class SServerTrainerTest {
     @Test
     public void testReceived() throws Exception {
         System.out.println("received");
-        String msg = "";
+        String         msg      = "";
         SServerTrainer instance = null;
         instance.received(msg);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -83,9 +97,10 @@ public class SServerTrainerTest {
     @Test
     public void testChangePlayMode() {
         System.out.println("changePlayMode");
-        PlayMode playMode = null;
+        PlayMode       playMode = null;
         SServerTrainer instance = null;
         instance.changePlayMode(playMode);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -96,11 +111,12 @@ public class SServerTrainerTest {
     @Test
     public void testMovePlayer() {
         System.out.println("movePlayer");
-        ActionsPlayer p = null;
-        double x = 0.0;
-        double y = 0.0;
+        ActionsPlayer  p        = null;
+        double         x        = 0.0;
+        double         y        = 0.0;
         SServerTrainer instance = null;
         instance.movePlayer(p, x, y);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -111,10 +127,11 @@ public class SServerTrainerTest {
     @Test
     public void testMoveBall() {
         System.out.println("moveBall");
-        double x = 0.0;
-        double y = 0.0;
+        double         x        = 0.0;
+        double         y        = 0.0;
         SServerTrainer instance = null;
         instance.moveBall(x, y);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -127,6 +144,7 @@ public class SServerTrainerTest {
         System.out.println("checkBall");
         SServerTrainer instance = null;
         instance.checkBall();
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -139,6 +157,7 @@ public class SServerTrainerTest {
         System.out.println("startGame");
         SServerTrainer instance = null;
         instance.startGame();
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -151,6 +170,7 @@ public class SServerTrainerTest {
         System.out.println("recover");
         SServerTrainer instance = null;
         instance.recover();
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -161,9 +181,10 @@ public class SServerTrainerTest {
     @Test
     public void testEye() {
         System.out.println("eye");
-        boolean eyeOn = false;
+        boolean        eyeOn    = false;
         SServerTrainer instance = null;
         instance.eye(eyeOn);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -174,9 +195,10 @@ public class SServerTrainerTest {
     @Test
     public void testEar() {
         System.out.println("ear");
-        boolean earOn = false;
+        boolean        earOn    = false;
         SServerTrainer instance = null;
         instance.ear(earOn);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -189,6 +211,7 @@ public class SServerTrainerTest {
         System.out.println("look");
         SServerTrainer instance = null;
         instance.look();
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -201,6 +224,7 @@ public class SServerTrainerTest {
         System.out.println("teamNames");
         SServerTrainer instance = null;
         instance.teamNames();
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -211,11 +235,12 @@ public class SServerTrainerTest {
     @Test
     public void testChangePlayerType() {
         System.out.println("changePlayerType");
-        String teamName = "";
-        int unum = 0;
-        int playerType = 0;
-        SServerTrainer instance = null;
+        String         teamName   = "";
+        int            unum       = 0;
+        int            playerType = 0;
+        SServerTrainer instance   = null;
         instance.changePlayerType(teamName, unum, playerType);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -226,9 +251,10 @@ public class SServerTrainerTest {
     @Test
     public void testSay() {
         System.out.println("say");
-        String message = "";
+        String         message  = "";
         SServerTrainer instance = null;
         instance.say(message);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -241,6 +267,7 @@ public class SServerTrainerTest {
         System.out.println("bye");
         SServerTrainer instance = null;
         instance.bye();
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -251,11 +278,11 @@ public class SServerTrainerTest {
     @Test
     public void testHandleError() {
         System.out.println("handleError");
-        String error = "";
+        String         error    = "";
         SServerTrainer instance = null;
         instance.handleError(error);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-
 }

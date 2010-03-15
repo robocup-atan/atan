@@ -1,41 +1,51 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package atan.model.enums;
+
+//~--- non-JDK imports --------------------------------------------------------
 
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**
  *
- * @author Stu
+ * @author Atan
  */
 public class ViewAngleTest {
 
-    public ViewAngleTest() {
-    }
+    /**
+     *
+     */
+    public ViewAngleTest() {}
 
+    /**
+     *
+     * @throws Exception
+     */
     @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
+    public static void setUpClass() throws Exception {}
 
+    /**
+     *
+     * @throws Exception
+     */
     @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
+    public static void tearDownClass() throws Exception {}
 
+    /**
+     *
+     */
     @Before
-    public void setUp() {
-    }
+    public void setUp() {}
 
+    /**
+     *
+     */
     @After
-    public void tearDown() {
-    }
+    public void tearDown() {}
 
     /**
      * Test of values method, of class ViewAngle.
@@ -44,7 +54,7 @@ public class ViewAngleTest {
     public void testValues() {
         System.out.println("values");
         ViewAngle[] expResult = {ViewAngle.NARROW, ViewAngle.NORMAL, ViewAngle.WIDE};
-        ViewAngle[] result = ViewAngle.values();
+        ViewAngle[] result    = ViewAngle.values();
         assertArrayEquals(expResult, result);
     }
 
@@ -54,18 +64,17 @@ public class ViewAngleTest {
     @Test
     public void testValueOf() {
         System.out.println("valueOf");
-        String name = "NARROW";
+        String    name      = "NARROW";
         ViewAngle expResult = ViewAngle.NARROW;
-        ViewAngle result = ViewAngle.valueOf(name);
+        ViewAngle result    = ViewAngle.valueOf(name);
         assertEquals(expResult, result);
-        name = "NORMAL";
+        name      = "NORMAL";
         expResult = ViewAngle.NORMAL;
-        result = ViewAngle.valueOf(name);
+        result    = ViewAngle.valueOf(name);
         assertEquals(expResult, result);
-        name = "WIDE";
+        name      = "WIDE";
         expResult = ViewAngle.WIDE;
-        result = ViewAngle.valueOf(name);
-        assertEquals(expResult, result);       
+        result    = ViewAngle.valueOf(name);
+        assertEquals(expResult, result);
     }
-
 }

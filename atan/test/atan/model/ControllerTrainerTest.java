@@ -1,46 +1,57 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package atan.model;
+
+//~--- non-JDK imports --------------------------------------------------------
 
 import atan.model.enums.Errors;
 import atan.model.enums.Ok;
 import atan.model.enums.PlayMode;
 import atan.model.enums.RefereeMessage;
 import atan.model.enums.Warning;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**
  *
- * @author Nick
+ * @author Atan
  */
 public class ControllerTrainerTest {
 
-    public ControllerTrainerTest() {
-    }
+    /**
+     *
+     */
+    public ControllerTrainerTest() {}
 
+    /**
+     *
+     * @throws Exception
+     */
     @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
+    public static void setUpClass() throws Exception {}
 
+    /**
+     *
+     * @throws Exception
+     */
     @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
+    public static void tearDownClass() throws Exception {}
 
+    /**
+     *
+     */
     @Before
-    public void setUp() {
-    }
+    public void setUp() {}
 
+    /**
+     *
+     */
     @After
-    public void tearDown() {
-    }
+    public void tearDown() {}
 
     /**
      * Test of infoHearPlayer method, of class ControllerTrainer.
@@ -48,10 +59,11 @@ public class ControllerTrainerTest {
     @Test
     public void testInfoHearPlayer() {
         System.out.println("infoHearPlayer");
-        double direction = 0.0;
-        String message = "";
-        ControllerTrainer instance = new ControllerTrainerImpl();
+        double            direction = 0.0;
+        String            message   = "";
+        ControllerTrainer instance  = new ControllerTrainerImpl();
         instance.infoHearPlayer(direction, message);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -62,9 +74,10 @@ public class ControllerTrainerTest {
     @Test
     public void testInfoHearPlayMode() {
         System.out.println("infoHearPlayMode");
-        PlayMode playMode = null;
+        PlayMode          playMode = null;
         ControllerTrainer instance = new ControllerTrainerImpl();
         instance.infoHearPlayMode(playMode);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -75,9 +88,10 @@ public class ControllerTrainerTest {
     @Test
     public void testInfoHearReferee() {
         System.out.println("infoHearReferee");
-        RefereeMessage refereeMessage = null;
-        ControllerTrainer instance = new ControllerTrainerImpl();
+        RefereeMessage    refereeMessage = null;
+        ControllerTrainer instance       = new ControllerTrainerImpl();
         instance.infoHearReferee(refereeMessage);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -88,9 +102,10 @@ public class ControllerTrainerTest {
     @Test
     public void testInfoHearError() {
         System.out.println("infoHearError");
-        Errors error = null;
+        Errors            error    = null;
         ControllerTrainer instance = new ControllerTrainerImpl();
         instance.infoHearError(error);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -101,9 +116,10 @@ public class ControllerTrainerTest {
     @Test
     public void testInfoHearOk() {
         System.out.println("infoHearOk");
-        Ok ok = null;
+        Ok                ok       = null;
         ControllerTrainer instance = new ControllerTrainerImpl();
         instance.infoHearOk(ok);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -114,32 +130,55 @@ public class ControllerTrainerTest {
     @Test
     public void testInfoHearWarning() {
         System.out.println("infoHearWarning");
-        Warning warning = null;
+        Warning           warning  = null;
         ControllerTrainer instance = new ControllerTrainerImpl();
         instance.infoHearWarning(warning);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
+    /**
+     *
+     * @author author
+     */
     public class ControllerTrainerImpl implements ControllerTrainer {
 
-        public void infoHearPlayer(double direction, String message) {
-        }
+        /**
+         *
+         * @param direction
+         * @param message
+         */
+        public void infoHearPlayer(double direction, String message) {}
 
-        public void infoHearPlayMode(PlayMode playMode) {
-        }
+        /**
+         *
+         * @param playMode
+         */
+        public void infoHearPlayMode(PlayMode playMode) {}
 
-        public void infoHearReferee(RefereeMessage refereeMessage) {
-        }
+        /**
+         *
+         * @param refereeMessage
+         */
+        public void infoHearReferee(RefereeMessage refereeMessage) {}
 
-        public void infoHearError(Errors error) {
-        }
+        /**
+         *
+         * @param error
+         */
+        public void infoHearError(Errors error) {}
 
-        public void infoHearOk(Ok ok) {
-        }
+        /**
+         *
+         * @param ok
+         */
+        public void infoHearOk(Ok ok) {}
 
-        public void infoHearWarning(Warning warning) {
-        }
+        /**
+         *
+         * @param warning
+         */
+        public void infoHearWarning(Warning warning) {}
     }
-
 }

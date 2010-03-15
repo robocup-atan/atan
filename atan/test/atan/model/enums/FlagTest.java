@@ -1,8 +1,3 @@
-
-/*
-* To change this template, choose Tools | Templates
-* and open the template in the editor.
- */
 package atan.model.enums;
 
 //~--- non-JDK imports --------------------------------------------------------
@@ -17,7 +12,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Nick
+ * @author Atan
  */
 public class FlagTest {
 

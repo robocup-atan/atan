@@ -1,42 +1,55 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package atan.model;
 
-import java.util.Properties;
+//~--- non-JDK imports --------------------------------------------------------
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
+
+//~--- JDK imports ------------------------------------------------------------
+
+import java.util.Properties;
 
 /**
  *
- * @author Nick
+ * @author Atan
  */
 public class AbstractTeamTest {
 
-    public AbstractTeamTest() {
-    }
+    /**
+     *
+     */
+    public AbstractTeamTest() {}
 
+    /**
+     *
+     * @throws Exception
+     */
     @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
+    public static void setUpClass() throws Exception {}
 
+    /**
+     *
+     * @throws Exception
+     */
     @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
+    public static void tearDownClass() throws Exception {}
 
+    /**
+     *
+     */
     @Before
-    public void setUp() {
-    }
+    public void setUp() {}
 
+    /**
+     *
+     */
     @After
-    public void tearDown() {
-    }
+    public void tearDown() {}
 
     /**
      * Test of getTeamName method, of class AbstractTeam.
@@ -44,10 +57,11 @@ public class AbstractTeamTest {
     @Test
     public void testGetTeamName() {
         System.out.println("getTeamName");
-        AbstractTeam instance = null;
-        String expResult = "";
-        String result = instance.getTeamName();
+        AbstractTeam instance  = null;
+        String       expResult = "";
+        String       result    = instance.getTeamName();
         assertEquals(expResult, result);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -58,10 +72,11 @@ public class AbstractTeamTest {
     @Test
     public void testGetProperties() {
         System.out.println("getProperties");
-        AbstractTeam instance = null;
-        Properties expResult = null;
-        Properties result = instance.getProperties();
+        AbstractTeam instance  = null;
+        Properties   expResult = null;
+        Properties   result    = instance.getProperties();
         assertEquals(expResult, result);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -72,11 +87,12 @@ public class AbstractTeamTest {
     @Test
     public void testGetNewControllerPlayer() {
         System.out.println("getNewControllerPlayer");
-        int i = 0;
-        AbstractTeam instance = null;
+        int              i         = 0;
+        AbstractTeam     instance  = null;
         ControllerPlayer expResult = null;
-        ControllerPlayer result = instance.getNewControllerPlayer(i);
+        ControllerPlayer result    = instance.getNewControllerPlayer(i);
         assertEquals(expResult, result);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -87,10 +103,11 @@ public class AbstractTeamTest {
     @Test
     public void testGetNewControllerCoach() {
         System.out.println("getNewControllerCoach");
-        AbstractTeam instance = null;
+        AbstractTeam    instance  = null;
         ControllerCoach expResult = null;
-        ControllerCoach result = instance.getNewControllerCoach();
+        ControllerCoach result    = instance.getNewControllerCoach();
         assertEquals(expResult, result);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -103,6 +120,7 @@ public class AbstractTeamTest {
         System.out.println("createNewPlayers");
         AbstractTeam instance = null;
         instance.createNewPlayers();
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -115,6 +133,7 @@ public class AbstractTeamTest {
         System.out.println("createNewCoach");
         AbstractTeam instance = null;
         instance.createNewCoach();
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -127,6 +146,7 @@ public class AbstractTeamTest {
         System.out.println("killAll");
         AbstractTeam instance = null;
         instance.killAll();
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -139,6 +159,7 @@ public class AbstractTeamTest {
         System.out.println("connectAll");
         AbstractTeam instance = null;
         instance.connectAll();
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -149,9 +170,10 @@ public class AbstractTeamTest {
     @Test
     public void testConnect() {
         System.out.println("connect");
-        int index = 0;
+        int          index    = 0;
         AbstractTeam instance = null;
         instance.connect(index);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -162,27 +184,43 @@ public class AbstractTeamTest {
     @Test
     public void testSize() {
         System.out.println("size");
-        AbstractTeam instance = null;
-        int expResult = 0;
-        int result = instance.size();
+        AbstractTeam instance  = null;
+        int          expResult = 0;
+        int          result    = instance.size();
         assertEquals(expResult, result);
+
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
+    /**
+     *
+     * @author author
+     */
     public class AbstractTeamImpl extends AbstractTeam {
 
+        /**
+         *
+         */
         public AbstractTeamImpl() {
             super("");
         }
 
+        /**
+         *
+         * @param i
+         * @return
+         */
         public ControllerPlayer getNewControllerPlayer(int i) {
             return null;
         }
 
+        /**
+         *
+         * @return
+         */
         public ControllerCoach getNewControllerCoach() {
             return null;
         }
     }
-
 }
