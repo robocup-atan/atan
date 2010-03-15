@@ -53,8 +53,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
     }
 
     /**
-     * Gets the initialisation message.
-     * @return Initialisation message.
+     * @inheritDoc
      */
     @Override
     public String getInitMessage() {
@@ -73,7 +72,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
     }
 
     /**
-     * Pointless method. Had to implement due to extending AbstractUDPClient.
+     * @inheritDoc
      */
     @Override
     public void start() {
@@ -81,9 +80,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
     }
 
     /**
-     *
-     * @param msg
-     * @throws IOException
+     * @inheritDoc
      */
     @Override
     public void received(String msg) throws IOException {
@@ -107,8 +104,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
     }
 
     /**
-     *
-     * @param eyeOn
+     * @inheritDoc
      */
     @Override
     public void eye(boolean eyeOn) {
@@ -116,7 +112,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
     }
 
     /**
-     *
+     * @inheritDoc
      */
     @Override
     public void look() {
@@ -124,7 +120,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
     }
 
     /**
-     *
+     * @inheritDoc
      */
     @Override
     public void getTeamNames() {
@@ -132,9 +128,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
     }
 
     /**
-     * This command changes a specified players type.
-     * @param unum The players uniform number (1~11 on pitch usually, subs <= 17).
-     * @param playerType
+     * @inheritDoc
      */
     @Override
     public void changePlayerType(int unum, int playerType) {
@@ -142,8 +136,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
     }
 
     /**
-     *
-     * @param message
+     * @inheritDoc
      */
     @Override
     public void say(String message) {
@@ -151,8 +144,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
     }
 
     /**
-     *
-     * @param xpm
+     * @inheritDoc
      */
     @Override
     public void teamGraphic(XPMImage xpm) {
@@ -160,7 +152,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
     }
 
     /**
-     *
+     * @inheritDoc
      */
     @Override
     public void bye() {
@@ -168,20 +160,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
     }
 
     /**
-     * Pause for the period provided
-     * @param ms milliseconds to pause for
-     */
-    private synchronized void pause(int ms) {
-        try {
-            this.wait(ms);
-        } catch (InterruptedException ex) {
-            return;
-        }
-    }
-
-    /**
-     *
-     * @param error
+     * @inheritDoc
      */
     @Override
     public void handleError(String error) {
@@ -189,8 +168,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
     }
 
     /**
-     *
-     * @return
+     * @inheritDoc
      */
     @Override
     public boolean isTeamEast() {
@@ -198,8 +176,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
     }
 
     /**
-     *
-     * @param is
+     * @inheritDoc
      */
     @Override
     public void setTeamEast(boolean is) {
@@ -207,12 +184,23 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
     }
 
     /**
-     *
-     * @return
+     * @inheritDoc
      */
     @Override
     public String getTeamName() {
         return teamName;
+    }
+
+    /**
+     * Pause the thread.
+     * @param ms How long to pause the thread for (in ms).
+     */
+    private synchronized void pause(int ms) {
+        try {
+            this.wait(ms);
+        } catch (InterruptedException ex) {
+            log.warn("Interrupted Exception ", ex);
+        }
     }
 
     /**
@@ -232,8 +220,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
         private String warningCommand          = null;
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void seeCommand(String cmd) {
@@ -241,8 +228,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void hearCommand(String cmd) {
@@ -250,8 +236,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void initCommand(String cmd) {
@@ -259,8 +244,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void errorCommand(String cmd) {
@@ -268,8 +252,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void serverParamCommand(String cmd) {
@@ -277,8 +260,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void playerParamCommand(String cmd) {
@@ -286,8 +268,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void playerTypeCommand(String cmd) {
@@ -295,8 +276,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void changePlayerTypeCommand(String cmd) {
@@ -304,8 +284,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void okCommand(String cmd) {
@@ -313,8 +292,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void warningCommand(String cmd) {
@@ -322,15 +300,13 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
         }
 
         /**
-         * Method not needed.
-         * @deprecated
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void senseBodyCommand(String cmd) {}
 
         /**
-         *
+         * Decide where to go from here.
          * @param controller
          * @param parser
          * @param c

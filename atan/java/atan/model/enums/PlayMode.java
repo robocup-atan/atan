@@ -94,72 +94,72 @@ public enum PlayMode {
     // <editor-fold defaultstate="collapsed" desc="Raw data for trainer/coach">
 
     /**
-     *
+     * Kick off for the left team.
      */
     KICK_OFF_L,
 
     /**
-     *
+     * Kick off for the right team.
      */
     KICK_OFF_R,
 
     /**
-     *
+     * Kick in for the left team.
      */
     KICK_IN_L,
 
     /**
-     *
+     * Kick in for the right team.
      */
     KICK_IN_R,
 
     /**
-     *
+     * Free kick for the right team.
      */
     FREE_KICK_R,
 
     /**
-     *
+     * Free kick for the left team.
      */
     FREE_KICK_L,
 
     /**
-     *
+     * Free kick fault for the left team.
      */
     FREE_KICK_FAULT_L,
 
     /**
-     *
+     * Free kick fault for the left team.
      */
     FREE_KICK_FAULT_R,
 
     /**
-     *
+     * Corner kick for the right team.
      */
     CORNER_KICK_R,
 
     /**
-     *
+     * Corner kick for the left team.
      */
     CORNER_KICK_L,
 
     /**
-     *
+     * Goal kick for the right team.
      */
     GOAL_KICK_R,
 
     /**
-     *
+     * Goal kick for the left team.
      */
     GOAL_KICK_L,
 
     /**
-     *
+     * Right team scored.
      */
     GOAL_R,
 
     /**
-     *
+     * Left team scored.
      */
     GOAL_L;
 

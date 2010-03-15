@@ -1,7 +1,8 @@
 package atan.model.enums;
 
 /**
- *
+ * An enum for Server Params.
+ * @author Atan
  */
 public enum ServerParams {
 

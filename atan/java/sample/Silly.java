@@ -22,8 +22,8 @@ import org.apache.log4j.Logger;
 import java.util.HashMap;
 
 /**
- *
- * @author Atan
+ * 
+ * @author author
  */
 public class Silly implements ControllerPlayer {
     private static Logger log         = Logger.getLogger(Silly.class);
@@ -32,7 +32,7 @@ public class Silly implements ControllerPlayer {
     private ActionsPlayer player;
 
     /**
-     *
+     * @inheritDoc
      */
     @Override
     public void preInfo() {
@@ -41,7 +41,7 @@ public class Silly implements ControllerPlayer {
     }
 
     /**
-     *
+     * @inheritDoc
      */
     @Override
     public void postInfo() {
@@ -57,8 +57,7 @@ public class Silly implements ControllerPlayer {
     }
 
     /**
-     *
-     * @return
+     * @inheritDoc
      */
     @Override
     public ActionsPlayer getPlayer() {
@@ -66,8 +65,7 @@ public class Silly implements ControllerPlayer {
     }
 
     /**
-     *
-     * @param p
+     * @inheritDoc
      */
     @Override
     public void setPlayer(ActionsPlayer p) {
@@ -75,14 +73,7 @@ public class Silly implements ControllerPlayer {
     }
 
     /**
-     *
-     * @param line
-     * @param distance
-     * @param direction
-     * @param distChange
-     * @param dirChange
-     * @param bodyFacingDirection
-     * @param headFacingDirection
+     * @inheritDoc
      */
     @Override
     public void infoSeeLine(Line line, double distance, double direction, double distChange, double dirChange,
@@ -93,13 +84,7 @@ public class Silly implements ControllerPlayer {
     }
 
     /**
-     *
-     * @param distance
-     * @param direction
-     * @param distChange
-     * @param dirChange
-     * @param bodyFacingDirection
-     * @param headFacingDirection
+     * @inheritDoc
      */
     @Override
     public void infoSeeBall(double distance, double direction, double distChange, double dirChange,
@@ -108,15 +93,13 @@ public class Silly implements ControllerPlayer {
     }
 
     /**
-     *
-     * @param refereeMessage
+     * @inheritDoc
      */
     @Override
     public void infoHearReferee(RefereeMessage refereeMessage) {}
 
     /**
-     *
-     * @param playMode
+     * @inheritDoc
      */
     @Override
     public void infoHearPlayMode(PlayMode playMode) {
@@ -126,31 +109,13 @@ public class Silly implements ControllerPlayer {
     }
 
     /**
-     *
-     * @param parm1
-     * @param parm2
+     * @inheritDoc
      */
     @Override
-    public void infoHearPlayer(double parm1, String parm2) {}
+    public void infoHearPlayer(double direction, String string) {}
 
     /**
-     *
-     * @param viewQuality
-     * @param viewAngle
-     * @param stamina
-     * @param unknown
-     * @param effort
-     * @param speedAmount
-     * @param speedDirection
-     * @param headAngle
-     * @param kickCount
-     * @param dashCount
-     * @param turnCount
-     * @param sayCount
-     * @param turnNeckCount
-     * @param catchCount
-     * @param moveCount
-     * @param changeViewCount
+     * @inheritDoc
      */
     @Override
     public void infoSenseBody(ViewQuality viewQuality, ViewAngle viewAngle, double stamina, double unknown,
@@ -159,8 +124,7 @@ public class Silly implements ControllerPlayer {
                               int catchCount, int moveCount, int changeViewCount) {}
 
     /**
-     * Don't return a type
-     * @return null
+     * @inheritDoc
      */
     @Override
     public String getType() {
@@ -168,240 +132,122 @@ public class Silly implements ControllerPlayer {
     }
 
     /**
-     * Don't set a type
-     * @param newType discarded
+     * @inheritDoc
      */
     @Override
     public void setType(String newType) {}
 
     /**
-     *
-     * @param error
+     * @inheritDoc
      */
     @Override
     public void infoHearError(Errors error) {}
 
     /**
-     *
-     * @param ok
+     * @inheritDoc
      */
     @Override
     public void infoHearOk(Ok ok) {}
 
     /**
-     *
-     * @param warning
+     * @inheritDoc
      */
     @Override
     public void infoHearWarning(Warning warning) {}
 
     /**
-     *
-     * @param flag
-     * @param distance
-     * @param direction
-     * @param distChange
-     * @param dirChange
-     * @param bodyFacingDirection
-     * @param headFacingDirection
+     * @inheritDoc
      */
     @Override
     public void infoSeeFlagRight(Flag flag, double distance, double direction, double distChange, double dirChange,
                                  double bodyFacingDirection, double headFacingDirection) {}
 
     /**
-     *
-     * @param flag
-     * @param distance
-     * @param direction
-     * @param distChange
-     * @param dirChange
-     * @param bodyFacingDirection
-     * @param headFacingDirection
+     * @inheritDoc
      */
     @Override
     public void infoSeeFlagLeft(Flag flag, double distance, double direction, double distChange, double dirChange,
                                 double bodyFacingDirection, double headFacingDirection) {}
 
     /**
-     *
-     * @param flag
-     * @param distance
-     * @param direction
-     * @param distChange
-     * @param dirChange
-     * @param bodyFacingDirection
-     * @param headFacingDirection
+     * @inheritDoc
      */
     @Override
     public void infoSeeFlagOwn(Flag flag, double distance, double direction, double distChange, double dirChange,
                                double bodyFacingDirection, double headFacingDirection) {}
 
     /**
-     *
-     * @param flag
-     * @param distance
-     * @param direction
-     * @param distChange
-     * @param dirChange
-     * @param bodyFacingDirection
-     * @param headFacingDirection
+     * @inheritDoc
      */
     @Override
     public void infoSeeFlagOther(Flag flag, double distance, double direction, double distChange, double dirChange,
                                  double bodyFacingDirection, double headFacingDirection) {}
 
     /**
-     *
-     * @param flag
-     * @param distance
-     * @param direction
-     * @param distChange
-     * @param dirChange
-     * @param bodyFacingDirection
-     * @param headFacingDirection
+     * @inheritDoc
      */
     @Override
     public void infoSeeFlagCenter(Flag flag, double distance, double direction, double distChange, double dirChange,
                                   double bodyFacingDirection, double headFacingDirection) {}
 
     /**
-     *
-     * @param flag
-     * @param distance
-     * @param direction
-     * @param distChange
-     * @param dirChange
-     * @param bodyFacingDirection
-     * @param headFacingDirection
+     * @inheritDoc
      */
     @Override
     public void infoSeeFlagCornerOwn(Flag flag, double distance, double direction, double distChange, double dirChange,
                                      double bodyFacingDirection, double headFacingDirection) {}
 
     /**
-     *
-     * @param flag
-     * @param distance
-     * @param direction
-     * @param distChange
-     * @param dirChange
-     * @param bodyFacingDirection
-     * @param headFacingDirection
+     * @inheritDoc
      */
     @Override
     public void infoSeeFlagCornerOther(Flag flag, double distance, double direction, double distChange,
                                        double dirChange, double bodyFacingDirection, double headFacingDirection) {}
 
     /**
-     *
-     * @param flag
-     * @param distance
-     * @param direction
-     * @param distChange
-     * @param dirChange
-     * @param bodyFacingDirection
-     * @param headFacingDirection
+     * @inheritDoc
      */
     @Override
     public void infoSeeFlagPenaltyOwn(Flag flag, double distance, double direction, double distChange,
                                       double dirChange, double bodyFacingDirection, double headFacingDirection) {}
 
     /**
-     *
-     * @param flag
-     * @param distance
-     * @param direction
-     * @param distChange
-     * @param dirChange
-     * @param bodyFacingDirection
-     * @param headFacingDirection
+     * @inheritDoc
      */
     @Override
     public void infoSeeFlagPenaltyOther(Flag flag, double distance, double direction, double distChange,
             double dirChange, double bodyFacingDirection, double headFacingDirection) {}
 
     /**
-     *
-     * @param flag
-     * @param distance
-     * @param direction
-     * @param distChange
-     * @param dirChange
-     * @param bodyFacingDirection
-     * @param headFacingDirection
+     * @inheritDoc
      */
     @Override
     public void infoSeeFlagGoalOwn(Flag flag, double distance, double direction, double distChange, double dirChange,
                                    double bodyFacingDirection, double headFacingDirection) {}
 
     /**
-     *
-     * @param flag
-     * @param distance
-     * @param direction
-     * @param distChange
-     * @param dirChange
-     * @param bodyFacingDirection
-     * @param headFacingDirection
+     * @inheritDoc
      */
     @Override
     public void infoSeeFlagGoalOther(Flag flag, double distance, double direction, double distChange, double dirChange,
                                      double bodyFacingDirection, double headFacingDirection) {}
 
     /**
-     *
-     * @param number
-     * @param goalie
-     * @param distance
-     * @param direction
-     * @param distChange
-     * @param dirChange
-     * @param bodyFacingDirection
-     * @param headFacingDirection
+     * @inheritDoc
      */
     @Override
     public void infoSeePlayerOther(int number, boolean goalie, double distance, double direction, double distChange,
                                    double dirChange, double bodyFacingDirection, double headFacingDirection) {}
 
     /**
-     *
-     * @param number
-     * @param goalie
-     * @param distance
-     * @param direction
-     * @param distChange
-     * @param dirChange
-     * @param bodyFacingDirection
-     * @param headFacingDirection
+     * @inheritDoc
      */
     @Override
     public void infoSeePlayerOwn(int number, boolean goalie, double distance, double direction, double distChange,
                                  double dirChange, double bodyFacingDirection, double headFacingDirection) {}
 
     /**
-     *
-     * @param allowMultDefaultType
-     * @param dashPowerRateDeltaMax
-     * @param dashPowerRateDeltaMin
-     * @param effortMaxDeltaFactor
-     * @param effortMinDeltaFactor
-     * @param extraStaminaDeltaMax
-     * @param extraStaminaDeltaMin
-     * @param inertiaMomentDeltaFactor
-     * @param kickRandDeltaFactor
-     * @param kickableMarginDeltaMax
-     * @param kickableMarginDeltaMin
-     * @param newDashPowerRateDeltaMax
-     * @param newDashPowerRateDeltaMin
-     * @param newStaminaIncMaxDeltaFactor
-     * @param playerDecayDeltaMax
-     * @param playerDecayDeltaMin
-     * @param playerTypes
-     * @param ptMax
-     * @param randomSeed
-     * @param staminaIncMaxDeltaFactor
-     * @param subsMax
+     * @inheritDoc
      */
     @Override
     public void infoPlayerParam(double allowMultDefaultType, double dashPowerRateDeltaMax,
@@ -415,19 +261,7 @@ public class Silly implements ControllerPlayer {
                                 double staminaIncMaxDeltaFactor, double subsMax) {}
 
     /**
-     *
-     * @param id
-     * @param playerSpeedMax
-     * @param staminaIncMax
-     * @param playerDecay
-     * @param inertiaMoment
-     * @param dashPowerRate
-     * @param playerSize
-     * @param kickableMargin
-     * @param kickRand
-     * @param extraStamina
-     * @param effortMax
-     * @param effortMin
+     * @inheritDoc
      */
     @Override
     public void infoPlayerType(int id, double playerSpeedMax, double staminaIncMax, double playerDecay,
@@ -435,23 +269,19 @@ public class Silly implements ControllerPlayer {
                                double kickRand, double extraStamina, double effortMax, double effortMin) {}
 
     /**
-     *
-     * @param unum
+     * @inheritDoc
      */
     @Override
     public void infoCPTOther(int unum) {}
 
     /**
-     *
-     * @param unum
-     * @param type
+     * @inheritDoc
      */
     @Override
     public void infoCPTOwn(int unum, int type) {}
 
     /**
-     *
-     * @param info
+     * @inheritDoc
      */
     @Override
     public void infoServerParam(HashMap<ServerParams, Object> info) {}

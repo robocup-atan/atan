@@ -4,7 +4,6 @@ package sample;
 
 import atan.model.ActionsCoach;
 import atan.model.ControllerCoach;
-import atan.model.XPMImage;
 import atan.model.enums.Errors;
 import atan.model.enums.Ok;
 import atan.model.enums.PlayMode;
@@ -19,7 +18,6 @@ import org.apache.log4j.Logger;
 import java.util.HashMap;
 
 /**
- *
  * @author Atan
  */
 public class Coach implements ControllerCoach {
@@ -27,8 +25,7 @@ public class Coach implements ControllerCoach {
     private ActionsCoach  coach;
 
     /**
-     *
-     * @param error
+     * @inheritDoc
      */
     @Override
     public void infoHearError(Errors error) {
@@ -36,8 +33,7 @@ public class Coach implements ControllerCoach {
     }
 
     /**
-     *
-     * @param ok
+     * @inheritDoc
      */
     @Override
     public void infoHearOk(Ok ok) {
@@ -45,8 +41,7 @@ public class Coach implements ControllerCoach {
     }
 
     /**
-     *
-     * @param playMode
+     * @inheritDoc
      */
     @Override
     public void infoHearPlayMode(PlayMode playMode) {
@@ -54,9 +49,7 @@ public class Coach implements ControllerCoach {
     }
 
     /**
-     *
-     * @param direction
-     * @param message
+     * @inheritDoc
      */
     @Override
     public void infoHearPlayer(double direction, String message) {
@@ -64,8 +57,7 @@ public class Coach implements ControllerCoach {
     }
 
     /**
-     *
-     * @param refereeMessage
+     * @inheritDoc
      */
     @Override
     public void infoHearReferee(RefereeMessage refereeMessage) {
@@ -73,8 +65,7 @@ public class Coach implements ControllerCoach {
     }
 
     /**
-     *
-     * @param warning
+     * @inheritDoc
      */
     @Override
     public void infoHearWarning(Warning warning) {
@@ -82,19 +73,7 @@ public class Coach implements ControllerCoach {
     }
 
     /**
-     *
-     * @param id
-     * @param playerSpeedMax
-     * @param staminaIncMax
-     * @param playerDecay
-     * @param inertiaMoment
-     * @param dashPowerRate
-     * @param playerSize
-     * @param kickableMargin
-     * @param kickRand
-     * @param extraStamina
-     * @param effortMax
-     * @param effortMin
+     * @inheritDoc
      */
     @Override
     public void infoPlayerType(int id, double playerSpeedMax, double staminaIncMax, double playerDecay,
@@ -104,28 +83,7 @@ public class Coach implements ControllerCoach {
     }
 
     /**
-     *
-     * @param allowMultDefaultType
-     * @param dashPowerRateDeltaMax
-     * @param dashPowerRateDeltaMin
-     * @param effortMaxDeltaFactor
-     * @param effortMinDeltaFactor
-     * @param extraStaminaDeltaMax
-     * @param extraStaminaDeltaMin
-     * @param inertiaMomentDeltaFactor
-     * @param kickRandDeltaFactor
-     * @param kickableMarginDeltaMax
-     * @param kickableMarginDeltaMin
-     * @param newDashPowerRateDeltaMax
-     * @param newDashPowerRateDeltaMin
-     * @param newStaminaIncMaxDeltaFactor
-     * @param playerDecayDeltaMax
-     * @param playerDecayDeltaMin
-     * @param playerTypes
-     * @param ptMax
-     * @param randomSeed
-     * @param staminaIncMaxDeltaFactor
-     * @param subsMax
+     * @inheritDoc
      */
     @Override
     public void infoPlayerParam(double allowMultDefaultType, double dashPowerRateDeltaMax,
@@ -141,8 +99,7 @@ public class Coach implements ControllerCoach {
     }
 
     /**
-     *
-     * @param unum
+     * @inheritDoc
      */
     @Override
     public void infoCPTOther(int unum) {
@@ -150,9 +107,7 @@ public class Coach implements ControllerCoach {
     }
 
     /**
-     *
-     * @param unum
-     * @param type
+     * @inheritDoc
      */
     @Override
     public void infoCPTOwn(int unum, int type) {
@@ -160,8 +115,7 @@ public class Coach implements ControllerCoach {
     }
 
     /**
-     *
-     * @param info
+     * @inheritDoc
      */
     @Override
     public void infoServerParam(HashMap<ServerParams, Object> info) {
@@ -169,11 +123,7 @@ public class Coach implements ControllerCoach {
     }
 
     /**
-     *
-     * @param x
-     * @param y
-     * @param deltaX
-     * @param deltaY
+     * @inheritDoc
      */
     @Override
     public void infoSeeBall(double x, double y, double deltaX, double deltaY) {
@@ -181,15 +131,7 @@ public class Coach implements ControllerCoach {
     }
 
     /**
-     *
-     * @param number
-     * @param goalie
-     * @param x
-     * @param y
-     * @param deltaX
-     * @param deltaY
-     * @param bodyAngle
-     * @param neckAngle
+     * @inheritDoc
      */
     @Override
     public void infoSeePlayerOther(int number, boolean goalie, double x, double y, double deltaX, double deltaY,
@@ -198,15 +140,7 @@ public class Coach implements ControllerCoach {
     }
 
     /**
-     *
-     * @param number
-     * @param goalie
-     * @param x
-     * @param y
-     * @param deltaX
-     * @param deltaY
-     * @param bodyAngle
-     * @param neckAngle
+     * @inheritDoc
      */
     @Override
     public void infoSeePlayerOwn(int number, boolean goalie, double x, double y, double deltaX, double deltaY,
@@ -215,8 +149,7 @@ public class Coach implements ControllerCoach {
     }
 
     /**
-     *
-     * @param c
+     * @inheritDoc
      */
     @Override
     public void setCoach(ActionsCoach c) {
@@ -224,8 +157,7 @@ public class Coach implements ControllerCoach {
     }
 
     /**
-     *
-     * @return
+     * @inheritDoc
      */
     @Override
     public ActionsCoach getCoach() {
@@ -233,9 +165,7 @@ public class Coach implements ControllerCoach {
     }
 
     /**
-     *
-     * @param x
-     * @param y
+     * @inheritDoc
      */
     @Override
     public void infoSeeGoalOther(double x, double y) {
@@ -243,9 +173,7 @@ public class Coach implements ControllerCoach {
     }
 
     /**
-     *
-     * @param x
-     * @param y
+     * @inheritDoc
      */
     @Override
     public void infoSeeGoalOwn(double x, double y) {
@@ -253,9 +181,7 @@ public class Coach implements ControllerCoach {
     }
 
     /**
-     *
-     * @param teamWest
-     * @param teamEast
+     * @inheritDoc
      */
     @Override
     public void infoHearTeamNames(String teamWest, String teamEast) {

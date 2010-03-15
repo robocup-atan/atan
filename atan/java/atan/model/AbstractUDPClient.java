@@ -82,10 +82,14 @@ public abstract class AbstractUDPClient extends Thread {
         try {
             log.info("UDP - client started: " + this.hostname + ":" + this.port);
             isRunning = true;
-            buf       = new ByteBuffer(5000);    // Size increased due to the length of (server_param.
+
+            // A buffer size of 5000 to handle the server_param message.
+            buf = new ByteBuffer(5000);
             buf.setString(getInitMessage());
             socket = new DatagramSocket();
-            socket.setSoTimeout(300000);         // Timeout of 5 mins, which should be enough to keep everything connected.
+
+            // Timeout of 3mins to ensure that the coach stays connected.
+            socket.setSoTimeout(300000);
             DatagramPacket p = new DatagramPacket(buf.getByteArray(), buf.getByteArray().length,
                                    InetAddress.getByName(hostname), port);
             socket.send(p);
@@ -93,7 +97,9 @@ public abstract class AbstractUDPClient extends Thread {
             this.host = p.getAddress();
             this.port = p.getPort();
             received(buf.getString());
-            while (isRunning) {    // Continue until the program is closed. This is where sserver messages are received.
+
+            // Continue until the program is closed. This is where sserver messages are received.
+            while (isRunning) {
                 buf.reset();
                 DatagramPacket packet = new DatagramPacket(buf.getByteArray(), buf.getByteArray().length);
                 socket.receive(packet);
@@ -119,15 +125,7 @@ public abstract class AbstractUDPClient extends Thread {
     }
 
     /**
-     *
-     * @return
-     */
-    protected String getDescription() {
-        return "AbstractUDPClient";
-    }
-
-    /**
-     * Sends a message.
+     * Sends a message to SServer.
      * @param message A valid SServer message.
      * @throws IOException
      */
@@ -149,16 +147,6 @@ public abstract class AbstractUDPClient extends Thread {
      * @throws IOException
      */
     public abstract void received(String msg) throws IOException;
-
-    /**
-     * Pause the thread.
-     * @param ms The length of time to pause the thread (in ms).
-     */
-    protected synchronized void pauseMilliseconds(int ms) {
-        try {
-            this.wait(ms);
-        } catch (InterruptedException ex) {}
-    }
 
     /**
      * Start the thread.
@@ -184,5 +172,25 @@ public abstract class AbstractUDPClient extends Thread {
         buff.append(this.port);
         buff.append("\n");
         return buff.toString();
+    }
+
+    /**
+     * Returns a description of this class.
+     * @return A description of this class.
+     */
+    protected String getDescription() {
+        return "AbstractUDPClient";
+    }
+
+    /**
+     * Pause the thread.
+     * @param ms How long to pause the thread for (in ms).
+     */
+    protected synchronized void pauseMilliseconds(int ms) {
+        try {
+            this.wait(ms);
+        } catch (InterruptedException ex) {
+            log.warn("Interrupted Exception ", ex);
+        }
     }
 }

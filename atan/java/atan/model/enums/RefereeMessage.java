@@ -54,22 +54,22 @@ public enum RefereeMessage {
     // <editor-fold defaultstate="collapsed" desc="Raw data for trainer/coach">
 
     /**
-     *
+     * Right team went offside.
      */
     OFFSIDE_R,
 
     /**
-     *
+     * Left team went offside.
      */
     OFFSIDE_L,
 
     /**
-     *
+     * Right team commited a foul.
      */
     FOUL_R,
 
     /**
-     *
+     * Left team commited a foul.
      */
     FOUL_L;
 

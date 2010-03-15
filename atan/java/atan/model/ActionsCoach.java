@@ -8,7 +8,7 @@ public interface ActionsCoach {
 
     /**
      * Turns on or off the sending of "(see_global ...)" information from the server.
-     * @param eyeOn True to turn (see_global on, false to turn it off.
+     * @param eyeOn True to turn see_global on, false to turn it off.
      */
     public void eye(boolean eyeOn);
 
@@ -17,7 +17,7 @@ public interface ActionsCoach {
      * The left and right goals? (Do they move?)
      * The ball.
      * All active players.
-     * This is the same data as from (see_global, but it is only received when look in invoked.
+     * This is the same data as from see_global, but it is only received when look in invoked.
      */
     public void look();
 
@@ -41,6 +41,7 @@ public interface ActionsCoach {
     /**
      * This command sends a team graphic to the SServer.
      * @param xpm An XPMImage to use.
+     * @deprecated Not yet implemented.
      */
     public void teamGraphic(XPMImage xpm);
 

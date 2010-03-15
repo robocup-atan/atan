@@ -194,13 +194,13 @@ public interface ControllerCoach {
 
     /**
      * Sets the coach that the controller is controlling.
-     * @param c
+     * @param c The ActionsCoach to control.
      */
     public void setCoach(ActionsCoach c);
 
     /**
      * Returns the current instance of ActionsCoach.
-     * @return ActionsCoach
+     * @return ActionsCoach The ActionsCoach controlled.
      */
     public ActionsCoach getCoach();
 }

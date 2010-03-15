@@ -53,8 +53,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     * Gets the initialisation message.
-     * @return Initialisation message.
+     * @inheritDoc
      */
     @Override
     public String getInitMessage() {
@@ -73,9 +72,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     *
-     * @param msg
-     * @throws IOException
+     * @inheritDoc
      */
     @Override
     public void received(String msg) throws IOException {
@@ -99,8 +96,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     * Changes the play mode of the game.
-     * @param playMode A valid play mode. (ie. the enum(
+     * @inheritDoc
      */
     @Override
     public void changePlayMode(PlayMode playMode) {
@@ -108,10 +104,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     * Moves the given player to the given coordinates.
-     * @param p The player to move.
-     * @param x The x coordinate.
-     * @param y The y coordinate.
+     * @inheritDoc
      */
     @Override
     public void movePlayer(ActionsPlayer p, double x, double y) {
@@ -119,9 +112,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     * Moves the ball to the given coordinates.
-     * @param x The x coordinate.
-     * @param y The y coordinate.
+     * @inheritDoc
      */
     @Override
     public void moveBall(double x, double y) {
@@ -129,7 +120,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     *
+     * @inheritDoc
      */
     @Override
     public void checkBall() {
@@ -137,7 +128,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     *
+     * @inheritDoc
      */
     @Override
     public void startGame() {
@@ -145,7 +136,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     *
+     * @inheritDoc
      */
     @Override
     public void recover() {
@@ -153,8 +144,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     *
-     * @param eyeOn
+     * @inheritDoc
      */
     @Override
     public void eye(boolean eyeOn) {
@@ -162,8 +152,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     *
-     * @param earOn
+     * @inheritDoc
      */
     @Override
     public void ear(boolean earOn) {
@@ -171,7 +160,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     *
+     * @inheritDoc
      */
     @Override
     public void look() {
@@ -179,7 +168,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     *
+     * @inheritDoc
      */
     @Override
     public void teamNames() {
@@ -187,10 +176,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     * This command changes a specified players type.
-     * @param teamName The team the specified player belongs to.
-     * @param unum The players uniform number (1~11 on pitch usually, subs <= 17).
-     * @param playerType
+     * @inheritDoc
      */
     @Override
     public void changePlayerType(String teamName, int unum, int playerType) {
@@ -198,8 +184,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     *
-     * @param message
+     * @inheritDoc
      */
     @Override
     public void say(String message) {
@@ -207,7 +192,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     *
+     * @inheritDoc
      */
     @Override
     public void bye() {
@@ -215,22 +200,21 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     }
 
     /**
-     *
-     * @param ms
-     */
-    private synchronized void pause(int ms) {
-        try {
-            this.wait(ms);
-        } catch (InterruptedException ex) {}
-    }
-
-    /**
-     *
-     * @param error
+     * @inheritDoc
      */
     @Override
     public void handleError(String error) {
         log.error(error);
+    }
+    
+    /**
+     * Pause the thread.
+     * @param ms How long to pause the thread for (in ms).
+     */
+    private synchronized void pause(int ms) {
+        try {
+            this.wait(ms);
+        } catch (InterruptedException ex) {log.warn("Interrupted Exception ", ex);}
     }
 
     /**
@@ -251,8 +235,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         private String warningCommand          = null;
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void seeCommand(String cmd) {
@@ -260,8 +243,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void hearCommand(String cmd) {
@@ -269,8 +251,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void senseBodyCommand(String cmd) {
@@ -278,8 +259,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void initCommand(String cmd) {
@@ -287,8 +267,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void errorCommand(String cmd) {
@@ -296,8 +275,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void serverParamCommand(String cmd) {
@@ -305,8 +283,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void playerParamCommand(String cmd) {
@@ -314,8 +291,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void playerTypeCommand(String cmd) {
@@ -323,8 +299,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void changePlayerTypeCommand(String cmd) {
@@ -332,8 +307,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void okCommand(String cmd) {
@@ -341,8 +315,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void warningCommand(String cmd) {
@@ -350,7 +323,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         }
 
         /**
-         *
+         * Decide the step to take.
          * @param controller
          * @param parser
          * @param c

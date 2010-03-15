@@ -8,14 +8,12 @@ import atan.model.ControllerTrainer;
 import atan.model.enums.Flag;
 
 /**
- *
  * @author Atan
  */
 public class ObjNameFlagGoalLeft implements ObjName {
     char qualifier;
 
     /**
-     *
      * @param qualifier
      */
     public ObjNameFlagGoalLeft(char qualifier) {
@@ -23,14 +21,7 @@ public class ObjNameFlagGoalLeft implements ObjName {
     }
 
     /**
-     *
-     * @param c
-     * @param distance
-     * @param direction
-     * @param distChange
-     * @param dirChange
-     * @param bodyFacingDirection
-     * @param headFacingDirection
+     * @inheritDoc
      */
     @Override
     public void infoSeeFromEast(ControllerPlayer c, double distance, double direction, double distChange,
@@ -52,14 +43,7 @@ public class ObjNameFlagGoalLeft implements ObjName {
     }
 
     /**
-     *
-     * @param c
-     * @param distance
-     * @param direction
-     * @param distChange
-     * @param dirChange
-     * @param bodyFacingDirection
-     * @param headFacingDirection
+     * @inheritDoc
      */
     @Override
     public void infoSeeFromWest(ControllerPlayer c, double distance, double direction, double distChange,
@@ -81,14 +65,7 @@ public class ObjNameFlagGoalLeft implements ObjName {
     }
 
     /**
-     *
-     * @param c
-     * @param x
-     * @param y
-     * @param deltaX
-     * @param deltaY
-     * @param bodyAngle
-     * @param neckAngle
+     * @inheritDoc
      */
     @Override
     public void infoSeeFromEast(ControllerCoach c, double x, double y, double deltaX, double deltaY, double bodyAngle,
@@ -97,14 +74,7 @@ public class ObjNameFlagGoalLeft implements ObjName {
     }
 
     /**
-     *
-     * @param c
-     * @param x
-     * @param y
-     * @param deltaX
-     * @param deltaY
-     * @param bodyAngle
-     * @param neckAngle
+     * @inheritDoc
      */
     @Override
     public void infoSeeFromWest(ControllerCoach c, double x, double y, double deltaX, double deltaY, double bodyAngle,
@@ -113,8 +83,7 @@ public class ObjNameFlagGoalLeft implements ObjName {
     }
 
     /**
-     *
-     * @param c
+     * @inheritDoc
      */
     @Override
     public void infoSee(ControllerTrainer c) {

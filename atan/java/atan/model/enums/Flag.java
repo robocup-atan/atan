@@ -106,7 +106,7 @@ public enum Flag {
 
     /**
      * Checks if the enum flag is LEFT RIGHT or CENTER.
-     * @param pointer
+     * @param pointer The flag to check.
      * @return true or false
      */
     public static boolean isLeftRightCenter(Flag pointer) {
@@ -119,7 +119,7 @@ public enum Flag {
 
     /**
      * Checks if the enum flag is LEFT or RIGHT.
-     * @param pointer
+     * @param pointer The flag to check.
      * @return true or false
      */
     public static boolean isLeftRight(Flag pointer) {

@@ -74,8 +74,8 @@ public interface ActionsPlayer {
      * parameters. (eg. If you change the quality from high to low, the
      * frequency doubles, and the time between the two see sensors will be
      * cut in half).
-     * @param angle Between narrow, normal or wide.
-     * @param quality Between high or low.
+     * @param angle Between NARROW, NORMAL or WIDE.
+     * @param quality Between HIGH or LOW.
      */
     public void changeViewMode(ViewQuality quality, ViewAngle angle);
 

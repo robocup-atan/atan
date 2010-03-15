@@ -8,8 +8,7 @@ import atan.model.ControllerTrainer;
 
 /**
  * The interface for all objects on the pitch. This is used to translate
- * them so that they are relative to each team (ie. ourGoal theirGoal)
- *
+ * them so that they are relative to each team (ie. ourGoal, theirGoal)
  * @author Atan
  */
 public interface ObjName {

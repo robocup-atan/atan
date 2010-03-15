@@ -17,8 +17,7 @@ import java.io.IOException;
 import java.io.StringReader;
 
 /**
- *
- * @author Atan
+ * @inheritDoc
  */
 public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     private static final int     PLAYER_PORT    = 6000;
@@ -57,8 +56,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     }
 
     /**
-     * Gets the initialisation message.
-     * @return Initialisation message.
+     * @inheritDoc
      */
     @Override
     public String getInitMessage() {
@@ -78,7 +76,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     }
 
     /**
-     * Pointless method. Had to implement due to extending AbstractUDPClient.
+     * @inheritDoc
      */
     @Override
     public void start() {
@@ -86,9 +84,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     }
 
     /**
-     *
-     * @param msg
-     * @throws IOException
+     * @inheritDoc
      */
     @Override
     public void received(String msg) throws IOException {
@@ -112,8 +108,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     }
 
     /**
-     *
-     * @param is
+     * @inheritDoc
      */
     @Override
     public void setTeamEast(boolean is) {
@@ -121,8 +116,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     }
 
     /**
-     *
-     * @param power
+     * @inheritDoc
      */
     @Override
     public void dash(int power) {
@@ -130,9 +124,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     }
 
     /**
-     *
-     * @param power
-     * @param direction
+     * @inheritDoc
      */
     @Override
     public void kick(int power, double direction) {
@@ -140,9 +132,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     }
 
     /**
-     *
-     * @param x
-     * @param y
+     * @inheritDoc
      */
     @Override
     public void move(int x, int y) {
@@ -150,8 +140,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     }
 
     /**
-     *
-     * @param message
+     * @inheritDoc
      */
     @Override
     public void say(String message) {
@@ -159,7 +148,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     }
 
     /**
-     *
+     * @inheritDoc
      */
     @Override
     public void senseBody() {
@@ -167,8 +156,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     }
 
     /**
-     *
-     * @param angle
+     * @inheritDoc
      */
     @Override
     public void turn(double angle) {
@@ -176,15 +164,13 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     }
 
     /**
-     *
-     * @param angle
+     * @inheritDoc
      */
     @Override
     public void turnNeck(double angle) {}
 
     /**
-     *
-     * @param direction
+     * @inheritDoc
      */
     @Override
     public void catchBall(double direction) {
@@ -192,9 +178,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     }
 
     /**
-     *
-     * @param quality
-     * @param angle
+     * @inheritDoc
      */
     @Override
     public void changeViewMode(ViewQuality quality, ViewAngle angle) {
@@ -202,7 +186,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     }
 
     /**
-     *
+     * @inheritDoc
      */
     @Override
     public void bye() {
@@ -210,8 +194,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     }
 
     /**
-     *
-     * @return
+     * @inheritDoc
      */
     @Override
     public String getTeamName() {
@@ -219,8 +202,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     }
 
     /**
-     *
-     * @param num
+     * @inheritDoc
      */
     @Override
     public void setNumber(int num) {
@@ -229,8 +211,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     }
 
     /**
-     *
-     * @return
+     * @inheritDoc
      */
     @Override
     public int getNumber() {
@@ -238,8 +219,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     }
 
     /**
-     *
-     * @return
+     * @inheritDoc
      */
     @Override
     public boolean isTeamEast() {
@@ -247,18 +227,8 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     }
 
     /**
-     *
-     * @param ms
-     */
-    private synchronized void pause(int ms) {
-        try {
-            this.wait(ms);
-        } catch (InterruptedException ex) {}
-    }
-
-    /**
-     *
-     * @return
+     * Create a list string.
+     * @return A list string.
      */
     public String toListString() {
         StringBuffer buf = new StringBuffer();
@@ -267,8 +237,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     }
 
     /**
-     *
-     * @return
+     * @inheritDoc
      */
     @Override
     public String toStateString() {
@@ -290,8 +259,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     }
 
     /**
-     *
-     * @param error
+     * @inheritDoc
      */
     @Override
     public void handleError(String error) {
@@ -299,8 +267,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     }
 
     /**
-     *
-     * @return
+     * @inheritDoc
      */
     @Override
     protected String getDescription() {
@@ -312,6 +279,18 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
             nam.append("<undefined>");
         }
         return nam.toString();
+    }
+
+    /**
+     * Pause the thread.
+     * @param ms How long to pause the thread for (in ms).
+     */
+    private synchronized void pause(int ms) {
+        try {
+            this.wait(ms);
+        } catch (InterruptedException ex) {
+            log.warn("Interrupted Exception ", ex);
+        }
     }
 
     /**
@@ -332,8 +311,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         private String warningCommand          = null;
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void seeCommand(String cmd) {
@@ -341,8 +319,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void hearCommand(String cmd) {
@@ -350,8 +327,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void senseBodyCommand(String cmd) {
@@ -359,8 +335,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void initCommand(String cmd) {
@@ -368,8 +343,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void errorCommand(String cmd) {
@@ -377,8 +351,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void serverParamCommand(String cmd) {
@@ -386,8 +359,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void playerParamCommand(String cmd) {
@@ -395,8 +367,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void playerTypeCommand(String cmd) {
@@ -404,8 +375,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void changePlayerTypeCommand(String cmd) {
@@ -413,8 +383,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void okCommand(String cmd) {
@@ -422,8 +391,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         *
-         * @param cmd
+         * @inheritDoc
          */
         @Override
         public void warningCommand(String cmd) {
@@ -431,11 +399,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
 
         /**
-         *
-         * @param controller
-         * @param parser
-         * @param c
-         * @throws Exception
+         * @inheritDoc
          */
         public void takeStep(ControllerPlayer controller, CmdParserPlayer parser, ActionsPlayer c) throws Exception {
             if (seeCommand != null) {
@@ -451,7 +415,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
                     senseBodyCommand = null;
                 }
                 if (initCommand != null) {
-                    parser.parseInitCommand(initCommand, controller, c);    // needs to get here before # assigned
+                    parser.parseInitCommand(initCommand, controller, c);
                     initCommand = null;
                 }
                 if (okCommand != null) {

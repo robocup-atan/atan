@@ -18,6 +18,7 @@ import java.util.Vector;
  * @author Atan
  */
 public class CommandFactory {
+    // The SServer version that Atan can parse.
     private String defaultVersion = new String("13");
     @SuppressWarnings("unchecked")
     private List   fifo           = new Vector();
@@ -134,8 +135,8 @@ public class CommandFactory {
      * parameters. (eg. If you change the quality from high to low, the
      * frequency doubles, and the time between the two see sensors will be
      * cut in half).
-     * @param angle Between narrow, normal or wide.
-     * @param quality Between high or low.
+     * @param angle Between NARROW, NORMAL or WIDE.
+     * @param quality Between HIGH or LOW.
      */
     @SuppressWarnings("unchecked")
     public void addChangeViewCommand(ViewAngle angle, ViewQuality quality) {
@@ -267,7 +268,7 @@ public class CommandFactory {
 
     /**
      * Requests the server to send sense body information.
-     * Note: SServer version 6 and above sends this with every cycle.
+     * @deprecated SServer version 6 and above sends this with every cycle.
      */
     @SuppressWarnings("unchecked")
     public void addSenseBodyCommand() {
@@ -293,9 +294,9 @@ public class CommandFactory {
     /**
      * Trainer only command.
      * Moves the given player to the given coordinates.
-     * @param p
-     * @param x
-     * @param y
+     * @param p The player to move.
+     * @param x The x coordinate to move to.
+     * @param y The y coordinate to move to.
      */
     @SuppressWarnings("unchecked")
     public void addMovePlayerCommand(ActionsPlayer p, double x, double y) {
@@ -313,8 +314,8 @@ public class CommandFactory {
     /**
      * Trainer only command.
      * Moves the ball to the given coordinates.
-     * @param x
-     * @param y
+     * @param x The x coordinate to move to.
+     * @param y The y coordinate to move to.
      */
     @SuppressWarnings("unchecked")
     public void addMoveBallCommand(double x, double y) {
@@ -404,7 +405,7 @@ public class CommandFactory {
     /**
      * Trainer command that can be used by online coach.
      * It turns on or off the sending of "(see_global ...)" information from the server.
-     * @param eyeOn
+     * @param eyeOn True to turn visual information on, false to turn it off.
      */
     @SuppressWarnings("unchecked")
     public void addEyeCommand(boolean eyeOn) {
@@ -468,7 +469,7 @@ public class CommandFactory {
      * X and Y are the coordinates of this tile,
      * so they range from 0 to 31 and 0 to 7 respectively.
      * Each XPM line is a line from the 8x8 XPM tile.
-     * @param xpm
+     * @param xpm //TODO Implement
      */
     @SuppressWarnings("unchecked")
     public void addTeamGraphicCommand(XPMImage xpm) {
@@ -511,8 +512,8 @@ public class CommandFactory {
     }
 
     /**
-     *
-     * @return
+     * Gets the next command from the stack.
+     * @return The next command.
      */
     public String next() {
         if (fifo.isEmpty()) {
@@ -524,8 +525,8 @@ public class CommandFactory {
     }
 
     /**
-     *
-     * @return
+     * Checks if the stack is empty or not.
+     * @return True if not empty.
      */
     public boolean hasNext() {
         return !fifo.isEmpty();

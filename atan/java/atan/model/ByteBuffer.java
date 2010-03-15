@@ -33,8 +33,8 @@ public class ByteBuffer extends ByteArrayOutputStream {
     }
 
     /**
-     *
-     * @param str
+     * Sets the buffer contents.
+     * @param str The string to set.
      * @throws IOException
      */
     public void setString(String str) throws IOException {
@@ -47,8 +47,8 @@ public class ByteBuffer extends ByteArrayOutputStream {
     }
 
     /**
-     *
-     * @return
+     * Gets the buffer contents.
+     * @return The string in the buffer.
      * @throws IOException
      */
     public String getString() throws IOException {
@@ -70,7 +70,7 @@ public class ByteBuffer extends ByteArrayOutputStream {
     }
 
     /**
-     *
+     * @inheritDoc
      */
     @Override
     public void reset() {

@@ -13,11 +13,11 @@ import java.util.Properties;
  * @author Atan
  */
 public abstract class AbstractTeam {
-    private static final int COACH_PORT   = 6002;    // Static final until passed as parameter.
-    private static final int TRAINER_PORT = 6001;    // Static final until passed as parameter.
+    private static final int COACH_PORT   = 6002;
+    private static final int TRAINER_PORT = 6001;
     private static Logger    log          = Logger.getLogger(AbstractTeam.class);
     private String           hostname     = "localhost";
-    private int              playerPort   = 6000;    // Can't be static final due to inclusion of port in constructor.
+    private int              playerPort   = 6000;
     private SServerPlayer[]  players      = new SServerPlayer[11];
     private boolean          hasCoach     = false;
     private Properties       additional;
@@ -120,10 +120,9 @@ public abstract class AbstractTeam {
     }
 
     /**
-     * Kill all players.
-     * @return
+     * Kill all players and the coach (if connected).
      */
-    public boolean killAll() {
+    public void killAll() {
         for (int i = 0; i < size(); i++) {
             if (i == 0) {
                 players[i].bye();
@@ -147,7 +146,6 @@ public abstract class AbstractTeam {
             }
             pause(500);
         }
-        return true;
     }
 
     /**
@@ -211,6 +209,8 @@ public abstract class AbstractTeam {
     private synchronized void pause(int ms) {
         try {
             this.wait(ms);
-        } catch (InterruptedException ex) {}
+        } catch (InterruptedException ex) {
+            log.warn("Interrupted Exception ", ex);
+        }
     }
 }

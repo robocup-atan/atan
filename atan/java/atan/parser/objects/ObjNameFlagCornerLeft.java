@@ -8,14 +8,12 @@ import atan.model.ControllerTrainer;
 import atan.model.enums.Flag;
 
 /**
- *
  * @author Atan
  */
 public class ObjNameFlagCornerLeft implements ObjName {
     char qualifier;
 
     /**
-     *
      * @param qualifier
      */
     public ObjNameFlagCornerLeft(char qualifier) {
@@ -23,14 +21,7 @@ public class ObjNameFlagCornerLeft implements ObjName {
     }
 
     /**
-     *
-     * @param c
-     * @param distance
-     * @param direction
-     * @param distChange
-     * @param dirChange
-     * @param bodyFacingDirection
-     * @param headFacingDirection
+     * @inheritDoc
      */
     @Override
     public void infoSeeFromEast(ControllerPlayer c, double distance, double direction, double distChange,
@@ -52,14 +43,7 @@ public class ObjNameFlagCornerLeft implements ObjName {
     }
 
     /**
-     *
-     * @param c
-     * @param distance
-     * @param direction
-     * @param distChange
-     * @param dirChange
-     * @param bodyFacingDirection
-     * @param headFacingDirection
+     * @inheritDoc
      */
     @Override
     public void infoSeeFromWest(ControllerPlayer c, double distance, double direction, double distChange,
@@ -81,39 +65,24 @@ public class ObjNameFlagCornerLeft implements ObjName {
     }
 
     /**
-     * Not used be the coach.
-     * @param c
-     * @param x
-     * @param y
-     * @param deltaX
-     * @param deltaY
-     * @param bodyAngle
-     * @param neckAngle
-     * @deprecated
+     * @inheritDoc
+     * @deprecated Not needed by the coach.
      */
     @Override
     public void infoSeeFromEast(ControllerCoach c, double x, double y, double deltaX, double deltaY, double bodyAngle,
                                 double neckAngle) {}
 
     /**
-     * Not used be the coach.
-     * @param c
-     * @param x
-     * @param y
-     * @param deltaX
-     * @param deltaY
-     * @param bodyAngle
-     * @param neckAngle
-     * @deprecated
+     * @inheritDoc
+     * @deprecated Not needed by the coach.
      */
     @Override
     public void infoSeeFromWest(ControllerCoach c, double x, double y, double deltaX, double deltaY, double bodyAngle,
                                 double neckAngle) {}
 
     /**
-     * Not used be the trainer.
-     * @param c
-     * @deprecated
+     * @inheritDoc
+     * @deprecated Not needed by the trainer.
      */
     @Override
     public void infoSee(ControllerTrainer c) {}
