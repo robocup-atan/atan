@@ -81,6 +81,7 @@ public class FlagTest {
         name      = "LEFT_10";
         expResult = Flag.LEFT_10;
         result    = Flag.valueOf(name);
+        assertEquals(expResult, result);
     }
 
     /**

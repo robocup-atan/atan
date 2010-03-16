@@ -8,6 +8,7 @@ import atan.model.ControllerTrainer;
 import atan.model.enums.Flag;
 
 /**
+ * The parser object for right flags.
  * @author Atan
  */
 public class ObjNameFlagRight implements ObjName {
@@ -15,8 +16,9 @@ public class ObjNameFlagRight implements ObjName {
     char qualifier;
 
     /**
-     * @param qualifier
-     * @param number
+     * A constructor for right flags.
+     * @param qualifier Either 't' or 'b'.
+     * @param number Either 10, 20 or 30.
      */
     public ObjNameFlagRight(char qualifier, int number) {
         this.qualifier = qualifier;

@@ -1,3 +1,5 @@
+//~RoboCup Project - Nick James (nsj3), Daniel Wood (dw224), Stuart Wood (sw262)
+
 package atan.parser.objects;
 
 //~--- non-JDK imports --------------------------------------------------------
@@ -8,13 +10,15 @@ import atan.model.ControllerTrainer;
 import atan.model.enums.Flag;
 
 /**
+ * The parser object for goal east.
  * @author Atan
  */
 public class ObjNameFlagGoalEast implements ObjName {
     char qualifier;
 
     /**
-     * @param qualifier
+     * A constructor for goal east.
+     * @param qualifier Either 't' or 'b'.
      */
     public ObjNameFlagGoalEast(char qualifier) {
         this.qualifier = qualifier;

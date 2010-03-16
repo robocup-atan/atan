@@ -8,13 +8,15 @@ import atan.model.ControllerTrainer;
 import atan.model.enums.Flag;
 
 /**
+ * The parser object for west penatly flags.
  * @author Atan
  */
 public class ObjNameFlagPenaltyWest implements ObjName {
     char qualifier;
 
     /**
-     * @param qualifier
+     * A constructor for bottom flags.
+     * @param qualifier Either 't' or 'b'.
      */
     public ObjNameFlagPenaltyWest(char qualifier) {
         this.qualifier = qualifier;

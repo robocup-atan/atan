@@ -7,6 +7,7 @@ import atan.model.ControllerPlayer;
 import atan.model.ControllerTrainer;
 
 /**
+ * A null parser object. Used if the parser cannot determine the object to stop runtime errors.
  * @author Atan
  */
 public class ObjNameNull implements ObjName {

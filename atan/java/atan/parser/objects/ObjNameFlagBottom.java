@@ -8,6 +8,7 @@ import atan.model.ControllerTrainer;
 import atan.model.enums.Flag;
 
 /**
+ * The parser object for the bottom flags.
  * @author Atan
  */
 public class ObjNameFlagBottom implements ObjName {
@@ -15,8 +16,9 @@ public class ObjNameFlagBottom implements ObjName {
     char qualifier;
 
     /**
-     * @param qualifier
-     * @param number
+     * A constructor for bottom flags.
+     * @param qualifier Either 'l' or 'r'.
+     * @param number Either 10, 20, 30, 40 or 50.
      */
     public ObjNameFlagBottom(char qualifier, int number) {
         this.qualifier = qualifier;

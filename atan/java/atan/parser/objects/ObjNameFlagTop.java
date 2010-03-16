@@ -8,6 +8,7 @@ import atan.model.ControllerTrainer;
 import atan.model.enums.Flag;
 
 /**
+ * The parser object for top flags.
  * @author Atan
  */
 public class ObjNameFlagTop implements ObjName {
@@ -15,8 +16,9 @@ public class ObjNameFlagTop implements ObjName {
     char qualifier;
 
     /**
-     * @param qualifier
-     * @param number
+     * A constructor for top flags.
+     * @param qualifier Either 'l' or 'r'.
+     * @param number Either 10, 20, 30, 40 or 50.
      */
     public ObjNameFlagTop(char qualifier, int number) {
         this.qualifier = qualifier;

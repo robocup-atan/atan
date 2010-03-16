@@ -7,6 +7,7 @@ import atan.model.ControllerPlayer;
 import atan.model.ControllerTrainer;
 
 /**
+ * The parser object for west players.
  * @author Atan
  */
 public class ObjNamePlayerWest implements ObjName {
@@ -14,8 +15,9 @@ public class ObjNamePlayerWest implements ObjName {
     int     number;
 
     /**
-     * @param number
-     * @param goalie
+     * Constructor for west players.
+     * @param number The players uniform number.
+     * @param goalie Is this player a goalie?
      */
     public ObjNamePlayerWest(int number, boolean goalie) {
         this.number = number;

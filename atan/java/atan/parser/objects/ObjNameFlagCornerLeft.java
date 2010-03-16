@@ -8,13 +8,15 @@ import atan.model.ControllerTrainer;
 import atan.model.enums.Flag;
 
 /**
+ * The parser object for corner left flags.
  * @author Atan
  */
 public class ObjNameFlagCornerLeft implements ObjName {
     char qualifier;
 
     /**
-     * @param qualifier
+     * A constructor for corner left flags.
+     * @param qualifier Either 't' or 'b'.
      */
     public ObjNameFlagCornerLeft(char qualifier) {
         this.qualifier = qualifier;

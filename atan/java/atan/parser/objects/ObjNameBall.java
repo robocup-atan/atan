@@ -7,6 +7,7 @@ import atan.model.ControllerPlayer;
 import atan.model.ControllerTrainer;
 
 /**
+ * The parser object for the Ball.
  * @author Atan
  */
 public class ObjNameBall implements ObjName {

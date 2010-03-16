@@ -2,6 +2,7 @@ package atan.model;
 
 //~--- non-JDK imports --------------------------------------------------------
 
+import java.io.IOException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -53,13 +54,10 @@ public class ByteBufferTest {
     @Test
     public void testGetByteArray() {
         System.out.println("getByteArray");
-        ByteBuffer instance  = null;
-        byte[]     expResult = null;
-        byte[]     result    = instance.getByteArray();
+        ByteBuffer instance = new ByteBuffer(10);
+        int expResult = 10;
+        int result = instance.getByteArray().length;
         assertEquals(expResult, result);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -68,12 +66,11 @@ public class ByteBufferTest {
     @Test
     public void testSetString() throws Exception {
         System.out.println("setString");
-        String     str      = "";
-        ByteBuffer instance = null;
+        String str = "lol";
+        ByteBuffer instance = new ByteBuffer(10);
         instance.setString(str);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String result = instance.getString();
+        assertEquals("lol", result);
     }
 
     /**
@@ -82,13 +79,11 @@ public class ByteBufferTest {
     @Test
     public void testGetString() throws Exception {
         System.out.println("getString");
-        ByteBuffer instance  = null;
-        String     expResult = "";
-        String     result    = instance.getString();
+        ByteBuffer instance = new ByteBuffer(10);
+        instance.setString("lol");
+        String expResult = "lol";
+        String result = instance.getString();
         assertEquals(expResult, result);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -97,25 +92,22 @@ public class ByteBufferTest {
     @Test
     public void testLength() {
         System.out.println("length");
-        ByteBuffer instance  = null;
-        int        expResult = 0;
-        int        result    = instance.length();
+        ByteBuffer instance = new ByteBuffer(10);
+        int expResult = 10;
+        int result = instance.length();
         assertEquals(expResult, result);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      * Test of reset method, of class ByteBuffer.
      */
     @Test
-    public void testReset() {
+    public void testReset() throws IOException {
         System.out.println("reset");
-        ByteBuffer instance = null;
+        ByteBuffer instance = new ByteBuffer(10);
+        String expResult = "";
+        String result = instance.getString();
         instance.reset();
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result);
     }
 }

@@ -1,3 +1,5 @@
+//~RoboCup Project - Nick James (nsj3), Daniel Wood (dw224), Stuart Wood (sw262)
+
 package atan.parser.objects;
 
 //~--- non-JDK imports --------------------------------------------------------
@@ -8,13 +10,15 @@ import atan.model.ControllerTrainer;
 import atan.model.enums.Flag;
 
 /**
+ * The parser object for right corner flags.
  * @author Atan
  */
 public class ObjNameFlagCornerRight implements ObjName {
     char qualifier;
 
     /**
-     * @param qualifier
+     * A constructor for corner right.
+     * @param qualifier Either 't' or 'b'.
      */
     public ObjNameFlagCornerRight(char qualifier) {
         this.qualifier = qualifier;

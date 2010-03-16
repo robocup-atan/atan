@@ -8,13 +8,15 @@ import atan.model.ControllerTrainer;
 import atan.model.enums.Flag;
 
 /**
+ * The parser object for center flags.
  * @author Atan
  */
 public class ObjNameFlagCenter implements ObjName {
     char qualifier;
 
     /**
-     * @param qualifier
+     * A constructor for center flags.
+     * @param qualifier Either 't' or 'b'.
      */
     public ObjNameFlagCenter(char qualifier) {
         this.qualifier = qualifier;

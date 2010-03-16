@@ -8,13 +8,15 @@ import atan.model.ControllerTrainer;
 import atan.model.enums.Flag;
 
 /**
+ * The parser object for goal left.
  * @author Atan
  */
 public class ObjNameFlagGoalLeft implements ObjName {
     char qualifier;
 
     /**
-     * @param qualifier
+     * A constructor for goal left.
+     * @param qualifier Either 't' or 'b'.
      */
     public ObjNameFlagGoalLeft(char qualifier) {
         this.qualifier = qualifier;
