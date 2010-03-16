@@ -109,19 +109,6 @@ public class ActionsPlayerTest {
     }
 
     /**
-     * Test of senseBody method, of class ActionsPlayer.
-     */
-    @Test
-    public void testSenseBody() {
-        System.out.println("senseBody");
-        ActionsPlayer instance = new ActionsPlayerImpl();
-        instance.senseBody();
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of turn method, of class ActionsPlayer.
      */
     @Test

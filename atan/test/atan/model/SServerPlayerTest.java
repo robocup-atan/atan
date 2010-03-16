@@ -180,19 +180,6 @@ public class SServerPlayerTest {
     }
 
     /**
-     * Test of senseBody method, of class SServerPlayer.
-     */
-    @Test
-    public void testSenseBody() {
-        System.out.println("senseBody");
-        SServerPlayer instance = null;
-        instance.senseBody();
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of turn method, of class SServerPlayer.
      */
     @Test

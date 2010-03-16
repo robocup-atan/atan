@@ -20,9 +20,9 @@ import java.util.Vector;
 public class CommandFactory {
 
     // The SServer version that Atan can parse.
-    private String defaultVersion = new String("13");
+    private static final String serverVersion = "13";
     @SuppressWarnings("unchecked")
-    private List   fifo           = new Vector();
+    private List                fifo          = new Vector();
 
     /**
      * Constructs a blank command factory.
@@ -43,7 +43,7 @@ public class CommandFactory {
         buf.append(" (version ");
         if (isGoalie) {
             if ("".equals(version)) {
-                buf.append(defaultVersion);
+                buf.append(serverVersion);
                 buf.append(") (goalie))");
             } else {
                 buf.append(version);
@@ -51,7 +51,7 @@ public class CommandFactory {
             }
         } else {
             if ("".equals(version)) {
-                buf.append(defaultVersion);
+                buf.append(serverVersion);
                 buf.append("))");
             } else {
                 buf.append(version);
@@ -70,7 +70,7 @@ public class CommandFactory {
         StringBuffer buf = new StringBuffer();
         buf.append("(init (version ");
         if ("".equals(version)) {
-            buf.append(defaultVersion);
+            buf.append(serverVersion);
         } else {
             buf.append(version);
         }
@@ -90,7 +90,7 @@ public class CommandFactory {
         buf.append(teamName);
         buf.append(" (version ");
         if ("".equals(version)) {
-            buf.append(defaultVersion);
+            buf.append(serverVersion);
         } else {
             buf.append(version);
         }
@@ -268,17 +268,6 @@ public class CommandFactory {
     }
 
     /**
-     * Requests the server to send sense body information.
-     * @deprecated SServer version 6 and above sends this with every cycle.
-     */
-    @SuppressWarnings("unchecked")
-    public void addSenseBodyCommand() {
-        StringBuffer buf = new StringBuffer();
-        buf.append("(sense_body)");
-        fifo.add(fifo.size(), buf.toString());
-    }
-
-    /**
      * Trainer only command.
      * Changes the play mode of the server.
      * @param playMode
@@ -301,15 +290,19 @@ public class CommandFactory {
      */
     @SuppressWarnings("unchecked")
     public void addMovePlayerCommand(ActionsPlayer p, double x, double y) {
-        StringBuffer buf = new StringBuffer();
-        buf.append("(move ");
-        buf.append(p);    // TODO Manual says the format...will implement this later.
-        buf.append(' ');
-        buf.append(x);
-        buf.append(' ');
-        buf.append(y);
-        buf.append(')');
-        fifo.add(fifo.size(), buf.toString());
+        throw new UnsupportedOperationException("This method is for a future release");
+
+        /*
+         * StringBuffer buf = new StringBuffer();
+         * buf.append("(move ");
+         * buf.append(p);    // TODO Manual says the format...will implement this later.
+         * buf.append(' ');
+         * buf.append(x);
+         * buf.append(' ');
+         * buf.append(y);
+         * buf.append(')');
+         * fifo.add(fifo.size(), buf.toString());
+         */
     }
 
     /**
@@ -393,7 +386,6 @@ public class CommandFactory {
     public void addChangePlayerTypeCommand(String teamName, int unum, int playerType) {
         StringBuffer buf = new StringBuffer();
         buf.append("(change_player_type ");
-        buf.append(' ');
         buf.append(teamName);
         buf.append(' ');
         buf.append(unum);
@@ -454,13 +446,17 @@ public class CommandFactory {
      */
     @SuppressWarnings("unchecked")
     public void addChangePlayerTypeCommand(int unum, Object playerType) {
-        StringBuffer buf = new StringBuffer();
-        buf.append("(change_player_type ");
-        buf.append(unum);
-        buf.append(' ');
-        buf.append(playerType);
-        buf.append(')');
-        fifo.add(fifo.size(), buf.toString());
+        throw new UnsupportedOperationException("This method is for a future release");
+
+        /*
+         * StringBuffer buf = new StringBuffer();
+         * buf.append("(change_player_type ");
+         * buf.append(unum);
+         * buf.append(' ');
+         * buf.append(playerType);
+         * buf.append(')');
+         * fifo.add(fifo.size(), buf.toString());
+         */
     }
 
     /**
@@ -474,31 +470,35 @@ public class CommandFactory {
      */
     @SuppressWarnings("unchecked")
     public void addTeamGraphicCommand(XPMImage xpm) {
-        StringBuffer buf  = new StringBuffer();
-        String[][]   tile = new String[xpm.getTileWidth()][xpm.getTileWidth()];
-        for (int row = 0; row < xpm.getXPMHeight(); row++) {
-            for (int col = 0; col < xpm.getTileWidth(); col++) {
-                if ((col % xpm.getTileWidth() == 0) && (row % xpm.getTileWidth()) == 0) {
-                    tile = xpm.getTile(col, row);
-                    buf  = new StringBuffer();
-                    buf.append("(team_graphic (");
-                    buf.append(col);
-                    buf.append(' ');
-                    buf.append(row);
-                    buf.append(' ');
-                    buf.append(tile[0][0].toString());
-                    buf.append(' ');
-                } else if ((col % xpm.getTileWidth() == xpm.getTileWidth() - 1)
-                           && (row % xpm.getTileWidth()) == xpm.getTileWidth() - 1) {
-                    buf.append(tile[xpm.getTileWidth() - 1][xpm.getTileWidth() - 1].toString());
-                    buf.append("))");
-                    fifo.add(fifo.size(), buf.toString());
-                } else {
-                    buf.append(tile[col % xpm.getTileWidth()][row % xpm.getTileWidth()].toString());
-                    buf.append(' ');
-                }
-            }
-        }
+        throw new UnsupportedOperationException("This method is for a future release");
+
+        /*
+         * StringBuffer buf  = new StringBuffer();
+         * String[][]   tile = new String[xpm.getTileWidth()][xpm.getTileWidth()];
+         * for (int row = 0; row < xpm.getXPMHeight(); row++) {
+         *   for (int col = 0; col < xpm.getTileWidth(); col++) {
+         *       if ((col % xpm.getTileWidth() == 0) && (row % xpm.getTileWidth()) == 0) {
+         *           tile = xpm.getTile(col, row);
+         *           buf  = new StringBuffer();
+         *           buf.append("(team_graphic (");
+         *           buf.append(col);
+         *           buf.append(' ');
+         *           buf.append(row);
+         *           buf.append(' ');
+         *           buf.append(tile[0][0].toString());
+         *           buf.append(' ');
+         *       } else if ((col % xpm.getTileWidth() == xpm.getTileWidth() - 1)
+         *                  && (row % xpm.getTileWidth()) == xpm.getTileWidth() - 1) {
+         *           buf.append(tile[xpm.getTileWidth() - 1][xpm.getTileWidth() - 1].toString());
+         *           buf.append("))");
+         *           fifo.add(fifo.size(), buf.toString());
+         *       } else {
+         *           buf.append(tile[col % xpm.getTileWidth()][row % xpm.getTileWidth()].toString());
+         *           buf.append(' ');
+         *       }
+         *   }
+         * }
+         */
     }
 
     /**

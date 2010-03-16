@@ -207,7 +207,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
      * A private coach-style filter
      * @author Atan
      */
-    private class SServerCommandBuffer implements CommandFilter {
+    private static class SServerCommandBuffer implements CommandFilter {
         private String changePlayerTypeCommand = null;
         private String errorCommand            = null;
         private String hearCommand             = null;

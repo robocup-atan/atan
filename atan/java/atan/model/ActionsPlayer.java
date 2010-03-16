@@ -39,12 +39,6 @@ public interface ActionsPlayer {
     public void say(String message);
 
     /**
-     * Requests the server to send sense body information. Note: SServer version 6
-     * and above sends this with every cycle.
-     */
-    public void senseBody();
-
-    /**
      * This command will turn the players body in degrees relative to their
      * current direction.
      * @param angle Angle to turn (between -180 and +180).

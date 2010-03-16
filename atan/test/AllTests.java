@@ -1,5 +1,3 @@
-package atan.model;
-
 //~--- non-JDK imports --------------------------------------------------------
 
 import org.junit.After;
@@ -10,18 +8,15 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 /**
- *
+ * A test suite to run all tests.
  * @author Atan
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses( {
-    atan.model.ControllerTrainerTest.class, atan.model.AbstractTeamTest.class, atan.model.ControllerCoachTest.class,
-    atan.model.enums.EnumsSuite.class, atan.model.ByteBufferTest.class,    // TODO atan.model.AbstractUDPClientTest.class,
-    atan.model.XPMImageTest.class, atan.model.ActionsCoachTest.class, atan.model.ActionsPlayerTest.class,
-    atan.model.ControllerPlayerTest.class, atan.model.SServerPlayerTest.class, atan.model.SServerCoachTest.class,
-    atan.model.CommandFactoryTest.class, atan.model.ActionsTrainerTest.class, atan.model.SServerTrainerTest.class
+    atan.model.ModelSuite.class, atan.model.enums.EnumsSuite.class, atan.parser.ParserSuite.class,
+    atan.parser.objects.ObjectsSuite.class, sample.SampleSuite.class
 })
-public class ModelSuite {
+public class AllTests {
 
     /**
      *

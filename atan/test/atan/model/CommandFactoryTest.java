@@ -74,12 +74,10 @@ public class CommandFactoryTest {
     @Test
     public void testAddTrainerInitCommand() {
         System.out.println("addTrainerInitCommand");
-        String         version  = "";
+        String         version  = "13";
         CommandFactory instance = new CommandFactory();
         instance.addTrainerInitCommand(version);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("(init (version 13))", instance.next());
     }
 
     /**
@@ -88,13 +86,11 @@ public class CommandFactoryTest {
     @Test
     public void testAddCoachInitCommand() {
         System.out.println("addCoachInitCommand");
-        String         teamName = "";
-        String         version  = "";
+        String         teamName = "superteam";
+        String         version  = "13";
         CommandFactory instance = new CommandFactory();
         instance.addCoachInitCommand(teamName, version);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("(init superteam (version 13))", instance.next());
     }
 
     /**
@@ -103,13 +99,11 @@ public class CommandFactoryTest {
     @Test
     public void testAddReconnectCommand() {
         System.out.println("addReconnectCommand");
-        String         teamName = "";
-        int            num      = 0;
+        String         teamName = "superteam";
+        int            num      = 11;
         CommandFactory instance = new CommandFactory();
         instance.addReconnectCommand(teamName, num);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("(reconnect superteam 11)", instance.next());
     }
 
     /**
@@ -118,12 +112,10 @@ public class CommandFactoryTest {
     @Test
     public void testAddCatchCommand() {
         System.out.println("addCatchCommand");
-        int            direction = 0;
+        int            direction = -5;
         CommandFactory instance  = new CommandFactory();
         instance.addCatchCommand(direction);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("(catch -5)", instance.next());
     }
 
     /**
@@ -132,13 +124,11 @@ public class CommandFactoryTest {
     @Test
     public void testAddChangeViewCommand() {
         System.out.println("addChangeViewCommand");
-        ViewAngle      angle    = null;
-        ViewQuality    quality  = null;
+        ViewAngle      angle    = ViewAngle.WIDE;
+        ViewQuality    quality  = ViewQuality.HIGH;
         CommandFactory instance = new CommandFactory();
         instance.addChangeViewCommand(angle, quality);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("(change_view wide high)", instance.next());
     }
 
     /**
@@ -147,12 +137,10 @@ public class CommandFactoryTest {
     @Test
     public void testAddDashCommand() {
         System.out.println("addDashCommand");
-        int            power    = 0;
+        int            power    = 56;
         CommandFactory instance = new CommandFactory();
         instance.addDashCommand(power);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("(dash 56)", instance.next());
     }
 
     /**
@@ -161,13 +149,11 @@ public class CommandFactoryTest {
     @Test
     public void testAddKickCommand() {
         System.out.println("addKickCommand");
-        int            power     = 0;
-        int            direction = 0;
+        int            power     = 100;
+        int            direction = 12;
         CommandFactory instance  = new CommandFactory();
         instance.addKickCommand(power, direction);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("(kick 100 12)", instance.next());
     }
 
     /**
@@ -176,13 +162,11 @@ public class CommandFactoryTest {
     @Test
     public void testAddMoveCommand() {
         System.out.println("addMoveCommand");
-        int            x        = 0;
-        int            y        = 0;
+        int            x        = -12;
+        int            y        = 12;
         CommandFactory instance = new CommandFactory();
         instance.addMoveCommand(x, y);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("(move -12 12)", instance.next());
     }
 
     /**
@@ -191,12 +175,10 @@ public class CommandFactoryTest {
     @Test
     public void testAddTurnCommand() {
         System.out.println("addTurnCommand");
-        int            angle    = 0;
+        int            angle    = -4;
         CommandFactory instance = new CommandFactory();
         instance.addTurnCommand(angle);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("(turn -4)", instance.next());
     }
 
     /**
@@ -205,12 +187,10 @@ public class CommandFactoryTest {
     @Test
     public void testAddTurnNeckCommand() {
         System.out.println("addTurnNeckCommand");
-        int            angle    = 0;
+        int            angle    = 55;
         CommandFactory instance = new CommandFactory();
         instance.addTurnNeckCommand(angle);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("(turn_neck 55)", instance.next());
     }
 
     /**
@@ -219,25 +199,10 @@ public class CommandFactoryTest {
     @Test
     public void testAddSayCommand() {
         System.out.println("addSayCommand");
-        String         message  = "";
+        String         message  = "hello inferior soccer team";
         CommandFactory instance = new CommandFactory();
         instance.addSayCommand(message);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of addSenseBodyCommand method, of class CommandFactory.
-     */
-    @Test
-    public void testAddSenseBodyCommand() {
-        System.out.println("addSenseBodyCommand");
-        CommandFactory instance = new CommandFactory();
-        instance.addSenseBodyCommand();
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("(say hello inferior soccer team)", instance.next());
     }
 
     /**
@@ -246,18 +211,16 @@ public class CommandFactoryTest {
     @Test
     public void testAddChangePlayModeCommand() {
         System.out.println("addChangePlayModeCommand");
-        PlayMode       playMode = null;
+        PlayMode       playMode = PlayMode.FREE_KICK_L;
         CommandFactory instance = new CommandFactory();
         instance.addChangePlayModeCommand(playMode);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("(change_mode FREE_KICK_L)", instance.next());
     }
 
     /**
      * Test of addMovePlayerCommand method, of class CommandFactory.
      */
-    @Test
+    @Test(expected = UnsupportedOperationException.class)
     public void testAddMovePlayerCommand() {
         System.out.println("addMovePlayerCommand");
         ActionsPlayer  p        = null;
@@ -265,9 +228,6 @@ public class CommandFactoryTest {
         double         y        = 0.0;
         CommandFactory instance = new CommandFactory();
         instance.addMovePlayerCommand(p, x, y);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -276,13 +236,11 @@ public class CommandFactoryTest {
     @Test
     public void testAddMoveBallCommand() {
         System.out.println("addMoveBallCommand");
-        double         x        = 0.0;
-        double         y        = 0.0;
+        double         x        = 25.7;
+        double         y        = -9;
         CommandFactory instance = new CommandFactory();
         instance.addMoveBallCommand(x, y);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("(move ball 25.7 -9.0)", instance.next());
     }
 
     /**
@@ -293,9 +251,7 @@ public class CommandFactoryTest {
         System.out.println("addCheckBallCommand");
         CommandFactory instance = new CommandFactory();
         instance.addCheckBallCommand();
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("(check_ball)", instance.next());
     }
 
     /**
@@ -306,9 +262,7 @@ public class CommandFactoryTest {
         System.out.println("addStartCommand");
         CommandFactory instance = new CommandFactory();
         instance.addStartCommand();
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("(start)", instance.next());
     }
 
     /**
@@ -319,9 +273,7 @@ public class CommandFactoryTest {
         System.out.println("addRecoverCommand");
         CommandFactory instance = new CommandFactory();
         instance.addRecoverCommand();
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("(recover)", instance.next());
     }
 
     /**
@@ -333,9 +285,10 @@ public class CommandFactoryTest {
         boolean        earOn    = false;
         CommandFactory instance = new CommandFactory();
         instance.addEarCommand(earOn);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("(ear off)", instance.next());
+        earOn = true;
+        instance.addEarCommand(earOn);
+        assertEquals("(ear on)", instance.next());
     }
 
     /**
@@ -344,14 +297,12 @@ public class CommandFactoryTest {
     @Test
     public void testAddChangePlayerTypeCommand_3args() {
         System.out.println("addChangePlayerTypeCommand");
-        String         teamName   = "";
-        int            unum       = 0;
-        int            playerType = 0;
+        String         teamName   = "superteam";
+        int            unum       = 8;
+        int            playerType = 14;
         CommandFactory instance   = new CommandFactory();
         instance.addChangePlayerTypeCommand(teamName, unum, playerType);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("(change_player_type superteam 8 14)", instance.next());
     }
 
     /**
@@ -363,9 +314,10 @@ public class CommandFactoryTest {
         boolean        eyeOn    = false;
         CommandFactory instance = new CommandFactory();
         instance.addEyeCommand(eyeOn);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("(eye off)", instance.next());
+        eyeOn = true;
+        instance.addEyeCommand(eyeOn);
+        assertEquals("(eye on)", instance.next());
     }
 
     /**
@@ -376,9 +328,7 @@ public class CommandFactoryTest {
         System.out.println("addLookCommand");
         CommandFactory instance = new CommandFactory();
         instance.addLookCommand();
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("(look)", instance.next());
     }
 
     /**
@@ -389,38 +339,30 @@ public class CommandFactoryTest {
         System.out.println("addTeamNamesCommand");
         CommandFactory instance = new CommandFactory();
         instance.addTeamNamesCommand();
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("(team_names)", instance.next());
     }
 
     /**
      * Test of addChangePlayerTypeCommand method, of class CommandFactory.
      */
-    @Test
+    @Test(expected = UnsupportedOperationException.class)
     public void testAddChangePlayerTypeCommand_int_Object() {
         System.out.println("addChangePlayerTypeCommand");
         int            unum       = 0;
         Object         playerType = null;
         CommandFactory instance   = new CommandFactory();
         instance.addChangePlayerTypeCommand(unum, playerType);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      * Test of addTeamGraphicCommand method, of class CommandFactory.
      */
-    @Test
+    @Test(expected = UnsupportedOperationException.class)
     public void testAddTeamGraphicCommand() {
         System.out.println("addTeamGraphicCommand");
         XPMImage       xpm      = null;
         CommandFactory instance = new CommandFactory();
         instance.addTeamGraphicCommand(xpm);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -431,9 +373,7 @@ public class CommandFactoryTest {
         System.out.println("addByeCommand");
         CommandFactory instance = new CommandFactory();
         instance.addByeCommand();
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("(bye)", instance.next());
     }
 
     /**

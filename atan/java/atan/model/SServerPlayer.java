@@ -151,14 +151,6 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
      * @inheritDoc
      */
     @Override
-    public void senseBody() {
-        this.commandFactory.addSenseBodyCommand();
-    }
-
-    /**
-     * @inheritDoc
-     */
-    @Override
     public void turn(double angle) {
         this.commandFactory.addTurnCommand((int) angle);
     }
@@ -297,7 +289,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
      * A private player-style filter
      * @author Atan
      */
-    private class SServerCommandBuffer implements CommandFilter {
+    private static class SServerCommandBuffer implements CommandFilter {
         private String changePlayerTypeCommand = null;
         private String errorCommand            = null;
         private String hearCommand             = null;
