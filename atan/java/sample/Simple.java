@@ -431,7 +431,7 @@ public class Simple implements ControllerPlayer {
      * @return
      */
     private int randomDashValueFast() {
-        return 30 + (int) (random.nextDouble() * 100.0);
+        return 30 + random.nextInt(100);
     }
 
     /**
@@ -439,7 +439,7 @@ public class Simple implements ControllerPlayer {
      * @return
      */
     private int randomDashValueSlow() {
-        return -10 + (int) (random.nextDouble() * 50.0);
+        return -10 + random.nextInt(50);
     }
 
     /**
@@ -461,7 +461,7 @@ public class Simple implements ControllerPlayer {
      * @return
      */
     private int randomKickDirectionValue() {
-        return -45 + (int) (random.nextDouble() * 90.0);
+        return -45 + random.nextInt(90);
     }
 
     /**
