@@ -1,3 +1,5 @@
+//~RoboCup Project - Nick James (nsj3), Daniel Wood (dw224), Stuart Wood (sw262)
+
 package atan.parser;
 
 //~--- non-JDK imports --------------------------------------------------------
@@ -56,9 +58,6 @@ public class CommandFilterTest {
         String        cmd      = "";
         CommandFilter instance = new CommandFilterImpl();
         instance.seeCommand(cmd);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -70,9 +69,6 @@ public class CommandFilterTest {
         String        cmd      = "";
         CommandFilter instance = new CommandFilterImpl();
         instance.hearCommand(cmd);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -84,9 +80,6 @@ public class CommandFilterTest {
         String        cmd      = "";
         CommandFilter instance = new CommandFilterImpl();
         instance.senseBodyCommand(cmd);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -98,9 +91,6 @@ public class CommandFilterTest {
         String        cmd      = "";
         CommandFilter instance = new CommandFilterImpl();
         instance.initCommand(cmd);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -112,9 +102,6 @@ public class CommandFilterTest {
         String        cmd      = "";
         CommandFilter instance = new CommandFilterImpl();
         instance.errorCommand(cmd);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -126,9 +113,6 @@ public class CommandFilterTest {
         String        cmd      = "";
         CommandFilter instance = new CommandFilterImpl();
         instance.serverParamCommand(cmd);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -140,9 +124,6 @@ public class CommandFilterTest {
         String        cmd      = "";
         CommandFilter instance = new CommandFilterImpl();
         instance.playerParamCommand(cmd);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -154,9 +135,6 @@ public class CommandFilterTest {
         String        cmd      = "";
         CommandFilter instance = new CommandFilterImpl();
         instance.playerTypeCommand(cmd);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -168,9 +146,6 @@ public class CommandFilterTest {
         String        cmd      = "";
         CommandFilter instance = new CommandFilterImpl();
         instance.changePlayerTypeCommand(cmd);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -182,9 +157,6 @@ public class CommandFilterTest {
         String        cmd      = "";
         CommandFilter instance = new CommandFilterImpl();
         instance.okCommand(cmd);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -196,16 +168,13 @@ public class CommandFilterTest {
         String        cmd      = "";
         CommandFilter instance = new CommandFilterImpl();
         instance.warningCommand(cmd);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      *
-     * @author author
+     * @author Atan
      */
-    public class CommandFilterImpl implements CommandFilter {
+    public static class CommandFilterImpl implements CommandFilter {
 
         /**
          *
