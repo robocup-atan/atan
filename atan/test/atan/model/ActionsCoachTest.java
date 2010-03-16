@@ -1,3 +1,5 @@
+//~RoboCup Project - Nick James (nsj3), Daniel Wood (dw224), Stuart Wood (sw262)
+
 package atan.model;
 
 //~--- non-JDK imports --------------------------------------------------------
@@ -56,9 +58,6 @@ public class ActionsCoachTest {
         boolean      eyeOn    = false;
         ActionsCoach instance = new ActionsCoachImpl();
         instance.eye(eyeOn);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -69,9 +68,6 @@ public class ActionsCoachTest {
         System.out.println("look");
         ActionsCoach instance = new ActionsCoachImpl();
         instance.look();
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -83,9 +79,6 @@ public class ActionsCoachTest {
         String       message  = "";
         ActionsCoach instance = new ActionsCoachImpl();
         instance.say(message);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -94,13 +87,10 @@ public class ActionsCoachTest {
     @Test
     public void testChangePlayerType() {
         System.out.println("changePlayerType");
-        int          unum       = 0;
-        int          playerType = 0;
+        int          unum       = 10;
+        int          playerType = 10;
         ActionsCoach instance   = new ActionsCoachImpl();
         instance.changePlayerType(unum, playerType);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -109,12 +99,9 @@ public class ActionsCoachTest {
     @Test
     public void testTeamGraphic() {
         System.out.println("teamGraphic");
-        XPMImage     xpm      = null;
+        XPMImage     xpm      = new XPMImage();
         ActionsCoach instance = new ActionsCoachImpl();
         instance.teamGraphic(xpm);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -125,9 +112,6 @@ public class ActionsCoachTest {
         System.out.println("getTeamNames");
         ActionsCoach instance = new ActionsCoachImpl();
         instance.getTeamNames();
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -138,9 +122,6 @@ public class ActionsCoachTest {
         System.out.println("bye");
         ActionsCoach instance = new ActionsCoachImpl();
         instance.bye();
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -149,12 +130,9 @@ public class ActionsCoachTest {
     @Test
     public void testHandleError() {
         System.out.println("handleError");
-        String       error    = "";
+        String       error    = "Error";
         ActionsCoach instance = new ActionsCoachImpl();
         instance.handleError(error);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -167,9 +145,6 @@ public class ActionsCoachTest {
         boolean      expResult = false;
         boolean      result    = instance.isTeamEast();
         assertEquals(expResult, result);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -181,9 +156,6 @@ public class ActionsCoachTest {
         boolean      is       = false;
         ActionsCoach instance = new ActionsCoachImpl();
         instance.setTeamEast(is);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -196,32 +168,32 @@ public class ActionsCoachTest {
         String       expResult = "";
         String       result    = instance.getTeamName();
         assertEquals(expResult, result);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      *
      * @author author
      */
-    public class ActionsCoachImpl implements ActionsCoach {
+    public static class ActionsCoachImpl implements ActionsCoach {
 
         /**
          *
          * @param eyeOn
          */
+        @Override
         public void eye(boolean eyeOn) {}
 
         /**
          *
          */
+        @Override
         public void look() {}
 
         /**
          *
          * @param message
          */
+        @Override
         public void say(String message) {}
 
         /**
@@ -229,34 +201,40 @@ public class ActionsCoachTest {
          * @param unum
          * @param playerType
          */
+        @Override
         public void changePlayerType(int unum, int playerType) {}
 
         /**
          *
          * @param xpm
          */
+        @Override
         public void teamGraphic(XPMImage xpm) {}
 
         /**
          *
          */
+        @Override
         public void getTeamNames() {}
 
         /**
          *
          */
+        @Override
         public void bye() {}
 
         /**
          *
          * @param error
          */
+        @Override
         public void handleError(String error) {}
 
         /**
          *
          * @return
          */
+        @Override
         public boolean isTeamEast() {
             return false;
         }
@@ -265,12 +243,14 @@ public class ActionsCoachTest {
          *
          * @param is
          */
+        @Override
         public void setTeamEast(boolean is) {}
 
         /**
          *
          * @return
          */
+        @Override
         public String getTeamName() {
             return "";
         }

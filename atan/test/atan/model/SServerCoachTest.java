@@ -90,6 +90,7 @@ public class SServerCoachTest {
 
     /**
      * Test of received method, of class SServerCoach.
+     * @throws Exception
      */
     @Test
     public void testReceived() throws Exception {

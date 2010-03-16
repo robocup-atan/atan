@@ -94,6 +94,7 @@ public class AbstractUDPClientTest {
 
     /**
      * Test of send method, of class AbstractUDPClient.
+     * @throws Exception
      */
     @Test
     public void testSend() throws Exception {
@@ -123,6 +124,7 @@ public class AbstractUDPClientTest {
 
     /**
      * Test of received method, of class AbstractUDPClient.
+     * @throws Exception
      */
     @Test
     public void testReceived() throws Exception {
@@ -202,6 +204,7 @@ public class AbstractUDPClientTest {
          *
          * @return
          */
+        @Override
         public String getInitMessage() {
             return "";
         }
@@ -211,6 +214,7 @@ public class AbstractUDPClientTest {
          * @param msg
          * @throws IOException
          */
+        @Override
         public void received(String msg) throws IOException {}
     }
 }

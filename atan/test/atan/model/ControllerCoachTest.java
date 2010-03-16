@@ -74,9 +74,6 @@ public class ControllerCoachTest {
         double          neckAngle = 0.0;
         ControllerCoach instance  = new ControllerCoachImpl();
         instance.infoSeePlayerOwn(number, goalie, x, y, deltaX, deltaY, bodyAngle, neckAngle);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -95,9 +92,6 @@ public class ControllerCoachTest {
         double          neckAngle = 0.0;
         ControllerCoach instance  = new ControllerCoachImpl();
         instance.infoSeePlayerOther(number, goalie, x, y, deltaX, deltaY, bodyAngle, neckAngle);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -110,9 +104,6 @@ public class ControllerCoachTest {
         double          y        = 0.0;
         ControllerCoach instance = new ControllerCoachImpl();
         instance.infoSeeGoalOwn(x, y);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -125,9 +116,6 @@ public class ControllerCoachTest {
         double          y        = 0.0;
         ControllerCoach instance = new ControllerCoachImpl();
         instance.infoSeeGoalOther(x, y);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -142,9 +130,6 @@ public class ControllerCoachTest {
         double          deltaY   = 0.0;
         ControllerCoach instance = new ControllerCoachImpl();
         instance.infoSeeBall(x, y, deltaX, deltaY);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -157,9 +142,6 @@ public class ControllerCoachTest {
         String          teamEast = "";
         ControllerCoach instance = new ControllerCoachImpl();
         instance.infoHearTeamNames(teamWest, teamEast);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -168,12 +150,9 @@ public class ControllerCoachTest {
     @Test
     public void testInfoHearReferee() {
         System.out.println("infoHearReferee");
-        RefereeMessage  refereeMessage = null;
+        RefereeMessage  refereeMessage = RefereeMessage.FOUL_R;
         ControllerCoach instance       = new ControllerCoachImpl();
         instance.infoHearReferee(refereeMessage);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -182,12 +161,9 @@ public class ControllerCoachTest {
     @Test
     public void testInfoHearPlayMode() {
         System.out.println("infoHearPlayMode");
-        PlayMode        playMode = null;
+        PlayMode        playMode = PlayMode.CORNER_KICK_OWN;
         ControllerCoach instance = new ControllerCoachImpl();
         instance.infoHearPlayMode(playMode);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -197,12 +173,9 @@ public class ControllerCoachTest {
     public void testInfoHearPlayer() {
         System.out.println("infoHearPlayer");
         double          direction = 0.0;
-        String          message   = "";
+        String          message   = "Test";
         ControllerCoach instance  = new ControllerCoachImpl();
         instance.infoHearPlayer(direction, message);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -211,12 +184,9 @@ public class ControllerCoachTest {
     @Test
     public void testInfoHearError() {
         System.out.println("infoHearError");
-        Errors          error    = null;
+        Errors          error    = Errors.UNKNOWN_COMMAND;
         ControllerCoach instance = new ControllerCoachImpl();
         instance.infoHearError(error);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -225,12 +195,9 @@ public class ControllerCoachTest {
     @Test
     public void testInfoHearOk() {
         System.out.println("infoHearOk");
-        Ok              ok       = null;
+        Ok              ok       = Ok.EAR_ON;
         ControllerCoach instance = new ControllerCoachImpl();
         instance.infoHearOk(ok);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -239,12 +206,9 @@ public class ControllerCoachTest {
     @Test
     public void testInfoHearWarning() {
         System.out.println("infoHearWarning");
-        Warning         warning  = null;
+        Warning         warning  = Warning.NO_SUBS_LEFT;
         ControllerCoach instance = new ControllerCoachImpl();
         instance.infoHearWarning(warning);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -268,9 +232,6 @@ public class ControllerCoachTest {
         ControllerCoach instance       = new ControllerCoachImpl();
         instance.infoPlayerType(id, playerSpeedMax, staminaIncMax, playerDecay, inertiaMoment, dashPowerRate,
                                 playerSize, kickableMargin, kickRand, extraStamina, effortMax, effortMin);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -283,9 +244,6 @@ public class ControllerCoachTest {
         int             type     = 0;
         ControllerCoach instance = new ControllerCoachImpl();
         instance.infoCPTOwn(unum, type);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -297,9 +255,6 @@ public class ControllerCoachTest {
         int             unum     = 0;
         ControllerCoach instance = new ControllerCoachImpl();
         instance.infoCPTOther(unum);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -337,9 +292,6 @@ public class ControllerCoachTest {
                                  newDashPowerRateDeltaMin, newStaminaIncMaxDeltaFactor, playerDecayDeltaMax,
                                  playerDecayDeltaMin, playerTypes, ptMax, randomSeed, staminaIncMaxDeltaFactor,
                                  subsMax);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -348,12 +300,9 @@ public class ControllerCoachTest {
     @Test
     public void testInfoServerParam() {
         System.out.println("infoServerParam");
-        HashMap<ServerParams, Object> info     = null;
+        HashMap<ServerParams, Object> info     = new HashMap<ServerParams, Object>();
         ControllerCoach               instance = new ControllerCoachImpl();
         instance.infoServerParam(info);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -365,9 +314,6 @@ public class ControllerCoachTest {
         ActionsCoach    c        = null;
         ControllerCoach instance = new ControllerCoachImpl();
         instance.setCoach(c);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -380,16 +326,13 @@ public class ControllerCoachTest {
         ActionsCoach    expResult = null;
         ActionsCoach    result    = instance.getCoach();
         assertEquals(expResult, result);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      *
-     * @author author
+     * @author Atan
      */
-    public class ControllerCoachImpl implements ControllerCoach {
+    public static class ControllerCoachImpl implements ControllerCoach {
 
         /**
          *
@@ -402,6 +345,7 @@ public class ControllerCoachTest {
          * @param bodyAngle
          * @param neckAngle
          */
+        @Override
         public void infoSeePlayerOwn(int number, boolean goalie, double x, double y, double deltaX, double deltaY,
                                      double bodyAngle, double neckAngle) {}
 
@@ -416,6 +360,7 @@ public class ControllerCoachTest {
          * @param bodyAngle
          * @param neckAngle
          */
+        @Override
         public void infoSeePlayerOther(int number, boolean goalie, double x, double y, double deltaX, double deltaY,
                                        double bodyAngle, double neckAngle) {}
 
@@ -424,6 +369,7 @@ public class ControllerCoachTest {
          * @param x
          * @param y
          */
+        @Override
         public void infoSeeGoalOwn(double x, double y) {}
 
         /**
@@ -431,6 +377,7 @@ public class ControllerCoachTest {
          * @param x
          * @param y
          */
+        @Override
         public void infoSeeGoalOther(double x, double y) {}
 
         /**
@@ -440,6 +387,7 @@ public class ControllerCoachTest {
          * @param deltaX
          * @param deltaY
          */
+        @Override
         public void infoSeeBall(double x, double y, double deltaX, double deltaY) {}
 
         /**
@@ -447,18 +395,21 @@ public class ControllerCoachTest {
          * @param teamWest
          * @param teamEast
          */
+        @Override
         public void infoHearTeamNames(String teamWest, String teamEast) {}
 
         /**
          *
          * @param refereeMessage
          */
+        @Override
         public void infoHearReferee(RefereeMessage refereeMessage) {}
 
         /**
          *
          * @param playMode
          */
+        @Override
         public void infoHearPlayMode(PlayMode playMode) {}
 
         /**
@@ -466,24 +417,28 @@ public class ControllerCoachTest {
          * @param direction
          * @param message
          */
+        @Override
         public void infoHearPlayer(double direction, String message) {}
 
         /**
          *
          * @param error
          */
+        @Override
         public void infoHearError(Errors error) {}
 
         /**
          *
          * @param ok
          */
+        @Override
         public void infoHearOk(Ok ok) {}
 
         /**
          *
          * @param warning
          */
+        @Override
         public void infoHearWarning(Warning warning) {}
 
         /**
@@ -501,6 +456,7 @@ public class ControllerCoachTest {
          * @param effortMax
          * @param effortMin
          */
+        @Override
         public void infoPlayerType(int id, double playerSpeedMax, double staminaIncMax, double playerDecay,
                                    double inertiaMoment, double dashPowerRate, double playerSize,
                                    double kickableMargin, double kickRand, double extraStamina, double effortMax,
@@ -511,12 +467,14 @@ public class ControllerCoachTest {
          * @param unum
          * @param type
          */
+        @Override
         public void infoCPTOwn(int unum, int type) {}
 
         /**
          *
          * @param unum
          */
+        @Override
         public void infoCPTOther(int unum) {}
 
         /**
@@ -543,6 +501,7 @@ public class ControllerCoachTest {
          * @param staminaIncMaxDeltaFactor
          * @param subsMax
          */
+        @Override
         public void infoPlayerParam(double allowMultDefaultType, double dashPowerRateDeltaMax,
                                     double dashPowerRateDeltaMin, double effortMaxDeltaFactor,
                                     double effortMinDeltaFactor, double extraStaminaDeltaMax,
@@ -557,18 +516,21 @@ public class ControllerCoachTest {
          *
          * @param info
          */
+        @Override
         public void infoServerParam(HashMap<ServerParams, Object> info) {}
 
         /**
          *
          * @param c
          */
+        @Override
         public void setCoach(ActionsCoach c) {}
 
         /**
          *
          * @return
          */
+        @Override
         public ActionsCoach getCoach() {
             return null;
         }

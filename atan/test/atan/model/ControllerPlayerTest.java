@@ -1,3 +1,5 @@
+//~RoboCup Project - Nick James (nsj3), Daniel Wood (dw224), Stuart Wood (sw262)
+
 package atan.model;
 
 //~--- non-JDK imports --------------------------------------------------------
@@ -30,6 +32,8 @@ import java.util.HashMap;
  * @author Atan
  */
 public class ControllerPlayerTest {
+    private ActionsPlayerImpl testPlayer;
+    private ControllerPlayer conPlayer;
 
     /**
      *
@@ -54,7 +58,10 @@ public class ControllerPlayerTest {
      *
      */
     @Before
-    public void setUp() {}
+    public void setUp() {
+        testPlayer = new ActionsPlayerImpl();
+        conPlayer = new ControllerPlayerImpl();
+    }
 
     /**
      *
@@ -68,11 +75,8 @@ public class ControllerPlayerTest {
     @Test
     public void testPreInfo() {
         System.out.println("preInfo");
-        ControllerPlayer instance = new ControllerPlayerImpl();
+        ControllerPlayer instance = conPlayer;
         instance.preInfo();
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -81,26 +85,8 @@ public class ControllerPlayerTest {
     @Test
     public void testPostInfo() {
         System.out.println("postInfo");
-        ControllerPlayer instance = new ControllerPlayerImpl();
+        ControllerPlayer instance = conPlayer;
         instance.postInfo();
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getPlayer method, of class ControllerPlayer.
-     */
-    @Test
-    public void testGetPlayer() {
-        System.out.println("getPlayer");
-        ControllerPlayer instance  = new ControllerPlayerImpl();
-        ActionsPlayer    expResult = null;
-        ActionsPlayer    result    = instance.getPlayer();
-        assertEquals(expResult, result);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -110,26 +96,20 @@ public class ControllerPlayerTest {
     public void testSetPlayer() {
         System.out.println("setPlayer");
         ActionsPlayer    c        = null;
-        ControllerPlayer instance = new ControllerPlayerImpl();
+        ControllerPlayer instance = conPlayer;
         instance.setPlayer(c);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getType method, of class ControllerPlayer.
+     * Test of getPlayer method, of class ControllerPlayer.
      */
     @Test
-    public void testGetType() {
-        System.out.println("getType");
-        ControllerPlayer instance  = new ControllerPlayerImpl();
-        String           expResult = "";
-        String           result    = instance.getType();
+    public void testGetPlayer() {
+        System.out.println("getPlayer");
+        ControllerPlayer instance  = conPlayer;
+        ActionsPlayer    expResult = null;
+        ActionsPlayer    result    = instance.getPlayer();
         assertEquals(expResult, result);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -139,11 +119,20 @@ public class ControllerPlayerTest {
     public void testSetType() {
         System.out.println("setType");
         String           newType  = "";
-        ControllerPlayer instance = new ControllerPlayerImpl();
+        ControllerPlayer instance = conPlayer;
         instance.setType(newType);
+    }
 
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    /**
+     * Test of getType method, of class ControllerPlayer.
+     */
+    @Test
+    public void testGetType() {
+        System.out.println("getType");
+        ControllerPlayer instance  = conPlayer;
+        String           expResult = null;
+        String           result    = instance.getType();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -152,19 +141,16 @@ public class ControllerPlayerTest {
     @Test
     public void testInfoSeeFlagRight() {
         System.out.println("infoSeeFlagRight");
-        Flag             flag                = null;
+        Flag             flag                = Flag.RIGHT;
         double           distance            = 0.0;
         double           direction           = 0.0;
         double           distChange          = 0.0;
         double           dirChange           = 0.0;
         double           bodyFacingDirection = 0.0;
         double           headFacingDirection = 0.0;
-        ControllerPlayer instance            = new ControllerPlayerImpl();
+        ControllerPlayer instance            = conPlayer;
         instance.infoSeeFlagRight(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                   headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -173,19 +159,16 @@ public class ControllerPlayerTest {
     @Test
     public void testInfoSeeFlagLeft() {
         System.out.println("infoSeeFlagLeft");
-        Flag             flag                = null;
+        Flag             flag                = Flag.LEFT;
         double           distance            = 0.0;
         double           direction           = 0.0;
         double           distChange          = 0.0;
         double           dirChange           = 0.0;
         double           bodyFacingDirection = 0.0;
         double           headFacingDirection = 0.0;
-        ControllerPlayer instance            = new ControllerPlayerImpl();
+        ControllerPlayer instance            = conPlayer;
         instance.infoSeeFlagLeft(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                  headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -194,19 +177,16 @@ public class ControllerPlayerTest {
     @Test
     public void testInfoSeeFlagOwn() {
         System.out.println("infoSeeFlagOwn");
-        Flag             flag                = null;
+        Flag             flag                = Flag.OWN_10;
         double           distance            = 0.0;
         double           direction           = 0.0;
         double           distChange          = 0.0;
         double           dirChange           = 0.0;
         double           bodyFacingDirection = 0.0;
         double           headFacingDirection = 0.0;
-        ControllerPlayer instance            = new ControllerPlayerImpl();
+        ControllerPlayer instance            = conPlayer;
         instance.infoSeeFlagOwn(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                 headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -215,19 +195,16 @@ public class ControllerPlayerTest {
     @Test
     public void testInfoSeeFlagOther() {
         System.out.println("infoSeeFlagOther");
-        Flag             flag                = null;
+        Flag             flag                = Flag.OTHER_10;
         double           distance            = 0.0;
         double           direction           = 0.0;
         double           distChange          = 0.0;
         double           dirChange           = 0.0;
         double           bodyFacingDirection = 0.0;
         double           headFacingDirection = 0.0;
-        ControllerPlayer instance            = new ControllerPlayerImpl();
+        ControllerPlayer instance            = conPlayer;
         instance.infoSeeFlagOther(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                   headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -236,19 +213,16 @@ public class ControllerPlayerTest {
     @Test
     public void testInfoSeeFlagCenter() {
         System.out.println("infoSeeFlagCenter");
-        Flag             flag                = null;
+        Flag             flag                = Flag.CENTER;
         double           distance            = 0.0;
         double           direction           = 0.0;
         double           distChange          = 0.0;
         double           dirChange           = 0.0;
         double           bodyFacingDirection = 0.0;
         double           headFacingDirection = 0.0;
-        ControllerPlayer instance            = new ControllerPlayerImpl();
+        ControllerPlayer instance            = conPlayer;
         instance.infoSeeFlagCenter(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                    headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -257,19 +231,16 @@ public class ControllerPlayerTest {
     @Test
     public void testInfoSeeFlagCornerOwn() {
         System.out.println("infoSeeFlagCornerOwn");
-        Flag             flag                = null;
+        Flag             flag                = Flag.LEFT;
         double           distance            = 0.0;
         double           direction           = 0.0;
         double           distChange          = 0.0;
         double           dirChange           = 0.0;
         double           bodyFacingDirection = 0.0;
         double           headFacingDirection = 0.0;
-        ControllerPlayer instance            = new ControllerPlayerImpl();
+        ControllerPlayer instance            = conPlayer;
         instance.infoSeeFlagCornerOwn(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                       headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -278,19 +249,16 @@ public class ControllerPlayerTest {
     @Test
     public void testInfoSeeFlagCornerOther() {
         System.out.println("infoSeeFlagCornerOther");
-        Flag             flag                = null;
+        Flag             flag                = Flag.RIGHT;
         double           distance            = 0.0;
         double           direction           = 0.0;
         double           distChange          = 0.0;
         double           dirChange           = 0.0;
         double           bodyFacingDirection = 0.0;
         double           headFacingDirection = 0.0;
-        ControllerPlayer instance            = new ControllerPlayerImpl();
+        ControllerPlayer instance            = conPlayer;
         instance.infoSeeFlagCornerOther(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                         headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -299,19 +267,16 @@ public class ControllerPlayerTest {
     @Test
     public void testInfoSeeFlagPenaltyOwn() {
         System.out.println("infoSeeFlagPenaltyOwn");
-        Flag             flag                = null;
+        Flag             flag                = Flag.LEFT;
         double           distance            = 0.0;
         double           direction           = 0.0;
         double           distChange          = 0.0;
         double           dirChange           = 0.0;
         double           bodyFacingDirection = 0.0;
         double           headFacingDirection = 0.0;
-        ControllerPlayer instance            = new ControllerPlayerImpl();
+        ControllerPlayer instance            = conPlayer;
         instance.infoSeeFlagPenaltyOwn(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                        headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -320,19 +285,16 @@ public class ControllerPlayerTest {
     @Test
     public void testInfoSeeFlagPenaltyOther() {
         System.out.println("infoSeeFlagPenaltyOther");
-        Flag             flag                = null;
+        Flag             flag                = Flag.RIGHT;
         double           distance            = 0.0;
         double           direction           = 0.0;
         double           distChange          = 0.0;
         double           dirChange           = 0.0;
         double           bodyFacingDirection = 0.0;
         double           headFacingDirection = 0.0;
-        ControllerPlayer instance            = new ControllerPlayerImpl();
+        ControllerPlayer instance            = conPlayer;
         instance.infoSeeFlagPenaltyOther(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                          headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -341,19 +303,16 @@ public class ControllerPlayerTest {
     @Test
     public void testInfoSeeFlagGoalOwn() {
         System.out.println("infoSeeFlagGoalOwn");
-        Flag             flag                = null;
+        Flag             flag                = Flag.CENTER;
         double           distance            = 0.0;
         double           direction           = 0.0;
         double           distChange          = 0.0;
         double           dirChange           = 0.0;
         double           bodyFacingDirection = 0.0;
         double           headFacingDirection = 0.0;
-        ControllerPlayer instance            = new ControllerPlayerImpl();
+        ControllerPlayer instance            = conPlayer;
         instance.infoSeeFlagGoalOwn(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                     headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -362,19 +321,16 @@ public class ControllerPlayerTest {
     @Test
     public void testInfoSeeFlagGoalOther() {
         System.out.println("infoSeeFlagGoalOther");
-        Flag             flag                = null;
+        Flag             flag                = Flag.RIGHT;
         double           distance            = 0.0;
         double           direction           = 0.0;
         double           distChange          = 0.0;
         double           dirChange           = 0.0;
         double           bodyFacingDirection = 0.0;
         double           headFacingDirection = 0.0;
-        ControllerPlayer instance            = new ControllerPlayerImpl();
+        ControllerPlayer instance            = conPlayer;
         instance.infoSeeFlagGoalOther(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                       headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -383,19 +339,16 @@ public class ControllerPlayerTest {
     @Test
     public void testInfoSeeLine() {
         System.out.println("infoSeeLine");
-        Line             line                = null;
+        Line             line                = Line.CENTER;
         double           distance            = 0.0;
         double           direction           = 0.0;
         double           distChange          = 0.0;
         double           dirChange           = 0.0;
         double           bodyFacingDirection = 0.0;
         double           headFacingDirection = 0.0;
-        ControllerPlayer instance            = new ControllerPlayerImpl();
+        ControllerPlayer instance            = conPlayer;
         instance.infoSeeLine(line, distance, direction, distChange, dirChange, bodyFacingDirection,
                              headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -412,12 +365,9 @@ public class ControllerPlayerTest {
         double           dirChange           = 0.0;
         double           bodyFacingDirection = 0.0;
         double           headFacingDirection = 0.0;
-        ControllerPlayer instance            = new ControllerPlayerImpl();
+        ControllerPlayer instance            = conPlayer;
         instance.infoSeePlayerOther(number, goalie, distance, direction, distChange, dirChange, bodyFacingDirection,
                                     headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -434,12 +384,9 @@ public class ControllerPlayerTest {
         double           dirChange           = 0.0;
         double           bodyFacingDirection = 0.0;
         double           headFacingDirection = 0.0;
-        ControllerPlayer instance            = new ControllerPlayerImpl();
+        ControllerPlayer instance            = conPlayer;
         instance.infoSeePlayerOwn(number, goalie, distance, direction, distChange, dirChange, bodyFacingDirection,
                                   headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -454,11 +401,8 @@ public class ControllerPlayerTest {
         double           dirChange           = 0.0;
         double           bodyFacingDirection = 0.0;
         double           headFacingDirection = 0.0;
-        ControllerPlayer instance            = new ControllerPlayerImpl();
+        ControllerPlayer instance            = conPlayer;
         instance.infoSeeBall(distance, direction, distChange, dirChange, bodyFacingDirection, headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -467,12 +411,9 @@ public class ControllerPlayerTest {
     @Test
     public void testInfoHearReferee() {
         System.out.println("infoHearReferee");
-        RefereeMessage   refereeMessage = null;
-        ControllerPlayer instance       = new ControllerPlayerImpl();
+        RefereeMessage   refereeMessage = RefereeMessage.DROP_BALL;
+        ControllerPlayer instance       = conPlayer;
         instance.infoHearReferee(refereeMessage);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -481,12 +422,9 @@ public class ControllerPlayerTest {
     @Test
     public void testInfoHearPlayMode() {
         System.out.println("infoHearPlayMode");
-        PlayMode         playMode = null;
-        ControllerPlayer instance = new ControllerPlayerImpl();
+        PlayMode         playMode = PlayMode.KICK_OFF_L;
+        ControllerPlayer instance = conPlayer;
         instance.infoHearPlayMode(playMode);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -496,12 +434,9 @@ public class ControllerPlayerTest {
     public void testInfoHearPlayer() {
         System.out.println("infoHearPlayer");
         double           direction = 0.0;
-        String           message   = "";
-        ControllerPlayer instance  = new ControllerPlayerImpl();
+        String           message   = "Test";
+        ControllerPlayer instance  = conPlayer;
         instance.infoHearPlayer(direction, message);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -510,12 +445,9 @@ public class ControllerPlayerTest {
     @Test
     public void testInfoHearError() {
         System.out.println("infoHearError");
-        Errors           error    = null;
-        ControllerPlayer instance = new ControllerPlayerImpl();
+        Errors           error    = Errors.NO_MORE_TEAM_OR_PLAYER_OR_GOALIE;
+        ControllerPlayer instance = conPlayer;
         instance.infoHearError(error);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -524,12 +456,9 @@ public class ControllerPlayerTest {
     @Test
     public void testInfoHearOk() {
         System.out.println("infoHearOk");
-        Ok               ok       = null;
-        ControllerPlayer instance = new ControllerPlayerImpl();
+        Ok               ok       = Ok.SAY;
+        ControllerPlayer instance = conPlayer;
         instance.infoHearOk(ok);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -538,12 +467,9 @@ public class ControllerPlayerTest {
     @Test
     public void testInfoHearWarning() {
         System.out.println("infoHearWarning");
-        Warning          warning  = null;
-        ControllerPlayer instance = new ControllerPlayerImpl();
+        Warning          warning  = Warning.CANNOT_CHANGE_GOALIE;
+        ControllerPlayer instance = conPlayer;
         instance.infoHearWarning(warning);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -552,8 +478,8 @@ public class ControllerPlayerTest {
     @Test
     public void testInfoSenseBody() {
         System.out.println("infoSenseBody");
-        ViewQuality      viewQuality     = null;
-        ViewAngle        viewAngle       = null;
+        ViewQuality      viewQuality     = ViewQuality.HIGH;
+        ViewAngle        viewAngle       = ViewAngle.NARROW;
         double           stamina         = 0.0;
         double           unknown         = 0.0;
         double           effort          = 0.0;
@@ -568,13 +494,10 @@ public class ControllerPlayerTest {
         int              catchCount      = 0;
         int              moveCount       = 0;
         int              changeViewCount = 0;
-        ControllerPlayer instance        = new ControllerPlayerImpl();
+        ControllerPlayer instance        = conPlayer;
         instance.infoSenseBody(viewQuality, viewAngle, stamina, unknown, effort, speedAmount, speedDirection,
                                headAngle, kickCount, dashCount, turnCount, sayCount, turnNeckCount, catchCount,
                                moveCount, changeViewCount);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -585,11 +508,8 @@ public class ControllerPlayerTest {
         System.out.println("infoCPTOwn");
         int              unum     = 0;
         int              type     = 0;
-        ControllerPlayer instance = new ControllerPlayerImpl();
+        ControllerPlayer instance = conPlayer;
         instance.infoCPTOwn(unum, type);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -599,11 +519,8 @@ public class ControllerPlayerTest {
     public void testInfoCPTOther() {
         System.out.println("infoCPTOther");
         int              unum     = 0;
-        ControllerPlayer instance = new ControllerPlayerImpl();
+        ControllerPlayer instance = conPlayer;
         instance.infoCPTOther(unum);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -624,12 +541,9 @@ public class ControllerPlayerTest {
         double           extraStamina   = 0.0;
         double           effortMax      = 0.0;
         double           effortMin      = 0.0;
-        ControllerPlayer instance       = new ControllerPlayerImpl();
+        ControllerPlayer instance       = conPlayer;
         instance.infoPlayerType(id, playerSpeedMax, staminaIncMax, playerDecay, inertiaMoment, dashPowerRate,
                                 playerSize, kickableMargin, kickRand, extraStamina, effortMax, effortMin);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -659,7 +573,7 @@ public class ControllerPlayerTest {
         double           randomSeed                  = 0.0;
         double           staminaIncMaxDeltaFactor    = 0.0;
         double           subsMax                     = 0.0;
-        ControllerPlayer instance                    = new ControllerPlayerImpl();
+        ControllerPlayer instance                    = conPlayer;
         instance.infoPlayerParam(allowMultDefaultType, dashPowerRateDeltaMax, dashPowerRateDeltaMin,
                                  effortMaxDeltaFactor, effortMinDeltaFactor, extraStaminaDeltaMax,
                                  extraStaminaDeltaMin, inertiaMomentDeltaFactor, kickRandDeltaFactor,
@@ -667,9 +581,6 @@ public class ControllerPlayerTest {
                                  newDashPowerRateDeltaMin, newStaminaIncMaxDeltaFactor, playerDecayDeltaMax,
                                  playerDecayDeltaMin, playerTypes, ptMax, randomSeed, staminaIncMaxDeltaFactor,
                                  subsMax);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -678,57 +589,191 @@ public class ControllerPlayerTest {
     @Test
     public void testInfoServerParam() {
         System.out.println("infoServerParam");
-        HashMap<ServerParams, Object> info     = null;
-        ControllerPlayer              instance = new ControllerPlayerImpl();
+        HashMap<ServerParams, Object> info     = new HashMap<ServerParams, Object>();
+        ControllerPlayer              instance = conPlayer;
         instance.infoServerParam(info);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      *
-     * @author author
+     * @author Atan
      */
-    public class ControllerPlayerImpl implements ControllerPlayer {
+    public static class ActionsPlayerImpl implements ActionsPlayer {
+
+        /**
+         *
+         * @param power
+         */
+        @Override
+        public void dash(int power) {}
+
+        /**
+         *
+         * @param x
+         * @param y
+         */
+        @Override
+        public void move(int x, int y) {}
+
+        /**
+         *
+         * @param power
+         * @param direction
+         */
+        @Override
+        public void kick(int power, double direction) {}
+
+        /**
+         *
+         * @param message
+         */
+        @Override
+        public void say(String message) {}
 
         /**
          *
          */
+        public void senseBody() {}
+
+        /**
+         *
+         * @param angle
+         */
+        @Override
+        public void turn(double angle) {}
+
+        /**
+         *
+         * @param angle
+         */
+        @Override
+        public void turnNeck(double angle) {}
+
+        /**
+         *
+         * @param direction
+         */
+        @Override
+        public void catchBall(double direction) {}
+
+        /**
+         *
+         * @param quality
+         * @param angle
+         */
+        @Override
+        public void changeViewMode(ViewQuality quality, ViewAngle angle) {}
+
+        /**
+         *
+         */
+        @Override
+        public void bye() {}
+
+        /**
+         *
+         * @param error
+         */
+        @Override
+        public void handleError(String error) {}
+
+        /**
+         *
+         * @return
+         */
+        @Override
+        public String getTeamName() {
+            return "";
+        }
+
+        /**
+         *
+         * @return
+         */
+        @Override
+        public boolean isTeamEast() {
+            return false;
+        }
+
+        /**
+         *
+         * @param is
+         */
+        @Override
+        public void setTeamEast(boolean is) {}
+
+        /**
+         *
+         * @param num
+         */
+        @Override
+        public void setNumber(int num) {}
+
+        /**
+         *
+         * @return
+         */
+        @Override
+        public int getNumber() {
+            return 0;
+        }
+    }
+
+    /**
+     *
+     * @author Atan
+     */
+    public static class ControllerPlayerImpl implements ControllerPlayer {
+        private ActionsPlayer aPlayer;
+        private String        type;
+
+        /**
+         *
+         */
+        @Override
         public void preInfo() {}
 
         /**
          *
          */
+        @Override
         public void postInfo() {}
 
         /**
          *
          * @return
          */
+        @Override
         public ActionsPlayer getPlayer() {
-            return null;
+            return aPlayer;
         }
 
         /**
          *
          * @param c
          */
-        public void setPlayer(ActionsPlayer c) {}
+        @Override
+        public void setPlayer(ActionsPlayer c) {
+            aPlayer = c;
+        }
 
         /**
          *
          * @return
          */
+        @Override
         public String getType() {
-            return "";
+            return type;
         }
 
         /**
          *
          * @param newType
          */
-        public void setType(String newType) {}
+        @Override
+        public void setType(String newType) {
+            type = newType;
+        }
 
         /**
          *
@@ -740,6 +785,7 @@ public class ControllerPlayerTest {
          * @param bodyFacingDirection
          * @param headFacingDirection
          */
+        @Override
         public void infoSeeFlagRight(Flag flag, double distance, double direction, double distChange, double dirChange,
                                      double bodyFacingDirection, double headFacingDirection) {}
 
@@ -753,6 +799,7 @@ public class ControllerPlayerTest {
          * @param bodyFacingDirection
          * @param headFacingDirection
          */
+        @Override
         public void infoSeeFlagLeft(Flag flag, double distance, double direction, double distChange, double dirChange,
                                     double bodyFacingDirection, double headFacingDirection) {}
 
@@ -766,6 +813,7 @@ public class ControllerPlayerTest {
          * @param bodyFacingDirection
          * @param headFacingDirection
          */
+        @Override
         public void infoSeeFlagOwn(Flag flag, double distance, double direction, double distChange, double dirChange,
                                    double bodyFacingDirection, double headFacingDirection) {}
 
@@ -779,6 +827,7 @@ public class ControllerPlayerTest {
          * @param bodyFacingDirection
          * @param headFacingDirection
          */
+        @Override
         public void infoSeeFlagOther(Flag flag, double distance, double direction, double distChange, double dirChange,
                                      double bodyFacingDirection, double headFacingDirection) {}
 
@@ -792,6 +841,7 @@ public class ControllerPlayerTest {
          * @param bodyFacingDirection
          * @param headFacingDirection
          */
+        @Override
         public void infoSeeFlagCenter(Flag flag, double distance, double direction, double distChange,
                                       double dirChange, double bodyFacingDirection, double headFacingDirection) {}
 
@@ -805,6 +855,7 @@ public class ControllerPlayerTest {
          * @param bodyFacingDirection
          * @param headFacingDirection
          */
+        @Override
         public void infoSeeFlagCornerOwn(Flag flag, double distance, double direction, double distChange,
                                          double dirChange, double bodyFacingDirection, double headFacingDirection) {}
 
@@ -818,6 +869,7 @@ public class ControllerPlayerTest {
          * @param bodyFacingDirection
          * @param headFacingDirection
          */
+        @Override
         public void infoSeeFlagCornerOther(Flag flag, double distance, double direction, double distChange,
                                            double dirChange, double bodyFacingDirection, double headFacingDirection) {}
 
@@ -831,6 +883,7 @@ public class ControllerPlayerTest {
          * @param bodyFacingDirection
          * @param headFacingDirection
          */
+        @Override
         public void infoSeeFlagPenaltyOwn(Flag flag, double distance, double direction, double distChange,
                                           double dirChange, double bodyFacingDirection, double headFacingDirection) {}
 
@@ -844,6 +897,7 @@ public class ControllerPlayerTest {
          * @param bodyFacingDirection
          * @param headFacingDirection
          */
+        @Override
         public void infoSeeFlagPenaltyOther(Flag flag, double distance, double direction, double distChange,
                 double dirChange, double bodyFacingDirection, double headFacingDirection) {}
 
@@ -857,6 +911,7 @@ public class ControllerPlayerTest {
          * @param bodyFacingDirection
          * @param headFacingDirection
          */
+        @Override
         public void infoSeeFlagGoalOwn(Flag flag, double distance, double direction, double distChange,
                                        double dirChange, double bodyFacingDirection, double headFacingDirection) {}
 
@@ -870,6 +925,7 @@ public class ControllerPlayerTest {
          * @param bodyFacingDirection
          * @param headFacingDirection
          */
+        @Override
         public void infoSeeFlagGoalOther(Flag flag, double distance, double direction, double distChange,
                                          double dirChange, double bodyFacingDirection, double headFacingDirection) {}
 
@@ -883,6 +939,7 @@ public class ControllerPlayerTest {
          * @param bodyFacingDirection
          * @param headFacingDirection
          */
+        @Override
         public void infoSeeLine(Line line, double distance, double direction, double distChange, double dirChange,
                                 double bodyFacingDirection, double headFacingDirection) {}
 
@@ -897,6 +954,7 @@ public class ControllerPlayerTest {
          * @param bodyFacingDirection
          * @param headFacingDirection
          */
+        @Override
         public void infoSeePlayerOther(int number, boolean goalie, double distance, double direction,
                                        double distChange, double dirChange, double bodyFacingDirection,
                                        double headFacingDirection) {}
@@ -912,6 +970,7 @@ public class ControllerPlayerTest {
          * @param bodyFacingDirection
          * @param headFacingDirection
          */
+        @Override
         public void infoSeePlayerOwn(int number, boolean goalie, double distance, double direction, double distChange,
                                      double dirChange, double bodyFacingDirection, double headFacingDirection) {}
 
@@ -924,6 +983,7 @@ public class ControllerPlayerTest {
          * @param bodyFacingDirection
          * @param headFacingDirection
          */
+        @Override
         public void infoSeeBall(double distance, double direction, double distChange, double dirChange,
                                 double bodyFacingDirection, double headFacingDirection) {}
 
@@ -931,12 +991,14 @@ public class ControllerPlayerTest {
          *
          * @param refereeMessage
          */
+        @Override
         public void infoHearReferee(RefereeMessage refereeMessage) {}
 
         /**
          *
          * @param playMode
          */
+        @Override
         public void infoHearPlayMode(PlayMode playMode) {}
 
         /**
@@ -944,24 +1006,28 @@ public class ControllerPlayerTest {
          * @param direction
          * @param message
          */
+        @Override
         public void infoHearPlayer(double direction, String message) {}
 
         /**
          *
          * @param error
          */
+        @Override
         public void infoHearError(Errors error) {}
 
         /**
          *
          * @param ok
          */
+        @Override
         public void infoHearOk(Ok ok) {}
 
         /**
          *
          * @param warning
          */
+        @Override
         public void infoHearWarning(Warning warning) {}
 
         /**
@@ -983,6 +1049,7 @@ public class ControllerPlayerTest {
          * @param moveCount
          * @param changeViewCount
          */
+        @Override
         public void infoSenseBody(ViewQuality viewQuality, ViewAngle viewAngle, double stamina, double unknown,
                                   double effort, double speedAmount, double speedDirection, double headAngle,
                                   int kickCount, int dashCount, int turnCount, int sayCount, int turnNeckCount,
@@ -993,12 +1060,14 @@ public class ControllerPlayerTest {
          * @param unum
          * @param type
          */
+        @Override
         public void infoCPTOwn(int unum, int type) {}
 
         /**
          *
          * @param unum
          */
+        @Override
         public void infoCPTOther(int unum) {}
 
         /**
@@ -1016,6 +1085,7 @@ public class ControllerPlayerTest {
          * @param effortMax
          * @param effortMin
          */
+        @Override
         public void infoPlayerType(int id, double playerSpeedMax, double staminaIncMax, double playerDecay,
                                    double inertiaMoment, double dashPowerRate, double playerSize,
                                    double kickableMargin, double kickRand, double extraStamina, double effortMax,
@@ -1045,6 +1115,7 @@ public class ControllerPlayerTest {
          * @param staminaIncMaxDeltaFactor
          * @param subsMax
          */
+        @Override
         public void infoPlayerParam(double allowMultDefaultType, double dashPowerRateDeltaMax,
                                     double dashPowerRateDeltaMin, double effortMaxDeltaFactor,
                                     double effortMinDeltaFactor, double extraStaminaDeltaMax,
@@ -1059,6 +1130,7 @@ public class ControllerPlayerTest {
          *
          * @param info
          */
+        @Override
         public void infoServerParam(HashMap<ServerParams, Object> info) {}
     }
 }

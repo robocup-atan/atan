@@ -58,9 +58,6 @@ public class ActionsTrainerTest {
         PlayMode       playMode = null;
         ActionsTrainer instance = new ActionsTrainerImpl();
         instance.changePlayMode(playMode);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -74,9 +71,6 @@ public class ActionsTrainerTest {
         double         y        = 0.0;
         ActionsTrainer instance = new ActionsTrainerImpl();
         instance.movePlayer(p, x, y);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -89,9 +83,6 @@ public class ActionsTrainerTest {
         double         y        = 0.0;
         ActionsTrainer instance = new ActionsTrainerImpl();
         instance.moveBall(x, y);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -103,8 +94,6 @@ public class ActionsTrainerTest {
         ActionsTrainer instance = new ActionsTrainerImpl();
         instance.checkBall();
 
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -116,8 +105,6 @@ public class ActionsTrainerTest {
         ActionsTrainer instance = new ActionsTrainerImpl();
         instance.startGame();
 
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -129,8 +116,6 @@ public class ActionsTrainerTest {
         ActionsTrainer instance = new ActionsTrainerImpl();
         instance.recover();
 
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -143,8 +128,6 @@ public class ActionsTrainerTest {
         ActionsTrainer instance = new ActionsTrainerImpl();
         instance.eye(eyeOn);
 
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -157,8 +140,6 @@ public class ActionsTrainerTest {
         ActionsTrainer instance = new ActionsTrainerImpl();
         instance.ear(earOn);
 
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -171,8 +152,6 @@ public class ActionsTrainerTest {
         ActionsTrainer instance = new ActionsTrainerImpl();
         instance.say(message);
 
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -187,8 +166,6 @@ public class ActionsTrainerTest {
         ActionsTrainer instance   = new ActionsTrainerImpl();
         instance.changePlayerType(teamName, unum, playerType);
 
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -200,8 +177,6 @@ public class ActionsTrainerTest {
         ActionsTrainer instance = new ActionsTrainerImpl();
         instance.look();
 
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -213,8 +188,6 @@ public class ActionsTrainerTest {
         ActionsTrainer instance = new ActionsTrainerImpl();
         instance.teamNames();
 
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -226,8 +199,6 @@ public class ActionsTrainerTest {
         ActionsTrainer instance = new ActionsTrainerImpl();
         instance.bye();
 
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -240,13 +211,11 @@ public class ActionsTrainerTest {
         ActionsTrainer instance = new ActionsTrainerImpl();
         instance.handleError(error);
 
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      *
-     * @author author
+     * @author Atan
      */
     public class ActionsTrainerImpl implements ActionsTrainer {
 
@@ -254,6 +223,7 @@ public class ActionsTrainerTest {
          *
          * @param playMode
          */
+        @Override
         public void changePlayMode(PlayMode playMode) {}
 
         /**
@@ -262,6 +232,7 @@ public class ActionsTrainerTest {
          * @param x
          * @param y
          */
+        @Override
         public void movePlayer(ActionsPlayer p, double x, double y) {}
 
         /**
@@ -269,39 +240,46 @@ public class ActionsTrainerTest {
          * @param x
          * @param y
          */
+        @Override
         public void moveBall(double x, double y) {}
 
         /**
          *
          */
+        @Override
         public void checkBall() {}
 
         /**
          *
          */
+        @Override
         public void startGame() {}
 
         /**
          *
          */
+        @Override
         public void recover() {}
 
         /**
          *
          * @param eyeOn
          */
+        @Override
         public void eye(boolean eyeOn) {}
 
         /**
          *
          * @param earOn
          */
+        @Override
         public void ear(boolean earOn) {}
 
         /**
          *
          * @param message
          */
+        @Override
         public void say(String message) {}
 
         /**
@@ -310,27 +288,32 @@ public class ActionsTrainerTest {
          * @param unum
          * @param playerType
          */
+        @Override
         public void changePlayerType(String teamName, int unum, int playerType) {}
 
         /**
          *
          */
+        @Override
         public void look() {}
 
         /**
          *
          */
+        @Override
         public void teamNames() {}
 
         /**
          *
          */
+        @Override
         public void bye() {}
 
         /**
          *
          * @param error
          */
+        @Override
         public void handleError(String error) {}
     }
 }

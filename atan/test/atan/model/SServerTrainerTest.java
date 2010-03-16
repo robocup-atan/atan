@@ -79,6 +79,7 @@ public class SServerTrainerTest {
 
     /**
      * Test of received method, of class SServerTrainer.
+     * @throws Exception
      */
     @Test
     public void testReceived() throws Exception {

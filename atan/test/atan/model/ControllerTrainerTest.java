@@ -60,12 +60,9 @@ public class ControllerTrainerTest {
     public void testInfoHearPlayer() {
         System.out.println("infoHearPlayer");
         double            direction = 0.0;
-        String            message   = "";
+        String            message   = "Test";
         ControllerTrainer instance  = new ControllerTrainerImpl();
         instance.infoHearPlayer(direction, message);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -74,12 +71,9 @@ public class ControllerTrainerTest {
     @Test
     public void testInfoHearPlayMode() {
         System.out.println("infoHearPlayMode");
-        PlayMode          playMode = null;
+        PlayMode          playMode = PlayMode.BEFORE_KICK_OFF;
         ControllerTrainer instance = new ControllerTrainerImpl();
         instance.infoHearPlayMode(playMode);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -88,12 +82,10 @@ public class ControllerTrainerTest {
     @Test
     public void testInfoHearReferee() {
         System.out.println("infoHearReferee");
-        RefereeMessage    refereeMessage = null;
+        RefereeMessage    refereeMessage = RefereeMessage.DROP_BALL;
         ControllerTrainer instance       = new ControllerTrainerImpl();
         instance.infoHearReferee(refereeMessage);
 
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -102,12 +94,9 @@ public class ControllerTrainerTest {
     @Test
     public void testInfoHearError() {
         System.out.println("infoHearError");
-        Errors            error    = null;
+        Errors            error    = Errors.ILLEGAL_COMMAND_FORM;
         ControllerTrainer instance = new ControllerTrainerImpl();
         instance.infoHearError(error);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -116,12 +105,9 @@ public class ControllerTrainerTest {
     @Test
     public void testInfoHearOk() {
         System.out.println("infoHearOk");
-        Ok                ok       = null;
+        Ok                ok       = Ok.CHANGE_MODE;
         ControllerTrainer instance = new ControllerTrainerImpl();
         instance.infoHearOk(ok);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -130,55 +116,58 @@ public class ControllerTrainerTest {
     @Test
     public void testInfoHearWarning() {
         System.out.println("infoHearWarning");
-        Warning           warning  = null;
+        Warning           warning  = Warning.CANNOT_CHANGE_GOALIE;
         ControllerTrainer instance = new ControllerTrainerImpl();
         instance.infoHearWarning(warning);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      *
-     * @author author
+     * @author Atan
      */
-    public class ControllerTrainerImpl implements ControllerTrainer {
+    public static class ControllerTrainerImpl implements ControllerTrainer {
 
         /**
          *
          * @param direction
          * @param message
          */
+        @Override
         public void infoHearPlayer(double direction, String message) {}
 
         /**
          *
          * @param playMode
          */
+        @Override
         public void infoHearPlayMode(PlayMode playMode) {}
 
         /**
          *
          * @param refereeMessage
          */
+        @Override
         public void infoHearReferee(RefereeMessage refereeMessage) {}
 
         /**
          *
          * @param error
          */
+        @Override
         public void infoHearError(Errors error) {}
 
         /**
          *
          * @param ok
          */
+        @Override
         public void infoHearOk(Ok ok) {}
 
         /**
          *
          * @param warning
          */
+        @Override
         public void infoHearWarning(Warning warning) {}
     }
 }

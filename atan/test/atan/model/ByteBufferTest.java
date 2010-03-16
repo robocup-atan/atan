@@ -62,6 +62,7 @@ public class ByteBufferTest {
 
     /**
      * Test of setString method, of class ByteBuffer.
+     * @throws Exception 
      */
     @Test
     public void testSetString() throws Exception {
@@ -75,6 +76,7 @@ public class ByteBufferTest {
 
     /**
      * Test of getString method, of class ByteBuffer.
+     * @throws Exception
      */
     @Test
     public void testGetString() throws Exception {
@@ -100,6 +102,7 @@ public class ByteBufferTest {
 
     /**
      * Test of reset method, of class ByteBuffer.
+     * @throws IOException
      */
     @Test
     public void testReset() throws IOException {

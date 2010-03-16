@@ -163,6 +163,7 @@ public class ObjNameTest {
          * @param bodyFacingDirection
          * @param headFacingDirection
          */
+        @Override
         public void infoSeeFromEast(ControllerPlayer c, double distance, double direction, double distChange,
                                     double dirChange, double bodyFacingDirection, double headFacingDirection) {}
 
@@ -176,6 +177,7 @@ public class ObjNameTest {
          * @param bodyFacingDirection
          * @param headFacingDirection
          */
+        @Override
         public void infoSeeFromWest(ControllerPlayer c, double distance, double direction, double distChange,
                                     double dirChange, double bodyFacingDirection, double headFacingDirection) {}
 
@@ -189,6 +191,7 @@ public class ObjNameTest {
          * @param bodyAngle
          * @param neckAngle
          */
+        @Override
         public void infoSeeFromEast(ControllerCoach c, double x, double y, double deltaX, double deltaY,
                                     double bodyAngle, double neckAngle) {}
 
@@ -202,6 +205,7 @@ public class ObjNameTest {
          * @param bodyAngle
          * @param neckAngle
          */
+        @Override
         public void infoSeeFromWest(ControllerCoach c, double x, double y, double deltaX, double deltaY,
                                     double bodyAngle, double neckAngle) {}
 
@@ -209,6 +213,7 @@ public class ObjNameTest {
          *
          * @param c
          */
+        @Override
         public void infoSee(ControllerTrainer c) {}
     }
 }

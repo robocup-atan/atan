@@ -211,66 +211,77 @@ public class CommandFilterTest {
          *
          * @param cmd
          */
+        @Override
         public void seeCommand(String cmd) {}
 
         /**
          *
          * @param cmd
          */
+        @Override
         public void hearCommand(String cmd) {}
 
         /**
          *
          * @param cmd
          */
+        @Override
         public void senseBodyCommand(String cmd) {}
 
         /**
          *
          * @param cmd
          */
+        @Override
         public void initCommand(String cmd) {}
 
         /**
          *
          * @param cmd
          */
+        @Override
         public void errorCommand(String cmd) {}
 
         /**
          *
          * @param cmd
          */
+        @Override
         public void serverParamCommand(String cmd) {}
 
         /**
          *
          * @param cmd
          */
+        @Override
         public void playerParamCommand(String cmd) {}
 
         /**
          *
          * @param cmd
          */
+        @Override
         public void playerTypeCommand(String cmd) {}
 
         /**
          *
          * @param cmd
          */
+        @Override
         public void changePlayerTypeCommand(String cmd) {}
 
         /**
          *
          * @param cmd
          */
+        @Override
         public void okCommand(String cmd) {}
 
         /**
          *
          * @param cmd
          */
+        @Override
         public void warningCommand(String cmd) {}
     }
 }

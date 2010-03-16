@@ -56,12 +56,9 @@ public class ActionsPlayerTest {
     @Test
     public void testDash() {
         System.out.println("dash");
-        int           power    = 0;
+        int           power    = 50;
         ActionsPlayer instance = new ActionsPlayerImpl();
         instance.dash(power);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -74,9 +71,6 @@ public class ActionsPlayerTest {
         int           y        = 0;
         ActionsPlayer instance = new ActionsPlayerImpl();
         instance.move(x, y);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -85,13 +79,11 @@ public class ActionsPlayerTest {
     @Test
     public void testKick() {
         System.out.println("kick");
-        int           power     = 0;
+        int           power     = 10;
         double        direction = 0.0;
         ActionsPlayer instance  = new ActionsPlayerImpl();
         instance.kick(power, direction);
 
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -100,12 +92,9 @@ public class ActionsPlayerTest {
     @Test
     public void testSay() {
         System.out.println("say");
-        String        message  = "";
+        String        message  = "Test";
         ActionsPlayer instance = new ActionsPlayerImpl();
         instance.say(message);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -117,9 +106,6 @@ public class ActionsPlayerTest {
         double        angle    = 0.0;
         ActionsPlayer instance = new ActionsPlayerImpl();
         instance.turn(angle);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -131,9 +117,6 @@ public class ActionsPlayerTest {
         double        angle    = 0.0;
         ActionsPlayer instance = new ActionsPlayerImpl();
         instance.turnNeck(angle);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -145,9 +128,6 @@ public class ActionsPlayerTest {
         double        direction = 0.0;
         ActionsPlayer instance  = new ActionsPlayerImpl();
         instance.catchBall(direction);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -161,8 +141,6 @@ public class ActionsPlayerTest {
         ActionsPlayer instance = new ActionsPlayerImpl();
         instance.changeViewMode(quality, angle);
 
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -173,9 +151,6 @@ public class ActionsPlayerTest {
         System.out.println("bye");
         ActionsPlayer instance = new ActionsPlayerImpl();
         instance.bye();
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -187,9 +162,6 @@ public class ActionsPlayerTest {
         String        error    = "";
         ActionsPlayer instance = new ActionsPlayerImpl();
         instance.handleError(error);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -203,8 +175,6 @@ public class ActionsPlayerTest {
         String        result    = instance.getTeamName();
         assertEquals(expResult, result);
 
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -218,8 +188,6 @@ public class ActionsPlayerTest {
         boolean       result    = instance.isTeamEast();
         assertEquals(expResult, result);
 
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -232,8 +200,6 @@ public class ActionsPlayerTest {
         ActionsPlayer instance = new ActionsPlayerImpl();
         instance.setTeamEast(is);
 
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -246,8 +212,6 @@ public class ActionsPlayerTest {
         ActionsPlayer instance = new ActionsPlayerImpl();
         instance.setNumber(num);
 
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -261,20 +225,19 @@ public class ActionsPlayerTest {
         int           result    = instance.getNumber();
         assertEquals(expResult, result);
 
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      *
-     * @author author
+     * @author Atan
      */
-    public class ActionsPlayerImpl implements ActionsPlayer {
+    public static class ActionsPlayerImpl implements ActionsPlayer {
 
         /**
          *
          * @param power
          */
+        @Override
         public void dash(int power) {}
 
         /**
@@ -282,6 +245,7 @@ public class ActionsPlayerTest {
          * @param x
          * @param y
          */
+        @Override
         public void move(int x, int y) {}
 
         /**
@@ -289,12 +253,14 @@ public class ActionsPlayerTest {
          * @param power
          * @param direction
          */
+        @Override
         public void kick(int power, double direction) {}
 
         /**
          *
          * @param message
          */
+        @Override
         public void say(String message) {}
 
         /**
@@ -306,18 +272,21 @@ public class ActionsPlayerTest {
          *
          * @param angle
          */
+        @Override
         public void turn(double angle) {}
 
         /**
          *
          * @param angle
          */
+        @Override
         public void turnNeck(double angle) {}
 
         /**
          *
          * @param direction
          */
+        @Override
         public void catchBall(double direction) {}
 
         /**
@@ -325,23 +294,27 @@ public class ActionsPlayerTest {
          * @param quality
          * @param angle
          */
+        @Override
         public void changeViewMode(ViewQuality quality, ViewAngle angle) {}
 
         /**
          *
          */
+        @Override
         public void bye() {}
 
         /**
          *
          * @param error
          */
+        @Override
         public void handleError(String error) {}
 
         /**
          *
          * @return
          */
+        @Override
         public String getTeamName() {
             return "";
         }
@@ -350,6 +323,7 @@ public class ActionsPlayerTest {
          *
          * @return
          */
+        @Override
         public boolean isTeamEast() {
             return false;
         }
@@ -358,18 +332,21 @@ public class ActionsPlayerTest {
          *
          * @param is
          */
+        @Override
         public void setTeamEast(boolean is) {}
 
         /**
          *
          * @param num
          */
+        @Override
         public void setNumber(int num) {}
 
         /**
          *
          * @return
          */
+        @Override
         public int getNumber() {
             return 0;
         }
