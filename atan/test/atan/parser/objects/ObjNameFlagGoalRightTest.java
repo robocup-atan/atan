@@ -3,8 +3,11 @@ package atan.parser.objects;
 //~--- non-JDK imports --------------------------------------------------------
 
 import atan.model.ControllerCoach;
+import atan.model.ControllerCoachTest.ControllerCoachImpl;
 import atan.model.ControllerPlayer;
+import atan.model.ControllerPlayerTest.ControllerPlayerImpl;
 import atan.model.ControllerTrainer;
+import atan.model.ControllerTrainerTest.ControllerTrainerImpl;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -57,7 +60,7 @@ public class ObjNameFlagGoalRightTest {
     @Test
     public void testInfoSeeFromEast_7args_1() {
         System.out.println("infoSeeFromEast");
-        ControllerPlayer     c                   = null;
+        ControllerPlayer     c                   = new ControllerPlayerImpl();
         double               distance            = 0.0;
         double               direction           = 0.0;
         double               distChange          = 0.0;
@@ -78,7 +81,7 @@ public class ObjNameFlagGoalRightTest {
     @Test
     public void testInfoSeeFromWest_7args_1() {
         System.out.println("infoSeeFromWest");
-        ControllerPlayer     c                   = null;
+        ControllerPlayer     c                   = new ControllerPlayerImpl();
         double               distance            = 0.0;
         double               direction           = 0.0;
         double               distChange          = 0.0;
@@ -99,7 +102,7 @@ public class ObjNameFlagGoalRightTest {
     @Test
     public void testInfoSeeFromEast_7args_2() {
         System.out.println("infoSeeFromEast");
-        ControllerCoach      c         = null;
+        ControllerCoach      c         = new ControllerCoachImpl();
         double               x         = 0.0;
         double               y         = 0.0;
         double               deltaX    = 0.0;
@@ -119,7 +122,7 @@ public class ObjNameFlagGoalRightTest {
     @Test
     public void testInfoSeeFromWest_7args_2() {
         System.out.println("infoSeeFromWest");
-        ControllerCoach      c         = null;
+        ControllerCoach      c         = new ControllerCoachImpl();
         double               x         = 0.0;
         double               y         = 0.0;
         double               deltaX    = 0.0;
@@ -139,7 +142,7 @@ public class ObjNameFlagGoalRightTest {
     @Test
     public void testInfoSee() {
         System.out.println("infoSee");
-        ControllerTrainer    c        = null;
+        ControllerTrainer    c        = new ControllerTrainerImpl();
         ObjNameFlagGoalRight instance = null;
         instance.infoSee(c);
 

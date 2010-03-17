@@ -3,8 +3,11 @@ package atan.parser.objects;
 //~--- non-JDK imports --------------------------------------------------------
 
 import atan.model.ControllerCoach;
+import atan.model.ControllerCoachTest.ControllerCoachImpl;
 import atan.model.ControllerPlayer;
+import atan.model.ControllerPlayerTest.ControllerPlayerImpl;
 import atan.model.ControllerTrainer;
+import atan.model.ControllerTrainerTest.ControllerTrainerImpl;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -57,7 +60,7 @@ public class ObjNameTest {
     @Test
     public void testInfoSeeFromEast_7args_1() {
         System.out.println("infoSeeFromEast");
-        ControllerPlayer c                   = null;
+        ControllerPlayer c                   = new ControllerPlayerImpl();
         double           distance            = 0.0;
         double           direction           = 0.0;
         double           distChange          = 0.0;
@@ -67,9 +70,6 @@ public class ObjNameTest {
         ObjName          instance            = new ObjNameImpl();
         instance.infoSeeFromEast(c, distance, direction, distChange, dirChange, bodyFacingDirection,
                                  headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -78,7 +78,7 @@ public class ObjNameTest {
     @Test
     public void testInfoSeeFromWest_7args_1() {
         System.out.println("infoSeeFromWest");
-        ControllerPlayer c                   = null;
+        ControllerPlayer c                   = new ControllerPlayerImpl();
         double           distance            = 0.0;
         double           direction           = 0.0;
         double           distChange          = 0.0;
@@ -88,9 +88,6 @@ public class ObjNameTest {
         ObjName          instance            = new ObjNameImpl();
         instance.infoSeeFromWest(c, distance, direction, distChange, dirChange, bodyFacingDirection,
                                  headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -99,7 +96,7 @@ public class ObjNameTest {
     @Test
     public void testInfoSeeFromEast_7args_2() {
         System.out.println("infoSeeFromEast");
-        ControllerCoach c         = null;
+        ControllerCoach c         = new ControllerCoachImpl();
         double          x         = 0.0;
         double          y         = 0.0;
         double          deltaX    = 0.0;
@@ -108,9 +105,6 @@ public class ObjNameTest {
         double          neckAngle = 0.0;
         ObjName         instance  = new ObjNameImpl();
         instance.infoSeeFromEast(c, x, y, deltaX, deltaY, bodyAngle, neckAngle);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -119,7 +113,7 @@ public class ObjNameTest {
     @Test
     public void testInfoSeeFromWest_7args_2() {
         System.out.println("infoSeeFromWest");
-        ControllerCoach c         = null;
+        ControllerCoach c         = new ControllerCoachImpl();
         double          x         = 0.0;
         double          y         = 0.0;
         double          deltaX    = 0.0;
@@ -128,9 +122,6 @@ public class ObjNameTest {
         double          neckAngle = 0.0;
         ObjName         instance  = new ObjNameImpl();
         instance.infoSeeFromWest(c, x, y, deltaX, deltaY, bodyAngle, neckAngle);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -139,12 +130,9 @@ public class ObjNameTest {
     @Test
     public void testInfoSee() {
         System.out.println("infoSee");
-        ControllerTrainer c        = null;
+        ControllerTrainer c        = new ControllerTrainerImpl();
         ObjName           instance = new ObjNameImpl();
         instance.infoSee(c);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
