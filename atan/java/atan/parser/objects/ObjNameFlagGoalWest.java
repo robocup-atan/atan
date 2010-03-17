@@ -72,7 +72,9 @@ public class ObjNameFlagGoalWest implements ObjName {
      */
     @Override
     public void infoSeeFromEast(ControllerCoach c, double x, double y, double deltaX, double deltaY, double bodyAngle,
-                                double neckAngle) {}
+                                double neckAngle) {
+        throw new UnsupportedOperationException();
+    }
 
     /**
      * @inheritDoc
@@ -80,12 +82,16 @@ public class ObjNameFlagGoalWest implements ObjName {
      */
     @Override
     public void infoSeeFromWest(ControllerCoach c, double x, double y, double deltaX, double deltaY, double bodyAngle,
-                                double neckAngle) {}
+                                double neckAngle) {
+        throw new UnsupportedOperationException();
+    }
 
     /**
      * @inheritDoc
      * @deprecated Not needed by the trainer.
      */
     @Override
-    public void infoSee(ControllerTrainer c) {}
+    public void infoSee(ControllerTrainer c) {
+        throw new UnsupportedOperationException();
+    }
 }

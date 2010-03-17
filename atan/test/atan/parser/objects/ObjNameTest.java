@@ -137,9 +137,9 @@ public class ObjNameTest {
 
     /**
      *
-     * @author author
+     * @author Atan
      */
-    public class ObjNameImpl implements ObjName {
+    public static class ObjNameImpl implements ObjName {
 
         /**
          *

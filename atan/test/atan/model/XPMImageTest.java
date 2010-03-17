@@ -72,7 +72,7 @@ public class XPMImageTest {
         System.out.println("updateTile");
         int        x        = 0;
         int        y        = 0;
-        String[][] tile     = null;
+        String[][] tile     = {};
         XPMImage   instance = new XPMImage();
         instance.updateTile(x, y, tile);
 

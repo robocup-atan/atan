@@ -15,8 +15,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  *
  * @author Atan
@@ -67,12 +65,9 @@ public class ObjNamePlayerEastTest {
         double            dirChange           = 0.0;
         double            bodyFacingDirection = 0.0;
         double            headFacingDirection = 0.0;
-        ObjNamePlayerEast instance            = null;
+        ObjNamePlayerEast instance            = new ObjNamePlayerEast(1, true);
         instance.infoSeeFromEast(c, distance, direction, distChange, dirChange, bodyFacingDirection,
                                  headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -88,12 +83,9 @@ public class ObjNamePlayerEastTest {
         double            dirChange           = 0.0;
         double            bodyFacingDirection = 0.0;
         double            headFacingDirection = 0.0;
-        ObjNamePlayerEast instance            = null;
+        ObjNamePlayerEast instance            = new ObjNamePlayerEast(1, true);
         instance.infoSeeFromWest(c, distance, direction, distChange, dirChange, bodyFacingDirection,
                                  headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -109,11 +101,8 @@ public class ObjNamePlayerEastTest {
         double            deltaY    = 0.0;
         double            bodyAngle = 0.0;
         double            neckAngle = 0.0;
-        ObjNamePlayerEast instance  = null;
+        ObjNamePlayerEast instance  = new ObjNamePlayerEast(1, true);
         instance.infoSeeFromEast(c, x, y, deltaX, deltaY, bodyAngle, neckAngle);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -129,11 +118,8 @@ public class ObjNamePlayerEastTest {
         double            deltaY    = 0.0;
         double            bodyAngle = 0.0;
         double            neckAngle = 0.0;
-        ObjNamePlayerEast instance  = null;
+        ObjNamePlayerEast instance  = new ObjNamePlayerEast(1, true);
         instance.infoSeeFromWest(c, x, y, deltaX, deltaY, bodyAngle, neckAngle);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -143,10 +129,7 @@ public class ObjNamePlayerEastTest {
     public void testInfoSee() {
         System.out.println("infoSee");
         ControllerTrainer c        = new ControllerTrainerImpl();
-        ObjNamePlayerEast instance = null;
+        ObjNamePlayerEast instance = new ObjNamePlayerEast(1, true);
         instance.infoSee(c);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }

@@ -15,8 +15,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  *
  * @author Atan
@@ -67,12 +65,9 @@ public class ObjNameFlagGoalLeftTest {
         double              dirChange           = 0.0;
         double              bodyFacingDirection = 0.0;
         double              headFacingDirection = 0.0;
-        ObjNameFlagGoalLeft instance            = null;
+        ObjNameFlagGoalLeft instance            = new ObjNameFlagGoalLeft('t');
         instance.infoSeeFromEast(c, distance, direction, distChange, dirChange, bodyFacingDirection,
                                  headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -88,12 +83,9 @@ public class ObjNameFlagGoalLeftTest {
         double              dirChange           = 0.0;
         double              bodyFacingDirection = 0.0;
         double              headFacingDirection = 0.0;
-        ObjNameFlagGoalLeft instance            = null;
+        ObjNameFlagGoalLeft instance            = new ObjNameFlagGoalLeft('t');
         instance.infoSeeFromWest(c, distance, direction, distChange, dirChange, bodyFacingDirection,
                                  headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -109,11 +101,8 @@ public class ObjNameFlagGoalLeftTest {
         double              deltaY    = 0.0;
         double              bodyAngle = 0.0;
         double              neckAngle = 0.0;
-        ObjNameFlagGoalLeft instance  = null;
+        ObjNameFlagGoalLeft instance  = new ObjNameFlagGoalLeft('t');
         instance.infoSeeFromEast(c, x, y, deltaX, deltaY, bodyAngle, neckAngle);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -129,11 +118,8 @@ public class ObjNameFlagGoalLeftTest {
         double              deltaY    = 0.0;
         double              bodyAngle = 0.0;
         double              neckAngle = 0.0;
-        ObjNameFlagGoalLeft instance  = null;
+        ObjNameFlagGoalLeft instance  = new ObjNameFlagGoalLeft('t');
         instance.infoSeeFromWest(c, x, y, deltaX, deltaY, bodyAngle, neckAngle);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -143,10 +129,7 @@ public class ObjNameFlagGoalLeftTest {
     public void testInfoSee() {
         System.out.println("infoSee");
         ControllerTrainer   c        = new ControllerTrainerImpl();
-        ObjNameFlagGoalLeft instance = null;
+        ObjNameFlagGoalLeft instance = new ObjNameFlagGoalLeft('t');
         instance.infoSee(c);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }

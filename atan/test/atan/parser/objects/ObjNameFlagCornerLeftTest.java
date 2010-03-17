@@ -15,8 +15,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  *
  * @author Atan
@@ -67,12 +65,9 @@ public class ObjNameFlagCornerLeftTest {
         double                dirChange           = 0.0;
         double                bodyFacingDirection = 0.0;
         double                headFacingDirection = 0.0;
-        ObjNameFlagCornerLeft instance            = null;
+        ObjNameFlagCornerLeft instance            = new ObjNameFlagCornerLeft('t');
         instance.infoSeeFromEast(c, distance, direction, distChange, dirChange, bodyFacingDirection,
                                  headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -88,18 +83,15 @@ public class ObjNameFlagCornerLeftTest {
         double                dirChange           = 0.0;
         double                bodyFacingDirection = 0.0;
         double                headFacingDirection = 0.0;
-        ObjNameFlagCornerLeft instance            = null;
+        ObjNameFlagCornerLeft instance            = new ObjNameFlagCornerLeft('t');
         instance.infoSeeFromWest(c, distance, direction, distChange, dirChange, bodyFacingDirection,
                                  headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      * Test of infoSeeFromEast method, of class ObjNameFlagCornerLeft.
      */
-    @Test
+    @Test(expected = UnsupportedOperationException.class)
     public void testInfoSeeFromEast_7args_2() {
         System.out.println("infoSeeFromEast");
         ControllerCoach       c         = new ControllerCoachImpl();
@@ -109,17 +101,14 @@ public class ObjNameFlagCornerLeftTest {
         double                deltaY    = 0.0;
         double                bodyAngle = 0.0;
         double                neckAngle = 0.0;
-        ObjNameFlagCornerLeft instance  = null;
+        ObjNameFlagCornerLeft instance  = new ObjNameFlagCornerLeft('t');
         instance.infoSeeFromEast(c, x, y, deltaX, deltaY, bodyAngle, neckAngle);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      * Test of infoSeeFromWest method, of class ObjNameFlagCornerLeft.
      */
-    @Test
+    @Test(expected = UnsupportedOperationException.class)
     public void testInfoSeeFromWest_7args_2() {
         System.out.println("infoSeeFromWest");
         ControllerCoach       c         = new ControllerCoachImpl();
@@ -129,24 +118,18 @@ public class ObjNameFlagCornerLeftTest {
         double                deltaY    = 0.0;
         double                bodyAngle = 0.0;
         double                neckAngle = 0.0;
-        ObjNameFlagCornerLeft instance  = null;
+        ObjNameFlagCornerLeft instance  = new ObjNameFlagCornerLeft('t');
         instance.infoSeeFromWest(c, x, y, deltaX, deltaY, bodyAngle, neckAngle);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      * Test of infoSee method, of class ObjNameFlagCornerLeft.
      */
-    @Test
+    @Test(expected = UnsupportedOperationException.class)
     public void testInfoSee() {
         System.out.println("infoSee");
         ControllerTrainer     c        = new ControllerTrainerImpl();
-        ObjNameFlagCornerLeft instance = null;
+        ObjNameFlagCornerLeft instance = new ObjNameFlagCornerLeft('t');
         instance.infoSee(c);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }

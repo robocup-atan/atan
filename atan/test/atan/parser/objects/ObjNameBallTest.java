@@ -15,8 +15,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  *
  * @author Atan
@@ -70,9 +68,6 @@ public class ObjNameBallTest {
         ObjNameBall      instance            = new ObjNameBall();
         instance.infoSeeFromEast(c, distance, direction, distChange, dirChange, bodyFacingDirection,
                                  headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -91,9 +86,6 @@ public class ObjNameBallTest {
         ObjNameBall      instance            = new ObjNameBall();
         instance.infoSeeFromWest(c, distance, direction, distChange, dirChange, bodyFacingDirection,
                                  headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -111,9 +103,6 @@ public class ObjNameBallTest {
         double          neckAngle = 0.0;
         ObjNameBall     instance  = new ObjNameBall();
         instance.infoSeeFromEast(c, x, y, deltaX, deltaY, bodyAngle, neckAngle);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -131,9 +120,6 @@ public class ObjNameBallTest {
         double          neckAngle = 0.0;
         ObjNameBall     instance  = new ObjNameBall();
         instance.infoSeeFromWest(c, x, y, deltaX, deltaY, bodyAngle, neckAngle);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -145,8 +131,5 @@ public class ObjNameBallTest {
         ControllerTrainer c        = new ControllerTrainerImpl();
         ObjNameBall       instance = new ObjNameBall();
         instance.infoSee(c);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }

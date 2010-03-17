@@ -16,7 +16,7 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses( {
     atan.model.ControllerTrainerTest.class, atan.model.AbstractTeamTest.class, atan.model.ControllerCoachTest.class,
-    atan.model.enums.EnumsSuite.class, atan.model.ByteBufferTest.class,    // TODO atan.model.AbstractUDPClientTest.class,
+    atan.model.enums.EnumsSuite.class, atan.model.ByteBufferTest.class, atan.model.AbstractUDPClientTest.class,
     atan.model.XPMImageTest.class, atan.model.ActionsCoachTest.class, atan.model.ActionsPlayerTest.class,
     atan.model.ControllerPlayerTest.class, atan.model.SServerPlayerTest.class, atan.model.SServerCoachTest.class,
     atan.model.CommandFactoryTest.class, atan.model.ActionsTrainerTest.class, atan.model.SServerTrainerTest.class
