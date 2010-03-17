@@ -3,6 +3,7 @@ package sample;
 //~--- non-JDK imports --------------------------------------------------------
 
 import atan.model.ActionsPlayer;
+import atan.model.ActionsPlayerTest.ActionsPlayerImpl;
 import atan.model.enums.Errors;
 import atan.model.enums.Flag;
 import atan.model.enums.Line;
@@ -80,6 +81,7 @@ public class SillyTest {
     public void testPostInfo() {
         System.out.println("postInfo");
         Silly instance = new Silly();
+        instance.setPlayer(new ActionsPlayerImpl());
         instance.postInfo();
     }
 

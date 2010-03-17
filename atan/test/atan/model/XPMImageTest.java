@@ -58,7 +58,7 @@ public class XPMImageTest {
         XPMImage   instance  = new XPMImage();
         String[][] expResult = null;
         String[][] result    = instance.getTile(x, y);
-        assertEquals(expResult, result);
+        assertArrayEquals(expResult, result);
 
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -87,12 +87,9 @@ public class XPMImageTest {
     public void testGetXPMHeight() {
         System.out.println("getXPMHeight");
         XPMImage instance  = new XPMImage();
-        int      expResult = 0;
+        int      expResult = 64;
         int      result    = instance.getXPMHeight();
         assertEquals(expResult, result);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -102,12 +99,9 @@ public class XPMImageTest {
     public void testGetXPMWidth() {
         System.out.println("getXPMWidth");
         XPMImage instance  = new XPMImage();
-        int      expResult = 0;
+        int      expResult = 256;
         int      result    = instance.getXPMWidth();
         assertEquals(expResult, result);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -117,11 +111,8 @@ public class XPMImageTest {
     public void testGetTileWidth() {
         System.out.println("getTileWidth");
         XPMImage instance  = new XPMImage();
-        int      expResult = 0;
+        int      expResult = 8;
         int      result    = instance.getTileWidth();
         assertEquals(expResult, result);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }

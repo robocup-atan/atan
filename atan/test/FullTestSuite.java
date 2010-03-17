@@ -16,7 +16,7 @@ import org.junit.runners.Suite;
     atan.model.ModelSuite.class, atan.model.enums.EnumsSuite.class, atan.parser.ParserSuite.class,
     atan.parser.objects.ObjectsSuite.class, sample.SampleSuite.class
 })
-public class AllTests {
+public class FullTestSuite {
 
     /**
      *

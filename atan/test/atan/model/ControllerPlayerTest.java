@@ -2,6 +2,7 @@ package atan.model;
 
 //~--- non-JDK imports --------------------------------------------------------
 
+import atan.model.ActionsPlayerTest.ActionsPlayerImpl;
 import atan.model.enums.Errors;
 import atan.model.enums.Flag;
 import atan.model.enums.Line;
@@ -590,131 +591,6 @@ public class ControllerPlayerTest {
         HashMap<ServerParams, Object> info     = new HashMap<ServerParams, Object>();
         ControllerPlayer              instance = conPlayer;
         instance.infoServerParam(info);
-    }
-
-    /**
-     *
-     * @author Atan
-     */
-    public static class ActionsPlayerImpl implements ActionsPlayer {
-
-        /**
-         *
-         * @param power
-         */
-        @Override
-        public void dash(int power) {}
-
-        /**
-         *
-         * @param x
-         * @param y
-         */
-        @Override
-        public void move(int x, int y) {}
-
-        /**
-         *
-         * @param power
-         * @param direction
-         */
-        @Override
-        public void kick(int power, double direction) {}
-
-        /**
-         *
-         * @param message
-         */
-        @Override
-        public void say(String message) {}
-
-        /**
-         *
-         */
-        public void senseBody() {}
-
-        /**
-         *
-         * @param angle
-         */
-        @Override
-        public void turn(double angle) {}
-
-        /**
-         *
-         * @param angle
-         */
-        @Override
-        public void turnNeck(double angle) {}
-
-        /**
-         *
-         * @param direction
-         */
-        @Override
-        public void catchBall(double direction) {}
-
-        /**
-         *
-         * @param quality
-         * @param angle
-         */
-        @Override
-        public void changeViewMode(ViewQuality quality, ViewAngle angle) {}
-
-        /**
-         *
-         */
-        @Override
-        public void bye() {}
-
-        /**
-         *
-         * @param error
-         */
-        @Override
-        public void handleError(String error) {}
-
-        /**
-         *
-         * @return
-         */
-        @Override
-        public String getTeamName() {
-            return "";
-        }
-
-        /**
-         *
-         * @return
-         */
-        @Override
-        public boolean isTeamEast() {
-            return false;
-        }
-
-        /**
-         *
-         * @param is
-         */
-        @Override
-        public void setTeamEast(boolean is) {}
-
-        /**
-         *
-         * @param num
-         */
-        @Override
-        public void setNumber(int num) {}
-
-        /**
-         *
-         * @return
-         */
-        @Override
-        public int getNumber() {
-            return 0;
-        }
     }
 
     /**
