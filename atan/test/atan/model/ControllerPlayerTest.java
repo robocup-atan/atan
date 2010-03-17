@@ -1,5 +1,3 @@
-//~RoboCup Project - Nick James (nsj3), Daniel Wood (dw224), Stuart Wood (sw262)
-
 package atan.model;
 
 //~--- non-JDK imports --------------------------------------------------------
@@ -32,8 +30,8 @@ import java.util.HashMap;
  * @author Atan
  */
 public class ControllerPlayerTest {
+    private ControllerPlayer  conPlayer;
     private ActionsPlayerImpl testPlayer;
-    private ControllerPlayer conPlayer;
 
     /**
      *
@@ -60,7 +58,7 @@ public class ControllerPlayerTest {
     @Before
     public void setUp() {
         testPlayer = new ActionsPlayerImpl();
-        conPlayer = new ControllerPlayerImpl();
+        conPlayer  = new ControllerPlayerImpl();
     }
 
     /**

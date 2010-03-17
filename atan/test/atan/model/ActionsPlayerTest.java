@@ -83,7 +83,6 @@ public class ActionsPlayerTest {
         double        direction = 0.0;
         ActionsPlayer instance  = new ActionsPlayerImpl();
         instance.kick(power, direction);
-
     }
 
     /**
@@ -140,7 +139,6 @@ public class ActionsPlayerTest {
         ViewAngle     angle    = null;
         ActionsPlayer instance = new ActionsPlayerImpl();
         instance.changeViewMode(quality, angle);
-
     }
 
     /**
@@ -174,7 +172,6 @@ public class ActionsPlayerTest {
         String        expResult = "";
         String        result    = instance.getTeamName();
         assertEquals(expResult, result);
-
     }
 
     /**
@@ -187,7 +184,6 @@ public class ActionsPlayerTest {
         boolean       expResult = false;
         boolean       result    = instance.isTeamEast();
         assertEquals(expResult, result);
-
     }
 
     /**
@@ -199,7 +195,6 @@ public class ActionsPlayerTest {
         boolean       is       = false;
         ActionsPlayer instance = new ActionsPlayerImpl();
         instance.setTeamEast(is);
-
     }
 
     /**
@@ -211,7 +206,6 @@ public class ActionsPlayerTest {
         int           num      = 0;
         ActionsPlayer instance = new ActionsPlayerImpl();
         instance.setNumber(num);
-
     }
 
     /**
@@ -224,7 +218,6 @@ public class ActionsPlayerTest {
         int           expResult = 0;
         int           result    = instance.getNumber();
         assertEquals(expResult, result);
-
     }
 
     /**

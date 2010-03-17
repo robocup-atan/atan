@@ -18,6 +18,7 @@ import static org.junit.Assert.*;
  * @author Atan
  */
 public class SimplySillyTeamTest {
+    private SimplySillyTeam sst;
 
     /**
      *
@@ -42,7 +43,9 @@ public class SimplySillyTeamTest {
      *
      */
     @Before
-    public void setUp() {}
+    public void setUp() {
+        sst = new SimplySillyTeam("test", 6000, "localhost", true);
+    }
 
     /**
      *
@@ -56,14 +59,13 @@ public class SimplySillyTeamTest {
     @Test
     public void testGetNewControllerPlayer() {
         System.out.println("getNewControllerPlayer");
-        int              number    = 0;
-        SimplySillyTeam  instance  = null;
-        ControllerPlayer expResult = null;
-        ControllerPlayer result    = instance.getNewControllerPlayer(number);
-        assertEquals(expResult, result);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int              number = 0;
+        ControllerPlayer result = sst.getNewControllerPlayer(number);
+        assertTrue(Silly.class.isInstance(result));
+        for (number = 1; number == 11; number++) {
+            result = sst.getNewControllerPlayer(number);
+            assertTrue(Simple.class.isInstance(result));
+        }
     }
 
     /**
@@ -72,12 +74,7 @@ public class SimplySillyTeamTest {
     @Test
     public void testGetNewControllerCoach() {
         System.out.println("getNewControllerCoach");
-        SimplySillyTeam instance  = null;
-        ControllerCoach expResult = null;
-        ControllerCoach result    = instance.getNewControllerCoach();
-        assertEquals(expResult, result);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ControllerCoach result = sst.getNewControllerCoach();
+        assertTrue(Coach.class.isInstance(result));
     }
 }

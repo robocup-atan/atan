@@ -93,7 +93,6 @@ public class ActionsTrainerTest {
         System.out.println("checkBall");
         ActionsTrainer instance = new ActionsTrainerImpl();
         instance.checkBall();
-
     }
 
     /**
@@ -104,7 +103,6 @@ public class ActionsTrainerTest {
         System.out.println("startGame");
         ActionsTrainer instance = new ActionsTrainerImpl();
         instance.startGame();
-
     }
 
     /**
@@ -115,7 +113,6 @@ public class ActionsTrainerTest {
         System.out.println("recover");
         ActionsTrainer instance = new ActionsTrainerImpl();
         instance.recover();
-
     }
 
     /**
@@ -127,7 +124,6 @@ public class ActionsTrainerTest {
         boolean        eyeOn    = false;
         ActionsTrainer instance = new ActionsTrainerImpl();
         instance.eye(eyeOn);
-
     }
 
     /**
@@ -139,7 +135,6 @@ public class ActionsTrainerTest {
         boolean        earOn    = false;
         ActionsTrainer instance = new ActionsTrainerImpl();
         instance.ear(earOn);
-
     }
 
     /**
@@ -151,7 +146,6 @@ public class ActionsTrainerTest {
         String         message  = "";
         ActionsTrainer instance = new ActionsTrainerImpl();
         instance.say(message);
-
     }
 
     /**
@@ -165,7 +159,6 @@ public class ActionsTrainerTest {
         int            playerType = 0;
         ActionsTrainer instance   = new ActionsTrainerImpl();
         instance.changePlayerType(teamName, unum, playerType);
-
     }
 
     /**
@@ -176,7 +169,6 @@ public class ActionsTrainerTest {
         System.out.println("look");
         ActionsTrainer instance = new ActionsTrainerImpl();
         instance.look();
-
     }
 
     /**
@@ -187,7 +179,6 @@ public class ActionsTrainerTest {
         System.out.println("teamNames");
         ActionsTrainer instance = new ActionsTrainerImpl();
         instance.teamNames();
-
     }
 
     /**
@@ -198,7 +189,6 @@ public class ActionsTrainerTest {
         System.out.println("bye");
         ActionsTrainer instance = new ActionsTrainerImpl();
         instance.bye();
-
     }
 
     /**
@@ -210,7 +200,6 @@ public class ActionsTrainerTest {
         String         error    = "";
         ActionsTrainer instance = new ActionsTrainerImpl();
         instance.handleError(error);
-
     }
 
     /**

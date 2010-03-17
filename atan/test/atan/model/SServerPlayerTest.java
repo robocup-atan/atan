@@ -1,5 +1,3 @@
-//~RoboCup Project - Nick James (nsj3), Daniel Wood (dw224), Stuart Wood (sw262)
-
 package atan.model;
 
 //~--- non-JDK imports --------------------------------------------------------
@@ -291,9 +289,8 @@ public class SServerPlayerTest {
     public void testToStateString() {
         System.out.println("toStateString");
         SServerPlayer instance  = sserverPlayerTest;
-        String        expResult =
-            "Host: localhost:6000\nTeam Name: TestTeam\nNumber: -1\nRunning: false" +
-            "\nControllerPlayer Class: atan.model.SServerPlayerTest$ControllerPlayerImpl\n";
+        String        expResult = "Host: localhost:6000\nTeam Name: TestTeam\nNumber: -1\nRunning: false"
+                                  + "\nControllerPlayer Class: atan.model.SServerPlayerTest$ControllerPlayerImpl\n";
         String result = instance.toStateString();
         assertEquals(expResult, result);
     }

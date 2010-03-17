@@ -71,9 +71,6 @@ public class SillyTest {
         System.out.println("preInfo");
         Silly instance = new Silly();
         instance.preInfo();
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -84,9 +81,6 @@ public class SillyTest {
         System.out.println("postInfo");
         Silly instance = new Silly();
         instance.postInfo();
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -99,9 +93,6 @@ public class SillyTest {
         ActionsPlayer expResult = null;
         ActionsPlayer result    = instance.getPlayer();
         assertEquals(expResult, result);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -113,9 +104,6 @@ public class SillyTest {
         ActionsPlayer p        = null;
         Silly         instance = new Silly();
         instance.setPlayer(p);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -134,9 +122,6 @@ public class SillyTest {
         Silly  instance            = new Silly();
         instance.infoSeeLine(line, distance, direction, distChange, dirChange, bodyFacingDirection,
                              headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -153,9 +138,6 @@ public class SillyTest {
         double headFacingDirection = 0.0;
         Silly  instance            = new Silly();
         instance.infoSeeBall(distance, direction, distChange, dirChange, bodyFacingDirection, headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -167,9 +149,6 @@ public class SillyTest {
         RefereeMessage refereeMessage = null;
         Silly          instance       = new Silly();
         instance.infoHearReferee(refereeMessage);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -181,9 +160,6 @@ public class SillyTest {
         PlayMode playMode = null;
         Silly    instance = new Silly();
         instance.infoHearPlayMode(playMode);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -196,9 +172,6 @@ public class SillyTest {
         String string    = "";
         Silly  instance  = new Silly();
         instance.infoHearPlayer(direction, string);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -227,9 +200,6 @@ public class SillyTest {
         instance.infoSenseBody(viewQuality, viewAngle, stamina, unknown, effort, speedAmount, speedDirection,
                                headAngle, kickCount, dashCount, turnCount, sayCount, turnNeckCount, catchCount,
                                moveCount, changeViewCount);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -239,12 +209,9 @@ public class SillyTest {
     public void testGetType() {
         System.out.println("getType");
         Silly  instance  = new Silly();
-        String expResult = "";
+        String expResult = "Silly";
         String result    = instance.getType();
         assertEquals(expResult, result);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -256,9 +223,6 @@ public class SillyTest {
         String newType  = "";
         Silly  instance = new Silly();
         instance.setType(newType);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -270,9 +234,6 @@ public class SillyTest {
         Errors error    = null;
         Silly  instance = new Silly();
         instance.infoHearError(error);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -284,9 +245,6 @@ public class SillyTest {
         Ok    ok       = null;
         Silly instance = new Silly();
         instance.infoHearOk(ok);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -298,9 +256,6 @@ public class SillyTest {
         Warning warning  = null;
         Silly   instance = new Silly();
         instance.infoHearWarning(warning);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -319,9 +274,6 @@ public class SillyTest {
         Silly  instance            = new Silly();
         instance.infoSeeFlagRight(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                   headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -340,9 +292,6 @@ public class SillyTest {
         Silly  instance            = new Silly();
         instance.infoSeeFlagLeft(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                  headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -361,9 +310,6 @@ public class SillyTest {
         Silly  instance            = new Silly();
         instance.infoSeeFlagOwn(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                 headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -382,9 +328,6 @@ public class SillyTest {
         Silly  instance            = new Silly();
         instance.infoSeeFlagOther(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                   headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -403,9 +346,6 @@ public class SillyTest {
         Silly  instance            = new Silly();
         instance.infoSeeFlagCenter(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                    headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -424,9 +364,6 @@ public class SillyTest {
         Silly  instance            = new Silly();
         instance.infoSeeFlagCornerOwn(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                       headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -445,9 +382,6 @@ public class SillyTest {
         Silly  instance            = new Silly();
         instance.infoSeeFlagCornerOther(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                         headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -466,9 +400,6 @@ public class SillyTest {
         Silly  instance            = new Silly();
         instance.infoSeeFlagPenaltyOwn(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                        headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -487,9 +418,6 @@ public class SillyTest {
         Silly  instance            = new Silly();
         instance.infoSeeFlagPenaltyOther(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                          headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -508,9 +436,6 @@ public class SillyTest {
         Silly  instance            = new Silly();
         instance.infoSeeFlagGoalOwn(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                     headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -529,9 +454,6 @@ public class SillyTest {
         Silly  instance            = new Silly();
         instance.infoSeeFlagGoalOther(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                       headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -551,9 +473,6 @@ public class SillyTest {
         Silly   instance            = new Silly();
         instance.infoSeePlayerOther(number, goalie, distance, direction, distChange, dirChange, bodyFacingDirection,
                                     headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -573,9 +492,6 @@ public class SillyTest {
         Silly   instance            = new Silly();
         instance.infoSeePlayerOwn(number, goalie, distance, direction, distChange, dirChange, bodyFacingDirection,
                                   headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -613,9 +529,6 @@ public class SillyTest {
                                  newDashPowerRateDeltaMin, newStaminaIncMaxDeltaFactor, playerDecayDeltaMax,
                                  playerDecayDeltaMin, playerTypes, ptMax, randomSeed, staminaIncMaxDeltaFactor,
                                  subsMax);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -639,9 +552,6 @@ public class SillyTest {
         Silly  instance       = new Silly();
         instance.infoPlayerType(id, playerSpeedMax, staminaIncMax, playerDecay, inertiaMoment, dashPowerRate,
                                 playerSize, kickableMargin, kickRand, extraStamina, effortMax, effortMin);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -653,9 +563,6 @@ public class SillyTest {
         int   unum     = 0;
         Silly instance = new Silly();
         instance.infoCPTOther(unum);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -668,9 +575,6 @@ public class SillyTest {
         int   type     = 0;
         Silly instance = new Silly();
         instance.infoCPTOwn(unum, type);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -682,8 +586,5 @@ public class SillyTest {
         HashMap<ServerParams, Object> info     = null;
         Silly                         instance = new Silly();
         instance.infoServerParam(info);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }

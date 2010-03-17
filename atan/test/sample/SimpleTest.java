@@ -73,9 +73,6 @@ public class SimpleTest {
         ActionsPlayer expResult = null;
         ActionsPlayer result    = instance.getPlayer();
         assertEquals(expResult, result);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -87,9 +84,6 @@ public class SimpleTest {
         ActionsPlayer p        = null;
         Simple        instance = new Simple();
         instance.setPlayer(p);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -100,9 +94,6 @@ public class SimpleTest {
         System.out.println("preInfo");
         Simple instance = new Simple();
         instance.preInfo();
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -113,9 +104,6 @@ public class SimpleTest {
         System.out.println("postInfo");
         Simple instance = new Simple();
         instance.postInfo();
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -134,9 +122,6 @@ public class SimpleTest {
         Simple instance            = new Simple();
         instance.infoSeeFlagRight(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                   headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -155,9 +140,6 @@ public class SimpleTest {
         Simple instance            = new Simple();
         instance.infoSeeFlagLeft(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                  headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -176,9 +158,6 @@ public class SimpleTest {
         Simple instance            = new Simple();
         instance.infoSeeFlagOwn(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                 headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -197,9 +176,6 @@ public class SimpleTest {
         Simple instance            = new Simple();
         instance.infoSeeFlagOther(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                   headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -218,9 +194,6 @@ public class SimpleTest {
         Simple instance            = new Simple();
         instance.infoSeeFlagCenter(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                    headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -239,9 +212,6 @@ public class SimpleTest {
         Simple instance            = new Simple();
         instance.infoSeeFlagCornerOwn(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                       headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -260,9 +230,6 @@ public class SimpleTest {
         Simple instance            = new Simple();
         instance.infoSeeFlagCornerOther(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                         headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -281,9 +248,6 @@ public class SimpleTest {
         Simple instance            = new Simple();
         instance.infoSeeFlagPenaltyOwn(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                        headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -302,9 +266,6 @@ public class SimpleTest {
         Simple instance            = new Simple();
         instance.infoSeeFlagPenaltyOther(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                          headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -323,9 +284,6 @@ public class SimpleTest {
         Simple instance            = new Simple();
         instance.infoSeeFlagGoalOwn(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                     headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -344,9 +302,6 @@ public class SimpleTest {
         Simple instance            = new Simple();
         instance.infoSeeFlagGoalOther(flag, distance, direction, distChange, dirChange, bodyFacingDirection,
                                       headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -365,9 +320,6 @@ public class SimpleTest {
         Simple instance            = new Simple();
         instance.infoSeeLine(line, distance, direction, distChange, dirChange, bodyFacingDirection,
                              headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -387,9 +339,6 @@ public class SimpleTest {
         Simple  instance            = new Simple();
         instance.infoSeePlayerOther(number, goalie, distance, direction, distChange, dirChange, bodyFacingDirection,
                                     headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -409,9 +358,6 @@ public class SimpleTest {
         Simple  instance            = new Simple();
         instance.infoSeePlayerOwn(number, goalie, distance, direction, distChange, dirChange, bodyFacingDirection,
                                   headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -428,9 +374,6 @@ public class SimpleTest {
         double headFacingDirection = 0.0;
         Simple instance            = new Simple();
         instance.infoSeeBall(distance, direction, distChange, dirChange, bodyFacingDirection, headFacingDirection);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -442,9 +385,6 @@ public class SimpleTest {
         RefereeMessage refereeMessage = null;
         Simple         instance       = new Simple();
         instance.infoHearReferee(refereeMessage);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -456,9 +396,6 @@ public class SimpleTest {
         PlayMode playMode = null;
         Simple   instance = new Simple();
         instance.infoHearPlayMode(playMode);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -471,9 +408,6 @@ public class SimpleTest {
         String message   = "";
         Simple instance  = new Simple();
         instance.infoHearPlayer(direction, message);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -502,9 +436,6 @@ public class SimpleTest {
         instance.infoSenseBody(viewQuality, viewAngle, stamina, unknown, effort, speedAmount, speedDirection,
                                headAngle, kickCount, dashCount, turnCount, sayCount, turnNeckCount, catchCount,
                                moveCount, changeViewCount);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -514,12 +445,9 @@ public class SimpleTest {
     public void testGetType() {
         System.out.println("getType");
         Simple instance  = new Simple();
-        String expResult = "";
+        String expResult = "Simple";
         String result    = instance.getType();
         assertEquals(expResult, result);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -531,9 +459,6 @@ public class SimpleTest {
         String newType  = "";
         Simple instance = new Simple();
         instance.setType(newType);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -545,9 +470,6 @@ public class SimpleTest {
         Errors error    = null;
         Simple instance = new Simple();
         instance.infoHearError(error);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -559,9 +481,6 @@ public class SimpleTest {
         Ok     ok       = null;
         Simple instance = new Simple();
         instance.infoHearOk(ok);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -573,9 +492,6 @@ public class SimpleTest {
         Warning warning  = null;
         Simple  instance = new Simple();
         instance.infoHearWarning(warning);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -613,9 +529,6 @@ public class SimpleTest {
                                  newDashPowerRateDeltaMin, newStaminaIncMaxDeltaFactor, playerDecayDeltaMax,
                                  playerDecayDeltaMin, playerTypes, ptMax, randomSeed, staminaIncMaxDeltaFactor,
                                  subsMax);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -639,9 +552,6 @@ public class SimpleTest {
         Simple instance       = new Simple();
         instance.infoPlayerType(id, playerSpeedMax, staminaIncMax, playerDecay, inertiaMoment, dashPowerRate,
                                 playerSize, kickableMargin, kickRand, extraStamina, effortMax, effortMin);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -653,9 +563,6 @@ public class SimpleTest {
         int    unum     = 0;
         Simple instance = new Simple();
         instance.infoCPTOther(unum);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -668,9 +575,6 @@ public class SimpleTest {
         int    type     = 0;
         Simple instance = new Simple();
         instance.infoCPTOwn(unum, type);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -682,8 +586,5 @@ public class SimpleTest {
         HashMap<ServerParams, Object> info     = null;
         Simple                        instance = new Simple();
         instance.infoServerParam(info);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }

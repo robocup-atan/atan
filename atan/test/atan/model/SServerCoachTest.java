@@ -1,5 +1,3 @@
-//~RoboCup Project - Nick James (nsj3), Daniel Wood (dw224), Stuart Wood (sw262)
-
 package atan.model;
 
 //~--- non-JDK imports --------------------------------------------------------

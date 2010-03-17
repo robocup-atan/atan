@@ -68,9 +68,6 @@ public class CoachTest {
         Errors error    = null;
         Coach  instance = new Coach();
         instance.infoHearError(error);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -82,9 +79,6 @@ public class CoachTest {
         Ok    ok       = null;
         Coach instance = new Coach();
         instance.infoHearOk(ok);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -96,9 +90,6 @@ public class CoachTest {
         PlayMode playMode = null;
         Coach    instance = new Coach();
         instance.infoHearPlayMode(playMode);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -111,9 +102,6 @@ public class CoachTest {
         String message   = "";
         Coach  instance  = new Coach();
         instance.infoHearPlayer(direction, message);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -125,9 +113,6 @@ public class CoachTest {
         RefereeMessage refereeMessage = null;
         Coach          instance       = new Coach();
         instance.infoHearReferee(refereeMessage);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -139,9 +124,6 @@ public class CoachTest {
         Warning warning  = null;
         Coach   instance = new Coach();
         instance.infoHearWarning(warning);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -165,9 +147,6 @@ public class CoachTest {
         Coach  instance       = new Coach();
         instance.infoPlayerType(id, playerSpeedMax, staminaIncMax, playerDecay, inertiaMoment, dashPowerRate,
                                 playerSize, kickableMargin, kickRand, extraStamina, effortMax, effortMin);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -205,9 +184,6 @@ public class CoachTest {
                                  newDashPowerRateDeltaMin, newStaminaIncMaxDeltaFactor, playerDecayDeltaMax,
                                  playerDecayDeltaMin, playerTypes, ptMax, randomSeed, staminaIncMaxDeltaFactor,
                                  subsMax);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -219,9 +195,6 @@ public class CoachTest {
         int   unum     = 0;
         Coach instance = new Coach();
         instance.infoCPTOther(unum);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -234,9 +207,6 @@ public class CoachTest {
         int   type     = 0;
         Coach instance = new Coach();
         instance.infoCPTOwn(unum, type);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -248,9 +218,6 @@ public class CoachTest {
         HashMap<ServerParams, Object> info     = null;
         Coach                         instance = new Coach();
         instance.infoServerParam(info);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -265,9 +232,6 @@ public class CoachTest {
         double deltaY   = 0.0;
         Coach  instance = new Coach();
         instance.infoSeeBall(x, y, deltaX, deltaY);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -286,9 +250,6 @@ public class CoachTest {
         double  neckAngle = 0.0;
         Coach   instance  = new Coach();
         instance.infoSeePlayerOther(number, goalie, x, y, deltaX, deltaY, bodyAngle, neckAngle);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -307,9 +268,6 @@ public class CoachTest {
         double  neckAngle = 0.0;
         Coach   instance  = new Coach();
         instance.infoSeePlayerOwn(number, goalie, x, y, deltaX, deltaY, bodyAngle, neckAngle);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -321,9 +279,6 @@ public class CoachTest {
         ActionsCoach c        = null;
         Coach        instance = new Coach();
         instance.setCoach(c);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -336,9 +291,6 @@ public class CoachTest {
         ActionsCoach expResult = null;
         ActionsCoach result    = instance.getCoach();
         assertEquals(expResult, result);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -351,9 +303,6 @@ public class CoachTest {
         double y        = 0.0;
         Coach  instance = new Coach();
         instance.infoSeeGoalOther(x, y);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -366,9 +315,6 @@ public class CoachTest {
         double y        = 0.0;
         Coach  instance = new Coach();
         instance.infoSeeGoalOwn(x, y);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -381,8 +327,5 @@ public class CoachTest {
         String teamEast = "";
         Coach  instance = new Coach();
         instance.infoHearTeamNames(teamWest, teamEast);
-
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }

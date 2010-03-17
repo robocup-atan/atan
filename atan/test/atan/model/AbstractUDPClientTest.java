@@ -198,7 +198,7 @@ public class AbstractUDPClientTest {
      *
      * @author author
      */
-    public class AbstractUDPClientImpl extends AbstractUDPClient {
+    public static class AbstractUDPClientImpl extends AbstractUDPClient {
 
         /**
          *

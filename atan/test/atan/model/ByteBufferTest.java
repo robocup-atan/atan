@@ -2,7 +2,6 @@ package atan.model;
 
 //~--- non-JDK imports --------------------------------------------------------
 
-import java.io.IOException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -10,6 +9,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+
+//~--- JDK imports ------------------------------------------------------------
+
+import java.io.IOException;
 
 /**
  *
@@ -54,20 +57,20 @@ public class ByteBufferTest {
     @Test
     public void testGetByteArray() {
         System.out.println("getByteArray");
-        ByteBuffer instance = new ByteBuffer(10);
-        int expResult = 10;
-        int result = instance.getByteArray().length;
+        ByteBuffer instance  = new ByteBuffer(10);
+        int        expResult = 10;
+        int        result    = instance.getByteArray().length;
         assertEquals(expResult, result);
     }
 
     /**
      * Test of setString method, of class ByteBuffer.
-     * @throws Exception 
+     * @throws Exception
      */
     @Test
     public void testSetString() throws Exception {
         System.out.println("setString");
-        String str = "lol";
+        String     str      = "lol";
         ByteBuffer instance = new ByteBuffer(10);
         instance.setString(str);
         String result = instance.getString();
@@ -84,7 +87,7 @@ public class ByteBufferTest {
         ByteBuffer instance = new ByteBuffer(10);
         instance.setString("lol");
         String expResult = "lol";
-        String result = instance.getString();
+        String result    = instance.getString();
         assertEquals(expResult, result);
     }
 
@@ -94,9 +97,9 @@ public class ByteBufferTest {
     @Test
     public void testLength() {
         System.out.println("length");
-        ByteBuffer instance = new ByteBuffer(10);
-        int expResult = 10;
-        int result = instance.length();
+        ByteBuffer instance  = new ByteBuffer(10);
+        int        expResult = 10;
+        int        result    = instance.length();
         assertEquals(expResult, result);
     }
 
@@ -107,9 +110,9 @@ public class ByteBufferTest {
     @Test
     public void testReset() throws IOException {
         System.out.println("reset");
-        ByteBuffer instance = new ByteBuffer(10);
-        String expResult = "";
-        String result = instance.getString();
+        ByteBuffer instance  = new ByteBuffer(10);
+        String     expResult = "";
+        String     result    = instance.getString();
         instance.reset();
         assertEquals(expResult, result);
     }

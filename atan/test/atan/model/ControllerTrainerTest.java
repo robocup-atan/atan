@@ -85,7 +85,6 @@ public class ControllerTrainerTest {
         RefereeMessage    refereeMessage = RefereeMessage.DROP_BALL;
         ControllerTrainer instance       = new ControllerTrainerImpl();
         instance.infoHearReferee(refereeMessage);
-
     }
 
     /**
