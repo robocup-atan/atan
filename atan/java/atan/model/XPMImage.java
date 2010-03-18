@@ -15,7 +15,7 @@ public class XPMImage {
     public static final String COLOUR_BLACK_TILE = "\"8 8 1 1\" \"b c black\" "
                                                    + "\"bbbbbbbb\" \"bbbbbbbb\" \"bbbbbbbb\" \"bbbbbbbb\" "
                                                    + "\"bbbbbbbb\" \"bbbbbbbb\" \"bbbbbbbb\" \"bbbbbbbb\"";
-    public static final String COLOUR_DEFAULT_PITCH_TILE = "\"8 8 1 1\" \"  c #1FA01F\" "
+    public static final String COLOUR_DEFAULT_PITCH_TILE = "\"8 8 1 1\" \"  c None\" "
                                                            + "\"        \" \"        \" \"        \" \"        \" "
                                                            + "\"        \" \"        \" \"        \" \"        \"";
     public static final String COLOUR_RED_TILE = "\"8 8 1 1\" \"r c red\" "

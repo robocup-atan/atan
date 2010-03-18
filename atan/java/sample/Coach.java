@@ -121,8 +121,7 @@ public class Coach implements ControllerCoach {
     @Override
     public void infoServerParam(HashMap<ServerParams, Object> info) {
         log.info("server param");
-        XPMImage xpm = new XPMImage();
-        coach.teamGraphic(xpm);
+        coach.teamGraphic(new XPMImageAtanLogo());
     }
 
     /**

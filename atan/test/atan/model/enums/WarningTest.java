@@ -54,8 +54,8 @@ public class WarningTest {
     public void testValues() {
         System.out.println("values");
         Warning[] expResult = {
-            Warning.NO_TEAM_FOUND, Warning.NO_SUCH_PLAYER, Warning.CANNOT_SUB_WHILE_PLAYON, Warning.NO_SUBS_LEFT,
-            Warning.MAX_OF_THAT_TYPE_ON_FIELD, Warning.CANNOT_CHANGE_GOALIE
+            Warning.NO_TEAM_FOUND, Warning.NO_SUCH_PLAYER, Warning.CANNOT_SUB_WHILE_PLAYON, Warning.INVALID_TILE_SIZE,
+            Warning.NO_SUBS_LEFT, Warning.MAX_OF_THAT_TYPE_ON_FIELD, Warning.CANNOT_CHANGE_GOALIE
         };
         Warning[] result = Warning.values();
         assertArrayEquals(expResult, result);

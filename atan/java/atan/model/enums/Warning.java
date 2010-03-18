@@ -22,6 +22,11 @@ public enum Warning {
     CANNOT_SUB_WHILE_PLAYON,
 
     /**
+     * The XPM tile size sent to the server was an invalid size.
+     */
+    INVALID_TILE_SIZE,
+
+    /**
      * You have no substitutes left.
      */
     NO_SUBS_LEFT,
