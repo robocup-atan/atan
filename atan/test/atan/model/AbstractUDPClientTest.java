@@ -90,7 +90,7 @@ public class AbstractUDPClientTest {
      * Test of send method, of class AbstractUDPClient.
      * @throws Exception
      */
-    @Test
+    @Test(expected = NullPointerException.class)
     public void testSend() throws Exception {
         System.out.println("send");
         String            message  = "Test";

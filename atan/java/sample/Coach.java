@@ -4,6 +4,7 @@ package sample;
 
 import atan.model.ActionsCoach;
 import atan.model.ControllerCoach;
+import atan.model.XPMImage;
 import atan.model.enums.Errors;
 import atan.model.enums.Ok;
 import atan.model.enums.PlayMode;
@@ -120,6 +121,8 @@ public class Coach implements ControllerCoach {
     @Override
     public void infoServerParam(HashMap<ServerParams, Object> info) {
         log.info("server param");
+        XPMImage xpm = new XPMImage();
+        coach.teamGraphic(xpm);
     }
 
     /**

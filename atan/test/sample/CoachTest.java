@@ -3,6 +3,7 @@ package sample;
 //~--- non-JDK imports --------------------------------------------------------
 
 import atan.model.ActionsCoach;
+import atan.model.ActionsCoachTest.ActionsCoachImpl;
 import atan.model.enums.Errors;
 import atan.model.enums.Ok;
 import atan.model.enums.PlayMode;
@@ -215,8 +216,10 @@ public class CoachTest {
     @Test
     public void testInfoServerParam() {
         System.out.println("infoServerParam");
-        HashMap<ServerParams, Object> info     = null;
+        HashMap<ServerParams, Object> info     = new HashMap<ServerParams, Object>();
+        ActionsCoach                  actCoach = new ActionsCoachImpl();
         Coach                         instance = new Coach();
+        instance.setCoach(actCoach);
         instance.infoServerParam(info);
     }
 

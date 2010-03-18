@@ -357,10 +357,10 @@ public class CommandFactoryTest {
     /**
      * Test of addTeamGraphicCommand method, of class CommandFactory.
      */
-    @Test(expected = UnsupportedOperationException.class)
+    @Test
     public void testAddTeamGraphicCommand() {
         System.out.println("addTeamGraphicCommand");
-        XPMImage       xpm      = null;
+        XPMImage       xpm      = new XPMImage();
         CommandFactory instance = new CommandFactory();
         instance.addTeamGraphicCommand(xpm);
     }

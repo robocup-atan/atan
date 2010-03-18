@@ -153,10 +153,10 @@ public class SServerCoachTest {
     /**
      * Test of teamGraphic method, of class SServerCoach.
      */
-    @Test(expected = UnsupportedOperationException.class)
+    @Test
     public void testTeamGraphic() {
         System.out.println("teamGraphic");
-        XPMImage     xpm      = null;
+        XPMImage     xpm      = new XPMImage();
         SServerCoach instance = testSSCoach;
         instance.teamGraphic(xpm);
     }

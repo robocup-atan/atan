@@ -41,7 +41,6 @@ public interface ActionsCoach {
     /**
      * This command sends a team graphic to the SServer.
      * @param xpm An XPMImage to use.
-     * @deprecated Not yet implemented.
      */
     public void teamGraphic(XPMImage xpm);
 

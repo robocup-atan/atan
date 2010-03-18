@@ -19,10 +19,10 @@ import java.net.InetAddress;
  */
 public abstract class AbstractUDPClient extends Thread {
     private static Logger  log       = Logger.getLogger(AbstractUDPClient.class);
-    private ByteBuffer     buf       = null;
     private String         hostname  = "localhost";
     private int            port      = 6000;
     private boolean        isRunning = false;
+    private ByteBuffer     buf;
     private InetAddress    host;
     private DatagramSocket socket;
 
@@ -82,10 +82,8 @@ public abstract class AbstractUDPClient extends Thread {
         try {
             log.info("UDP - client started: " + this.hostname + ":" + this.port);
             isRunning = true;
-
-            // A buffer size of 5000 to handle the server_param message.
-            buf = new ByteBuffer(5000);
-            buf.setString(getInitMessage());
+            buf       = new ByteBuffer(5000);
+            buf.setString(getInitMessage());    // A buffer size of 5000 to handle the server_param message.
             socket = new DatagramSocket();
 
             // Timeout of 3mins to ensure that the coach stays connected.

@@ -10,18 +10,37 @@ package atan.model;
  * @author Atan
  */
 public class XPMImage {
-    private static final int TILE_WIDTH = 8;
-    private static final int XPM_HEIGHT = 64;
-    private static final int XPM_WIDTH  = 256;
-    String[][]               image      = new String[XPM_HEIGHT][XPM_WIDTH];
+
+    // Some default tile colours to make it easier to create your first XPMImage.
+    public static final String COLOUR_BLACK_TILE = "\"8 8 1 1\" \"b c black\" "
+                                                   + "\"bbbbbbbb\" \"bbbbbbbb\" \"bbbbbbbb\" \"bbbbbbbb\" "
+                                                   + "\"bbbbbbbb\" \"bbbbbbbb\" \"bbbbbbbb\" \"bbbbbbbb\"";
+    public static final String COLOUR_DEFAULT_PITCH_TILE = "\"8 8 1 1\" \"  c #1FA01F\" "
+                                                           + "\"        \" \"        \" \"        \" \"        \" "
+                                                           + "\"        \" \"        \" \"        \" \"        \"";
+    public static final String COLOUR_RED_TILE = "\"8 8 1 1\" \"r c red\" "
+                                                 + "\"rrrrrrrr\" \"rrrrrrrr\" \"rrrrrrrr\" \"rrrrrrrr\" "
+                                                 + "\"rrrrrrrr\" \"rrrrrrrr\" \"rrrrrrrr\" \"rrrrrrrr\"";
+    public static final String COLOUR_WHITE_TILE = "\"8 8 1 1\" \"w c white\" "
+                                                   + "\"wwwwwwww\" \"wwwwwwww\" \"wwwwwwww\" \"wwwwwwww\" "
+                                                   + "\"wwwwwwww\" \"wwwwwwww\" \"wwwwwwww\" \"wwwwwwww\"";
+
+    // XPMImage constants. Should only need to change if SServer changes.
+    private static final int TILE_HEIGHT  = 8;
+    private static final int TILE_WIDTH   = 8;
+    private static final int XPM_HEIGHT   = 64;
+    private static final int XPM_WIDTH    = 256;
+    private static final int ARRAY_WIDTH  = XPM_WIDTH / TILE_WIDTH;
+    private static final int ARRAY_HEIGHT = XPM_HEIGHT / TILE_HEIGHT;
+    String[][]               image        = new String[ARRAY_WIDTH][ARRAY_HEIGHT];
 
     /**
-     * Constructs a black box.
+     * Creates an XPM Image the default colour of the pitch.
      */
     public XPMImage() {
-        for (int row = 0; row < XPM_HEIGHT - 1; row++) {
-            for (int col = 0; col < XPM_WIDTH - 1; col++) {
-                image[row][col] = "#ffffff";
+        for (int x = 0; x < getArrayWidth(); x++) {
+            for (int y = 0; y < getArrayHeight(); y++) {
+                setTile(x, y, COLOUR_DEFAULT_PITCH_TILE);
             }
         }
     }
@@ -30,57 +49,75 @@ public class XPMImage {
      * Gets a tile of the XPM Image.
      * @param x Between 0 and 31.
      * @param y Between 0 and 7.
-     * @return An 8*8 tile.
+     * @return An XPM image string defining an 8*8 image.
      */
-    public String[][] getTile(int x, int y) {
-        String[][] retrieved = new String[8][8];
-        if (((0 <= x) && (x <= 7)) && ((0 <= y) && (y <= 31))) {    // Ensure the tile is valid.
-            for (int row = y; row < (y + TILE_WIDTH); row++) {
-                for (int col = x; col < (x + TILE_WIDTH); col++) {
-                    retrieved[col % TILE_WIDTH][row % TILE_WIDTH] = image[col][row];
-                }
-            }
+    public String getTile(int x, int y) {
+        if ((x > getArrayWidth()) || (y > getArrayHeight()) || (x < 0) || (y < 0)) {
+            throw new IllegalArgumentException();
         }
-        return retrieved;
+        return image[x][y];
     }
 
     /**
      * Updates an 8*8 tile in the XPM Image.
      * @param x Between 0 and 31.
      * @param y Between 0 and 7.
-     * @param tile An 8*8 string array, containing RGB values.
+     * @param tile An XPM image string defining an 8*8 image.
      */
-    public void updateTile(int x, int y, String[][] tile) {
-        if (((0 <= x) && (x <= 7)) && ((0 <= y) && (y <= 31))) {    // Ensure the tile is valid.
-            for (int row = y; row < (y + TILE_WIDTH); row++) {
-                for (int col = x; col < (x + TILE_WIDTH); col++) {
-                    image[col][row] = tile[col % TILE_WIDTH][row % TILE_WIDTH];
-                }
-            }
+    public void setTile(int x, int y, String tile) {
+        if ((x > getArrayWidth()) || (y > getArrayHeight()) || (x < 0) || (y < 0)) {
+            throw new IllegalArgumentException();
         }
+        image[x][y] = tile;
     }
 
     /**
-     *
-     * @return
+     * Returns the XPM image height.
+     * @return The XPM image height.
      */
     public int getXPMHeight() {
         return XPM_HEIGHT;
     }
 
     /**
-     *
-     * @return
+     * Returns the XPM image width.
+     * @return The XPM image width.
      */
     public int getXPMWidth() {
         return XPM_WIDTH;
     }
 
     /**
-     *
-     * @return
+     * Returns the tile width.
+     * @return The tile width.
      */
     public int getTileWidth() {
         return TILE_WIDTH;
+    }
+
+    /**
+     * Returns the tile height.
+     * @return The tile height.
+     */
+    public int getTileHeight() {
+        return TILE_HEIGHT;
+    }
+
+    /**
+     * Returns the array height as an array index.
+     * Ie. Starting at 0 not 1.
+     * @return The array height.
+     */
+    public int getArrayHeight() {
+        return ARRAY_HEIGHT - 1;
+    }
+
+    /**
+     * Returns the array width as an array index.
+     * Ie. Starting at 0 not 1.
+     * @return The array width.
+     */
+    public int getArrayWidth() {
+        return ARRAY_WIDTH - 1;
     }
 }
