@@ -33,7 +33,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     /**
      * A part constructor for SServerTrainer (assumes localhost:6001)
      * @param teamName The team name.
-     * @param t
+     * @param t A ControllerTrainer.
      */
     public SServerTrainer(String teamName, ControllerTrainer t) {
         this(teamName, t, TRAINER_PORT, "localhost");
@@ -42,7 +42,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
     /**
      * The full constructor for SServerTrainer
      * @param teamName The teams name.
-     * @param t
+     * @param t A ControllerTrainer.
      * @param port The port to connect to.
      * @param hostname The host address.
      */

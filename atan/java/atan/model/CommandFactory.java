@@ -33,7 +33,7 @@ public class CommandFactory {
      * This is used to initialise a player.
      * @param teamName The team the player belongs to.
      * @param isGoalie If the player is a goalie. Note: Only one goalie per team.
-     * @param version
+     * @param version The version of the server expected.
      */
     @SuppressWarnings("unchecked")
     public void addPlayerInitCommand(String teamName, boolean isGoalie, String version) {

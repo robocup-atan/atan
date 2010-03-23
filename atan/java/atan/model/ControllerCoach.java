@@ -14,7 +14,7 @@ import atan.model.enums.Warning;
 import java.util.HashMap;
 
 /**
- * Interface that has to be implemented in order to play the role of a Coach
+ * Interface that has to be implemented in order to play the role of a Coach.
  * @author Atan
  */
 public interface ControllerCoach {
