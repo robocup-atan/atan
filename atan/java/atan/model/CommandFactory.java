@@ -21,8 +21,8 @@ public class CommandFactory {
 
     // The SServer version that Atan can parse.
     private static final String serverVersion = "13";
-    @SuppressWarnings("unchecked")
-    private List                fifo          = new Vector();
+    @SuppressWarnings("rawtypes")
+	private List                fifo          = new Vector();
 
     /**
      * Constructs a blank command factory.
@@ -288,7 +288,6 @@ public class CommandFactory {
      * @param x The x coordinate to move to.
      * @param y The y coordinate to move to.
      */
-    @SuppressWarnings("unchecked")
     public void addMovePlayerCommand(ActionsPlayer p, double x, double y) {
         throw new UnsupportedOperationException("This method is for a future release");
 
@@ -444,7 +443,6 @@ public class CommandFactory {
      * @param unum The players uniform number (1~11 on pitch usually, subs <= 17).
      * @param playerType //TODO Implement
      */
-    @SuppressWarnings("unchecked")
     public void addChangePlayerTypeCommand(int unum, Object playerType) {
         throw new UnsupportedOperationException("This method is for a future release");
 

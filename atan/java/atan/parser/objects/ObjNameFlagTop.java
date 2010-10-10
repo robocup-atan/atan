@@ -151,7 +151,6 @@ public class ObjNameFlagTop implements ObjName {
                                   headFacingDirection);
                 break;
         }
-        c.infoSeeBall(distance, direction, distChange, dirChange, bodyFacingDirection, headFacingDirection);
     }
 
     /**
