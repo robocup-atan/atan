@@ -17,7 +17,8 @@ import java.io.IOException;
 import java.io.StringReader;
 
 /**
- * @inheritDoc
+ * A simple implementation of AbstractUDPClient for Players.
+ * @author Atan
  */
 public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     private static final int     PLAYER_PORT    = 6000;
