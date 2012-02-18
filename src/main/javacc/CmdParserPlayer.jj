@@ -4,39 +4,39 @@ options {
 //  FORCE_LA_CHECK = false;
 }
 PARSER_BEGIN(CmdParserPlayer)
-package atan.parser.player;
+package com.github.robocup_atan.atan.parser.player;
 
 //~--- non-JDK imports --------------------------------------------------------
 
-import atan.model.enums.Errors;
-import atan.model.enums.Ok;
-import atan.model.enums.PlayMode;
-import atan.model.enums.RefereeMessage;
-import atan.model.enums.ServerParams;
-import atan.model.enums.ViewAngle;
-import atan.model.enums.ViewQuality;
-import atan.model.enums.Warning;
+import com.github.robocup_atan.atan.model.enums.Errors;
+import com.github.robocup_atan.atan.model.enums.Ok;
+import com.github.robocup_atan.atan.model.enums.PlayMode;
+import com.github.robocup_atan.atan.model.enums.RefereeMessage;
+import com.github.robocup_atan.atan.model.enums.ServerParams;
+import com.github.robocup_atan.atan.model.enums.ViewAngle;
+import com.github.robocup_atan.atan.model.enums.ViewQuality;
+import com.github.robocup_atan.atan.model.enums.Warning;
 
-import atan.model.ActionsPlayer;
-import atan.model.ControllerPlayer;
+import com.github.robocup_atan.atan.model.ActionsPlayer;
+import com.github.robocup_atan.atan.model.ControllerPlayer;
 
-import atan.parser.objects.ObjName;
-import atan.parser.objects.ObjNameBall;
-import atan.parser.objects.ObjNameFlagBottom;
-import atan.parser.objects.ObjNameFlagCenter;
-import atan.parser.objects.ObjNameFlagCornerLeft;
-import atan.parser.objects.ObjNameFlagCornerRight;
-import atan.parser.objects.ObjNameFlagGoalLeft;
-import atan.parser.objects.ObjNameFlagGoalRight;
-import atan.parser.objects.ObjNameFlagLeft;
-import atan.parser.objects.ObjNameFlagPenaltyEast;
-import atan.parser.objects.ObjNameFlagPenaltyWest;
-import atan.parser.objects.ObjNameFlagRight;
-import atan.parser.objects.ObjNameFlagTop;
-import atan.parser.objects.ObjNameLine;
-import atan.parser.objects.ObjNameNull;
-import atan.parser.objects.ObjNamePlayerEast;
-import atan.parser.objects.ObjNamePlayerWest;
+import com.github.robocup_atan.atan.parser.objects.ObjName;
+import com.github.robocup_atan.atan.parser.objects.ObjNameBall;
+import com.github.robocup_atan.atan.parser.objects.ObjNameFlagBottom;
+import com.github.robocup_atan.atan.parser.objects.ObjNameFlagCenter;
+import com.github.robocup_atan.atan.parser.objects.ObjNameFlagCornerLeft;
+import com.github.robocup_atan.atan.parser.objects.ObjNameFlagCornerRight;
+import com.github.robocup_atan.atan.parser.objects.ObjNameFlagGoalLeft;
+import com.github.robocup_atan.atan.parser.objects.ObjNameFlagGoalRight;
+import com.github.robocup_atan.atan.parser.objects.ObjNameFlagLeft;
+import com.github.robocup_atan.atan.parser.objects.ObjNameFlagPenaltyEast;
+import com.github.robocup_atan.atan.parser.objects.ObjNameFlagPenaltyWest;
+import com.github.robocup_atan.atan.parser.objects.ObjNameFlagRight;
+import com.github.robocup_atan.atan.parser.objects.ObjNameFlagTop;
+import com.github.robocup_atan.atan.parser.objects.ObjNameLine;
+import com.github.robocup_atan.atan.parser.objects.ObjNameNull;
+import com.github.robocup_atan.atan.parser.objects.ObjNamePlayerEast;
+import com.github.robocup_atan.atan.parser.objects.ObjNamePlayerWest;
 
 //~--- JDK imports ------------------------------------------------------------
 

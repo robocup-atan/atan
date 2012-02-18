@@ -1,31 +1,41 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
   
-    <groupId>atan</groupId>
+    <groupId>com.github.robocup_atan.atan</groupId>
     <artifactId>atan</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
     
-    <build>
-        <plugins>
-            <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>javacc-maven-plugin</artifactId>
-            <version>2.6</version>
-            <executions>
-                <execution>
-                <id>javacc</id>
-                <goals>
-                    <goal>javacc</goal>
-                </goals>
-                <configuration>
-                    <lookAhead>2</lookAhead>
-                    <isStatic>false</isStatic>
-                </configuration>
-                </execution>
-            </executions>
-            </plugin>
-        </plugins>
-    </build>
+    <name>Atan</name>
+    <description>Robocup 2D Soccer Server Java Interface</description>
+    <url>http://robocup-atan.github.com/atan/</url>
+    
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <comments>All source code is under the MIT license.</comments>
+        </license>
+    </licenses>
+    
+    <developers>
+        <developer>
+            <id>verbitan</id>
+            <name>Nick James</name>
+            <email>verbitan@gmail.com</email>
+        </developer>
+        
+        <developer>
+            <id>danielgwood</id>
+            <name>Daniel Wood</name>
+            <email>daniel.g.wood@gmail.com</email>
+        </developer>
+    </developers>
+    
+    <scm>
+        <connection>scm:git:git://github.com/robocup-atan/atan.git</connection>
+        <developerConnection>scm:git:git@github.com:robocup-atan/atan.git</developerConnection>
+        <url>http://github.com/robocup-atan/atan</url>
+    </scm>
   
     <dependencies>
         <dependency>
@@ -38,7 +48,7 @@
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
-            <version>1.2.15</version>
+            <version>1.2.16</version>
             <type>jar</type>
             <exclusions>
                 <exclusion>
@@ -79,10 +89,32 @@
         </dependency>
     </dependencies>
     
-    <scm>
-        <connection>scm:git:git://github.com/robocup-atan/atan.git</connection>
-        <developerConnection>scm:git:git@github.com:robocup-atan/atan.git</developerConnection>
-        <url>http://github.com/robocup-atan/atan</url>
-    </scm>
+    <!--
+    AVOID RELEASE REPOSITORY/PLUGINREPOSITORY:
+    <repositories></repositories>
+    <pluginRepositories></pluginRepositories>
+    -->
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>javacc-maven-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                    <id>javacc</id>
+                    <goals>
+                        <goal>javacc</goal>
+                    </goals>
+                    <configuration>
+                        <lookAhead>2</lookAhead>
+                        <isStatic>false</isStatic>
+                    </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    
 </project>
-

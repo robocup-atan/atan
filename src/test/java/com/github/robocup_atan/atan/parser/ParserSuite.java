@@ -1,3 +1,5 @@
+package com.github.robocup_atan.atan.parser;
+
 //~--- non-JDK imports --------------------------------------------------------
 
 import org.junit.After;
@@ -8,15 +10,13 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 /**
- * A test suite to run all tests.
+ *
  * @author Atan
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses( {
-    com.github.robocup_atan.atan.model.ModelSuite.class, com.github.robocup_atan.atan.model.enums.EnumsSuite.class, com.github.robocup_atan.atan.parser.ParserSuite.class,
-    com.github.robocup_atan.atan.parser.objects.ObjectsSuite.class
-})
-public class FullTestSuite {
+@Suite.SuiteClasses({com.github.robocup_atan.atan.parser.CommandFilterTest.class, com.github.robocup_atan.atan.parser.objects.ObjectsSuite.class,
+                     com.github.robocup_atan.atan.parser.FilterTest.class})
+public class ParserSuite {
 
     /**
      *
