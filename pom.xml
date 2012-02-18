@@ -1,0 +1,88 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+  
+    <groupId>atan</groupId>
+    <artifactId>atan</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    
+    <build>
+        <plugins>
+            <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>javacc-maven-plugin</artifactId>
+            <version>2.6</version>
+            <executions>
+                <execution>
+                <id>javacc</id>
+                <goals>
+                    <goal>javacc</goal>
+                </goals>
+                <configuration>
+                    <lookAhead>2</lookAhead>
+                    <isStatic>false</isStatic>
+                </configuration>
+                </execution>
+            </executions>
+            </plugin>
+        </plugins>
+    </build>
+  
+    <dependencies>
+        <dependency>
+            <groupId>net.java.dev.javacc</groupId>
+            <artifactId>javacc</artifactId>
+            <version>5.0</version>
+            <type>jar</type>
+        </dependency>
+        
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.15</version>
+            <type>jar</type>
+            <exclusions>
+                <exclusion>
+                    <artifactId>jms</artifactId>
+                    <groupId>javax.jms</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>jmxri</artifactId>
+                    <groupId>com.sun.jmx</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>jmxtools</artifactId>
+                    <groupId>com.sun.jdmk</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>activation</artifactId>
+                    <groupId>javax.activation</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>mail</artifactId>
+                    <groupId>javax.mail</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.10</version>
+            <type>jar</type>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>hamcrest-core</artifactId>
+                    <groupId>org.hamcrest</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+    
+    <scm>
+        <connection>scm:git:git://github.com/robocup-atan/atan.git</connection>
+        <developerConnection>scm:git:git@github.com:robocup-atan/atan.git</developerConnection>
+        <url>http://github.com/robocup-atan/atan</url>
+    </scm>
+</project>
+
