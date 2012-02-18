@@ -14,7 +14,7 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses( {
     com.github.robocup_atan.atan.model.ModelSuite.class, com.github.robocup_atan.atan.model.enums.EnumsSuite.class, com.github.robocup_atan.atan.parser.ParserSuite.class,
-    com.github.robocup_atan.atan.parser.objects.ObjectsSuite.class, com.github.robocup_atan.sample.SampleSuite.class
+    com.github.robocup_atan.atan.parser.objects.ObjectsSuite.class
 })
 public class FullTestSuite {
 
