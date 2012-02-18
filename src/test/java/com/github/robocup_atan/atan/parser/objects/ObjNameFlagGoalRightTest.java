@@ -18,38 +18,42 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
+ * <p>ObjNameFlagGoalRightTest class.</p>
  *
  * @author Atan
+ * @since 1.0
  */
 public class ObjNameFlagGoalRightTest {
 
     /**
-     *
+     * <p>Constructor for ObjNameFlagGoalRightTest.</p>
      */
     public ObjNameFlagGoalRightTest() {}
 
     /**
+     * <p>setUpClass.</p>
      *
-     * @throws Exception
+     * @throws java.lang.Exception if any.
      */
     @BeforeClass
     public static void setUpClass() throws Exception {}
 
     /**
+     * <p>tearDownClass.</p>
      *
-     * @throws Exception
+     * @throws java.lang.Exception if any.
      */
     @AfterClass
     public static void tearDownClass() throws Exception {}
 
     /**
-     *
+     * <p>setUp.</p>
      */
     @Before
     public void setUp() {}
 
     /**
-     *
+     * <p>tearDown.</p>
      */
     @After
     public void tearDown() {}

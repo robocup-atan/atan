@@ -3,12 +3,14 @@ package com.github.robocup_atan.atan.parser;
 /**
  * This class takes the input string from the SServer and determines which
  * type of command it is. (see, hear, sense body, ...)
+ *
  * @author Atan
  */
 public class Filter {
 
     /**
      * Works out what type of command has been put into the method.
+     *
      * @param cmd The string of text from SServer.
      * @param f An instance of CommandFilter.
      */

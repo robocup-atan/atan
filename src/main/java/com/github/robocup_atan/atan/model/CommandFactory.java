@@ -15,6 +15,7 @@ import java.util.Vector;
  * This class creates an easy interface between Java and the SServer.
  * By calling the methods in this class, it creates String's that the
  * SServer can understand.
+ *
  * @author Atan
  */
 public class CommandFactory {
@@ -31,6 +32,7 @@ public class CommandFactory {
 
     /**
      * This is used to initialise a player.
+     *
      * @param teamName The team the player belongs to.
      * @param isGoalie If the player is a goalie. Note: Only one goalie per team.
      * @param version The version of the server expected.
@@ -63,6 +65,7 @@ public class CommandFactory {
 
     /**
      * This is used to initialise a trainer.
+     *
      * @param version The version of the server expected.
      */
     @SuppressWarnings("unchecked")
@@ -80,6 +83,7 @@ public class CommandFactory {
 
     /**
      * This is used to initialise the online coach.
+     *
      * @param teamName The team the coach belongs to.
      * @param version The version of the server expected.
      */
@@ -100,8 +104,9 @@ public class CommandFactory {
 
     /**
      * This is used to reconnect the player to the server.
-     * @param teamName
-     * @param num
+     *
+     * @param teamName a {@link java.lang.String} object.
+     * @param num a int.
      */
     @SuppressWarnings("unchecked")
     public void addReconnectCommand(String teamName, int num) {
@@ -118,6 +123,7 @@ public class CommandFactory {
      * Goalie special command. Tries to catch the ball in a given direction
      * relative to its body direction. If the catch is successful the ball will
      * be in the goalies hand untill kicked away.
+     *
      * @param direction The direction in which to catch, relative to its body.
      */
     @SuppressWarnings("unchecked")
@@ -136,6 +142,7 @@ public class CommandFactory {
      * parameters. (eg. If you change the quality from high to low, the
      * frequency doubles, and the time between the two see sensors will be
      * cut in half).
+     *
      * @param angle Between NARROW, NORMAL or WIDE.
      * @param quality Between HIGH or LOW.
      */
@@ -180,6 +187,7 @@ public class CommandFactory {
 
     /**
      * This command accelerates the player in the direction of its body.
+     *
      * @param power Power is between minpower (-100) and maxpower (+100).
      */
     @SuppressWarnings("unchecked")
@@ -193,6 +201,7 @@ public class CommandFactory {
 
     /**
      * This command accelerates the ball with the given power in the given direction.
+     *
      * @param power Power is between minpower (-100) and maxpower (+100).
      * @param direction Direction is relative to the body of the player.
      */
@@ -209,6 +218,7 @@ public class CommandFactory {
 
     /**
      * This command can only be executed before kick off or after a goal.
+     *
      * @param x X location (between -54 and +54).
      * @param y Y location (between -32 and +32).
      */
@@ -226,6 +236,7 @@ public class CommandFactory {
     /**
      * This command will turn the players body in degrees relative to their
      * current direction.
+     *
      * @param angle Angle to turn (between -180 and +180).
      */
     @SuppressWarnings("unchecked")
@@ -241,6 +252,7 @@ public class CommandFactory {
      * This command can be sent (and will be executed) each cycle independently,
      * along with other action commands. The neck will rotate witht he given angle
      * relative to the previous angle.
+     *
      * @param angle Angle to turn the neck (between minneckang and maxneckang) (-90 to +90)
      */
     @SuppressWarnings("unchecked")
@@ -256,6 +268,7 @@ public class CommandFactory {
      * This command broadcasts the message throughout the field. Any player
      * near enough (specified with audio_cut_dist default 50.0 meters), with
      * enough hearing capacity will hear the message.
+     *
      * @param message A valid String to say.
      */
     @SuppressWarnings("unchecked")
@@ -270,7 +283,8 @@ public class CommandFactory {
     /**
      * Trainer only command.
      * Changes the play mode of the server.
-     * @param playMode
+     *
+     * @param playMode a {@link com.github.robocup_atan.atan.model.enums.PlayMode} object.
      */
     @SuppressWarnings("unchecked")
     public void addChangePlayModeCommand(PlayMode playMode) {
@@ -284,6 +298,7 @@ public class CommandFactory {
     /**
      * Trainer only command.
      * Moves the given player to the given coordinates.
+     *
      * @param p The player to move.
      * @param x The x coordinate to move to.
      * @param y The y coordinate to move to.
@@ -307,6 +322,7 @@ public class CommandFactory {
     /**
      * Trainer only command.
      * Moves the ball to the given coordinates.
+     *
      * @param x The x coordinate to move to.
      * @param y The y coordinate to move to.
      */
@@ -359,6 +375,7 @@ public class CommandFactory {
     /**
      * Trainer only command.
      * It turns on or off the sending of auditory information to the trainer.
+     *
      * @param earOn True to turn auditory information on, false to turn it off.
      */
     @SuppressWarnings("unchecked")
@@ -377,6 +394,7 @@ public class CommandFactory {
     /**
      * Trainer only command.
      * This command changes the specified players heterogeneous type.
+     *
      * @param teamName The name of the team the player belongs to.
      * @param unum The players uniform number (1~11 on pitch usually, subs <= 14).
      * @param playerType A player type between 0 (the standard player) and 18. However, player.conf can change this.
@@ -397,6 +415,7 @@ public class CommandFactory {
     /**
      * Trainer command that can be used by online coach.
      * It turns on or off the sending of "(see_global ...)" information from the server.
+     *
      * @param eyeOn True to turn visual information on, false to turn it off.
      */
     @SuppressWarnings("unchecked")
@@ -440,6 +459,7 @@ public class CommandFactory {
     /**
      * Coach only command.
      * This command changes the specified players heterogeneous type.
+     *
      * @param unum The players uniform number (1~11 on pitch usually, subs <= 17).
      * @param playerType //TODO Implement
      */
@@ -464,6 +484,7 @@ public class CommandFactory {
      * X and Y are the coordinates of this tile,
      * so they range from 0 to 31 and 0 to 7 respectively.
      * Each XPM line is a line from the 8x8 XPM tile.
+     *
      * @param xpm An XPMImage object.
      */
     @SuppressWarnings("unchecked")
@@ -498,6 +519,7 @@ public class CommandFactory {
 
     /**
      * Gets the next command from the stack.
+     *
      * @return The next command.
      */
     public String next() {
@@ -511,6 +533,7 @@ public class CommandFactory {
 
     /**
      * Checks if the stack is empty or not.
+     *
      * @return True if not empty.
      */
     public boolean hasNext() {

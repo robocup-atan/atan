@@ -2,6 +2,7 @@ package com.github.robocup_atan.atan.model.enums;
 
 /**
  * An enum for view quality.
+ *
  * @author Atan
  */
 public enum ViewQuality {

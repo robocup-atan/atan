@@ -6,18 +6,21 @@ import com.github.robocup_atan.atan.model.enums.PlayMode;
 
 /**
  * Interface for an abstract ActionsTrainer. To be used by Controller.
+ *
  * @author Atan
  */
 public interface ActionsTrainer {
 
     /**
      * Changes the play mode of the current game.
-     * @param playMode
+     *
+     * @param playMode a {@link com.github.robocup_atan.atan.model.enums.PlayMode} object.
      */
     public void changePlayMode(PlayMode playMode);
 
     /**
      * Moves the given player to the given location.
+     *
      * @param p The player to move.
      * @param x The x coordinate.
      * @param y The y coordinate.
@@ -26,6 +29,7 @@ public interface ActionsTrainer {
 
     /**
      * Moves the ball to the given coordinates.
+     *
      * @param x The x coordinate.
      * @param y The y coordinate.
      */
@@ -48,12 +52,14 @@ public interface ActionsTrainer {
 
     /**
      * Turns on or off the sending of "(see_global ...)" information from the server.
+     *
      * @param eyeOn True to turn (see_global on, false to turn it off.
      */
     public void eye(boolean eyeOn);
 
     /**
      * Turns on or off the sending of auditory information from the server.
+     *
      * @param earOn True to turn auditory information on, false to turn it off.
      */
     public void ear(boolean earOn);
@@ -62,6 +68,7 @@ public interface ActionsTrainer {
      * This command broadcasts the message throughout the field. Any player
      * near enough (specified with audio_cut_dist default 50.0 meters), with
      * enough hearing capacity will hear the message.
+     *
      * @param message A valid String to say.
      */
     public void say(String message);
@@ -70,6 +77,7 @@ public interface ActionsTrainer {
      * This command changes a specified players type.
      * Each time a player is substituted by some other player type, its stamina,
      * recovery and effort is reset to the initial (maximum) value of the respective player type.
+     *
      * @param teamName The team the player belongs to.
      * @param unum The players uniform number (1~11 on pitch usually, subs <= 14).
      * @param playerType A player type between 0 (the standard player) and 18. However, player.conf can change this.
@@ -98,6 +106,7 @@ public interface ActionsTrainer {
 
     /**
      * The method used to show errors.
+     *
      * @param error The error to show.
      */
     public void handleError(String error);

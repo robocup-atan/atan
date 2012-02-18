@@ -29,34 +29,38 @@ import static org.junit.Assert.*;
 import java.util.HashMap;
 
 /**
+ * <p>ControllerPlayerTest class.</p>
  *
  * @author Atan
+ * @since 1.0
  */
 public class ControllerPlayerTest {
     private ControllerPlayer  conPlayer;
     private ActionsPlayerImpl testPlayer;
 
     /**
-     *
+     * <p>Constructor for ControllerPlayerTest.</p>
      */
     public ControllerPlayerTest() {}
 
     /**
+     * <p>setUpClass.</p>
      *
-     * @throws Exception
+     * @throws java.lang.Exception if any.
      */
     @BeforeClass
     public static void setUpClass() throws Exception {}
 
     /**
+     * <p>tearDownClass.</p>
      *
-     * @throws Exception
+     * @throws java.lang.Exception if any.
      */
     @AfterClass
     public static void tearDownClass() throws Exception {}
 
     /**
-     *
+     * <p>setUp.</p>
      */
     @Before
     public void setUp() {
@@ -65,7 +69,7 @@ public class ControllerPlayerTest {
     }
 
     /**
-     *
+     * <p>tearDown.</p>
      */
     @After
     public void tearDown() {}

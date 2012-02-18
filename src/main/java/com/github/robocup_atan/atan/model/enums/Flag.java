@@ -2,6 +2,7 @@ package com.github.robocup_atan.atan.model.enums;
 
 /**
  * An Enum for Flags.
+ *
  * @author Atan
  */
 public enum Flag {
@@ -106,6 +107,7 @@ public enum Flag {
 
     /**
      * Checks if the enum flag is LEFT RIGHT or CENTER.
+     *
      * @param pointer The flag to check.
      * @return true or false
      */
@@ -119,6 +121,7 @@ public enum Flag {
 
     /**
      * Checks if the enum flag is LEFT or RIGHT.
+     *
      * @param pointer The flag to check.
      * @return true or false
      */

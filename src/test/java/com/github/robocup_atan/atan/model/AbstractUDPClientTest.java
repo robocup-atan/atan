@@ -18,38 +18,42 @@ import static org.junit.Assert.*;
 import java.io.IOException;
 
 /**
+ * <p>AbstractUDPClientTest class.</p>
  *
  * @author Atan
+ * @since 1.0
  */
 public class AbstractUDPClientTest {
 
     /**
-     *
+     * <p>Constructor for AbstractUDPClientTest.</p>
      */
     public AbstractUDPClientTest() {}
 
     /**
+     * <p>setUpClass.</p>
      *
-     * @throws Exception
+     * @throws java.lang.Exception if any.
      */
     @BeforeClass
     public static void setUpClass() throws Exception {}
 
     /**
+     * <p>tearDownClass.</p>
      *
-     * @throws Exception
+     * @throws java.lang.Exception if any.
      */
     @AfterClass
     public static void tearDownClass() throws Exception {}
 
     /**
-     *
+     * <p>setUp.</p>
      */
     @Before
     public void setUp() {}
 
     /**
-     *
+     * <p>tearDown.</p>
      */
     @After
     public void tearDown() {}
@@ -89,7 +93,8 @@ public class AbstractUDPClientTest {
 
     /**
      * Test of send method, of class AbstractUDPClient.
-     * @throws Exception
+     *
+     * @throws java.lang.Exception if any.
      */
     @Test(expected = NullPointerException.class)
     public void testSend() throws Exception {
@@ -113,7 +118,8 @@ public class AbstractUDPClientTest {
 
     /**
      * Test of received method, of class AbstractUDPClient.
-     * @throws Exception
+     *
+     * @throws java.lang.Exception if any.
      */
     @Test
     public void testReceived() throws Exception {
@@ -188,7 +194,7 @@ public class AbstractUDPClientTest {
 
     /**
      *
-     * @author author
+     * @author Atan
      */
     public static class AbstractUDPClientImpl extends AbstractUDPClient {
 
