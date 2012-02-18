@@ -4,18 +4,18 @@ options {
 //  FORCE_LA_CHECK = false;
 }
 PARSER_BEGIN(CmdParserTrainer)
-package atan.parser.trainer;
+package com.github.robocup_atan.atan.parser.trainer;
 
 //~--- non-JDK imports --------------------------------------------------------
 
-import atan.model.enums.Errors;
-import atan.model.enums.Ok;
-import atan.model.enums.PlayMode;
-import atan.model.enums.RefereeMessage;
-import atan.model.enums.Warning;
+import com.github.robocup_atan.atan.model.enums.Errors;
+import com.github.robocup_atan.atan.model.enums.Ok;
+import com.github.robocup_atan.atan.model.enums.PlayMode;
+import com.github.robocup_atan.atan.model.enums.RefereeMessage;
+import com.github.robocup_atan.atan.model.enums.Warning;
 
-import atan.model.ActionsTrainer;
-import atan.model.ControllerTrainer;
+import com.github.robocup_atan.atan.model.ActionsTrainer;
+import com.github.robocup_atan.atan.model.ControllerTrainer;
 
 //~--- JDK imports ------------------------------------------------------------
 

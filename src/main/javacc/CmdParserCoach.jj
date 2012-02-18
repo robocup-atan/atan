@@ -4,26 +4,26 @@ options {
 //  FORCE_LA_CHECK = false;
 }
 PARSER_BEGIN(CmdParserCoach)
-package atan.parser.coach;
+package com.github.robocup_atan.atan.parser.coach;
 
 //~--- non-JDK imports --------------------------------------------------------
 
-import atan.model.ActionsCoach;
-import atan.model.ControllerCoach;
-import atan.model.enums.Errors;
-import atan.model.enums.Ok;
-import atan.model.enums.PlayMode;
-import atan.model.enums.RefereeMessage;
-import atan.model.enums.ServerParams;
-import atan.model.enums.Warning;
+import com.github.robocup_atan.atan.model.ActionsCoach;
+import com.github.robocup_atan.atan.model.ControllerCoach;
+import com.github.robocup_atan.atan.model.enums.Errors;
+import com.github.robocup_atan.atan.model.enums.Ok;
+import com.github.robocup_atan.atan.model.enums.PlayMode;
+import com.github.robocup_atan.atan.model.enums.RefereeMessage;
+import com.github.robocup_atan.atan.model.enums.ServerParams;
+import com.github.robocup_atan.atan.model.enums.Warning;
 
-import atan.parser.objects.ObjName;
-import atan.parser.objects.ObjNameBall;
-import atan.parser.objects.ObjNameFlagGoalLeft;
-import atan.parser.objects.ObjNameFlagGoalRight;
-import atan.parser.objects.ObjNameNull;
-import atan.parser.objects.ObjNamePlayerEast;
-import atan.parser.objects.ObjNamePlayerWest;
+import com.github.robocup_atan.atan.parser.objects.ObjName;
+import com.github.robocup_atan.atan.parser.objects.ObjNameBall;
+import com.github.robocup_atan.atan.parser.objects.ObjNameFlagGoalLeft;
+import com.github.robocup_atan.atan.parser.objects.ObjNameFlagGoalRight;
+import com.github.robocup_atan.atan.parser.objects.ObjNameNull;
+import com.github.robocup_atan.atan.parser.objects.ObjNamePlayerEast;
+import com.github.robocup_atan.atan.parser.objects.ObjNamePlayerWest;
 
 //~--- JDK imports ------------------------------------------------------------
 
@@ -599,13 +599,18 @@ void startTeamNamesCommand() :
 	  [<SEP ><OB ><TEAM ><SEP ><R>< SEP >teamName2=<NAM ><CB >]{
 	    String sTeam1Name = new String();
 	    String sTeam2Name = new String();
-	    if (teamName1 != null){	      sTeam1Name = teamName1.image;
+	    if (teamName1 != null){
+	      sTeam1Name = teamName1.image;
 	    }
-	    if (teamName2 != null){	      sTeam2Name = teamName2.image;
+	    if (teamName2 != null){
+	      sTeam2Name = teamName2.image;
 	    }
 	    controller.infoHearTeamNames(sTeam1Name, sTeam2Name);
 	}
-}	    	  	  
+}
+	    
+	  
+	  
 
 void hearReferee() :
   {PlayMode playMode=null; RefereeMessage refereeMessage=null;}{

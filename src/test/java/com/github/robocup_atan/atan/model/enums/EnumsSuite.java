@@ -1,3 +1,5 @@
+package com.github.robocup_atan.atan.model.enums;
+
 //~--- non-JDK imports --------------------------------------------------------
 
 import org.junit.After;
@@ -8,15 +10,17 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 /**
- * A test suite to run all tests.
+ *
  * @author Atan
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses( {
-    com.github.robocup_atan.atan.model.ModelSuite.class, com.github.robocup_atan.atan.model.enums.EnumsSuite.class, com.github.robocup_atan.atan.parser.ParserSuite.class,
-    com.github.robocup_atan.atan.parser.objects.ObjectsSuite.class
+    com.github.robocup_atan.atan.model.enums.RefereeMessageTest.class, com.github.robocup_atan.atan.model.enums.FlagTest.class, com.github.robocup_atan.atan.model.enums.PlayModeTest.class,
+    com.github.robocup_atan.atan.model.enums.LineTest.class, com.github.robocup_atan.atan.model.enums.WarningTest.class, com.github.robocup_atan.atan.model.enums.ErrorsTest.class,
+    com.github.robocup_atan.atan.model.enums.ViewQualityTest.class, com.github.robocup_atan.atan.model.enums.ViewAngleTest.class, com.github.robocup_atan.atan.model.enums.OkTest.class,
+    com.github.robocup_atan.atan.model.enums.ServerParamsTest.class
 })
-public class FullTestSuite {
+public class EnumsSuite {
 
     /**
      *
