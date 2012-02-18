@@ -17,6 +17,7 @@ import java.io.StringReader;
 
 /**
  * A simple implementation of AbstractUDPClient for Trainers.
+ *
  * @author Atan
  */
 public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer {
@@ -32,6 +33,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
 
     /**
      * A part constructor for SServerTrainer (assumes localhost:6001)
+     *
      * @param teamName The team name.
      * @param t A ControllerTrainer.
      */
@@ -41,6 +43,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
 
     /**
      * The full constructor for SServerTrainer
+     *
      * @param teamName The teams name.
      * @param t A ControllerTrainer.
      * @param port The port to connect to.
@@ -52,9 +55,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         this.controller = t;
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public String getInitMessage() {
         return initMessage;
@@ -71,9 +72,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         super.setName("Trainer");
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void received(String msg) throws IOException {
         try {
@@ -95,113 +94,85 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
         }
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void changePlayMode(PlayMode playMode) {
         this.commandFactory.addChangePlayModeCommand(playMode);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void movePlayer(ActionsPlayer p, double x, double y) {
         this.commandFactory.addMovePlayerCommand(p, x, y);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void moveBall(double x, double y) {
         this.commandFactory.addMoveBallCommand(x, y);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void checkBall() {
         this.commandFactory.addCheckBallCommand();
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void startGame() {
         this.commandFactory.addStartCommand();
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void recover() {
         this.commandFactory.addRecoverCommand();
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void eye(boolean eyeOn) {
         this.commandFactory.addEyeCommand(eyeOn);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void ear(boolean earOn) {
         this.commandFactory.addEarCommand(earOn);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void look() {
         this.commandFactory.addLookCommand();
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void teamNames() {
         this.commandFactory.addTeamNamesCommand();
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void changePlayerType(String teamName, int unum, int playerType) {
         this.commandFactory.addChangePlayerTypeCommand(teamName, unum, playerType);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void say(String message) {
         this.commandFactory.addSayCommand(message);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void bye() {
         this.commandFactory.addByeCommand();
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void handleError(String error) {
         log.error(error);

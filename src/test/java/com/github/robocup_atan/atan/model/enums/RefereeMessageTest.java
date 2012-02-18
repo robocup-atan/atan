@@ -12,38 +12,42 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
+ * <p>RefereeMessageTest class.</p>
  *
  * @author Atan
+ * @since 1.0
  */
 public class RefereeMessageTest {
 
     /**
-     *
+     * <p>Constructor for RefereeMessageTest.</p>
      */
     public RefereeMessageTest() {}
 
     /**
+     * <p>setUpClass.</p>
      *
-     * @throws Exception
+     * @throws java.lang.Exception if any.
      */
     @BeforeClass
     public static void setUpClass() throws Exception {}
 
     /**
+     * <p>tearDownClass.</p>
      *
-     * @throws Exception
+     * @throws java.lang.Exception if any.
      */
     @AfterClass
     public static void tearDownClass() throws Exception {}
 
     /**
-     *
+     * <p>setUp.</p>
      */
     @Before
     public void setUp() {}
 
     /**
-     *
+     * <p>tearDown.</p>
      */
     @After
     public void tearDown() {}

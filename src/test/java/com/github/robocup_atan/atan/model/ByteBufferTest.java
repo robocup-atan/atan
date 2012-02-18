@@ -16,38 +16,42 @@ import static org.junit.Assert.*;
 import java.io.IOException;
 
 /**
+ * <p>ByteBufferTest class.</p>
  *
  * @author Atan
+ * @since 1.0
  */
 public class ByteBufferTest {
 
     /**
-     *
+     * <p>Constructor for ByteBufferTest.</p>
      */
     public ByteBufferTest() {}
 
     /**
+     * <p>setUpClass.</p>
      *
-     * @throws Exception
+     * @throws java.lang.Exception if any.
      */
     @BeforeClass
     public static void setUpClass() throws Exception {}
 
     /**
+     * <p>tearDownClass.</p>
      *
-     * @throws Exception
+     * @throws java.lang.Exception if any.
      */
     @AfterClass
     public static void tearDownClass() throws Exception {}
 
     /**
-     *
+     * <p>setUp.</p>
      */
     @Before
     public void setUp() {}
 
     /**
-     *
+     * <p>tearDown.</p>
      */
     @After
     public void tearDown() {}
@@ -66,7 +70,8 @@ public class ByteBufferTest {
 
     /**
      * Test of setString method, of class ByteBuffer.
-     * @throws Exception
+     *
+     * @throws java.lang.Exception if any.
      */
     @Test
     public void testSetString() throws Exception {
@@ -80,7 +85,8 @@ public class ByteBufferTest {
 
     /**
      * Test of getString method, of class ByteBuffer.
-     * @throws Exception
+     *
+     * @throws java.lang.Exception if any.
      */
     @Test
     public void testGetString() throws Exception {
@@ -106,7 +112,8 @@ public class ByteBufferTest {
 
     /**
      * Test of reset method, of class ByteBuffer.
-     * @throws IOException
+     *
+     * @throws java.io.IOException if any.
      */
     @Test
     public void testReset() throws IOException {

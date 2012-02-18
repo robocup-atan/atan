@@ -9,6 +9,7 @@ import com.github.robocup_atan.atan.model.enums.Flag;
 
 /**
  * The parser object for center flags.
+ *
  * @author Atan
  */
 public class ObjNameFlagCenter implements ObjName {
@@ -16,15 +17,14 @@ public class ObjNameFlagCenter implements ObjName {
 
     /**
      * A constructor for center flags.
+     *
      * @param qualifier Either 't' or 'b'.
      */
     public ObjNameFlagCenter(char qualifier) {
         this.qualifier = qualifier;
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void infoSeeFromEast(ControllerPlayer c, double distance, double direction, double distChange,
                                 double dirChange, double bodyFacingDirection, double headFacingDirection) {
@@ -44,9 +44,7 @@ public class ObjNameFlagCenter implements ObjName {
         }
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void infoSeeFromWest(ControllerPlayer c, double distance, double direction, double distChange,
                                 double dirChange, double bodyFacingDirection, double headFacingDirection) {
@@ -66,30 +64,21 @@ public class ObjNameFlagCenter implements ObjName {
         }
     }
 
-    /**
-     * @inheritDoc
-     * @deprecated Not needed by the coach.
-     */
+    /** {@inheritDoc} */
     @Override
     public void infoSeeFromEast(ControllerCoach c, double x, double y, double deltaX, double deltaY, double bodyAngle,
                                 double neckAngle) {
         throw new UnsupportedOperationException();
     }
 
-    /**
-     * @inheritDoc
-     * @deprecated Not needed by the coach.
-     */
+    /** {@inheritDoc} */
     @Override
     public void infoSeeFromWest(ControllerCoach c, double x, double y, double deltaX, double deltaY, double bodyAngle,
                                 double neckAngle) {
         throw new UnsupportedOperationException();
     }
 
-    /**
-     * @inheritDoc
-     * @deprecated Not needed by the trainer.
-     */
+    /** {@inheritDoc} */
     @Override
     public void infoSee(ControllerTrainer c) {
         throw new UnsupportedOperationException();

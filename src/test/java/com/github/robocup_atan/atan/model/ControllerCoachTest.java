@@ -24,38 +24,42 @@ import static org.junit.Assert.*;
 import java.util.HashMap;
 
 /**
+ * <p>ControllerCoachTest class.</p>
  *
  * @author Atan
+ * @since 1.0
  */
 public class ControllerCoachTest {
 
     /**
-     *
+     * <p>Constructor for ControllerCoachTest.</p>
      */
     public ControllerCoachTest() {}
 
     /**
+     * <p>setUpClass.</p>
      *
-     * @throws Exception
+     * @throws java.lang.Exception if any.
      */
     @BeforeClass
     public static void setUpClass() throws Exception {}
 
     /**
+     * <p>tearDownClass.</p>
      *
-     * @throws Exception
+     * @throws java.lang.Exception if any.
      */
     @AfterClass
     public static void tearDownClass() throws Exception {}
 
     /**
-     *
+     * <p>setUp.</p>
      */
     @Before
     public void setUp() {}
 
     /**
-     *
+     * <p>tearDown.</p>
      */
     @After
     public void tearDown() {}

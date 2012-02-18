@@ -9,6 +9,7 @@ import com.github.robocup_atan.atan.model.enums.Flag;
 
 /**
  * The parser object for goal right.
+ *
  * @author Atan
  */
 public class ObjNameFlagGoalRight implements ObjName {
@@ -16,15 +17,14 @@ public class ObjNameFlagGoalRight implements ObjName {
 
     /**
      * A constructor for goal right.
+     *
      * @param qualifier Either 't' or 'b'.
      */
     public ObjNameFlagGoalRight(char qualifier) {
         this.qualifier = qualifier;
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void infoSeeFromEast(ControllerPlayer c, double distance, double direction, double distChange,
                                 double dirChange, double bodyFacingDirection, double headFacingDirection) {
@@ -44,9 +44,7 @@ public class ObjNameFlagGoalRight implements ObjName {
         }
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void infoSeeFromWest(ControllerPlayer c, double distance, double direction, double distChange,
                                 double dirChange, double bodyFacingDirection, double headFacingDirection) {
@@ -66,27 +64,21 @@ public class ObjNameFlagGoalRight implements ObjName {
         }
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void infoSeeFromEast(ControllerCoach c, double x, double y, double deltaX, double deltaY, double bodyAngle,
                                 double neckAngle) {
         c.infoSeeGoalOwn(x, y);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void infoSeeFromWest(ControllerCoach c, double x, double y, double deltaX, double deltaY, double bodyAngle,
                                 double neckAngle) {
         c.infoSeeGoalOther(x, y);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void infoSee(ControllerTrainer c) {
 

@@ -7,20 +7,25 @@ package com.github.robocup_atan.atan.model;
  * X and Y are the coordinates of this tile,
  * so they range from 0 to 31 and 0 to 7 respectively.
  * Each XPM line is a line from the 8x8 XPM tile.
+ *
  * @author Atan
  */
 public class XPMImage {
 
     // Some default tile colours to make it easier to create your first XPMImage.
+    /** Constant <code>COLOUR_BLACK_TILE="\"8 8 1 1\" \"b c black\" \"bbbbbbbb\" "{trunked}</code> */
     public static final String COLOUR_BLACK_TILE = "\"8 8 1 1\" \"b c black\" "
                                                    + "\"bbbbbbbb\" \"bbbbbbbb\" \"bbbbbbbb\" \"bbbbbbbb\" "
                                                    + "\"bbbbbbbb\" \"bbbbbbbb\" \"bbbbbbbb\" \"bbbbbbbb\"";
+    /** Constant <code>COLOUR_DEFAULT_PITCH_TILE="\"8 8 1 1\" \"  c None\" \"        \" \"{trunked}</code> */
     public static final String COLOUR_DEFAULT_PITCH_TILE = "\"8 8 1 1\" \"  c None\" "
                                                            + "\"        \" \"        \" \"        \" \"        \" "
                                                            + "\"        \" \"        \" \"        \" \"        \"";
+    /** Constant <code>COLOUR_RED_TILE="\"8 8 1 1\" \"r c red\" \"rrrrrrrr\" \""{trunked}</code> */
     public static final String COLOUR_RED_TILE = "\"8 8 1 1\" \"r c red\" "
                                                  + "\"rrrrrrrr\" \"rrrrrrrr\" \"rrrrrrrr\" \"rrrrrrrr\" "
                                                  + "\"rrrrrrrr\" \"rrrrrrrr\" \"rrrrrrrr\" \"rrrrrrrr\"";
+    /** Constant <code>COLOUR_WHITE_TILE="\"8 8 1 1\" \"w c white\" \"wwwwwwww\" "{trunked}</code> */
     public static final String COLOUR_WHITE_TILE = "\"8 8 1 1\" \"w c white\" "
                                                    + "\"wwwwwwww\" \"wwwwwwww\" \"wwwwwwww\" \"wwwwwwww\" "
                                                    + "\"wwwwwwww\" \"wwwwwwww\" \"wwwwwwww\" \"wwwwwwww\"";
@@ -47,6 +52,7 @@ public class XPMImage {
 
     /**
      * Gets a tile of the XPM Image.
+     *
      * @param x Between 0 and 31.
      * @param y Between 0 and 7.
      * @return An XPM image string defining an 8*8 image.
@@ -60,6 +66,7 @@ public class XPMImage {
 
     /**
      * Updates an 8*8 tile in the XPM Image.
+     *
      * @param x Between 0 and 31.
      * @param y Between 0 and 7.
      * @param tile An XPM image string defining an 8*8 image.
@@ -73,6 +80,7 @@ public class XPMImage {
 
     /**
      * Returns the XPM image height.
+     *
      * @return The XPM image height.
      */
     public int getXPMHeight() {
@@ -81,6 +89,7 @@ public class XPMImage {
 
     /**
      * Returns the XPM image width.
+     *
      * @return The XPM image width.
      */
     public int getXPMWidth() {
@@ -89,6 +98,7 @@ public class XPMImage {
 
     /**
      * Returns the tile width.
+     *
      * @return The tile width.
      */
     public int getTileWidth() {
@@ -97,6 +107,7 @@ public class XPMImage {
 
     /**
      * Returns the tile height.
+     *
      * @return The tile height.
      */
     public int getTileHeight() {
@@ -106,6 +117,7 @@ public class XPMImage {
     /**
      * Returns the array height as an array index.
      * Ie. Starting at 0 not 1.
+     *
      * @return The array height.
      */
     public int getArrayHeight() {
@@ -115,6 +127,7 @@ public class XPMImage {
     /**
      * Returns the array width as an array index.
      * Ie. Starting at 0 not 1.
+     *
      * @return The array width.
      */
     public int getArrayWidth() {

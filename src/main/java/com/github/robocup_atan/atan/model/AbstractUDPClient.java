@@ -15,6 +15,7 @@ import java.net.InetAddress;
 /**
  * This is the class used to connect each player/trainer/coach to the server within their
  * own threads.
+ *
  * @author Atan
  */
 public abstract class AbstractUDPClient extends Thread {
@@ -40,6 +41,7 @@ public abstract class AbstractUDPClient extends Thread {
      * Constructs an AbstractUDPClient object given only the port number.
      * This can be used for players, coaches or trainers.
      * Assumes localhost.
+     *
      * @param port Any valid port.
      */
     public AbstractUDPClient(int port) {
@@ -49,6 +51,7 @@ public abstract class AbstractUDPClient extends Thread {
     /**
      * Constructs an AbstractUDPClient object given the port number and hostname.
      * This can be used for players, coaches or trainers.
+     *
      * @param port Any valid port.
      * @param hostname Any valid hostname. (eg. 192.168.1.67 or RCSServerHost)
      */
@@ -60,6 +63,7 @@ public abstract class AbstractUDPClient extends Thread {
 
     /**
      * Checks to see if the thread is running.
+     *
      * @return True if the thread is running.
      */
     public boolean isRunning() {
@@ -74,6 +78,8 @@ public abstract class AbstractUDPClient extends Thread {
     }
 
     /**
+     * {@inheritDoc}
+     *
      * Runs the thread.
      * This will send commands to the server, and receive messages from it.
      */
@@ -124,8 +130,9 @@ public abstract class AbstractUDPClient extends Thread {
 
     /**
      * Sends a message to SServer.
+     *
      * @param message A valid SServer message.
-     * @throws IOException
+     * @throws java.io.IOException if any.
      */
     public void send(String message) throws IOException {
         buf.setString(message);
@@ -135,18 +142,22 @@ public abstract class AbstractUDPClient extends Thread {
 
     /**
      * Returns the init message for this client.
+     *
      * @return The init message.
      */
     public abstract String getInitMessage();
 
     /**
      * Received a message.
+     *
      * @param msg The message received.
-     * @throws IOException
+     * @throws java.io.IOException if any.
      */
     public abstract void received(String msg) throws IOException;
 
     /**
+     * {@inheritDoc}
+     *
      * Start the thread.
      */
     @Override
@@ -160,6 +171,7 @@ public abstract class AbstractUDPClient extends Thread {
 
     /**
      * Returns a string containing the connection details.
+     *
      * @return Connection details (eg. "Host: 192.168.1.67:6000").
      */
     public String toStateString() {
@@ -174,6 +186,7 @@ public abstract class AbstractUDPClient extends Thread {
 
     /**
      * Returns a description of this class.
+     *
      * @return A description of this class.
      */
     protected String getDescription() {
@@ -182,6 +195,7 @@ public abstract class AbstractUDPClient extends Thread {
 
     /**
      * Pause the thread.
+     *
      * @param ms How long to pause the thread for (in ms).
      */
     protected synchronized void pauseMilliseconds(int ms) {

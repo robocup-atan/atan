@@ -15,6 +15,7 @@ import java.io.StringReader;
 
 /**
  * A simple implementation of AbstractUDPClient for Coaches.
+ *
  * @author Atan
  */
 public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
@@ -31,8 +32,9 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
 
     /**
      * A part constructor for SServerCoach (assumes localhost:6002)
+     *
      * @param teamName The team name.
-     * @param o
+     * @param o a {@link com.github.robocup_atan.atan.model.ControllerCoach} object.
      */
     public SServerCoach(String teamName, ControllerCoach o) {
         this(teamName, o, COACH_PORT, "localhost");
@@ -40,8 +42,9 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
 
     /**
      * The full constructor for SServerCoach
+     *
      * @param teamName The teams name.
-     * @param con
+     * @param con a {@link com.github.robocup_atan.atan.model.ControllerCoach} object.
      * @param port The port to connect to.
      * @param hostname The host address.
      */
@@ -52,9 +55,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
         con.setCoach(this);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public String getInitMessage() {
         return initMessage;
@@ -71,17 +72,13 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
         super.setName(teamName + " Coach");
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void start() {
         throw new Error("Coach should not use start. Use connect() instead");
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void received(String msg) throws IOException {
         try {
@@ -103,89 +100,67 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
         }
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void eye(boolean eyeOn) {
         this.commandFactory.addEyeCommand(eyeOn);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void look() {
         this.commandFactory.addLookCommand();
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void getTeamNames() {
         this.commandFactory.addTeamNamesCommand();
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void changePlayerType(int unum, int playerType) {
         this.commandFactory.addChangePlayerTypeCommand(unum, playerType);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void say(String message) {
         this.commandFactory.addSayCommand(message);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void teamGraphic(XPMImage xpm) {
         this.commandFactory.addTeamGraphicCommand(xpm);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void bye() {
         this.commandFactory.addByeCommand();
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void handleError(String error) {
         log.error(error);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public boolean isTeamEast() {
         return isTeamEast;
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void setTeamEast(boolean is) {
         this.isTeamEast = is;
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public String getTeamName() {
         return teamName;

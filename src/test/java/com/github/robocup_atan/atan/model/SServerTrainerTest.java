@@ -16,33 +16,37 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
+ * <p>SServerTrainerTest class.</p>
  *
  * @author Atan
+ * @since 1.0
  */
 public class SServerTrainerTest {
     private SServerTrainerImpl testSSTrainer;
 
     /**
-     *
+     * <p>Constructor for SServerTrainerTest.</p>
      */
     public SServerTrainerTest() {}
 
     /**
+     * <p>setUpClass.</p>
      *
-     * @throws Exception
+     * @throws java.lang.Exception if any.
      */
     @BeforeClass
     public static void setUpClass() throws Exception {}
 
     /**
+     * <p>tearDownClass.</p>
      *
-     * @throws Exception
+     * @throws java.lang.Exception if any.
      */
     @AfterClass
     public static void tearDownClass() throws Exception {}
 
     /**
-     *
+     * <p>setUp.</p>
      */
     @Before
     public void setUp() {
@@ -50,7 +54,7 @@ public class SServerTrainerTest {
     }
 
     /**
-     *
+     * <p>tearDown.</p>
      */
     @After
     public void tearDown() {}
@@ -79,7 +83,8 @@ public class SServerTrainerTest {
 
     /**
      * Test of received method, of class SServerTrainer.
-     * @throws Exception
+     *
+     * @throws java.lang.Exception if any.
      */
     @Test
     public void testReceived() throws Exception {
