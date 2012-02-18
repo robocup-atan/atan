@@ -8,6 +8,7 @@ import com.github.robocup_atan.atan.model.ControllerTrainer;
 
 /**
  * The parser object for west players.
+ *
  * @author Atan
  */
 public class ObjNamePlayerWest implements ObjName {
@@ -16,6 +17,7 @@ public class ObjNamePlayerWest implements ObjName {
 
     /**
      * Constructor for west players.
+     *
      * @param number The players uniform number.
      * @param goalie Is this player a goalie?
      */
@@ -24,9 +26,7 @@ public class ObjNamePlayerWest implements ObjName {
         this.goalie = goalie;
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void infoSeeFromEast(ControllerPlayer c, double distance, double direction, double distChange,
                                 double dirChange, double bodyFacingDirection, double headFacingDirection) {
@@ -34,9 +34,7 @@ public class ObjNamePlayerWest implements ObjName {
                              headFacingDirection);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void infoSeeFromWest(ControllerPlayer c, double distance, double direction, double distChange,
                                 double dirChange, double bodyFacingDirection, double headFacingDirection) {
@@ -44,27 +42,21 @@ public class ObjNamePlayerWest implements ObjName {
                            headFacingDirection);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void infoSeeFromEast(ControllerCoach c, double x, double y, double deltaX, double deltaY, double bodyAngle,
                                 double neckAngle) {
         c.infoSeePlayerOther(number, goalie, x, y, deltaX, deltaY, bodyAngle, neckAngle);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void infoSeeFromWest(ControllerCoach c, double x, double y, double deltaX, double deltaY, double bodyAngle,
                                 double neckAngle) {
         c.infoSeePlayerOwn(number, goalie, x, y, deltaX, deltaY, bodyAngle, neckAngle);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void infoSee(ControllerTrainer c) {
 

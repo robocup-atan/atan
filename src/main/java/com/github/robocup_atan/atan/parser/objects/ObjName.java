@@ -9,12 +9,14 @@ import com.github.robocup_atan.atan.model.ControllerTrainer;
 /**
  * The interface for all objects on the pitch. This is used to translate
  * them so that they are relative to each team (ie. ourGoal, theirGoal)
+ *
  * @author Atan
  */
 public interface ObjName {
 
     /**
      * The object viewed from the east, in the eyes of the player.
+     *
      * @param c An instance of ControllerPlayer.
      * @param distance The distance of the object.
      * @param direction The direction of the object.
@@ -28,6 +30,7 @@ public interface ObjName {
 
     /**
      * The object viewed from the west, in the eyes of the player.
+     *
      * @param c An instance of ControllerPlayer.
      * @param distance The distance of the object.
      * @param direction The direction of the object.
@@ -41,6 +44,7 @@ public interface ObjName {
 
     /**
      * The object viewed from the east, in the eyes of the coach.
+     *
      * @param c An instance of ControllerCoach.
      * @param x The x coordinate of the object.
      * @param y The y coordinate of the object.
@@ -54,6 +58,7 @@ public interface ObjName {
 
     /**
      * The object viewed from the west, in the eyes of the coach.
+     *
      * @param c An instance of ControllerCoach.
      * @param x The x coordinate of the object.
      * @param y The y coordinate of the object.
@@ -67,6 +72,7 @@ public interface ObjName {
 
     /**
      * The object viewed in the eyes of the trainer.
+     *
      * @param c An instance of ControllerTrainer.
      */
     public void infoSee(ControllerTrainer c);

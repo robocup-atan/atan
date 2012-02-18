@@ -15,12 +15,14 @@ import java.util.HashMap;
 
 /**
  * Interface that has to be implemented in order to play the role of a Coach.
+ *
  * @author Atan
  */
 public interface ControllerCoach {
 
     /**
      * The controller is informed when one of its own players is seen.
+     *
      * @param number The players uniform number.
      * @param goalie Is the player a goalie?
      * @param x The players x coordinate.
@@ -35,6 +37,7 @@ public interface ControllerCoach {
 
     /**
      * The controller is informed when an opposing player is seen.
+     *
      * @param number The players uniform number.
      * @param goalie Is the player a goalie?
      * @param x The players x coordinate.
@@ -49,6 +52,7 @@ public interface ControllerCoach {
 
     /**
      * The controller is informed when its own goal is seen.
+     *
      * @param x The x coordinate of the center of the goal.
      * @param y The y coordinate of the center of the goal.
      */
@@ -56,6 +60,7 @@ public interface ControllerCoach {
 
     /**
      * The controller is informed when an opposing goal is seen.
+     *
      * @param x The x coordinate of the center of the goal.
      * @param y The y coordinate of the center of the goal.
      */
@@ -63,6 +68,7 @@ public interface ControllerCoach {
 
     /**
      * The controller is informed that the Ball is in sight.
+     *
      * @param x The x coordinate of the ball.
      * @param y The y coordinate of the ball.
      * @param deltaX The balls change in speed on the x plane.
@@ -73,6 +79,7 @@ public interface ControllerCoach {
     /**
      * The controller is informed of the connected teams names.
      * Empty string if no team connected.
+     *
      * @param teamWest The name of the west team.
      * @param teamEast The name of the east team.
      */
@@ -80,6 +87,7 @@ public interface ControllerCoach {
 
     /**
      * The observer is informed when a referee message is broadcast.
+     *
      * @param refereeMessage possible values: FOUL_OWN, FOUL_OTHER,
      * HALF_TIME, TIME_UP, TIME_UP_WITHOUT_A_TEAM,
      * TIME_EXTENDED, DROP_BALL, OFFSIDE_OWN, OFFSIDE_OTHER
@@ -88,6 +96,7 @@ public interface ControllerCoach {
 
     /**
      * The observer is informed when a play mode message is broadcast.
+     *
      * @param playMode possible values: BEFORE_KICK_OFF, TIME_OVER, PLAY_ON,
      * KICK_OFF_OWN, KICK_OFF_OTHER, FREE_KICK_OWN,
      * FREE_KICK_OTHER, GOAL_KICK_OWN, CORNER_KICK_OTHER,
@@ -97,6 +106,7 @@ public interface ControllerCoach {
 
     /**
      * The controller is informed when it hears a message from another player.
+     *
      * @param direction The direction from which the message originated.
      * @param message The actual message said.
      */
@@ -104,36 +114,40 @@ public interface ControllerCoach {
 
     /**
      * The coach is informed when it hears an error message.
+     *
      * @param error The error to handle
      */
     public void infoHearError(Errors error);
 
     /**
      * The coach is informed when it hears an OK message.
+     *
      * @param ok The message to handle.
      */
     public void infoHearOk(Ok ok);
 
     /**
      * The coach is informed when it hears a warning.
+     *
      * @param warning The warning to handle.
      */
     public void infoHearWarning(Warning warning);
 
     /**
      * The coach is informed when the player type message is received.
-     * @param id
-     * @param playerSpeedMax
-     * @param staminaIncMax
-     * @param playerDecay
-     * @param inertiaMoment
-     * @param dashPowerRate
-     * @param playerSize
-     * @param kickableMargin
-     * @param kickRand
-     * @param extraStamina
-     * @param effortMax
-     * @param effortMin
+     *
+     * @param id a int.
+     * @param playerSpeedMax a double.
+     * @param staminaIncMax a double.
+     * @param playerDecay a double.
+     * @param inertiaMoment a double.
+     * @param dashPowerRate a double.
+     * @param playerSize a double.
+     * @param kickableMargin a double.
+     * @param kickRand a double.
+     * @param extraStamina a double.
+     * @param effortMax a double.
+     * @param effortMin a double.
      */
     public void infoPlayerType(int id, double playerSpeedMax, double staminaIncMax, double playerDecay,
                                double inertiaMoment, double dashPowerRate, double playerSize, double kickableMargin,
@@ -141,6 +155,7 @@ public interface ControllerCoach {
 
     /**
      * The controller is informed when the change player type message is received.
+     *
      * @param unum The players uniform number.
      * @param type The players type.
      */
@@ -148,33 +163,35 @@ public interface ControllerCoach {
 
     /**
      * The controller is informed when the change player type message is received.
+     *
      * @param unum The players uniform number.
      */
     public void infoCPTOther(int unum);
 
     /**
      * The coach is informed when the player param message is received.
-     * @param allowMultDefaultType
-     * @param dashPowerRateDeltaMax
-     * @param dashPowerRateDeltaMin
-     * @param effortMaxDeltaFactor
-     * @param effortMinDeltaFactor
-     * @param extraStaminaDeltaMax
-     * @param extraStaminaDeltaMin
-     * @param inertiaMomentDeltaFactor
-     * @param kickRandDeltaFactor
-     * @param kickableMarginDeltaMax
-     * @param kickableMarginDeltaMin
-     * @param newDashPowerRateDeltaMax
-     * @param newDashPowerRateDeltaMin
-     * @param newStaminaIncMaxDeltaFactor
-     * @param playerDecayDeltaMax
-     * @param playerDecayDeltaMin
-     * @param playerTypes
-     * @param ptMax
-     * @param randomSeed
-     * @param staminaIncMaxDeltaFactor
-     * @param subsMax
+     *
+     * @param allowMultDefaultType a double.
+     * @param dashPowerRateDeltaMax a double.
+     * @param dashPowerRateDeltaMin a double.
+     * @param effortMaxDeltaFactor a double.
+     * @param effortMinDeltaFactor a double.
+     * @param extraStaminaDeltaMax a double.
+     * @param extraStaminaDeltaMin a double.
+     * @param inertiaMomentDeltaFactor a double.
+     * @param kickRandDeltaFactor a double.
+     * @param kickableMarginDeltaMax a double.
+     * @param kickableMarginDeltaMin a double.
+     * @param newDashPowerRateDeltaMax a double.
+     * @param newDashPowerRateDeltaMin a double.
+     * @param newStaminaIncMaxDeltaFactor a double.
+     * @param playerDecayDeltaMax a double.
+     * @param playerDecayDeltaMin a double.
+     * @param playerTypes a double.
+     * @param ptMax a double.
+     * @param randomSeed a double.
+     * @param staminaIncMaxDeltaFactor a double.
+     * @param subsMax a double.
      */
     public void infoPlayerParam(double allowMultDefaultType, double dashPowerRateDeltaMax,
                                 double dashPowerRateDeltaMin, double effortMaxDeltaFactor, double effortMinDeltaFactor,
@@ -188,18 +205,21 @@ public interface ControllerCoach {
 
     /**
      * The controller is informed when the server param message is received.
+     *
      * @param info A hashmap containing all the server param details.
      */
     public void infoServerParam(HashMap<ServerParams, Object> info);
 
     /**
      * Sets the coach that the controller is controlling.
+     *
      * @param c The ActionsCoach to control.
      */
     public void setCoach(ActionsCoach c);
 
     /**
      * Returns the current instance of ActionsCoach.
+     *
      * @return ActionsCoach The ActionsCoach controlled.
      */
     public ActionsCoach getCoach();

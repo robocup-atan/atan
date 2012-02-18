@@ -10,6 +10,7 @@ import java.util.Properties;
 
 /**
  * An abstract class to use for teams.
+ *
  * @author Atan
  */
 public abstract class AbstractTeam {
@@ -27,6 +28,7 @@ public abstract class AbstractTeam {
     /**
      * Connect the team to the server using the default player settings.
      * No coach.
+     *
      * @param teamName The name of the team to connect.
      */
     public AbstractTeam(String teamName) {
@@ -36,6 +38,7 @@ public abstract class AbstractTeam {
     /**
      * Connect the team to the server using specified player settings.
      * Uses default coach port.
+     *
      * @param teamName The name of the team to connect.
      * @param port The port for players to connect to.
      * @param hostname The hostname to connect to.
@@ -48,6 +51,7 @@ public abstract class AbstractTeam {
     /**
      * Connect the team to the server using specified player settings.
      * Uses default coach port.
+     *
      * @param teamName The name of the team to connect.
      * @param port The port for players to connect to.
      * @param hostname The hostname to connect to.
@@ -76,6 +80,7 @@ public abstract class AbstractTeam {
 
     /**
      * Returns the team name.
+     *
      * @return Team name.
      */
     public String getTeamName() {
@@ -84,6 +89,7 @@ public abstract class AbstractTeam {
 
     /**
      * Returns the additional properties.
+     *
      * @return Your properties. Or a blank Properties if none specified in the Constructor.
      */
     public Properties getProperties() {
@@ -92,6 +98,7 @@ public abstract class AbstractTeam {
 
     /**
      * Gets a new ControllerPlayer.
+     *
      * @param i The number of the player.
      * @return A ControllerPlayer implementation.
      */
@@ -99,6 +106,7 @@ public abstract class AbstractTeam {
 
     /**
      * Gets a new ControllerCoach.
+     *
      * @return A ControllerCoach implementation.
      */
     public abstract ControllerCoach getNewControllerCoach();
@@ -179,6 +187,7 @@ public abstract class AbstractTeam {
     /**
      * Connect the selected player to the server.
      * The player with index 0 is always the goalie.
+     *
      * @param index The number of the player to connect.
      */
     public void connect(int index) {
@@ -196,6 +205,7 @@ public abstract class AbstractTeam {
 
     /**
      * Returns the size of the team.
+     *
      * @return The size of the team.
      */
     public int size() {

@@ -2,6 +2,7 @@ package com.github.robocup_atan.atan.model.enums;
 
 /**
  * An enum for PlayMode
+ *
  * @author Atan
  */
 public enum PlayMode {

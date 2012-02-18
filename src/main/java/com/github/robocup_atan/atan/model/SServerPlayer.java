@@ -17,7 +17,9 @@ import java.io.IOException;
 import java.io.StringReader;
 
 /**
- * @inheritDoc
+ * A simple implementation of AbstractUDPClient for Players.
+ *
+ * @author Atan
  */
 public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     private static final int     PLAYER_PORT    = 6000;
@@ -34,6 +36,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
 
     /**
      * A part constructor for SServerPlayer (assumes localhost:6000)
+     *
      * @param teamName The team name.
      * @param c The controller for the player.
      */
@@ -43,6 +46,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
 
     /**
      * The full constructor for SServerPlayer.
+     *
      * @param teamName The teams name.
      * @param c The controller for the player.
      * @param port The port to connect to.
@@ -55,9 +59,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         c.setPlayer(this);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public String getInitMessage() {
         return initMessage;
@@ -65,8 +67,9 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
 
     /**
      * Connects to the server via AbstractUDPClient.
-     * @param version
-     * @param isGoalie
+     *
+     * @param version a {@link java.lang.String} object.
+     * @param isGoalie a boolean.
      */
     public void connect(String version, boolean isGoalie) {
         CommandFactory f = new CommandFactory();
@@ -75,17 +78,13 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         super.start();
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void start() {
         throw new Error("SServerPlayer should not use start. Use connect() instead");
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void received(String msg) throws IOException {
         try {
@@ -107,112 +106,84 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         }
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void setTeamEast(boolean is) {
         this.isTeamEast = is;
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void dash(int power) {
         this.commandFactory.addDashCommand(power);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void kick(int power, double direction) {
         this.commandFactory.addKickCommand(power, (int) direction);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void move(int x, int y) {
         this.commandFactory.addMoveCommand(x, y);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void say(String message) {
         this.commandFactory.addSayCommand(message);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void turn(double angle) {
         this.commandFactory.addTurnCommand((int) angle);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void turnNeck(double angle) {}
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void catchBall(double direction) {
         this.commandFactory.addCatchCommand((int) direction);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void changeViewMode(ViewQuality quality, ViewAngle angle) {
         this.commandFactory.addChangeViewCommand(angle, quality);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void bye() {
         this.commandFactory.addByeCommand();
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public String getTeamName() {
         return teamName;
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void setNumber(int num) {
         number = num;
         super.setName(teamName + " Player # " + getNumber());
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public int getNumber() {
         return number;
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public boolean isTeamEast() {
         return isTeamEast;
@@ -220,6 +191,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
 
     /**
      * Create a list string.
+     *
      * @return A list string.
      */
     public String toListString() {
@@ -228,9 +200,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         return buf.toString();
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public String toStateString() {
         StringBuffer buf = new StringBuffer();
@@ -250,17 +220,13 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
         return buf.toString();
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void handleError(String error) {
         log.error(error);
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     protected String getDescription() {
         StringBuffer nam = new StringBuffer(getTeamName());

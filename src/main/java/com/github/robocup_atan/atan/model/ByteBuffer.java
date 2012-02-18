@@ -11,6 +11,7 @@ import java.io.StringWriter;
 
 /**
  * A byte buffer class.
+ *
  * @author Atan
  */
 public class ByteBuffer extends ByteArrayOutputStream {
@@ -18,7 +19,8 @@ public class ByteBuffer extends ByteArrayOutputStream {
     /**
      * The constructor for ByteBuffer, specifying the size,
      * in bytes, of the byteBuffer.
-     * @param size
+     *
+     * @param size a int.
      */
     public ByteBuffer(int size) {
         super(size);
@@ -26,6 +28,7 @@ public class ByteBuffer extends ByteArrayOutputStream {
 
     /**
      * Returns the byte array.
+     *
      * @return A byte array.
      */
     public byte[] getByteArray() {
@@ -34,8 +37,9 @@ public class ByteBuffer extends ByteArrayOutputStream {
 
     /**
      * Sets the buffer contents.
+     *
      * @param str The string to set.
-     * @throws IOException
+     * @throws java.io.IOException if any.
      */
     public void setString(String str) throws IOException {
         Reader r = new StringReader(str);
@@ -48,8 +52,9 @@ public class ByteBuffer extends ByteArrayOutputStream {
 
     /**
      * Gets the buffer contents.
+     *
      * @return The string in the buffer.
-     * @throws IOException
+     * @throws java.io.IOException if any.
      */
     public String getString() throws IOException {
         ByteArrayInputStream in = new ByteArrayInputStream(buf);
@@ -63,15 +68,14 @@ public class ByteBuffer extends ByteArrayOutputStream {
 
     /**
      * Returns the length of the byte buffer.
+     *
      * @return The length of the byte buffer.
      */
     public int length() {
         return buf.length;
     }
 
-    /**
-     * @inheritDoc
-     */
+    /** {@inheritDoc} */
     @Override
     public void reset() {
         super.reset();
