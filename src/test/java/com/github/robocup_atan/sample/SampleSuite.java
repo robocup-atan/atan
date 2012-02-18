@@ -1,3 +1,5 @@
+package com.github.robocup_atan.sample;
+
 //~--- non-JDK imports --------------------------------------------------------
 
 import org.junit.After;
@@ -8,15 +10,15 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 /**
- * A test suite to run all tests.
+ *
  * @author Atan
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses( {
-    com.github.robocup_atan.atan.model.ModelSuite.class, com.github.robocup_atan.atan.model.enums.EnumsSuite.class, com.github.robocup_atan.atan.parser.ParserSuite.class,
-    com.github.robocup_atan.atan.parser.objects.ObjectsSuite.class, com.github.robocup_atan.sample.SampleSuite.class
+    com.github.robocup_atan.sample.SimpleTest.class, com.github.robocup_atan.sample.CoachTest.class, com.github.robocup_atan.sample.Simple2RunTest.class, com.github.robocup_atan.sample.SillyTest.class,
+    com.github.robocup_atan.sample.Simple1RunTest.class, com.github.robocup_atan.sample.SimplySillyTeamTest.class
 })
-public class FullTestSuite {
+public class SampleSuite {
 
     /**
      *
