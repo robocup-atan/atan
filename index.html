@@ -1,102 +1,108 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-  <meta charset='utf-8'>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>robocup-atan/atan @ GitHub</title>
+	<title></title>
+	<meta name="description" content="">
+	<meta name="author" content="">
 
-  <style type="text/css">
-    body {
-      margin-top: 1.0em;
-      background-color: #5e64aa;
-      font-family: Helvetica, Arial, FreeSans, san-serif;
-      color: #ffffff;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-    h1 { font-size: 3.8em; color: #a19b55; margin-bottom: 3px; }
-    h1 .small { font-size: 0.4em; }
-    h1 a { text-decoration: none }
-    h2 { font-size: 1.5em; color: #a19b55; }
-    h3 { text-align: center; color: #a19b55; }
-    a { color: #a19b55; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-    pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-  </style>
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet/less" href="less/style.less">
+	<script src="js/libs/less-1.2.1.min.js"></script>
+	
+	<!-- Use SimpLESS (Win/Linux/Mac) or LESS.app (Mac) to compile your .less files
+	to style.css, and replace the 2 lines above by this one:
+
+	<link rel="stylesheet/less" href="less/style.css">
+	 -->
+
+	<script src="js/libs/modernizr-2.5.2-respond-1.1.0.min.js"></script>
 </head>
-
 <body>
-  <a href="https://github.com/robocup-atan/atan"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 
-  <div id="container">
-
-    <div class="download">
-      <a href="https://github.com/robocup-atan/atan/zipball/master">
-        <img border="0" width="90" src="https://github.com/images/modules/download/zip.png"></a>
-      <a href="https://github.com/robocup-atan/atan/tarball/master">
-        <img border="0" width="90" src="https://github.com/images/modules/download/tar.png"></a>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="./index.html">Atan</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active">
+              	<a href="./index.html">Home</a>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
     </div>
 
-    <h1><a href="https://github.com/robocup-atan/atan">atan</a>
-      <span class="small">by <a href="https://github.com/robocup-atan">robocup-atan</a></span></h1>
+    <div class="container">
 
-    <div class="description">
-      Robocup 2D Soccer Server Java Interface 
-    </div>
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>Atan</h1>
+        <p>Atan is an interface to the 2D Soccer Server of Robocup's simulation league. It should allow you (and allowed me) to concentrate on the job of controlling your clients without worrying about all the behind the scenes stuff between SServer and the clients.</p>
+        <p class="download-info">
+      		<a href="https://github.com/robocup-atan/atan/" class="btn btn-primary btn-large">View project on GitHub</a>
+    	</p>
+        <iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=robocup-atan&repo=atan&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="112px" height="20px"></iframe>
+		<iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=robocup-atan&repo=atan&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
+      </div>
+      
+      <div class="marketing">
+          <div class="row">
+            <div class="span3">
+              <h3>Want to program a RoboCup client in Java?</h3>
+              <p>Atan is an easy to use Java library designed to get you started with your first Robocup team.</p>
+            </div>
+            <div class="span3">
+              <h3>UDP connection management scares you?</h3>
+              <p>Atan sorts all this out for you! Connecting to the RoboCup SServer couldn't be easier.</p>
+            </div>
+            <div class="span3">
+              <h3>Want clear information from SServer?</h3>
+              <p>Atan uses JavaCC to parse all the information from the RoboCup SServer and turn this into something easy to understand.</p>
+            </div>
+            <div class="span3">
+              <h3>Don't want to worry about the SServer API?</h3>
+              <p>Atan provides you with a way to access the RoboCup SServer API using simple method calls.</p>
+            </div>
+          </div><!--/row-->
+      </div><!--/marketing-->
 
+      <hr>
+
+      <footer>
+        <p>&copy; Atan 2012</p>
+        <p>Atan is free software released under the MIT License.</p>
+      </footer>
+
+    </div> <!-- /container -->
     
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
 
-    
-      <h2>Dependencies</h2>
-      <p>JDK 1.6
-RoboCup 2D Soccer Server v13 or higher
-JavaCC</p>
-    
+<script src="js/libs/bootstrap/transition.js"></script>
+<script src="js/libs/bootstrap/collapse.js"></script>
 
-    
-
-    
-
-    
-      <h2>Authors</h2>
-      <p>Nick James<br/>Wolfgang Wagner</p>
-    
-
-    
-      <h2>Contact</h2>
-      <p>Atan (verbitan+robocup-atan@gmail.com)<br/>      </p>
-    
-
-    <h2>Download</h2>
-    <p>
-      You can download this project in either
-      <a href="https://github.com/robocup-atan/atan/zipball/master">zip</a> or
-      <a href="https://github.com/robocup-atan/atan/tarball/master">tar formats.
-    </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/robocup-atan/atan</pre>
-    </p>
-
-    <div class="footer">
-      get the source code on GitHub : <a href="https://github.com/robocup-atan/atan">robocup-atan/atan</a>
-    </div>
-
-  </div>
-
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+<script src="js/script.js"></script>
+<script>
+	var _gaq=[['_setAccount','UA-29303561-1'],['_trackPageview']];
+	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+	s.parentNode.insertBefore(g,s)}(document,'script'));
 </script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-29303561-1");
-pageTracker._trackPageview();
-} catch(err) {}</script>"
+
 </body>
 </html>
