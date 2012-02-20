@@ -1,0 +1,156 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Atan - Details</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet/less" href="less/style.less">
+	<script src="js/libs/less-1.2.1.min.js"></script>
+
+	<script src="js/libs/modernizr-2.5.2-respond-1.1.0.min.js"></script>
+</head>
+<body>
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="./index.html">Atan</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="">
+              	<a href="./index.html">Home</a>
+              </li>
+              <li class="active">
+              	<a href="./details.html">Details</a>
+              </li>
+              <li class="">
+              	<a href="javadoc.html">JavaDoc</a>
+              </li>
+              <li class="">
+              	<a href="developers.html">Developers</a>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class=hero-unit>
+        <h1>Details</h1>
+        <p>A basic explanation of atan, and how it relates to the RoboCup 2D SServer.</p>
+      </div>
+      
+      <div class=content>
+      
+        <!-- SServer overview -->
+        <div class=page-header>
+          <h1>RoboCup 2D Soccer Server Overview</h1>
+        </div>
+        <div class=row>
+          <div class=span2>
+            <ul class="thumbnails">
+              <li class="span2">
+                <a href="img/atan/environment.png" class="thumbnail">
+                  <img src="img/atan/thumbs/environment.png">
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class=span10>
+            <p>To understand Atan it is necessary that you understand the basics of the Soccer Server first. The following picture gives you a rough overview of the SServer and some of the objects it uses.</p>
+          </div>
+        </div>
+        <div class=row>
+          <div class=span2>
+            <ul class="thumbnails">
+              <li class="span2">
+                <a href="img/atan/client.png" class="thumbnail">
+                  <img src="img/atan/thumbs/client.png">
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class=span10>
+            <p>SServer players communicate via a UDP-Connection with external programs that control the player, dictating how the player performs. These external programs communicate with SServer using interface strings, which are described in the SServer manual (avaliable <a href="http://sourceforge.net/projects/sserver/files/">here</a>).</p>
+          </div>
+        </div>
+        <!-- /SServer overview -->
+        
+        <!-- Atan overview -->
+        <div class=page-header>
+          <h1>Atan Overview</h1>
+        </div>
+        <div class=row>
+          <div class=span2>
+            <ul class="thumbnails">
+              <li class="span2">
+                <a href="img/atan/components.png" class="thumbnail">
+                  <img src="img/atan/thumbs/components.png">
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class=span10>
+            <p>Atan is a Java package that helps you to write such external programs, by interfacing with SServer for you. You dont have to worry about how to establish a UDP connection, how command strings can be parsed to get information from SServer, and how to generate command strings in order to control the corresponding player. You don't even have to worry about which side of the pitch you are currently playing on, Atan handles all this for you by translating SServer messages to be relative to your own side. That means you dont see a left or right goal (as per SServer output) but rather you see an own or an other goal. You dont see top or bottom flags but left or right flags, all depending on what side you are currently playing. </p>
+          </div>
+        </div>
+        <div class=row>
+          <div class=span2>
+            <ul class="thumbnails">
+              <li class="span2">
+                <a href="img/atan/pitch.png" class="thumbnail">
+                  <img src="img/atan/thumbs/pitch.png">
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class=span10>
+            <p>In order to use Atan, all you have to do is to implement the <a href="javadoc/atan/model/Controller.html">atan.model.Controller</a> interface, which provides you with all the information your players need, and use the <a href="javadoc/atan/model/Player.html">atan.model.Player</a> interface in order to control your players. The idea here, is that your controller will receive information via the methods defined in the Controller interface (infoSeeFlag() etc etc), decide how to act on that information, and then use the Player interface to inform SServer how they wish to act.</p>
+          </div>
+        </div>
+        <!-- /Atan overview -->
+        
+      </div> <!-- /content -->
+
+      <hr>
+
+      <footer>
+        <p>&copy; Atan 2012</p>
+        <p>Atan is free software released under the MIT License.</p>
+      </footer>
+
+    </div> <!-- /container -->
+    
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+
+<script src="js/libs/bootstrap/transition.js"></script>
+<script src="js/libs/bootstrap/collapse.js"></script>
+
+<script src="js/script.js"></script>
+<script>
+	var _gaq=[['_setAccount','UA-29303561-1'],['_trackPageview']];
+	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+	s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>
