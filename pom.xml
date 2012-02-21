@@ -103,14 +103,14 @@
                 <version>2.6</version>
                 <executions>
                     <execution>
-                    <id>javacc</id>
-                    <goals>
-                        <goal>javacc</goal>
-                    </goals>
-                    <configuration>
-                        <lookAhead>2</lookAhead>
-                        <isStatic>false</isStatic>
-                    </configuration>
+                        <id>javacc</id>
+                        <goals>
+                            <goal>javacc</goal>
+                        </goals>
+                        <configuration>
+                            <lookAhead>2</lookAhead>
+                            <isStatic>false</isStatic>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
