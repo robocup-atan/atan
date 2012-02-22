@@ -6,7 +6,10 @@ import com.github.robocup_atan.atan.parser.Filter;
 import java.io.StringReader;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestWatcher;
+import org.junit.runner.Description;
 
 /**
  * Test class for parsing the player init command.
@@ -14,7 +17,7 @@ import org.junit.Test;
  * @author Atan
  */
 public class PlayerInitCommandTest {
-    
+
     // Global test variables.
     CmdParserPlayer parser;
     TestFilter commandFilter;
@@ -47,14 +50,14 @@ public class PlayerInitCommandTest {
         setExpected(true, 1, PlayMode.BEFORE_KICK_OFF);
         runTest();
     }
-    
+
     @Test
     public void timeOverEastPlayer1() {
         setCommand("(init l 1 time_over)");
         setExpected(false, 1, PlayMode.TIME_OVER);
         runTest();
     }
-    
+
     @Test
     public void timeOverWestPlayer1() {
         setCommand("(init r 1 time_over)");
@@ -113,4 +116,24 @@ public class PlayerInitCommandTest {
             Assert.assertEquals(expectedPlayerNumber, num);
         }
     }
+    
+    // Test logging
+    @Rule
+    public TestWatcher watchman = new TestWatcher() {
+
+        @Override
+        protected void succeeded(Description description) {
+            System.out.print("Passed - ");
+        }
+        
+        @Override
+        protected void failed(Throwable e, Description description) {
+            System.out.print("FAILED - ");
+        }
+        
+        @Override
+        protected void finished(Description description) {
+            System.out.println(description.getMethodName());
+        }
+    };
 }
