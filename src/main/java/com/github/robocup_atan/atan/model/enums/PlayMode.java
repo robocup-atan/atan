@@ -92,8 +92,6 @@ public enum PlayMode {
      */
     GOAL_OTHER,
 
-    // <editor-fold defaultstate="collapsed" desc="Raw data for trainer/coach">
-
     /**
      * Kick off for the left team.
      */
@@ -163,6 +161,4 @@ public enum PlayMode {
      * Left team scored.
      */
     GOAL_L;
-
-    // </editor-fold>
 }
