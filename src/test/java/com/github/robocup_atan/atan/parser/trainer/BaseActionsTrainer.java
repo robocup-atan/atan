@@ -1,20 +1,40 @@
-package com.github.robocup_atan.atan.parser.player;
+package com.github.robocup_atan.atan.parser.trainer;
 
 import com.github.robocup_atan.atan.model.ActionsPlayer;
-import com.github.robocup_atan.atan.model.enums.ViewAngle;
-import com.github.robocup_atan.atan.model.enums.ViewQuality;
+import com.github.robocup_atan.atan.model.ActionsTrainer;
+import com.github.robocup_atan.atan.model.enums.PlayMode;
 
-public class BaseActionsPlayer implements ActionsPlayer {
+public class BaseActionsTrainer implements ActionsTrainer {
 
-    public void dash(int power) {
+    public void changePlayMode(PlayMode playMode) {
         throw new UnsupportedOperationException("Not supported in this test.");
     }
 
-    public void move(int x, int y) {
+    public void movePlayer(ActionsPlayer p, double x, double y) {
         throw new UnsupportedOperationException("Not supported in this test.");
     }
 
-    public void kick(int power, double direction) {
+    public void moveBall(double x, double y) {
+        throw new UnsupportedOperationException("Not supported in this test.");
+    }
+
+    public void checkBall() {
+        throw new UnsupportedOperationException("Not supported in this test.");
+    }
+
+    public void startGame() {
+        throw new UnsupportedOperationException("Not supported in this test.");
+    }
+
+    public void recover() {
+        throw new UnsupportedOperationException("Not supported in this test.");
+    }
+
+    public void eye(boolean eyeOn) {
+        throw new UnsupportedOperationException("Not supported in this test.");
+    }
+
+    public void ear(boolean earOn) {
         throw new UnsupportedOperationException("Not supported in this test.");
     }
 
@@ -22,19 +42,15 @@ public class BaseActionsPlayer implements ActionsPlayer {
         throw new UnsupportedOperationException("Not supported in this test.");
     }
 
-    public void turn(double angle) {
+    public void changePlayerType(String teamName, int unum, int playerType) {
         throw new UnsupportedOperationException("Not supported in this test.");
     }
 
-    public void turnNeck(double angle) {
+    public void look() {
         throw new UnsupportedOperationException("Not supported in this test.");
     }
 
-    public void catchBall(double direction) {
-        throw new UnsupportedOperationException("Not supported in this test.");
-    }
-
-    public void changeViewMode(ViewQuality quality, ViewAngle angle) {
+    public void teamNames() {
         throw new UnsupportedOperationException("Not supported in this test.");
     }
 
@@ -43,26 +59,6 @@ public class BaseActionsPlayer implements ActionsPlayer {
     }
 
     public void handleError(String error) {
-        throw new UnsupportedOperationException("Not supported in this test.");
-    }
-
-    public String getTeamName() {
-        throw new UnsupportedOperationException("Not supported in this test.");
-    }
-
-    public boolean isTeamEast() {
-        throw new UnsupportedOperationException("Not supported in this test.");
-    }
-
-    public void setTeamEast(boolean is) {
-        throw new UnsupportedOperationException("Not supported in this test.");
-    }
-
-    public void setNumber(int num) {
-        throw new UnsupportedOperationException("Not supported in this test.");
-    }
-
-    public int getNumber() {
         throw new UnsupportedOperationException("Not supported in this test.");
     }
 }
