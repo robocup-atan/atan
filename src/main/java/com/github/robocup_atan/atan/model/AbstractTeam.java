@@ -2,11 +2,8 @@ package com.github.robocup_atan.atan.model;
 
 //~--- non-JDK imports --------------------------------------------------------
 
-import org.apache.log4j.Logger;
-
-//~--- JDK imports ------------------------------------------------------------
-
 import java.util.Properties;
+import org.apache.log4j.Logger;
 
 /**
  * An abstract class to use for teams.
@@ -164,10 +161,10 @@ public abstract class AbstractTeam {
     public void connectAll() {
         for (int i = 0; i < size(); i++) {
             if (i == 0) {
-                players[i].connect("", true);
+                players[i].connect(true);
             } else if (i >= 1) {
                 try {
-                    players[i].connect("", false);
+                    players[i].connect(false);
                 } catch (Exception ex) {
                     players[i].handleError(ex.getMessage());
                 }
@@ -193,9 +190,9 @@ public abstract class AbstractTeam {
     public void connect(int index) {
         try {
             if (index == 0) {
-                players[index].connect("", true);
+                players[index].connect(true);
             } else {
-                players[index].connect("", false);
+                players[index].connect(false);
             }
         } catch (Exception ex) {
             players[index].handleError(ex.getMessage());

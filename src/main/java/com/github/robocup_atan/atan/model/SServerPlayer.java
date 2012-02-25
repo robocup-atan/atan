@@ -68,12 +68,11 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     /**
      * Connects to the server via AbstractUDPClient.
      *
-     * @param version a {@link java.lang.String} object.
      * @param isGoalie a boolean.
      */
-    public void connect(String version, boolean isGoalie) {
+    public void connect(boolean isGoalie) {
         CommandFactory f = new CommandFactory();
-        f.addPlayerInitCommand(teamName, isGoalie, version);
+        f.addPlayerInitCommand(teamName, isGoalie);
         initMessage = f.next();
         super.start();
     }
