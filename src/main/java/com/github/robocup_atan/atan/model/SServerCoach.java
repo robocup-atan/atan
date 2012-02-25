@@ -66,7 +66,7 @@ public class SServerCoach extends AbstractUDPClient implements ActionsCoach {
      */
     public void connect() {
         CommandFactory f = new CommandFactory();
-        f.addCoachInitCommand(teamName, "");
+        f.addCoachInitCommand(teamName);
         initMessage = f.next();
         super.start();
         super.setName(teamName + " Coach");

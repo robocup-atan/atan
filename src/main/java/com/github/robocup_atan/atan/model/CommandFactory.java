@@ -5,9 +5,6 @@ package com.github.robocup_atan.atan.model;
 import com.github.robocup_atan.atan.model.enums.PlayMode;
 import com.github.robocup_atan.atan.model.enums.ViewAngle;
 import com.github.robocup_atan.atan.model.enums.ViewQuality;
-
-//~--- JDK imports ------------------------------------------------------------
-
 import java.util.List;
 import java.util.Vector;
 
@@ -22,8 +19,7 @@ public class CommandFactory {
 
     // The SServer version that Atan can parse.
     private static final String serverVersion = "13";
-    @SuppressWarnings("rawtypes")
-	private List                fifo          = new Vector();
+    private List                fifo          = new Vector();
 
     /**
      * Constructs a blank command factory.
@@ -35,48 +31,29 @@ public class CommandFactory {
      *
      * @param teamName The team the player belongs to.
      * @param isGoalie If the player is a goalie. Note: Only one goalie per team.
-     * @param version The version of the server expected.
      */
-    @SuppressWarnings("unchecked")
-    public void addPlayerInitCommand(String teamName, boolean isGoalie, String version) {
-        StringBuffer buf = new StringBuffer();
+    public void addPlayerInitCommand(String teamName, boolean isGoalie) {
+        StringBuilder buf = new StringBuilder();
         buf.append("(init ");
         buf.append(teamName);
         buf.append(" (version ");
         if (isGoalie) {
-            if ("".equals(version)) {
-                buf.append(serverVersion);
-                buf.append(") (goalie))");
-            } else {
-                buf.append(version);
-                buf.append(") (goalie))");
-            }
+            buf.append(serverVersion);
+            buf.append(") (goalie))");
         } else {
-            if ("".equals(version)) {
-                buf.append(serverVersion);
-                buf.append("))");
-            } else {
-                buf.append(version);
-                buf.append("))");
-            }
+            buf.append(serverVersion);
+            buf.append("))");
         }
         fifo.add(fifo.size(), buf.toString());
     }
 
     /**
      * This is used to initialise a trainer.
-     *
-     * @param version The version of the server expected.
      */
-    @SuppressWarnings("unchecked")
-    public void addTrainerInitCommand(String version) {
-        StringBuffer buf = new StringBuffer();
+    public void addTrainerInitCommand() {
+        StringBuilder buf = new StringBuilder();
         buf.append("(init (version ");
-        if ("".equals(version)) {
-            buf.append(serverVersion);
-        } else {
-            buf.append(version);
-        }
+        buf.append(serverVersion);
         buf.append("))");
         fifo.add(fifo.size(), buf.toString());
     }
@@ -85,19 +62,13 @@ public class CommandFactory {
      * This is used to initialise the online coach.
      *
      * @param teamName The team the coach belongs to.
-     * @param version The version of the server expected.
      */
-    @SuppressWarnings("unchecked")
-    public void addCoachInitCommand(String teamName, String version) {
-        StringBuffer buf = new StringBuffer();
+    public void addCoachInitCommand(String teamName) {
+        StringBuilder buf = new StringBuilder();
         buf.append("(init ");
         buf.append(teamName);
         buf.append(" (version ");
-        if ("".equals(version)) {
-            buf.append(serverVersion);
-        } else {
-            buf.append(version);
-        }
+        buf.append(serverVersion);
         buf.append("))");
         fifo.add(fifo.size(), buf.toString());
     }
@@ -108,9 +79,8 @@ public class CommandFactory {
      * @param teamName a {@link java.lang.String} object.
      * @param num a int.
      */
-    @SuppressWarnings("unchecked")
     public void addReconnectCommand(String teamName, int num) {
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         buf.append("(reconnect ");
         buf.append(teamName);
         buf.append(' ');
@@ -126,9 +96,8 @@ public class CommandFactory {
      *
      * @param direction The direction in which to catch, relative to its body.
      */
-    @SuppressWarnings("unchecked")
     public void addCatchCommand(int direction) {
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         buf.append("(catch ");
         buf.append(direction);
         buf.append(')');
@@ -146,9 +115,8 @@ public class CommandFactory {
      * @param angle Between NARROW, NORMAL or WIDE.
      * @param quality Between HIGH or LOW.
      */
-    @SuppressWarnings("unchecked")
     public void addChangeViewCommand(ViewAngle angle, ViewQuality quality) {
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         buf.append("(change_view ");
         switch (angle) {
             case NARROW :
@@ -190,9 +158,8 @@ public class CommandFactory {
      *
      * @param power Power is between minpower (-100) and maxpower (+100).
      */
-    @SuppressWarnings("unchecked")
     public void addDashCommand(int power) {
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         buf.append("(dash ");
         buf.append(power);
         buf.append(')');
@@ -205,9 +172,8 @@ public class CommandFactory {
      * @param power Power is between minpower (-100) and maxpower (+100).
      * @param direction Direction is relative to the body of the player.
      */
-    @SuppressWarnings("unchecked")
     public void addKickCommand(int power, int direction) {
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         buf.append("(kick ");
         buf.append(power);
         buf.append(' ');
@@ -222,9 +188,8 @@ public class CommandFactory {
      * @param x X location (between -54 and +54).
      * @param y Y location (between -32 and +32).
      */
-    @SuppressWarnings("unchecked")
     public void addMoveCommand(int x, int y) {
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         buf.append("(move ");
         buf.append(x);
         buf.append(' ');
@@ -239,9 +204,8 @@ public class CommandFactory {
      *
      * @param angle Angle to turn (between -180 and +180).
      */
-    @SuppressWarnings("unchecked")
     public void addTurnCommand(int angle) {
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         buf.append("(turn ");
         buf.append(angle);
         buf.append(')');
@@ -255,9 +219,8 @@ public class CommandFactory {
      *
      * @param angle Angle to turn the neck (between minneckang and maxneckang) (-90 to +90)
      */
-    @SuppressWarnings("unchecked")
     public void addTurnNeckCommand(int angle) {
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         buf.append("(turn_neck ");
         buf.append(angle);
         buf.append(')');
@@ -271,9 +234,8 @@ public class CommandFactory {
      *
      * @param message A valid String to say.
      */
-    @SuppressWarnings("unchecked")
     public void addSayCommand(String message) {
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         buf.append("(say ");
         buf.append(message);
         buf.append(')');
@@ -286,9 +248,8 @@ public class CommandFactory {
      *
      * @param playMode a {@link com.github.robocup_atan.atan.model.enums.PlayMode} object.
      */
-    @SuppressWarnings("unchecked")
     public void addChangePlayModeCommand(PlayMode playMode) {
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         buf.append("(change_mode ");
         buf.append(playMode);
         buf.append(')');
@@ -326,9 +287,8 @@ public class CommandFactory {
      * @param x The x coordinate to move to.
      * @param y The y coordinate to move to.
      */
-    @SuppressWarnings("unchecked")
     public void addMoveBallCommand(double x, double y) {
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         buf.append("(move ");
         buf.append("ball");    // TODO Manual says the format...will implement this later.
         buf.append(' ');
@@ -343,9 +303,8 @@ public class CommandFactory {
      * Trainer only command.
      * Checks the current status of the ball.
      */
-    @SuppressWarnings("unchecked")
     public void addCheckBallCommand() {
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         buf.append("(check_ball)");
         fifo.add(fifo.size(), buf.toString());
     }
@@ -354,9 +313,8 @@ public class CommandFactory {
      * Trainer only command.
      * Starts the server.
      */
-    @SuppressWarnings("unchecked")
     public void addStartCommand() {
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         buf.append("(start)");
         fifo.add(fifo.size(), buf.toString());
     }
@@ -365,9 +323,8 @@ public class CommandFactory {
      * Trainer only command.
      * Recovers the players stamina, recovery, effort and hear capacity to the values at the beginning of the game.
      */
-    @SuppressWarnings("unchecked")
     public void addRecoverCommand() {
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         buf.append("(recover)");
         fifo.add(fifo.size(), buf.toString());
     }
@@ -378,9 +335,8 @@ public class CommandFactory {
      *
      * @param earOn True to turn auditory information on, false to turn it off.
      */
-    @SuppressWarnings("unchecked")
     public void addEarCommand(boolean earOn) {
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         buf.append("(ear ");
         if (earOn) {
             buf.append("on");
@@ -399,9 +355,8 @@ public class CommandFactory {
      * @param unum The players uniform number (1~11 on pitch usually, subs <= 14).
      * @param playerType A player type between 0 (the standard player) and 18. However, player.conf can change this.
      */
-    @SuppressWarnings("unchecked")
     public void addChangePlayerTypeCommand(String teamName, int unum, int playerType) {
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         buf.append("(change_player_type ");
         buf.append(teamName);
         buf.append(' ');
@@ -418,9 +373,8 @@ public class CommandFactory {
      *
      * @param eyeOn True to turn visual information on, false to turn it off.
      */
-    @SuppressWarnings("unchecked")
     public void addEyeCommand(boolean eyeOn) {
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         buf.append("(eye ");
         if (eyeOn) {
             buf.append("on");
@@ -438,9 +392,8 @@ public class CommandFactory {
      * The ball.
      * All active players.
      */
-    @SuppressWarnings("unchecked")
     public void addLookCommand() {
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         buf.append("(look)");
         fifo.add(fifo.size(), buf.toString());
     }
@@ -449,9 +402,8 @@ public class CommandFactory {
      * Trainer command that can be used by online coach.
      * This command provides information about the names of both teams and which side they are playing on.
      */
-    @SuppressWarnings("unchecked")
     public void addTeamNamesCommand() {
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         buf.append("(team_names)");
         fifo.add(fifo.size(), buf.toString());
     }
@@ -487,11 +439,10 @@ public class CommandFactory {
      *
      * @param xpm An XPMImage object.
      */
-    @SuppressWarnings("unchecked")
     public void addTeamGraphicCommand(XPMImage xpm) {
         for (int x = 0; x < xpm.getArrayWidth(); x++) {
             for (int y = 0; y < xpm.getArrayHeight(); y++) {
-                StringBuffer buf  = new StringBuffer();
+                StringBuilder buf  = new StringBuilder();
                 String       tile = xpm.getTile(x, y);
                 buf.append("(team_graphic (");
                 buf.append(x);
@@ -510,9 +461,8 @@ public class CommandFactory {
      * This is used to disconnect a player/coach/trainer from the server.
      * The server will not respond.
      */
-    @SuppressWarnings("unchecked")
     public void addByeCommand() {
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         buf.append("(bye)");
         fifo.add(fifo.size(), buf.toString());
     }
