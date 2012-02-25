@@ -66,7 +66,7 @@ public class SServerTrainer extends AbstractUDPClient implements ActionsTrainer 
      */
     public void connect() {
         CommandFactory f = new CommandFactory();
-        f.addTrainerInitCommand("");
+        f.addTrainerInitCommand();
         initMessage = f.next();
         super.start();
         super.setName("Trainer");
