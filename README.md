@@ -4,6 +4,8 @@ Atan is an interface to the 2D Soccer Server of Robocup's simulation league. It 
 
 More details can be found at http://robocup-atan.github.com/atan
 
+[![Build Status](https://travis-ci.org/robocup-atan/atan.png?branch=master)](https://travis-ci.org/robocup-atan/atan)
+
 Requirements
 ------------
 To build Atan for yourself, you'll need:
