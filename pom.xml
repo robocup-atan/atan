@@ -34,7 +34,7 @@
     <scm>
         <connection>scm:git:git://github.com/robocup-atan/atan.git</connection>
         <developerConnection>scm:git:git@github.com:robocup-atan/atan.git</developerConnection>
-        <url>http://github.com/robocup-atan/atan</url>
+        <url>git@github.com:robocup-atan/atan.git</url>
     </scm>
   
     <dependencies>
