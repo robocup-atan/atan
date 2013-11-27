@@ -7,7 +7,7 @@
         <version>7</version>
     </parent>
   
-    <groupId>com.github.robocup_atan.atan</groupId>
+    <groupId>com.github.robocup-atan</groupId>
     <artifactId>atan</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
