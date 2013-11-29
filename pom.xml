@@ -9,7 +9,7 @@
   
     <groupId>com.github.robocup-atan</groupId>
     <artifactId>atan</artifactId>
-    <version>0.4.4-SNAPSHOT</version>
+    <version>0.4.4</version>
     <packaging>jar</packaging>
     
     <name>Atan</name>
