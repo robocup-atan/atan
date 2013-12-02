@@ -4,17 +4,28 @@ Atan is an interface to the 2D Soccer Server of Robocup's simulation league. It 
 
 More details can be found at http://robocup-atan.github.com/atan
 
-Requirements
+Usage
+-----
+Atan is designed to be included in your project as an external library. To use Atan, just add the following to your pom.xml file.
+```
+    <dependencies>
+        <dependency>
+            <groupId>com.github.robocup-atan</groupId>
+            <artifactId>atan</artifactId>
+            <version>0.4.4</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
+```
+
+Building Atan
 ------------
 To build Atan for yourself, you'll need:
 * Git
 * Maven
 * JDK 1.6
 
-Usage
------
-Atan is designed to be included in your project as an external library. In order to build Atan, you need to run the following commands.
-Maven will download any dependencies (such as [JavaCC](http://javacc.java.net)) and compile Atan for you.
+Then just run the following commands. Maven will download any dependencies (such as [JavaCC](http://javacc.java.net)) and compile Atan for you.
 
 <pre>
 git clone git://github.com/robocup-atan/atan.git
@@ -22,7 +33,7 @@ cd atan
 mvn clean install
 </pre>
 
-The generated .jar file can be found in your Maven repository, usually $HOME/.m2/repository/...
+The generated .jar file can be found in your Maven repository, usually $HOME/.m2/repository/com/github/robocup-atan/atan/...
 
 Example
 -------
