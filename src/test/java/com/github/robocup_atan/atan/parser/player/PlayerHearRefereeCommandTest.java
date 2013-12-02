@@ -22,11 +22,20 @@ import org.junit.runners.Parameterized;
  * @author Atan
  */
 @RunWith(Parameterized.class)
-public class PlayerHearCommandTest {
+public class PlayerHearRefereeCommandTest {
 
     @Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] {
+
+                /**
+                 * Tests for hearing the referee are captured in the following
+                 * array structure.
+                 *   0: Server command.
+                 *   1: Value of isTeamEast.
+                 *   2: Expected value of play mode.
+                 */
+
                 // East team referee messages.
                 {"(hear 1 referee before_kick_off)",   true,  PlayMode.BEFORE_KICK_OFF},
                 {"(hear 1 referee time_over)",         true,  PlayMode.TIME_OVER},
@@ -117,7 +126,7 @@ public class PlayerHearCommandTest {
     private boolean  isTeamEast;
     private PlayMode expectedPlayMode;
 
-    public PlayerHearCommandTest(
+    public PlayerHearRefereeCommandTest(
         String   command,
         boolean  isTeamEast,
         PlayMode playMode) {

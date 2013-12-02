@@ -27,6 +27,16 @@ public class PlayerInitCommandTest {
     @Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] {
+
+                /**
+                 * Init only takes one format, so the array only contains the
+                 * following structure.
+                 *   0: Server command.
+                 *   1: Expected value of isTeamEast.
+                 *   2: Expected value of player number.
+                 *   3: Expected value of play mode.
+                 */
+
                 // East team before kick off.
                 {"(init r 1 before_kick_off)",  true,  1,  PlayMode.BEFORE_KICK_OFF},
                 {"(init r 2 before_kick_off)",  true,  2,  PlayMode.BEFORE_KICK_OFF},
