@@ -35,10 +35,10 @@ public class PlayerHearOthersCommandTest {
                  *   1: Expected value of direction.
                  *   2: Expected value of the message.
                  */
-                {"(hear 1 180 test_message)",       180,    "test_message"},
-                {"(hear 1 -180 test_message)",      -180,   "test_message"},
-                {"(hear 5000 55.55 test_message)",  55.55,  "test_message"},
-                {"(hear 5000 -55.55 test_message)", -55.55, "test_message"},
+                {"(hear 1 180 \"test_message\")",       180,    "test_message"},
+                {"(hear 1 -180 \"test_message\")",      -180,   "test_message"},
+                {"(hear 5000 55.55 \"test_message\")",  55.55,  "test_message"},
+                {"(hear 5000 -55.55 \"test_message\")", -55.55, "test_message"},
 
             });
     }
