@@ -1,6 +1,5 @@
 package com.github.robocup_atan.atan.parser.player;
 
-import com.github.robocup_atan.atan.model.enums.PlayMode;
 import com.github.robocup_atan.atan.parser.BaseCommandFilter;
 import com.github.robocup_atan.atan.parser.Filter;
 import java.io.StringReader;
