@@ -22,7 +22,7 @@ import org.junit.runners.Parameterized;
  * @author Atan
  */
 @RunWith(Parameterized.class)
-public class PlayerHearRefereeCommandTest {
+public class PlayerHearRefereeTest {
 
     @Parameters
     public static Collection<Object[]> data() {
@@ -126,7 +126,7 @@ public class PlayerHearRefereeCommandTest {
     private boolean  isTeamEast;
     private PlayMode expectedPlayMode;
 
-    public PlayerHearRefereeCommandTest(
+    public PlayerHearRefereeTest(
         String   command,
         boolean  isTeamEast,
         PlayMode playMode) {

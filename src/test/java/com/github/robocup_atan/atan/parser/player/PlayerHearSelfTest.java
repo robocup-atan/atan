@@ -21,7 +21,7 @@ import org.junit.runners.Parameterized;
  * @author Atan
  */
 @RunWith(Parameterized.class)
-public class PlayerHearSelfCommandTest {
+public class PlayerHearSelfTest {
 
     @Parameters
     public static Collection<Object[]> data() {
@@ -244,7 +244,7 @@ public class PlayerHearSelfCommandTest {
     // Test parameters.
     private String command;
 
-    public PlayerHearSelfCommandTest(
+    public PlayerHearSelfTest(
         String command) {
 
         this.command = command;

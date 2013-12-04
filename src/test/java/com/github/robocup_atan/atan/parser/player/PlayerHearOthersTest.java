@@ -21,7 +21,7 @@ import org.junit.runners.Parameterized;
  * @author Atan
  */
 @RunWith(Parameterized.class)
-public class PlayerHearOthersCommandTest {
+public class PlayerHearOthersTest {
 
     @Parameters
     public static Collection<Object[]> data() {
@@ -248,7 +248,7 @@ public class PlayerHearOthersCommandTest {
     private double expectedDirection;
     private String expectedMessage;
 
-    public PlayerHearOthersCommandTest(
+    public PlayerHearOthersTest(
         String command,
         double direction,
         String message) {
