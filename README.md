@@ -1,4 +1,4 @@
-Atan [![Build Status](https://travis-ci.org/robocup-atan/atan.png?branch=master)](https://travis-ci.org/robocup-atan/atan)
+Atan [![Build Status](https://travis-ci.org/robocup-atan/atan.png?branch=master)](https://travis-ci.org/robocup-atan/atan) [![Coverage Status](https://coveralls.io/repos/robocup-atan/atan/badge.png?branch=master)(https://coveralls.io/r/robocup-atan/atan?branch=master)
 ===============
 Atan is an interface to the 2D Soccer Server of Robocup's simulation league. It should allow you to concentrate on the job of controlling your clients without worrying about all the behind the scenes stuff between SServer and the clients.
 
