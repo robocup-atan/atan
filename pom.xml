@@ -133,6 +133,11 @@
                     <format>xml</format>
                     <maxmem>256m</maxmem>
                     <aggregate>true</aggregate>
+                    <instrumentation>
+                        <excludes>
+                            <exclude>com/github/robocup_atan/atan/parser/*</exclude>
+                        </excludes>
+                    </instrumentation>
                 </configuration>
             </plugin>
 
