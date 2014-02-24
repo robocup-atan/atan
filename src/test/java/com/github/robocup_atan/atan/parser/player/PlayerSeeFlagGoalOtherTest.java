@@ -22,14 +22,14 @@ import org.junit.runners.Parameterized;
  * @author Atan
  */
 @RunWith(Parameterized.class)
-public class PlayerSeeGoalOtherTest {
+public class PlayerSeeFlagGoalOtherTest {
 
     @Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] {
 
                 /**
-                 * Tests for seeing the goal are captured in the following
+                 * Tests for seeing the goal flags are captured in the following
                  * array structure.
                  *   0: Server command.
                  *   1: Value of isTeamEast.
@@ -42,11 +42,11 @@ public class PlayerSeeGoalOtherTest {
                  *   8: Expected value of head facing direction.
                  */
 
-                // East team see other goal messages.
+                // East team see other goal flag messages.
                 {"(see 123.45 ((f g l b) 123.45 123.45 123.45 123.45 123.45 123.45))", true,  Flag.LEFT,   123.45, 123.45, 123.45, 123.45, 123.45, 123.45},
                 {"(see 123.45 ((f g l) 123.45 123.45 123.45 123.45 123.45 123.45))",   true,  Flag.CENTER, 123.45, 123.45, 123.45, 123.45, 123.45, 123.45},
                 {"(see 123.45 ((f g l t) 123.45 123.45 123.45 123.45 123.45 123.45))", true,  Flag.RIGHT,  123.45, 123.45, 123.45, 123.45, 123.45, 123.45},
-                // West team see other goal messages.
+                // West team see other goal flag messages.
                 {"(see 123.45 ((f g r b) 123.45 123.45 123.45 123.45 123.45 123.45))", false, Flag.RIGHT,  123.45, 123.45, 123.45, 123.45, 123.45, 123.45},
                 {"(see 123.45 ((f g r) 123.45 123.45 123.45 123.45 123.45 123.45))",   false, Flag.CENTER, 123.45, 123.45, 123.45, 123.45, 123.45, 123.45},
                 {"(see 123.45 ((f g r t) 123.45 123.45 123.45 123.45 123.45 123.45))", false, Flag.LEFT,   123.45, 123.45, 123.45, 123.45, 123.45, 123.45},
@@ -70,7 +70,7 @@ public class PlayerSeeGoalOtherTest {
     private double  expectedBodyFacingDirection;
     private double  expectedHeadFacingDirection;
 
-    public PlayerSeeGoalOtherTest(
+    public PlayerSeeFlagGoalOtherTest(
         String  command,
         boolean isTeamEast,
         Flag    flag,
@@ -148,7 +148,7 @@ public class PlayerSeeGoalOtherTest {
             return isTeamEast;
         }
     }
-    
+
     // Test logging
     @Rule
     public TestWatcher watchman = new TestWatcher() {
@@ -157,12 +157,12 @@ public class PlayerSeeGoalOtherTest {
         protected void succeeded(Description description) {
             System.out.print("Passed - ");
         }
-        
+
         @Override
         protected void failed(Throwable e, Description description) {
             System.out.print("FAILED - ");
         }
-        
+
         @Override
         protected void finished(Description description) {
             System.out.println(command);
