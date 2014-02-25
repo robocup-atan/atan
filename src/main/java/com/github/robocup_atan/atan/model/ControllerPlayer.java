@@ -72,7 +72,7 @@ public interface ControllerPlayer {
      * The controller is informed when one of the flags along the right touchline
      * is in sight. The flags are positioned 5m behind the touchline.
      *
-     * @param flag possible values: OWN_50, OWN_40, OWN_30, OWN_20, OWN_10, MID,
+     * @param flag possible values: OWN_50, OWN_40, OWN_30, OWN_20, OWN_10, CENTER,
      * OTHER_10, OTHER_20, OTHER_30, OTHER_40, OTHER_50
      * @param distance The distance to the flag.
      * @param direction The direction of the flag.
@@ -88,7 +88,7 @@ public interface ControllerPlayer {
      * The controller is informed when one of the flags along the left touchline
      * is in sight. The flags are positioned 5m behind the touchline.
      *
-     * @param flag possible values: OWN_50, OWN_40, OWN_30, OWN_20, OWN_10, MID
+     * @param flag possible values: OWN_50, OWN_40, OWN_30, OWN_20, OWN_10, CENTER
      * OTHER_10, OTHER_20, OTHER_30, OTHER_40, OTHER_50
      * @param distance The distance to the flag.
      * @param direction The direction of the flag.
@@ -104,7 +104,7 @@ public interface ControllerPlayer {
      * The controller is informed when one of the flags behind our teams
      * goal is in sight. These flags are positioned 5m behind the goal line.
      *
-     * @param flag possible values: LEFT_10, LEFT_20, LEFT_30, MID,
+     * @param flag possible values: LEFT_10, LEFT_20, LEFT_30, CENTER,
      * RIGHT_10, RIGHT_20, RIGHT_30
      * @param distance The distance to the flag.
      * @param direction The direction of the flag.
@@ -120,7 +120,7 @@ public interface ControllerPlayer {
      * The controller is informed when one of the flags behind the other teams
      * goal is in sight. These flags are positioned 5m behind the goal line.
      *
-     * @param flag possible values: LEFT_10, LEFT_20, LEFT_30, MID,
+     * @param flag possible values: LEFT_10, LEFT_20, LEFT_30, CENTER,
      * RIGHT_10, RIGHT_20, RIGHT_30
      * @param distance The distance to the flag.
      * @param direction The direction of the flag.
