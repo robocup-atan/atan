@@ -118,7 +118,6 @@
                             <goal>javacc</goal>
                         </goals>
                         <configuration>
-                            <lookAhead>2</lookAhead>
                             <isStatic>false</isStatic>
                         </configuration>
                     </execution>
