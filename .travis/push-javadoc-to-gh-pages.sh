@@ -1,8 +1,8 @@
 #!/bin/bash
 
-if [ "$TRAVIS_REPO_SLUG" == "robocup-atan/atan" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "JavaDoc_Autopublish" ]; then
+if [ "$TRAVIS_REPO_SLUG" == "robocup-atan/atan" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
 
-  echo -e "Publishing javadoc...\n"
+  echo "Publishing javadoc..."
 
   cp -R $HOME/build/robocup-atan/atan/target/apidocs $HOME/javadoc-latest
 
@@ -15,10 +15,10 @@ if [ "$TRAVIS_REPO_SLUG" == "robocup-atan/atan" ] && [ "$TRAVIS_PULL_REQUEST" ==
   git rm -rf ./javadoc
   cp -Rf $HOME/javadoc-latest ./javadoc
   git add -f .
-  git commit -m "Updating JavaDoc on successful Travis build $TRAVIS_BUILD_NUMBER."
+  git commit -m "Updating JavaDoc after successful Travis build $TRAVIS_BUILD_NUMBER."
   git push -fq origin gh-pages > /dev/null
 
-  echo -e "Published Javadoc to gh-pages.\n"
+  echo "Published Javadoc to gh-pages."
   
 fi
 
