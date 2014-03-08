@@ -7,7 +7,6 @@ import java.io.StringReader;
 import java.util.Arrays;
 import java.util.Collection;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -150,7 +149,6 @@ public class PlayerSeePlayerOwnTest {
     }
 
     @Test
-    @Ignore
     public void parseCommand() {
         filter.run(command, commandFilter);
     }
