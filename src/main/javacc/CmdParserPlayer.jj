@@ -138,7 +138,6 @@ TOKEN :
   < P: "p"|"P">|
   < L: "l"|"L">|
   < GOAL: "g"|"G">|
-  < GOALIE: "goalie">|
   < REFEREE: "referee"|"Referee">|
   < SELF: "self">|
   < VIEW_MODE: "view_mode">|
@@ -660,7 +659,7 @@ ObjName objName() :
 
 ObjName objNamePlayer() :
   {Token name=null; Token num=null; Token goalie=null; ObjName objName=null;} {
-    name=<NAM>[<SEP>num=<NUM>][<SEP>goalie=<GOALIE>] {
+    name=<NAM>[<SEP>num=<NUM>][<SEP>goalie=<GOAL>] {
       Integer iNum;
       //Assign seen player number.
       if (num==null) iNum = new Integer(-1);
