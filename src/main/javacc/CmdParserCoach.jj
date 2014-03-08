@@ -160,16 +160,29 @@ TOKEN :
   < TIME_UP: "time_up">|
   < TIME_UP_WITHOUT_A_TEAM: "time_up_without_a_team">|
   < TIME_EXTENDED: "time_extended">|
-  < ILLEGAL_MODE: "illegal_mode">|
+  // Errors.
+  < ALREADY_HAVE_OFFLINE_COACH: "already_have_offline_coach">|
+  < CONNECTED_OFFLINE_COACH_WITHOUT_COACH_MODE: "connected_offline_coach_without_coach_mode">|
+  < CONNECTION_FAILED: "connection_failed">|
+  < CANNOT_SAY_FREEFORM_WHILE_PLAYON: "cannot_say_freeform_while_playon">|
+  < COULD_NOT_PARSE_SAY: "could_not_parse_say">|
+  < GOALIE_ALREADY_EXISTS: "goalie_already_exists">|
+  < ILLEGAL_CLIENT_VERSION: "illegal_client_version">|
   < ILLEGAL_COMMAND_FORM: "illegal_command_form">|
-  < ILLEGAL_OBJECT_FORM: "illegal_object_form">|
-  < NO_MORE_TEAM_OR_PLAYER: "no_more_team_or_player">|
-  < NO_MORE_TEAM_OR_PLAYER_OR_GOALIE: "no_more_team_or_player_or_goalie">|
-  < NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION: "no_more_player_or_goalie_or_illegal_client_version">|	
-  < RECONNECT: "reconnect">|
-  < UNKNOWN_COMMAND: "unknown_command">|
-  < TOO_MANY_MOVES: "too_many_moves">|
+  < ILLEGAL_MODE: "illegal_mode">|
+  < INVALID_XPM_DATA: "invalid_xpm_data">|
+  < OUT_OF_RANGE_PLAYER_TYPE: "out_of_range_player_type">|
+  < SAID_TOO_MANY_ADVICE_MESSAGES: "said_too_many_advice_messages">|
+  < SAID_TOO_MANY_DEFINE_MESSAGES: "said_too_many_define_messages">|
+  < SAID_TOO_MANY_DEL_MESSAGES: "said_too_many_del_messages">|
+  < SAID_TOO_MANY_FREEFORM_MESSAGES: "said_too_many_freeform_messages">|
+  < SAID_TOO_MANY_INFO_MESSAGES: "said_too_many_info_messages">|
   < SAID_TOO_MANY_MESSAGES: "said_too_many_messages">|
+  < SAID_TOO_MANY_META_MESSAGES: "said_too_many_meta_messages">|
+  < SAID_TOO_MANY_RULE_MESSAGES: "said_too_many_rule_messages">|
+  < SOCKET_OPEN_FAILED: "socket_open_failed">|
+  < UNKNOWN_COMMAND: "unknown_command">|
+  // End of errors.
   < MOVE: "move">|
   < CHANGE_MODE: "change_mode">|
   < CHECK_BALL: "check_ball">|
@@ -683,36 +696,27 @@ Ok ok() :
 }
 Errors error() :
   {}{
-    <ILLEGAL_MODE>{
-      return Errors.ILLEGAL_MODE;
-    }|
-    <ILLEGAL_COMMAND_FORM>{
-      return Errors.ILLEGAL_COMMAND_FORM;
-    }|
-    <ILLEGAL_OBJECT_FORM>{
-      return Errors.ILLEGAL_OBJECT_FORM;
-    }|
-    <NO_MORE_TEAM_OR_PLAYER>{
-      return Errors.NO_MORE_TEAM_OR_PLAYER;
-    }|
-    <NO_MORE_TEAM_OR_PLAYER_OR_GOALIE>{
-      return Errors.NO_MORE_TEAM_OR_PLAYER_OR_GOALIE;
-    }|
-    <NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION>{
-      return Errors.NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION;
-    }|
-    <RECONNECT>{
-      return Errors.RECONNECT;
-    }|
-    <UNKNOWN_COMMAND>{
-      return Errors.UNKNOWN_COMMAND;
-    }|
-    <TOO_MANY_MOVES>{
-      return Errors.TOO_MANY_MOVES;
-    }|
-    <SAID_TOO_MANY_MESSAGES>{
-      return Errors.SAID_TOO_MANY_MESSAGES;
-    }
+    <ALREADY_HAVE_OFFLINE_COACH>{ return Errors.ALREADY_HAVE_OFFLINE_COACH; }|
+    <CONNECTED_OFFLINE_COACH_WITHOUT_COACH_MODE>{ return Errors.CONNECTED_OFFLINE_COACH_WITHOUT_COACH_MODE; }|
+    <CONNECTION_FAILED>{ return Errors.CONNECTION_FAILED; }|
+    <CANNOT_SAY_FREEFORM_WHILE_PLAYON>{ return Errors.CANNOT_SAY_FREEFORM_WHILE_PLAYON; }|
+    <COULD_NOT_PARSE_SAY>{ return Errors.COULD_NOT_PARSE_SAY; }|
+    <GOALIE_ALREADY_EXISTS>{ return Errors.GOALIE_ALREADY_EXISTS; }|
+    <ILLEGAL_CLIENT_VERSION>{ return Errors.ILLEGAL_CLIENT_VERSION; }|
+    <ILLEGAL_COMMAND_FORM>{ return Errors.ILLEGAL_COMMAND_FORM; }|
+    <ILLEGAL_MODE>{ return Errors.ILLEGAL_MODE; }|
+    <INVALID_XPM_DATA>{ return Errors.INVALID_XPM_DATA; }|
+    <OUT_OF_RANGE_PLAYER_TYPE>{ return Errors.OUT_OF_RANGE_PLAYER_TYPE; }|
+    <SAID_TOO_MANY_ADVICE_MESSAGES>{ return Errors.SAID_TOO_MANY_ADVICE_MESSAGES; }|
+    <SAID_TOO_MANY_DEFINE_MESSAGES>{ return Errors.SAID_TOO_MANY_DEFINE_MESSAGES; }|
+    <SAID_TOO_MANY_DEL_MESSAGES>{ return Errors.SAID_TOO_MANY_DEL_MESSAGES; }|
+    <SAID_TOO_MANY_FREEFORM_MESSAGES>{ return Errors.SAID_TOO_MANY_FREEFORM_MESSAGES; }|
+    <SAID_TOO_MANY_INFO_MESSAGES>{ return Errors.SAID_TOO_MANY_INFO_MESSAGES; }|
+    <SAID_TOO_MANY_MESSAGES>{ return Errors.SAID_TOO_MANY_MESSAGES; }|
+    <SAID_TOO_MANY_META_MESSAGES>{ return Errors.SAID_TOO_MANY_META_MESSAGES; }|
+    <SAID_TOO_MANY_RULE_MESSAGES>{ return Errors.SAID_TOO_MANY_RULE_MESSAGES; }|
+    <SOCKET_OPEN_FAILED>{ return Errors.SOCKET_OPEN_FAILED; }|
+    <UNKNOWN_COMMAND>{ return Errors.UNKNOWN_COMMAND; }
   }
 PlayMode playMode() :
   {}{
