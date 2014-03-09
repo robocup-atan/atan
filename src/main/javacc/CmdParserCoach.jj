@@ -107,6 +107,33 @@ PARSER_END(CmdParserCoach)
 SKIP: {
   "\t"|"\n"|"\r"|"\""
 }
+
+// Errors.
+TOKEN :
+{
+  < ALREADY_HAVE_OFFLINE_COACH: "already_have_offline_coach">|
+  < CONNECTED_OFFLINE_COACH_WITHOUT_COACH_MODE: "connected_offline_coach_without_coach_mode">|
+  < CONNECTION_FAILED: "connection_failed">|
+  < CANNOT_SAY_FREEFORM_WHILE_PLAYON: "cannot_say_freeform_while_playon">|
+  < COULD_NOT_PARSE_SAY: "could_not_parse_say">|
+  < GOALIE_ALREADY_EXISTS: "goalie_already_exists">|
+  < ILLEGAL_CLIENT_VERSION: "illegal_client_version">|
+  < ILLEGAL_COMMAND_FORM: "illegal_command_form">|
+  < ILLEGAL_MODE: "illegal_mode">|
+  < INVALID_XPM_DATA: "invalid_xpm_data">|
+  < OUT_OF_RANGE_PLAYER_TYPE: "out_of_range_player_type">|
+  < SAID_TOO_MANY_ADVICE_MESSAGES: "said_too_many_advice_messages">|
+  < SAID_TOO_MANY_DEFINE_MESSAGES: "said_too_many_define_messages">|
+  < SAID_TOO_MANY_DEL_MESSAGES: "said_too_many_del_messages">|
+  < SAID_TOO_MANY_FREEFORM_MESSAGES: "said_too_many_freeform_messages">|
+  < SAID_TOO_MANY_INFO_MESSAGES: "said_too_many_info_messages">|
+  < SAID_TOO_MANY_MESSAGES: "said_too_many_messages">|
+  < SAID_TOO_MANY_META_MESSAGES: "said_too_many_meta_messages">|
+  < SAID_TOO_MANY_RULE_MESSAGES: "said_too_many_rule_messages">|
+  < SOCKET_OPEN_FAILED: "socket_open_failed">|
+  < UNKNOWN_COMMAND: "unknown_command">
+}
+
 TOKEN :
 {
  < B: "b"|"B">|
@@ -160,29 +187,6 @@ TOKEN :
   < TIME_UP: "time_up">|
   < TIME_UP_WITHOUT_A_TEAM: "time_up_without_a_team">|
   < TIME_EXTENDED: "time_extended">|
-  // Errors.
-  < ALREADY_HAVE_OFFLINE_COACH: "already_have_offline_coach">|
-  < CONNECTED_OFFLINE_COACH_WITHOUT_COACH_MODE: "connected_offline_coach_without_coach_mode">|
-  < CONNECTION_FAILED: "connection_failed">|
-  < CANNOT_SAY_FREEFORM_WHILE_PLAYON: "cannot_say_freeform_while_playon">|
-  < COULD_NOT_PARSE_SAY: "could_not_parse_say">|
-  < GOALIE_ALREADY_EXISTS: "goalie_already_exists">|
-  < ILLEGAL_CLIENT_VERSION: "illegal_client_version">|
-  < ILLEGAL_COMMAND_FORM: "illegal_command_form">|
-  < ILLEGAL_MODE: "illegal_mode">|
-  < INVALID_XPM_DATA: "invalid_xpm_data">|
-  < OUT_OF_RANGE_PLAYER_TYPE: "out_of_range_player_type">|
-  < SAID_TOO_MANY_ADVICE_MESSAGES: "said_too_many_advice_messages">|
-  < SAID_TOO_MANY_DEFINE_MESSAGES: "said_too_many_define_messages">|
-  < SAID_TOO_MANY_DEL_MESSAGES: "said_too_many_del_messages">|
-  < SAID_TOO_MANY_FREEFORM_MESSAGES: "said_too_many_freeform_messages">|
-  < SAID_TOO_MANY_INFO_MESSAGES: "said_too_many_info_messages">|
-  < SAID_TOO_MANY_MESSAGES: "said_too_many_messages">|
-  < SAID_TOO_MANY_META_MESSAGES: "said_too_many_meta_messages">|
-  < SAID_TOO_MANY_RULE_MESSAGES: "said_too_many_rule_messages">|
-  < SOCKET_OPEN_FAILED: "socket_open_failed">|
-  < UNKNOWN_COMMAND: "unknown_command">|
-  // End of errors.
   < MOVE: "move">|
   < CHANGE_MODE: "change_mode">|
   < CHECK_BALL: "check_ball">|
