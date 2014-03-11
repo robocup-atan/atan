@@ -131,7 +131,7 @@ SKIP:
 }
 
 // Errors
-TOKEN :
+TOKEN:
 {
   <CANNOT_RECONNECT_WHILE_PLAYON: "cannot_reconnect_while_playon">
 | <CONNECTION_FAILED: "connection_failed">
@@ -149,6 +149,26 @@ TOKEN :
 | <UNKNOWN_COMMAND: "unknown_command">
 }
 
+Errors error():
+{}
+{
+  <CANNOT_RECONNECT_WHILE_PLAYON>{ return Errors.CANNOT_RECONNECT_WHILE_PLAYON; }
+| <CONNECTION_FAILED>{ return Errors.CONNECTION_FAILED; }
+| <ILLEGAL_CLIENT_VERSION>{ return Errors.ILLEGAL_CLIENT_VERSION; }
+| <ILLEGAL_COMMAND_FORM>{ return Errors.ILLEGAL_COMMAND_FORM; }
+| <ILLEGAL_TEAMNAME>{ return Errors.ILLEGAL_TEAMNAME; }
+| <ILLEGAL_TEAMNAME_OR_TOO_LONG_TEAMNAME>{ return Errors.ILLEGAL_TEAMNAME_OR_TOO_LONG_TEAMNAME; }
+| <NO_MORE_MONITOR>{ return Errors.NO_MORE_MONITOR; }
+| <NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION>{ return Errors.NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION; }
+| <NO_MORE_TEAM>{ return Errors.NO_MORE_TEAM; }
+| <NO_SUCH_TEAM_OR_PLAYER>{ return Errors.NO_SUCH_TEAM_OR_PLAYER; }
+| <RED_CARDED_PLAYER>{ return Errors.RED_CARDED_PLAYER; }
+| <SOCKET_OPEN_FAILED>{ return Errors.SOCKET_OPEN_FAILED; }
+| <TOO_MANY_MOVES>{ return Errors.TOO_MANY_MOVES; }
+| <UNKNOWN_COMMAND>{ return Errors.UNKNOWN_COMMAND; }
+}
+
+
 // OK
 TOKEN:
 {
@@ -162,6 +182,21 @@ TOKEN:
 | <START: "start">
 | <TEAM_GRAPHIC: "team_graphic">
 | <TEAM_NAMES: "team_names">
+}
+
+Ok ok():
+{}
+{
+  <CHANGE_MODE>{ return Ok.CHANGE_MODE; }
+| <CHANGE_PLAYER_TYPE>{ return Ok.CHANGE_PLAYER_TYPE; }
+| <CHECK_BALL>{ return Ok.CHECK_BALL; }
+| <LOOK>{ return Ok.LOOK; }
+| <MOVE>{ return Ok.MOVE; }
+| <RECOVER>{ return Ok.RECOVER; }
+| <SAY>{ return Ok.SAY; }
+| <START>{ return Ok.START; }
+| <TEAM_GRAPHIC>{ return Ok.TEAM_GRAPHIC; }
+| <TEAM_NAMES>{ return Ok.TEAM_NAMES; }
 }
 
 // Play modes
@@ -186,6 +221,28 @@ TOKEN:
 | <TIME_OVER: "time_over">
 }
 
+PlayMode playMode():
+{}
+{
+  <BEFORE_KICK_OFF>{ return PlayMode.BEFORE_KICK_OFF; }
+| <CORNER_KICK_L>{ return player.isTeamEast() ? PlayMode.CORNER_KICK_OTHER : PlayMode.CORNER_KICK_OWN; }
+| <CORNER_KICK_R>{ return !player.isTeamEast() ? PlayMode.CORNER_KICK_OTHER : PlayMode.CORNER_KICK_OWN; }
+| <FREE_KICK_FAULT_L>{ return player.isTeamEast() ? PlayMode.FREE_KICK_FAULT_OTHER : PlayMode.FREE_KICK_FAULT_OWN; }
+| <FREE_KICK_FAULT_R>{ return !player.isTeamEast() ? PlayMode.FREE_KICK_FAULT_OTHER : PlayMode.FREE_KICK_FAULT_OWN; }
+| <FREE_KICK_L>{ return player.isTeamEast() ? PlayMode.FREE_KICK_OTHER : PlayMode.FREE_KICK_OWN; }
+| <FREE_KICK_R>{ return !player.isTeamEast() ? PlayMode.FREE_KICK_OTHER : PlayMode.FREE_KICK_OWN; }
+| <GOAL_KICK_L>{ return player.isTeamEast() ? PlayMode.GOAL_KICK_OTHER : PlayMode.GOAL_KICK_OWN; }
+| <GOAL_KICK_R>{ return !player.isTeamEast() ? PlayMode.GOAL_KICK_OTHER : PlayMode.GOAL_KICK_OWN; }
+| <GOAL_L>{ return player.isTeamEast() ? PlayMode.GOAL_OTHER : PlayMode.GOAL_OWN; }
+| <GOAL_R>{ return !player.isTeamEast() ? PlayMode.GOAL_OTHER : PlayMode.GOAL_OWN; }
+| <KICK_IN_L>{ return player.isTeamEast() ? PlayMode.KICK_IN_OTHER : PlayMode.KICK_IN_OWN; }
+| <KICK_IN_R>{ return !player.isTeamEast() ? PlayMode.KICK_IN_OTHER : PlayMode.KICK_IN_OWN; }
+| <KICK_OFF_L>{ return player.isTeamEast() ? PlayMode.KICK_OFF_OTHER : PlayMode.KICK_OFF_OWN; } 
+| <KICK_OFF_R>{ return !player.isTeamEast() ? PlayMode.KICK_OFF_OTHER : PlayMode.KICK_OFF_OWN; }
+| <PLAY_ON>{ return PlayMode.PLAY_ON; }
+| <TIME_OVER>{ return PlayMode.TIME_OVER; }
+}
+
 // Referee Messages
 TOKEN:
 {
@@ -200,6 +257,20 @@ TOKEN:
 | <TIME_UP_WITHOUT_A_TEAM: "time_up_without_a_team">
 }
 
+RefereeMessage refereeMessage():
+{}
+{
+  <DROP_BALL>{ return RefereeMessage.DROP_BALL; }
+| <FOUL_L>{ return player.isTeamEast() ? RefereeMessage.FOUL_OTHER : RefereeMessage.FOUL_OWN; }
+| <FOUL_R>{ return !player.isTeamEast() ? RefereeMessage.FOUL_OTHER : RefereeMessage.FOUL_OWN; }
+| <HALF_TIME>{ return RefereeMessage.HALF_TIME; }
+| <OFFSIDE_L>{ return player.isTeamEast() ? RefereeMessage.OFFSIDE_OTHER : RefereeMessage.OFFSIDE_OWN; }
+| <OFFSIDE_R>{ return !player.isTeamEast() ? RefereeMessage.OFFSIDE_OTHER : RefereeMessage.OFFSIDE_OWN; }
+| <TIME_EXTENDED>{ return RefereeMessage.TIME_EXTENDED; }
+| <TIME_UP>{ return RefereeMessage.TIME_UP; }
+| <TIME_UP_WITHOUT_A_TEAM>{ return RefereeMessage.TIME_UP_WITHOUT_A_TEAM; }
+}
+
 // Warnings
 TOKEN:
 {
@@ -211,7 +282,88 @@ TOKEN:
 | <CANNOT_CHANGE_GOALIE: "cannot_change_goalie">
 }
 
-TOKEN :
+Warning warning():
+{}
+{
+  <CANNOT_CHANGE_GOALIE>{ return Warning.CANNOT_CHANGE_GOALIE; }
+| <CANNOT_SUB_WHILE_PLAYON>{ return Warning.CANNOT_SUB_WHILE_PLAYON; }
+| <MAX_OF_THAT_TYPE_ON_FIELD>{ return Warning.MAX_OF_THAT_TYPE_ON_FIELD; }
+| <NO_SUBS_LEFT>{ return Warning.NO_SUBS_LEFT; }
+| <NO_SUCH_PLAYER>{ return Warning.NO_SUCH_PLAYER; }
+| <NO_TEAM_FOUND>{ return Warning.NO_TEAM_FOUND; }
+}
+
+// Separators
+TOKEN:
+{
+  <OB: "(">
+| <CB: ")">
+}
+
+// Quoted string.
+TOKEN:
+{
+  <QUOTE:"\""> : STRING_STATE
+}
+
+<STRING_STATE> MORE:
+{
+    "\\" : ESC_STATE
+}
+
+<STRING_STATE> TOKEN:
+{
+  <ENDQUOTE:<QUOTE>> : DEFAULT
+| <CHAR:~["\"","\\"]>
+}
+
+<ESC_STATE> TOKEN:
+{
+  <CNTRL_ESC:["\"","\\","/","b","f","n","r","t"]> : STRING_STATE
+}
+
+String string():
+{
+  StringBuilder builder = new StringBuilder();
+}
+{
+  <QUOTE> ( getChar(builder) )* <ENDQUOTE>
+  {
+    return builder.toString();
+  }
+}
+
+void getChar(StringBuilder builder):
+{
+  Token t;
+}
+{
+  ( t = <CHAR> | t = <CNTRL_ESC> )
+  {
+    if (t.image.length() < 2)
+    {
+      // CHAR
+      builder.append(t.image.charAt(0));
+    }
+    else if (t.image.length() < 6)
+    {
+      // ESC
+      char c = t.image.charAt(1);
+      switch (c)
+      {
+        case 'b': builder.append((char) 8); break;
+        case 'f': builder.append((char) 12); break;
+        case 'n': builder.append((char) 10); break;
+        case 'r': builder.append((char) 13); break;
+        case 't': builder.append((char) 9); break;
+        default: builder.append(c);
+      }
+    }
+  }
+}
+
+// Other tokens.
+TOKEN:
 {
   < B: "b"|"B">|
   < FLAG: "f"|"F">|
@@ -451,34 +603,9 @@ TOKEN :
   < NAM: ["a"-"z","A"-"Z","_",".","/","-","%","~"] ( ["a"-"z","A"-"Z","_","0"-"9",".","/","-","%","~"] )* >
 }
 
-// Separators
-TOKEN:
-{
-  <OB: "(">
-| <CB: ")">
-}
 
-// Matching a quoted string.
-TOKEN:
-{
-  <QUOTE:"\""> : STRING_STATE
-}
+// Remaining parser commands.
 
-<STRING_STATE> MORE:
-{
-    "\\" : ESC_STATE
-}
-
-<STRING_STATE> TOKEN:
-{
-  <ENDQUOTE:<QUOTE>> : DEFAULT
-| <CHAR:~["\"","\\"]>
-}
-
-<ESC_STATE> TOKEN:
-{
-  <CNTRL_ESC:["\"","\\","/","b","f","n","r","t"]> : STRING_STATE
-}
 
 void startCPTCommand() :
     {Token unum=null; Token type=null;}
@@ -953,83 +1080,6 @@ ObjName objNameFlagPenaltyEast() :
       return new ObjNameFlagPenaltyEast('c');
     }
   }
-
-//Enum Switches
-Errors error() : {}
-{
-  <CANNOT_RECONNECT_WHILE_PLAYON>{ return Errors.CANNOT_RECONNECT_WHILE_PLAYON; }
-| <CONNECTION_FAILED>{ return Errors.CONNECTION_FAILED; }
-| <ILLEGAL_CLIENT_VERSION>{ return Errors.ILLEGAL_CLIENT_VERSION; }
-| <ILLEGAL_COMMAND_FORM>{ return Errors.ILLEGAL_COMMAND_FORM; }
-| <ILLEGAL_TEAMNAME>{ return Errors.ILLEGAL_TEAMNAME; }
-| <ILLEGAL_TEAMNAME_OR_TOO_LONG_TEAMNAME>{ return Errors.ILLEGAL_TEAMNAME_OR_TOO_LONG_TEAMNAME; }
-| <NO_MORE_MONITOR>{ return Errors.NO_MORE_MONITOR; }
-| <NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION>{ return Errors.NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION; }
-| <NO_MORE_TEAM>{ return Errors.NO_MORE_TEAM; }
-| <NO_SUCH_TEAM_OR_PLAYER>{ return Errors.NO_SUCH_TEAM_OR_PLAYER; }
-| <RED_CARDED_PLAYER>{ return Errors.RED_CARDED_PLAYER; }
-| <SOCKET_OPEN_FAILED>{ return Errors.SOCKET_OPEN_FAILED; }
-| <TOO_MANY_MOVES>{ return Errors.TOO_MANY_MOVES; }
-| <UNKNOWN_COMMAND>{ return Errors.UNKNOWN_COMMAND; }
-}
-
-Ok ok() : {}
-{
-  <CHANGE_MODE>{ return Ok.CHANGE_MODE; }
-| <CHANGE_PLAYER_TYPE>{ return Ok.CHANGE_PLAYER_TYPE; }
-| <CHECK_BALL>{ return Ok.CHECK_BALL; }
-| <LOOK>{ return Ok.LOOK; }
-| <MOVE>{ return Ok.MOVE; }
-| <RECOVER>{ return Ok.RECOVER; }
-| <SAY>{ return Ok.SAY; }
-| <START>{ return Ok.START; }
-| <TEAM_GRAPHIC>{ return Ok.TEAM_GRAPHIC; }
-| <TEAM_NAMES>{ return Ok.TEAM_NAMES; }
-}
-
-PlayMode playMode() : {}
-{
-  <BEFORE_KICK_OFF>{ return PlayMode.BEFORE_KICK_OFF; }
-| <CORNER_KICK_L>{ return player.isTeamEast() ? PlayMode.CORNER_KICK_OTHER : PlayMode.CORNER_KICK_OWN; }
-| <CORNER_KICK_R>{ return !player.isTeamEast() ? PlayMode.CORNER_KICK_OTHER : PlayMode.CORNER_KICK_OWN; }
-| <FREE_KICK_FAULT_L>{ return player.isTeamEast() ? PlayMode.FREE_KICK_FAULT_OTHER : PlayMode.FREE_KICK_FAULT_OWN; }
-| <FREE_KICK_FAULT_R>{ return !player.isTeamEast() ? PlayMode.FREE_KICK_FAULT_OTHER : PlayMode.FREE_KICK_FAULT_OWN; }
-| <FREE_KICK_L>{ return player.isTeamEast() ? PlayMode.FREE_KICK_OTHER : PlayMode.FREE_KICK_OWN; }
-| <FREE_KICK_R>{ return !player.isTeamEast() ? PlayMode.FREE_KICK_OTHER : PlayMode.FREE_KICK_OWN; }
-| <GOAL_KICK_L>{ return player.isTeamEast() ? PlayMode.GOAL_KICK_OTHER : PlayMode.GOAL_KICK_OWN; }
-| <GOAL_KICK_R>{ return !player.isTeamEast() ? PlayMode.GOAL_KICK_OTHER : PlayMode.GOAL_KICK_OWN; }
-| <GOAL_L>{ return player.isTeamEast() ? PlayMode.GOAL_OTHER : PlayMode.GOAL_OWN; }
-| <GOAL_R>{ return !player.isTeamEast() ? PlayMode.GOAL_OTHER : PlayMode.GOAL_OWN; }
-| <KICK_IN_L>{ return player.isTeamEast() ? PlayMode.KICK_IN_OTHER : PlayMode.KICK_IN_OWN; }
-| <KICK_IN_R>{ return !player.isTeamEast() ? PlayMode.KICK_IN_OTHER : PlayMode.KICK_IN_OWN; }
-| <KICK_OFF_L>{ return player.isTeamEast() ? PlayMode.KICK_OFF_OTHER : PlayMode.KICK_OFF_OWN; } 
-| <KICK_OFF_R>{ return !player.isTeamEast() ? PlayMode.KICK_OFF_OTHER : PlayMode.KICK_OFF_OWN; }
-| <PLAY_ON>{ return PlayMode.PLAY_ON; }
-| <TIME_OVER>{ return PlayMode.TIME_OVER; }
-}
-
-RefereeMessage refereeMessage() : {}
-{
-  <DROP_BALL>{ return RefereeMessage.DROP_BALL; }
-| <FOUL_L>{ return player.isTeamEast() ? RefereeMessage.FOUL_OTHER : RefereeMessage.FOUL_OWN; }
-| <FOUL_R>{ return !player.isTeamEast() ? RefereeMessage.FOUL_OTHER : RefereeMessage.FOUL_OWN; }
-| <HALF_TIME>{ return RefereeMessage.HALF_TIME; }
-| <OFFSIDE_L>{ return player.isTeamEast() ? RefereeMessage.OFFSIDE_OTHER : RefereeMessage.OFFSIDE_OWN; }
-| <OFFSIDE_R>{ return !player.isTeamEast() ? RefereeMessage.OFFSIDE_OTHER : RefereeMessage.OFFSIDE_OWN; }
-| <TIME_EXTENDED>{ return RefereeMessage.TIME_EXTENDED; }
-| <TIME_UP>{ return RefereeMessage.TIME_UP; }
-| <TIME_UP_WITHOUT_A_TEAM>{ return RefereeMessage.TIME_UP_WITHOUT_A_TEAM; }
-}
-
-Warning warning() : {}
-{
-  <CANNOT_CHANGE_GOALIE>{ return Warning.CANNOT_CHANGE_GOALIE; }
-| <CANNOT_SUB_WHILE_PLAYON>{ return Warning.CANNOT_SUB_WHILE_PLAYON; }
-| <MAX_OF_THAT_TYPE_ON_FIELD>{ return Warning.MAX_OF_THAT_TYPE_ON_FIELD; }
-| <NO_SUBS_LEFT>{ return Warning.NO_SUBS_LEFT; }
-| <NO_SUCH_PLAYER>{ return Warning.NO_SUCH_PLAYER; }
-| <NO_TEAM_FOUND>{ return Warning.NO_TEAM_FOUND; }
-}
 
 void startServerParamCommand() : //Possibly the biggest method ever!
     {Token audioCutDist=null; Token autoMode=null;Token backDashRate=null;
@@ -1801,51 +1851,5 @@ void startPlayerTypeCommand() :
 		  dPlayerSize.doubleValue(), dKickableMargin.doubleValue(), dKickRand.doubleValue(),
 		  dExtraStamina.doubleValue(), dEffortMax.doubleValue(), dEffortMin.doubleValue());
 	}
-}
-
-/**
- * Match a quoted string.
- */
-String string():
-{
-  StringBuilder builder = new StringBuilder();
-}
-{
-  <QUOTE> ( getChar(builder) )* <ENDQUOTE>
-  {
-    return builder.toString();
-  }
-}
-
-/**
- * Match char inside quoted string.
- */
-void getChar(StringBuilder builder):
-{
-  Token t;
-}
-{
-  ( t = <CHAR> | t = <CNTRL_ESC> )
-  {
-    if (t.image.length() < 2)
-    {
-      // CHAR
-      builder.append(t.image.charAt(0));
-    }
-    else if (t.image.length() < 6)
-    {
-      // ESC
-      char c = t.image.charAt(1);
-      switch (c)
-      {
-        case 'b': builder.append((char) 8); break;
-        case 'f': builder.append((char) 12); break;
-        case 'n': builder.append((char) 10); break;
-        case 'r': builder.append((char) 13); break;
-        case 't': builder.append((char) 9); break;
-        default: builder.append(c);
-      }
-    }
-  }
 }
 
