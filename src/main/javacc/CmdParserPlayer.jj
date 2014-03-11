@@ -123,8 +123,11 @@ import java.util.HashMap;
 }
 PARSER_END(CmdParserPlayer)
 
-SKIP: {
-  "\t"|"\n"|"\r"|"\""
+SKIP:
+{
+  "\t"
+| "\n"
+| "\r"
 }
 
 // Errors
@@ -455,6 +458,28 @@ TOKEN:
 | <CB: ")">
 }
 
+// Matching a quoted string.
+TOKEN:
+{
+  <QUOTE:"\""> : STRING_STATE
+}
+
+<STRING_STATE> MORE:
+{
+    "\\" : ESC_STATE
+}
+
+<STRING_STATE> TOKEN:
+{
+  <ENDQUOTE:<QUOTE>> : DEFAULT
+| <CHAR:~["\"","\\"]>
+}
+
+<ESC_STATE> TOKEN:
+{
+  <CNTRL_ESC:["\"","\\","/","b","f","n","r","t"]> : STRING_STATE
+}
+
 void startCPTCommand() :
     {Token unum=null; Token type=null;}
     {
@@ -474,17 +499,23 @@ void startCPTCommand() :
 	}
 }
 
-void startHearCommand() :
-  {Token num;Token msg;} {
-    <NUM><SEP>(
-      <SELF>|
-      <REFEREE><SEP>hearReferee()|
-      num=<NUM><SEP>msg=<NAM>{
+void startHearCommand():
+{
+    Token num;
+    String msg;
+}
+{
+    <NUM><SEP>
+    (
+      <SELF>
+    | <REFEREE><SEP>hearReferee()
+    | num=<NUM><SEP>msg=string()
+      {
         Double dNum = new Double(num.image);
-        controller.infoHearPlayer(dNum.doubleValue(), msg.image);
+        controller.infoHearPlayer(dNum.doubleValue(), msg);
       }
     )
-  }
+}
 
 void hearReferee() :
   {PlayMode playMode=null; RefereeMessage refereeMessage=null;}{
@@ -598,16 +629,25 @@ void startSeeCommand() :
 
 //Get object details.
 void objInfo() :
-  {ObjName name; Token p1=null; Token p2=null; Token p3=null;
-  Token p4=null; Token p5=null; Token p6=null; Token p7=null;
-  Token kicked=null;} {
+{
+    ObjName name;
+    Token p1=null;
+    Token p2=null;
+    Token p3=null;
+    Token p4=null;
+    Token p5=null;
+    Token p6=null;
+    Token p7=null;
+    String kicked=null;
+}
+{
     <OB>name=objName()<CB><SEP>[p1=<NUM>[<SEP>]]  //Distance
                                [p2=<NUM>[<SEP>]]  //Direction
                                [p3=<NUM>[<SEP>]]  //DistChange
                                [p4=<NUM>[<SEP>]]  //DirChange
                                [p5=<NUM>[<SEP>]]  //BodyFacingDir
                                [p6=<NUM>[<SEP>]]  //HeadFacingDir
-                               [kicked=<NAM>[<SEP>]]{ //Player kicked last turn - Currently only stopping the exception!
+                               [kicked=string()[<SEP>]]{ //Player kicked last turn - Currently only stopping the exception!
       Double dDistance = 0.0;
       Double dDirection = 0.0;
       Double dDistChange = 0.0;
@@ -686,14 +726,20 @@ ObjName objName() :
   }
 
 ObjName objNamePlayer() :
-  {Token name=null; Token num=null; Token goalie=null; ObjName objName=null;} {
-    name=<NAM>[<SEP>num=<NUM>][<SEP>goalie=<GOAL>] {
+{
+    String name=null;
+    Token num=null;
+    Token goalie=null;
+    ObjName objName=null;
+}
+{
+    name=string()[<SEP>num=<NUM>][<SEP>goalie=<GOAL>] {
       Integer iNum;
       //Assign seen player number.
       if (num==null) iNum = new Integer(-1);
       else  iNum = new Integer(num.toString());
       //Work out of one of ours or theirs.
-      if (name.toString().equals(player.getTeamName())){
+      if (name.equals(player.getTeamName())){
             if (goalie==null){
                 if (player.isTeamEast()) return new ObjNamePlayerEast(iNum.intValue(), false);
                 else return new ObjNamePlayerWest(iNum.intValue(), false);
@@ -728,7 +774,7 @@ ObjName objNamePlayer() :
             return new ObjNamePlayerEast(iNum.intValue(), true);
       }
     }
-  }
+}
 
 ObjName objNameFlag() :
   {ObjName objName=null;} {
@@ -1756,3 +1802,50 @@ void startPlayerTypeCommand() :
 		  dExtraStamina.doubleValue(), dEffortMax.doubleValue(), dEffortMin.doubleValue());
 	}
 }
+
+/**
+ * Match a quoted string.
+ */
+String string():
+{
+  StringBuilder builder = new StringBuilder();
+}
+{
+  <QUOTE> ( getChar(builder) )* <ENDQUOTE>
+  {
+    return builder.toString();
+  }
+}
+
+/**
+ * Match char inside quoted string.
+ */
+void getChar(StringBuilder builder):
+{
+  Token t;
+}
+{
+  ( t = <CHAR> | t = <CNTRL_ESC> )
+  {
+    if (t.image.length() < 2)
+    {
+      // CHAR
+      builder.append(t.image.charAt(0));
+    }
+    else if (t.image.length() < 6)
+    {
+      // ESC
+      char c = t.image.charAt(1);
+      switch (c)
+      {
+        case 'b': builder.append((char) 8); break;
+        case 'f': builder.append((char) 12); break;
+        case 'n': builder.append((char) 10); break;
+        case 'r': builder.append((char) 13); break;
+        case 't': builder.append((char) 9); break;
+        default: builder.append(c);
+      }
+    }
+  }
+}
+

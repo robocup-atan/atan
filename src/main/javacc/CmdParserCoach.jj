@@ -104,8 +104,11 @@ import java.util.HashMap;
 }
 PARSER_END(CmdParserCoach)
 
-SKIP: {
-  "\t"|"\n"|"\r"|"\""
+SKIP:
+{
+  "\t"
+| "\n"
+| "\r"
 }
 
 // Errors.
@@ -446,6 +449,28 @@ TOKEN:
 | <CB: ")">
 }
 
+// Matching a quoted string.
+TOKEN:
+{
+  <QUOTE:"\""> : STRING_STATE
+}
+
+<STRING_STATE> MORE:
+{
+    "\\" : ESC_STATE
+}
+
+<STRING_STATE> TOKEN:
+{
+  <ENDQUOTE:<QUOTE>> : DEFAULT
+| <CHAR:~["\"","\\"]>
+}
+
+<ESC_STATE> TOKEN:
+{
+  <CNTRL_ESC:["\"","\\","/","b","f","n","r","t"]> : STRING_STATE
+}
+
 void startSeeCommand() : //The see_global command.
   {} {
     [<SEP>]<NUM>[<SEP>(<OB>objInfo()<CB>[<SEP>])+]
@@ -453,16 +478,25 @@ void startSeeCommand() : //The see_global command.
 
 //Get object details.
 void objInfo() :
-  {ObjName name; Token p1=null; Token p2=null; Token p3=null;
-  Token p4=null; Token p5=null; Token p6=null; Token p7=null;
-  Token kicked=null;} {
+{
+    ObjName name;
+    Token p1=null;
+    Token p2=null;
+    Token p3=null;
+    Token p4=null;
+    Token p5=null;
+    Token p6=null;
+    Token p7=null;
+    String kicked=null;
+}
+{
     <OB>name=objName()<CB><SEP>[p1=<NUM>[<SEP>]]  //x
                                [p2=<NUM>[<SEP>]]  //y
                                [p3=<NUM>[<SEP>]]  //deltaX
                                [p4=<NUM>[<SEP>]]  //deltaY
                                [p5=<NUM>[<SEP>]]  //bodyAngle
                                [p6=<NUM>[<SEP>]]  //neckAngle
-							   [kicked=<NAM>[<SEP>]]{ //Player kicked last turn - Currently only stopping the exception!
+							   [kicked=string()[<SEP>]]{ //Player kicked last turn - Currently only stopping the exception!
 
       Double dX = 0.0;
       Double dY = 0.0;
@@ -531,14 +565,20 @@ ObjName objName() :
   }
 
 ObjName objNamePlayer() :
-  {Token name=null; Token num=null; Token goalie=null; ObjName objName=null;} {
-    name=<NAM>[<SEP>num=<NUM>][<SEP>goalie=<GOALIE>] {
+{
+    String name=null;
+    Token num=null;
+    Token goalie=null;
+    ObjName objName=null;
+}
+{
+    name=string()[<SEP>num=<NUM>][<SEP>goalie=<GOALIE>] {
       Integer iNum;
       //Assign seen player number.
       if (num==null) iNum = new Integer(-1);
       else  iNum = new Integer(num.toString());
       //Work out of one of ours or theirs.
-      if (name.toString().equals(coach.getTeamName())){
+      if (name.equals(coach.getTeamName())){
             if (goalie==null){
                 if (coach.isTeamEast()) return new ObjNamePlayerEast(iNum.intValue(), false);
                 else return new ObjNamePlayerWest(iNum.intValue(), false);
@@ -618,17 +658,23 @@ void startWarningCommand() :
      }
   }
 
-void startHearCommand() :
-  {Token num;Token msg;} {
-    <NUM><SEP>(
-      <SELF>|
-      <REFEREE><SEP>hearReferee()|
-      num=<NUM><SEP>msg=<NAM>{
+void startHearCommand():
+{
+    Token num;
+    String msg;
+}
+{
+    <NUM><SEP>
+    (
+      <SELF>
+    | <REFEREE><SEP>hearReferee()
+    | num=<NUM><SEP>msg=string()
+      {
         Double dNum = new Double(num.image);
-        controller.infoHearPlayer(dNum.doubleValue(), msg.image);
+        controller.infoHearPlayer(dNum.doubleValue(), msg);
       }
     )
-  }
+}
 
 void startTeamNamesCommand() :
 	{Token teamName1=null;Token teamName2=null;}{
@@ -1534,4 +1580,51 @@ void startPlayerParamCommand() :
 		  dPlayerSize.doubleValue(), dKickableMargin.doubleValue(), dKickRand.doubleValue(),
 		  dExtraStamina.doubleValue(), dEffortMax.doubleValue(), dEffortMin.doubleValue());
 	}
+}
+
+
+/**
+ * Match a quoted string.
+ */
+String string():
+{
+  StringBuilder builder = new StringBuilder();
+}
+{
+  <QUOTE> ( getChar(builder) )* <ENDQUOTE>
+  {
+    return builder.toString();
+  }
+}
+
+/**
+ * Match char inside quoted string.
+ */
+void getChar(StringBuilder builder):
+{
+  Token t;
+}
+{
+  ( t = <CHAR> | t = <CNTRL_ESC> )
+  {
+    if (t.image.length() < 2)
+    {
+      // CHAR
+      builder.append(t.image.charAt(0));
+    }
+    else if (t.image.length() < 6)
+    {
+      // ESC
+      char c = t.image.charAt(1);
+      switch (c)
+      {
+        case 'b': builder.append((char) 8); break;
+        case 'f': builder.append((char) 12); break;
+        case 'n': builder.append((char) 10); break;
+        case 'r': builder.append((char) 13); break;
+        case 't': builder.append((char) 9); break;
+        default: builder.append(c);
+      }
+    }
+  }
 }
