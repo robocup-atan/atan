@@ -130,20 +130,20 @@ SKIP: {
 // Errors
 TOKEN :
 {
-  < CANNOT_RECONNECT_WHILE_PLAYON: "cannot_reconnect_while_playon">|
-  < CONNECTION_FAILED: "connection_failed">|
-  < ILLEGAL_CLIENT_VERSION: "illegal_client_version">|
-  < ILLEGAL_COMMAND_FORM: "illegal_command_form">|
-  < ILLEGAL_TEAMNAME: "illegal_teamname">|
-  < ILLEGAL_TEAMNAME_OR_TOO_LONG_TEAMNAME: "illegal_teamname_or_too_long_teamname">|
-  < NO_MORE_MONITOR: "no_more_monitor">|
-  < NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION: "no_more_player_or_goalie_or_illegal_client_version">|
-  < NO_MORE_TEAM: "no_more_team">|
-  < NO_SUCH_TEAM_OR_PLAYER: "no_such_team_or_player">|
-  < RED_CARDED_PLAYER: "red_carded_player">|
-  < SOCKET_OPEN_FAILED: "socket_open_failed">|
-  < TOO_MANY_MOVES: "too_many_moves">|
-  < UNKNOWN_COMMAND: "unknown_command">
+  < CANNOT_RECONNECT_WHILE_PLAYON: "cannot_reconnect_while_playon">
+| < CONNECTION_FAILED: "connection_failed">
+| < ILLEGAL_CLIENT_VERSION: "illegal_client_version">
+| < ILLEGAL_COMMAND_FORM: "illegal_command_form">
+| < ILLEGAL_TEAMNAME: "illegal_teamname">
+| < ILLEGAL_TEAMNAME_OR_TOO_LONG_TEAMNAME: "illegal_teamname_or_too_long_teamname">
+| < NO_MORE_MONITOR: "no_more_monitor">
+| < NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION: "no_more_player_or_goalie_or_illegal_client_version">
+| < NO_MORE_TEAM: "no_more_team">
+| < NO_SUCH_TEAM_OR_PLAYER: "no_such_team_or_player">
+| < RED_CARDED_PLAYER: "red_carded_player">
+| < SOCKET_OPEN_FAILED: "socket_open_failed">
+| < TOO_MANY_MOVES: "too_many_moves">
+| < UNKNOWN_COMMAND: "unknown_command">
 }
 
 TOKEN :
