@@ -111,27 +111,91 @@ SKIP: {
 // Errors.
 TOKEN :
 {
-  < ALREADY_HAVE_OFFLINE_COACH: "already_have_offline_coach">
-| < CONNECTED_OFFLINE_COACH_WITHOUT_COACH_MODE: "connected_offline_coach_without_coach_mode">
-| < CONNECTION_FAILED: "connection_failed">
-| < CANNOT_SAY_FREEFORM_WHILE_PLAYON: "cannot_say_freeform_while_playon">
-| < COULD_NOT_PARSE_SAY: "could_not_parse_say">
-| < GOALIE_ALREADY_EXISTS: "goalie_already_exists">
-| < ILLEGAL_CLIENT_VERSION: "illegal_client_version">
-| < ILLEGAL_COMMAND_FORM: "illegal_command_form">
-| < ILLEGAL_MODE: "illegal_mode">
-| < INVALID_XPM_DATA: "invalid_xpm_data">
-| < OUT_OF_RANGE_PLAYER_TYPE: "out_of_range_player_type">
-| < SAID_TOO_MANY_ADVICE_MESSAGES: "said_too_many_advice_messages">
-| < SAID_TOO_MANY_DEFINE_MESSAGES: "said_too_many_define_messages">
-| < SAID_TOO_MANY_DEL_MESSAGES: "said_too_many_del_messages">
-| < SAID_TOO_MANY_FREEFORM_MESSAGES: "said_too_many_freeform_messages">
-| < SAID_TOO_MANY_INFO_MESSAGES: "said_too_many_info_messages">
-| < SAID_TOO_MANY_MESSAGES: "said_too_many_messages">
-| < SAID_TOO_MANY_META_MESSAGES: "said_too_many_meta_messages">
-| < SAID_TOO_MANY_RULE_MESSAGES: "said_too_many_rule_messages">
-| < SOCKET_OPEN_FAILED: "socket_open_failed">
-| < UNKNOWN_COMMAND: "unknown_command">
+  <ALREADY_HAVE_OFFLINE_COACH: "already_have_offline_coach">
+| <CONNECTED_OFFLINE_COACH_WITHOUT_COACH_MODE: "connected_offline_coach_without_coach_mode">
+| <CONNECTION_FAILED: "connection_failed">
+| <CANNOT_SAY_FREEFORM_WHILE_PLAYON: "cannot_say_freeform_while_playon">
+| <COULD_NOT_PARSE_SAY: "could_not_parse_say">
+| <GOALIE_ALREADY_EXISTS: "goalie_already_exists">
+| <ILLEGAL_CLIENT_VERSION: "illegal_client_version">
+| <ILLEGAL_COMMAND_FORM: "illegal_command_form">
+| <ILLEGAL_MODE: "illegal_mode">
+| <INVALID_XPM_DATA: "invalid_xpm_data">
+| <OUT_OF_RANGE_PLAYER_TYPE: "out_of_range_player_type">
+| <SAID_TOO_MANY_ADVICE_MESSAGES: "said_too_many_advice_messages">
+| <SAID_TOO_MANY_DEFINE_MESSAGES: "said_too_many_define_messages">
+| <SAID_TOO_MANY_DEL_MESSAGES: "said_too_many_del_messages">
+| <SAID_TOO_MANY_FREEFORM_MESSAGES: "said_too_many_freeform_messages">
+| <SAID_TOO_MANY_INFO_MESSAGES: "said_too_many_info_messages">
+| <SAID_TOO_MANY_MESSAGES: "said_too_many_messages">
+| <SAID_TOO_MANY_META_MESSAGES: "said_too_many_meta_messages">
+| <SAID_TOO_MANY_RULE_MESSAGES: "said_too_many_rule_messages">
+| <SOCKET_OPEN_FAILED: "socket_open_failed">
+| <UNKNOWN_COMMAND: "unknown_command">
+}
+
+// OK
+TOKEN:
+{
+  <CHANGE_MODE: "change_mode">
+| <CHANGE_PLAYER_TYPE: "change_player_type">
+| <CHECK_BALL: "check_ball">
+| <EYEOFF: "eye off" >
+| <EYEON: "eye on" >
+| <LOOK: "look">
+| <MOVE: "move">
+| <RECOVER: "recover">
+| <SAY: "say">
+| <START: "start">
+| <TEAM_GRAPHIC: "team_graphic">
+| <TEAM_NAMES: "team_names">
+}
+
+// Play modes
+TOKEN:
+{
+  <BEFORE_KICK_OFF: "before_kick_off">
+| <CORNER_KICK_L: "corner_kick_l">
+| <CORNER_KICK_R: "corner_kick_r">
+| <FREE_KICK_FAULT_L: "free_kick_fault_l">
+| <FREE_KICK_FAULT_R: "free_kick_fault_r">
+| <FREE_KICK_L: "free_kick_l">
+| <FREE_KICK_R: "free_kick_r">
+| <GOAL_KICK_L: "goal_kick_l">
+| <GOAL_KICK_R: "goal_kick_r">
+| <GOAL_L: "goal_l_"(["0"-"9"])+>
+| <GOAL_R: "goal_r_"(["0"-"9"])+>
+| <KICK_IN_L: "kick_in_l">
+| <KICK_IN_R: "kick_in_r">
+| <KICK_OFF_L: "kick_off_l">
+| <KICK_OFF_R: "kick_off_r">
+| <PLAY_ON: "play_on">
+| <TIME_OVER: "time_over">
+}
+
+// Referee Messages
+TOKEN:
+{
+  <DROP_BALL: "drop_ball">
+| <FOUL_L: "foul_l">
+| <FOUL_R: "foul_r">
+| <HALF_TIME: "half_time">
+| <OFFSIDE_L: "offside_l">
+| <OFFSIDE_R: "offside_r">
+| <TIME_EXTENDED: "time_extended">
+| <TIME_UP: "time_up">
+| <TIME_UP_WITHOUT_A_TEAM: "time_up_without_a_team">
+}
+
+// Warnings
+TOKEN:
+{
+  <NO_TEAM_FOUND: "no_team_found">
+| <NO_SUCH_PLAYER: "no_such_player">
+| <CANNOT_SUB_WHILE_PLAYON: "cannot_sub_while_playon">
+| <NO_SUBS_LEFT: "no_subs_left">
+| <MAX_OF_THAT_TYPE_ON_FIELD: "max_of_that_type_on_field">
+| <CANNOT_CHANGE_GOALIE: "cannot_change_goalie">
 }
 
 TOKEN :
@@ -156,52 +220,8 @@ TOKEN :
   < KICK: "kick">|
   < DASH: "dash">|
   < TURN: "turn">|
-  < SAY: "say">|
-  < EYEON: "eye on" >|
-  < EYEOFF: "eye off" >|
   < TURN_NECK: "turn_neck">|
-  < BEFORE_KICK_OFF: "before_kick_off">|
-  < TIME_OVER: "time_over">|
-  < PLAY_ON: "play_on">|
-  < DROP_BALL: "drop_ball">|
-  < KICK_OFF_L: "kick_off_l">|
-  < KICK_OFF_R: "kick_off_r">|
-  < KICK_IN_L: "kick_in_l">|
-  < KICK_IN_R: "kick_in_r">|
-  < FREE_KICK_R: "free_kick_r">|
-  < FREE_KICK_L: "free_kick_l">|
-  < FREE_KICK_FAULT_R: "free_kick_fault_r">|
-  < FREE_KICK_FAULT_L: "free_kick_fault_l">|
-  < CORNER_KICK_R: "corner_kick_r">|
-  < CORNER_KICK_L: "corner_kick_l">|
-  < GOAL_KICK_R: "goal_kick_r">|
-  < GOAL_KICK_L: "goal_kick_l">|
-  < GOAL_R: "goal_r_"(["0"-"9"])+>|
-  < GOAL_L: "goal_l_"(["0"-"9"])+>|
-  < FOUL_R: "foul_r">|
-  < FOUL_L: "foul_l">|
-  < OFFSIDE_R: "offside_r">|
-  < OFFSIDE_L: "offside_l">|
-  < HALF_TIME: "half_time">|
   < TEAM: "team" >|
-  < TIME_UP: "time_up">|
-  < TIME_UP_WITHOUT_A_TEAM: "time_up_without_a_team">|
-  < TIME_EXTENDED: "time_extended">|
-  < MOVE: "move">|
-  < CHANGE_MODE: "change_mode">|
-  < CHECK_BALL: "check_ball">|
-  < START: "start">|
-  < RECOVER: "recover">|
-  < CHANGE_PLAYER_TYPE: "change_player_type">|
-  < LOOK: "look">|
-  < TEAM_NAMES: "team_names">|
-  < TEAM_GRAPHIC: "team_graphic">|
-  < NO_TEAM_FOUND: "no_team_found">|
-  < NO_SUCH_PLAYER: "no_such_player">|
-  < CANNOT_SUB_WHILE_PLAYON: "cannot_sub_while_playon">|
-  < NO_SUBS_LEFT: "no_subs_left">|
-  < MAX_OF_THAT_TYPE_ON_FIELD: "max_of_that_type_on_field">|
-  < CANNOT_CHANGE_GOALIE: "cannot_change_goalie">|
   < CHANGE_VIEW: "change_view">|
   < CATCH: "catch">|
   < ID: "id" >|
@@ -635,230 +655,89 @@ void hearReferee() :
   }
 
 //Enum Switches
-Warning warning() :
-    {}{
-    <NO_TEAM_FOUND>{
-        return Warning.NO_TEAM_FOUND;
-        }|
-    <NO_SUCH_PLAYER>{
-        return Warning.NO_SUCH_PLAYER;
-        }|
-    <CANNOT_SUB_WHILE_PLAYON>{
-        return Warning.CANNOT_SUB_WHILE_PLAYON;
-        }|
-    <NO_SUBS_LEFT>{
-        return Warning.NO_SUBS_LEFT;
-        }|
-    <MAX_OF_THAT_TYPE_ON_FIELD>{
-        return Warning.MAX_OF_THAT_TYPE_ON_FIELD;
-        }|
-    <CANNOT_CHANGE_GOALIE>{
-        return Warning.CANNOT_CHANGE_GOALIE;
-        }
+Errors error() : {}
+{
+  <ALREADY_HAVE_OFFLINE_COACH>{ return Errors.ALREADY_HAVE_OFFLINE_COACH; }
+| <CANNOT_SAY_FREEFORM_WHILE_PLAYON>{ return Errors.CANNOT_SAY_FREEFORM_WHILE_PLAYON; }
+| <CONNECTED_OFFLINE_COACH_WITHOUT_COACH_MODE>{ return Errors.CONNECTED_OFFLINE_COACH_WITHOUT_COACH_MODE; }
+| <CONNECTION_FAILED>{ return Errors.CONNECTION_FAILED; }
+| <COULD_NOT_PARSE_SAY>{ return Errors.COULD_NOT_PARSE_SAY; }
+| <GOALIE_ALREADY_EXISTS>{ return Errors.GOALIE_ALREADY_EXISTS; }
+| <ILLEGAL_CLIENT_VERSION>{ return Errors.ILLEGAL_CLIENT_VERSION; }
+| <ILLEGAL_COMMAND_FORM>{ return Errors.ILLEGAL_COMMAND_FORM; }
+| <ILLEGAL_MODE>{ return Errors.ILLEGAL_MODE; }
+| <INVALID_XPM_DATA>{ return Errors.INVALID_XPM_DATA; }
+| <OUT_OF_RANGE_PLAYER_TYPE>{ return Errors.OUT_OF_RANGE_PLAYER_TYPE; }
+| <SAID_TOO_MANY_ADVICE_MESSAGES>{ return Errors.SAID_TOO_MANY_ADVICE_MESSAGES; }
+| <SAID_TOO_MANY_DEFINE_MESSAGES>{ return Errors.SAID_TOO_MANY_DEFINE_MESSAGES; }
+| <SAID_TOO_MANY_DEL_MESSAGES>{ return Errors.SAID_TOO_MANY_DEL_MESSAGES; }
+| <SAID_TOO_MANY_FREEFORM_MESSAGES>{ return Errors.SAID_TOO_MANY_FREEFORM_MESSAGES; }
+| <SAID_TOO_MANY_INFO_MESSAGES>{ return Errors.SAID_TOO_MANY_INFO_MESSAGES; }
+| <SAID_TOO_MANY_MESSAGES>{ return Errors.SAID_TOO_MANY_MESSAGES; }
+| <SAID_TOO_MANY_META_MESSAGES>{ return Errors.SAID_TOO_MANY_META_MESSAGES; }
+| <SAID_TOO_MANY_RULE_MESSAGES>{ return Errors.SAID_TOO_MANY_RULE_MESSAGES; }
+| <SOCKET_OPEN_FAILED>{ return Errors.SOCKET_OPEN_FAILED; }
+| <UNKNOWN_COMMAND>{ return Errors.UNKNOWN_COMMAND; }
 }
-Ok ok() :
-    {}{
-    <MOVE>{
-        return Ok.MOVE;
-        }|
-    <CHANGE_MODE>{
-        return Ok.CHANGE_MODE;
-        }|
-    <CHECK_BALL>{
-        return Ok.CHECK_BALL;
-        }|
-    <START>{
-        return Ok.START;
-        }|
-    <RECOVER>{
-        return Ok.RECOVER;
-        }|
-    <EYEON>{
-        return Ok.EYE_ON;
-        }|
-    <EYEOFF>{
-        return Ok.EYE_OFF;
-        }|
-    <SAY>{
-        return Ok.SAY;
-        }|
-    <CHANGE_PLAYER_TYPE>{
-        startCPTCommand();
-        return Ok.CHANGE_PLAYER_TYPE;
-        }|
-    <LOOK>{
-      	startSeeCommand();
-        return Ok.LOOK;
-        }|
-    <TEAM_NAMES>{
-      	startTeamNamesCommand();
-        return Ok.TEAM_NAMES;
-        }|
-    <TEAM_GRAPHIC>{
-        return Ok.TEAM_GRAPHIC;
-        }
+
+Ok ok() : {}
+{
+  <CHANGE_MODE>{ return Ok.CHANGE_MODE; }
+| <CHANGE_PLAYER_TYPE>{ startCPTCommand(); return Ok.CHANGE_PLAYER_TYPE; }
+| <CHECK_BALL>{ return Ok.CHECK_BALL; }
+| <EYEOFF>{ return Ok.EYE_OFF; }
+| <EYEON>{ return Ok.EYE_ON; }
+| <LOOK>{ startSeeCommand(); return Ok.LOOK; }
+| <MOVE>{ return Ok.MOVE; }
+| <RECOVER>{ return Ok.RECOVER; }
+| <SAY>{ return Ok.SAY; }
+| <START>{ return Ok.START; }
+| <TEAM_GRAPHIC>{ return Ok.TEAM_GRAPHIC; }
+| <TEAM_NAMES>{ startTeamNamesCommand(); return Ok.TEAM_NAMES; }
 }
-Errors error() :
-  {}{
-    <ALREADY_HAVE_OFFLINE_COACH>{ return Errors.ALREADY_HAVE_OFFLINE_COACH; }|
-    <CONNECTED_OFFLINE_COACH_WITHOUT_COACH_MODE>{ return Errors.CONNECTED_OFFLINE_COACH_WITHOUT_COACH_MODE; }|
-    <CONNECTION_FAILED>{ return Errors.CONNECTION_FAILED; }|
-    <CANNOT_SAY_FREEFORM_WHILE_PLAYON>{ return Errors.CANNOT_SAY_FREEFORM_WHILE_PLAYON; }|
-    <COULD_NOT_PARSE_SAY>{ return Errors.COULD_NOT_PARSE_SAY; }|
-    <GOALIE_ALREADY_EXISTS>{ return Errors.GOALIE_ALREADY_EXISTS; }|
-    <ILLEGAL_CLIENT_VERSION>{ return Errors.ILLEGAL_CLIENT_VERSION; }|
-    <ILLEGAL_COMMAND_FORM>{ return Errors.ILLEGAL_COMMAND_FORM; }|
-    <ILLEGAL_MODE>{ return Errors.ILLEGAL_MODE; }|
-    <INVALID_XPM_DATA>{ return Errors.INVALID_XPM_DATA; }|
-    <OUT_OF_RANGE_PLAYER_TYPE>{ return Errors.OUT_OF_RANGE_PLAYER_TYPE; }|
-    <SAID_TOO_MANY_ADVICE_MESSAGES>{ return Errors.SAID_TOO_MANY_ADVICE_MESSAGES; }|
-    <SAID_TOO_MANY_DEFINE_MESSAGES>{ return Errors.SAID_TOO_MANY_DEFINE_MESSAGES; }|
-    <SAID_TOO_MANY_DEL_MESSAGES>{ return Errors.SAID_TOO_MANY_DEL_MESSAGES; }|
-    <SAID_TOO_MANY_FREEFORM_MESSAGES>{ return Errors.SAID_TOO_MANY_FREEFORM_MESSAGES; }|
-    <SAID_TOO_MANY_INFO_MESSAGES>{ return Errors.SAID_TOO_MANY_INFO_MESSAGES; }|
-    <SAID_TOO_MANY_MESSAGES>{ return Errors.SAID_TOO_MANY_MESSAGES; }|
-    <SAID_TOO_MANY_META_MESSAGES>{ return Errors.SAID_TOO_MANY_META_MESSAGES; }|
-    <SAID_TOO_MANY_RULE_MESSAGES>{ return Errors.SAID_TOO_MANY_RULE_MESSAGES; }|
-    <SOCKET_OPEN_FAILED>{ return Errors.SOCKET_OPEN_FAILED; }|
-    <UNKNOWN_COMMAND>{ return Errors.UNKNOWN_COMMAND; }
-  }
-PlayMode playMode() :
-  {}{
-     <BEFORE_KICK_OFF>{
-      return PlayMode.BEFORE_KICK_OFF;
-    }|
-    <TIME_OVER>{
-      return PlayMode.TIME_OVER;
-    }|
-    <PLAY_ON>{
-      return PlayMode.PLAY_ON;
-    }|
-    <KICK_OFF_L>{
-      if (coach.isTeamEast())
-        return PlayMode.KICK_OFF_OTHER;
-      else
-        return PlayMode.KICK_OFF_OWN;
-    }|
-    <KICK_OFF_R>{
-      if (!coach.isTeamEast())
-        return PlayMode.KICK_OFF_OTHER;
-      else
-        return PlayMode.KICK_OFF_OWN;
-    }|
-    <KICK_IN_L>{
-      if (coach.isTeamEast())
-        return PlayMode.KICK_IN_OTHER;
-      else
-        return PlayMode.KICK_IN_OWN;
-    }|
-    <KICK_IN_R>{
-      if (!coach.isTeamEast())
-        return PlayMode.KICK_IN_OTHER;
-      else
-        return PlayMode.KICK_IN_OWN;
-    }|
-    <FREE_KICK_R>{
-      if (!coach.isTeamEast())
-        return PlayMode.FREE_KICK_OTHER;
-      else
-        return PlayMode.FREE_KICK_OWN;
-    }|
-    <FREE_KICK_L>{
-      if (coach.isTeamEast())
-        return PlayMode.FREE_KICK_OTHER;
-      else
-        return PlayMode.FREE_KICK_OWN;
-    }|
-    <FREE_KICK_FAULT_R>{
-      if (!coach.isTeamEast())
-        return PlayMode.FREE_KICK_FAULT_OTHER;
-      else
-        return PlayMode.FREE_KICK_FAULT_OWN;
-    }|
-    <FREE_KICK_FAULT_L>{
-      if (coach.isTeamEast())
-        return PlayMode.FREE_KICK_FAULT_OTHER;
-      else
-        return PlayMode.FREE_KICK_FAULT_OWN;
-    }|
-    <CORNER_KICK_R>{
-      if (!coach.isTeamEast())
-        return PlayMode.CORNER_KICK_OTHER;
-      else
-        return PlayMode.CORNER_KICK_OWN;
-    }|
-    <CORNER_KICK_L>{
-      if (coach.isTeamEast())
-        return PlayMode.CORNER_KICK_OTHER;
-      else
-        return PlayMode.CORNER_KICK_OWN;
-    }|
-    <GOAL_KICK_R>{
-      if (!coach.isTeamEast())
-        return PlayMode.GOAL_KICK_OTHER;
-      else
-        return PlayMode.GOAL_KICK_OWN;
-    }|
-    <GOAL_KICK_L>{
-      if (coach.isTeamEast())
-        return PlayMode.GOAL_KICK_OTHER;
-      else
-        return PlayMode.GOAL_KICK_OWN;
-    }|
-    <GOAL_R>{
-      if (!coach.isTeamEast())
-        return PlayMode.GOAL_OTHER;
-      else
-        return PlayMode.GOAL_OWN;
-    }|
-    <GOAL_L>{
-      if (coach.isTeamEast())
-        return PlayMode.GOAL_OTHER;
-      else
-        return PlayMode.GOAL_OWN;
-    }
-  }
-RefereeMessage refereeMessage() :
-  {}{
-    <OFFSIDE_R>{
-      if (!coach.isTeamEast())
-        return RefereeMessage.OFFSIDE_OTHER;
-      else
-        return RefereeMessage.OFFSIDE_OWN;
-    }|
-    <OFFSIDE_L>{
-      if (coach.isTeamEast())
-        return RefereeMessage.OFFSIDE_OTHER;
-      else
-        return RefereeMessage.OFFSIDE_OWN;
-    }|
-    <FOUL_R>{
-      if (!coach.isTeamEast())
-        return RefereeMessage.FOUL_OTHER;
-      else
-        return RefereeMessage.FOUL_OWN;
-    }|
-    <FOUL_L>{
-      if (coach.isTeamEast())
-        return RefereeMessage.FOUL_OTHER;
-      else
-        return RefereeMessage.FOUL_OWN;
-    }|
-    <HALF_TIME>{
-        return RefereeMessage.HALF_TIME;
-    }|
-    <DROP_BALL>{
-        return RefereeMessage.DROP_BALL;
-    }|
-    <TIME_UP>{
-        return RefereeMessage.TIME_UP;
-    }|
-    <TIME_UP_WITHOUT_A_TEAM>{
-        return RefereeMessage.TIME_UP_WITHOUT_A_TEAM;
-    }|
-    <TIME_EXTENDED>{
-        return RefereeMessage.TIME_EXTENDED;
-    }
+
+Warning warning() : {}
+{
+  <CANNOT_CHANGE_GOALIE>{ return Warning.CANNOT_CHANGE_GOALIE; }
+| <CANNOT_SUB_WHILE_PLAYON>{ return Warning.CANNOT_SUB_WHILE_PLAYON; }
+| <MAX_OF_THAT_TYPE_ON_FIELD>{ return Warning.MAX_OF_THAT_TYPE_ON_FIELD; }
+| <NO_SUBS_LEFT>{ return Warning.NO_SUBS_LEFT; }
+| <NO_SUCH_PLAYER>{ return Warning.NO_SUCH_PLAYER; }
+| <NO_TEAM_FOUND>{ return Warning.NO_TEAM_FOUND; }
+}
+
+PlayMode playMode() : {}
+{
+  <BEFORE_KICK_OFF>{ return PlayMode.BEFORE_KICK_OFF; }
+| <CORNER_KICK_L>{ return coach.isTeamEast() ? PlayMode.CORNER_KICK_OTHER : PlayMode.CORNER_KICK_OWN; }
+| <CORNER_KICK_R>{ return !coach.isTeamEast() ? PlayMode.CORNER_KICK_OTHER : PlayMode.CORNER_KICK_OWN; }
+| <FREE_KICK_FAULT_L>{ return coach.isTeamEast() ? PlayMode.FREE_KICK_FAULT_OTHER : PlayMode.FREE_KICK_FAULT_OWN; }
+| <FREE_KICK_FAULT_R>{ return !coach.isTeamEast() ? PlayMode.FREE_KICK_FAULT_OTHER : PlayMode.FREE_KICK_FAULT_OWN; }
+| <FREE_KICK_L>{ return coach.isTeamEast() ? PlayMode.FREE_KICK_OTHER : PlayMode.FREE_KICK_OWN; }
+| <FREE_KICK_R>{ return !coach.isTeamEast() ? PlayMode.FREE_KICK_OTHER : PlayMode.FREE_KICK_OWN; }
+| <GOAL_KICK_L>{ return coach.isTeamEast() ? PlayMode.GOAL_KICK_OTHER : PlayMode.GOAL_KICK_OWN; }
+| <GOAL_KICK_R>{ return !coach.isTeamEast() ? PlayMode.GOAL_KICK_OTHER : PlayMode.GOAL_KICK_OWN; }
+| <GOAL_L>{ return coach.isTeamEast() ? PlayMode.GOAL_OTHER : PlayMode.GOAL_OWN; }
+| <GOAL_R>{ return !coach.isTeamEast() ? PlayMode.GOAL_OTHER : PlayMode.GOAL_OWN; }
+| <KICK_IN_L>{ return coach.isTeamEast() ? PlayMode.KICK_IN_OTHER : PlayMode.KICK_IN_OWN; }
+| <KICK_IN_R>{ return !coach.isTeamEast() ? PlayMode.KICK_IN_OTHER : PlayMode.KICK_IN_OWN; }
+| <KICK_OFF_L>{ return coach.isTeamEast() ? PlayMode.KICK_OFF_OTHER : PlayMode.KICK_OFF_OWN; }
+| <KICK_OFF_R>{ return !coach.isTeamEast() ? PlayMode.KICK_OFF_OTHER : PlayMode.KICK_OFF_OWN; }
+| <PLAY_ON>{ return PlayMode.PLAY_ON; }
+| <TIME_OVER>{ return PlayMode.TIME_OVER; }
+}
+
+RefereeMessage refereeMessage() : {}
+{
+  <DROP_BALL>{ return RefereeMessage.DROP_BALL; }
+| <FOUL_L>{ return coach.isTeamEast() ? RefereeMessage.FOUL_OTHER : RefereeMessage.FOUL_OWN; }
+| <FOUL_R>{ return !coach.isTeamEast() ? RefereeMessage.FOUL_OTHER : RefereeMessage.FOUL_OWN; }
+| <HALF_TIME>{ return RefereeMessage.HALF_TIME; }
+| <OFFSIDE_L>{ return coach.isTeamEast() ? RefereeMessage.OFFSIDE_OTHER : RefereeMessage.OFFSIDE_OWN; }
+| <OFFSIDE_R>{ return !coach.isTeamEast() ? RefereeMessage.OFFSIDE_OTHER : RefereeMessage.OFFSIDE_OWN; }
+| <TIME_EXTENDED>{ return RefereeMessage.TIME_EXTENDED; }
+| <TIME_UP>{ return RefereeMessage.TIME_UP; }
+| <TIME_UP_WITHOUT_A_TEAM>{ return RefereeMessage.TIME_UP_WITHOUT_A_TEAM; }
 }
 
 void startServerParamCommand() : //Possibly the biggest method ever!
