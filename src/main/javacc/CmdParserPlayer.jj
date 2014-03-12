@@ -123,10 +123,247 @@ import java.util.HashMap;
 }
 PARSER_END(CmdParserPlayer)
 
-SKIP: {
-  "\t"|"\n"|"\r"|"\""
+SKIP:
+{
+  "\t"
+| "\n"
+| "\r"
 }
-TOKEN :
+
+// Errors
+TOKEN:
+{
+  <CANNOT_RECONNECT_WHILE_PLAYON: "cannot_reconnect_while_playon">
+| <CONNECTION_FAILED: "connection_failed">
+| <ILLEGAL_CLIENT_VERSION: "illegal_client_version">
+| <ILLEGAL_COMMAND_FORM: "illegal_command_form">
+| <ILLEGAL_TEAMNAME: "illegal_teamname">
+| <ILLEGAL_TEAMNAME_OR_TOO_LONG_TEAMNAME: "illegal_teamname_or_too_long_teamname">
+| <NO_MORE_MONITOR: "no_more_monitor">
+| <NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION: "no_more_player_or_goalie_or_illegal_client_version">
+| <NO_MORE_TEAM: "no_more_team">
+| <NO_SUCH_TEAM_OR_PLAYER: "no_such_team_or_player">
+| <RED_CARDED_PLAYER: "red_carded_player">
+| <SOCKET_OPEN_FAILED: "socket_open_failed">
+| <TOO_MANY_MOVES: "too_many_moves">
+| <UNKNOWN_COMMAND: "unknown_command">
+}
+
+Errors error():
+{}
+{
+  <CANNOT_RECONNECT_WHILE_PLAYON>{ return Errors.CANNOT_RECONNECT_WHILE_PLAYON; }
+| <CONNECTION_FAILED>{ return Errors.CONNECTION_FAILED; }
+| <ILLEGAL_CLIENT_VERSION>{ return Errors.ILLEGAL_CLIENT_VERSION; }
+| <ILLEGAL_COMMAND_FORM>{ return Errors.ILLEGAL_COMMAND_FORM; }
+| <ILLEGAL_TEAMNAME>{ return Errors.ILLEGAL_TEAMNAME; }
+| <ILLEGAL_TEAMNAME_OR_TOO_LONG_TEAMNAME>{ return Errors.ILLEGAL_TEAMNAME_OR_TOO_LONG_TEAMNAME; }
+| <NO_MORE_MONITOR>{ return Errors.NO_MORE_MONITOR; }
+| <NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION>{ return Errors.NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION; }
+| <NO_MORE_TEAM>{ return Errors.NO_MORE_TEAM; }
+| <NO_SUCH_TEAM_OR_PLAYER>{ return Errors.NO_SUCH_TEAM_OR_PLAYER; }
+| <RED_CARDED_PLAYER>{ return Errors.RED_CARDED_PLAYER; }
+| <SOCKET_OPEN_FAILED>{ return Errors.SOCKET_OPEN_FAILED; }
+| <TOO_MANY_MOVES>{ return Errors.TOO_MANY_MOVES; }
+| <UNKNOWN_COMMAND>{ return Errors.UNKNOWN_COMMAND; }
+}
+
+
+// OK
+TOKEN:
+{
+  <CHANGE_MODE: "change_mode">
+| <CHANGE_PLAYER_TYPE: "change_player_type">
+| <CHECK_BALL: "check_ball">
+| <LOOK: "look">
+| <MOVE: "move">
+| <RECOVER: "recover">
+| <SAY: "say">
+| <START: "start">
+| <TEAM_GRAPHIC: "team_graphic">
+| <TEAM_NAMES: "team_names">
+}
+
+Ok ok():
+{}
+{
+  <CHANGE_MODE>{ return Ok.CHANGE_MODE; }
+| <CHANGE_PLAYER_TYPE>{ return Ok.CHANGE_PLAYER_TYPE; }
+| <CHECK_BALL>{ return Ok.CHECK_BALL; }
+| <LOOK>{ return Ok.LOOK; }
+| <MOVE>{ return Ok.MOVE; }
+| <RECOVER>{ return Ok.RECOVER; }
+| <SAY>{ return Ok.SAY; }
+| <START>{ return Ok.START; }
+| <TEAM_GRAPHIC>{ return Ok.TEAM_GRAPHIC; }
+| <TEAM_NAMES>{ return Ok.TEAM_NAMES; }
+}
+
+// Play modes
+TOKEN:
+{
+  <BEFORE_KICK_OFF: "before_kick_off">
+| <CORNER_KICK_L: "corner_kick_l">
+| <CORNER_KICK_R: "corner_kick_r">
+| <FREE_KICK_FAULT_L: "free_kick_fault_l">
+| <FREE_KICK_FAULT_R: "free_kick_fault_r">
+| <FREE_KICK_L: "free_kick_l">
+| <FREE_KICK_R: "free_kick_r">
+| <GOAL_KICK_L: "goal_kick_l">
+| <GOAL_KICK_R: "goal_kick_r">
+| <GOAL_L: "goal_l_"(["0"-"9"])+>
+| <GOAL_R: "goal_r_"(["0"-"9"])+>
+| <KICK_IN_L: "kick_in_l">
+| <KICK_IN_R: "kick_in_r">
+| <KICK_OFF_L: "kick_off_l">
+| <KICK_OFF_R: "kick_off_r">
+| <PLAY_ON: "play_on">
+| <TIME_OVER: "time_over">
+}
+
+PlayMode playMode():
+{}
+{
+  <BEFORE_KICK_OFF>{ return PlayMode.BEFORE_KICK_OFF; }
+| <CORNER_KICK_L>{ return player.isTeamEast() ? PlayMode.CORNER_KICK_OTHER : PlayMode.CORNER_KICK_OWN; }
+| <CORNER_KICK_R>{ return !player.isTeamEast() ? PlayMode.CORNER_KICK_OTHER : PlayMode.CORNER_KICK_OWN; }
+| <FREE_KICK_FAULT_L>{ return player.isTeamEast() ? PlayMode.FREE_KICK_FAULT_OTHER : PlayMode.FREE_KICK_FAULT_OWN; }
+| <FREE_KICK_FAULT_R>{ return !player.isTeamEast() ? PlayMode.FREE_KICK_FAULT_OTHER : PlayMode.FREE_KICK_FAULT_OWN; }
+| <FREE_KICK_L>{ return player.isTeamEast() ? PlayMode.FREE_KICK_OTHER : PlayMode.FREE_KICK_OWN; }
+| <FREE_KICK_R>{ return !player.isTeamEast() ? PlayMode.FREE_KICK_OTHER : PlayMode.FREE_KICK_OWN; }
+| <GOAL_KICK_L>{ return player.isTeamEast() ? PlayMode.GOAL_KICK_OTHER : PlayMode.GOAL_KICK_OWN; }
+| <GOAL_KICK_R>{ return !player.isTeamEast() ? PlayMode.GOAL_KICK_OTHER : PlayMode.GOAL_KICK_OWN; }
+| <GOAL_L>{ return player.isTeamEast() ? PlayMode.GOAL_OTHER : PlayMode.GOAL_OWN; }
+| <GOAL_R>{ return !player.isTeamEast() ? PlayMode.GOAL_OTHER : PlayMode.GOAL_OWN; }
+| <KICK_IN_L>{ return player.isTeamEast() ? PlayMode.KICK_IN_OTHER : PlayMode.KICK_IN_OWN; }
+| <KICK_IN_R>{ return !player.isTeamEast() ? PlayMode.KICK_IN_OTHER : PlayMode.KICK_IN_OWN; }
+| <KICK_OFF_L>{ return player.isTeamEast() ? PlayMode.KICK_OFF_OTHER : PlayMode.KICK_OFF_OWN; } 
+| <KICK_OFF_R>{ return !player.isTeamEast() ? PlayMode.KICK_OFF_OTHER : PlayMode.KICK_OFF_OWN; }
+| <PLAY_ON>{ return PlayMode.PLAY_ON; }
+| <TIME_OVER>{ return PlayMode.TIME_OVER; }
+}
+
+// Referee Messages
+TOKEN:
+{
+  <DROP_BALL: "drop_ball">
+| <FOUL_L: "foul_l">
+| <FOUL_R: "foul_r">
+| <HALF_TIME: "half_time">
+| <OFFSIDE_L: "offside_l">
+| <OFFSIDE_R: "offside_r">
+| <TIME_EXTENDED: "time_extended">
+| <TIME_UP: "time_up">
+| <TIME_UP_WITHOUT_A_TEAM: "time_up_without_a_team">
+}
+
+RefereeMessage refereeMessage():
+{}
+{
+  <DROP_BALL>{ return RefereeMessage.DROP_BALL; }
+| <FOUL_L>{ return player.isTeamEast() ? RefereeMessage.FOUL_OTHER : RefereeMessage.FOUL_OWN; }
+| <FOUL_R>{ return !player.isTeamEast() ? RefereeMessage.FOUL_OTHER : RefereeMessage.FOUL_OWN; }
+| <HALF_TIME>{ return RefereeMessage.HALF_TIME; }
+| <OFFSIDE_L>{ return player.isTeamEast() ? RefereeMessage.OFFSIDE_OTHER : RefereeMessage.OFFSIDE_OWN; }
+| <OFFSIDE_R>{ return !player.isTeamEast() ? RefereeMessage.OFFSIDE_OTHER : RefereeMessage.OFFSIDE_OWN; }
+| <TIME_EXTENDED>{ return RefereeMessage.TIME_EXTENDED; }
+| <TIME_UP>{ return RefereeMessage.TIME_UP; }
+| <TIME_UP_WITHOUT_A_TEAM>{ return RefereeMessage.TIME_UP_WITHOUT_A_TEAM; }
+}
+
+// Warnings
+TOKEN:
+{
+  <NO_TEAM_FOUND: "no_team_found">
+| <NO_SUCH_PLAYER: "no_such_player">
+| <CANNOT_SUB_WHILE_PLAYON: "cannot_sub_while_playon">
+| <NO_SUBS_LEFT: "no_subs_left">
+| <MAX_OF_THAT_TYPE_ON_FIELD: "max_of_that_type_on_field">
+| <CANNOT_CHANGE_GOALIE: "cannot_change_goalie">
+}
+
+Warning warning():
+{}
+{
+  <CANNOT_CHANGE_GOALIE>{ return Warning.CANNOT_CHANGE_GOALIE; }
+| <CANNOT_SUB_WHILE_PLAYON>{ return Warning.CANNOT_SUB_WHILE_PLAYON; }
+| <MAX_OF_THAT_TYPE_ON_FIELD>{ return Warning.MAX_OF_THAT_TYPE_ON_FIELD; }
+| <NO_SUBS_LEFT>{ return Warning.NO_SUBS_LEFT; }
+| <NO_SUCH_PLAYER>{ return Warning.NO_SUCH_PLAYER; }
+| <NO_TEAM_FOUND>{ return Warning.NO_TEAM_FOUND; }
+}
+
+// Separators
+TOKEN:
+{
+  <OB: "(">
+| <CB: ")">
+}
+
+// Quoted string.
+TOKEN:
+{
+  <QUOTE:"\""> : STRING_STATE
+}
+
+<STRING_STATE> MORE:
+{
+    "\\" : ESC_STATE
+}
+
+<STRING_STATE> TOKEN:
+{
+  <ENDQUOTE:<QUOTE>> : DEFAULT
+| <CHAR:~["\"","\\"]>
+}
+
+<ESC_STATE> TOKEN:
+{
+  <CNTRL_ESC:["\"","\\","/","b","f","n","r","t"]> : STRING_STATE
+}
+
+String string():
+{
+  StringBuilder builder = new StringBuilder();
+}
+{
+  <QUOTE> ( getChar(builder) )* <ENDQUOTE>
+  {
+    return builder.toString();
+  }
+}
+
+void getChar(StringBuilder builder):
+{
+  Token t;
+}
+{
+  ( t = <CHAR> | t = <CNTRL_ESC> )
+  {
+    if (t.image.length() < 2)
+    {
+      // CHAR
+      builder.append(t.image.charAt(0));
+    }
+    else if (t.image.length() < 6)
+    {
+      // ESC
+      char c = t.image.charAt(1);
+      switch (c)
+      {
+        case 'b': builder.append((char) 8); break;
+        case 'f': builder.append((char) 12); break;
+        case 'n': builder.append((char) 10); break;
+        case 'r': builder.append((char) 13); break;
+        case 't': builder.append((char) 9); break;
+        default: builder.append(c);
+      }
+    }
+  }
+}
+
+// Other tokens.
+TOKEN:
 {
   < B: "b"|"B">|
   < FLAG: "f"|"F">|
@@ -147,66 +384,8 @@ TOKEN :
   < KICK: "kick">|
   < DASH: "dash">|
   < TURN: "turn">|
-  < SAY: "say">|
   < TURN_NECK: "turn_neck">|
-  < BEFORE_KICK_OFF: "before_kick_off">|
-  < TIME_OVER: "time_over">|
-  < PLAY_ON: "play_on">|
-  < DROP_BALL: "drop_ball">|
-  < KICK_OFF_L: "kick_off_l">|
-  < KICK_OFF_R: "kick_off_r">|
-  < KICK_IN_L: "kick_in_l">|
-  < KICK_IN_R: "kick_in_r">|
-  < FREE_KICK_R: "free_kick_r">|
-  < FREE_KICK_L: "free_kick_l">|
-  < FREE_KICK_FAULT_R: "free_kick_fault_r">|
-  < FREE_KICK_FAULT_L: "free_kick_fault_l">|
-  < CORNER_KICK_R: "corner_kick_r">|
-  < CORNER_KICK_L: "corner_kick_l">|
-  < GOAL_KICK_R: "goal_kick_r">|
-  < GOAL_KICK_L: "goal_kick_l">|
-  < GOAL_R: "goal_r_"(["0"-"9"])+>|
-  < GOAL_L: "goal_l_"(["0"-"9"])+>|
-  < FOUL_R: "foul_r">|
-  < FOUL_L: "foul_l">|
-  < OFFSIDE_R: "offside_r">|
-  < OFFSIDE_L: "offside_l">|
-  < HALF_TIME: "half_time">|
-  < TIME_UP: "time_up">|
-  < TIME_UP_WITHOUT_A_TEAM: "time_up_without_a_team">|
-  < TIME_EXTENDED: "time_extended">|
-  // Errors.
-  < CANNOT_RECONNECT_WHILE_PLAYON: "cannot_reconnect_while_playon">|
-  < CONNECTION_FAILED: "connection_failed">|
-  < ILLEGAL_CLIENT_VERSION: "illegal_client_version">|
-  < ILLEGAL_COMMAND_FORM: "illegal_command_form">|
-  < ILLEGAL_TEAMNAME: "illegal_teamname">|
-  < ILLEGAL_TEAMNAME_OR_TOO_LONG_TEAMNAME: "illegal_teamname_or_too_long_teamname">|
-  < NO_MORE_MONITOR: "no_more_monitor">|
-  < NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION: "no_more_player_or_goalie_or_illegal_client_version">|	
-  < NO_MORE_TEAM: "no_more_team">|	
-  < NO_SUCH_TEAM_OR_PLAYER: "no_such_team_or_player">|	
-  < RED_CARDED_PLAYER: "red_carded_player">|	
-  < SOCKET_OPEN_FAILED: "socket_open_failed">|	
-  < TOO_MANY_MOVES: "too_many_moves">|
-  < UNKNOWN_COMMAND: "unknown_command">|
-  // End of errors.
-  < MOVE: "move">|
-  < CHANGE_MODE: "change_mode">|
-  < CHECK_BALL: "check_ball">|
-  < START: "start">|
-  < RECOVER: "recover">|
   < EAR: "ear">|
-  < CHANGE_PLAYER_TYPE: "change_player_type">|
-  < LOOK: "look">|
-  < TEAM_NAMES: "team_names">|
-  < TEAM_GRAPHIC: "team_graphic">|
-  < NO_TEAM_FOUND: "no_team_found">|
-  < NO_SUCH_PLAYER: "no_such_player">|
-  < CANNOT_SUB_WHILE_PLAYON: "cannot_sub_while_playon">|
-  < NO_SUBS_LEFT: "no_subs_left">|
-  < MAX_OF_THAT_TYPE_ON_FIELD: "max_of_that_type_on_field">|
-  < CANNOT_CHANGE_GOALIE: "cannot_change_goalie">|
   < CHANGE_VIEW: "change_view">|
   < CATCH: "catch">|
   < ID: "id" >|
@@ -419,13 +598,13 @@ TOKEN :
   < C: "c">|
   < T: "t">|
   < R: "r">|
-  < OB: "(">|
-  < CB: ")">|
   < SEP: " ">|
   < NUM:(["-", "+"])?(["0"-"9"])*(".")?(["0"-"9"])+(["e", "E"](["-", "+"])?(["0"-"9"])+)? >|
   < NAM: ["a"-"z","A"-"Z","_",".","/","-","%","~"] ( ["a"-"z","A"-"Z","_","0"-"9",".","/","-","%","~"] )* >
 }
 
+
+// Remaining parser commands.
 
 
 void startCPTCommand() :
@@ -447,17 +626,23 @@ void startCPTCommand() :
 	}
 }
 
-void startHearCommand() :
-  {Token num;Token msg;} {
-    <NUM><SEP>(
-      <SELF>|
-      <REFEREE><SEP>hearReferee()|
-      num=<NUM><SEP>msg=<NAM>{
+void startHearCommand():
+{
+    Token num;
+    String msg;
+}
+{
+    <NUM><SEP>
+    (
+      <SELF>
+    | <REFEREE><SEP>hearReferee()
+    | num=<NUM><SEP>msg=string()
+      {
         Double dNum = new Double(num.image);
-        controller.infoHearPlayer(dNum.doubleValue(), msg.image);
+        controller.infoHearPlayer(dNum.doubleValue(), msg);
       }
     )
-  }
+}
 
 void hearReferee() :
   {PlayMode playMode=null; RefereeMessage refereeMessage=null;}{
@@ -571,16 +756,25 @@ void startSeeCommand() :
 
 //Get object details.
 void objInfo() :
-  {ObjName name; Token p1=null; Token p2=null; Token p3=null;
-  Token p4=null; Token p5=null; Token p6=null; Token p7=null;
-  Token kicked=null;} {
+{
+    ObjName name;
+    Token p1=null;
+    Token p2=null;
+    Token p3=null;
+    Token p4=null;
+    Token p5=null;
+    Token p6=null;
+    Token p7=null;
+    String kicked=null;
+}
+{
     <OB>name=objName()<CB><SEP>[p1=<NUM>[<SEP>]]  //Distance
                                [p2=<NUM>[<SEP>]]  //Direction
                                [p3=<NUM>[<SEP>]]  //DistChange
                                [p4=<NUM>[<SEP>]]  //DirChange
                                [p5=<NUM>[<SEP>]]  //BodyFacingDir
                                [p6=<NUM>[<SEP>]]  //HeadFacingDir
-                               [kicked=<NAM>[<SEP>]]{ //Player kicked last turn - Currently only stopping the exception!
+                               [kicked=string()[<SEP>]]{ //Player kicked last turn - Currently only stopping the exception!
       Double dDistance = 0.0;
       Double dDirection = 0.0;
       Double dDistChange = 0.0;
@@ -659,14 +853,20 @@ ObjName objName() :
   }
 
 ObjName objNamePlayer() :
-  {Token name=null; Token num=null; Token goalie=null; ObjName objName=null;} {
-    name=<NAM>[<SEP>num=<NUM>][<SEP>goalie=<GOAL>] {
+{
+    String name=null;
+    Token num=null;
+    Token goalie=null;
+    ObjName objName=null;
+}
+{
+    name=string()[<SEP>num=<NUM>][<SEP>goalie=<GOAL>] {
       Integer iNum;
       //Assign seen player number.
       if (num==null) iNum = new Integer(-1);
       else  iNum = new Integer(num.toString());
       //Work out of one of ours or theirs.
-      if (name.toString().equals(player.getTeamName())){
+      if (name.equals(player.getTeamName())){
             if (goalie==null){
                 if (player.isTeamEast()) return new ObjNamePlayerEast(iNum.intValue(), false);
                 else return new ObjNamePlayerWest(iNum.intValue(), false);
@@ -701,7 +901,7 @@ ObjName objNamePlayer() :
             return new ObjNamePlayerEast(iNum.intValue(), true);
       }
     }
-  }
+}
 
 ObjName objNameFlag() :
   {ObjName objName=null;} {
@@ -881,218 +1081,7 @@ ObjName objNameFlagPenaltyEast() :
     }
   }
 
-//Enum Switches
-Warning warning() :
-    {}{
-    <NO_TEAM_FOUND>{
-        return Warning.NO_TEAM_FOUND;
-        }|
-    <NO_SUCH_PLAYER>{
-        return Warning.NO_SUCH_PLAYER;
-        }|
-    <CANNOT_SUB_WHILE_PLAYON>{
-        return Warning.CANNOT_SUB_WHILE_PLAYON;
-        }|
-    <NO_SUBS_LEFT>{
-        return Warning.NO_SUBS_LEFT;
-        }|
-    <MAX_OF_THAT_TYPE_ON_FIELD>{
-        return Warning.MAX_OF_THAT_TYPE_ON_FIELD;
-        }|
-    <CANNOT_CHANGE_GOALIE>{
-        return Warning.CANNOT_CHANGE_GOALIE;
-        }
-}
-Ok ok() :
-    {}{
-    <MOVE>{
-        return Ok.MOVE;
-        }|
-    <CHANGE_MODE>{
-        return Ok.CHANGE_MODE;
-        }|
-    <CHECK_BALL>{
-        return Ok.CHECK_BALL;
-        }|
-    <START>{
-        return Ok.START;
-        }|
-    <RECOVER>{
-        return Ok.RECOVER;
-        }|
-    <SAY>{
-        return Ok.SAY;
-        }|
-    <CHANGE_PLAYER_TYPE>{
-        return Ok.CHANGE_PLAYER_TYPE;
-        }|
-    <LOOK>{
-        return Ok.LOOK;
-        }|
-    <TEAM_NAMES>{
-        return Ok.TEAM_NAMES;
-        }|
-    <TEAM_GRAPHIC>{
-        return Ok.TEAM_GRAPHIC;
-        }
-}
-Errors error() :
-  {}{
-    <CANNOT_RECONNECT_WHILE_PLAYON>{ return Errors.CANNOT_RECONNECT_WHILE_PLAYON; }|
-    <CONNECTION_FAILED>{ return Errors.CONNECTION_FAILED; }|
-    <ILLEGAL_CLIENT_VERSION>{ return Errors.ILLEGAL_CLIENT_VERSION; }|
-    <ILLEGAL_COMMAND_FORM>{ return Errors.ILLEGAL_COMMAND_FORM; }|
-    <ILLEGAL_TEAMNAME>{ return Errors.ILLEGAL_TEAMNAME; }|
-    <ILLEGAL_TEAMNAME_OR_TOO_LONG_TEAMNAME>{ return Errors.ILLEGAL_TEAMNAME_OR_TOO_LONG_TEAMNAME; }|
-    <NO_MORE_MONITOR>{ return Errors.NO_MORE_MONITOR; }|
-    <NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION>{ return Errors.NO_MORE_PLAYER_OR_GOALIE_OR_ILLEGAL_CLIENT_VERSION; }|
-    <NO_MORE_TEAM>{ return Errors.NO_MORE_TEAM; }|
-    <NO_SUCH_TEAM_OR_PLAYER>{ return Errors.NO_SUCH_TEAM_OR_PLAYER; }|
-    <RED_CARDED_PLAYER>{ return Errors.RED_CARDED_PLAYER; }|
-    <SOCKET_OPEN_FAILED>{ return Errors.SOCKET_OPEN_FAILED; }|
-    <TOO_MANY_MOVES>{ return Errors.TOO_MANY_MOVES; }|
-    <UNKNOWN_COMMAND>{ return Errors.UNKNOWN_COMMAND; }
-  }
-PlayMode playMode() :
-  {}{
-     <BEFORE_KICK_OFF>{
-      return PlayMode.BEFORE_KICK_OFF;
-    }|
-    <TIME_OVER>{
-      return PlayMode.TIME_OVER;
-    }|
-    <PLAY_ON>{
-      return PlayMode.PLAY_ON;
-    }|
-    <KICK_OFF_L>{
-      if (player.isTeamEast())
-        return PlayMode.KICK_OFF_OTHER;
-      else
-        return PlayMode.KICK_OFF_OWN;
-    }|
-    <KICK_OFF_R>{
-      if (!player.isTeamEast())
-        return PlayMode.KICK_OFF_OTHER;
-      else
-        return PlayMode.KICK_OFF_OWN;
-    }|
-    <KICK_IN_L>{
-      if (player.isTeamEast())
-        return PlayMode.KICK_IN_OTHER;
-      else
-        return PlayMode.KICK_IN_OWN;
-    }|
-    <KICK_IN_R>{
-      if (!player.isTeamEast())
-        return PlayMode.KICK_IN_OTHER;
-      else
-        return PlayMode.KICK_IN_OWN;
-    }|
-    <FREE_KICK_R>{
-      if (!player.isTeamEast())
-        return PlayMode.FREE_KICK_OTHER;
-      else
-        return PlayMode.FREE_KICK_OWN;
-    }|
-    <FREE_KICK_L>{
-      if (player.isTeamEast())
-        return PlayMode.FREE_KICK_OTHER;
-      else
-        return PlayMode.FREE_KICK_OWN;
-    }|
-    <FREE_KICK_FAULT_R>{
-      if (!player.isTeamEast())
-        return PlayMode.FREE_KICK_FAULT_OTHER;
-      else
-        return PlayMode.FREE_KICK_FAULT_OWN;
-    }|
-    <FREE_KICK_FAULT_L>{
-      if (player.isTeamEast())
-        return PlayMode.FREE_KICK_FAULT_OTHER;
-      else
-        return PlayMode.FREE_KICK_FAULT_OWN;
-    }|
-    <CORNER_KICK_R>{
-      if (!player.isTeamEast())
-        return PlayMode.CORNER_KICK_OTHER;
-      else
-        return PlayMode.CORNER_KICK_OWN;
-    }|
-    <CORNER_KICK_L>{
-      if (player.isTeamEast())
-        return PlayMode.CORNER_KICK_OTHER;
-      else
-        return PlayMode.CORNER_KICK_OWN;
-    }|
-    <GOAL_KICK_R>{
-      if (!player.isTeamEast())
-        return PlayMode.GOAL_KICK_OTHER;
-      else
-        return PlayMode.GOAL_KICK_OWN;
-    }|
-    <GOAL_KICK_L>{
-      if (player.isTeamEast())
-        return PlayMode.GOAL_KICK_OTHER;
-      else
-        return PlayMode.GOAL_KICK_OWN;
-    }|
-    <GOAL_R>{
-      if (!player.isTeamEast())
-        return PlayMode.GOAL_OTHER;
-      else
-        return PlayMode.GOAL_OWN;
-    }|
-    <GOAL_L>{
-      if (player.isTeamEast())
-        return PlayMode.GOAL_OTHER;
-      else
-        return PlayMode.GOAL_OWN;
-    }
-  }
-RefereeMessage refereeMessage() :
-  {}{
-    <OFFSIDE_R>{
-      if (!player.isTeamEast())
-        return RefereeMessage.OFFSIDE_OTHER;
-      else
-        return RefereeMessage.OFFSIDE_OWN;
-    }|
-    <OFFSIDE_L>{
-      if (player.isTeamEast())
-        return RefereeMessage.OFFSIDE_OTHER;
-      else
-        return RefereeMessage.OFFSIDE_OWN;
-    }|
-    <FOUL_R>{
-      if (!player.isTeamEast())
-        return RefereeMessage.FOUL_OTHER;
-      else
-        return RefereeMessage.FOUL_OWN;
-    }|
-    <FOUL_L>{
-      if (player.isTeamEast())
-        return RefereeMessage.FOUL_OTHER;
-      else
-        return RefereeMessage.FOUL_OWN;
-    }|
-    <HALF_TIME>{
-        return RefereeMessage.HALF_TIME;
-    }|
-    <DROP_BALL>{
-        return RefereeMessage.DROP_BALL;
-    }|
-    <TIME_UP>{
-        return RefereeMessage.TIME_UP;
-    }|
-    <TIME_UP_WITHOUT_A_TEAM>{
-        return RefereeMessage.TIME_UP_WITHOUT_A_TEAM;
-    }|
-    <TIME_EXTENDED>{
-        return RefereeMessage.TIME_EXTENDED;
-    }
-}
-
-    void startServerParamCommand() : //Possibly the biggest method ever!
+void startServerParamCommand() : //Possibly the biggest method ever!
     {Token audioCutDist=null; Token autoMode=null;Token backDashRate=null;
 	Token backPasses=null;Token ballAccelMax=null;Token ballDecay=null;
 	Token ballRand=null;Token ballSize=null;Token ballSpeedMax=null;
@@ -1863,3 +1852,4 @@ void startPlayerTypeCommand() :
 		  dExtraStamina.doubleValue(), dEffortMax.doubleValue(), dEffortMin.doubleValue());
 	}
 }
+
