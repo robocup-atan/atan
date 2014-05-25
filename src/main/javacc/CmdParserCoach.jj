@@ -272,23 +272,43 @@ RefereeMessage refereeMessage():
 // Warnings
 TOKEN:
 {
-  <NO_TEAM_FOUND: "no_team_found">
-| <NO_SUCH_PLAYER: "no_such_player">
+  <CANNOT_CHANGE_GOALIE: "cannot_change_goalie">
+| <CANNOT_CHANGE_GOALIE_WHILE_PENALTY_TAKEN: "cannot_change_goalie_while_penalty_taken">
+| <CANNOT_CHANGE_GOALIE_WHILE_PLAYON: "cannot_change_goalie_while_playon">
+| <CANNOT_SAY_WHILE_PLAYON: "cannot_say_while_playon">
+| <CANNOT_SUB_WHILE_PENALTY_SHOOTOUTS: "cannot_sub_while_penalty_shootouts">
 | <CANNOT_SUB_WHILE_PLAYON: "cannot_sub_while_playon">
-| <NO_SUBS_LEFT: "no_subs_left">
+| <COMPRESSION_UNSUPPORTED: "compression_unsupported">
+| <INVALID_TILE_LOCATION: "invalid_tile_location">
+| <INVALID_TILE_SIZE: "invalid_tile_size">
 | <MAX_OF_THAT_TYPE_ON_FIELD: "max_of_that_type_on_field">
-| <CANNOT_CHANGE_GOALIE: "cannot_change_goalie">
+| <MESSAGE_NOT_NULL_TERMINATED: "message_not_null_terminated">
+| <NO_LEFT_OF_THAT_TYPE: "no_left_of_that_type">
+| <NO_SUBS_LEFT: "no_subs_left">
+| <NO_SUCH_PLAYER: "no_such_player">
+| <NO_TEAM_FOUND: "no_team_found">
+| <ONLY_BEFORE_KICK_OFF: "only_before_kick_off">
 }
 
 Warning warning():
 {}
 {
   <CANNOT_CHANGE_GOALIE>{ return Warning.CANNOT_CHANGE_GOALIE; }
+| <CANNOT_CHANGE_GOALIE_WHILE_PENALTY_TAKEN>{ return Warning.CANNOT_CHANGE_GOALIE_WHILE_PENALTY_TAKEN; }
+| <CANNOT_CHANGE_GOALIE_WHILE_PLAYON>{ return Warning.CANNOT_CHANGE_GOALIE_WHILE_PLAYON; }
+| <CANNOT_SAY_WHILE_PLAYON>{ return Warning.CANNOT_SAY_WHILE_PLAYON; }
+| <CANNOT_SUB_WHILE_PENALTY_SHOOTOUTS>{ return Warning.CANNOT_SUB_WHILE_PENALTY_SHOOTOUTS; }
 | <CANNOT_SUB_WHILE_PLAYON>{ return Warning.CANNOT_SUB_WHILE_PLAYON; }
+| <COMPRESSION_UNSUPPORTED>{ return Warning.COMPRESSION_UNSUPPORTED; }
+| <INVALID_TILE_LOCATION>{ return Warning.INVALID_TILE_LOCATION; }
+| <INVALID_TILE_SIZE>{ return Warning.INVALID_TILE_SIZE; }
 | <MAX_OF_THAT_TYPE_ON_FIELD>{ return Warning.MAX_OF_THAT_TYPE_ON_FIELD; }
+| <MESSAGE_NOT_NULL_TERMINATED>{ return Warning.MESSAGE_NOT_NULL_TERMINATED; }
+| <NO_LEFT_OF_THAT_TYPE>{ return Warning.NO_LEFT_OF_THAT_TYPE; }
 | <NO_SUBS_LEFT>{ return Warning.NO_SUBS_LEFT; }
 | <NO_SUCH_PLAYER>{ return Warning.NO_SUCH_PLAYER; }
 | <NO_TEAM_FOUND>{ return Warning.NO_TEAM_FOUND; }
+| <ONLY_BEFORE_KICK_OFF>{ return Warning.ONLY_BEFORE_KICK_OFF; }
 }
 
 // Separators
