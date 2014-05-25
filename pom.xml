@@ -10,6 +10,10 @@
         <artifactId>oss-parent</artifactId>
         <version>7</version>
     </parent>
+
+    <organisation>
+        <name>Atan</name>
+    </organisation>
   
     <groupId>com.github.robocup-atan</groupId>
     <artifactId>atan</artifactId>
@@ -19,6 +23,7 @@
     <name>Atan</name>
     <description>Robocup 2D Soccer Server Java Interface</description>
     <url>http://robocup-atan.github.com/atan/</url>
+    <inceptionYear>2003</inceptionYear>
     
     <licenses>
         <license>
@@ -171,6 +176,24 @@
                         <id>jar</id>
                         <goals>
                             <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <version>1.7</version>
+                <configuration>
+                    <licenseName>mit</licenseName>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>update-license</id>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>update-file-header</goal>
                         </goals>
                     </execution>
                 </executions>
