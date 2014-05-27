@@ -169,8 +169,10 @@ TOKEN:
   <CHANGE_MODE: "change_mode">
 | <CHANGE_PLAYER_TYPE: "change_player_type">
 | <CHECK_BALL: "check_ball">
-| <EYEOFF: "eye off" >
-| <EYEON: "eye on" >
+| <EAR_OFF: "ear off" >
+| <EAR_ON: "ear on" >
+| <EYE_OFF: "eye off" >
+| <EYE_ON: "eye on" >
 | <LOOK: "look">
 | <MOVE: "move">
 | <RECOVER: "recover">
@@ -186,8 +188,10 @@ Ok ok():
   <CHANGE_MODE>{ return Ok.CHANGE_MODE; }
 | <CHANGE_PLAYER_TYPE>{ startCPTCommand(); return Ok.CHANGE_PLAYER_TYPE; }
 | <CHECK_BALL>{ return Ok.CHECK_BALL; }
-| <EYEOFF>{ return Ok.EYE_OFF; }
-| <EYEON>{ return Ok.EYE_ON; }
+| <EAR_OFF>{ return Ok.EAR_OFF; }
+| <EAR_ON>{ return Ok.EAR_ON; }
+| <EYE_OFF>{ return Ok.EYE_OFF; }
+| <EYE_ON>{ return Ok.EYE_ON; }
 | <LOOK>{ startSeeCommand(); return Ok.LOOK; }
 | <MOVE>{ return Ok.MOVE; }
 | <RECOVER>{ return Ok.RECOVER; }
