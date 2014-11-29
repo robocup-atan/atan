@@ -1,0 +1,7 @@
+com.github.robocup_atan.atan.model
+com.github.robocup_atan.atan.model.enums
+com.github.robocup_atan.atan.parser
+com.github.robocup_atan.atan.parser.coach
+com.github.robocup_atan.atan.parser.objects
+com.github.robocup_atan.atan.parser.player
+com.github.robocup_atan.atan.parser.trainer
