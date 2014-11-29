@@ -1,14 +1,16 @@
 language: java
 
 jdk:
-  - openjdk7
+  - oraclejdk8
   - oraclejdk7
+  - openjdk7
+  - openjdk6
 
 env:
   global:
     secure: "puMxmUwEs/zpr/EROu9zPy6gMqm63dfSmiDAu9NDy2uli72vfOXkFuQy1QFAxAVxLf8yU1YGlbxumfscYi11ZoPqlQmd6P35o816mXS+w40uJRyaCZhLkknpzafkky6B0K2rmPfYQdK23us+NYPs0cH75shWibQ5eF21xBYCPTM="
 
 after_success:
+  - mvn clean test javadoc:jar jacoco:report coveralls:jacoco
   - .travis/push-javadoc-to-gh-pages.sh
-  - mvn clean test jacoco:report coveralls:jacoco
 
