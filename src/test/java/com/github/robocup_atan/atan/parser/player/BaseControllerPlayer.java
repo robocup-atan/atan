@@ -129,6 +129,10 @@ public class BaseControllerPlayer implements ControllerPlayer {
         throw new UnsupportedOperationException("Not supported in this test.");
     }
 
+    public void infoHearSelf(String message) {
+        throw new UnsupportedOperationException("Not supported in this test.");
+    }
+
     public void infoHearError(Errors error) {
         throw new UnsupportedOperationException("Not supported in this test.");
     }

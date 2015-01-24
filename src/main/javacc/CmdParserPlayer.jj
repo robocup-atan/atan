@@ -634,7 +634,10 @@ void startHearCommand():
 {
     <NUM><SEP>
     (
-      <SELF>
+      <SELF><SEP>msg=string()
+      {
+        controller.infoHearSelf(msg);
+      }
     | <REFEREE><SEP>hearReferee()
     | num=<NUM><SEP>msg=string()
       {
