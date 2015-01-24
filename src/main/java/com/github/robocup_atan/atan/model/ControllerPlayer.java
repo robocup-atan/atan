@@ -352,6 +352,13 @@ public interface ControllerPlayer {
     public void infoHearPlayer(double direction, String message);
 
     /**
+     * The controller is informed when it hears a message from itself.
+     *
+     * @param message The actual message said.
+     */
+    public void infoHearSelf(String message);
+
+    /**
      * The player is informed when it hears an error message.
      *
      * @param error The error to handle
