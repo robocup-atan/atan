@@ -1,31 +1,5 @@
 package com.github.robocup_atan.atan.model;
 
-/*
- * #%L
- * Atan
- * %%
- * Copyright (C) 2003 - 2014 Atan
- * %%
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- * #L%
- */
-
 //~--- non-JDK imports --------------------------------------------------------
 
 import com.github.robocup_atan.atan.model.enums.PlayMode;
@@ -122,7 +96,7 @@ public class CommandFactory {
      *
      * @param direction The direction in which to catch, relative to its body.
      */
-    public void addCatchCommand(int direction) {
+    public void addCatchCommand(double direction) {
         StringBuilder buf = new StringBuilder();
         buf.append("(catch ");
         buf.append(direction);
@@ -184,10 +158,25 @@ public class CommandFactory {
      *
      * @param power Power is between minpower (-100) and maxpower (+100).
      */
-    public void addDashCommand(int power) {
+    public void addDashCommand(double power) {
         StringBuilder buf = new StringBuilder();
         buf.append("(dash ");
         buf.append(power);
+        buf.append(')');
+        fifo.add(fifo.size(), buf.toString());
+    }
+    /**
+     * This command accelerates the player in a given direction
+     * @param power Power is between minpower (-100) and maxpower (+100)
+     * @param dir Direction depends on the server config.
+     * server can be configured free dirs or one of 0, 45, 90, 135, 180, -180, -135, -90 ,-45
+     */
+    public void addDashCommand(double power, double dir){
+    	StringBuilder buf = new StringBuilder();
+        buf.append("(dash ");
+        buf.append(power);
+        buf.append(" ");
+        buf.append(dir);
         buf.append(')');
         fifo.add(fifo.size(), buf.toString());
     }
@@ -198,7 +187,7 @@ public class CommandFactory {
      * @param power Power is between minpower (-100) and maxpower (+100).
      * @param direction Direction is relative to the body of the player.
      */
-    public void addKickCommand(int power, int direction) {
+    public void addKickCommand(double power, double direction) {
         StringBuilder buf = new StringBuilder();
         buf.append("(kick ");
         buf.append(power);
@@ -214,7 +203,7 @@ public class CommandFactory {
      * @param x X location (between -54 and +54).
      * @param y Y location (between -32 and +32).
      */
-    public void addMoveCommand(int x, int y) {
+    public void addMoveCommand(double x, double y) {
         StringBuilder buf = new StringBuilder();
         buf.append("(move ");
         buf.append(x);
@@ -230,7 +219,7 @@ public class CommandFactory {
      *
      * @param angle Angle to turn (between -180 and +180).
      */
-    public void addTurnCommand(int angle) {
+    public void addTurnCommand(double angle) {
         StringBuilder buf = new StringBuilder();
         buf.append("(turn ");
         buf.append(angle);
@@ -245,7 +234,7 @@ public class CommandFactory {
      *
      * @param angle Angle to turn the neck (between minneckang and maxneckang) (-90 to +90)
      */
-    public void addTurnNeckCommand(int angle) {
+    public void addTurnNeckCommand(double angle) {
         StringBuilder buf = new StringBuilder();
         buf.append("(turn_neck ");
         buf.append(angle);
@@ -439,20 +428,17 @@ public class CommandFactory {
      * This command changes the specified players heterogeneous type.
      *
      * @param unum The players uniform number (1~11 on pitch usually, subs <= 17).
-     * @param playerType //TODO Implement
+     * @param playerType is the type of the player ranging from 0 to 6 where 0 is the default type
      */
-    public void addChangePlayerTypeCommand(int unum, Object playerType) {
-        throw new UnsupportedOperationException("This method is for a future release");
-
-        /*
-         * StringBuffer buf = new StringBuffer();
-         * buf.append("(change_player_type ");
-         * buf.append(unum);
-         * buf.append(' ');
-         * buf.append(playerType);
-         * buf.append(')');
-         * fifo.add(fifo.size(), buf.toString());
-         */
+    public void addChangePlayerTypeCommand(int unum, int playerType) {
+        //throw new UnsupportedOperationException("This method is for a future release");
+        StringBuffer buf = new StringBuffer();
+        buf.append("(change_player_type ");
+        buf.append(unum);
+        buf.append(' ');
+        buf.append(playerType);
+        buf.append(')');
+        fifo.add(fifo.size(), buf.toString());  
     }
 
     /**

@@ -1,6 +1,5 @@
 package com.github.robocup_atan.atan.parser.player;
 
-import com.github.robocup_atan.atan.model.enums.PlayMode;
 import com.github.robocup_atan.atan.parser.BaseCommandFilter;
 import com.github.robocup_atan.atan.parser.Filter;
 import java.io.StringReader;
@@ -8,6 +7,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.Ignore;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 
@@ -16,7 +16,7 @@ import org.junit.runner.Description;
  *
  * @author Atan
  */
-public class PlayerInitCommandTest {
+public class PlayerHearCommandTest {
 
     // Global test variables.
     CmdParserPlayer parser;
@@ -25,9 +25,8 @@ public class PlayerInitCommandTest {
     
     // Current test expected values.
     String currentCommand;
-    boolean expectedIsTeamEast;
-    int expectedPlayerNumber;
-    PlayMode expectedPlayMode;
+    double expectedDirection;
+    String expectedMessage;
 
     @Before
     public void setUpTest() throws Exception {
@@ -38,30 +37,18 @@ public class PlayerInitCommandTest {
 
     // Tests
     @Test
-    public void beforeKickOffEastPlayer1() {
-        setCommand("(init l 1 before_kick_off)");
-        setExpected(false, 1, PlayMode.BEFORE_KICK_OFF);
+	@Ignore
+    public void hearOther180() {
+        setCommand("(hear 1 180 RunFaster)");
+        setExpected(180, "RunFaster");
         runTest();
     }
-
+    
     @Test
-    public void beforeKickOffWestPlayer1() {
-        setCommand("(init r 1 before_kick_off)");
-        setExpected(true, 1, PlayMode.BEFORE_KICK_OFF);
-        runTest();
-    }
-
-    @Test
-    public void timeOverEastPlayer1() {
-        setCommand("(init l 1 time_over)");
-        setExpected(false, 1, PlayMode.TIME_OVER);
-        runTest();
-    }
-
-    @Test
-    public void timeOverWestPlayer1() {
-        setCommand("(init r 1 time_over)");
-        setExpected(true, 1, PlayMode.TIME_OVER);
+	@Ignore
+    public void hearOtherNeg180() {
+        setCommand("(hear 1 -180 RunFaster)");
+        setExpected(-180, "RunFaster");
         runTest();
     }
 
@@ -70,10 +57,9 @@ public class PlayerInitCommandTest {
         currentCommand = command;
     }
 
-    private void setExpected(boolean isTeamEast, int playerNumber, PlayMode playMode) {
-        expectedIsTeamEast = isTeamEast;
-        expectedPlayerNumber = playerNumber;
-        expectedPlayMode = playMode;
+    private void setExpected(double direction, String message) {
+        expectedDirection = direction;
+        expectedMessage = message;
     }
 
     private void runTest() {
@@ -84,12 +70,12 @@ public class PlayerInitCommandTest {
     private class TestFilter extends BaseCommandFilter {
 
         private TestController controller = new TestController();
-        private TestActions action = new TestActions();
+        private BaseActionsPlayer action = new BaseActionsPlayer();
 
         @Override
-        public void initCommand(String cmd) {
+        public void hearCommand(String cmd) {
             try {
-                parser.parseInitCommand(cmd, controller, action);
+                parser.parseHearCommand(cmd, controller, action);
             } catch (ParseException ex) {
                 Assert.fail(ex.getMessage());
             }
@@ -99,21 +85,9 @@ public class PlayerInitCommandTest {
     private class TestController extends BaseControllerPlayer {
 
         @Override
-        public void infoHearPlayMode(PlayMode playMode) {
-            Assert.assertEquals(expectedPlayMode, playMode);
-        }
-    }
-
-    private class TestActions extends BaseActionsPlayer {
-
-        @Override
-        public void setTeamEast(boolean is) {
-            Assert.assertEquals(expectedIsTeamEast, is);
-        }
-
-        @Override
-        public void setNumber(int num) {
-            Assert.assertEquals(expectedPlayerNumber, num);
+        public void infoHearPlayer(double direction, String message) {
+            Assert.assertEquals(expectedDirection, direction, 0);
+            Assert.assertEquals(expectedMessage, message);
         }
     }
     

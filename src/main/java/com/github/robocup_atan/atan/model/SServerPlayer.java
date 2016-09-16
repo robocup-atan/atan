@@ -1,31 +1,5 @@
 package com.github.robocup_atan.atan.model;
 
-/*
- * #%L
- * Atan
- * %%
- * Copyright (C) 2003 - 2014 Atan
- * %%
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- * #L%
- */
-
 //~--- non-JDK imports --------------------------------------------------------
 
 import com.github.robocup_atan.atan.model.enums.ViewAngle;
@@ -124,7 +98,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
                     log.debug("--->'" + cmd + "'");
                 }
                 send(cmd);
-                pause(50);
+                //pause(50);
             }
         } catch (Exception ex) {
             log.error("Error while receiving message: " + msg + " " + ex.getMessage(), ex);
@@ -139,19 +113,26 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
 
     /** {@inheritDoc} */
     @Override
-    public void dash(int power) {
+    public void dash(double power) {
         this.commandFactory.addDashCommand(power);
     }
+    
+    /** {@inheritDoc} */
+    @Override
+    public void dash(double power, double dir) {
+        this.commandFactory.addDashCommand(power, dir);
+    }
+    
 
     /** {@inheritDoc} */
     @Override
-    public void kick(int power, double direction) {
-        this.commandFactory.addKickCommand(power, (int) direction);
+    public void kick(double power, double direction) {
+        this.commandFactory.addKickCommand(power, direction);
     }
 
     /** {@inheritDoc} */
     @Override
-    public void move(int x, int y) {
+    public void move(double x, double y) {
         this.commandFactory.addMoveCommand(x, y);
     }
 
@@ -164,17 +145,19 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
     /** {@inheritDoc} */
     @Override
     public void turn(double angle) {
-        this.commandFactory.addTurnCommand((int) angle);
+        this.commandFactory.addTurnCommand(angle);
     }
 
     /** {@inheritDoc} */
     @Override
-    public void turnNeck(double angle) {}
+    public void turnNeck(double angle) {
+    	this.commandFactory.addTurnNeckCommand(angle);
+    }
 
     /** {@inheritDoc} */
     @Override
     public void catchBall(double direction) {
-        this.commandFactory.addCatchCommand((int) direction);
+        this.commandFactory.addCatchCommand(direction);
     }
 
     /** {@inheritDoc} */
@@ -389,6 +372,7 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
                 controller.preInfo();
                 parser.parseSeeCommand(seeCommand, controller, c);
                 seeCommand = null;
+            }
                 if (hearCommand != null) {
                     parser.parseHearCommand(hearCommand, controller, c);
                     hearCommand = null;
@@ -430,7 +414,6 @@ public class SServerPlayer extends AbstractUDPClient implements ActionsPlayer {
                     errorCommand = null;
                 }
                 controller.postInfo();
-            }
         }
     }
 }

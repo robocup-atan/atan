@@ -1,31 +1,5 @@
 package com.github.robocup_atan.atan.model;
 
-/*
- * #%L
- * Atan
- * %%
- * Copyright (C) 2003 - 2014 Atan
- * %%
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- * #L%
- */
-
 //~--- non-JDK imports --------------------------------------------------------
 
 import com.github.robocup_atan.atan.model.enums.ViewAngle;
@@ -43,7 +17,14 @@ public interface ActionsPlayer {
      *
      * @param power Power is between minpower (-100) and maxpower (+100).
      */
-    public void dash(int power);
+    public void dash(double power);
+    /**
+     * This command accelerates the player in a given direction
+     * @param power Power is between minpower (-100) and maxpower (+100)
+     * @param dir Direction depends on the server config.
+     * server can be configured free dirs or one of 0, 45, 90, 135, 180, -180, -135, -90 ,-45
+     */
+    public void dash(double power, double dir);
 
     /**
      * This command can only be executed before kick off or after a goal.
@@ -51,7 +32,7 @@ public interface ActionsPlayer {
      * @param x X location (between -54 and +54).
      * @param y Y location (between -32 and +32).
      */
-    public void move(int x, int y);
+    public void move(double x, double y);
 
     /**
      * This command accelerates the ball with the given power in the given direction.
@@ -59,7 +40,7 @@ public interface ActionsPlayer {
      * @param power Power is between minpower (-100) and maxpower (+100).
      * @param direction Direction is relative to the body of the player.
      */
-    public void kick(int power, double direction);
+    public void kick(double power, double direction);
 
     /**
      * This command broadcasts the message throughout the field. Any player
