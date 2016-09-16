@@ -1,35 +1,9 @@
 package com.github.robocup_atan.atan.model.enums;
 
-/*
- * #%L
- * Atan
- * %%
- * Copyright (C) 2003 - 2014 Atan
- * %%
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- * #L%
- */
-
 /**
  * An enum for referee messages.
  *
- * @author Atan
+ * @author Atan modified by @author Rene Kremer
  */
 public enum RefereeMessage {
 
@@ -87,6 +61,31 @@ public enum RefereeMessage {
      * Left team went offside.
      */
     OFFSIDE_L,
+    
+    /**
+     * Back Pass for the other side.
+     */
+    BACK_PASS_OTHER,
+    /**
+     * Back Pass for us.
+     */
+    BACK_PASS_OWN,
+    /**
+     * Foul Charge for the other team.
+     */
+    FOUL_CHARGE_OTHER,
+    /**
+     * Foul Charge for our own team.
+     */
+    FOUL_CHARGE_OWN,
+    /**
+     * Our goalie catched the ball.
+     */
+    GOAL_CATCH_OWN,
+    /**
+     * Their goalie catched the ball.
+     */
+    GOAL_CATCH_OTHER,
 
     /**
      * Right team commited a foul.
